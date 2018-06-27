@@ -84,18 +84,14 @@ var TableRow = function (_React$Component) {
                 null,
                 _react2.default.createElement(
                     'div',
-                    { className: 'ui-table-content-body-row ' + (isBlur ? ' blur' : ' hover'), onClick: function onClick(_) {
+                    { className: 'ui-table-content-body-row ' + (isBlur ? 'blur' : 'hover'), onClick: function onClick(_) {
                             return _this2.onClick();
                         } },
                     onSelect && _react2.default.createElement(_TableCheckbox2.default, { active: this.props.selected }),
                     _react2.default.createElement(_TableColumns2.default, this.props),
                     rowActions && _react2.default.createElement(_TableActions2.default, this.props)
                 ),
-                _react2.default.createElement(
-                    'div',
-                    null,
-                    isExpanding && ExpandForm && _react2.default.createElement(ExpandForm, this.props)
-                )
+                _react2.default.createElement('div', null)
             );
         }
     }]);

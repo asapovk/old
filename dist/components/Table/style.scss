@@ -44,7 +44,7 @@
                     position: absolute;
                     flex-direction: row;
                     align-items: center;
-                    left: 5px;
+                    left: 20px;
                     top: 0;
                     bottom: 0;
                     background: linear-gradient(90deg, rgba(70,74,88,1) 80%, rgba(70,74,88,0) 100%);
@@ -127,10 +127,10 @@
         }
         .hover {
             &:hover {
-                .table-content-body-row-select {
+                .ui-table-content-body-row-select {
                     display: flex;
                 }
-                .table-content-body-row-actions-buttons {
+                .ui-table-content-body-row-actions-buttons {
                     display: flex;
                 }
             }
