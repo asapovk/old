@@ -1,0 +1,106 @@
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _TableCheckbox = require('./TableCheckbox');
+
+var _TableCheckbox2 = _interopRequireDefault(_TableCheckbox);
+
+var _TableActions = require('./TableActions');
+
+var _TableActions2 = _interopRequireDefault(_TableActions);
+
+var _TableColumns = require('./TableColumns');
+
+var _TableColumns2 = _interopRequireDefault(_TableColumns);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var TableRow = function (_React$Component) {
+    _inherits(TableRow, _React$Component);
+
+    function TableRow() {
+        _classCallCheck(this, TableRow);
+
+        return _possibleConstructorReturn(this, (TableRow.__proto__ || Object.getPrototypeOf(TableRow)).apply(this, arguments));
+    }
+
+    _createClass(TableRow, [{
+        key: 'onClick',
+        value: function onClick() {
+            var _props = this.props,
+                isBlur = _props.isBlur,
+                onSelect = _props.onSelect,
+                onClick = _props.onClick,
+                data = _props.data;
+
+
+            if (onClick) {
+                onClick(data);
+            }
+
+            if (!isBlur && onSelect) {
+                onSelect(data);
+            }
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            var _this2 = this;
+
+            var _props2 = this.props,
+                EditForm = _props2.EditForm,
+                rowActions = _props2.rowActions,
+                isEditing = _props2.isEditing,
+                isExpanding = _props2.isExpanding,
+                isBlur = _props2.isBlur,
+                onSelect = _props2.onSelect,
+                data = _props2.data;
+
+
+            if (isEditing) {
+                if (!EditForm) {
+                    return null;
+                }
+                return _react2.default.createElement(EditForm, this.props);
+            }
+
+            return _react2.default.createElement(
+                _react.Fragment,
+                null,
+                _react2.default.createElement(
+                    'div',
+                    { className: 'ui-table-content-body-row ' + (isBlur ? ' blur' : ' hover'), onClick: function onClick(_) {
+                            return _this2.onClick();
+                        } },
+                    onSelect && _react2.default.createElement(_TableCheckbox2.default, { active: this.props.selected }),
+                    _react2.default.createElement(_TableColumns2.default, this.props),
+                    rowActions && _react2.default.createElement(_TableActions2.default, this.props)
+                ),
+                _react2.default.createElement(
+                    'div',
+                    null,
+                    isExpanding && ExpandForm && _react2.default.createElement(ExpandForm, this.props)
+                )
+            );
+        }
+    }]);
+
+    return TableRow;
+}(_react2.default.Component);
+
+exports.default = TableRow;

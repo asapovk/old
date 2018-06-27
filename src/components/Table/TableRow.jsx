@@ -1,13 +1,24 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import TableCheckbox from './TableCheckbox';
 import TableActions from './TableActions';
 import TableColumns from './TableColumns';
 
 export default class TableRow extends React.Component {
+
+    onClick() {
+        const { isBlur, onSelect, onClick, data } = this.props;
+
+        if (onClick) {
+            onClick(data);
+        }
+
+        if (!isBlur && onSelect) {
+            onSelect(data);
+        }
+    }
+
     render() {
-        const { EditForm, rowActions, isEditing, isBlur, onSelect, data } = this.props;
-        let rowClasses = 'ui-table-content-body-row';
-        isBlur ? rowClasses += ' blur' : rowClasses += ' hover';
+        const { EditForm, rowActions, isEditing, isExpanding, isBlur, onSelect, data } = this.props;
 
         if (isEditing) {
             if (!EditForm) {
@@ -17,11 +28,20 @@ export default class TableRow extends React.Component {
         }
 
         return (
-            <div className={rowClasses} onClick={_ => { !isBlur && onSelect && onSelect(data); }}>
-                {onSelect && <TableCheckbox active={this.props.selected} />}
-                <TableColumns {...this.props} />
-                {rowActions && <TableActions {...this.props} />}
-            </div>
+            <Fragment>
+                <div className={`ui-table-content-body-row ${isBlur ? ' blur' : ' hover'}`} onClick={_ => this.onClick()}>
+                    {onSelect && (
+                        <TableCheckbox active={this.props.selected} />
+                    )}
+                    <TableColumns {...this.props} />
+                    {rowActions && (
+                        <TableActions {...this.props} />
+                    )}
+                </div>
+                <div>
+                    {(isExpanding && ExpandForm) && <ExpandForm {...this.props} />}
+                </div>
+            </Fragment>
         )
     }
 }

@@ -16,7 +16,11 @@ class Table extends React.Component {
         // Массив выбранных строк (идентификаторы)
         selectedItems: [],
         // Идентификатор элемента который изменяется
+        expandItemId: null,
+        // Идентификатор элемента под строкой
         editItemId: null,
+        // Компонент с формой под строкой
+        ExpandForm: null,
         // Компонент с формой редактирования
         EditForm: null,
         // Массив кнопок для строки
@@ -26,7 +30,7 @@ class Table extends React.Component {
     }
 
     render() {
-        const { indexKey, selectedItems, editItemId } = this.props;
+        const { indexKey, selectedItems, expandItemId, editItemId } = this.props;
 
         return (
             <div className='ui-table'>
@@ -44,6 +48,7 @@ class Table extends React.Component {
                                 key={row[indexKey] || index}
                                 data={row}
                                 selected={(selectedItems.findIndex(item => item === row[indexKey]) >= 0)}
+                                isExpanding={(expandItemId == row[indexKey])}
                                 isEditing={(editItemId == row[indexKey] && typeof row[indexKey] != "undefined")}
                                 isBlur={(editItemId)}
                             />
