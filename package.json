@@ -1,0 +1,61 @@
+{
+  "name": "ui",
+  "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "git@gitlab.abr-region.ru:npm/ui.git"
+  },
+  "publishConfig": {
+    "registry": "http://npm.abr-region.ru"
+  },
+  "keywords": [
+    "ui"
+  ],
+  "files": [
+    "dist"
+  ],
+  "main": "dist/index.js",
+  "scripts": {
+    "start": "npm run storybook",
+    "storybook": "start-storybook -p 9005 -c .storybook",
+    "clear": "rm -rf ./dist/*",
+    "build": "babel --optional runtime src -d dist --copy-files"
+  },
+  "dependencies": {
+    "@storybook/addon-options": "^4.0.0-alpha.7",
+    "css-loader": "^0.28.10",
+    "flexbox-react": "^4.4.0",
+    "node-sass": "^4.9.0",
+    "react-input-mask": "^1.2.2",
+    "react-portal": "^4.1.5",
+    "react-scripts": "1.1.4",
+    "react-text-mask": "^5.4.0",
+    "sass-loader": "^7.0.1",
+    "style-loader": "^0.21.0",
+    "text-mask-addons": "^3.7.2"
+  },
+  "devDependencies": {
+    "@storybook/addon-actions": "^3.4.3",
+    "@storybook/addon-info": "^3.4.5",
+    "@storybook/addon-knobs": "^3.4.5",
+    "@storybook/react": "^4.0.0-alpha.4",
+    "@types/jss": "^9.5.2",
+    "@types/node": "^10.0.4",
+    "@types/react": "^16.3.13",
+    "@types/react-dom": "^16.0.5",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-plugin-import": "^1.7.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "moment": "^2.22.1",
+    "react": "^16.3.2",
+    "react-dom": "^16.3.2",
+    "react-highlight": "^0.12.0",
+    "source-map-loader": "^0.2.3",
+    "url-loader": "^1.0.1",
+    "webpack": "^4.7.0"
+  }
+}
