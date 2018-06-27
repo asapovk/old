@@ -28,6 +28,11 @@ export default class TableStory extends React.Component {
                     { id: 3 },
                     { id: 4 }
                 ]}
+                onSelect={_ => { }}
+                rowActions={[
+                    { label: "Удалить" },
+                    { label: "Изменить" }
+                ]}
             />
         )
     }

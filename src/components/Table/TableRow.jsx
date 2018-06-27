@@ -29,7 +29,7 @@ export default class TableRow extends React.Component {
 
         return (
             <Fragment>
-                <div className={`ui-table-content-body-row ${isBlur ? ' blur' : ' hover'}`} onClick={_ => this.onClick()}>
+                <div className={`ui-table-content-body-row ${isBlur ? 'blur' : 'hover'}`} onClick={_ => this.onClick()}>
                     {onSelect && (
                         <TableCheckbox active={this.props.selected} />
                     )}
@@ -39,7 +39,7 @@ export default class TableRow extends React.Component {
                     )}
                 </div>
                 <div>
-                    {(isExpanding && ExpandForm) && <ExpandForm {...this.props} />}
+                    {/* {(isExpanding && ExpandForm) && <ExpandForm {...this.props} />} */}
                 </div>
             </Fragment>
         )
