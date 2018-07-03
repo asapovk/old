@@ -33,7 +33,8 @@ var TableColumns = function (_React$Component) {
             var _props = this.props,
                 data = _props.data,
                 columns = _props.columns,
-                scope = _props.scope;
+                scope = _props.scope,
+                key = _props.key;
 
 
             return columns.map(function (column) {

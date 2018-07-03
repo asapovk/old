@@ -2,7 +2,7 @@ import React from 'react';
 
 export default class TableColumns extends React.Component {
     render() {
-        const { data, columns, scope } = this.props;
+        const { data, columns, scope, key } = this.props;
 
         return columns.map(column => {
 
