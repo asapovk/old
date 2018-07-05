@@ -37,6 +37,10 @@
                     justify-content: center;
                     &-subrow {
                         padding-top: 20px;
+                        display: flex;
+                        flex-direction: row;
+                        align-items: stretch;
+                        position: relative;
                     }
                 }
                 &-select {
