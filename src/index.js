@@ -12,3 +12,4 @@ export { default as Portal } from 'react-portal';
 export { default as Button } from './components/Button';
 export { default as Icon } from './components/Icon';
 export { default as Table } from './components/Table';
+export { default as withTableForm } from './components/Table/TableForm';

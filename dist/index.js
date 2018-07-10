@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.Table = exports.Icon = exports.Button = exports.Portal = exports.Flexbox = undefined;
+exports.withTableForm = exports.Table = exports.Icon = exports.Button = exports.Portal = exports.Flexbox = undefined;
 
 var _flexboxReact = require('flexbox-react');
 
@@ -47,6 +47,15 @@ Object.defineProperty(exports, 'Table', {
   enumerable: true,
   get: function get() {
     return _interopRequireDefault(_Table).default;
+  }
+});
+
+var _TableForm = require('./components/Table/TableForm');
+
+Object.defineProperty(exports, 'withTableForm', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_TableForm).default;
   }
 });
 
