@@ -8,8 +8,6 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
-
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
@@ -26,32 +24,30 @@ exports.default = function (Form) {
             var _this = _possibleConstructorReturn(this, (_class.__proto__ || Object.getPrototypeOf(_class)).call(this));
 
             _this.state = {
-                invalid: []
+                invalidItems: new Set()
             };
+            _this.setData = _this.setData.bind(_this);
+            _this.setValid = _this.setValid.bind(_this);
             return _this;
         }
 
         _createClass(_class, [{
             key: 'componentWillMount',
             value: function componentWillMount() {
-                this.data = this.props.data;
+                this.formData = Object.assign(this.props.data);
             }
         }, {
-            key: 'formValid',
-            value: function formValid(id, isValid) {
-                var items = this.state.invalid;
-                if (isValid) {
-                    items = this.state.invalid.filter(function (f) {
-                        return f !== id;
-                    });
-                    this.setState({ invalid: items });
-                } else if (!this.state.invalid.find(function (f) {
-                    return f === id;
-                })) {
-                    items = [].concat(_toConsumableArray(items), [id]);
-                    this.setState({ invalid: items });
-                }
-                this.save.disabled = items.length > 0 ? true : false;
+            key: 'setData',
+            value: function setData(field, value) {
+                this.formData[field] = value;
+            }
+        }, {
+            key: 'setValid',
+            value: function setValid(id, isValid) {
+                var items = this.state.invalidItems;
+                isValid ? items.delete(id) : items.add(id);
+                this.setState({ invalidItems: items });
+                this.save.disabled = items.size > 0 ? true : false;
             }
         }, {
             key: 'Column',
@@ -67,7 +63,7 @@ exports.default = function (Form) {
             key: 'Subrow',
             value: function Subrow(props) {
                 return React.createElement('div', {
-                    className: 'ui-table-content-body-row-subrow' + (props.className ? ' ' + props.className : ''),
+                    className: 'ui-table-content-body-row-column-subrow' + (props.className ? ' ' + props.className : ''),
                     children: props.children,
                     style: props.style
                 });
@@ -80,7 +76,7 @@ exports.default = function (Form) {
                 return React.createElement(
                     'div',
                     { className: 'ui-table-content-body-row edited' },
-                    React.createElement(Form, _extends({}, this.props, { formValid: this.formValid, Column: this.Column, Subrow: this.Subrow })),
+                    React.createElement(Form, _extends({}, this.props, { setData: this.setData, setValid: this.setValid, Column: this.Column, Subrow: this.Subrow })),
                     React.createElement(
                         'div',
                         { className: 'ui-table-content-body-row-actions' },
@@ -92,13 +88,12 @@ exports.default = function (Form) {
                                     key: action.key || index,
                                     className: action.className,
                                     onClick: function onClick(_) {
-                                        return action.onClick(_this2.data);
+                                        return action.onClick(_this2.formData);
                                     },
                                     children: action.label || "Label",
                                     ref: function ref(_ref) {
                                         return _this2[action.ref] = _ref;
-                                    },
-                                    disabled: _this2.state.disabled
+                                    }
                                 });
                             })
                         )
