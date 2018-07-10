@@ -4,24 +4,25 @@ export default Form =>
         constructor() {
             super()
             this.state = {
-                invalid: []
+                invalidItems: new Set()
             }
+            this.setData = this.setData.bind(this);
+            this.setValid = this.setValid.bind(this);
         }
 
         componentWillMount() {
-            this.data = this.props.data;
+            this.formData = Object.assign(this.props.data);
         }
 
-        formValid(id, isValid) {
-            let items = this.state.invalid
-            if (isValid) {
-                items = this.state.invalid.filter(f => f !== id);
-                this.setState({ invalid: items });
-            } else if (!this.state.invalid.find(f => f === id)) {
-                items = [...items, id];
-                this.setState({ invalid: items });
-            }
-            this.save.disabled = items.length > 0 ? true : false
+        setData(field, value) {
+            this.formData[field] = value;
+        }
+
+        setValid(id, isValid) {
+            const items = this.state.invalidItems;
+            isValid ? items.delete(id) : items.add(id);
+            this.setState({ invalidItems: items });
+            this.save.disabled = items.size > 0 ? true : false;
         }
 
         Column(props) {
@@ -38,7 +39,7 @@ export default Form =>
         Subrow(props) {
             return (
                 <div
-                    className={'ui-table-content-body-row-subrow' + (props.className ? ' ' + props.className : '')}
+                    className={'ui-table-content-body-row-column-subrow' + (props.className ? ' ' + props.className : '')}
                     children={props.children}
                     style={props.style}
                 />
@@ -49,17 +50,16 @@ export default Form =>
 
             return (
                 <div className='ui-table-content-body-row edited'>
-                    <Form {...this.props} formValid={this.formValid} Column={this.Column} Subrow={this.Subrow} />
+                    <Form {...this.props} setData={this.setData} setValid={this.setValid} Column={this.Column} Subrow={this.Subrow} />
                     <div className='ui-table-content-body-row-actions'>
                         <div className='ui-table-content-body-row-actions-buttons-edit'>
                             {this.props.editActions.map((action, index) => (
                                 <button
                                     key={action.key || index}
                                     className={action.className}
-                                    onClick={_ => action.onClick(this.data)}
+                                    onClick={_ => action.onClick(this.formData)}
                                     children={action.label || "Label"}
                                     ref={ref => this[action.ref] = ref}
-                                    disabled={this.state.disabled}
                                 />
                             ))}
                         </div>
