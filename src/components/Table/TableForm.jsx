@@ -28,7 +28,7 @@ export default Form =>
             const width = props.width ? { flexBasis: props.width } : { flex: 1 };
             return (
                 <div
-                    className={'ui-table-content-body-row-column' + (props.className ? ' ' + props.className : null)}
+                    className={'ui-table-content-body-row-column' + (props.className ? ' ' + props.className : '')}
                     children={props.children}
                     style={Object.assign(width, props.style)}
                 />
@@ -38,7 +38,7 @@ export default Form =>
         Subrow(props) {
             return (
                 <div
-                    className={'ui-table-content-body-row-subrow' + (props.className ? ' ' + props.className : null)}
+                    className={'ui-table-content-body-row-subrow' + (props.className ? ' ' + props.className : '')}
                     children={props.children}
                     style={props.style}
                 />

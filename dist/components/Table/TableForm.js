@@ -58,7 +58,7 @@ exports.default = function (Form) {
             value: function Column(props) {
                 var width = props.width ? { flexBasis: props.width } : { flex: 1 };
                 return React.createElement('div', {
-                    className: 'ui-table-content-body-row-column' + (props.className ? ' ' + props.className : null),
+                    className: 'ui-table-content-body-row-column' + (props.className ? ' ' + props.className : ''),
                     children: props.children,
                     style: Object.assign(width, props.style)
                 });
@@ -67,7 +67,7 @@ exports.default = function (Form) {
             key: 'Subrow',
             value: function Subrow(props) {
                 return React.createElement('div', {
-                    className: 'ui-table-content-body-row-subrow' + (props.className ? ' ' + props.className : null),
+                    className: 'ui-table-content-body-row-subrow' + (props.className ? ' ' + props.className : ''),
                     children: props.children,
                     style: props.style
                 });
