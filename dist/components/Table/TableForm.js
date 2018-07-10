@@ -80,7 +80,7 @@ exports.default = function (Form) {
                 return React.createElement(
                     'div',
                     { className: 'ui-table-content-body-row edited' },
-                    React.createElement(Form, _extends({}, this.props, { formValid: this.formValid, Column: this.Column })),
+                    React.createElement(Form, _extends({}, this.props, { formValid: this.formValid, Column: this.Column, Subrow: this.Subrow })),
                     React.createElement(
                         'div',
                         { className: 'ui-table-content-body-row-actions' },

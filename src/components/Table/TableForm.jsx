@@ -49,7 +49,7 @@ export default Form =>
 
             return (
                 <div className='ui-table-content-body-row edited'>
-                    <Form {...this.props} formValid={this.formValid} Column={this.Column} />
+                    <Form {...this.props} formValid={this.formValid} Column={this.Column} Subrow={this.Subrow} />
                     <div className='ui-table-content-body-row-actions'>
                         <div className='ui-table-content-body-row-actions-buttons-edit'>
                             {this.props.editActions.map((action, index) => (
