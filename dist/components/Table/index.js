@@ -44,7 +44,8 @@ var Table = function (_React$Component) {
                 indexKey = _props.indexKey,
                 selectedItems = _props.selectedItems,
                 expandItemId = _props.expandItemId,
-                editItemId = _props.editItemId;
+                editItemId = _props.editItemId,
+                newItem = _props.newItem;
 
 
             return _react2.default.createElement(
@@ -67,6 +68,7 @@ var Table = function (_React$Component) {
                     _react2.default.createElement(
                         'div',
                         { className: 'ui-table-content-body' },
+                        newItem && _react2.default.createElement(EditForm, null),
                         this.props.data.map(function (row, index) {
                             return _react2.default.createElement(_TableRow2.default, _extends({}, _this2.props, {
 
