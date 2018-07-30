@@ -45,7 +45,8 @@ var Table = function (_React$Component) {
                 selectedItems = _props.selectedItems,
                 expandItemId = _props.expandItemId,
                 editItemId = _props.editItemId,
-                newItem = _props.newItem;
+                newItem = _props.newItem,
+                EditForm = _props.EditForm;
 
 
             return _react2.default.createElement(
