@@ -10,6 +10,10 @@ export default Form =>
             this.setValid = this.setValid.bind(this);
         }
 
+        static defaultProps = {
+            data: []
+        }
+
         componentWillMount() {
             this.formData = Object.assign(this.props.data);
         }
