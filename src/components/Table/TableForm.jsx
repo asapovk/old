@@ -11,7 +11,7 @@ export default Form =>
         }
 
         static defaultProps = {
-            data: []
+            data: {}
         }
 
         componentWillMount() {

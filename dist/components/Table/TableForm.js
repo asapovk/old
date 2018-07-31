@@ -107,6 +107,6 @@ exports.default = function (Form) {
 
         return _class;
     }(React.Component), _class.defaultProps = {
-        data: []
+        data: {}
     }, _temp;
 };
