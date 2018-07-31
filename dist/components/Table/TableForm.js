@@ -42,7 +42,6 @@ exports.default = function (Form) {
             key: 'setData',
             value: function setData(field, value) {
                 this.formData[field] = value;
-                console.log(this.formData);
             }
         }, {
             key: 'setValid',

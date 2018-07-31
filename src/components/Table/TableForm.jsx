@@ -20,7 +20,6 @@ export default Form =>
 
         setData(field, value) {
             this.formData[field] = value;
-            console.log(this.formData);
         }
 
         setValid(id, isValid) {
