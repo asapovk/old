@@ -24,7 +24,7 @@ export default class TableRow extends React.Component {
             if (!EditForm) {
                 return null;
             }
-            return <EditForm {...this.props} Actions={this.prop.editActions} />;
+            return <EditForm {...this.props} Actions={this.props.editActions} />;
         }
 
         return (
