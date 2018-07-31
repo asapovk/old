@@ -18,13 +18,20 @@ export default class TableRow extends React.Component {
     }
 
     render() {
-        const { EditForm, rowActions, isEditing, isExpanding, isBlur, onSelect, data } = this.props;
+        const { DeleteForm, EditForm, rowActions, isEditing, isExpanding, isBlur, onSelect, data } = this.props;
 
         if (isEditing) {
             if (!EditForm) {
                 return null;
             }
             return <EditForm {...this.props} Actions={this.props.editActions} />;
+        }
+
+        if (isDeleted) {
+            if (!DeleteForm) {
+                return null;
+            }
+            return <DeleteForm {...this.props} Actions={this.props.deleteActions} />;
         }
 
         return (

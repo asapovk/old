@@ -65,6 +65,7 @@ var TableRow = function (_React$Component) {
             var _this2 = this;
 
             var _props2 = this.props,
+                DeleteForm = _props2.DeleteForm,
                 EditForm = _props2.EditForm,
                 rowActions = _props2.rowActions,
                 isEditing = _props2.isEditing,
@@ -79,6 +80,13 @@ var TableRow = function (_React$Component) {
                     return null;
                 }
                 return _react2.default.createElement(EditForm, _extends({}, this.props, { Actions: this.props.editActions }));
+            }
+
+            if (isDeleted) {
+                if (!DeleteForm) {
+                    return null;
+                }
+                return _react2.default.createElement(DeleteForm, _extends({}, this.props, { Actions: this.props.deleteActions }));
             }
 
             return _react2.default.createElement(

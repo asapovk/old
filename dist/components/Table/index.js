@@ -80,6 +80,7 @@ var Table = function (_React$Component) {
                                 }) >= 0,
                                 isExpanding: expandItemId == row[indexKey],
                                 isEditing: editItemId == row[indexKey] && typeof row[indexKey] != "undefined",
+                                isDeleted: deleteItemId == row[indexKey] && typeof row[indexKey] != "undefined",
                                 isBlur: editItemId
                             }));
                         })

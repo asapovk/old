@@ -51,6 +51,7 @@ class Table extends React.Component {
                                 selected={(selectedItems.findIndex(item => item === row[indexKey]) >= 0)}
                                 isExpanding={(expandItemId == row[indexKey])}
                                 isEditing={(editItemId == row[indexKey] && typeof row[indexKey] != "undefined")}
+                                isDeleted={(deleteItemId == row[indexKey] && typeof row[indexKey] != "undefined")}
                                 isBlur={(editItemId)}
                             />
                         ))}
