@@ -78,7 +78,7 @@ var TableRow = function (_React$Component) {
                 if (!EditForm) {
                     return null;
                 }
-                return _react2.default.createElement(EditForm, _extends({}, this.props, { Actions: this.prop.editActions }));
+                return _react2.default.createElement(EditForm, _extends({}, this.props, { Actions: this.props.editActions }));
             }
 
             return _react2.default.createElement(
