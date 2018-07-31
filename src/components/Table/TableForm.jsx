@@ -57,7 +57,7 @@ export default Form =>
                     <Form {...this.props} setData={this.setData} setValid={this.setValid} Column={this.Column} Subrow={this.Subrow} />
                     <div className='ui-table-content-body-row-actions'>
                         <div className='ui-table-content-body-row-actions-buttons-edit'>
-                            {this.props.editActions.map((action, index) => (
+                            {this.props.Actions.map((action, index) => (
                                 <button
                                     key={action.key || index}
                                     className={action.className}

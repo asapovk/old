@@ -85,7 +85,7 @@ exports.default = function (Form) {
                         React.createElement(
                             'div',
                             { className: 'ui-table-content-body-row-actions-buttons-edit' },
-                            this.props.editActions.map(function (action, index) {
+                            this.props.Actions.map(function (action, index) {
                                 return React.createElement('button', {
                                     key: action.key || index,
                                     className: action.className,

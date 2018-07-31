@@ -41,7 +41,7 @@ class Table extends React.Component {
                         ))}
                     </div>
                     <div className='ui-table-content-body'>
-                        {newItem && <EditForm {...this.props} />}
+                        {newItem && <EditForm Actions={this.props.addActions} />}
                         {this.props.data.map((row, index) => (
                             <TableRow
                                 {...this.props}
