@@ -65,6 +65,7 @@ var TableRow = function (_React$Component) {
             var _this2 = this;
 
             var _props2 = this.props,
+                isDeleted = _props2.isDeleted,
                 DeleteForm = _props2.DeleteForm,
                 EditForm = _props2.EditForm,
                 rowActions = _props2.rowActions,
