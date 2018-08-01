@@ -1,4 +1,4 @@
-import '../../styles/provider.scss';
+import '../../styles/main.scss';
 
 class UIProvider extends React.Component {
 
