@@ -30,7 +30,7 @@ class Table extends React.Component {
     }
 
     render() {
-        const { indexKey, selectedItems, expandItemId, editItemId, newItem, EditForm } = this.props;
+        const { indexKey, selectedItems, expandItemId, deleteItemId, editItemId, newItem, EditForm } = this.props;
 
         return (
             <div className='ui-table'>

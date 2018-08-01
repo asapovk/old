@@ -44,6 +44,7 @@ var Table = function (_React$Component) {
                 indexKey = _props.indexKey,
                 selectedItems = _props.selectedItems,
                 expandItemId = _props.expandItemId,
+                deleteItemId = _props.deleteItemId,
                 editItemId = _props.editItemId,
                 newItem = _props.newItem,
                 EditForm = _props.EditForm;
