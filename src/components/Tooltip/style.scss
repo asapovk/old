@@ -1,0 +1,43 @@
+@import "~ui/dist/styles/colors";
+
+$page-background-t: rgba($page-background, 0.7);
+
+.tooltip {
+    position: absolute;
+    background: $ui-background;
+    border: 1px solid;
+    border-color: $page-background-t;
+    padding: 5px 10px;
+    font-size: 14px;
+    border-radius: 4px;
+    box-shadow: 0px 2px 4px 0px rgba(20,20,20,0.2);
+    &:before {
+        position: absolute;
+        content: '';
+        width: 10px;
+        height: 10px;
+        background: $ui-background;
+        -webkit-transform: rotate(45deg);
+        transform: rotate(45deg);
+        z-index: 2;
+    }
+    &-error {
+        background: $red;
+        color: white;
+        border: none;
+        &:before {
+            background: $red;
+            box-shadow: none;
+        }
+    }
+}
+.bottom-left {
+    &:before {
+        top: -5px;
+        left:1em;
+        right:auto;
+        bottom:auto;
+        margin-left:0;
+        box-shadow: -1px -1px 0 0 $page-background-t;
+    }
+}
