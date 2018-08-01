@@ -26,14 +26,6 @@ var UIProvider = function (_React$Component) {
     }
 
     _createClass(UIProvider, [{
-        key: 'componentWillMount',
-        value: function componentWillMount() {
-            switch (this.props.theme) {
-                default:
-                    return require('../../styles/themes/telegramDark.scss');
-            }
-        }
-    }, {
         key: 'render',
         value: function render() {
             return React.createElement('div', _extends({ className: 'ui' }, this.props));
