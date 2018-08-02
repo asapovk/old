@@ -8,11 +8,14 @@
     "@types/react-dom": "^16.0.6",
     "awesome-typescript-loader": "^5.2.0",
     "babel": "^6.23.0",
+    "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
+    "flexbox-react": "^4.4.0",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
+    "react-portal": "^4.1.5",
     "storybook": "^1.0.0",
     "storybook-react": "^3.2.16",
     "typescript": "^3.0.1",
@@ -21,6 +24,8 @@
   },
   "scripts": {
     "start": "webpack",
+    "build": "tsc",
+    "build2": "babel --optional runtime src -d dist --copy-files",
     "storybook": "start-storybook -p 9001",
     "build-storybook": "build-storybook"
   },
