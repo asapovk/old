@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+import * as React from 'react';
+import getStyles from './styles';
 
 interface ValidateObject {
     error?: string,
@@ -6,6 +7,7 @@ interface ValidateObject {
     isMatch?: boolean
 }
 interface TextFieldProps {
+    theme?: any,
     label?: string,
     validate?: Array<ValidateObject>
     defaultValue?: string,
@@ -15,11 +17,8 @@ interface TextFieldProps {
     onChange?: (value: string) => void
 }
 
-class TextField extends Component<TextFieldProps> {
+class UITextField extends React.Component<TextFieldProps> {
 
-    state = {
-        className: "ui-textfield"
-    }
     public validate(value: string): boolean {
         const errors: string[] = [];
 
@@ -42,13 +41,14 @@ class TextField extends Component<TextFieldProps> {
     }
 
     render() {
-        const { label, value, defaultValue, style, onChange } = this.props;
-        const { className } = this.state;
+        const { label, value, defaultValue, style, onChange, theme } = this.props;
+        const styles = getStyles(theme);
 
         return (
-            <div className={className} style={style}>
-                <div className='ui-textfield-label'>{label}</div>
+            <div className={styles.main} style={style}>
+                <div className={styles.label}>{label}</div>
                 <input
+                    className={styles.input}
                     defaultValue={defaultValue}
                     value={value}
                     onChange={(event) => {
@@ -63,4 +63,4 @@ class TextField extends Component<TextFieldProps> {
     }
 }
 
-export default TextField;
+export default UITextField;
