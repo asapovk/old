@@ -1,17 +1,15 @@
 import { css, injectGlobal } from 'emotion';
-import themes from './themes';
+import telegramDark from './themes/telegram-dark';
 import reset from './reset.css';
 
-export function getTheme(themeName: string | undefined) {
-    return themeName ? themes[themeName] : themes['defaultTheme'];
-}
+export const injectReset = () => injectGlobal(reset)
 
-export function injectReset() {
-    injectGlobal(reset);
-}
-
-export function createStyles(jss: any) {
+export function createClasses(os: any) {
     let styles: any = {};
-    Object.keys(jss).forEach(key => styles[key] = css(jss[key]));
+    Object.keys(os).forEach(key => styles[key] = css(os[key]));
     return styles;
 }
+
+export const themes = {
+    telegramDark
+};

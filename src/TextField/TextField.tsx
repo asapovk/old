@@ -1,5 +1,5 @@
-import * as React from 'react';
-import getStyles from './styles';
+import React from 'react';
+import getClasses from './styles';
 
 interface ValidateObject {
     error?: string,
@@ -42,13 +42,13 @@ class UITextField extends React.Component<TextFieldProps> {
 
     render() {
         const { label, value, defaultValue, style, onChange, theme } = this.props;
-        const styles = getStyles(theme);
+        const classes = getClasses(theme);
 
         return (
-            <div className={styles.main} style={style}>
-                <div className={styles.label}>{label}</div>
+            <div className={classes.main} style={style}>
+                <div className={classes.main + "-label"}>{label}</div>
                 <input
-                    className={styles.input}
+                    className={classes.main + "-input"}
                     defaultValue={defaultValue}
                     value={value}
                     onChange={(event) => {

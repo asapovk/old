@@ -1,6 +1,6 @@
-import Theme from '../Theme'
-
-export default {
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.default = {
     colors: {
         pageBackground: 'rgb(41, 43, 54)',
         text: 'rgb(177, 198, 209)',
@@ -10,4 +10,5 @@ export default {
         accent: 'rgb(5, 175, 200)',
         red: 'rgb(244, 67, 54)'
     }
-} as Theme
+};
+//# sourceMappingURL=telegram-dark.js.map

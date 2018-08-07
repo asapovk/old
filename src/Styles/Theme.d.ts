@@ -1,8 +1,12 @@
-import { CSSProperties } from "../../../node_modules/@types/react";
-
-interface Theme {
+export default interface Theme {
     colors: {
+        /**
+         * Цвет фона
+         */
         pageBackground: string
+        /**
+         * Цвет текста
+         */
         text: string
         pale: string
         uiBackground: string
@@ -11,5 +15,3 @@ interface Theme {
         red: string
     }
 }
-
-export default Theme

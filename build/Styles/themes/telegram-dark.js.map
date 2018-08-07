@@ -1,0 +1,1 @@
+{"version":3,"file":"telegram-dark.js","sourceRoot":"","sources":["../../../src/Styles/themes/telegram-dark.ts"],"names":[],"mappings":";;AAEA,kBAAe;IACX,MAAM,EAAE;QACJ,cAAc,EAAE,iBAAiB;QACjC,IAAI,EAAE,oBAAoB;QAC1B,IAAI,EAAE,kBAAkB;QACxB,YAAY,EAAE,iBAAiB;QAC/B,SAAS,EAAE,oBAAoB;QAC/B,MAAM,EAAE,kBAAkB;QAC1B,GAAG,EAAE,kBAAkB;KAC1B;CACK,CAAA"}

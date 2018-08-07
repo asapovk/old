@@ -1,23 +1,23 @@
-import * as React from 'react';
-import getStyles from './styles';
-import { injectReset, getTheme } from '../Styles';
+import React from 'react';
+import getClasses from './styles';
+import { injectReset } from '../Styles';
 import { ThemeProvider } from 'emotion-theming'
-
-// Connect reset styles
-injectReset();
+import Theme from '../Styles/Theme';
 
 interface ProviderProps {
-    theme?: string
+    theme: Theme
 }
+
 class UIProvider extends React.Component<ProviderProps> {
-
+    componentWillMount() {
+        // Connect reset styles
+        injectReset();
+    }
     render() {
-
-        const theme = getTheme(this.props.theme);
-        const styles = getStyles(theme);
+        const classes = getClasses(this.props.theme);
         return (
-            <ThemeProvider theme={theme}>
-                <div className={styles.ui} {...this.props} />
+            <ThemeProvider theme={this.props.theme}>
+                <div className={classes.ui} {...this.props} />
             </ThemeProvider>
         )
     }

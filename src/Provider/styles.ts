@@ -1,7 +1,12 @@
-import { createStyles } from '../Styles';
+import { createClasses } from '../Styles';
+import Theme from '../Styles/Theme';
 
-export default (theme: any) => (
-    createStyles({
+interface Classes {
+    ui: string
+}
+
+export default (theme: Theme) => (
+    createClasses({
         ui: {
             backgroundColor: theme.colors.pageBackground,
             color: theme.colors.text,
@@ -12,5 +17,5 @@ export default (theme: any) => (
             top: 0,
             left: 0,
         }
-    })
+    }) as Classes
 )
