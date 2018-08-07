@@ -12,24 +12,28 @@
     "babel-core": "^6.26.3",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
-    "emotion-theming": "^9.2.6",
+    "css-loader": "^1.0.0",
+    "dart-sass": "^1.10.3",
+    "fibers": "^3.0.0",
     "flexbox-react": "^4.4.0",
+    "mini-css-extract-plugin": "^0.4.1",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
-    "react-emotion": "^9.2.6",
     "react-portal": "^4.1.5",
+    "sass": "^1.10.3",
+    "sass-loader": "^7.1.0",
     "storybook": "^1.0.0",
     "storybook-react": "^3.2.16",
+    "style-loader": "^0.21.0",
     "typescript": "^3.0.1",
     "webpack": "^4.16.3",
     "webpack-cli": "^3.1.0"
   },
   "scripts": {
-    "start": "webpack",
-    "build": "tsc",
-    "build2": "babel --optional runtime src -d dist --copy-files",
-    "storybook": "start-storybook -p 9001",
-    "build-storybook": "build-storybook"
+    "start": "start-storybook -p 9001",
+    "build": "build-ts && build-sass",
+    "build-ts": "npx tsc",
+    "build-sass": "npx sass src/scss/main.scss build/styles.css"
   },
   "devDependencies": {
     "@storybook/react": "^4.0.0-alpha.3"
