@@ -12,10 +12,10 @@
     "index.js"
   ],
   "devDependencies": {
+    "@storybook/react": "^4.0.0-alpha.3",
     "@types/react": "^16.4.7",
     "@types/react-dom": "^16.0.6",
     "awesome-typescript-loader": "^5.2.0",
-    "@storybook/react": "^4.0.0-alpha.3",
     "babel": "^6.23.0",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
@@ -28,7 +28,6 @@
     "mini-css-extract-plugin": "^0.4.1",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
-    "react-portal": "^4.1.5",
     "sass": "^1.10.3",
     "sass-loader": "^7.1.0",
     "storybook": "^1.0.0",
@@ -43,5 +42,9 @@
     "build": "yarn build-ts && yarn build-sass",
     "build-ts": "npx tsc",
     "build-sass": "npx sass src/scss/main.scss dist/styles.css"
+  },
+  "dependencies": {
+    "react-flexbox": "^3.1.4",
+    "react-portal": "^4.1.5"
   }
 }
