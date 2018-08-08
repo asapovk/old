@@ -10,10 +10,11 @@
   "files": [
     "build"
   ],
-  "dependencies": {
+  "devDependencies": {
     "@types/react": "^16.4.7",
     "@types/react-dom": "^16.0.6",
     "awesome-typescript-loader": "^5.2.0",
+    "@storybook/react": "^4.0.0-alpha.3",
     "babel": "^6.23.0",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
@@ -41,8 +42,5 @@
     "build": "yarn build-ts && yarn build-sass",
     "build-ts": "npx tsc",
     "build-sass": "npx sass src/scss/main.scss build/styles.css"
-  },
-  "devDependencies": {
-    "@storybook/react": "^4.0.0-alpha.3"
   }
 }
