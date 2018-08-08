@@ -24,7 +24,7 @@ const columns = [
 
 storiesOf('TSX Components', module)
     .add('Button', () => (
-        <Viewport><Button label='Click me' /></Viewport>
+        <Viewport><Button>Click me</Button></Viewport>
     ))
     .add('TextField', () => (
         <Viewport><TextField label='Label' /></Viewport>
