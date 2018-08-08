@@ -1,5 +1,5 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var TextField_1 = require("./TextField");
-exports.TextField = TextField_1.default;
+var Table_1 = require("./Table");
+exports.Table = Table_1.default;
 //# sourceMappingURL=index.js.map

@@ -139,4 +139,194 @@ table {
   font-size: inherit;
 }
 
+/*---------------------------------------------------------------------------*
+ * SF UI Display
+ *---------------------------------------------------------------------------*/
+/** Black */
+@font-face {
+  font-family: "SF Display";
+  font-weight: 900;
+  src: url("/fonts/SF-UI-Display-Black.otf");
+}
+/** Bold */
+@font-face {
+  font-family: "SF Display";
+  font-weight: 700;
+  src: url("/fonts/SF-UI-Display-Bold.otf");
+}
+/** Heavy */
+@font-face {
+  font-family: "SF Display";
+  font-weight: 800;
+  src: url("/fonts/SF-UI-Display-Heavy.otf");
+}
+/** Light */
+@font-face {
+  font-family: "SF Display";
+  font-weight: 200;
+  src: url("/fonts/SF-UI-Display-Light.otf");
+}
+/** Medium */
+@font-face {
+  font-family: "SF Display";
+  font-weight: 500;
+  src: url("/fonts/SF-UI-Display-Medium.otf");
+}
+/** Regular */
+@font-face {
+  font-family: "SF Display";
+  font-weight: 400;
+  src: url("/fonts/SF-UI-Display-Regular.otf");
+}
+/** Semibold */
+@font-face {
+  font-family: "SF Display";
+  font-weight: 600;
+  src: url("/fonts/SF-UI-Display-Semibold.otf");
+}
+/** Thin */
+@font-face {
+  font-family: "SF Display";
+  font-weight: 300;
+  src: url("/fonts/SF-UI-Display-Thin.otf");
+}
+/** Ultralight */
+@font-face {
+  font-family: "SF Display";
+  font-weight: 100;
+  src: url("/fonts/SF-UI-Display-Ultralight.otf");
+}
+.ui-table {
+  overflow-wrap: break-word;
+}
+.ui-table-content-head-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-transform: uppercase;
+  font-size: 14px;
+  padding: 10px 20px;
+  color: #5c6173;
+}
+.ui-table-content-head-row-column {
+  margin-right: 20px;
+}
+.ui-table-content-body {
+  background: #464a58;
+  box-shadow: 0px 2px 4px 0px rgba(20, 20, 20, 0.5);
+}
+.ui-table-content-body-row {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  padding: 20px;
+  border-bottom: solid 1px;
+  border-color: #5c6173;
+  position: relative;
+}
+.ui-table-content-body-row-column {
+  margin-right: 20px;
+  flex-shrink: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.ui-table-content-body-row-column-subrow {
+  padding-top: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  position: relative;
+}
+.ui-table-content-body-row-select {
+  display: none;
+  position: absolute;
+  flex-direction: row;
+  align-items: center;
+  left: 20px;
+  top: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, #464a58 80%, rgba(70, 74, 88, 0) 100%);
+  padding-right: 20px;
+}
+.ui-table-content-body-row-select-checkbox {
+  height: 28px;
+  width: 28px;
+  border: solid 2px;
+  border-color: #05afc8;
+  border-radius: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+.ui-table-content-body-row-select-checkbox > svg {
+  font-size: 20px;
+  display: none;
+}
+.ui-table-content-body-row-actions {
+  text-transform: uppercase;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+.ui-table-content-body-row-actions-buttons {
+  flex-direction: row;
+  align-items: center;
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, rgba(70, 74, 88, 0) 0%, #464a58 20%);
+  padding-left: 20px;
+}
+.ui-table-content-body-row-actions-buttons-edit {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.ui-table-content-body-row-actions svg {
+  font-size: 32px;
+  color: #05afc8;
+  align-self: center;
+}
+.ui-table-content-body-row-actions button {
+  margin-left: 15px;
+  color: #858ca6;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 500;
+}
+.ui-table-content-body-row-actions .accent {
+  color: #05afc8;
+}
+.ui-table-content-body-row .selected {
+  display: flex;
+}
+.ui-table-content-body-row .selected > div {
+  background: #05afc8;
+}
+.ui-table-content-body-row .selected > div > svg {
+  display: block;
+}
+.ui-table-content .edited {
+  background: #292b36;
+  border-top: solid 2px;
+  border-bottom: solid 2px;
+  border-color: #5c6173;
+  padding: 30px 20px;
+}
+.ui-table-content .blur {
+  filter: blur(2px);
+}
+.ui-table-content .hover:hover .ui-table-content-body-row-select {
+  display: flex;
+}
+.ui-table-content .hover:hover .ui-table-content-body-row-actions-buttons {
+  display: flex;
+}
+
 /*# sourceMappingURL=styles.css.map */

@@ -31,7 +31,7 @@
   },
   "scripts": {
     "start": "start-storybook -p 9001",
-    "build": "build-ts && build-sass",
+    "build": "yarn build-ts && yarn build-sass",
     "build-ts": "npx tsc",
     "build-sass": "npx sass src/scss/main.scss build/styles.css"
   },
