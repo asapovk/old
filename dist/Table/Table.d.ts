@@ -29,15 +29,15 @@ interface ActionsTrigger extends ActionsBasic {
     };
 }
 interface TableProps {
-    data: [{
+    data: {
         [dataIndex: string]: string;
-    }];
-    columns: [{
+    }[];
+    columns: {
         title?: string;
         dataIndex: string;
         width?: number;
         render?: Component;
-    }];
+    }[];
     actions?: [ActionsSelect | ActionsExpand | ActionsButton | ActionsTrigger];
     border?: 'all' | 'external' | 'internal' | 'vertical' | 'horizontal';
     indexKey?: string;

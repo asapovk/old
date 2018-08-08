@@ -32,17 +32,13 @@ interface ActionsTrigger extends ActionsBasic {
 }
 
 interface TableProps {
-    data: [
-        { [dataIndex: string]: string }
-    ]
-    columns: [
-        {
-            title?: string
-            dataIndex: string
-            width?: number
-            render?: Component
-        }
-    ]
+    data: { [dataIndex: string]: string }[]
+    columns: {
+        title?: string
+        dataIndex: string
+        width?: number
+        render?: Component
+    }[]
     actions?: [ActionsSelect | ActionsExpand | ActionsButton | ActionsTrigger]
     border?: 'all' | 'external' | 'internal' | 'vertical' | 'horizontal'
     indexKey?: string

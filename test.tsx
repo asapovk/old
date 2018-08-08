@@ -13,8 +13,11 @@ class App {
                 name: "John"
             },
         ]
+        const columns = [
+            { title: 'Имя', dataIndex: 'name' },
+        ]
         return (
-            <Table data={data} />
+            <Table data={data} columns={columns} />
         )
     }
 }
