@@ -5,7 +5,7 @@ interface ButtonProps {
     decoration?: 'none' | 'accent';
     loading?: boolean;
     icon?: Component;
-    case?: 'upper' | 'lower' | 'capitalize' | 'sentence';
+    labelCase?: 'upper' | 'lower' | 'capitalize' | 'sentence';
 }
 declare class Button extends Component<ButtonProps> {
     render(): JSX.Element;

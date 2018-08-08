@@ -38,7 +38,7 @@ interface TableProps {
         title?: string
         dataIndex: string
         width?: number
-        render?: (row, value) => Component
+        render?: (row, value) => any
     }[]
     actions?: [ActionsSelect | ActionsExpand | ActionsButton | ActionsTrigger]
     border?: 'all' | 'external' | 'internal' | 'vertical' | 'horizontal'

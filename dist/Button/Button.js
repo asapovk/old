@@ -27,8 +27,13 @@ var Button = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     Button.prototype.render = function () {
-        var classes = 'ui-button' + this.props.decoration == 'none' ? 'btn-strip' : '';
-        return (react_1.default.createElement("button", { className: 'ui-classes' }, this.props.label));
+        var _a = this.props, decoration = _a.decoration, labelCase = _a.labelCase;
+        var classes = 'ui-button';
+        if (decoration == 'none')
+            classes += ' btn-strip';
+        if (labelCase == 'upper')
+            classes += ' uppercase';
+        return (react_1.default.createElement("button", { className: classes }, this.props.label));
     };
     return Button;
 }(react_1.Component));
