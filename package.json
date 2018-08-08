@@ -3,6 +3,13 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git@gitlab.abr-region.ru:npm/ui.git"
+  },
+  "files": [
+    "build"
+  ],
   "dependencies": {
     "@types/react": "^16.4.7",
     "@types/react-dom": "^16.0.6",
