@@ -6,6 +6,7 @@ interface ButtonProps {
     loading?: boolean;
     icon?: Component;
     labelCase?: 'upper' | 'lower' | 'capitalize' | 'sentence';
+    onClick?: () => any;
 }
 declare class Button extends Component<ButtonProps> {
     render(): JSX.Element;
