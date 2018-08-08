@@ -25,8 +25,6 @@ var Table = /** @class */ (function (_super) {
         _this.state = {
             selectedItems: [],
             expandedItems: [],
-            //editibleItems: [] as [{ [component: string]: string }],
-            focusItem: '',
         };
         return _this;
     }

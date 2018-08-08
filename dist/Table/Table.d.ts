@@ -29,9 +29,7 @@ interface ActionsTrigger extends ActionsBasic {
     };
 }
 interface TableProps {
-    data: {
-        [dataIndex: string]: string;
-    }[];
+    data: any[];
     columns: {
         title?: string;
         dataIndex: string;
@@ -47,7 +45,6 @@ declare class Table extends React.Component<TableProps> {
     state: {
         selectedItems: string[];
         expandedItems: string[];
-        focusItem: string;
     };
     render(): JSX.Element;
 }

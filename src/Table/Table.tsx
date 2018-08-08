@@ -32,7 +32,7 @@ interface ActionsTrigger extends ActionsBasic {
 }
 
 interface TableProps {
-    data: { [dataIndex: string]: string }[]
+    data: any[]
     columns: {
         title?: string
         dataIndex: string
@@ -51,7 +51,7 @@ class Table extends React.Component<TableProps> {
         selectedItems: [] as string[],
         expandedItems: [] as string[],
         //editibleItems: [] as [{ [component: string]: string }],
-        focusItem: '' as string,
+        //focusItem: '' as string,
         // isSelectable: false as boolean,
         // isExpandable: false as boolean
     }
