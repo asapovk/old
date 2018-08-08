@@ -41,6 +41,6 @@
     "start": "start-storybook -p 9001",
     "build": "yarn build-ts && yarn build-sass",
     "build-ts": "npx tsc",
-    "build-sass": "npx sass src/scss/main.scss build/styles.css"
+    "build-sass": "npx sass src/scss/main.scss dist/styles.css"
   }
 }
