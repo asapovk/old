@@ -7,6 +7,7 @@ import { linkTo } from '@storybook/addon-links';
 import { TextField } from '../src/TextField';
 import { Table } from '../src/Table';
 import { Viewport } from '../src/Viewport';
+import { Button } from '../src/Button';
 
 import '../src/scss/main.scss';
 
@@ -22,6 +23,9 @@ const columns = [
 ]
 
 storiesOf('TSX Components', module)
+    .add('Button', () => (
+        <Viewport><Button>Click me</Button></Viewport>
+    ))
     .add('TextField', () => (
         <Viewport><TextField label='Label' /></Viewport>
     ))

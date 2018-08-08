@@ -44,6 +44,7 @@
     "build-sass": "npx sass src/scss/main.scss dist/styles.css"
   },
   "dependencies": {
+    "@types/react-portal": "^4.0.1",
     "react-flexbox": "^3.1.4",
     "react-portal": "^4.1.5"
   }
