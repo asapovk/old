@@ -3,18 +3,23 @@ import React, { Component } from 'react';
 interface ButtonProps {
     label?: string
     outline?: boolean
-    color?: 'none' | 'accent'
+    decoration?: 'none' | 'accent'
     loading?: boolean
     icon?: Component
-    case?: 'upper' | 'lower' | 'capitalize' | 'sentence'
+    labelCase?: 'upper' | 'lower' | 'capitalize' | 'sentence'
 }
 
 class Button extends Component<ButtonProps> {
     render() {
 
-        const classes = 'ui-button'
+        const { decoration, labelCase } = this.props;
+        let classes = 'ui-button';
+
+        if (decoration == 'none') classes += ' btn-strip';
+        if (labelCase == 'upper') classes += ' uppercase';
+
         return (
-            <button className='ui-button'>{this.props.label}</button>
+            <button className={classes}>{this.props.label}</button>
         )
     }
 }

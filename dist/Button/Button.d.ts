@@ -2,7 +2,7 @@ import { Component } from 'react';
 interface ButtonProps {
     label?: string;
     outline?: boolean;
-    color?: 'default' | 'accent';
+    decoration?: 'none' | 'accent';
     loading?: boolean;
     icon?: Component;
     case?: 'upper' | 'lower' | 'capitalize' | 'sentence';

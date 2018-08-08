@@ -27,7 +27,8 @@ var Button = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     Button.prototype.render = function () {
-        return (react_1.default.createElement("div", { className: 'ui-button' }, this.props.label));
+        var classes = 'ui-button' + this.props.decoration == 'none' ? 'btn-strip' : '';
+        return (react_1.default.createElement("button", { className: 'ui-classes' }, this.props.label));
     };
     return Button;
 }(react_1.Component));
