@@ -1,6 +1,6 @@
 import { Component } from 'react';
 interface ViewportProps {
-    children?: Component;
+    children?: any;
 }
 declare class Viewport extends Component<ViewportProps> {
     render(): JSX.Element;

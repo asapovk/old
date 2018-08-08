@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 interface ViewportProps {
-    children?: Component
+    children?: any
 }
 
 class Viewport extends Component<ViewportProps> {
