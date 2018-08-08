@@ -24,4 +24,3 @@ class Table extends react_1.default.Component {
     }
 }
 exports.default = Table;
-//# sourceMappingURL=Table.js.map

@@ -14,4 +14,3 @@ class Button extends react_1.Component {
     }
 }
 exports.default = Button;
-//# sourceMappingURL=index.js.map

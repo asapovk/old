@@ -16,4 +16,3 @@ class TableColumns extends react_1.default.Component {
     }
 }
 exports.default = TableColumns;
-//# sourceMappingURL=TableColumns.js.map

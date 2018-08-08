@@ -31,4 +31,3 @@ class TableRow extends react_1.default.Component {
     }
 }
 exports.default = TableRow;
-//# sourceMappingURL=TableRow.js.map

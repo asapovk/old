@@ -34,4 +34,3 @@ class UITextField extends react_1.default.Component {
     }
 }
 exports.default = UITextField;
-//# sourceMappingURL=TextField.js.map

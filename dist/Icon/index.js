@@ -13,4 +13,3 @@ const icons = {
 exports.default = props => (react_1.default.createElement("svg", { fill: "currentColor", height: "1em", width: "1em", viewBox: "0 0 128 128" },
     react_1.default.createElement("g", null,
         react_1.default.createElement("path", { d: icons[props.type] }))));
-//# sourceMappingURL=index.js.map
