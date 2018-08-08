@@ -33,19 +33,19 @@ interface ActionsTrigger extends ActionsBasic {
 
 interface TableProps {
     data: [
-        { [dataIndex: string | number]: string }
+        { [dataIndex: string]: string }
     ]
     columns: [
         {
             title?: string
-            dataIndex: string | number
+            dataIndex: string
             width?: number
             render?: Component
         }
     ]
     actions?: [ActionsSelect | ActionsExpand | ActionsButton | ActionsTrigger]
     border?: 'all' | 'external' | 'internal' | 'vertical' | 'horizontal'
-    indexKey?: string | number
+    indexKey?: string
     scope?: any
 }
 
