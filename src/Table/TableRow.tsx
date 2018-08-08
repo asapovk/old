@@ -7,10 +7,10 @@ interface TableRowProps {
     row: {
         [dataIndex: string]: string
     }
-    isSelected: boolean
-    isExpanding: boolean
-    isBlur: boolean
     columns
+    isSelected?: boolean
+    isExpanding?: boolean
+    isBlur?: boolean
     actions?
     border?
     scope?

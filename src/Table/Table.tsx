@@ -33,19 +33,19 @@ interface ActionsTrigger extends ActionsBasic {
 
 interface TableProps {
     data: [
-        { [dataIndex: string]: string }
+        { [dataIndex: string | number]: string }
     ]
     columns: [
         {
             title?: string
-            dataIndex: string
+            dataIndex: string | number
             width?: number
             render?: Component
         }
     ]
     actions?: [ActionsSelect | ActionsExpand | ActionsButton | ActionsTrigger]
     border?: 'all' | 'external' | 'internal' | 'vertical' | 'horizontal'
-    indexKey?: string
+    indexKey?: string | number
     scope?: any
 }
 
@@ -56,18 +56,18 @@ class Table extends React.Component<TableProps> {
         expandedItems: [] as string[],
         //editibleItems: [] as [{ [component: string]: string }],
         focusItem: '' as string,
-        isSelectable: false as boolean,
-        isExpandable: false as boolean
+        // isSelectable: false as boolean,
+        // isExpandable: false as boolean
     }
 
-    componentWillMount() {
-        if (this.props.actions) {
-            this.props.actions.map(action => {
-                if (action.type == 'select') this.setState({ isSelectable: true })
-                if (action.type == 'expand') this.setState({ isExpandable: true })
-            })
-        }
-    }
+    // componentWillMount() {
+    //     if (this.props.actions) {
+    //         this.props.actions.map(action => {
+    //             if (action.type == 'select') this.setState({ isSelectable: true })
+    //             if (action.type == 'expand') this.setState({ isExpandable: true })
+    //         })
+    //     }
+    // }
 
     render() {
 
@@ -77,19 +77,22 @@ class Table extends React.Component<TableProps> {
             <div className={'ui-table-content-head-row-column ' + column.dataIndex} key={column.dataIndex} style={column.width ? { flexBasis: column.width } : { flex: 1 }}>{column.title}</div>
         ))
 
-        const RowsTSX = data.map((row, index) => (
-            <TableRow
-                key={row[indexKey] || index.toString()}
-                row={row}
-                columns={columns}
-                actions={actions}
-                border={border}
-                isSelected={(this.state.selectedItems.some(item => item === row[indexKey] || item === index.toString()))}
-                isExpanding={(this.state.expandedItems.some(item => item === row[indexKey] || item === index.toString()))}
-                isBlur={this.state.focusItem && (this.state.focusItem != row[indexKey] || this.state.focusItem != index.toString())}
-                scope={scope}
-            />
-        ))
+        const RowsTSX = data.map((row, index) => {
+            const key = indexKey && row[indexKey] || index.toString()
+            return (
+                <TableRow
+                    key={key}
+                    row={row}
+                    columns={columns}
+                    actions={actions}
+                    border={border}
+                    isSelected={(this.state.selectedItems.some(item => item === key))}
+                    isExpanding={(this.state.expandedItems.some(item => item === key))}
+                    // isBlur={this.state.focusItem && (this.state.focusItem != key)}
+                    scope={scope}
+                />
+            )
+        })
 
         return (
             <div className='ui-table'>
