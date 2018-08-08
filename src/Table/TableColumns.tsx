@@ -1,8 +1,15 @@
 import React from 'react';
 
-export default class TableColumns extends React.Component {
+interface TableColumsProps {
+    data
+    columns
+    scope?
+}
+
+export default class TableColumns extends React.Component<TableColumsProps> {
+
     render() {
-        const { data, columns, scope, key } = this.props;
+        const { data, columns, scope } = this.props;
 
         return columns.map(column => {
 
@@ -15,9 +22,10 @@ export default class TableColumns extends React.Component {
                     key={column.dataIndex}
                     className={`ui-table-content-body-row-column ` + column.dataIndex}
                     style={column.width ? { flexBasis: column.width } : { flex: 1 }}
-                    children={column.render.apply(scope, [data, data[column.dataIndex], key])}
+                    children={column.render.apply(scope, [data, data[column.dataIndex]])}
                 />
             )
         });
     }
+
 }

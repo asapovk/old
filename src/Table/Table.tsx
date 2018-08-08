@@ -22,7 +22,7 @@ interface ActionsTrigger extends ActionsBasic {
     type: 'trigger'
     label: string
     target: {
-        component: Component
+        render: Component
         actions?: {
             label: string
             onAction: (compData: { [dataIndex: string]: string }) => void
@@ -46,6 +46,7 @@ interface TableProps {
     actions?: [ActionsSelect | ActionsExpand | ActionsButton | ActionsTrigger]
     border?: 'all' | 'external' | 'internal' | 'vertical' | 'horizontal'
     indexKey?: string
+    scope?: any
 }
 
 class Table extends React.Component<TableProps> {
@@ -53,13 +54,13 @@ class Table extends React.Component<TableProps> {
     state = {
         selectedItems: [] as string[],
         expandedItems: [] as string[],
-        editibleItems: [] as [{ [component: string]: string }],
+        //editibleItems: [] as [{ [component: string]: string }],
         focusItem: '' as string
     }
 
     render() {
 
-        const { data, columns, actions, border, indexKey } = this.props;
+        const { data, columns, actions, border, indexKey, scope } = this.props;
 
         return (
             <div className='ui-table'>
@@ -74,11 +75,13 @@ class Table extends React.Component<TableProps> {
                             <TableRow
                                 key={row[indexKey] || index.toString()}
                                 data={row}
+                                columns={columns}
                                 actions={actions}
                                 border={border}
                                 isSelected={(this.state.selectedItems.some(item => item === row[indexKey] || item === index.toString()))}
                                 isExpanding={(this.state.expandedItems.some(item => item === row[indexKey] || item === index.toString()))}
-                                isBlur={(this.state.focusItem != row[indexKey] || this.state.focusItem != index.toString())}
+                                isBlur={this.state.focusItem && (this.state.focusItem != row[indexKey] || this.state.focusItem != index.toString())}
+                                scope={scope}
                             />
                         ))}
                     </div>
