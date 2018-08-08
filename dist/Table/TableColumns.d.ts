@@ -1,6 +1,6 @@
 import React from 'react';
 interface TableColumsProps {
-    data: any;
+    row: any;
     columns: any;
     scope?: any;
 }

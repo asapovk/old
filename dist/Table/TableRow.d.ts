@@ -1,12 +1,12 @@
 import React from 'react';
 interface TableRowProps {
-    data: {
+    row: {
         [dataIndex: string]: string;
     };
-    isSelected: boolean;
-    isExpanding: boolean;
-    isBlur: boolean;
     columns: any;
+    isSelected?: boolean;
+    isExpanding?: boolean;
+    isBlur?: boolean;
     actions?: any;
     border?: any;
     scope?: any;
