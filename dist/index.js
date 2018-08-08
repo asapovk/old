@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+var Table_1 = require("./Table");
+exports.Table = Table_1.Table;
 var TextField_1 = require("./TextField");
-var emotion_theming_1 = require("emotion-theming");
-exports.default = emotion_theming_1.withTheme(TextField_1.default);
+exports.TextField = TextField_1.TextField;
 //# sourceMappingURL=index.js.map

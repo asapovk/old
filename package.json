@@ -8,7 +8,7 @@
     "url": "git@gitlab.abr-region.ru:npm/ui.git"
   },
   "files": [
-    "build"
+    "dist"
   ],
   "devDependencies": {
     "@types/react": "^16.4.7",
