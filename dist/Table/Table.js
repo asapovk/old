@@ -25,17 +25,27 @@ var Table = /** @class */ (function (_super) {
         _this.state = {
             selectedItems: [],
             expandedItems: [],
+            focusItem: '',
+            types: {}
         };
         return _this;
     }
-    // componentWillMount() {
-    //     if (this.props.actions) {
-    //         this.props.actions.map(action => {
-    //             if (action.type == 'select') this.setState({ isSelectable: true })
-    //             if (action.type == 'expand') this.setState({ isExpandable: true })
-    //         })
-    //     }
-    // }
+    Table.prototype.componentWillMount = function () {
+        var types = {};
+        if (this.props.actions) {
+            this.props.actions.map(function (action) {
+                if (action.type == 'select')
+                    types.isSelectable = true;
+                if (action.type == 'expand')
+                    types.isExpandable = true;
+                if (action.type == 'button')
+                    types.isExpandable = true;
+                if (action.type == 'trigger')
+                    types.isExpandable = true;
+            });
+        }
+        this.setState({ types: types });
+    };
     Table.prototype.render = function () {
         var _this = this;
         var _a = this.props, data = _a.data, columns = _a.columns, actions = _a.actions, border = _a.border, indexKey = _a.indexKey, scope = _a.scope;

@@ -113,6 +113,19 @@ table {
   font-weight: 100;
   src: url("/fonts/SF-UI-Display-Ultralight.otf");
 }
+.ui-view {
+  color: #b1c6d1;
+  background: #292b36;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  font-family: Roboto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 .UI-TextField {
   display: flex;
   flex-direction: column;

@@ -45,7 +45,12 @@ declare class Table extends React.Component<TableProps> {
     state: {
         selectedItems: string[];
         expandedItems: string[];
+        focusItem: string;
+        types: {
+            [key: string]: boolean;
+        };
     };
+    componentWillMount(): void;
     render(): JSX.Element;
 }
 export default Table;

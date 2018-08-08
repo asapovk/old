@@ -32,6 +32,7 @@ interface ActionsTrigger extends ActionsBasic {
 }
 
 interface TableProps {
+    // TODO: Избавится от any
     data: any[]
     columns: {
         title?: string
@@ -50,20 +51,22 @@ class Table extends React.Component<TableProps> {
     state = {
         selectedItems: [] as string[],
         expandedItems: [] as string[],
-        //editibleItems: [] as [{ [component: string]: string }],
-        //focusItem: '' as string,
-        // isSelectable: false as boolean,
-        // isExpandable: false as boolean
+        focusItem: '' as string,
+        types: {} as { [key: string]: boolean }
     }
 
-    // componentWillMount() {
-    //     if (this.props.actions) {
-    //         this.props.actions.map(action => {
-    //             if (action.type == 'select') this.setState({ isSelectable: true })
-    //             if (action.type == 'expand') this.setState({ isExpandable: true })
-    //         })
-    //     }
-    // }
+    componentWillMount() {
+        const types = {} as { [key: string]: boolean }
+        if (this.props.actions) {
+            this.props.actions.map(action => {
+                if (action.type == 'select') types.isSelectable = true
+                if (action.type == 'expand') types.isExpandable = true
+                if (action.type == 'button') types.isExpandable = true
+                if (action.type == 'trigger') types.isExpandable = true
+            })
+        }
+        this.setState({ types: types });
+    }
 
     render() {
 
