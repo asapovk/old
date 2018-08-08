@@ -55,36 +55,47 @@ class Table extends React.Component<TableProps> {
         selectedItems: [] as string[],
         expandedItems: [] as string[],
         //editibleItems: [] as [{ [component: string]: string }],
-        focusItem: '' as string
+        focusItem: '' as string,
+        isSelectable: false as boolean,
+        isExpandable: false as boolean
+    }
+
+    componentWillMount() {
+        if (this.props.actions) {
+            this.props.actions.map(action => {
+                if (action.type == 'select') this.setState({ isSelectable: true })
+                if (action.type == 'expand') this.setState({ isExpandable: true })
+            })
+        }
     }
 
     render() {
 
         const { data, columns, actions, border, indexKey, scope } = this.props;
 
+        const ColumnsTSX = columns.map(column => (
+            <div className={'ui-table-content-head-row-column ' + column.dataIndex} key={column.dataIndex} style={column.width ? { flexBasis: column.width } : { flex: 1 }}>{column.title}</div>
+        ))
+
+        const RowsTSX = data.map((row, index) => (
+            <TableRow
+                key={row[indexKey] || index.toString()}
+                row={row}
+                columns={columns}
+                actions={actions}
+                border={border}
+                isSelected={(this.state.selectedItems.some(item => item === row[indexKey] || item === index.toString()))}
+                isExpanding={(this.state.expandedItems.some(item => item === row[indexKey] || item === index.toString()))}
+                isBlur={this.state.focusItem && (this.state.focusItem != row[indexKey] || this.state.focusItem != index.toString())}
+                scope={scope}
+            />
+        ))
+
         return (
             <div className='ui-table'>
                 <div className='ui-table-content'>
-                    <div className='ui-table-content-head-row'>
-                        {columns.map(column => (
-                            <div className={'ui-table-content-head-row-column ' + column.dataIndex} key={column.dataIndex} style={column.width ? { flexBasis: column.width } : { flex: 1 }}>{column.title}</div>
-                        ))}
-                    </div>
-                    <div className='ui-table-content-body'>
-                        {data.map((row, index) => (
-                            <TableRow
-                                key={row[indexKey] || index.toString()}
-                                data={row}
-                                columns={columns}
-                                actions={actions}
-                                border={border}
-                                isSelected={(this.state.selectedItems.some(item => item === row[indexKey] || item === index.toString()))}
-                                isExpanding={(this.state.expandedItems.some(item => item === row[indexKey] || item === index.toString()))}
-                                isBlur={this.state.focusItem && (this.state.focusItem != row[indexKey] || this.state.focusItem != index.toString())}
-                                scope={scope}
-                            />
-                        ))}
-                    </div>
+                    <div className='ui-table-content-head-row' children={ColumnsTSX} />
+                    <div className='ui-table-content-body' children={RowsTSX} />
                 </div>
             </div>
         )

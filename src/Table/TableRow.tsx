@@ -4,7 +4,7 @@ import React, { Fragment } from 'react';
 import TableColumns from './TableColumns';
 
 interface TableRowProps {
-    data: {
+    row: {
         [dataIndex: string]: string
     }
     isSelected: boolean
@@ -23,11 +23,11 @@ export default class TableRow extends React.Component<TableRowProps> {
     }
 
     onClick() {
+
     }
 
     render() {
-        const { data, isSelected, isExpanding, isBlur, actions, border, scope } = this.props;
-
+        const { row, isSelected, isExpanding, isBlur, actions, border, scope } = this.props;
 
         return (
             <Fragment>
