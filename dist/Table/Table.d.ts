@@ -22,7 +22,7 @@ export interface ActionsTrigger extends ActionsBasic {
     type: TableActionsTypes.trigger;
     label: string;
     target: {
-        render: Component;
+        render: (row: any) => Component | Element | string | null;
         cancelLabel?: string;
         actions?: ActionsButton[];
     };

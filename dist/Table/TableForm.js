@@ -68,12 +68,11 @@ var TableForm = /** @class */ (function (_super) {
     // }
     TableForm.prototype.render = function () {
         var _this = this;
-        console.log(this.props);
         return (react_1.default.createElement(react_flexbox_1.default, { className: 'ui-table-content-body-row edited' },
-            this.props.target.render,
+            this.props.target.render(this.props.row),
             react_1.default.createElement("div", { className: 'ui-table-content-body-row-actions' },
                 Array.isArray(this.props.target.actions) && this.props.target.actions.map(function (action, index) {
-                    return (react_1.default.createElement(Button_1.Button, { key: index, label: action.label, onClick: action.onClick.bind(_this, _this.props.row) }));
+                    return (react_1.default.createElement(Button_1.Button, { key: index, label: action.label, onClick: action.onClick && action.onClick.bind(_this, _this.props.row) }));
                 }),
                 react_1.default.createElement(Button_1.Button, { label: this.props.target.cancelLabel || "Отмена", onClick: this.props.onCancel }))));
     };
