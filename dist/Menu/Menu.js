@@ -27,9 +27,13 @@ var Menu = /** @class */ (function (_super) {
     Menu.prototype.render = function () {
         return (react_1.default.createElement("div", { className: 'ui-menu' },
             react_1.default.createElement("div", { className: 'menu' },
+<<<<<<< HEAD
+                react_1.default.createElement("div", { className: 'nav' }, this.props.children))));
+=======
                 react_1.default.createElement("div", { className: 'nav' }, this.props.children),
                 react_1.default.createElement("button", { className: 'add', onClick: function (_) { return AppActions.menuActions.add(); } },
                     react_1.default.createElement(Icon, { type: 'add' })))));
+>>>>>>> ad3a11e5a6e756d57a172a2b8c8f2b55790883da
     };
     return Menu;
 }(react_1.default.Component));
