@@ -8,6 +8,7 @@ import { TextField } from '../src/TextField';
 import { Table } from '../src/Table';
 import { Viewport } from '../src/Viewport';
 import { Button } from '../src/Button';
+import { Menu } from '../src/Menu';
 
 import '../src/scss/main.scss';
 
@@ -32,4 +33,7 @@ storiesOf('TSX Components', module)
     .add('Table', () => (
         <Viewport><Table data={data} columns={columns} /></Viewport>
     ));
+    .add('Menu', () => (
+    <Viewport><Menu /></Viewport>
+));
 
