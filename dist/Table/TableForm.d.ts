@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { ActionsButton } from './Table';
 interface TableFormProps {
     row: any;
     onCancel: () => void;
     target: {
-        render: (row: any) => Component | Element | string | null;
+        render: (row: any) => any;
         cancelLabel?: string;
         actions?: ActionsButton[];
     };

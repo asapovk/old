@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 export declare enum TableActionsTypes {
     select = "select",
     expand = "expand",
@@ -6,7 +6,7 @@ export declare enum TableActionsTypes {
     trigger = "trigger"
 }
 export interface ActionsBasic {
-    onClick?: (dataRow: any) => void;
+    onClick?: (dataRow: any) => any;
 }
 export interface ActionsSelect extends ActionsBasic {
     type: TableActionsTypes.select;
@@ -22,7 +22,7 @@ export interface ActionsTrigger extends ActionsBasic {
     type: TableActionsTypes.trigger;
     label: string;
     target: {
-        render: (row: any) => Component | Element | string | null;
+        render: (row: any) => any;
         cancelLabel?: string;
         actions?: ActionsButton[];
     };
@@ -35,7 +35,7 @@ export interface TableProps {
         width?: number;
         render?: (row: any, value: any) => any;
     }[];
-    actions?: [ActionsSelect | ActionsExpand | ActionsButton | ActionsTrigger];
+    actions?: any;
     border?: 'all' | 'external' | 'internal' | 'vertical' | 'horizontal';
     indexKey?: string;
     scope?: any;

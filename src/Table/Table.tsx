@@ -9,7 +9,7 @@ export enum TableActionsTypes {
 }
 
 export interface ActionsBasic {
-    onClick?: (dataRow: any) => void
+    onClick?: (dataRow: any) => any
 }
 
 
@@ -45,7 +45,7 @@ export interface TableProps {
         width?: number
         render?: (row, value) => any
     }[]
-    actions?: [ActionsSelect | ActionsExpand | ActionsButton | ActionsTrigger]
+    actions?: any //TODO:any [ActionsSelect | ActionsExpand | ActionsButton | ActionsTrigger]
     border?: 'all' | 'external' | 'internal' | 'vertical' | 'horizontal'
     indexKey?: string
     scope?: any
