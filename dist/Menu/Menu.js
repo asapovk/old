@@ -26,8 +26,9 @@ var Menu = /** @class */ (function (_super) {
     };
     Menu.prototype.render = function () {
         return (react_1.default.createElement("div", { className: 'ui-menu' },
-            react_1.default.createElement("div", { className: 'menu' },
-                react_1.default.createElement("div", { className: 'nav' }, this.props.children))));
+            react_1.default.createElement("div", { className: 'ui-menu-interactions' },
+                react_1.default.createElement("div", { className: 'ui-menu-interactions-tools' }, this.props.toolsLeft)),
+            react_1.default.createElement("div", { className: 'ui-menu-tools' }, this.props.toolsLeft)));
     };
     return Menu;
 }(react_1.default.Component));

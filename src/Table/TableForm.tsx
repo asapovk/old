@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Button } from '../Button';
-import Flexbox from 'react-flexbox';
 import { ActionsButton } from './Table';
 
 interface TableFormProps {
@@ -68,7 +67,7 @@ class TableForm extends React.Component<TableFormProps> {
 
     render() {
         return (
-            <Flexbox className='ui-table-content-body-row edited'>
+            <div className='ui-table-content-body-row edited'>
                 {this.props.target.render(this.props.row)}
                 <div className='ui-table-content-body-row-actions'>
                     {
@@ -80,7 +79,7 @@ class TableForm extends React.Component<TableFormProps> {
                     }
                     <Button label={this.props.target.cancelLabel || "Отмена"} onClick={this.props.onCancel} />
                 </div>
-            </Flexbox>
+            </div>
         )
     }
 }
