@@ -1,34 +1,33 @@
 import React, { Component } from 'react';
-interface ActionsBasic {
-    onAction: (dataRow: {
-        [dataIndex: string]: string;
-    }, selectedItems: [string]) => void;
+export declare enum TableActionsTypes {
+    select = "select",
+    expand = "expand",
+    button = "button",
+    trigger = "trigger"
 }
-interface ActionsSelect extends ActionsBasic {
-    type: 'select';
+export interface ActionsBasic {
+    onClick: (dataRow: any) => void;
 }
-interface ActionsExpand extends ActionsBasic {
-    type: 'expand';
+export interface ActionsSelect extends ActionsBasic {
+    type: TableActionsTypes.select;
 }
-interface ActionsButton extends ActionsBasic {
-    type: 'button';
+export interface ActionsExpand extends ActionsBasic {
+    type: TableActionsTypes.expand;
+}
+export interface ActionsButton extends ActionsBasic {
+    type: TableActionsTypes.button;
     label: string;
 }
-interface ActionsTrigger extends ActionsBasic {
-    type: 'trigger';
+export interface ActionsTrigger extends ActionsBasic {
+    type: TableActionsTypes.trigger;
     label: string;
     target: {
         render: Component;
-        actions?: {
-            label: string;
-            onAction: (compData: {
-                [dataIndex: string]: string;
-            }) => void;
-            cancelLabel?: string;
-        };
+        cancelLabel?: string;
+        actions?: () => void;
     };
 }
-interface TableProps {
+export interface TableProps {
     data: any[];
     columns: {
         title?: string;

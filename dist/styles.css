@@ -177,7 +177,8 @@ table {
   position: relative;
   display: flex;
   flex-direction: row;
-  align-items: stretch;
+  align-items: center;
+  justify-content: flex-end;
 }
 .ui-table-content-body-row-actions-buttons {
   flex-direction: row;
@@ -206,6 +207,7 @@ table {
   text-transform: uppercase;
   font-size: 14px;
   font-weight: 500;
+  box-shadow: none;
 }
 .ui-table-content-body-row-actions .accent {
   color: #05afc8;

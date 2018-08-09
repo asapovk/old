@@ -10,6 +10,7 @@ import { Viewport } from '../src/Viewport';
 import { Button } from '../src/Button';
 
 import '../src/scss/main.scss';
+import { TableActionsTypes } from '../src/Table/Table';
 
 const data = [
     { index: '1', name: 'Jhon', addres: 'Hover street' },
@@ -36,9 +37,22 @@ storiesOf('TSX Components', module)
                 columns={columns}
                 actions={[
                     {
-                        type: "button",
+                        type: TableActionsTypes.button,
                         label: "Action",
                         onClick: (event) => console.log(event)
+                    },
+                    {
+                        type: TableActionsTypes.trigger,
+                        label: "Trigger",
+                        target: {
+                            render: <div>Yes!!</div>,
+                            actions: [{
+                                label: "Отправить",
+                                onClick: (row) => {
+                                    console.log(row)
+                                }
+                            }]
+                        }
                     }
                 ]}
             />

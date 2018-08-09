@@ -18,6 +18,13 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importDefault(require("react"));
 var TableRow_1 = __importDefault(require("./TableRow"));
+var TableActionsTypes;
+(function (TableActionsTypes) {
+    TableActionsTypes["select"] = "select";
+    TableActionsTypes["expand"] = "expand";
+    TableActionsTypes["button"] = "button";
+    TableActionsTypes["trigger"] = "trigger";
+})(TableActionsTypes = exports.TableActionsTypes || (exports.TableActionsTypes = {}));
 var Table = /** @class */ (function (_super) {
     __extends(Table, _super);
     function Table() {
@@ -34,13 +41,13 @@ var Table = /** @class */ (function (_super) {
         var types = {};
         if (this.props.actions) {
             this.props.actions.map(function (action) {
-                if (action.type == 'select')
+                if (action.type == TableActionsTypes.select)
                     types.isSelectable = true;
-                if (action.type == 'expand')
+                if (action.type == TableActionsTypes.expand)
                     types.isExpandable = true;
-                if (action.type == 'button')
+                if (action.type == TableActionsTypes.button)
                     types.isExpandable = true;
-                if (action.type == 'trigger')
+                if (action.type == TableActionsTypes.trigger)
                     types.isExpandable = true;
             });
         }

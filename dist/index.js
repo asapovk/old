@@ -8,3 +8,7 @@ var Viewport_1 = require("./Viewport");
 exports.Viewport = Viewport_1.Viewport;
 var Button_1 = require("./Button");
 exports.Button = Button_1.Button;
+var react_flexbox_1 = require("react-flexbox");
+exports.Flexbox = react_flexbox_1.default;
+var react_portal_1 = require("react-portal");
+exports.Portal = react_portal_1.default;
