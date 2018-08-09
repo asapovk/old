@@ -9,7 +9,7 @@ export enum TableActionsTypes {
 }
 
 export interface ActionsBasic {
-    onClick: (dataRow: any) => void
+    onClick?: (dataRow: any) => void
 }
 
 
@@ -32,7 +32,7 @@ export interface ActionsTrigger extends ActionsBasic {
     target: {
         render: Component
         cancelLabel?: string
-        actions?: () => void
+        actions?: ActionsButton[]
     }
 }
 

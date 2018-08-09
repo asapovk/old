@@ -6,7 +6,7 @@ export declare enum TableActionsTypes {
     trigger = "trigger"
 }
 export interface ActionsBasic {
-    onClick: (dataRow: any) => void;
+    onClick?: (dataRow: any) => void;
 }
 export interface ActionsSelect extends ActionsBasic {
     type: TableActionsTypes.select;
@@ -24,7 +24,7 @@ export interface ActionsTrigger extends ActionsBasic {
     target: {
         render: Component;
         cancelLabel?: string;
-        actions?: () => void;
+        actions?: ActionsButton[];
     };
 }
 export interface TableProps {
