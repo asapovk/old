@@ -46,7 +46,7 @@ storiesOf('TSX Components', module)
                         type: TableActionsTypes.trigger,
                         label: "Trigger",
                         target: {
-                            render: <div>Yes!!</div>,
+                            render: (row) => <div>{JSON.stringify(row)}</div>,
                             actions: [{
                                 label: "Отправить",
                                 onClick: (row) => {
