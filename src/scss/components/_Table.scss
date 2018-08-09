@@ -74,7 +74,8 @@
                     position: relative;
                     display: flex;
                     flex-direction: row;
-                    align-items: stretch;
+                    align-items: center;
+                    justify-content: flex-end;
                     &-buttons {
                         flex-direction: row;
                         align-items: center;
@@ -102,6 +103,7 @@
                         text-transform: uppercase;
                         font-size: 14px;
                         font-weight: 500;
+                        box-shadow: none;
                     }
                     .accent {
                         color: $accent;

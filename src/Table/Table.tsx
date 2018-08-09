@@ -1,33 +1,38 @@
 import React, { Component } from 'react';
 import TableRow from './TableRow';
 
-export interface ActionsBasic {
-    onAction: (dataRow: { [dataIndex: string]: string }, selectedItems: [string]) => void
+export enum TableActionsTypes {
+    select = "select",
+    expand = "expand",
+    button = "button",
+    trigger = "trigger"
 }
 
+export interface ActionsBasic {
+    onClick?: (dataRow: any) => void
+}
+
+
 export interface ActionsSelect extends ActionsBasic {
-    type: 'select'
+    type: TableActionsTypes.select
 }
 
 export interface ActionsExpand extends ActionsBasic {
-    type: 'expand'
+    type: TableActionsTypes.expand
 }
 
 export interface ActionsButton extends ActionsBasic {
-    type: 'button'
+    type: TableActionsTypes.button
     label: string
 }
 
 export interface ActionsTrigger extends ActionsBasic {
-    type: 'trigger'
+    type: TableActionsTypes.trigger
     label: string
     target: {
         render: Component
-        actions?: {
-            label: string
-            onAction: (compData: { [dataIndex: string]: string }) => void
-            cancelLabel?: string
-        }
+        cancelLabel?: string
+        actions?: ActionsButton[]
     }
 }
 
@@ -59,10 +64,10 @@ class Table extends React.Component<TableProps> {
         const types = {} as { [key: string]: boolean }
         if (this.props.actions) {
             this.props.actions.map(action => {
-                if (action.type == 'select') types.isSelectable = true
-                if (action.type == 'expand') types.isExpandable = true
-                if (action.type == 'button') types.isExpandable = true
-                if (action.type == 'trigger') types.isExpandable = true
+                if (action.type == TableActionsTypes.select) types.isSelectable = true
+                if (action.type == TableActionsTypes.expand) types.isExpandable = true
+                if (action.type == TableActionsTypes.button) types.isExpandable = true
+                if (action.type == TableActionsTypes.trigger) types.isExpandable = true
             })
         }
         this.setState({ types: types });

@@ -1,12 +1,12 @@
 import React from 'react';
 
-interface TableColumsProps {
+interface TableColumnsProps {
     row
     columns
     scope?
 }
 
-export default class TableColumns extends React.Component<TableColumsProps> {
+export default class TableColumns extends React.Component<TableColumnsProps> {
 
     render() {
         const { row, columns, scope } = this.props;

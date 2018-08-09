@@ -3,13 +3,17 @@ import React from 'react';
 import { Button } from '../../Button';
 
 export default props => (
-    <div className='ui-table-content-body-row-propss'>
-        {/* <Icon type='more' /> */}
-        <div className='ui-table-content-body-row-propss-buttons'>{
-            <Button
-                label={props.label}
-                onClick={props.onClick}
-            />
-        }</div>
-    </div>
+    <Button
+        label={props.label}
+        onClick={props.onClick}
+    />
 )
+// export default props => (
+//     <div className='ui-table-content-body-row-actions-buttons'>
+//         {/* <Icon type='more' /> */}
+//         <Button
+//             label={props.label}
+//             onClick={props.onClick}
+//         />
+//     </div>
+// )

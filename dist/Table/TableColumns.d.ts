@@ -1,10 +1,10 @@
 import React from 'react';
-interface TableColumsProps {
+interface TableColumnsProps {
     row: any;
     columns: any;
     scope?: any;
 }
-export default class TableColumns extends React.Component<TableColumsProps> {
+export default class TableColumns extends React.Component<TableColumnsProps> {
     render(): any;
 }
 export {};
