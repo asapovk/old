@@ -2,7 +2,12 @@ import React, { Component, Children } from 'react';
 
 interface TableProps {
     search?: boolean
-    tools?: {
+    toolsLeft?: {
+        icon: any
+        float: 'left' | 'right'
+        onAction: () => void
+    }[]
+    toolsRight?: {
         icon: any
         float: 'left' | 'right'
         onAction: () => void
@@ -10,7 +15,6 @@ interface TableProps {
     pin?: boolean
     Children?: any[]
 }
-
 class Menu extends React.Component<TableProps> {
 
     componentWillMount() {
@@ -21,7 +25,7 @@ class Menu extends React.Component<TableProps> {
             <div className='ui-menu'>
                 <div className='menu'>
                     <div className='nav'>{this.props.children}</div>
-                    <button className='add' onClick={_ => AppActions.menuActions.add()}><Icon type='add' /></button>
+                    {/* <button className='add' onClick={_ => AppActions.menuActions.add()}><Icon type='add' /></button> */}
                 </div>
             </div>
         )

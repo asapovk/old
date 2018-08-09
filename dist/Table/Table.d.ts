@@ -1,20 +1,20 @@
 import React, { Component } from 'react';
-interface ActionsBasic {
+export interface ActionsBasic {
     onAction: (dataRow: {
         [dataIndex: string]: string;
     }, selectedItems: [string]) => void;
 }
-interface ActionsSelect extends ActionsBasic {
+export interface ActionsSelect extends ActionsBasic {
     type: 'select';
 }
-interface ActionsExpand extends ActionsBasic {
+export interface ActionsExpand extends ActionsBasic {
     type: 'expand';
 }
-interface ActionsButton extends ActionsBasic {
+export interface ActionsButton extends ActionsBasic {
     type: 'button';
     label: string;
 }
-interface ActionsTrigger extends ActionsBasic {
+export interface ActionsTrigger extends ActionsBasic {
     type: 'trigger';
     label: string;
     target: {
@@ -28,7 +28,7 @@ interface ActionsTrigger extends ActionsBasic {
         };
     };
 }
-interface TableProps {
+export interface TableProps {
     data: any[];
     columns: {
         title?: string;

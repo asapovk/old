@@ -36,8 +36,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importStar(require("react"));
 //import TableCheckbox from './TableCheckbox';
-//import TableActions from './TableActions';
 var TableColumns_1 = __importDefault(require("./TableColumns"));
+var Button_1 = __importDefault(require("./Actions/Button"));
 var TableRow = /** @class */ (function (_super) {
     __extends(TableRow, _super);
     function TableRow() {
@@ -54,7 +54,13 @@ var TableRow = /** @class */ (function (_super) {
         var _a = this.props, row = _a.row, isSelected = _a.isSelected, isExpanding = _a.isExpanding, isBlur = _a.isBlur, actions = _a.actions, border = _a.border, scope = _a.scope;
         return (react_1.default.createElement(react_1.Fragment, null,
             react_1.default.createElement("div", { className: "ui-table-content-body-row " + (isBlur ? 'blur' : 'hover'), onClick: function (_) { return _this.onClick(); } },
-                react_1.default.createElement(TableColumns_1.default, __assign({}, this.props)))));
+                react_1.default.createElement(TableColumns_1.default, __assign({}, this.props)),
+                Array.isArray(this.props.actions) && this.props.actions.map(function (action, index) {
+                    if (action.type === 'button') {
+                        return react_1.default.createElement(Button_1.default, __assign({ key: index }, action));
+                    }
+                    return null;
+                }))));
     };
     return TableRow;
 }(react_1.default.Component));
