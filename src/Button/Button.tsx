@@ -7,7 +7,7 @@ interface ButtonProps {
     loading?: boolean
     icon?: Component
     labelCase?: 'upper' | 'lower' | 'capitalize' | 'sentence'
-    onClick?: () => any
+    onClick?: (MouseEvent?) => any
 }
 
 class Button extends Component<ButtonProps> {

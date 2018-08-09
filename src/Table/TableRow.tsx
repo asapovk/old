@@ -1,7 +1,8 @@
 import React, { Fragment } from 'react';
 //import TableCheckbox from './TableCheckbox';
-//import TableActions from './TableActions';
 import TableColumns from './TableColumns';
+import { ActionsButton } from './Table';
+import ActionButton from './Actions/Button';
 
 interface TableRowProps {
     row: {
@@ -36,9 +37,12 @@ export default class TableRow extends React.Component<TableRowProps> {
                         <TableCheckbox active={this.props.isSelected} />
                     )} */}
                     <TableColumns {...this.props} />
-                    {/* {this.state.rowActions && (
-                        <TableActions {...actions} />
-                    )} */}
+                    {Array.isArray(this.props.actions) && this.props.actions.map((action, index) => {
+                        if (action.type === 'button') {
+                            return <ActionButton key={index} {...action} />
+                        }
+                        return null;
+                    })}
                 </div>
             </Fragment>
         )

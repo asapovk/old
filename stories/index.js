@@ -30,6 +30,18 @@ storiesOf('TSX Components', module)
         <Viewport><TextField label='Label' /></Viewport>
     ))
     .add('Table', () => (
-        <Viewport><Table data={data} columns={columns} /></Viewport>
+        <Viewport>
+            <Table
+                data={data}
+                columns={columns}
+                actions={[
+                    {
+                        type: "button",
+                        label: "Action",
+                        onClick: (event) => console.log(event)
+                    }
+                ]}
+            />
+        </Viewport>
     ));
 
