@@ -4,7 +4,7 @@ interface TableFormProps {
     row: any;
     onCancel: () => void;
     target: {
-        render: Component;
+        render: (row: any) => Component | Element | string | null;
         cancelLabel?: string;
         actions?: ActionsButton[];
     };

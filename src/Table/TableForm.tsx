@@ -7,7 +7,7 @@ interface TableFormProps {
     row: any
     onCancel: () => void,
     target: {
-        render: Component
+        render: (row) => Component | Element | string | null;
         cancelLabel?: string
         actions?: ActionsButton[]
     }
@@ -67,15 +67,14 @@ class TableForm extends React.Component<TableFormProps> {
     // }
 
     render() {
-        console.log(this.props)
         return (
             <Flexbox className='ui-table-content-body-row edited'>
-                {this.props.target.render}
+                {this.props.target.render(this.props.row)}
                 <div className='ui-table-content-body-row-actions'>
                     {
                         Array.isArray(this.props.target.actions) && this.props.target.actions.map((action, index) => {
                             return (
-                                <Button key={index} label={action.label} onClick={action.onClick.bind(this, this.props.row)} />
+                                <Button key={index} label={action.label} onClick={action.onClick && action.onClick.bind(this, this.props.row)} />
                             )
                         })
                     }
