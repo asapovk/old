@@ -1,23 +1,4 @@
 import React, { Component } from 'react';
-<<<<<<< HEAD
-export interface ActionsBasic {
-    onAction: (dataRow: {
-        [dataIndex: string]: string;
-    }, selectedItems: [string]) => void;
-}
-export interface ActionsSelect extends ActionsBasic {
-    type: 'select';
-}
-export interface ActionsExpand extends ActionsBasic {
-    type: 'expand';
-}
-export interface ActionsButton extends ActionsBasic {
-    type: 'button';
-    label: string;
-}
-export interface ActionsTrigger extends ActionsBasic {
-    type: 'trigger';
-=======
 export declare enum TableActionsTypes {
     select = "select",
     expand = "expand",
@@ -39,7 +20,6 @@ export interface ActionsButton extends ActionsBasic {
 }
 export interface ActionsTrigger extends ActionsBasic {
     type: TableActionsTypes.trigger;
->>>>>>> ad3a11e5a6e756d57a172a2b8c8f2b55790883da
     label: string;
     target: {
         render: (row: any) => Component | Element | string | null;
