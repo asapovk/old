@@ -17,64 +17,44 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importDefault(require("react"));
-var Button_1 = require("../Button");
-var TableForm = /** @class */ (function (_super) {
-    __extends(TableForm, _super);
-    function TableForm() {
-        return _super !== null && _super.apply(this, arguments) || this;
+var TableFormHOC = /** @class */ (function (_super) {
+    __extends(TableFormHOC, _super);
+    function TableFormHOC(props) {
+        var _this = _super.call(this, props) || this;
+        _this.state = {
+            invalidItems: new Set()
+        };
+        _this.setData = _this.setData.bind(_this);
+        _this.setValid = _this.setValid.bind(_this);
+        return _this;
     }
-    // constructor(props) {
-    //     super(props);
-    //     this.state = {
-    //         invalidItems: new Set()
-    //     }
-    //     this.setData = this.setData.bind(this);
-    //     this.setValid = this.setValid.bind(this);
-    // }
-    // static defaultProps = {
-    //     data: {}
-    // }
-    // componentWillMount() {
-    //     this.formData = Object.assign(this.props.data);
-    // }
-    // setData(field, value) {
-    //     this.formData[field] = value;
-    // }
-    // setValid(id, isValid) {
-    //     const items = this.state.invalidItems;
-    //     isValid ? items.delete(id) : items.add(id);
-    //     this.setState({ invalidItems: items });
-    //     this.save.disabled = items.size > 0 ? true : false;
-    // }
-    // Column(props) {
-    //     const width = props.width ? { flexBasis: props.width } : { flex: 1 };
-    //     return (
-    //         <div
-    //             className={'ui-table-content-body-row-column' + (props.className ? ' ' + props.className : '')}
-    //             children={props.children}
-    //             style={Object.assign(width, props.style)}
-    //         />
-    //     )
-    // }
-    // Subrow(props) {
-    //     return (
-    //         <div
-    //             className={'ui-table-content-body-row-column-subrow' + (props.className ? ' ' + props.className : '')}
-    //             children={props.children}
-    //             style={props.style}
-    //         />
-    //     )
-    // }
-    TableForm.prototype.render = function () {
-        var _this = this;
-        return (react_1.default.createElement("div", { className: 'ui-table-content-body-row edited' },
-            this.props.target.render(this.props.row),
-            react_1.default.createElement("div", { className: 'ui-table-content-body-row-actions' },
-                Array.isArray(this.props.target.actions) && this.props.target.actions.map(function (action, index) {
-                    return (react_1.default.createElement(Button_1.Button, { key: index, label: action.label, onClick: action.onClick && action.onClick.bind(_this, _this.props.row) }));
-                }),
-                react_1.default.createElement(Button_1.Button, { label: this.props.target.cancelLabel || "Отмена", onClick: this.props.onCancel }))));
+    TableFormHOC.prototype.componentWillMount = function () {
+        this.formData = Object.assign(this.props.data);
     };
-    return TableForm;
+    TableFormHOC.prototype.setData = function (field, value) {
+        this.formData[field] = value;
+    };
+    TableFormHOC.prototype.setValid = function (id, isValid) {
+        var items = this.state.invalidItems;
+        isValid ? items.delete(id) : items.add(id);
+        this.setState({ invalidItems: items });
+        this.save.disabled = items.size > 0 ? true : false;
+    };
+    TableFormHOC.prototype.Column = function (props) {
+        var width = props.width ? { flexBasis: props.width } : { flex: 1 };
+        return (react_1.default.createElement("div", { className: 'ui-table-content-body-row-column' + (props.className ? ' ' + props.className : ''), children: props.children, style: Object.assign(width, props.style) }));
+    };
+    TableFormHOC.prototype.Subrow = function (props) {
+        return (react_1.default.createElement("div", { className: 'ui-table-content-body-row-column-subrow' + (props.className ? ' ' + props.className : ''), children: props.children, style: props.style }));
+    };
+    TableFormHOC.prototype.Actions = function (props) {
+        return (react_1.default.createElement("div", { className: 'ui-table-content-body-row-actions' + (props.className ? ' ' + props.className : ''), children: props.children, style: props.style }));
+    };
+    TableFormHOC.prototype.render = function () {
+        var Form = this.props.Form;
+        return (react_1.default.createElement("div", { className: 'ui-table-content-body-row edited' },
+            react_1.default.createElement(Form, { data: this.props.data, setData: this.setData, setValid: this.setValid, Column: this.Column, Subrow: this.Subrow, Actions: this.Actions })));
+    };
+    return TableFormHOC;
 }(react_1.default.Component));
-exports.default = TableForm;
+exports.default = (function (row, Form) { return react_1.default.createElement(TableFormHOC, { data: row, Form: Form }); });

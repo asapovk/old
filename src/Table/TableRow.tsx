@@ -1,9 +1,9 @@
 import React, { Fragment } from 'react';
 //import TableCheckbox from './TableCheckbox';
 import TableColumns from './TableColumns';
-import { ActionsButton, TableActionsTypes } from './Table';
-import ActionButton from './Actions/Button';
+// import ActionButton from './Actions/Button';
 import TableForm from './TableForm';
+import TableActions from './TableActions';
 
 interface TableRowProps {
     row: {
@@ -16,6 +16,7 @@ interface TableRowProps {
     actions?
     border?
     scope?
+    form?
 }
 
 export default class TableRow extends React.Component<TableRowProps> {
@@ -30,40 +31,21 @@ export default class TableRow extends React.Component<TableRowProps> {
     }
 
     render() {
-        const { row, isSelected, isExpanding, isBlur, actions, border, scope } = this.props;
+        const { row, isSelected, isExpanding, isBlur, actions, border, scope, form } = this.props;
         const { triggerAction } = this.state;
 
-        if (triggerAction) {
-            return (
-                <TableForm {...triggerAction} row={row} onCancel={() => {
-                    this.setState({
-                        triggerAction: null
-                    });
-                }} />
-            )
+        if (form) {
+            return TableForm(row, form)
         }
         return (
             <div className={`ui-table-content-body-row ${isBlur ? 'blur' : 'hover'}`} onClick={(event) => this.onClick()}>
                 {/* {this.state.onSelect && (
                 <TableCheckbox active={this.props.isSelected} />
-            )} */}
-
+                )} */}
                 <TableColumns {...this.props} />
-                {Array.isArray(this.props.actions) && this.props.actions.map((action, index) => {
-                    if (action.type === TableActionsTypes.button) {
-                        return <ActionButton key={index} {...action} />
-                    }
-                    if (action.type === TableActionsTypes.trigger) {
-                        return (
-                            <ActionButton key={index} {...action} onClick={() => {
-                                this.setState({
-                                    triggerAction: action
-                                });
-                            }} />
-                        );
-                    }
-                    return null;
-                })}
+                {actions && (
+                    <TableActions actions={actions} data={row} />
+                )}
             </div>
         )
     }

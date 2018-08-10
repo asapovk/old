@@ -10,6 +10,7 @@ interface TableRowProps {
     actions?: any;
     border?: any;
     scope?: any;
+    form?: any;
 }
 export default class TableRow extends React.Component<TableRowProps> {
     state: {

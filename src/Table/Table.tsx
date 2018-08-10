@@ -1,43 +1,7 @@
 import React, { Component } from 'react';
 import TableRow from './TableRow';
 
-export enum TableActionsTypes {
-    select = "select",
-    expand = "expand",
-    button = "button",
-    trigger = "trigger"
-}
-
-export interface ActionsBasic {
-    onClick?: (dataRow: any) => any
-}
-
-
-export interface ActionsSelect extends ActionsBasic {
-    type: TableActionsTypes.select
-}
-
-export interface ActionsExpand extends ActionsBasic {
-    type: TableActionsTypes.expand
-}
-
-export interface ActionsButton extends ActionsBasic {
-    type: TableActionsTypes.button
-    label: string
-}
-
-export interface ActionsTrigger extends ActionsBasic {
-    type: TableActionsTypes.trigger
-    label: string
-    target: {
-        render: (row) => any
-        cancelLabel?: string
-        actions?: ActionsButton[]
-    }
-}
-
 export interface TableProps {
-    // TODO: Избавится от any
     data: any[]
     columns: {
         title?: string
@@ -45,7 +9,15 @@ export interface TableProps {
         width?: number
         render?: (row, value) => any
     }[]
-    actions?: any //TODO:any [ActionsSelect | ActionsExpand | ActionsButton | ActionsTrigger]
+    form?: {
+        key: string
+        render: any
+    }
+    actions?: {
+        label: string,
+        className?: string,
+        onAction: (row) => void
+    }[]
     border?: 'all' | 'external' | 'internal' | 'vertical' | 'horizontal'
     indexKey?: string
     scope?: any
@@ -57,25 +29,12 @@ class Table extends React.Component<TableProps> {
         selectedItems: [] as string[],
         expandedItems: [] as string[],
         focusItem: '' as string,
-        types: {} as { [key: string]: boolean }
     }
 
-    componentWillMount() {
-        const types = {} as { [key: string]: boolean }
-        if (this.props.actions) {
-            this.props.actions.map(action => {
-                if (action.type == TableActionsTypes.select) types.isSelectable = true
-                if (action.type == TableActionsTypes.expand) types.isExpandable = true
-                if (action.type == TableActionsTypes.button) types.isExpandable = true
-                if (action.type == TableActionsTypes.trigger) types.isExpandable = true
-            })
-        }
-        this.setState({ types: types });
-    }
 
     render() {
 
-        const { data, columns, actions, border, indexKey, scope } = this.props;
+        const { data, columns, actions, border, indexKey, scope, form } = this.props;
 
         const ColumnsTSX = columns.map(column => (
             <div className={'ui-table-content-head-row-column ' + column.dataIndex} key={column.dataIndex} style={column.width ? { flexBasis: column.width } : { flex: 1 }}>{column.title}</div>
@@ -83,6 +42,7 @@ class Table extends React.Component<TableProps> {
 
         const RowsTSX = data.map((row, index) => {
             const key = indexKey && row[indexKey] || index.toString()
+            console.log(form && form.render);
             return (
                 <TableRow
                     key={key}
@@ -90,6 +50,7 @@ class Table extends React.Component<TableProps> {
                     columns={columns}
                     actions={actions}
                     border={border}
+                    form={(form && key == form.key) && form.render}
                     isSelected={(this.state.selectedItems.some(item => item === key))}
                     isExpanding={(this.state.expandedItems.some(item => item === key))}
                     // isBlur={this.state.focusItem && (this.state.focusItem != key)}

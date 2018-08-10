@@ -24,36 +24,28 @@ const columns = [
     { title: 'Addres', dataIndex: 'addres' }
 ]
 
+const flexCentered = {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center'
+}
+
 storiesOf('TSX Components', module)
     .add('Button', () => (
-        <Viewport><Button>Click me</Button></Viewport>
+        <Viewport style={flexCentered}><Button>Click me</Button></Viewport>
     ))
     .add('TextField', () => (
-        <Viewport><TextField label='Label' /></Viewport>
+        <Viewport style={flexCentered}><TextField label='Label' /></Viewport>
     ))
     .add('Table', () => (
-        <Viewport>
+        <Viewport style={flexCentered}>
             <Table
                 data={data}
                 columns={columns}
                 actions={[
                     {
-                        type: TableActionsTypes.button,
                         label: "Action",
                         onClick: (event) => console.log(event)
-                    },
-                    {
-                        type: TableActionsTypes.trigger,
-                        label: "Trigger",
-                        target: {
-                            render: (row) => <div>{JSON.stringify(row)}</div>,
-                            actions: [{
-                                label: "Отправить",
-                                onClick: (row) => {
-                                    console.log(row)
-                                }
-                            }]
-                        }
                     }
                 ]}
             />
@@ -61,10 +53,10 @@ storiesOf('TSX Components', module)
     ))
     .add('Menu', () => (
         <Viewport>
-            <Menu header={{ label: 'CIA', onAction: () => console.log('Murder') }}>
+            <Menu header={{ label: 'Connect: Module', onAction: () => console.log('Bip-bop') }}>
                 <Nav active={true}>About</Nav>
                 <Nav>Events</Nav>
-                <Nav>Intelligence</Nav>
+                <Nav onClick={() => console.log('fly away')}>Intelligence</Nav>
                 <Nav>Jobs</Nav>
             </Menu>
         </Viewport>

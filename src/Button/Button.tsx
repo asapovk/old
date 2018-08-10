@@ -8,16 +8,18 @@ interface ButtonProps {
     icon?: Component
     labelCase?: 'upper' | 'lower' | 'capitalize' | 'sentence'
     onClick?: (MouseEvent?) => any
+    className?: string
 }
 
 class Button extends Component<ButtonProps> {
     render() {
 
-        const { decoration, labelCase, onClick, label, children } = this.props;
+        const { decoration, labelCase, onClick, label, children, className } = this.props;
         let classes = 'ui-button';
 
         if (decoration == 'none') classes += ' btn-strip';
         if (labelCase == 'upper') classes += ' uppercase';
+        classes += className;
 
         return (
             <button className={classes} onClick={onClick}>{label || children}</button>

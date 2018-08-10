@@ -30,9 +30,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importDefault(require("react"));
 //import TableCheckbox from './TableCheckbox';
 var TableColumns_1 = __importDefault(require("./TableColumns"));
-var Table_1 = require("./Table");
-var Button_1 = __importDefault(require("./Actions/Button"));
+// import ActionButton from './Actions/Button';
 var TableForm_1 = __importDefault(require("./TableForm"));
+var TableActions_1 = __importDefault(require("./TableActions"));
 var TableRow = /** @class */ (function (_super) {
     __extends(TableRow, _super);
     function TableRow() {
@@ -47,30 +47,14 @@ var TableRow = /** @class */ (function (_super) {
     };
     TableRow.prototype.render = function () {
         var _this = this;
-        var _a = this.props, row = _a.row, isSelected = _a.isSelected, isExpanding = _a.isExpanding, isBlur = _a.isBlur, actions = _a.actions, border = _a.border, scope = _a.scope;
+        var _a = this.props, row = _a.row, isSelected = _a.isSelected, isExpanding = _a.isExpanding, isBlur = _a.isBlur, actions = _a.actions, border = _a.border, scope = _a.scope, form = _a.form;
         var triggerAction = this.state.triggerAction;
-        if (triggerAction) {
-            return (react_1.default.createElement(TableForm_1.default, __assign({}, triggerAction, { row: row, onCancel: function () {
-                    _this.setState({
-                        triggerAction: null
-                    });
-                } })));
+        if (form) {
+            return TableForm_1.default(row, form);
         }
         return (react_1.default.createElement("div", { className: "ui-table-content-body-row " + (isBlur ? 'blur' : 'hover'), onClick: function (event) { return _this.onClick(); } },
             react_1.default.createElement(TableColumns_1.default, __assign({}, this.props)),
-            Array.isArray(this.props.actions) && this.props.actions.map(function (action, index) {
-                if (action.type === Table_1.TableActionsTypes.button) {
-                    return react_1.default.createElement(Button_1.default, __assign({ key: index }, action));
-                }
-                if (action.type === Table_1.TableActionsTypes.trigger) {
-                    return (react_1.default.createElement(Button_1.default, __assign({ key: index }, action, { onClick: function () {
-                            _this.setState({
-                                triggerAction: action
-                            });
-                        } })));
-                }
-                return null;
-            })));
+            actions && (react_1.default.createElement(TableActions_1.default, { actions: actions, data: row }))));
     };
     return TableRow;
 }(react_1.default.Component));

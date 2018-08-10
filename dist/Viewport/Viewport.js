@@ -27,7 +27,7 @@ var Viewport = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     Viewport.prototype.render = function () {
-        return (react_1.default.createElement("div", { className: 'ui-view', children: this.props.children }));
+        return (react_1.default.createElement("div", { className: 'ui-view', style: this.props.style, children: this.props.children }));
     };
     return Viewport;
 }(react_1.Component));
