@@ -1,20 +1,18 @@
 import React from 'react';
-interface TableProps {
+interface MenuProps {
+    header?: any;
     search?: boolean;
     toolsLeft?: {
-        icon: any;
-        float: 'left' | 'right';
+        tool: any;
         onAction: () => void;
     }[];
     toolsRight?: {
-        icon: any;
-        float: 'left' | 'right';
+        tool: any;
         onAction: () => void;
     }[];
     pin?: boolean;
-    Children?: any[];
 }
-declare class Menu extends React.Component<TableProps> {
+declare class Menu extends React.Component<MenuProps> {
     componentWillMount(): void;
     render(): JSX.Element;
 }

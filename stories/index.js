@@ -8,7 +8,7 @@ import { TextField } from '../src/TextField';
 import { Table } from '../src/Table';
 import { Viewport } from '../src/Viewport';
 import { Button } from '../src/Button';
-// import { Menu } from '../src/Menu';
+import { Menu, Nav } from '../src/Menu';
 
 import '../src/scss/main.scss';
 import { TableActionsTypes } from '../src/Table/Table';
@@ -20,8 +20,8 @@ const data = [
 ]
 
 const columns = [
-    { title: 'Имя', dataIndex: 'name' },
-    { title: 'Адрес', dataIndex: 'addres' }
+    { title: 'Name', dataIndex: 'name' },
+    { title: 'Addres', dataIndex: 'addres' }
 ]
 
 storiesOf('TSX Components', module)
@@ -58,8 +58,15 @@ storiesOf('TSX Components', module)
                 ]}
             />
         </Viewport>
+    ))
+    .add('Menu', () => (
+        <Viewport>
+            <Menu header={{ label: 'CIA', onAction: () => console.log('Murder') }}>
+                <Nav active={true}>About</Nav>
+                <Nav>Events</Nav>
+                <Nav>Intelligence</Nav>
+                <Nav>Jobs</Nav>
+            </Menu>
+        </Viewport>
     ));
-    // .add('Menu', () => (
-    // <Viewport><Menu /></Viewport>
-// ));
 

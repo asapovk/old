@@ -1,123 +1,51 @@
-.menu {
-    width: 100%;
+$rowHeight: 60px;
+
+.ui-menu {
     display: flex;
     flex-direction: row;
-    align-items: flex-end;
-}
-.nav {
-    display: flex;
-    flex: 1;
-    flex-direction: row;
-    margin-bottom: 15px;
-    padding-left: 30px;
-    align-items: flex-end;
-    &-main {
-        font-size: 24px;
-        font-weight: 700;
-        padding: 0 30px;
-        position: relative;
-        &-selected {
-            padding-right: 40px;
-            &:before {
-                content: ' ';
-                position: absolute;
-                top: -15px;
-                height: 65px;
-                left: 0;
-                right: 0;
-                background: $page-background;
-                box-shadow: inset 0px 2px 4px 0px rgba(20,20,20,0.5);
-                -webkit-clip-path: polygon(0 0, 93% 0, 100% 100%, 0% 100%);
-                clip-path: polygon(0 0, 93% 0, 100% 100%, 0% 100%);
-            }
-            span {
-                position: relative;
-            }
-            &:after {
-                content: ' ';
-                position: absolute;
-                bottom: -20px;
-                height: 4px;
-                left: 0;
-                right: 0;
-                background: $page-background;
-            }
-        }
-    }
-    &-filter {
-        padding: 0 20px;
-        font-weight: 400;
-        position: relative;
+    background: $ui-background;
+    align-items: flex-start;
+    padding: 0px 40px;
+    &-header {
         display: flex;
-        flex-direction: row;
-        &-label {
-            padding-right: 10px;
-            font-size: 16px;
-            color: $text;
-        }
-        &-counter {
-            padding: 0 10px;
-            font-weight: 500;
-            font-size: 14px;
-            line-height: 18px;
-            background-color: $highlight;
-            border-radius: 5px;
-            color: white;
-        }
-        &-close {
-            display: none;
-            padding: 0;
-            margin-left: 8px;
-            font-size: 14px;
-            line-height: 18px;
-            color: $highlight;
-        }
-        &-active {
-            .nav-filter-label {
-                color: $accent;
-                font-weight: 500;
-            }
-            .nav-filter-counter {
-                background-color: $accent !important;
-            }
-            .nav-filter-close {
-                display: flex;
-            }
-        }
-        &-selected {
-            padding-right: 30px;
-            &:before {
-                content: ' ';
-                position: absolute;
-                top: -15px;
-                height: 55px;
-                left: 0;
-                right: 0;
-                background: $page-background;
-                box-shadow: inset 0px 2px 4px 0px rgba(20,20,20,0.5);
-                -webkit-clip-path: polygon(0 0, 93% 0, 100% 100%, 0% 100%);
-                clip-path: polygon(0 0, 93% 0, 100% 100%, 0% 100%);
-            }
-            button {
-                position: relative;
-            }
-            &:after {
-                content: ' ';
-                position: absolute;
-                top: 40px;
-                height: 4px;
-                left: 0;
-                right: 0;
-                background: $page-background;
-            }
+        font-size: 24px;
+        font-weight: bold;
+        align-items: center;
+        height: $rowHeight;
+        padding-right: 40px;
+        cursor: pointer;
+    }
+    &-interactions {
+        display: flex;
+        flex-direction: column;
+        flex: 1 1 auto;
+        &-nav {
+            display: flex;
+            flex-direction: row;
+            height: $rowHeight;
         }
     }
 }
-.add {
-    width: 80px;
-    height: 80px;
-    background: $accent;
-    color: white;
-    font-size: 40px;
-    margin-left:40px;
+
+.ui-menu-nav {
+    display: flex;
+    padding: 0 20px;
+    align-items: center;
+    height: $rowHeight;
+    cursor: pointer;
+    position: relative;
+}
+
+.nav-active {
+    color: $accent;
+    font-weight: 700;
+    span {
+        position: absolute;
+        bottom: 0px;
+        height: 4px;
+        background: $accent;
+        left: 0;
+        right: 0;
+        z-index: 1;
+    }
 }

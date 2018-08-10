@@ -1,35 +1,41 @@
-import React, { Component, Children } from 'react';
+import React, { Component } from 'react';
 
-interface TableProps {
+interface MenuProps {
+    header?: any
     search?: boolean
     toolsLeft?: {
-        icon: any
-        float: 'left' | 'right'
+        tool: any
         onAction: () => void
     }[]
     toolsRight?: {
-        icon: any
-        float: 'left' | 'right'
+        tool: any
         onAction: () => void
     }[]
     pin?: boolean
-    Children?: any[]
 }
-class Menu extends React.Component<TableProps> {
+class Menu extends React.Component<MenuProps> {
 
     componentWillMount() {
 
     }
 
     render() {
+
+        const { children, header, toolsLeft, toolsRight } = this.props;
+        let HeaderJSX = header;
+
+        if (typeof header == 'object') {
+            HeaderJSX = <div className='ui-menu-header-title' onClick={header.onAction}>{header.label}</div>
+        }
+
         return (
             <div className='ui-menu'>
-                {/* <div className='ui-menu-header'>{this.props.children.Header}</div> */}
+                {header && <div className='ui-menu-header'>{HeaderJSX}</div>}
                 <div className='ui-menu-interactions'>
-                    <div className='ui-menu-interactions-tools'>{this.props.toolsLeft}</div>
-                    {/* <div className='ui-menu-interactions-nav'>{this.props.children.Nav}</div> */}
+                    {toolsLeft && <div className='ui-menu-interactions-tools'>{toolsLeft}</div>}
+                    {children && <div className='ui-menu-interactions-nav'>{children}</div>}
                 </div>
-                <div className='ui-menu-tools'>{this.props.toolsLeft}</div>
+                {toolsRight && <div className='ui-menu-tools'>{toolsRight}</div>}
             </div>
         )
     }
