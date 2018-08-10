@@ -62,7 +62,7 @@ table {
  * Roboto
  *---------------------------------------------------------------------------*/
 .ui-view {
-  color: #b1c6d1;
+  color: white;
   background: #292b36;
   position: absolute;
   top: 0;
@@ -243,7 +243,7 @@ table {
   font: inherit;
   outline: none;
   background: #464a58;
-  color: #b1c6d1;
+  color: white;
   border-radius: 5px;
   padding: 8px 16px;
   width: fit-content;
