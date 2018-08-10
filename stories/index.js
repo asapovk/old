@@ -30,7 +30,7 @@ const flexCentered = {
     justifyContent: 'center'
 }
 
-storiesOf('TSX Components', module)
+storiesOf('UI Core', module)
     .add('Button', () => (
         <Viewport style={flexCentered}><Button>Click me</Button></Viewport>
     ))
@@ -40,6 +40,7 @@ storiesOf('TSX Components', module)
     .add('Table', () => (
         <Viewport style={flexCentered}>
             <Table
+                style={{ width: '100%' }}
                 data={data}
                 columns={columns}
                 actions={[

@@ -30,7 +30,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importDefault(require("react"));
 //import TableCheckbox from './TableCheckbox';
 var TableColumns_1 = __importDefault(require("./TableColumns"));
-// import ActionButton from './Actions/Button';
 var TableForm_1 = __importDefault(require("./TableForm"));
 var TableActions_1 = __importDefault(require("./TableActions"));
 var TableRow = /** @class */ (function (_super) {

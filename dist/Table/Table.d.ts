@@ -19,6 +19,7 @@ export interface TableProps {
     border?: 'all' | 'external' | 'internal' | 'vertical' | 'horizontal';
     indexKey?: string;
     scope?: any;
+    style?: any;
 }
 declare class Table extends React.Component<TableProps> {
     state: {

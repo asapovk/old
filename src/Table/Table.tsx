@@ -21,6 +21,7 @@ export interface TableProps {
     border?: 'all' | 'external' | 'internal' | 'vertical' | 'horizontal'
     indexKey?: string
     scope?: any
+    style?: any
 }
 
 class Table extends React.Component<TableProps> {
@@ -34,7 +35,7 @@ class Table extends React.Component<TableProps> {
 
     render() {
 
-        const { data, columns, actions, border, indexKey, scope, form } = this.props;
+        const { data, columns, actions, border, indexKey, scope, form, style } = this.props;
 
         const ColumnsTSX = columns.map(column => (
             <div className={'ui-table-content-head-row-column ' + column.dataIndex} key={column.dataIndex} style={column.width ? { flexBasis: column.width } : { flex: 1 }}>{column.title}</div>
@@ -60,7 +61,7 @@ class Table extends React.Component<TableProps> {
         })
 
         return (
-            <div className='ui-table'>
+            <div className='ui-table' style={style}>
                 <div className='ui-table-content'>
                     <div className='ui-table-content-head-row' children={ColumnsTSX} />
                     <div className='ui-table-content-body' children={RowsTSX} />

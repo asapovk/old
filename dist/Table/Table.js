@@ -31,7 +31,7 @@ var Table = /** @class */ (function (_super) {
     }
     Table.prototype.render = function () {
         var _this = this;
-        var _a = this.props, data = _a.data, columns = _a.columns, actions = _a.actions, border = _a.border, indexKey = _a.indexKey, scope = _a.scope, form = _a.form;
+        var _a = this.props, data = _a.data, columns = _a.columns, actions = _a.actions, border = _a.border, indexKey = _a.indexKey, scope = _a.scope, form = _a.form, style = _a.style;
         var ColumnsTSX = columns.map(function (column) { return (react_1.default.createElement("div", { className: 'ui-table-content-head-row-column ' + column.dataIndex, key: column.dataIndex, style: column.width ? { flexBasis: column.width } : { flex: 1 } }, column.title)); });
         var RowsTSX = data.map(function (row, index) {
             var key = indexKey && row[indexKey] || index.toString();
@@ -40,7 +40,7 @@ var Table = /** @class */ (function (_super) {
                 // isBlur={this.state.focusItem && (this.state.focusItem != key)}
                 scope: scope }));
         });
-        return (react_1.default.createElement("div", { className: 'ui-table' },
+        return (react_1.default.createElement("div", { className: 'ui-table', style: style },
             react_1.default.createElement("div", { className: 'ui-table-content' },
                 react_1.default.createElement("div", { className: 'ui-table-content-head-row', children: ColumnsTSX }),
                 react_1.default.createElement("div", { className: 'ui-table-content-body', children: RowsTSX }))));
