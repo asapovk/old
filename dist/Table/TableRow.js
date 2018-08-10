@@ -46,10 +46,10 @@ var TableRow = /** @class */ (function (_super) {
     };
     TableRow.prototype.render = function () {
         var _this = this;
-        var _a = this.props, row = _a.row, isSelected = _a.isSelected, isExpanding = _a.isExpanding, isBlur = _a.isBlur, actions = _a.actions, border = _a.border, scope = _a.scope, form = _a.form;
+        var _a = this.props, row = _a.row, isSelected = _a.isSelected, isExpanding = _a.isExpanding, isBlur = _a.isBlur, actions = _a.actions, border = _a.border, scope = _a.scope, columns = _a.columns, form = _a.form;
         var triggerAction = this.state.triggerAction;
         if (form) {
-            return TableForm_1.default(row, form);
+            return TableForm_1.default(row, columns, form);
         }
         return (react_1.default.createElement("div", { className: "ui-table-content-body-row " + (isBlur ? 'blur' : 'hover'), onClick: function (event) { return _this.onClick(); } },
             react_1.default.createElement(TableColumns_1.default, __assign({}, this.props)),

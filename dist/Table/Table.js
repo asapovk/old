@@ -42,7 +42,7 @@ var Table = /** @class */ (function (_super) {
         });
         return (react_1.default.createElement("div", { className: 'ui-table', style: style },
             react_1.default.createElement("div", { className: 'ui-table-content' },
-                react_1.default.createElement("div", { className: 'ui-table-content-head-row', children: ColumnsTSX }),
+                react_1.default.createElement("div", { className: 'ui-table-content-head-row', children: ColumnsTSX, style: actions && { marginRight: '32px' } }),
                 react_1.default.createElement("div", { className: 'ui-table-content-body', children: RowsTSX }))));
     };
     return Table;

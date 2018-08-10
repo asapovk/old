@@ -30,11 +30,11 @@ export default class TableRow extends React.Component<TableRowProps> {
     }
 
     render() {
-        const { row, isSelected, isExpanding, isBlur, actions, border, scope, form } = this.props;
+        const { row, isSelected, isExpanding, isBlur, actions, border, scope, columns, form } = this.props;
         const { triggerAction } = this.state;
 
         if (form) {
-            return TableForm(row, form)
+            return TableForm(row, columns, form)
         }
         return (
             <div className={`ui-table-content-body-row ${isBlur ? 'blur' : 'hover'}`} onClick={(event) => this.onClick()}>

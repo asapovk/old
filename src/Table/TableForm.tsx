@@ -3,6 +3,7 @@ import { Button } from '../Button';
 
 interface TableFormHOCProps {
     data: any
+    columns: any
     Form: any
 }
 
@@ -75,14 +76,14 @@ class TableFormHOC extends React.Component<TableFormHOCProps> {
 
     render() {
 
-        const { Form } = this.props;
+        const { Form, data, columns } = this.props;
 
         return (
             <div className='ui-table-content-body-row edited'>
-                <Form data={this.props.data} setData={this.setData} setValid={this.setValid} Column={this.Column} Subrow={this.Subrow} Actions={this.Actions} />
+                <Form data={data} columns={columns} setData={this.setData} setValid={this.setValid} Column={this.Column} Subrow={this.Subrow} Actions={this.Actions} />
             </div>
         )
     }
 }
 
-export default (row, Form) => <TableFormHOC data={row} Form={Form} />
+export default (row, columns, Form) => <TableFormHOC data={row} columns={columns} Form={Form} />

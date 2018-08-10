@@ -51,10 +51,10 @@ var TableFormHOC = /** @class */ (function (_super) {
         return (react_1.default.createElement("div", { className: 'ui-table-content-body-row-actions' + (props.className ? ' ' + props.className : ''), children: props.children, style: props.style }));
     };
     TableFormHOC.prototype.render = function () {
-        var Form = this.props.Form;
+        var _a = this.props, Form = _a.Form, data = _a.data, columns = _a.columns;
         return (react_1.default.createElement("div", { className: 'ui-table-content-body-row edited' },
-            react_1.default.createElement(Form, { data: this.props.data, setData: this.setData, setValid: this.setValid, Column: this.Column, Subrow: this.Subrow, Actions: this.Actions })));
+            react_1.default.createElement(Form, { data: data, columns: columns, setData: this.setData, setValid: this.setValid, Column: this.Column, Subrow: this.Subrow, Actions: this.Actions })));
     };
     return TableFormHOC;
 }(react_1.default.Component));
-exports.default = (function (row, Form) { return react_1.default.createElement(TableFormHOC, { data: row, Form: Form }); });
+exports.default = (function (row, columns, Form) { return react_1.default.createElement(TableFormHOC, { data: row, columns: columns, Form: Form }); });
