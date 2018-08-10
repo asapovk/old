@@ -10,5 +10,5 @@ exports.default = (function (props) { return (react_1.default.createElement("div
     react_1.default.createElement(Icon_1.default, { type: 'more' }),
     react_1.default.createElement("div", { className: 'ui-table-content-body-row-actions-buttons' }, props.actions.map(function (action, index) { return (react_1.default.createElement(Button_1.Button, { decoration: 'none', key: index, className: action.className, onClick: function (event) {
             event.stopPropagation();
-            action.onClick(props.data);
+            action.onAction(props.data);
         } }, action.label)); })))); });

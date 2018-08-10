@@ -46,7 +46,7 @@ storiesOf('UI Core', module)
                 actions={[
                     {
                         label: "Action",
-                        onClick: (event) => console.log(event)
+                        onAction: (event) => console.log(event)
                     }
                 ]}
             />

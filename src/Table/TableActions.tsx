@@ -9,7 +9,7 @@ export default props => (
             props.actions.map((action, index) => (
                 <Button decoration='none' key={index} className={action.className} onClick={event => {
                     event.stopPropagation();
-                    action.onClick(props.data);
+                    action.onAction(props.data);
                 }}>{action.label}</Button>
             ))
         }</div>
