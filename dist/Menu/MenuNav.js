@@ -23,11 +23,11 @@ var MenuNav = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     MenuNav.prototype.render = function () {
-        var active = this.props.active;
+        var _a = this.props, active = _a.active, onClick = _a.onClick;
         var classes = 'ui-menu-nav';
         if (active)
             classes += ' nav-active';
-        return react_1.default.createElement("div", { className: classes },
+        return react_1.default.createElement("div", { className: classes, onClick: onClick },
             this.props.children,
             active && react_1.default.createElement("span", null));
     };
