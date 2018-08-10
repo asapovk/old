@@ -25,12 +25,12 @@ var Menu = /** @class */ (function (_super) {
     Menu.prototype.componentWillMount = function () {
     };
     Menu.prototype.render = function () {
-        var _a = this.props, children = _a.children, header = _a.header, toolsLeft = _a.toolsLeft, toolsRight = _a.toolsRight;
+        var _a = this.props, children = _a.children, header = _a.header, toolsLeft = _a.toolsLeft, toolsRight = _a.toolsRight, style = _a.style;
         var HeaderJSX = header;
         if (typeof header == 'object') {
             HeaderJSX = react_1.default.createElement("div", { className: 'ui-menu-header-title', onClick: header.onAction }, header.label);
         }
-        return (react_1.default.createElement("div", { className: 'ui-menu' },
+        return (react_1.default.createElement("div", { className: 'ui-menu', style: style },
             header && react_1.default.createElement("div", { className: 'ui-menu-header' }, HeaderJSX),
             react_1.default.createElement("div", { className: 'ui-menu-interactions' },
                 toolsLeft && react_1.default.createElement("div", { className: 'ui-menu-interactions-tools' }, toolsLeft),

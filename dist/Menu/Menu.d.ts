@@ -11,6 +11,7 @@ interface MenuProps {
         onAction: () => void;
     }[];
     pin?: boolean;
+    style?: any;
 }
 declare class Menu extends React.Component<MenuProps> {
     componentWillMount(): void;

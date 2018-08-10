@@ -12,6 +12,7 @@ interface MenuProps {
         onAction: () => void
     }[]
     pin?: boolean
+    style?: any
 }
 class Menu extends React.Component<MenuProps> {
 
@@ -21,7 +22,7 @@ class Menu extends React.Component<MenuProps> {
 
     render() {
 
-        const { children, header, toolsLeft, toolsRight } = this.props;
+        const { children, header, toolsLeft, toolsRight, style } = this.props;
         let HeaderJSX = header;
 
         if (typeof header == 'object') {
@@ -29,7 +30,7 @@ class Menu extends React.Component<MenuProps> {
         }
 
         return (
-            <div className='ui-menu'>
+            <div className='ui-menu' style={style}>
                 {header && <div className='ui-menu-header'>{HeaderJSX}</div>}
                 <div className='ui-menu-interactions'>
                     {toolsLeft && <div className='ui-menu-interactions-tools'>{toolsLeft}</div>}
