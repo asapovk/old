@@ -93,6 +93,7 @@ table {
   background: none;
   border: 1px solid;
   border-radius: 5px;
+  border-color: #b1c6d1;
   padding: 8px;
   outline: none;
   position: relative;
@@ -288,7 +289,7 @@ table {
 
 .ui-menu-nav {
   display: flex;
-  padding: 0 20px;
+  padding: 0 15px;
   align-items: center;
   height: 60px;
   cursor: pointer;
