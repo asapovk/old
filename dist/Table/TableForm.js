@@ -18,7 +18,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importDefault(require("react"));
 var Button_1 = require("../Button");
-var react_flexbox_1 = __importDefault(require("react-flexbox"));
 var TableForm = /** @class */ (function (_super) {
     __extends(TableForm, _super);
     function TableForm() {
@@ -68,7 +67,7 @@ var TableForm = /** @class */ (function (_super) {
     // }
     TableForm.prototype.render = function () {
         var _this = this;
-        return (react_1.default.createElement(react_flexbox_1.default, { className: 'ui-table-content-body-row edited' },
+        return (react_1.default.createElement("div", { className: 'ui-table-content-body-row edited' },
             this.props.target.render(this.props.row),
             react_1.default.createElement("div", { className: 'ui-table-content-body-row-actions' },
                 Array.isArray(this.props.target.actions) && this.props.target.actions.map(function (action, index) {

@@ -31,11 +31,17 @@ var Menu = /** @class */ (function (_super) {
             HeaderJSX = react_1.default.createElement("div", { className: 'ui-menu-header-title', onClick: header.onAction }, header.label);
         }
         return (react_1.default.createElement("div", { className: 'ui-menu' },
+<<<<<<< HEAD
             header && react_1.default.createElement("div", { className: 'ui-menu-header' }, HeaderJSX),
             react_1.default.createElement("div", { className: 'ui-menu-interactions' },
                 toolsLeft && react_1.default.createElement("div", { className: 'ui-menu-interactions-tools' }, toolsLeft),
                 children && react_1.default.createElement("div", { className: 'ui-menu-interactions-nav' }, children)),
             toolsRight && react_1.default.createElement("div", { className: 'ui-menu-tools' }, toolsRight)));
+=======
+            react_1.default.createElement("div", { className: 'ui-menu-interactions' },
+                react_1.default.createElement("div", { className: 'ui-menu-interactions-tools' }, this.props.toolsLeft)),
+            react_1.default.createElement("div", { className: 'ui-menu-tools' }, this.props.toolsLeft)));
+>>>>>>> c18634fb7885c78e49bd8441179ad883241d1089
     };
     return Menu;
 }(react_1.default.Component));
