@@ -292,12 +292,18 @@ table {
 .ui-menu-interactions-tools > * {
   padding: 10px 0px;
 }
+.ui-menu-interactions-tools-search {
+  display: flex;
+  flex: 1;
+  max-width: 632px;
+}
 
 .ui-menu-nav {
   display: flex;
+  font-size: 16px;
   padding: 0 20px;
   align-items: center;
-  height: 60px;
+  height: 100%;
   cursor: pointer;
   position: relative;
 }
@@ -309,7 +315,7 @@ table {
 .nav-active span {
   position: absolute;
   bottom: 0px;
-  height: 4px;
+  height: 3px;
   background: #05afc8;
   left: 0;
   right: 0;

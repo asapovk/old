@@ -27,14 +27,22 @@ $rowHeight: 60px;
         &-tools > * { 
             padding: 10px 0px;
         }
+        &-tools {
+            &-search {
+                display: flex;
+                flex: 1;
+                max-width: 632px; 
+            }
+        }
     }
 }
 
 .ui-menu-nav {
     display: flex;
+    font-size: 16px;
     padding: 0 20px;
     align-items: center;
-    height: $rowHeight;
+    height: 100%;
     cursor: pointer;
     position: relative;
 }
@@ -45,7 +53,7 @@ $rowHeight: 60px;
     span {
         position: absolute;
         bottom: 0px;
-        height: 4px;
+        height: 3px;
         background: $accent;
         left: 0;
         right: 0;

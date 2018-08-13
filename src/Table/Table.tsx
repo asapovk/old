@@ -53,7 +53,7 @@ class Table extends React.Component<TableProps> {
                     form={(form && key == form.key) && form.render}
                     isSelected={(this.state.selectedItems.some(item => item === key))}
                     isExpanding={(this.state.expandedItems.some(item => item === key))}
-                    isBlur={((form && key != form.key) || addForm)}
+                    isBlur={((form && form.key && key != form.key) || addForm)}
                     scope={scope}
                 />
             )

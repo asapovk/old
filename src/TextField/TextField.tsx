@@ -44,7 +44,7 @@ class UITextField extends React.Component<TextFieldProps> {
 
         return (
             <div className="UI-TextField" style={style}>
-                <div className="UI-TextField-Label">{label}</div>
+                {label && <div className="UI-TextField-Label">{label}</div>}
                 <input
                     className="UI-TextField-Input"
                     defaultValue={defaultValue}

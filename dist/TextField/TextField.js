@@ -44,7 +44,7 @@ var UITextField = /** @class */ (function (_super) {
         var _this = this;
         var _a = this.props, label = _a.label, value = _a.value, defaultValue = _a.defaultValue, style = _a.style, onChange = _a.onChange;
         return (react_1.default.createElement("div", { className: "UI-TextField", style: style },
-            react_1.default.createElement("div", { className: "UI-TextField-Label" }, label),
+            label && react_1.default.createElement("div", { className: "UI-TextField-Label" }, label),
             react_1.default.createElement("input", { className: "UI-TextField-Input", defaultValue: defaultValue, value: value, onChange: function (event) {
                     if (_this.validate(event.currentTarget.value)) {
                         onChange && onChange(event.currentTarget.value);

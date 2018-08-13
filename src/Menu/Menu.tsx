@@ -23,7 +23,7 @@ class Menu extends React.Component<MenuProps> {
         const HeaderJSX = typeof header != 'object' ? header : <div className='ui-menu-header-title' onClick={header.onAction}>{header.label}</div>;
 
         const SearchJSX = (
-            <TextField />
+            <div className='ui-menu-interactions-tools-search'><TextField /></div>
         )
 
         return (
