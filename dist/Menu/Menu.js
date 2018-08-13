@@ -18,7 +18,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importDefault(require("react"));
 var TextField_1 = require("../TextField");
-[];
 var Menu = /** @class */ (function (_super) {
     __extends(Menu, _super);
     function Menu() {

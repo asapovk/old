@@ -1,13 +1,9 @@
 import React from 'react';
-interface Tools {
-    tool: any;
-    onAction: () => void;
-}
 interface MenuProps {
     header?: any;
     search?: boolean;
-    toolsLeft?: Tools;
-    toolsRight?: Tools;
+    toolsLeft?: any[];
+    toolsRight?: any[];
     pin?: boolean;
     style?: any;
 }
