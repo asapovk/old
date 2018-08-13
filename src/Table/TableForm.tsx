@@ -86,4 +86,4 @@ class TableFormHOC extends React.Component<TableFormHOCProps> {
     }
 }
 
-export default (row, columns, Form) => <TableFormHOC data={row} columns={columns} Form={Form} />
+export default (Form, columns, row) => <TableFormHOC data={row} columns={columns} Form={Form} />

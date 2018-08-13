@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import TableRow from './TableRow';
+import TableForm from './TableForm';
 
 export interface TableProps {
     data: any[]
@@ -13,6 +14,7 @@ export interface TableProps {
         key: string
         render: any
     }
+    addForm?: any
     actions?: {
         label: string,
         className?: string,
@@ -28,14 +30,12 @@ class Table extends React.Component<TableProps> {
 
     state = {
         selectedItems: [] as string[],
-        expandedItems: [] as string[],
-        focusItem: '' as string,
+        expandedItems: [] as string[]
     }
-
 
     render() {
 
-        const { data, columns, actions, border, indexKey, scope, form, style } = this.props;
+        const { data, columns, actions, border, indexKey, scope, form, addForm, style } = this.props;
 
         const ColumnsTSX = columns.map(column => (
             <div className={'ui-table-content-head-row-column ' + column.dataIndex} key={column.dataIndex} style={column.width ? { flexBasis: column.width } : { flex: 1 }}>{column.title}</div>
@@ -53,11 +53,13 @@ class Table extends React.Component<TableProps> {
                     form={(form && key == form.key) && form.render}
                     isSelected={(this.state.selectedItems.some(item => item === key))}
                     isExpanding={(this.state.expandedItems.some(item => item === key))}
-                    // isBlur={this.state.focusItem && (this.state.focusItem != key)}
+                    isBlur={((form && key != form.key) || addForm)}
                     scope={scope}
                 />
             )
         })
+
+        RowsTSX.unshift(TableForm(addForm, columns, {}));
 
         return (
             <div className='ui-table' style={style}>

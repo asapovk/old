@@ -13,10 +13,6 @@ interface TableRowProps {
     form?: any;
 }
 export default class TableRow extends React.Component<TableRowProps> {
-    state: {
-        onSelect: boolean;
-        triggerAction: null;
-    };
     onClick(): void;
     render(): JSX.Element;
 }

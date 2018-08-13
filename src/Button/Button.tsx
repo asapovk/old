@@ -19,7 +19,7 @@ class Button extends Component<ButtonProps> {
 
         if (decoration == 'none') classes += ' btn-strip';
         if (labelCase == 'upper') classes += ' uppercase';
-        classes += ' ' + className;
+        classes += className ? ' ' + className : '';
 
         return (
             <button className={classes} onClick={onClick}>{label || children}</button>

@@ -11,6 +11,7 @@ export interface TableProps {
         key: string;
         render: any;
     };
+    addForm?: any;
     actions?: {
         label: string;
         className?: string;
@@ -25,7 +26,6 @@ declare class Table extends React.Component<TableProps> {
     state: {
         selectedItems: string[];
         expandedItems: string[];
-        focusItem: string;
     };
     render(): JSX.Element;
 }

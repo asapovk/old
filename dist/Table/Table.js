@@ -18,27 +18,26 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importDefault(require("react"));
 var TableRow_1 = __importDefault(require("./TableRow"));
+var TableForm_1 = __importDefault(require("./TableForm"));
 var Table = /** @class */ (function (_super) {
     __extends(Table, _super);
     function Table() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.state = {
             selectedItems: [],
-            expandedItems: [],
-            focusItem: '',
+            expandedItems: []
         };
         return _this;
     }
     Table.prototype.render = function () {
         var _this = this;
-        var _a = this.props, data = _a.data, columns = _a.columns, actions = _a.actions, border = _a.border, indexKey = _a.indexKey, scope = _a.scope, form = _a.form, style = _a.style;
+        var _a = this.props, data = _a.data, columns = _a.columns, actions = _a.actions, border = _a.border, indexKey = _a.indexKey, scope = _a.scope, form = _a.form, addForm = _a.addForm, style = _a.style;
         var ColumnsTSX = columns.map(function (column) { return (react_1.default.createElement("div", { className: 'ui-table-content-head-row-column ' + column.dataIndex, key: column.dataIndex, style: column.width ? { flexBasis: column.width } : { flex: 1 } }, column.title)); });
         var RowsTSX = data.map(function (row, index) {
             var key = indexKey && row[indexKey] || index.toString();
-            return (react_1.default.createElement(TableRow_1.default, { key: key, row: row, columns: columns, actions: actions, border: border, form: (form && key == form.key) && form.render, isSelected: (_this.state.selectedItems.some(function (item) { return item === key; })), isExpanding: (_this.state.expandedItems.some(function (item) { return item === key; })), 
-                // isBlur={this.state.focusItem && (this.state.focusItem != key)}
-                scope: scope }));
+            return (react_1.default.createElement(TableRow_1.default, { key: key, row: row, columns: columns, actions: actions, border: border, form: (form && key == form.key) && form.render, isSelected: (_this.state.selectedItems.some(function (item) { return item === key; })), isExpanding: (_this.state.expandedItems.some(function (item) { return item === key; })), isBlur: ((form && key != form.key) || addForm), scope: scope }));
         });
+        RowsTSX.unshift(TableForm_1.default(addForm, columns, {}));
         return (react_1.default.createElement("div", { className: 'ui-table', style: style },
             react_1.default.createElement("div", { className: 'ui-table-content' },
                 react_1.default.createElement("div", { className: 'ui-table-content-head-row', children: ColumnsTSX, style: actions && { marginRight: '32px' } }),

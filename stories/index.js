@@ -56,7 +56,7 @@ storiesOf('UI Core', module)
     ))
     .add('Menu', () => (
         <Viewport>
-            <Menu header={{ label: 'Connect: Module', onAction: () => console.log('Bip-bop') }}>
+            <Menu search={true} header={{ label: 'Connect: Module', onAction: () => console.log('Bip-bop') }}>
                 <Nav active={true}>About</Nav>
                 <Nav>Events</Nav>
                 <Nav onClick={() => console.log('fly away')}>Intelligence</Nav>

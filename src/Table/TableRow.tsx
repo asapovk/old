@@ -20,31 +20,24 @@ interface TableRowProps {
 
 export default class TableRow extends React.Component<TableRowProps> {
 
-    state = {
-        onSelect: true as boolean,
-        triggerAction: null
-    }
-
     onClick() {
 
     }
 
     render() {
         const { row, isSelected, isExpanding, isBlur, actions, border, scope, columns, form } = this.props;
-        const { triggerAction } = this.state;
 
         if (form) {
-            return TableForm(row, columns, form)
+            return TableForm(form, columns, row)
         }
+
         return (
             <div className={`ui-table-content-body-row ${isBlur ? 'blur' : 'hover'}`} onClick={(event) => this.onClick()}>
                 {/* {this.state.onSelect && (
                 <TableCheckbox active={this.props.isSelected} />
                 )} */}
                 <TableColumns {...this.props} />
-                {actions && (
-                    <TableActions actions={actions} data={row} />
-                )}
+                {actions && <TableActions actions={actions} data={row} />}
             </div>
         )
     }

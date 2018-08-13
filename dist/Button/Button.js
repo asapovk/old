@@ -33,7 +33,7 @@ var Button = /** @class */ (function (_super) {
             classes += ' btn-strip';
         if (labelCase == 'upper')
             classes += ' uppercase';
-        classes += ' ' + className;
+        classes += className ? ' ' + className : '';
         return (react_1.default.createElement("button", { className: classes, onClick: onClick }, label || children));
     };
     return Button;

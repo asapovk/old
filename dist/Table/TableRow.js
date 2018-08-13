@@ -35,25 +35,19 @@ var TableActions_1 = __importDefault(require("./TableActions"));
 var TableRow = /** @class */ (function (_super) {
     __extends(TableRow, _super);
     function TableRow() {
-        var _this = _super !== null && _super.apply(this, arguments) || this;
-        _this.state = {
-            onSelect: true,
-            triggerAction: null
-        };
-        return _this;
+        return _super !== null && _super.apply(this, arguments) || this;
     }
     TableRow.prototype.onClick = function () {
     };
     TableRow.prototype.render = function () {
         var _this = this;
         var _a = this.props, row = _a.row, isSelected = _a.isSelected, isExpanding = _a.isExpanding, isBlur = _a.isBlur, actions = _a.actions, border = _a.border, scope = _a.scope, columns = _a.columns, form = _a.form;
-        var triggerAction = this.state.triggerAction;
         if (form) {
-            return TableForm_1.default(row, columns, form);
+            return TableForm_1.default(form, columns, row);
         }
         return (react_1.default.createElement("div", { className: "ui-table-content-body-row " + (isBlur ? 'blur' : 'hover'), onClick: function (event) { return _this.onClick(); } },
             react_1.default.createElement(TableColumns_1.default, __assign({}, this.props)),
-            actions && (react_1.default.createElement(TableActions_1.default, { actions: actions, data: row }))));
+            actions && react_1.default.createElement(TableActions_1.default, { actions: actions, data: row })));
     };
     return TableRow;
 }(react_1.default.Component));

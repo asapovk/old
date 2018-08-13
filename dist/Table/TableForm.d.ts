@@ -1,2 +1,2 @@
-declare const _default: (row: any, columns: any, Form: any) => JSX.Element;
+declare const _default: (Form: any, columns: any, row: any) => JSX.Element;
 export default _default;
