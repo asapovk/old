@@ -311,4 +311,47 @@ table {
   z-index: 1;
 }
 
+.tooltip {
+  position: absolute;
+  background: #464a58;
+  border: 1px solid;
+  border-color: rgba(41, 43, 54, 0.7);
+  padding: 8px 16px;
+  font-size: 14px;
+  border-radius: 4px;
+  box-shadow: 0px 2px 4px 0px rgba(20, 20, 20, 0.2);
+  color: white;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.tooltip:before {
+  position: absolute;
+  content: "";
+  width: 10px;
+  height: 10px;
+  background: #464a58;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+  z-index: 2;
+}
+.tooltip-error {
+  background: #f44336;
+  color: white;
+  border: none;
+}
+.tooltip-error:before {
+  background: #f44336;
+  box-shadow: none;
+}
+
+.bottom-left:before {
+  top: -5px;
+  left: 1em;
+  right: auto;
+  bottom: auto;
+  margin-left: 0;
+  box-shadow: -1px -1px 0 0 rgba(41, 43, 54, 0.7);
+}
+
 /*# sourceMappingURL=styles.css.map */

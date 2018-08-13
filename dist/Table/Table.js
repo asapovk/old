@@ -35,7 +35,6 @@ var Table = /** @class */ (function (_super) {
         var ColumnsTSX = columns.map(function (column) { return (react_1.default.createElement("div", { className: 'ui-table-content-head-row-column ' + column.dataIndex, key: column.dataIndex, style: column.width ? { flexBasis: column.width } : { flex: 1 } }, column.title)); });
         var RowsTSX = data.map(function (row, index) {
             var key = indexKey && row[indexKey] || index.toString();
-            console.log(form && form.render);
             return (react_1.default.createElement(TableRow_1.default, { key: key, row: row, columns: columns, actions: actions, border: border, form: (form && key == form.key) && form.render, isSelected: (_this.state.selectedItems.some(function (item) { return item === key; })), isExpanding: (_this.state.expandedItems.some(function (item) { return item === key; })), 
                 // isBlur={this.state.focusItem && (this.state.focusItem != key)}
                 scope: scope }));

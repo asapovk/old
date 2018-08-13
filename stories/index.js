@@ -9,6 +9,8 @@ import { Table } from '../src/Table';
 import { Viewport } from '../src/Viewport';
 import { Button } from '../src/Button';
 import { Menu, Nav } from '../src/Menu';
+import TooltipStory from './TooltipStory';
+
 
 import '../src/scss/main.scss';
 import { TableActionsTypes } from '../src/Table/Table';
@@ -61,5 +63,8 @@ storiesOf('UI Core', module)
                 <Nav>Jobs</Nav>
             </Menu>
         </Viewport>
+    ))
+    .add('Tooltip', () => (
+        <Viewport style={flexCentered}><TooltipStory /></Viewport>
     ));
 

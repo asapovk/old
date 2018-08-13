@@ -43,7 +43,6 @@ class Table extends React.Component<TableProps> {
 
         const RowsTSX = data.map((row, index) => {
             const key = indexKey && row[indexKey] || index.toString()
-            console.log(form && form.render);
             return (
                 <TableRow
                     key={key}

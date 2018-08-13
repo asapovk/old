@@ -2,16 +2,22 @@ import { Portal } from 'react-portal'
 import { Fragment } from 'react';
 import ReactDOM from 'react-dom';
 import React from 'react';
-import './style.scss';
 
-const Wrapper = props => {
-    if (React.isValidElement(props.children)) {
-        return props.children
+interface Tooltip {
+    targetRef: any;
+    tooltipRef: any;
+    targetCoord: any;
+    state: {
+        targetCoord: any
+        tooltipStyle: any
+        content: any
+        type: any
+        position: any
+        show: any
     }
-    return <div>{props.children}</div>;
 }
 
-export default class Tooltip extends React.Component {
+class Tooltip extends React.Component {
 
     constructor(props) {
         super(props);
@@ -27,8 +33,10 @@ export default class Tooltip extends React.Component {
     }
 
     componentDidMount() {
-        if (this.targetRef) {
-            const coords = ReactDOM.findDOMNode(this.targetRef).getBoundingClientRect();
+        console.log('Ref', this.targetRef);
+        // @ts-ignore
+        const coords = ReactDOM.findDOMNode(this.targetRef).getBoundingClientRect();
+        if (coords && this.targetRef) {
             this.setState({
                 targetCoord: {
                     top: coords.top + document.documentElement.scrollTop,
@@ -78,7 +86,7 @@ export default class Tooltip extends React.Component {
             type: 'tooltip-' + type,
             position: position ? position : 'bottom-left',
             show: true
-        }, _ => {
+        }, () => {
             this.updateTooltipPosition()
         });
     }
@@ -89,6 +97,15 @@ export default class Tooltip extends React.Component {
 
     render() {
         const classes = 'tooltip ' + this.state.type + ' ' + this.state.position;
+
+        let ChildrenJSX = React.isValidElement(this.props.children) ? this.props.children : <div>{this.props.children}</div>
+
+        ChildrenJSX = React.cloneElement(
+            React.Children.only(ChildrenJSX),
+            {
+                ref: (ref) => this.targetRef = ref
+            }
+        )
 
         const PopupJSX = (
             <div
@@ -101,9 +118,12 @@ export default class Tooltip extends React.Component {
 
         return (
             <Fragment>
-                <Wrapper ref={ref => this.targetRef = ref}>{this.props.children}</Wrapper>
+                {ChildrenJSX}
                 {this.state.show ? <Portal>{PopupJSX}</Portal> : null}
             </Fragment>
         )
     }
 }
+
+
+export default Tooltip;
