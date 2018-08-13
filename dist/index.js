@@ -14,5 +14,7 @@ var Menu_2 = require("./Menu");
 exports.Nav = Menu_2.Nav;
 var Tooltip_1 = require("./Tooltip");
 exports.Tooltip = Tooltip_1.Tooltip;
+var Icon_1 = require("./Icon");
+exports.Icon = Icon_1.Icon;
 var react_portal_1 = require("react-portal");
 exports.Portal = react_portal_1.default;

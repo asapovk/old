@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button } from '../Button';
-import Icon from '../Icon';
+import { Icon } from '../Icon';
 
 export default props => (
     <div className='ui-table-content-body-row-actions'>
