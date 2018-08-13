@@ -59,7 +59,7 @@ class Table extends React.Component<TableProps> {
             )
         })
 
-        RowsTSX.unshift(TableForm(addForm, columns, {}));
+        addForm && RowsTSX.unshift(TableForm(addForm, columns, {}));
 
         return (
             <div className='ui-table' style={style}>
