@@ -19,10 +19,13 @@ $rowHeight: 60px;
         display: flex;
         flex-direction: column;
         flex: 1 1 auto;
-        &-nav {
+        &-nav, &-tools {
             display: flex;
             flex-direction: row;
             height: $rowHeight;
+        };
+        &-tools > * { 
+            padding: 10px 0px;
         }
     }
 }
