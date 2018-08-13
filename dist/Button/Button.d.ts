@@ -8,6 +8,7 @@ interface ButtonProps {
     labelCase?: 'upper' | 'lower' | 'capitalize' | 'sentence';
     onClick?: (MouseEvent?: any) => any;
     className?: string;
+    style?: any;
 }
 declare class Button extends Component<ButtonProps> {
     render(): JSX.Element;
