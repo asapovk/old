@@ -20,7 +20,7 @@ class Menu extends React.Component<MenuProps> {
 
         const isDouble = (search || toolsLeft)
 
-        const HeaderJSX = !header.lablel ? header : <div className='ui-menu-header-title' onClick={header.onAction}>{header.label}</div>;
+        const HeaderJSX = !header.label ? header : <div className='ui-menu-header-title' onClick={header.onAction}>{header.label}</div>;
 
         const SearchJSX = (
             <div className='ui-menu-interactions-toolsbar-search'><TextField className='ui-menu-input' value={searchValue} defaultValue={searchDefaultValue} onChange={(value) => onSearch && onSearch(value)} /></div>

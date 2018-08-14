@@ -26,7 +26,7 @@ var Menu = /** @class */ (function (_super) {
     Menu.prototype.render = function () {
         var _a = this.props, children = _a.children, header = _a.header, toolsLeft = _a.toolsLeft, toolsRight = _a.toolsRight, style = _a.style, search = _a.search, searchValue = _a.searchValue, searchDefaultValue = _a.searchDefaultValue, onSearch = _a.onSearch;
         var isDouble = (search || toolsLeft);
-        var HeaderJSX = !header.lablel ? header : react_1.default.createElement("div", { className: 'ui-menu-header-title', onClick: header.onAction }, header.label);
+        var HeaderJSX = !header.label ? header : react_1.default.createElement("div", { className: 'ui-menu-header-title', onClick: header.onAction }, header.label);
         var SearchJSX = (react_1.default.createElement("div", { className: 'ui-menu-interactions-toolsbar-search' },
             react_1.default.createElement(TextField_1.TextField, { className: 'ui-menu-input', value: searchValue, defaultValue: searchDefaultValue, onChange: function (value) { return onSearch && onSearch(value); } })));
         return (react_1.default.createElement("div", { className: 'ui-menu', style: style },
