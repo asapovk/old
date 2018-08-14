@@ -24,10 +24,8 @@ $rowHeight: 60px;
             flex-direction: row;
             height: $rowHeight;
         };
-        &-tools > * { 
-            align-items: flex-end;
-        }
         &-tools {
+            align-items: flex-end;
             &-search {
                 display: flex;
                 flex: 1;

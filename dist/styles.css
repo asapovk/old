@@ -289,7 +289,7 @@ table {
   flex-direction: row;
   height: 60px;
 }
-.ui-menu-interactions-tools > * {
+.ui-menu-interactions-tools {
   align-items: flex-end;
 }
 .ui-menu-interactions-tools-search {
