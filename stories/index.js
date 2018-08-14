@@ -37,7 +37,7 @@ storiesOf('UI Core', module)
         <Viewport style={flexCentered}><Button>Click me</Button></Viewport>
     ))
     .add('TextField', () => (
-        <Viewport style={flexCentered}><TextField label='Label' /></Viewport>
+        <Viewport style={flexCentered}><TextField label='Label' style={{ maxWidth: '626px' }} /></Viewport>
     ))
     .add('Table', () => (
         <Viewport style={flexCentered}>

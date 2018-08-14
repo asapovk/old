@@ -6,6 +6,7 @@ interface MenuProps {
     toolsRight?: any[];
     pin?: boolean;
     style?: any;
+    onSearch?: (value: string) => void;
 }
 declare class Menu extends React.Component<MenuProps> {
     render(): JSX.Element;
