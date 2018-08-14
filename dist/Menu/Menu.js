@@ -36,7 +36,7 @@ var Menu = /** @class */ (function (_super) {
                     SearchJSX,
                     toolsLeft && toolsLeft),
                 children && react_1.default.createElement("div", { className: 'ui-menu-interactions-nav' + (isDouble ? ' nav-min' : '') }, children)),
-            toolsRight && react_1.default.createElement("div", { className: 'ui-menu-tools' }, toolsRight)));
+            toolsRight && react_1.default.createElement("div", { className: 'ui-menu-tools' }, toolsRight.map(function (tool) { return console.log(tool); }))));
     };
     return Menu;
 }(react_1.default.Component));

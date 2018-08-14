@@ -33,7 +33,7 @@ class Menu extends React.Component<MenuProps> {
                     {search && <div className='ui-menu-interactions-tools'>{SearchJSX}{toolsLeft && toolsLeft}</div>}
                     {children && <div className={'ui-menu-interactions-nav' + (isDouble ? ' nav-min' : '')}>{children}</div>}
                 </div>
-                {toolsRight && <div className='ui-menu-tools'>{toolsRight}</div>}
+                {toolsRight && <div className='ui-menu-tools'>{toolsRight.map(tool => console.log(tool))}</div>}
             </div>
         )
     }
