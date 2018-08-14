@@ -9,6 +9,7 @@ import { Table } from '../src/Table';
 import { Viewport } from '../src/Viewport';
 import { Button } from '../src/Button';
 import { Menu, Nav } from '../src/Menu';
+import { Icon } from '../src/Icon';
 import TooltipStory from './TooltipStory';
 
 
@@ -56,7 +57,17 @@ storiesOf('UI Core', module)
     ))
     .add('Menu', () => (
         <Viewport>
-            <Menu search={true} header={{ label: 'Connect: Module', onAction: () => console.log('Bip-bop') }}>
+            <Menu
+                search={true}
+                header={{ label: 'Connect: Module', onAction: () => console.log('Bip-bop') }}
+                toolsLeft={[
+                    <Button decoration='none' style={{ fontSize: '24px' }}>
+                        <Icon type='add' />
+                    </Button>,
+                    <Button decoration='none' style={{ fontSize: '24px' }}>
+                        <Icon type='pin' />
+                    </Button>
+                ]}>
                 <Nav active={true}>About</Nav>
                 <Nav>Events</Nav>
                 <Nav onClick={() => console.log('fly away')}>Intelligence</Nav>

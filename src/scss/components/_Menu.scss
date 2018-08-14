@@ -19,17 +19,26 @@ $rowHeight: 60px;
         display: flex;
         flex-direction: column;
         flex: 1 1 auto;
-        &-nav, &-tools {
+        &-navbar, &-toolsbar {
             display: flex;
             flex-direction: row;
             height: $rowHeight;
-        };
-        &-tools {
+        }
+        &-toolsbar {
             align-items: flex-end;
             &-search {
+                height: 36px;
                 display: flex;
                 flex: 1;
                 max-width: 632px; 
+            }
+            &-tools {
+                display: flex;
+                align-items: center;
+                height: 36px;
+                > * {
+                    padding-left: 10px;
+                }
             }
         }
     }

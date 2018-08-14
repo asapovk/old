@@ -23,17 +23,23 @@ class Menu extends React.Component<MenuProps> {
         const HeaderJSX = typeof header != 'object' ? header : <div className='ui-menu-header-title' onClick={header.onAction}>{header.label}</div>;
 
         const SearchJSX = (
-            <div className='ui-menu-interactions-tools-search'><TextField value={searchValue} defaultValue={searchDefaultValue} onChange={(value) => onSearch && onSearch(value)} /></div>
+            <div className='ui-menu-interactions-toolsbar-search'><TextField value={searchValue} defaultValue={searchDefaultValue} onChange={(value) => onSearch && onSearch(value)} /></div>
         )
 
         return (
             <div className='ui-menu' style={style}>
                 {header && <div className={'ui-menu-header' + (isDouble ? ' header-max' : '')}>{HeaderJSX}</div>}
                 <div className='ui-menu-interactions'>
-                    {search && <div className='ui-menu-interactions-tools'>{SearchJSX}{toolsLeft && toolsLeft}</div>}
-                    {children && <div className={'ui-menu-interactions-nav' + (isDouble ? ' nav-min' : '')}>{children}</div>}
+                    {isDouble &&
+                        <div className='ui-menu-interactions-toolsbar'>
+                            {search && SearchJSX}
+                            <div className='ui-menu-interactions-toolsbar-tools'>
+                                {toolsLeft && toolsLeft.map((tool, index) => React.cloneElement(tool, { key: index }))}
+                            </div>
+                        </div>}
+                    {children && <div className={'ui-menu-interactions-navbar' + (isDouble ? ' nav-min' : '')}>{children}</div>}
                 </div>
-                {toolsRight && <div className='ui-menu-tools'>{toolsRight.map(tool => console.log(tool))}</div>}
+                {toolsRight && <div className='ui-menu-tools'>{toolsRight.map((tool, index) => React.cloneElement(tool, { key: index }))}</div>}
             </div>
         )
     }

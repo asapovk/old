@@ -276,18 +276,27 @@ table {
   flex-direction: column;
   flex: 1 1 auto;
 }
-.ui-menu-interactions-nav, .ui-menu-interactions-tools {
+.ui-menu-interactions-navbar, .ui-menu-interactions-toolsbar {
   display: flex;
   flex-direction: row;
   height: 60px;
 }
-.ui-menu-interactions-tools {
+.ui-menu-interactions-toolsbar {
   align-items: flex-end;
 }
-.ui-menu-interactions-tools-search {
+.ui-menu-interactions-toolsbar-search {
+  height: 36px;
   display: flex;
   flex: 1;
   max-width: 632px;
+}
+.ui-menu-interactions-toolsbar-tools {
+  display: flex;
+  align-items: center;
+  height: 36px;
+}
+.ui-menu-interactions-toolsbar-tools > * {
+  padding-left: 10px;
 }
 
 .ui-menu-nav {
