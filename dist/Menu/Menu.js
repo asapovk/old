@@ -24,11 +24,11 @@ var Menu = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     Menu.prototype.render = function () {
-        var _a = this.props, children = _a.children, header = _a.header, toolsLeft = _a.toolsLeft, toolsRight = _a.toolsRight, style = _a.style, search = _a.search, onSearch = _a.onSearch;
+        var _a = this.props, children = _a.children, header = _a.header, toolsLeft = _a.toolsLeft, toolsRight = _a.toolsRight, style = _a.style, search = _a.search, searchValue = _a.searchValue, searchDefaultValue = _a.searchDefaultValue, onSearch = _a.onSearch;
         var isDouble = (search || toolsLeft);
         var HeaderJSX = typeof header != 'object' ? header : react_1.default.createElement("div", { className: 'ui-menu-header-title', onClick: header.onAction }, header.label);
         var SearchJSX = (react_1.default.createElement("div", { className: 'ui-menu-interactions-tools-search' },
-            react_1.default.createElement(TextField_1.TextField, { onChange: function (value) { return onSearch && onSearch(value); } })));
+            react_1.default.createElement(TextField_1.TextField, { value: searchValue, defaultValue: searchDefaultValue, onChange: function (value) { return onSearch && onSearch(value); } })));
         return (react_1.default.createElement("div", { className: 'ui-menu', style: style },
             header && react_1.default.createElement("div", { className: 'ui-menu-header' + (isDouble ? ' header-max' : '') }, HeaderJSX),
             react_1.default.createElement("div", { className: 'ui-menu-interactions' },
