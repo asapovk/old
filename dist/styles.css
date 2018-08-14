@@ -89,7 +89,7 @@ table {
   resize: none;
   background: none;
   border: 1px solid;
-  border-radius: 5px;
+  border-radius: 2px;
   border-color: #b1c6d1;
   padding: 8px;
   outline: none;
@@ -239,11 +239,11 @@ table {
   outline: none;
   background: #464a58;
   color: white;
-  border-radius: 5px;
-  padding: 8px 16px;
+  border-radius: 2px;
+  padding: 10px 16px;
   width: fit-content;
   cursor: pointer;
-  box-shadow: 0px 2px 4px 0px black;
+  box-shadow: 0px 2px 4px 0px #131419;
 }
 .ui-button:active {
   box-shadow: none;
@@ -265,11 +265,13 @@ table {
 .ui-menu-header {
   display: flex;
   font-size: 24px;
-  font-weight: bold;
   align-items: center;
   height: 60px;
-  padding-right: 40px;
+  padding-right: 20px;
   cursor: pointer;
+}
+.ui-menu-header-title {
+  font-weight: bold;
 }
 .ui-menu-interactions {
   display: flex;
@@ -285,7 +287,7 @@ table {
   align-items: flex-end;
 }
 .ui-menu-interactions-toolsbar-search {
-  height: 36px;
+  height: 40px;
   display: flex;
   flex: 1;
   max-width: 632px;
@@ -293,9 +295,23 @@ table {
 .ui-menu-interactions-toolsbar-tools {
   display: flex;
   align-items: center;
-  height: 36px;
+  height: 40px;
 }
 .ui-menu-interactions-toolsbar-tools > * {
+  padding-left: 10px;
+}
+.ui-menu-toolsbar {
+  display: flex;
+  height: 60px;
+  align-items: center;
+  padding-left: 60px;
+}
+.ui-menu-toolsbar-tools {
+  display: flex;
+  align-items: center;
+  height: 40px;
+}
+.ui-menu-toolsbar-tools > * {
   padding-left: 10px;
 }
 
@@ -324,7 +340,6 @@ table {
 
 .nav-min > * {
   font-size: 14px !important;
-  align-items: center;
   padding: 24px 16px 14px;
 }
 
@@ -332,7 +347,11 @@ table {
   align-items: flex-end !important;
 }
 .header-max > * {
-  margin-bottom: 6px;
+  margin-bottom: 8px;
+}
+
+.bar-max {
+  align-items: flex-end !important;
 }
 
 .tooltip {
@@ -376,6 +395,44 @@ table {
   bottom: auto;
   margin-left: 0;
   box-shadow: -1px -1px 0 0 rgba(41, 43, 54, 0.7);
+}
+
+.ui-login {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-size: 14px;
+}
+.ui-login-avatar {
+  padding-right: 10px;
+}
+.ui-login-avatar-generated {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  background: linear-gradient(90deg, #ad949f 0%, #a5b1c1 100%);
+  border-radius: 20px;
+  width: 30px;
+  height: 30px;
+  font-size: 14px;
+  text-shadow: 0px 1px 6px rgba(19, 20, 25, 0.5);
+}
+.ui-login-menu {
+  padding: 5px;
+}
+.ui-login-menu-fullname {
+  font-weight: bold;
+}
+.ui-login-menu-login {
+  color: #b1c6d1;
+  padding-top: 4px;
+}
+.ui-login-menu-role {
+  padding-top: 10px;
+}
+.ui-login-menu-actions {
+  padding-top: 10px;
 }
 
 /*# sourceMappingURL=styles.css.map */

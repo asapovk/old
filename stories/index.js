@@ -10,6 +10,7 @@ import { Viewport } from '../src/Viewport';
 import { Button } from '../src/Button';
 import { Menu, Nav } from '../src/Menu';
 import { Icon } from '../src/Icon';
+import { Login } from '../src/Login';
 import TooltipStory from './TooltipStory';
 
 
@@ -31,6 +32,20 @@ const flexCentered = {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center'
+}
+
+const user = {
+    id_user: 1,
+    login: "admin",
+    first_name: "Администратор",
+    last_name: "",
+    middle_name: "",
+    email: null,
+    id_role: 1,
+    nm_rome: "admin",
+    desc_role: "Адмнистратор",
+    session_uuid: "00000000-0000-0000-0000-000000000000",
+    modules: "helloworld,sandbox",
 }
 
 storiesOf('UI Core', module)
@@ -58,8 +73,8 @@ storiesOf('UI Core', module)
     .add('Menu', () => (
         <Viewport>
             <Menu
+                header={<div><span style={{ fontWeight: 700, paddingRight: '10px' }}>Connect</span><span>Module</span></div>}
                 search={true}
-                header={{ label: 'Connect: Module', onAction: () => console.log('Bip-bop') }}
                 toolsLeft={[
                     <Button decoration='none' style={{ fontSize: '24px' }}>
                         <Icon type='add' />
@@ -67,11 +82,20 @@ storiesOf('UI Core', module)
                     <Button decoration='none' style={{ fontSize: '24px' }}>
                         <Icon type='pin' />
                     </Button>
-                ]}>
-                <Nav active={true}>About</Nav>
-                <Nav>Events</Nav>
-                <Nav onClick={() => console.log('fly away')}>Intelligence</Nav>
-                <Nav>Jobs</Nav>
+                ]}
+                toolsRight={[
+                    <Login
+                        name={user.first_name}
+                        login={user.login}
+                        fullname={user.first_name + ' ' + user.last_name}
+                        role={user.desc_role}
+                    />
+                ]}
+            >
+                <Nav active={true}>Pineapple</Nav>
+                <Nav>Grape</Nav>
+                <Nav onClick={() => console.log('fly away')}>Peach</Nav>
+                <Nav>Strawberry</Nav>
             </Menu>
         </Viewport>
     ))

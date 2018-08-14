@@ -12,6 +12,7 @@ interface TextFieldProps {
     defaultValue?: string,
     value?: string,
     style?: React.CSSProperties,
+    className?: any;
     onError?: (error: string[] | null) => void
     onChange?: (value: string) => void
 }
@@ -40,10 +41,10 @@ class UITextField extends React.Component<TextFieldProps> {
     }
 
     render() {
-        const { label, value, defaultValue, style, onChange } = this.props;
+        const { label, value, defaultValue, style, onChange, className } = this.props;
 
         return (
-            <div className="UI-TextField" style={style}>
+            <div className={"UI-TextField" + (className ? ' ' + className : '')} style={style}>
                 {label && <div className="UI-TextField-Label">{label}</div>}
                 <input
                     className="UI-TextField-Input"

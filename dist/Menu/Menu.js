@@ -26,9 +26,9 @@ var Menu = /** @class */ (function (_super) {
     Menu.prototype.render = function () {
         var _a = this.props, children = _a.children, header = _a.header, toolsLeft = _a.toolsLeft, toolsRight = _a.toolsRight, style = _a.style, search = _a.search, searchValue = _a.searchValue, searchDefaultValue = _a.searchDefaultValue, onSearch = _a.onSearch;
         var isDouble = (search || toolsLeft);
-        var HeaderJSX = typeof header != 'object' ? header : react_1.default.createElement("div", { className: 'ui-menu-header-title', onClick: header.onAction }, header.label);
+        var HeaderJSX = !header.lablel ? header : react_1.default.createElement("div", { className: 'ui-menu-header-title', onClick: header.onAction }, header.label);
         var SearchJSX = (react_1.default.createElement("div", { className: 'ui-menu-interactions-toolsbar-search' },
-            react_1.default.createElement(TextField_1.TextField, { value: searchValue, defaultValue: searchDefaultValue, onChange: function (value) { return onSearch && onSearch(value); } })));
+            react_1.default.createElement(TextField_1.TextField, { className: 'ui-menu-input', value: searchValue, defaultValue: searchDefaultValue, onChange: function (value) { return onSearch && onSearch(value); } })));
         return (react_1.default.createElement("div", { className: 'ui-menu', style: style },
             header && react_1.default.createElement("div", { className: 'ui-menu-header' + (isDouble ? ' header-max' : '') }, HeaderJSX),
             react_1.default.createElement("div", { className: 'ui-menu-interactions' },
@@ -37,7 +37,8 @@ var Menu = /** @class */ (function (_super) {
                         search && SearchJSX,
                         react_1.default.createElement("div", { className: 'ui-menu-interactions-toolsbar-tools' }, toolsLeft && toolsLeft.map(function (tool, index) { return react_1.default.cloneElement(tool, { key: index }); }))),
                 children && react_1.default.createElement("div", { className: 'ui-menu-interactions-navbar' + (isDouble ? ' nav-min' : '') }, children)),
-            toolsRight && react_1.default.createElement("div", { className: 'ui-menu-tools' }, toolsRight.map(function (tool, index) { return react_1.default.cloneElement(tool, { key: index }); }))));
+            toolsRight && react_1.default.createElement("div", { className: 'ui-menu-toolsbar' + (isDouble ? ' bar-max' : '') },
+                react_1.default.createElement("div", { className: 'ui-menu-toolsbar-tools' }, toolsRight.map(function (tool, index) { return react_1.default.cloneElement(tool, { key: index }); })))));
     };
     return Menu;
 }(react_1.default.Component));

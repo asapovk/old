@@ -11,6 +11,7 @@ interface TextFieldProps {
     defaultValue?: string;
     value?: string;
     style?: React.CSSProperties;
+    className?: any;
     onError?: (error: string[] | null) => void;
     onChange?: (value: string) => void;
 }

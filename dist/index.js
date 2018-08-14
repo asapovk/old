@@ -16,5 +16,7 @@ var Tooltip_1 = require("./Tooltip");
 exports.Tooltip = Tooltip_1.Tooltip;
 var Icon_1 = require("./Icon");
 exports.Icon = Icon_1.Icon;
+var Login_1 = require("./Login");
+exports.Login = Login_1.Login;
 var react_portal_1 = require("react-portal");
 exports.Portal = react_portal_1.default;

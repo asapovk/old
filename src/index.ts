@@ -6,5 +6,6 @@ export { Menu as Menu } from './Menu'
 export { Nav as Nav } from './Menu'
 export { Tooltip as Tooltip } from './Tooltip'
 export { Icon as Icon } from './Icon'
+export { Login as Login } from './Login'
 
 export { default as Portal } from 'react-portal';

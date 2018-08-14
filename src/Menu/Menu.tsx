@@ -20,10 +20,10 @@ class Menu extends React.Component<MenuProps> {
 
         const isDouble = (search || toolsLeft)
 
-        const HeaderJSX = typeof header != 'object' ? header : <div className='ui-menu-header-title' onClick={header.onAction}>{header.label}</div>;
+        const HeaderJSX = !header.lablel ? header : <div className='ui-menu-header-title' onClick={header.onAction}>{header.label}</div>;
 
         const SearchJSX = (
-            <div className='ui-menu-interactions-toolsbar-search'><TextField value={searchValue} defaultValue={searchDefaultValue} onChange={(value) => onSearch && onSearch(value)} /></div>
+            <div className='ui-menu-interactions-toolsbar-search'><TextField className='ui-menu-input' value={searchValue} defaultValue={searchDefaultValue} onChange={(value) => onSearch && onSearch(value)} /></div>
         )
 
         return (
@@ -39,7 +39,7 @@ class Menu extends React.Component<MenuProps> {
                         </div>}
                     {children && <div className={'ui-menu-interactions-navbar' + (isDouble ? ' nav-min' : '')}>{children}</div>}
                 </div>
-                {toolsRight && <div className='ui-menu-tools'>{toolsRight.map((tool, index) => React.cloneElement(tool, { key: index }))}</div>}
+                {toolsRight && <div className={'ui-menu-toolsbar' + (isDouble ? ' bar-max' : '')}><div className='ui-menu-toolsbar-tools'>{toolsRight.map((tool, index) => React.cloneElement(tool, { key: index }))}</div></div>}
             </div>
         )
     }

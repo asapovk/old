@@ -1,4 +1,5 @@
 $rowHeight: 60px;
+$rowHeightMin: 40px;
 
 .ui-menu {
     display: flex;
@@ -9,11 +10,13 @@ $rowHeight: 60px;
     &-header {
         display: flex;
         font-size: 24px;
-        font-weight: bold;
         align-items: center;
         height: $rowHeight;
-        padding-right: 40px;
+        padding-right: 20px;
         cursor: pointer;
+        &-title{
+            font-weight: bold;
+        }
     }
     &-interactions {
         display: flex;
@@ -27,7 +30,7 @@ $rowHeight: 60px;
         &-toolsbar {
             align-items: flex-end;
             &-search {
-                height: 36px;
+                height: $rowHeightMin;
                 display: flex;
                 flex: 1;
                 max-width: 632px; 
@@ -35,10 +38,24 @@ $rowHeight: 60px;
             &-tools {
                 display: flex;
                 align-items: center;
-                height: 36px;
+                height: $rowHeightMin;
                 > * {
                     padding-left: 10px;
                 }
+            }
+        }
+    }
+    &-toolsbar {
+        display: flex;
+        height: $rowHeight;
+        align-items: center;
+        padding-left: 60px;
+        &-tools {
+            display: flex;
+            align-items: center;
+            height: $rowHeightMin;
+            > * {
+                padding-left: 10px;
             }
         }
     }
@@ -70,7 +87,6 @@ $rowHeight: 60px;
 .nav-min {
     > * { 
         font-size: 14px !important;
-        align-items: center;
         padding: 24px 16px 14px;
     }
 }
@@ -78,6 +94,10 @@ $rowHeight: 60px;
 .header-max {
     align-items: flex-end !important;
         > * {
-            margin-bottom: 6px;
+            margin-bottom: 8px;
         }
+}
+
+.bar-max {
+    align-items: flex-end !important;
 }

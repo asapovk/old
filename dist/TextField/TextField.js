@@ -42,8 +42,8 @@ var UITextField = /** @class */ (function (_super) {
     };
     UITextField.prototype.render = function () {
         var _this = this;
-        var _a = this.props, label = _a.label, value = _a.value, defaultValue = _a.defaultValue, style = _a.style, onChange = _a.onChange;
-        return (react_1.default.createElement("div", { className: "UI-TextField", style: style },
+        var _a = this.props, label = _a.label, value = _a.value, defaultValue = _a.defaultValue, style = _a.style, onChange = _a.onChange, className = _a.className;
+        return (react_1.default.createElement("div", { className: "UI-TextField" + (className ? ' ' + className : ''), style: style },
             label && react_1.default.createElement("div", { className: "UI-TextField-Label" }, label),
             react_1.default.createElement("input", { className: "UI-TextField-Input", defaultValue: defaultValue, value: value, onChange: function (event) {
                     if (_this.validate(event.currentTarget.value)) {
