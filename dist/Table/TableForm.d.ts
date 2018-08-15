@@ -1,6 +1,7 @@
-export interface CreateFormProps {
+export interface TableFormProps {
     Column: any;
     Actions: any;
+    Subrow: any;
     setData: any;
     data: any;
     columns: any;

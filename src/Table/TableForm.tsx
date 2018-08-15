@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { Button } from '../Button';
 
-export interface CreateFormProps {
+export interface TableFormProps {
     Column
     Actions
+    Subrow
     setData
     data
     columns
