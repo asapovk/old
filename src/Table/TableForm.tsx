@@ -1,6 +1,15 @@
 import React, { Component } from 'react';
 import { Button } from '../Button';
 
+export interface CreateFormProps {
+    Column
+    Actions
+    setData
+    data
+    columns
+    formData
+}
+
 interface TableFormHOCProps {
     data: any
     columns: any
