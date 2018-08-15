@@ -36,11 +36,11 @@ class Table extends React.Component<TableProps> {
 
         const { data, columns, actions, border, indexKey, scope, form, style } = this.props;
 
-        const ColumnsTSX = columns.map(column => (
-            <div className={'ui-table-content-head-row-column ' + column.dataIndex} key={column.dataIndex} style={column.width ? { flexBasis: column.width } : { flex: 1 }}>{column.title}</div>
-        ))
-
         const isAddForm = (typeof form != 'undefined' && typeof form.key === 'undefined');
+
+        const ColumnsTSX = !isAddForm ? columns.map(column => (
+            <div className={'ui-table-content-head-row-column ' + column.dataIndex} key={column.dataIndex} style={column.width ? { flexBasis: column.width } : { flex: 1 }}>{column.title}</div>
+        )) : <div className={'ui-table-content-head-row-column'} style={{ flex: 1 }}>Добавить</div>
 
         const RowsTSX = data.map((row, index) => {
             const key = indexKey && row[indexKey] || index.toString()
