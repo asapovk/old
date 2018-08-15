@@ -473,7 +473,7 @@ table {
   position: absolute;
   overflow: scroll;
   border: 1px solid;
-  border-radius: 0 0 5px 5px;
+  border-radius: 0 0 2px 2px;
   border-top: 0;
   border-color: #b1c6d1;
   top: 100%;
