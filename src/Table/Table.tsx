@@ -42,8 +42,6 @@ class Table extends React.Component<TableProps> {
 
         const isAddForm = (typeof form != 'undefined' && typeof form.key === 'undefined');
 
-        console.log('Form is a addForm? — ', isAddForm)
-
         const RowsTSX = data.map((row, index) => {
             const key = indexKey && row[indexKey] || index.toString()
             return (
@@ -62,13 +60,16 @@ class Table extends React.Component<TableProps> {
             )
         })
 
-        typeof form != 'undefined' && typeof form.key === 'undefined' && RowsTSX.unshift(TableForm(form.render, columns, {}));
+        const addFormTSX = typeof form != 'undefined' && typeof form.key === 'undefined' && TableForm(form.render, columns, {});
 
         return (
             <div className='ui-table' style={style}>
                 <div className='ui-table-content'>
                     <div className='ui-table-content-head-row' children={ColumnsTSX} style={actions && { marginRight: '32px' }} />
-                    <div className='ui-table-content-body' children={RowsTSX} />
+                    <div className='ui-table-content-body'>
+                        {addFormTSX}
+                        {RowsTSX}
+                    </div>
                 </div>
             </div>
         )
