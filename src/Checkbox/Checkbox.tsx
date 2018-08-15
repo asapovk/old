@@ -21,7 +21,9 @@ class Checkbox extends React.Component<CheckboxProps> {
     }
 
     onChange() {
-
+        const checked = this.state.checked ? false : true;
+        this.setState(checked);
+        this.props.onChange && this.props.onChange(checked);
     }
 
     render() {
@@ -31,10 +33,11 @@ class Checkbox extends React.Component<CheckboxProps> {
         if (radio) classes += 'ch-radio';
         if (radio) classes += 'ch-toggle';
         if (disabled) classes += 'ch-disbaled';
+        if (this.state.checked) classes += 'ch-checked';
 
         return (
             <div className='ui-checkbox' onClick={this.onChange}>
-                <input type={'checkbox' + this.state.checked ? ' ch-checked' : ''} className={classes} />
+                <input type='checkbox' className={classes} />
                 <div className='ui-checkbox-label'>{label}</div>
             </div>
 
