@@ -1,6 +1,30 @@
-import './style.scss'
+import React from 'react';
 
-export default class Select extends React.Component {
+interface SelectProps {
+    search?: any
+    style?: any
+    label?: any
+    placeholder?: any
+    options?: {
+        text: string
+        value: string
+    }[]
+    defaultValue?: any
+    onChange?: (options) => void
+}
+
+interface Select {
+    holderRef: any
+    menuVisible: any
+    inputRef: any
+    state: {
+        options: any
+        chosen: any
+        menuVisible: any
+    }
+}
+
+class Select extends React.Component<SelectProps> {
 
     constructor(props) {
         super(props);
@@ -17,8 +41,8 @@ export default class Select extends React.Component {
     }
 
     componentWillMount() {
-        const defaultIndex = this.props.options.findIndex(option => option.value === this.props.defaultValue);
-        this.setState({chosen: defaultIndex, options: this.props.options});
+        const defaultIndex = this.props.options ? this.props.options.findIndex(option => option.value === this.props.defaultValue) : -1;
+        this.setState({ chosen: defaultIndex, options: this.props.options });
         document.addEventListener('mousedown', this.handleClickOutside);
     }
 
@@ -28,39 +52,39 @@ export default class Select extends React.Component {
 
     handleClickOutside(event) {
         if (this.holderRef && !this.holderRef.contains(event.target)) {
-            this.setState({menuVisible: false})
+            this.setState({ menuVisible: false })
         }
     }
 
     toggleMenu() {
         if (this.state.menuVisible) {
-            this.setState({menuVisible: false});
+            this.setState({ menuVisible: false });
         } else {
-            this.setState({menuVisible: true});
+            this.setState({ menuVisible: true });
         }
     }
 
     filterOptions(value) {
-        const filteredOptions = this.props.options.filter(option => option.text.includes(value));
-        this.setState({options: filteredOptions, menuVisible: filteredOptions.length > 0 ? true : false});
+        const filteredOptions = this.props.options ? this.props.options.filter(option => option.text.includes(value)) : [];
+        this.setState({ options: filteredOptions, menuVisible: filteredOptions.length > 0 ? true : false });
     }
 
     render() {
 
-        const {search,style,label,placeholder} = this.props;
-        const {options,chosen,menuVisible} = this.state;
+        const { search, style, label, onChange } = this.props;
+        const { options, chosen, menuVisible } = this.state;
 
         const ListJSX = (
-            options.map((option,index) => (
+            options && options.map((option, index) => (
                 <div
                     className='ui-select-menu-item'
                     children={option.text}
                     onClick={event => {
-                        this.setState({chosen: index});
+                        this.setState({ chosen: index });
                         this.toggleMenu();
-                        this.props.onChange(options[index].value);
+                        onChange && onChange(options[index].value);
                         if (this.inputRef) {
-                            this.inputRef.value=options[index].value;
+                            this.inputRef.value = options[index].text;
                         }
                     }}
                     key={option.key ? option.key : option.text}
@@ -82,7 +106,7 @@ export default class Select extends React.Component {
                 <div className='ui-select-label'>
                     {label}
                 </div>
-                <div className={'ui-select-holder' + (menuVisible ? ' active' : '')} onClick={event => this.toggleMenu()} ref={ref => this.holderRef = ref}>   
+                <div className={'ui-select-holder' + (menuVisible ? ' active' : '')} onClick={() => this.toggleMenu()} ref={ref => this.holderRef = ref}>
                     {search ? SearchJSX : chosen != -1 ? options[chosen].text : ''}
                     <div className={'ui-select-menu' + (menuVisible ? ' visible' : '')}>
                         {ListJSX}
@@ -92,3 +116,6 @@ export default class Select extends React.Component {
         )
     }
 }
+
+
+export default Select;

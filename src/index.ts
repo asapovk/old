@@ -7,5 +7,6 @@ export { Nav as Nav } from './Menu'
 export { Tooltip as Tooltip } from './Tooltip'
 export { Icon as Icon } from './Icon'
 export { Login as Login } from './Login'
+export { Select as Select } from './Select'
 
 export { default as Portal } from 'react-portal';

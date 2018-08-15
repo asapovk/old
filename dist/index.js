@@ -18,5 +18,7 @@ var Icon_1 = require("./Icon");
 exports.Icon = Icon_1.Icon;
 var Login_1 = require("./Login");
 exports.Login = Login_1.Login;
+var Select_1 = require("./Select");
+exports.Select = Select_1.Select;
 var react_portal_1 = require("react-portal");
 exports.Portal = react_portal_1.default;

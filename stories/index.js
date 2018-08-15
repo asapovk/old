@@ -1,10 +1,10 @@
 import React from 'react';
 
 import { storiesOf } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
-import { linkTo } from '@storybook/addon-links';
+import '../src/scss/main.scss';
 
 import { TextField } from '../src/TextField';
+import { Select } from '../src/Select';
 import { Table } from '../src/Table';
 import { Viewport } from '../src/Viewport';
 import { Button } from '../src/Button';
@@ -14,8 +14,18 @@ import { Login } from '../src/Login';
 import TooltipStory from './TooltipStory';
 
 
-import '../src/scss/main.scss';
-import { TableActionsTypes } from '../src/Table/Table';
+const flexCentered = {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center'
+}
+
+const options = [
+    { text: 'Banana', value: 'bn' },
+    { text: 'Cherry', value: 'ch' },
+    { text: 'Watermelon', value: 'wtm' },
+    { text: 'Pear', value: 'pr' },
+]
 
 const data = [
     { index: '1', name: 'Jhon', addres: 'Hover street' },
@@ -27,12 +37,6 @@ const columns = [
     { title: 'Name', dataIndex: 'name' },
     { title: 'Addres', dataIndex: 'addres' }
 ]
-
-const flexCentered = {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center'
-}
 
 const user = {
     id_user: 1,
@@ -48,6 +52,7 @@ const user = {
     modules: "helloworld,sandbox",
 }
 
+
 storiesOf('UI Core', module)
     .add('Button', () => (
         <Viewport style={flexCentered}><Button>Click me</Button></Viewport>
@@ -59,6 +64,16 @@ storiesOf('UI Core', module)
                 <TextField multiline={true} label='Textarea' style={{ paddingBottom: '40px' }} />
                 <TextField multiline={true} singlerow={true} label='Singlerow textarea' />
             </div>
+        </Viewport>
+    ))
+    .add('Select', () => (
+        <Viewport style={flexCentered}>
+            <Select
+                label='Choose your fruit'
+                defaultValue='bn'
+                search={true}
+                options={options}
+            />
         </Viewport>
     ))
     .add('Table', () => (
