@@ -11,7 +11,6 @@ export interface TableProps {
         key: string;
         render: any;
     };
-    addForm?: any;
     actions?: {
         label: string;
         className?: string;

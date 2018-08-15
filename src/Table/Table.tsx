@@ -14,7 +14,6 @@ export interface TableProps {
         key: string
         render: any
     }
-    addForm?: any
     actions?: {
         label: string,
         className?: string,
@@ -50,7 +49,7 @@ class Table extends React.Component<TableProps> {
                     columns={columns}
                     actions={actions}
                     border={border}
-                    form={(form && key == form.key) && form.render}
+                    form={(form && form.key && key == form.key) && form.render}
                     isSelected={(this.state.selectedItems.some(item => item === key))}
                     isExpanding={(this.state.expandedItems.some(item => item === key))}
                     isBlur={((form && form.key && key != form.key) || addForm)}
@@ -59,7 +58,7 @@ class Table extends React.Component<TableProps> {
             )
         })
 
-        addForm && RowsTSX.unshift(TableForm(addForm, columns, {}));
+        typeof form != 'undefined' && typeof form.key === 'undefined' && RowsTSX.unshift(TableForm(form.render, columns, {}));
 
         return (
             <div className='ui-table' style={style}>
