@@ -11,6 +11,7 @@ import { Button } from '../src/Button';
 import { Menu, Nav } from '../src/Menu';
 import { Icon } from '../src/Icon';
 import { Login } from '../src/Login';
+import { Checkbox } from '../src/Checkbox';
 import TooltipStory from './TooltipStory';
 
 
@@ -122,5 +123,8 @@ storiesOf('UI Core', module)
     ))
     .add('Tooltip', () => (
         <Viewport style={flexCentered}><TooltipStory /></Viewport>
+    ))
+    .add('Checkbox', () => (
+        <Viewport style={flexCentered}><Checkbox label='Check me' /></Viewport>
     ));
 
