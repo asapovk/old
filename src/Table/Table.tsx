@@ -42,6 +42,8 @@ class Table extends React.Component<TableProps> {
 
         const isAddForm = (typeof form != 'undefined' && typeof form.key === 'undefined');
 
+        console.log('Form is a addForm? — ', isAddForm)
+
         const RowsTSX = data.map((row, index) => {
             const key = indexKey && row[indexKey] || index.toString()
             return (
