@@ -439,6 +439,7 @@ table {
 
 .ui-select {
   box-sizing: border-box;
+  flex: 1;
 }
 .ui-select-label {
   font-size: 12px;
@@ -453,6 +454,8 @@ table {
   padding: 8px;
   position: relative;
   background: #292b36;
+  width: 100%;
+  min-height: 36px;
 }
 .ui-select-holder-input {
   -webkit-appearance: none;
