@@ -12,6 +12,8 @@ interface TextFieldProps {
     value?: string;
     style?: React.CSSProperties;
     className?: any;
+    multiline?: boolean;
+    singlerow?: boolean;
     onError?: (error: string[] | null) => void;
     onChange?: (value: string) => void;
 }

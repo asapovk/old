@@ -30,10 +30,10 @@ var UITextField = /** @class */ (function (_super) {
             validate.forEach(function (item) {
                 if (item.regex.test(value) === Boolean(item.isMatch)) {
                     _this.setState({
-                        classes: "ui-textfield ui-textfield-error",
+                        classes: 'ui-textfield ui-textfield-error',
                         isValid: false
                     });
-                    errors.push(item.error || "\u0417\u043D\u0430\u0447\u0435\u043D\u0438\u0435 \"" + value + "\" \u043D\u0435 \u0441\u043E\u043E\u0442\u0432\u0435\u0442\u0441\u0432\u0443\u0435\u0442 \u0440\u0435\u0433\u0443\u043B\u044F\u0440\u043D\u043E\u043C\u0443 \u0432\u044B\u0440\u0430\u0436\u0435\u043D\u0438\u044E " + item.regex);
+                    errors.push(item.error || "\u0417\u043D\u0430\u0447\u0435\u043D\u0438\u0435 '" + value + "' \u043D\u0435 \u0441\u043E\u043E\u0442\u0432\u0435\u0442\u0441\u0432\u0443\u0435\u0442 \u0440\u0435\u0433\u0443\u043B\u044F\u0440\u043D\u043E\u043C\u0443 \u0432\u044B\u0440\u0430\u0436\u0435\u043D\u0438\u044E " + item.regex);
                 }
             });
             onError && onError(errors.length > 0 ? errors : null);
@@ -42,14 +42,24 @@ var UITextField = /** @class */ (function (_super) {
     };
     UITextField.prototype.render = function () {
         var _this = this;
-        var _a = this.props, label = _a.label, value = _a.value, defaultValue = _a.defaultValue, style = _a.style, onChange = _a.onChange, className = _a.className;
-        return (react_1.default.createElement("div", { className: "UI-TextField" + (className ? ' ' + className : ''), style: style },
-            label && react_1.default.createElement("div", { className: "UI-TextField-Label" }, label),
-            react_1.default.createElement("input", { className: "UI-TextField-Input", defaultValue: defaultValue, value: value, onChange: function (event) {
-                    if (_this.validate(event.currentTarget.value)) {
-                        onChange && onChange(event.currentTarget.value);
-                    }
-                }, onClick: function (event) { return _this.validate(event.currentTarget.value); } })));
+        var _a = this.props, label = _a.label, value = _a.value, defaultValue = _a.defaultValue, style = _a.style, onChange = _a.onChange, className = _a.className, multiline = _a.multiline, singlerow = _a.singlerow;
+        var InputTSX = (react_1.default.createElement("input", { className: 'ui-textfield-reset ui-textfield-input', defaultValue: defaultValue, value: value, onChange: function (event) {
+                if (_this.validate(event.currentTarget.value)) {
+                    onChange && onChange(event.currentTarget.value);
+                }
+            }, onClick: function (event) { return _this.validate(event.currentTarget.value); } }));
+        var TextAreaTSX = (react_1.default.createElement("textarea", { className: 'ui-textfield-reset ui-textfield-textarea', defaultValue: defaultValue, value: value, onChange: function (event) {
+                if (_this.validate(event.currentTarget.value)) {
+                    onChange && onChange(event.currentTarget.value);
+                }
+            }, onKeyDown: function (event) {
+                if (singlerow && event.keyCode === 13) {
+                    event.preventDefault();
+                }
+            }, onClick: function (event) { return _this.validate(event.currentTarget.value); } }));
+        return (react_1.default.createElement("div", { className: 'ui-textfield' + (className ? ' ' + className : ''), style: style },
+            label && react_1.default.createElement("div", { className: 'ui-textfield-label' }, label),
+            multiline ? TextAreaTSX : InputTSX));
     };
     return UITextField;
 }(react_1.default.Component));

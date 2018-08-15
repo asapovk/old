@@ -53,7 +53,13 @@ storiesOf('UI Core', module)
         <Viewport style={flexCentered}><Button>Click me</Button></Viewport>
     ))
     .add('TextField', () => (
-        <Viewport style={flexCentered}><TextField label='Label' style={{ maxWidth: '626px' }} /></Viewport>
+        <Viewport style={flexCentered}>
+            <div style={{ width: '626px', display: 'flex', flexDirection: 'column', height: '500px' }}>
+                <TextField label='Just input' style={{ flexBasis: '90px', flexGrow: '0' }} />
+                <TextField multiline={true} label='Textarea' style={{ paddingBottom: '40px' }} />
+                <TextField multiline={true} singlerow={true} label='Singlerow textarea' />
+            </div>
+        </Viewport>
     ))
     .add('Table', () => (
         <Viewport style={flexCentered}>
