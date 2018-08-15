@@ -497,4 +497,8 @@ table {
   border-bottom-right-radius: 0 !important;
 }
 
+.ui-checkbox {
+  display: flex;
+}
+
 /*# sourceMappingURL=styles.css.map */
