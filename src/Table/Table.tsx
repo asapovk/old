@@ -34,11 +34,13 @@ class Table extends React.Component<TableProps> {
 
     render() {
 
-        const { data, columns, actions, border, indexKey, scope, form, addForm, style } = this.props;
+        const { data, columns, actions, border, indexKey, scope, form, style } = this.props;
 
         const ColumnsTSX = columns.map(column => (
             <div className={'ui-table-content-head-row-column ' + column.dataIndex} key={column.dataIndex} style={column.width ? { flexBasis: column.width } : { flex: 1 }}>{column.title}</div>
         ))
+
+        const isAddForm = (typeof form != 'undefined' && typeof form.key === 'undefined');
 
         const RowsTSX = data.map((row, index) => {
             const key = indexKey && row[indexKey] || index.toString()
@@ -52,7 +54,7 @@ class Table extends React.Component<TableProps> {
                     form={(form && form.key && key == form.key) && form.render}
                     isSelected={(this.state.selectedItems.some(item => item === key))}
                     isExpanding={(this.state.expandedItems.some(item => item === key))}
-                    isBlur={((form && form.key && key != form.key) || addForm)}
+                    isBlur={((form && form.key && key != form.key) || isAddForm)}
                     scope={scope}
                 />
             )
