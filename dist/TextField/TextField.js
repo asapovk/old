@@ -40,23 +40,24 @@ var UITextField = /** @class */ (function (_super) {
         }
         return (errors.length === 0);
     };
+    UITextField.prototype.onChange = function (value) {
+        if (typeof this.props.validate != 'undefined') {
+            if (this.validate(value)) {
+                this.props.onChange && this.props.onChange(value);
+            }
+        }
+        else
+            this.props.onChange && this.props.onChange(value);
+    };
     UITextField.prototype.render = function () {
         var _this = this;
-        var _a = this.props, label = _a.label, value = _a.value, defaultValue = _a.defaultValue, style = _a.style, onChange = _a.onChange, className = _a.className, multiline = _a.multiline, singlerow = _a.singlerow;
-        var InputTSX = (react_1.default.createElement("input", { className: 'ui-textfield-reset ui-textfield-input', defaultValue: defaultValue, value: value, onChange: function (event) {
-                if (_this.validate(event.currentTarget.value)) {
-                    onChange && onChange(event.currentTarget.value);
-                }
-            }, onClick: function (event) { return _this.validate(event.currentTarget.value); } }));
-        var TextAreaTSX = (react_1.default.createElement("textarea", { className: 'ui-textfield-reset ui-textfield-textarea', defaultValue: defaultValue, value: value, onChange: function (event) {
-                if (_this.validate(event.currentTarget.value)) {
-                    onChange && onChange(event.currentTarget.value);
-                }
-            }, onKeyDown: function (event) {
+        var _a = this.props, label = _a.label, value = _a.value, defaultValue = _a.defaultValue, style = _a.style, className = _a.className, multiline = _a.multiline, singlerow = _a.singlerow;
+        var InputTSX = (react_1.default.createElement("input", { className: 'ui-textfield-reset ui-textfield-input', defaultValue: defaultValue, value: value, onChange: function (event) { return _this.onChange(event.currentTarget.value); } }));
+        var TextAreaTSX = (react_1.default.createElement("textarea", { className: 'ui-textfield-reset ui-textfield-textarea', defaultValue: defaultValue, value: value, onChange: function (event) { return _this.onChange(event.currentTarget.value); }, onKeyDown: function (event) {
                 if (singlerow && event.keyCode === 13) {
                     event.preventDefault();
                 }
-            }, onClick: function (event) { return _this.validate(event.currentTarget.value); } }));
+            } }));
         return (react_1.default.createElement("div", { className: 'ui-textfield' + (className ? ' ' + className : ''), style: style },
             label && react_1.default.createElement("div", { className: 'ui-textfield-label' }, label),
             multiline ? TextAreaTSX : InputTSX));

@@ -42,20 +42,23 @@ class UITextField extends React.Component<TextFieldProps> {
         return (errors.length === 0);
     }
 
+    public onChange(value: string) {
+        if (typeof this.props.validate != 'undefined') {
+            if (this.validate(value)) {
+                this.props.onChange && this.props.onChange(value);
+            }
+        } else this.props.onChange && this.props.onChange(value)
+    }
+
     render() {
-        const { label, value, defaultValue, style, onChange, className, multiline, singlerow } = this.props;
+        const { label, value, defaultValue, style, className, multiline, singlerow } = this.props;
 
         const InputTSX = (
             <input
                 className='ui-textfield-reset ui-textfield-input'
                 defaultValue={defaultValue}
                 value={value}
-                onChange={(event) => {
-                    if (this.validate(event.currentTarget.value)) {
-                        onChange && onChange(event.currentTarget.value);
-                    }
-                }}
-                onClick={event => this.validate(event.currentTarget.value)}
+                onChange={(event) => this.onChange(event.currentTarget.value)}
             />
         )
 
@@ -64,17 +67,12 @@ class UITextField extends React.Component<TextFieldProps> {
                 className='ui-textfield-reset ui-textfield-textarea'
                 defaultValue={defaultValue}
                 value={value}
-                onChange={(event) => {
-                    if (this.validate(event.currentTarget.value)) {
-                        onChange && onChange(event.currentTarget.value);
-                    }
-                }}
+                onChange={(event) => this.onChange(event.currentTarget.value)}
                 onKeyDown={(event) => {
                     if (singlerow && event.keyCode === 13) {
                         event.preventDefault();
                     }
                 }}
-                onClick={event => this.validate(event.currentTarget.value)}
             />
         )
 

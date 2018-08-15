@@ -19,6 +19,7 @@ interface TextFieldProps {
 }
 declare class UITextField extends React.Component<TextFieldProps> {
     validate(value: string): boolean;
+    onChange(value: string): void;
     render(): JSX.Element;
 }
 export default UITextField;
