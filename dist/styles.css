@@ -106,9 +106,8 @@ table {
   appearance: none;
   box-sizing: border-box;
   resize: none;
+  border: none;
   background: none;
-  border: 1px solid;
-  border-radius: 2px;
   border-color: #b1c6d1;
   padding: 8px;
   outline: none;
@@ -117,8 +116,14 @@ table {
   font-size: inherit;
   width: 100%;
 }
+.ui-textfield-input {
+  border: 1px solid;
+  border-radius: 2px;
+}
 .ui-textfield-textarea {
   height: 100%;
+  border: 1px solid;
+  border-radius: 2px;
 }
 
 .ui-table {
@@ -312,13 +317,24 @@ table {
 .ui-menu-interactions-toolsbar-search {
   height: 40px;
   display: flex;
+  align-items: center;
   flex: 1;
   max-width: 632px;
+  border: 1px solid;
+  border-radius: 2px;
+  border-color: #b1c6d1;
+}
+.ui-menu-interactions-toolsbar-search-icon {
+  font-size: 18px;
+  color: #05afc8;
+  padding-right: 10px;
+  cursor: pointer;
 }
 .ui-menu-interactions-toolsbar-tools {
   display: flex;
   align-items: center;
   height: 40px;
+  padding-left: 30px;
 }
 .ui-menu-interactions-toolsbar-tools > * {
   padding-left: 10px;

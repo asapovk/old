@@ -18,17 +18,29 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importDefault(require("react"));
 var TextField_1 = require("../TextField");
+var Icon_1 = require("../Icon");
 var Menu = /** @class */ (function (_super) {
     __extends(Menu, _super);
     function Menu() {
-        return _super !== null && _super.apply(this, arguments) || this;
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.state = {
+            searchField: ''
+        };
+        return _this;
     }
     Menu.prototype.render = function () {
+        var _this = this;
         var _a = this.props, children = _a.children, header = _a.header, toolsLeft = _a.toolsLeft, toolsRight = _a.toolsRight, style = _a.style, search = _a.search, searchValue = _a.searchValue, searchDefaultValue = _a.searchDefaultValue, onSearch = _a.onSearch;
         var isDouble = (search || toolsLeft);
         var HeaderJSX = !header.label ? header : react_1.default.createElement("div", { className: 'ui-menu-header-title', onClick: header.onAction }, header.label);
+        var SearchIconTSX = react_1.default.createElement("span", { className: 'ui-menu-interactions-toolsbar-search-icon', onClick: function () { return _this.props.onSearchSubmit && _this.props.onSearchSubmit(_this.state.searchField); } },
+            react_1.default.createElement(Icon_1.Icon, { type: 'search' }));
         var SearchJSX = (react_1.default.createElement("div", { className: 'ui-menu-interactions-toolsbar-search' },
-            react_1.default.createElement(TextField_1.TextField, { className: 'ui-menu-input', value: searchValue, defaultValue: searchDefaultValue, onChange: function (value) { return onSearch && onSearch(value); } })));
+            react_1.default.createElement(TextField_1.TextField, { value: searchValue, defaultValue: searchDefaultValue, onChange: function (value) {
+                    _this.setState({ searchField: value });
+                    onSearch && onSearch(value);
+                }, decoration: 'none' }),
+            SearchIconTSX));
         return (react_1.default.createElement("div", { className: 'ui-menu', style: style },
             header && react_1.default.createElement("div", { className: 'ui-menu-header' + (isDouble ? ' header-max' : '') }, HeaderJSX),
             react_1.default.createElement("div", { className: 'ui-menu-interactions' },

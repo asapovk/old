@@ -32,13 +32,24 @@ $rowHeightMin: 40px;
             &-search {
                 height: $rowHeightMin;
                 display: flex;
+                align-items: center;
                 flex: 1;
                 max-width: 632px; 
+                border: 1px solid;
+                border-radius: 2px;
+                border-color: $interface;
+                &-icon {
+                    font-size: 18px;
+                    color: $accent;
+                    padding-right: 10px;
+                    cursor: pointer;
+                }
             }
             &-tools {
                 display: flex;
                 align-items: center;
                 height: $rowHeightMin;
+                padding-left: 30px;
                 > * {
                     padding-left: 10px;
                 }

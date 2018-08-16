@@ -126,5 +126,16 @@ storiesOf('UI Core', module)
     ))
     .add('Checkbox', () => (
         <Viewport style={flexCentered}><Checkbox label='Check me' /></Viewport>
+    ))
+    .add('Icons', () => (
+        <Viewport style={flexCentered}>
+            <Icon type='add' />
+            <Icon type='more' />
+            <Icon type='close' />
+            <Icon type='left' />
+            <Icon type='down' />
+            <Icon type='check' />
+            <Icon type='search' />
+        </Viewport>
     ));
 

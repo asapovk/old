@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { TextField } from '../TextField';
+import { Icon } from '../Icon';
 
 interface MenuProps {
     header?: any
@@ -11,8 +12,13 @@ interface MenuProps {
     searchDefaultValue?: string
     searchValue?: string
     onSearch?: (value: string) => void
+    onSearchSubmit?: (value: string) => void
 }
 class Menu extends React.Component<MenuProps> {
+
+    state = {
+        searchField: '' as string
+    }
 
     render() {
 
@@ -22,8 +28,20 @@ class Menu extends React.Component<MenuProps> {
 
         const HeaderJSX = !header.label ? header : <div className='ui-menu-header-title' onClick={header.onAction}>{header.label}</div>;
 
+        const SearchIconTSX = <span className='ui-menu-interactions-toolsbar-search-icon' onClick={() => this.props.onSearchSubmit && this.props.onSearchSubmit(this.state.searchField)}><Icon type='search' /></span>
+
         const SearchJSX = (
-            <div className='ui-menu-interactions-toolsbar-search'><TextField className='ui-menu-input' value={searchValue} defaultValue={searchDefaultValue} onChange={(value) => onSearch && onSearch(value)} /></div>
+            <div className='ui-menu-interactions-toolsbar-search'>
+                <TextField
+                    value={searchValue}
+                    defaultValue={searchDefaultValue}
+                    onChange={(value) => {
+                        this.setState({ searchField: value });
+                        onSearch && onSearch(value);
+                    }}
+                    decoration='none' />
+                {SearchIconTSX}
+            </div>
         )
 
         return (

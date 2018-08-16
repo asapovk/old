@@ -9,8 +9,12 @@ interface MenuProps {
     searchDefaultValue?: string;
     searchValue?: string;
     onSearch?: (value: string) => void;
+    onSearchSubmit?: (value: string) => void;
 }
 declare class Menu extends React.Component<MenuProps> {
+    state: {
+        searchField: string;
+    };
     render(): JSX.Element;
 }
 export default Menu;

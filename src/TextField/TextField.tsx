@@ -15,6 +15,7 @@ interface TextFieldProps {
     className?: any
     multiline?: boolean
     singlerow?: boolean
+    decoration?: 'none'
     onError?: (error: string[] | null) => void
     onChange?: (value: string) => void
 }
@@ -55,7 +56,7 @@ class UITextField extends React.Component<TextFieldProps> {
 
         const InputTSX = (
             <input
-                className='ui-textfield-reset ui-textfield-input'
+                className={'ui-textfield-reset' + (this.props.decoration == 'none' ? '' : ' ui-textfield-input')}
                 defaultValue={defaultValue}
                 value={value}
                 onChange={(event) => this.onChange(event.currentTarget.value)}
@@ -64,7 +65,7 @@ class UITextField extends React.Component<TextFieldProps> {
 
         const TextAreaTSX = (
             <textarea
-                className='ui-textfield-reset ui-textfield-textarea'
+                className={'ui-textfield-reset' + (this.props.decoration == 'none' ? '' : ' ui-textfield-texarea')}
                 defaultValue={defaultValue}
                 value={value}
                 onChange={(event) => this.onChange(event.currentTarget.value)}
