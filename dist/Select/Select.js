@@ -17,6 +17,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importDefault(require("react"));
+var Icon_1 = require("../Icon");
 var Select = /** @class */ (function (_super) {
     __extends(Select, _super);
     function Select(props) {
@@ -44,12 +45,7 @@ var Select = /** @class */ (function (_super) {
         }
     };
     Select.prototype.toggleMenu = function () {
-        if (this.state.menuVisible) {
-            this.setState({ menuVisible: false });
-        }
-        else {
-            this.setState({ menuVisible: true });
-        }
+        this.setState({ menuVisible: this.state.menuVisible ? false : true });
     };
     Select.prototype.filterOptions = function (value) {
         var filteredOptions = this.props.options ? this.props.options.filter(function (option) { return option.text.includes(value); }) : [];
@@ -57,9 +53,9 @@ var Select = /** @class */ (function (_super) {
     };
     Select.prototype.render = function () {
         var _this = this;
-        var _a = this.props, search = _a.search, style = _a.style, label = _a.label, onChange = _a.onChange;
+        var _a = this.props, search = _a.search, style = _a.style, label = _a.label, onChange = _a.onChange, clearable = _a.clearable;
         var _b = this.state, options = _b.options, chosen = _b.chosen, menuVisible = _b.menuVisible;
-        var ListJSX = (options && options.map(function (option, index) { return (react_1.default.createElement("div", { className: 'ui-select-menu-item', children: option.text, onClick: function (event) {
+        var ListJSX = (options && options.map(function (option, index) { return (react_1.default.createElement("div", { className: 'ui-select-menu-item' + (_this.state.chosen == index ? ' sel-chosen' : ''), children: option.text, onClick: function (event) {
                 _this.setState({ chosen: index });
                 _this.toggleMenu();
                 onChange && onChange(options[index].value);
@@ -67,11 +63,18 @@ var Select = /** @class */ (function (_super) {
                     _this.inputRef.value = options[index].text;
                 }
             }, key: option.key ? option.key : option.text })); }));
-        var SearchJSX = (react_1.default.createElement("input", { className: 'ui-select-holder-input', defaultValue: chosen != -1 ? options[chosen].text : '', onChange: function (event) { return _this.filterOptions(event.target.value); }, ref: function (ref) { return _this.inputRef = ref; } }));
+        var SearchJSX = (react_1.default.createElement("input", { className: 'ui-select-holder-value-input', defaultValue: chosen != -1 ? options[chosen].text : '', onChange: function (event) { return _this.filterOptions(event.target.value); }, ref: function (ref) { return _this.inputRef = ref; } }));
+        var clearToolTSX = react_1.default.createElement("span", { className: 'ui-select-holder-clear', onClick: function (event) { event.stopPropagation(); _this.setState({ chosen: -1 }); } },
+            react_1.default.createElement(Icon_1.Icon, { type: 'close' }));
+        var downIconTSX = react_1.default.createElement("span", { className: 'ui-select-holder-down' },
+            react_1.default.createElement(Icon_1.Icon, { type: menuVisible ? 'up' : 'down' }));
+        console.log(chosen, options[chosen]);
         return (react_1.default.createElement("div", { className: 'ui-select', style: style },
             react_1.default.createElement("div", { className: 'ui-select-label' }, label),
             react_1.default.createElement("div", { className: 'ui-select-holder' + (menuVisible ? ' active' : ''), onClick: function () { return _this.toggleMenu(); }, ref: function (ref) { return _this.holderRef = ref; } },
-                search ? SearchJSX : chosen != -1 ? options[chosen].text : '',
+                react_1.default.createElement("div", { className: 'ui-select-holder-value' }, search ? SearchJSX : options[chosen].text),
+                clearable && clearToolTSX,
+                downIconTSX,
                 react_1.default.createElement("div", { className: 'ui-select-menu' + (menuVisible ? ' visible' : '') }, ListJSX))));
     };
     Select.defaultProps = {

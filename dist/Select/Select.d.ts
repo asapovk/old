@@ -8,6 +8,7 @@ interface SelectProps {
         text: string;
         value: string;
     }[];
+    clearable?: boolean;
     defaultValue?: any;
     onChange?: (options: any) => void;
 }

@@ -489,11 +489,25 @@ table {
   border-radius: 2px;
   border-color: #b1c6d1;
   padding: 8px;
-  position: relative;
   background: #292b36;
   min-height: 20px;
+  position: relative;
+  display: flex;
+  align-items: center;
 }
-.ui-select-holder-input {
+.ui-select-holder-clear {
+  color: #b1c6d1;
+  font-size: 16px;
+  padding-right: 5px;
+}
+.ui-select-holder-down {
+  font-size: 14px;
+  color: #b1c6d1;
+}
+.ui-select-holder-value {
+  flex: 1;
+}
+.ui-select-holder-value-input {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -511,8 +525,8 @@ table {
   overflow: scroll;
   border: 1px solid;
   border-radius: 0 0 2px 2px;
-  border-top: 0;
   border-color: #b1c6d1;
+  border-top-color: rgba(92, 97, 115, 0.3);
   top: 100%;
   width: 100%;
   background: #292b36;
@@ -522,7 +536,10 @@ table {
 }
 .ui-select-menu-item {
   cursor: pointer;
-  padding: 4px 8px;
+  padding: 8px;
+}
+.ui-select-menu-item:hover {
+  background: rgba(92, 97, 115, 0.3);
 }
 
 .visible {
@@ -532,6 +549,10 @@ table {
 .active {
   border-bottom-left-radius: 0 !important;
   border-bottom-right-radius: 0 !important;
+}
+
+.sel-chosen {
+  background: rgba(92, 97, 115, 0.3);
 }
 
 .ui-checkbox {

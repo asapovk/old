@@ -74,6 +74,8 @@ storiesOf('UI Core', module)
                 defaultValue='bn'
                 search={true}
                 options={options}
+                style={{ padding: '80px' }}
+                clearable={true}
             />
         </Viewport>
     ))

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Icon } from '../Icon';
 
 interface SelectProps {
     search?: any
@@ -9,6 +10,7 @@ interface SelectProps {
         text: string
         value: string
     }[]
+    clearable?: boolean
     defaultValue?: any
     onChange?: (options) => void
 }
@@ -57,11 +59,7 @@ class Select extends React.Component<SelectProps> {
     }
 
     toggleMenu() {
-        if (this.state.menuVisible) {
-            this.setState({ menuVisible: false });
-        } else {
-            this.setState({ menuVisible: true });
-        }
+        this.setState({ menuVisible: this.state.menuVisible ? false : true });
     }
 
     filterOptions(value) {
@@ -71,13 +69,13 @@ class Select extends React.Component<SelectProps> {
 
     render() {
 
-        const { search, style, label, onChange } = this.props;
+        const { search, style, label, onChange, clearable } = this.props;
         const { options, chosen, menuVisible } = this.state;
 
         const ListJSX = (
             options && options.map((option, index) => (
                 <div
-                    className='ui-select-menu-item'
+                    className={'ui-select-menu-item' + (this.state.chosen == index ? ' sel-chosen' : '')}
                     children={option.text}
                     onClick={event => {
                         this.setState({ chosen: index });
@@ -94,12 +92,17 @@ class Select extends React.Component<SelectProps> {
 
         const SearchJSX = (
             <input
-                className='ui-select-holder-input'
+                className='ui-select-holder-value-input'
                 defaultValue={chosen != -1 ? options[chosen].text : ''}
                 onChange={event => this.filterOptions(event.target.value)}
                 ref={ref => this.inputRef = ref}
             />
         )
+
+        const clearToolTSX = <span className='ui-select-holder-clear' onClick={(event) => { event.stopPropagation(); this.setState({ chosen: -1 }) }}><Icon type='close' /></span>
+        const downIconTSX = <span className='ui-select-holder-down'><Icon type={menuVisible ? 'up' : 'down'} /></span>
+
+        console.log(chosen, options[chosen]);
 
         return (
             <div className='ui-select' style={style}>
@@ -107,7 +110,11 @@ class Select extends React.Component<SelectProps> {
                     {label}
                 </div>
                 <div className={'ui-select-holder' + (menuVisible ? ' active' : '')} onClick={() => this.toggleMenu()} ref={ref => this.holderRef = ref}>
-                    {search ? SearchJSX : chosen != -1 ? options[chosen].text : ''}
+                    <div className='ui-select-holder-value'>
+                        {search ? SearchJSX : options[chosen].text}
+                    </div>
+                    {clearable && clearToolTSX}
+                    {downIconTSX}
                     <div className={'ui-select-menu' + (menuVisible ? ' visible' : '')}>
                         {ListJSX}
                     </div>

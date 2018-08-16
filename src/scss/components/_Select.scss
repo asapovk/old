@@ -12,19 +12,33 @@
         border-radius: 2px;
         border-color: $interface;
         padding: 8px;
-        position: relative;
         background: $page-background;
         min-height: 20px;
-        &-input {
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            appearance: none;
-            box-sizing: border-box; 
-            background: none;
-            border: none;
-            outline: none;
-            color: inherit;
-            font-size: inherit; 
+        position: relative;
+        display: flex;
+        align-items: center;
+        &-clear {
+            color: $interface;
+            font-size: 16px;
+            padding-right: 5px;
+        }
+        &-down {
+            font-size: 14px;
+            color: $interface;
+        }
+        &-value {
+            flex: 1;
+            &-input {
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                appearance: none;
+                box-sizing: border-box; 
+                background: none;
+                border: none;
+                outline: none;
+                color: inherit;
+                font-size: inherit; 
+            }
         }
     }
     &-menu {
@@ -34,8 +48,8 @@
         overflow: scroll;
         border: 1px solid;
         border-radius: 0 0 2px 2px;
-        border-top: 0;
         border-color: $interface;
+        border-top-color: rgba($pale, 0.3);
         top: 100%;
         width: 100%;
         background: $page-background;
@@ -44,7 +58,10 @@
         margin: 0 -1px;
         &-item {
             cursor: pointer;
-            padding: 4px 8px ;
+            padding: 8px ;
+            &:hover {
+                background: rgba($pale, 0.3);
+            }
         }
     }
 }
@@ -56,4 +73,8 @@
 .active {
     border-bottom-left-radius: 0!important;
     border-bottom-right-radius: 0!important;
+}
+
+.sel-chosen {
+    background: rgba($pale, 0.3);
 }
