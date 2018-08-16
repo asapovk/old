@@ -102,8 +102,6 @@ class Select extends React.Component<SelectProps> {
         const clearToolTSX = <span className='ui-select-holder-clear' onClick={(event) => { event.stopPropagation(); this.setState({ chosen: -1 }) }}><Icon type='close' /></span>
         const downIconTSX = <span className='ui-select-holder-down'><Icon type={menuVisible ? 'up' : 'down'} /></span>
 
-        console.log(chosen, options[chosen]);
-
         return (
             <div className='ui-select' style={style}>
                 <div className='ui-select-label'>

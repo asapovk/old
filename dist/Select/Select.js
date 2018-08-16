@@ -68,7 +68,6 @@ var Select = /** @class */ (function (_super) {
             react_1.default.createElement(Icon_1.Icon, { type: 'close' }));
         var downIconTSX = react_1.default.createElement("span", { className: 'ui-select-holder-down' },
             react_1.default.createElement(Icon_1.Icon, { type: menuVisible ? 'up' : 'down' }));
-        console.log(chosen, options[chosen]);
         return (react_1.default.createElement("div", { className: 'ui-select', style: style },
             react_1.default.createElement("div", { className: 'ui-select-label' }, label),
             react_1.default.createElement("div", { className: 'ui-select-holder' + (menuVisible ? ' active' : ''), onClick: function () { return _this.toggleMenu(); }, ref: function (ref) { return _this.holderRef = ref; } },
