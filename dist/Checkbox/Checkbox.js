@@ -28,23 +28,26 @@ var Checkbox = /** @class */ (function (_super) {
     }
     Checkbox.prototype.onChange = function () {
         var checked = this.state.checked ? false : true;
-        this.setState(checked);
+        this.setState({ checked: checked });
         this.props.onChange && this.props.onChange(checked);
     };
     Checkbox.prototype.render = function () {
+        var _this = this;
         var _a = this.props, label = _a.label, indeterminate = _a.indeterminate, disabled = _a.disabled, radio = _a.radio, toggle = _a.toggle, cheked = _a.cheked, onChange = _a.onChange, styles = _a.styles;
         var classes = 'ui-checkbox-input';
         if (radio)
-            classes += 'ch-radio';
+            classes += ' ch-radio';
         if (radio)
-            classes += 'ch-toggle';
+            classes += ' ch-toggle';
         if (disabled)
-            classes += 'ch-disbaled';
+            classes += ' ch-disbaled';
         if (this.state.checked)
-            classes += 'ch-checked';
-        return (react_1.default.createElement("div", { className: 'ui-checkbox', onClick: this.onChange },
-            react_1.default.createElement("input", { type: 'checkbox', className: classes }),
-            react_1.default.createElement("div", { className: 'ui-checkbox-label' }, label)));
+            classes += ' ch-checked';
+        console.log(this.state);
+        var InputTSX = (react_1.default.createElement("div", { className: classes }));
+        return (react_1.default.createElement("div", { className: 'ui-checkbox', onClick: function () { return _this.onChange(); } },
+            InputTSX,
+            react_1.default.createElement("div", { className: 'ui-checkbox-label noselect' }, label)));
     };
     return Checkbox;
 }(react_1.default.Component));

@@ -56,6 +56,26 @@ table {
   border-spacing: 0;
 }
 
+.noselect {
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Safari */
+  -khtml-user-select: none;
+  /* Konqueror HTML */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently
+     supported by Chrome and Opera */
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
 .ui-view {
   color: white;
   background: #292b36;
@@ -64,7 +84,7 @@ table {
   left: 0;
   bottom: 0;
   right: 0;
-  overflow: scroll;
+  overflow: auto;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -499,6 +519,21 @@ table {
 
 .ui-checkbox {
   display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.ui-checkbox-input {
+  width: 16px;
+  height: 16px;
+  border: 1px solid #b1c6d1;
+  border-radius: 2px;
+}
+.ui-checkbox-label {
+  padding-left: 5px;
+}
+
+.ch-checked {
+  background: #05afc8;
 }
 
 /*# sourceMappingURL=styles.css.map */
