@@ -109,7 +109,7 @@ class Select extends React.Component<SelectProps> {
                 </div>
                 <div className={'ui-select-holder' + (menuVisible ? ' active' : '')} onClick={() => this.toggleMenu()} ref={ref => this.holderRef = ref}>
                     <div className='ui-select-holder-value'>
-                        {search ? SearchJSX : options[chosen].text}
+                        {search ? SearchJSX : chosen != -1 ? options[chosen].text : ''}
                     </div>
                     {clearable && clearToolTSX}
                     {downIconTSX}

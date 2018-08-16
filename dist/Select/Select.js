@@ -71,7 +71,7 @@ var Select = /** @class */ (function (_super) {
         return (react_1.default.createElement("div", { className: 'ui-select', style: style },
             react_1.default.createElement("div", { className: 'ui-select-label' }, label),
             react_1.default.createElement("div", { className: 'ui-select-holder' + (menuVisible ? ' active' : ''), onClick: function () { return _this.toggleMenu(); }, ref: function (ref) { return _this.holderRef = ref; } },
-                react_1.default.createElement("div", { className: 'ui-select-holder-value' }, search ? SearchJSX : options[chosen].text),
+                react_1.default.createElement("div", { className: 'ui-select-holder-value' }, search ? SearchJSX : chosen != -1 ? options[chosen].text : ''),
                 clearable && clearToolTSX,
                 downIconTSX,
                 react_1.default.createElement("div", { className: 'ui-select-menu' + (menuVisible ? ' visible' : '') }, ListJSX))));
