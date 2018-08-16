@@ -43,7 +43,6 @@ var Checkbox = /** @class */ (function (_super) {
             classes += ' ch-disbaled';
         if (this.state.checked)
             classes += ' ch-checked';
-        console.log(this.state);
         var InputTSX = (react_1.default.createElement("div", { className: classes }));
         return (react_1.default.createElement("div", { className: 'ui-checkbox', onClick: function () { return _this.onChange(); } },
             InputTSX,

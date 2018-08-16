@@ -34,7 +34,6 @@ class Checkbox extends React.Component<CheckboxProps> {
         if (radio) classes += ' ch-toggle';
         if (disabled) classes += ' ch-disbaled';
         if (this.state.checked) classes += ' ch-checked';
-        console.log(this.state)
 
         const InputTSX = (<div className={classes}></div>)
 
