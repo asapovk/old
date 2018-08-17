@@ -11,3 +11,27 @@
 .uppercase {
     text-transform: uppercase;
 }
+
+::-webkit-scrollbar {
+    width: 10px;
+    border: 2px solid #292b36;
+    padding: 20px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #292b36; 
+    border-radius: 5px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background: rgba(255,255,255,0.1);
+    border: 2px solid #292b36;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(255,255,255,0.3); 
+}

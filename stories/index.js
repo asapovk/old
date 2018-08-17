@@ -24,7 +24,6 @@ const flexCentered = {
 var fakerator = Fakerator();
 
 const data = [];
-
 for (let i = 0; i < 200; i++) {
     data.push({
         id: i + 1,
