@@ -1,6 +1,7 @@
 import React from 'react';
 import TableRow from './TableRow';
 import TableForm from './TableForm';
+import TablePagination, { PaginationProps } from './TablePagination';
 
 export interface TableProps {
     data: any[]
@@ -23,18 +24,31 @@ export interface TableProps {
     indexKey?: string
     scope?: any
     style?: any
+    pagination?: PaginationProps
 }
 
 class Table extends React.Component<TableProps> {
 
     state = {
         selectedItems: [] as string[],
-        expandedItems: [] as string[]
+        expandedItems: [] as string[],
+        page: 1,
     }
 
     render() {
 
-        const { data, columns, actions, border, indexKey, scope, form, style } = this.props;
+        const { columns, actions, border, indexKey, scope, form, style, pagination } = this.props;
+
+        let { data } = this.props;
+
+        if (pagination) {
+            const { pageSize } = pagination;
+            /**
+             * Отрезаем записи в таблице если есть
+             * параметры пагинации
+             */
+            data = data.filter((item, i) => pageSize * this.state.page >= (i + 1) && (i + 1) >= pageSize * this.state.page - pageSize);
+        }
 
         const isAddForm = (typeof form != 'undefined' && typeof form.key === 'undefined');
 
@@ -71,6 +85,14 @@ class Table extends React.Component<TableProps> {
                         {RowsTSX}
                     </div>
                 </div>
+                {pagination && (
+                    <TablePagination
+                        pagination={pagination}
+                        page={this.state.page}
+                        data={this.props.data}
+                        onChange={page => this.setState({ page })}
+                    />
+                )}
             </div>
         )
     }

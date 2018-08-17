@@ -13,7 +13,7 @@ import { Icon } from '../src/Icon';
 import { Login } from '../src/Login';
 import { Checkbox } from '../src/Checkbox';
 import TooltipStory from './TooltipStory';
-
+import Fakerator from 'fakerator';
 
 const flexCentered = {
     display: 'flex',
@@ -28,15 +28,25 @@ const options = [
     { text: 'Pear', value: 'pr' },
 ]
 
-const data = [
-    { index: '1', name: 'Jhon', addres: 'Hover street' },
-    { index: '1', name: 'Michel', addres: 'Flower street' },
-    { index: '1', name: 'David', addres: 'Never street' }
-]
+var fakerator = Fakerator();
+
+const data = [];
+
+for (let i = 0; i < 200; i++) {
+    data.push({
+        id: i + 1,
+        name: fakerator.names.name(),
+        age: fakerator.random.number(16, 50),
+        passport: fakerator.random.hex(16),
+    });
+}
 
 const columns = [
-    { title: 'Name', dataIndex: 'name' },
-    { title: 'Addres', dataIndex: 'addres' }
+    { title: '#', dataIndex: 'id' },
+    { title: 'Fullname', dataIndex: 'name' },
+    { title: 'Age', dataIndex: 'age' },
+    { title: 'Passport ID', dataIndex: 'passport' }
+
 ]
 
 const user = {
@@ -80,10 +90,13 @@ storiesOf('UI Core', module)
         </Viewport>
     ))
     .add('Table', () => (
-        <Viewport style={flexCentered}>
+        <Viewport>
             <Table
-                style={{ width: '100%' }}
+                style={{ padding: 20 }}
                 data={data}
+                pagination={{
+                    pageSize: 10
+                }}
                 columns={columns}
                 actions={[
                     {
