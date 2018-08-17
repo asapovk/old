@@ -86,7 +86,7 @@ storiesOf('💥 Core', module)
     .add('Select', () => (
         <Viewport style={flexCentered}>
             <Select
-                label='Who are U'
+                label='Multiselect'
                 search={true}
                 options={options}
                 style={{ padding: '80px' }}
@@ -95,11 +95,10 @@ storiesOf('💥 Core', module)
                 onChange={(value) => console.log('Multi', value)}
             />
             <Select
-                label='Who are U'
+                label='Select'
                 search={true}
                 options={options}
                 style={{ padding: '80px' }}
-                clearable={true}
                 onChange={(value) => console.log('Singe', value)}
             />
         </Viewport>

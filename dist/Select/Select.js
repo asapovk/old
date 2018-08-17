@@ -88,12 +88,13 @@ var Select = /** @class */ (function (_super) {
             unselected = options.filter(function (option) { return selected.findIndex(function (select) { return select == option; }) < 0; });
         }
         ;
-        var MultiSelectTSX = (multiselect && selected && selected.map(function (option) { return (react_1.default.createElement("div", { onClick: function (event) {
-                event.stopPropagation();
-                _this.onUnselect(option);
-            } },
-            react_1.default.createElement(Icon_1.Icon, { type: 'close' }),
-            option.text)); }));
+        var MultiSelectTSX = (multiselect && selected && selected.map(function (option) { return (react_1.default.createElement("div", { className: 'ui-select-holder-value-option' },
+            react_1.default.createElement("div", { className: 'ui-select-holder-value-option-close', onClick: function (event) {
+                    event.stopPropagation();
+                    _this.onUnselect(option);
+                } },
+                react_1.default.createElement(Icon_1.Icon, { type: 'close' })),
+            react_1.default.createElement("span", null, option.text))); }));
         var SearchBarTSX = (react_1.default.createElement("input", { className: 'ui-select-holder-value-input', defaultValue: multiselect ? '' : selected && selected[0].text, onChange: function (event) { return _this.filterOptions(event.target.value); }, ref: function (ref) { return _this.inputRef = ref; } }));
         var ClearButtonTSX = (react_1.default.createElement("span", { className: 'ui-select-holder-clear', onClick: function (event) {
                 event.stopPropagation();

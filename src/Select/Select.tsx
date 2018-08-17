@@ -106,12 +106,16 @@ class Select extends React.Component<SelectProps> {
 
         const MultiSelectTSX = (
             multiselect && selected && selected.map(option => (
-                <div onClick={(event) => {
-                    event.stopPropagation();
-                    this.onUnselect(option);
-                }}>
-                    <Icon type='close' />
-                    {option.text}
+                <div className='ui-select-holder-value-option'>
+                    <div
+                        className='ui-select-holder-value-option-close'
+                        onClick={(event) => {
+                            event.stopPropagation();
+                            this.onUnselect(option);
+                        }}>
+                        <Icon type='close' />
+                    </div>
+                    <span>{option.text}</span>
                 </div>
             ))
         )

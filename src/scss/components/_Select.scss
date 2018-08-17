@@ -28,6 +28,9 @@
         }
         &-value {
             flex: 1;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
             &-input {
                 -webkit-appearance: none;
                 -moz-appearance: none;
@@ -38,6 +41,24 @@
                 outline: none;
                 color: inherit;
                 font-size: inherit; 
+            }
+            &-option {
+                font-size: 12px;
+                display: flex;
+                color: $accent;
+                background: rgba($accent, 0.1);
+                border: 1px solid $accent;
+                border-radius: 2px;
+                margin: 4px;
+                &-close {
+                    border-right: 1px solid $accent;
+                    display: flex;
+                    align-items: center;
+                    padding: 4px;
+                }
+                span {
+                    padding: 4px;
+                }
             }
         }
     }

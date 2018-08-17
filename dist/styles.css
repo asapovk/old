@@ -651,6 +651,9 @@ table {
 }
 .ui-select-holder-value {
   flex: 1;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
 }
 .ui-select-holder-value-input {
   -webkit-appearance: none;
@@ -662,6 +665,24 @@ table {
   outline: none;
   color: inherit;
   font-size: inherit;
+}
+.ui-select-holder-value-option {
+  font-size: 12px;
+  display: flex;
+  color: #05afc8;
+  background: rgba(5, 175, 200, 0.1);
+  border: 1px solid #05afc8;
+  border-radius: 2px;
+  margin: 4px;
+}
+.ui-select-holder-value-option-close {
+  border-right: 1px solid #05afc8;
+  display: flex;
+  align-items: center;
+  padding: 4px;
+}
+.ui-select-holder-value-option span {
+  padding: 4px;
 }
 .ui-select-menu {
   display: none;
