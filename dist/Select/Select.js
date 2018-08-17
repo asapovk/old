@@ -74,7 +74,11 @@ var Select = /** @class */ (function (_super) {
         var _this = this;
         var _a = this.props, search = _a.search, style = _a.style, label = _a.label, clearable = _a.clearable, multiselect = _a.multiselect;
         var _b = this.state, options = _b.options, selected = _b.selected, menuVisible = _b.menuVisible;
-        var unselected = selected ? options && options.filter(function (option) { return selected.findIndex(function (select) { return select == option; }) < 0; }) : options;
+        var unselected = options;
+        if (multiselect && selected && options) {
+            unselected = options.filter(function (option) { return selected.findIndex(function (select) { return select == option; }) < 0; });
+        }
+        ;
         var MultiSelectTSX = (multiselect && selected && selected.map(function (option) { return (react_1.default.createElement("div", { onClick: function (event) {
                 event.stopPropagation();
                 _this.onUnselect(option);

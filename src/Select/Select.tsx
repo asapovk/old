@@ -91,7 +91,10 @@ class Select extends React.Component<SelectProps> {
         const { search, style, label, clearable, multiselect } = this.props;
         const { options, selected, menuVisible } = this.state;
 
-        const unselected = selected ? options && options.filter(option => selected.findIndex(select => select == option) < 0) : options;
+        let unselected = options;
+        if (multiselect && selected && options) {
+            unselected = options.filter(option => selected.findIndex(select => select == option) < 0)
+        };
 
         const MultiSelectTSX = (
             multiselect && selected && selected.map(option => (
