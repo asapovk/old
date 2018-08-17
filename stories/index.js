@@ -21,13 +21,6 @@ const flexCentered = {
     justifyContent: 'center'
 }
 
-const options = [
-    { text: 'Banana', value: 'bn' },
-    { text: 'Cherry', value: 'ch' },
-    { text: 'Watermelon', value: 'wtm' },
-    { text: 'Pear', value: 'pr' },
-]
-
 var fakerator = Fakerator();
 
 const data = [];
@@ -38,6 +31,14 @@ for (let i = 0; i < 200; i++) {
         name: fakerator.names.name(),
         age: fakerator.random.number(16, 50),
         passport: fakerator.random.hex(16),
+    });
+}
+
+const options = [];
+for (let i = 0; i < 10; i++) {
+    options.push({
+        text: fakerator.names.name(),
+        value: fakerator.random.hex(4),
     });
 }
 
