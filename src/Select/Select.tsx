@@ -23,7 +23,7 @@ interface Select {
     state: {
         options: any
         menuVisible: any
-        selected: any
+        selected: undefined | any[]
     }
 }
 
@@ -42,7 +42,7 @@ class Select extends React.Component<SelectProps> {
     componentWillMount() {
         const selected = this.props.options && this.props.defaultValue && this.props.options.find(option => option.value == this.props.defaultValue);
         this.setState({
-            selected: selected,
+            selected: selected && [selected],
             options: this.props.options
         });
         document.addEventListener('mousedown', this.handleClickOutside);
@@ -78,7 +78,7 @@ class Select extends React.Component<SelectProps> {
     }
 
     onUnselect(option) {
-        this.setState({ selected: this.state.selected.filter(select => select != option) })
+        this.setState({ selected: this.state.selected && this.state.selected.filter(select => select != option) })
     }
 
     filterOptions(value) {
@@ -92,7 +92,6 @@ class Select extends React.Component<SelectProps> {
         const { options, selected, menuVisible } = this.state;
 
         const unselected = selected ? options && options.filter(option => selected.findIndex(select => select == option) < 0) : options;
-
 
         const MultiSelectTSX = (
             multiselect && selected && selected.map(option => (

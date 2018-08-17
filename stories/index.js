@@ -94,6 +94,14 @@ storiesOf('💥 Core', module)
                 clearable={true}
                 multiselect={true}
             />
+            <Select
+                label='Who are U'
+                defaultValue='bn'
+                search={true}
+                options={options}
+                style={{ padding: '80px' }}
+                clearable={true}
+            />
         </Viewport>
     ))
     .add('Table', () => (

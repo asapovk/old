@@ -34,7 +34,7 @@ var Select = /** @class */ (function (_super) {
         var _this = this;
         var selected = this.props.options && this.props.defaultValue && this.props.options.find(function (option) { return option.value == _this.props.defaultValue; });
         this.setState({
-            selected: selected,
+            selected: selected && [selected],
             options: this.props.options
         });
         document.addEventListener('mousedown', this.handleClickOutside);
@@ -64,7 +64,7 @@ var Select = /** @class */ (function (_super) {
         }
     };
     Select.prototype.onUnselect = function (option) {
-        this.setState({ selected: this.state.selected.filter(function (select) { return select != option; }) });
+        this.setState({ selected: this.state.selected && this.state.selected.filter(function (select) { return select != option; }) });
     };
     Select.prototype.filterOptions = function (value) {
         var filteredOptions = this.props.options ? this.props.options.filter(function (option) { return option.text.includes(value); }) : [];

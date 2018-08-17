@@ -20,7 +20,7 @@ interface Select {
     state: {
         options: any;
         menuVisible: any;
-        selected: any;
+        selected: undefined | any[];
     };
 }
 declare class Select extends React.Component<SelectProps> {
