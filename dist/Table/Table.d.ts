@@ -1,4 +1,5 @@
 import React from 'react';
+import { PaginationProps } from './TablePagination';
 export interface TableProps {
     data: any[];
     columns: {
@@ -20,11 +21,13 @@ export interface TableProps {
     indexKey?: string;
     scope?: any;
     style?: any;
+    pagination?: PaginationProps;
 }
 declare class Table extends React.Component<TableProps> {
     state: {
         selectedItems: string[];
         expandedItems: string[];
+        page: number;
     };
     render(): JSX.Element;
 }
