@@ -65,7 +65,7 @@ class UITextField extends React.Component<TextFieldProps> {
 
         const TextAreaTSX = (
             <textarea
-                className={'ui-textfield-reset' + (this.props.decoration == 'none' ? '' : ' ui-textfield-texarea')}
+                className={'ui-textfield-reset' + (this.props.decoration == 'none' ? '' : ' ui-textfield-textarea')}
                 defaultValue={defaultValue}
                 value={value}
                 onChange={(event) => this.onChange(event.currentTarget.value)}
