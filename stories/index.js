@@ -66,7 +66,10 @@ const user = {
 }
 
 
-storiesOf('UI Core', module)
+storiesOf('💥 Core', module)
+    .add('Viewport', () => (
+        <Viewport style={flexCentered}>there's nothing to see.</Viewport>
+    ))
     .add('Button', () => (
         <Viewport style={flexCentered}><Button>Click me</Button></Viewport>
     ))
@@ -82,7 +85,7 @@ storiesOf('UI Core', module)
     .add('Select', () => (
         <Viewport style={flexCentered}>
             <Select
-                label='Choose your fruit'
+                label='Who are U'
                 defaultValue='bn'
                 search={true}
                 options={options}
@@ -144,7 +147,7 @@ storiesOf('UI Core', module)
     .add('Checkbox', () => (
         <Viewport style={flexCentered}><Checkbox label='Check me' /></Viewport>
     ))
-    .add('Icons', () => (
+    .add('Icon', () => (
         <Viewport style={{ display: 'flex', alignItems: 'flex-start', flexDirection: 'row', fontSize: 24, justifyContent: 'space-between', padding: '80px' }}>
             <style children='.desc{font-size: 12px; color: #5c6173; padding-top: 10px} .cont{display: flex; align-items: center; flex-direction: column}' />
             <div className='cont'><Icon type='add' /><span className='desc'>Add</span></div>
@@ -172,3 +175,14 @@ storiesOf('UI Core', module)
         </Viewport>
     ));
 
+storiesOf('🔪 Misc', module)
+    .add('Login', () => (
+        <Viewport style={flexCentered}>
+            <Login
+                name={user.first_name}
+                login={user.login}
+                fullname={user.first_name + ' ' + user.last_name}
+                role={user.desc_role}
+            />
+        </Viewport>
+    ));
