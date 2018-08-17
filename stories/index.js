@@ -12,6 +12,7 @@ import { Menu, Nav } from '../src/Menu';
 import { Icon } from '../src/Icon';
 import { Login } from '../src/Login';
 import { Checkbox } from '../src/Checkbox';
+import { Spinner } from '../src/Spinner';
 import TooltipStory from './TooltipStory';
 import Fakerator from 'fakerator';
 
@@ -151,6 +152,11 @@ storiesOf('UI Core', module)
             <Icon type='down' />
             <Icon type='check' />
             <Icon type='search' />
+        </Viewport>
+    ))
+    .add('Spinner', () => (
+        <Viewport style={flexCentered}>
+            <Spinner spinning />
         </Viewport>
     ));
 
