@@ -13,7 +13,7 @@ interface SelectProps {
     clearable?: boolean
     multiselect?: boolean
     defaultValue?: any
-    onChange?: (options) => void
+    onChange?: (value) => void
 }
 
 interface Select {
@@ -69,7 +69,13 @@ class Select extends React.Component<SelectProps> {
         const isAlreadySelect = (selected.find(select => select == option));
 
         if (!isAlreadySelect) {
-            this.props.multiselect ? selected.push(option) : selected = [option];
+            if (this.props.multiselect) {
+                selected.push(option)
+                this.props.onChange && this.props.onChange(selected.map(select => select.value));
+            } else {
+                selected = [option];
+                this.props.onChange && this.props.onChange(option.value);
+            }
             this.setState({
                 selected: selected,
                 menuVisible: this.state.menuVisible ? false : true
@@ -78,7 +84,9 @@ class Select extends React.Component<SelectProps> {
     }
 
     onUnselect(option) {
-        this.setState({ selected: this.state.selected && this.state.selected.filter(select => select != option) })
+        const selected = this.state.selected && this.state.selected.filter(select => select != option);
+        this.setState({ selected: selected });
+        this.props.onChange && this.props.onChange(selected && selected.map(select => select.value));
     }
 
     filterOptions(value) {
@@ -88,7 +96,7 @@ class Select extends React.Component<SelectProps> {
 
     render() {
 
-        const { search, style, label, clearable, multiselect } = this.props;
+        const { search, style, label, clearable, multiselect, onChange } = this.props;
         const { options, selected, menuVisible } = this.state;
 
         let unselected = options;
@@ -123,6 +131,7 @@ class Select extends React.Component<SelectProps> {
                 onClick={(event) => {
                     event.stopPropagation();
                     this.setState({ selected: undefined })
+                    onChange && onChange([]);
                 }}>
                 <Icon type='close' />
             </span>

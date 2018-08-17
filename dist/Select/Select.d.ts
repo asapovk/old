@@ -11,7 +11,7 @@ interface SelectProps {
     clearable?: boolean;
     multiselect?: boolean;
     defaultValue?: any;
-    onChange?: (options: any) => void;
+    onChange?: (value: any) => void;
 }
 interface Select {
     holderRef: any;

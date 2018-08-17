@@ -56,7 +56,14 @@ var Select = /** @class */ (function (_super) {
         var selected = this.state.selected ? this.state.selected : [];
         var isAlreadySelect = (selected.find(function (select) { return select == option; }));
         if (!isAlreadySelect) {
-            this.props.multiselect ? selected.push(option) : selected = [option];
+            if (this.props.multiselect) {
+                selected.push(option);
+                this.props.onChange && this.props.onChange(selected.map(function (select) { return select.value; }));
+            }
+            else {
+                selected = [option];
+                this.props.onChange && this.props.onChange(option.value);
+            }
             this.setState({
                 selected: selected,
                 menuVisible: this.state.menuVisible ? false : true
@@ -64,7 +71,9 @@ var Select = /** @class */ (function (_super) {
         }
     };
     Select.prototype.onUnselect = function (option) {
-        this.setState({ selected: this.state.selected && this.state.selected.filter(function (select) { return select != option; }) });
+        var selected = this.state.selected && this.state.selected.filter(function (select) { return select != option; });
+        this.setState({ selected: selected });
+        this.props.onChange && this.props.onChange(selected && selected.map(function (select) { return select.value; }));
     };
     Select.prototype.filterOptions = function (value) {
         var filteredOptions = this.props.options ? this.props.options.filter(function (option) { return option.text.includes(value); }) : [];
@@ -72,7 +81,7 @@ var Select = /** @class */ (function (_super) {
     };
     Select.prototype.render = function () {
         var _this = this;
-        var _a = this.props, search = _a.search, style = _a.style, label = _a.label, clearable = _a.clearable, multiselect = _a.multiselect;
+        var _a = this.props, search = _a.search, style = _a.style, label = _a.label, clearable = _a.clearable, multiselect = _a.multiselect, onChange = _a.onChange;
         var _b = this.state, options = _b.options, selected = _b.selected, menuVisible = _b.menuVisible;
         var unselected = options;
         if (multiselect && selected && options) {
@@ -89,6 +98,7 @@ var Select = /** @class */ (function (_super) {
         var ClearButtonTSX = (react_1.default.createElement("span", { className: 'ui-select-holder-clear', onClick: function (event) {
                 event.stopPropagation();
                 _this.setState({ selected: undefined });
+                onChange && onChange([]);
             } },
             react_1.default.createElement(Icon_1.Icon, { type: 'close' })));
         var StateIconTSX = (react_1.default.createElement("span", { className: 'ui-select-holder-down' },
