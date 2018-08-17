@@ -12,6 +12,7 @@ import { Menu, Nav } from '../src/Menu';
 import { Icon } from '../src/Icon';
 import { Login } from '../src/Login';
 import { Checkbox } from '../src/Checkbox';
+import { Spinner } from '../src/Spinner';
 import TooltipStory from './TooltipStory';
 import Fakerator from 'fakerator';
 
@@ -158,6 +159,11 @@ storiesOf('💥 Core', module)
             <div className='cont'><Icon type='search' /><span className='desc'>search</span></div>
             <div className='cont'><Icon type='sync' /><span className='desc'>sync</span></div>
         </Viewport >
+    ))
+    .add('Spinner', () => (
+        <Viewport style={flexCentered}>
+            <Spinner spinning />
+        </Viewport>
     ));
 
 storiesOf('🔪 Misc', module)
