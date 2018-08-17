@@ -144,20 +144,6 @@ storiesOf('UI Core', module)
         <Viewport style={flexCentered}><Checkbox label='Check me' /></Viewport>
     ))
     .add('Icons', () => (
-        <Viewport style={flexCentered}>
-            <Icon type='add' />
-            <Icon type='more' />
-            <Icon type='close' />
-            <Icon type='left' />
-            <Icon type='down' />
-            <Icon type='check' />
-            <Icon type='search' />
-        </Viewport>
-    ))
-    .add('Spinner', () => (
-        <Viewport style={flexCentered}>
-            <Spinner spinning />
-        </Viewport>
         <Viewport style={{ display: 'flex', alignItems: 'flex-start', flexDirection: 'row', fontSize: 24, justifyContent: 'space-between', padding: '80px' }}>
             <style children='.desc{font-size: 12px; color: #5c6173; padding-top: 10px} .cont{display: flex; align-items: center; flex-direction: column}' />
             <div className='cont'><Icon type='add' /><span className='desc'>Add</span></div>
@@ -170,5 +156,10 @@ storiesOf('UI Core', module)
             <div className='cont'><Icon type='search' /><span className='desc'>search</span></div>
             <div className='cont'><Icon type='sync' /><span className='desc'>sync</span></div>
         </Viewport >
+    ))
+    .add('Spinner', () => (
+        <Viewport style={flexCentered}>
+            <Spinner spinning />
+        </Viewport>
     ));
 
