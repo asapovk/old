@@ -90,6 +90,7 @@ storiesOf('💥 Core', module)
                 options={options}
                 style={{ padding: '80px' }}
                 clearable={true}
+                multiselect={true}
             />
         </Viewport>
     ))

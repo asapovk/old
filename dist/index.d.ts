@@ -8,5 +8,6 @@ export { Tooltip as Tooltip } from './Tooltip';
 export { Icon as Icon } from './Icon';
 export { Login as Login } from './Login';
 export { Select as Select } from './Select';
+export { Spinner as Spinner } from './Spinner';
 export { Checkbox as Checkbox } from './Checkbox';
 export { default as Portal } from 'react-portal';
