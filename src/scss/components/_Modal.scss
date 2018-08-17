@@ -23,7 +23,7 @@
             @include css3-prefix("transition", all .5s);
             @include css3-prefix("box-shadow", 15px 0 50px rgba(0, 0, 0, 0.3));
             @include css3-prefix("transform", scale(0.2));
-            border-radius: 15px;
+            border-radius: 2px;
         }
     }
     &-visible {

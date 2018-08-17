@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { Portal } from 'react-portal';
 
 import { Spinner } from '../Spinner';
+import { Flexbox } from '../Flexbox';
 
 interface Props {
     onClose?: () => void
@@ -158,13 +159,18 @@ class Modal extends React.Component<Props> {
         if (typeof loading === "string") {
             loadingText = loading;
         }
-
+        //@ts-ignore
+        window.a = () => {
+            return this.view;
+        }
         return (
             <Portal>
                 <div className={`ui-modal ${this.state.visible && "ui-modal-visible"} ${this.state.hidding && "ui-modal-hidding"}`} ref={ref => this.view = ref}>
-                    <div className={`ui-modalui-modal-view`} style={{ height: this.props.center ? "100%" : "auto" }}>
-                        {this.props.children}
-                    </div>
+                    <Flexbox flexDirection="column" alignItems="center" justifyContent="center" style={{ height: this.state.center ? "100%" : "auto" }}>
+                        <div className={this.props.loading ? "loading" : ""} style={this.props.style} ref={ref => this.modal = ref}>
+                            {this.props.children}
+                        </div>
+                    </Flexbox>
                     <Spinner center spinning={loading} />
                 </div>
             </Portal>

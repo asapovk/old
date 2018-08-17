@@ -14,6 +14,7 @@ import { Login } from '../src/Login';
 import { Checkbox } from '../src/Checkbox';
 import { Spinner } from '../src/Spinner';
 import { Modal } from '../src/Modal';
+import { Flexbox } from '../src/Flexbox';
 import TooltipStory from './TooltipStory';
 import Fakerator from 'fakerator';
 
@@ -169,7 +170,9 @@ storiesOf('💥 Core', module)
     .add('Modal', () => (
         <Viewport style={flexCentered}>
             <Modal ref={ref => window.modal = ref}>
-                <Button onClick={() => window.modal.close()}>Close</Button>
+                <Flexbox justifyContent="center">
+                    <Button onClick={() => window.modal.close()}>Close</Button>
+                </Flexbox>
             </Modal>
             <Button onClick={() => window.modal.open()}>Open</Button>
         </Viewport>
