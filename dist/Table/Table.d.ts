@@ -22,12 +22,16 @@ export interface TableProps {
     scope?: any;
     style?: any;
     pagination?: PaginationProps;
+    noDataLabel?: string;
 }
 declare class Table extends React.Component<TableProps> {
     state: {
         selectedItems: string[];
         expandedItems: string[];
         page: number;
+    };
+    static defaultProps: {
+        noDataLabel: string;
     };
     render(): JSX.Element;
 }

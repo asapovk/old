@@ -1,15 +1,12 @@
 import React from 'react';
-import { Tooltip } from '../Tooltip';
+import { Icon } from '../Icon';
 
 interface CheckboxProps {
     label?: string
-    indeterminate?: boolean
-    disabled?: boolean
     radio?: boolean
-    toggle?: boolean
     checked?: true
     onChange?: (checked) => void
-    styles?: any
+    style?: any
     defaultValue?: boolean
 }
 interface Checkbox {
@@ -32,18 +29,24 @@ class Checkbox extends React.Component<CheckboxProps> {
     }
 
     render() {
-        const { label, indeterminate, disabled, radio, toggle, checked, onChange, styles } = this.props;
+        const { label, radio, checked, style } = this.props;
+        const isChecked = this.state.checked || checked;
 
         let classes = 'ui-checkbox-input';
         if (radio) classes += ' ch-radio';
-        if (radio) classes += ' ch-toggle';
-        if (disabled) classes += ' ch-disbaled';
-        if (this.state.checked || checked) classes += ' ch-checked';
+        if (isChecked) classes += ' ch-checked';
 
-        const InputTSX = (<div className={classes}></div>)
+        const InputTSX = (
+            <div className={classes}>
+                {
+                    isChecked ? radio ? <span className='circle'></span>
+                        : <Icon type='check' /> : ''
+                }
+            </div>
+        )
 
         return (
-            <div className='ui-checkbox' onClick={() => this.onChange()}>
+            <div className='ui-checkbox' onClick={() => this.onChange()} style={style}>
                 {InputTSX}
                 <div className='ui-checkbox-label noselect'>{label}</div>
             </div>

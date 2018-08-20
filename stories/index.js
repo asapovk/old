@@ -134,6 +134,7 @@ storiesOf('💥 Core', module)
                         onAction: (event) => console.log(event)
                     }
                 ]}
+                noDataLabel='Данных то нету...'
             />
         </Viewport>
     ))
@@ -167,10 +168,15 @@ storiesOf('💥 Core', module)
         </Viewport>
     ))
     .add('Tooltip', () => (
-        <Viewport style={flexCentered}><TooltipStory /></Viewport>
+        <Viewport style={flexCentered}>
+            <TooltipStory />
+        </Viewport>
     ))
     .add('Checkbox', () => (
-        <Viewport style={flexCentered}><Checkbox label='Check me' /></Viewport>
+        <Viewport style={flexCentered}>
+            <Checkbox label='Check me' style={{ paddingRight: '40px' }} />
+            <Checkbox label='Check me' radio={true} />
+        </Viewport>
     ))
     .add('Icon', () => (
         <Viewport style={{ display: 'flex', alignItems: 'flex-start', flexDirection: 'row', fontSize: 24, justifyContent: 'space-between', padding: '80px' }}>

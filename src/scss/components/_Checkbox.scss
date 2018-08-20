@@ -7,6 +7,9 @@
         height: 16px;
         border: 1px solid $interface;
         border-radius: 2px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
     &-label {
         padding-left: 5px;
@@ -16,14 +19,13 @@
     border-radius: 15px;
 }
 
-.ch-toggle {
-
-}
-
-.ch-disbaled {
-    
-}
-
 .ch-checked {
     background: $accent;
+}
+
+.circle {
+    height: 10px;
+    width: 10px;
+    background-color: $text;
+    border-radius: 50%;
 }

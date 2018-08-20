@@ -821,6 +821,9 @@ table {
   height: 16px;
   border: 1px solid #b1c6d1;
   border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .ui-checkbox-label {
   padding-left: 5px;
@@ -832,6 +835,13 @@ table {
 
 .ch-checked {
   background: #05afc8;
+}
+
+.circle {
+  height: 10px;
+  width: 10px;
+  background-color: white;
+  border-radius: 50%;
 }
 
 /*# sourceMappingURL=styles.css.map */
