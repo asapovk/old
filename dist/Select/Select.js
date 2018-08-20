@@ -32,9 +32,26 @@ var Select = /** @class */ (function (_super) {
     }
     Select.prototype.componentWillMount = function () {
         var _this = this;
-        var selected = this.props.options && this.props.defaultValue && this.props.options.find(function (option) { return option.value == _this.props.defaultValue; });
+        var selected;
+        if (Array.isArray(this.props.defaultValue)) {
+            if (!this.props.multiselect) {
+                selected = this.props.options
+                    && this.props.options.find(function (option) { return option.value == _this.props.defaultValue[0]; })
+                    && [this.props.options.find(function (option) { return option.value == _this.props.defaultValue[0]; })];
+            }
+            else {
+                selected = this.props.options && this.props.options.filter(function (option) {
+                    return option.value == _this.props.defaultValue.find(function (value) { return value == option.value; });
+                });
+            }
+        }
+        else {
+            selected = this.props.options
+                && this.props.options.find(function (option) { return option.value == _this.props.defaultValue; })
+                && [this.props.options.find(function (option) { return option.value == _this.props.defaultValue; })];
+        }
         this.setState({
-            selected: selected && [selected],
+            selected: selected,
             options: this.props.options
         });
         document.addEventListener('mousedown', this.handleClickOutside);
@@ -88,7 +105,7 @@ var Select = /** @class */ (function (_super) {
             unselected = options.filter(function (option) { return selected.findIndex(function (select) { return select == option; }) < 0; });
         }
         ;
-        var MultiSelectTSX = (multiselect && selected && selected.map(function (option) { return (react_1.default.createElement("div", { className: 'ui-select-holder-value-option' },
+        var MultiSelectTSX = (multiselect && selected && selected.map(function (option) { return (react_1.default.createElement("div", { className: 'ui-select-holder-value-option', key: option.text },
             react_1.default.createElement("div", { className: 'ui-select-holder-value-option-close', onClick: function (event) {
                     event.stopPropagation();
                     _this.onUnselect(option);

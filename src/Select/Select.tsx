@@ -40,11 +40,30 @@ class Select extends React.Component<SelectProps> {
     }
 
     componentWillMount() {
-        const selected = this.props.options && this.props.defaultValue && this.props.options.find(option => option.value == this.props.defaultValue);
+        let selected
+
+        if (Array.isArray(this.props.defaultValue)) {
+            if (!this.props.multiselect) {
+                selected = this.props.options
+                    && this.props.options.find(option => option.value == this.props.defaultValue[0])
+                    && [this.props.options.find(option => option.value == this.props.defaultValue[0])];
+
+            } else {
+                selected = this.props.options && this.props.options.filter(option =>
+                    option.value == this.props.defaultValue.find(value => value == option.value)
+                );
+            }
+        } else {
+            selected = this.props.options
+                && this.props.options.find(option => option.value == this.props.defaultValue)
+                && [this.props.options.find(option => option.value == this.props.defaultValue)];
+        }
+
         this.setState({
-            selected: selected && [selected],
+            selected: selected,
             options: this.props.options
         });
+
         document.addEventListener('mousedown', this.handleClickOutside);
     }
 
@@ -106,7 +125,7 @@ class Select extends React.Component<SelectProps> {
 
         const MultiSelectTSX = (
             multiselect && selected && selected.map(option => (
-                <div className='ui-select-holder-value-option'>
+                <div className='ui-select-holder-value-option' key={option.text}>
                     <div
                         className='ui-select-holder-value-option-close'
                         onClick={(event) => {

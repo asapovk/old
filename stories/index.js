@@ -44,6 +44,19 @@ for (let i = 0; i < 10; i++) {
     });
 }
 
+const optionsMulti = [
+    { text: "Gregory Oberbrunner MD", value: "greg" },
+    { text: "Craig O'Conner", value: "craig" },
+    { text: "Annette Kshlerin", value: "ann" },
+    { text: "Marjorie Hirthe", value: "marj" },
+    { text: "Israel Flatley", value: "isra" },
+    { text: "Kristin Smith", value: "kris" },
+    { text: "Dr. Hilda Willms", value: "hilda" },
+    { text: "Eric Gerhold", value: "eric" },
+    { text: "Laurie Stiedemann", value: "laurie" },
+    { text: "Irving Hauck", value: "irv" }
+];
+
 const columns = [
     { title: '#', dataIndex: 'id' },
     { title: 'Fullname', dataIndex: 'name' },
@@ -88,7 +101,8 @@ storiesOf('💥 Core', module)
             <Select
                 label='Multiselect'
                 search={true}
-                options={options}
+                defaultValue={['greg', 'irv', 'ann']}
+                options={optionsMulti}
                 style={{ padding: '80px' }}
                 clearable={true}
                 multiselect={true}
@@ -97,7 +111,8 @@ storiesOf('💥 Core', module)
             <Select
                 label='Select'
                 search={true}
-                options={options}
+                defaultValue={'irv'}
+                options={optionsMulti}
                 style={{ padding: '80px' }}
                 onChange={(value) => console.log('Singe', value)}
             />
