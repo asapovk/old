@@ -131,7 +131,6 @@ table {
   resize: none;
   border: none;
   background: none;
-  border-color: #b1c6d1;
   padding: 8px;
   outline: none;
   position: relative;
@@ -142,11 +141,13 @@ table {
 .ui-textfield-input {
   border: 1px solid;
   border-radius: 2px;
+  border-color: #b1c6d1;
 }
 .ui-textfield-textarea {
   height: 100%;
   border: 1px solid;
   border-radius: 2px;
+  border-color: #b1c6d1;
 }
 
 .ui-table {
