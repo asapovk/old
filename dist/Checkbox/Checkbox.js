@@ -26,6 +26,9 @@ var Checkbox = /** @class */ (function (_super) {
         };
         return _this;
     }
+    Checkbox.prototype.componentWillMount = function () {
+        this.props.defaultValue && this.setState({ checked: true });
+    };
     Checkbox.prototype.onChange = function () {
         var checked = this.state.checked ? false : true;
         this.setState({ checked: checked });
@@ -33,7 +36,7 @@ var Checkbox = /** @class */ (function (_super) {
     };
     Checkbox.prototype.render = function () {
         var _this = this;
-        var _a = this.props, label = _a.label, indeterminate = _a.indeterminate, disabled = _a.disabled, radio = _a.radio, toggle = _a.toggle, cheked = _a.cheked, onChange = _a.onChange, styles = _a.styles;
+        var _a = this.props, label = _a.label, indeterminate = _a.indeterminate, disabled = _a.disabled, radio = _a.radio, toggle = _a.toggle, checked = _a.checked, onChange = _a.onChange, styles = _a.styles;
         var classes = 'ui-checkbox-input';
         if (radio)
             classes += ' ch-radio';
@@ -41,7 +44,7 @@ var Checkbox = /** @class */ (function (_super) {
             classes += ' ch-toggle';
         if (disabled)
             classes += ' ch-disbaled';
-        if (this.state.checked)
+        if (this.state.checked || checked)
             classes += ' ch-checked';
         var InputTSX = (react_1.default.createElement("div", { className: classes }));
         return (react_1.default.createElement("div", { className: 'ui-checkbox', onClick: function () { return _this.onChange(); } },
