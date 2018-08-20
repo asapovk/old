@@ -38,11 +38,28 @@ var Flexbox = /** @class */ (function (_super) {
         var props = {
             className: className,
             ref: elementRef,
-            style: __assign({ display: 'flex', flex: 1 || flex, padding: p, paddingTop: pt, paddingLeft: pl, paddingRight: pr, paddingBottom: pb, alignContent: alignContent,
-                alignSelf: alignSelf,
-                alignItems: alignItems,
-                justifyContent: justifyContent, flexDirection: column ? "column" : flexDirection, flexFlow: flexFlow }, this.props.style)
+            style: __assign({ position: 'relative', display: 'flex', flex: 1 || flex, flexDirection: column ? "column" : flexDirection }, this.props.style)
         };
+        if (p)
+            props.style.padding = p;
+        if (pt)
+            props.style.paddingTop = pt;
+        if (pl)
+            props.style.paddingLeft = pl;
+        if (pr)
+            props.style.paddingRight = pr;
+        if (pb)
+            props.style.paddingBottom = pb;
+        if (alignContent)
+            props.style.alignContent = alignContent;
+        if (alignSelf)
+            props.style.alignSelf = alignSelf;
+        if (alignItems)
+            props.style.alignItems = alignItems;
+        if (justifyContent)
+            props.style.justifyContent = justifyContent;
+        if (flexFlow)
+            props.style.padding = flexFlow;
         return react_1.default.createElement('div', props, this.props.children);
     };
     return Flexbox;
