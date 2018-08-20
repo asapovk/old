@@ -94,6 +94,7 @@ class Select extends React.Component<SelectProps> {
             } else {
                 selected = [option];
                 this.props.onChange && this.props.onChange(option.value);
+                if (this.inputRef) this.inputRef.value = option.text;
             }
             this.setState({
                 selected: selected,
@@ -117,7 +118,7 @@ class Select extends React.Component<SelectProps> {
 
         const { search, style, label, clearable, multiselect, onChange } = this.props;
         const { options, selected, menuVisible } = this.state;
-
+        console.log(selected);
         let unselected = options;
         if (multiselect && selected && options) {
             unselected = options.filter(option => selected.findIndex(select => select == option) < 0)
