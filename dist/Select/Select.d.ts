@@ -9,8 +9,9 @@ interface SelectProps {
         value: string;
     }[];
     clearable?: boolean;
+    multiselect?: boolean;
     defaultValue?: any;
-    onChange?: (options: any) => void;
+    onChange?: (value: any) => void;
 }
 interface Select {
     holderRef: any;
@@ -18,19 +19,18 @@ interface Select {
     inputRef: any;
     state: {
         options: any;
-        chosen: any;
         menuVisible: any;
+        selected: undefined | any[];
     };
 }
 declare class Select extends React.Component<SelectProps> {
     constructor(props: any);
-    static defaultProps: {
-        placeholder: string;
-    };
     componentWillMount(): void;
     componentWillUnmount(): void;
     handleClickOutside(event: any): void;
     toggleMenu(): void;
+    onSelect(option: any): void;
+    onUnselect(option: any): void;
     filterOptions(value: any): void;
     render(): JSX.Element;
 }

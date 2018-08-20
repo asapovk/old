@@ -25,15 +25,18 @@ var Select = /** @class */ (function (_super) {
         _this.handleClickOutside = _this.handleClickOutside.bind(_this);
         _this.state = {
             options: [],
-            chosen: 0,
+            selected: undefined,
             menuVisible: false
         };
         return _this;
     }
     Select.prototype.componentWillMount = function () {
         var _this = this;
-        var defaultIndex = this.props.options ? this.props.options.findIndex(function (option) { return option.value === _this.props.defaultValue; }) : -1;
-        this.setState({ chosen: defaultIndex, options: this.props.options });
+        var selected = this.props.options && this.props.defaultValue && this.props.options.find(function (option) { return option.value == _this.props.defaultValue; });
+        this.setState({
+            selected: selected && [selected],
+            options: this.props.options
+        });
         document.addEventListener('mousedown', this.handleClickOutside);
     };
     Select.prototype.componentWillUnmount = function () {
@@ -45,7 +48,32 @@ var Select = /** @class */ (function (_super) {
         }
     };
     Select.prototype.toggleMenu = function () {
-        this.setState({ menuVisible: this.state.menuVisible ? false : true });
+        this.setState({
+            menuVisible: this.state.menuVisible ? false : true
+        });
+    };
+    Select.prototype.onSelect = function (option) {
+        var selected = this.state.selected ? this.state.selected : [];
+        var isAlreadySelect = (selected.find(function (select) { return select == option; }));
+        if (!isAlreadySelect) {
+            if (this.props.multiselect) {
+                selected.push(option);
+                this.props.onChange && this.props.onChange(selected.map(function (select) { return select.value; }));
+            }
+            else {
+                selected = [option];
+                this.props.onChange && this.props.onChange(option.value);
+            }
+            this.setState({
+                selected: selected,
+                menuVisible: this.state.menuVisible ? false : true
+            });
+        }
+    };
+    Select.prototype.onUnselect = function (option) {
+        var selected = this.state.selected && this.state.selected.filter(function (select) { return select != option; });
+        this.setState({ selected: selected });
+        this.props.onChange && this.props.onChange(selected && selected.map(function (select) { return select.value; }));
     };
     Select.prototype.filterOptions = function (value) {
         var filteredOptions = this.props.options ? this.props.options.filter(function (option) { return option.text.includes(value); }) : [];
@@ -53,31 +81,40 @@ var Select = /** @class */ (function (_super) {
     };
     Select.prototype.render = function () {
         var _this = this;
-        var _a = this.props, search = _a.search, style = _a.style, label = _a.label, onChange = _a.onChange, clearable = _a.clearable;
-        var _b = this.state, options = _b.options, chosen = _b.chosen, menuVisible = _b.menuVisible;
-        var ListJSX = (options && options.map(function (option, index) { return (react_1.default.createElement("div", { className: 'ui-select-menu-item' + (_this.state.chosen == index ? ' sel-chosen' : ''), children: option.text, onClick: function (event) {
-                _this.setState({ chosen: index });
-                _this.toggleMenu();
-                onChange && onChange(options[index].value);
-                if (_this.inputRef) {
-                    _this.inputRef.value = options[index].text;
-                }
-            }, key: option.key ? option.key : option.text })); }));
-        var SearchJSX = (react_1.default.createElement("input", { className: 'ui-select-holder-value-input', defaultValue: chosen != -1 ? options[chosen].text : '', onChange: function (event) { return _this.filterOptions(event.target.value); }, ref: function (ref) { return _this.inputRef = ref; } }));
-        var clearToolTSX = react_1.default.createElement("span", { className: 'ui-select-holder-clear', onClick: function (event) { event.stopPropagation(); _this.setState({ chosen: -1 }); } },
-            react_1.default.createElement(Icon_1.Icon, { type: 'close' }));
-        var downIconTSX = react_1.default.createElement("span", { className: 'ui-select-holder-down' },
-            react_1.default.createElement(Icon_1.Icon, { type: menuVisible ? 'up' : 'down' }));
+        var _a = this.props, search = _a.search, style = _a.style, label = _a.label, clearable = _a.clearable, multiselect = _a.multiselect, onChange = _a.onChange;
+        var _b = this.state, options = _b.options, selected = _b.selected, menuVisible = _b.menuVisible;
+        var unselected = options;
+        if (multiselect && selected && options) {
+            unselected = options.filter(function (option) { return selected.findIndex(function (select) { return select == option; }) < 0; });
+        }
+        ;
+        var MultiSelectTSX = (multiselect && selected && selected.map(function (option) { return (react_1.default.createElement("div", { className: 'ui-select-holder-value-option' },
+            react_1.default.createElement("div", { className: 'ui-select-holder-value-option-close', onClick: function (event) {
+                    event.stopPropagation();
+                    _this.onUnselect(option);
+                } },
+                react_1.default.createElement(Icon_1.Icon, { type: 'close' })),
+            react_1.default.createElement("span", null, option.text))); }));
+        var SearchBarTSX = (react_1.default.createElement("input", { className: 'ui-select-holder-value-input', defaultValue: multiselect ? '' : selected && selected[0].text, onChange: function (event) { return _this.filterOptions(event.target.value); }, ref: function (ref) { return _this.inputRef = ref; } }));
+        var ClearButtonTSX = (react_1.default.createElement("span", { className: 'ui-select-holder-clear', onClick: function (event) {
+                event.stopPropagation();
+                _this.setState({ selected: undefined });
+                onChange && onChange([]);
+            } },
+            react_1.default.createElement(Icon_1.Icon, { type: 'close' })));
+        var StateIconTSX = (react_1.default.createElement("span", { className: 'ui-select-holder-down' },
+            react_1.default.createElement(Icon_1.Icon, { type: menuVisible ? 'up' : 'down' })));
+        var MenuTSX = (unselected && unselected.map(function (option, index) { return (react_1.default.createElement("div", { className: 'ui-select-menu-item', children: option.text, onClick: function () { return _this.onSelect(unselected[index]); }, key: option.key ? option.key : option.text })); }));
         return (react_1.default.createElement("div", { className: 'ui-select', style: style },
             react_1.default.createElement("div", { className: 'ui-select-label' }, label),
             react_1.default.createElement("div", { className: 'ui-select-holder' + (menuVisible ? ' active' : ''), onClick: function () { return _this.toggleMenu(); }, ref: function (ref) { return _this.holderRef = ref; } },
-                react_1.default.createElement("div", { className: 'ui-select-holder-value' }, search ? SearchJSX : chosen != -1 ? options[chosen].text : ''),
-                clearable && clearToolTSX,
-                downIconTSX,
-                react_1.default.createElement("div", { className: 'ui-select-menu' + (menuVisible ? ' visible' : '') }, ListJSX))));
-    };
-    Select.defaultProps = {
-        placeholder: 'Выберите значение'
+                react_1.default.createElement("div", { className: 'ui-select-holder-value' },
+                    MultiSelectTSX,
+                    search ? SearchBarTSX : !multiselect && selected && selected[0].text),
+                clearable && ClearButtonTSX,
+                " ",
+                StateIconTSX,
+                react_1.default.createElement("div", { className: 'ui-select-menu' + (menuVisible ? ' visible' : '') }, MenuTSX))));
     };
     return Select;
 }(react_1.default.Component));
