@@ -87,7 +87,8 @@ class TableFormHOC extends React.Component<TableFormHOCProps> {
     render() {
 
         const { Form, data, columns } = this.props;
-
+        console.log('GET: ', data);
+        console.log('UPDATE: ', this.formData);
         return (
             <div className='ui-table-content-body-row edited'>
                 <Form data={data} columns={columns} formData={this.formData} setData={this.setData} setValid={this.setValid} Column={this.Column} Subrow={this.Subrow} Actions={this.Actions} />
