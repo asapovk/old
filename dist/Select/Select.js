@@ -102,7 +102,6 @@ var Select = /** @class */ (function (_super) {
         var _this = this;
         var _a = this.props, search = _a.search, style = _a.style, label = _a.label, clearable = _a.clearable, multiselect = _a.multiselect, onChange = _a.onChange;
         var _b = this.state, options = _b.options, selected = _b.selected, menuVisible = _b.menuVisible;
-        console.log(selected);
         var unselected = options;
         if (multiselect && selected && options) {
             unselected = options.filter(function (option) { return selected.findIndex(function (select) { return select == option; }) < 0; });
