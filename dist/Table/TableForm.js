@@ -33,6 +33,7 @@ var TableFormHOC = /** @class */ (function (_super) {
     };
     TableFormHOC.prototype.setData = function (field, value) {
         this.formData[field] = value;
+        console.log('UPDATE: ', this.formData);
     };
     TableFormHOC.prototype.setValid = function (id, isValid) {
         var items = this.state.invalidItems;
@@ -53,7 +54,6 @@ var TableFormHOC = /** @class */ (function (_super) {
     TableFormHOC.prototype.render = function () {
         var _a = this.props, Form = _a.Form, data = _a.data, columns = _a.columns;
         console.log('GET: ', data);
-        console.log('UPDATE: ', this.formData);
         return (react_1.default.createElement("div", { className: 'ui-table-content-body-row edited' },
             react_1.default.createElement(Form, { data: data, columns: columns, formData: this.formData, setData: this.setData, setValid: this.setValid, Column: this.Column, Subrow: this.Subrow, Actions: this.Actions })));
     };
