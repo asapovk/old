@@ -2,10 +2,10 @@ import React from 'react';
 import { Icon } from '../Icon';
 
 interface SelectProps {
-    search?: any
+    search?: boolean
     style?: any
-    label?: any
-    placeholder?: any
+    label?: string
+    placeholder?: string
     options?: {
         text: string
         value: string
@@ -104,7 +104,9 @@ class Select extends React.Component<SelectProps> {
     }
 
     onUnselect(option) {
-        const selected = this.state.selected && this.state.selected.filter(select => select != option);
+        const selected = this.state.selected &&
+            this.state.selected.filter(select => select != option).length > 0 ?
+            this.state.selected.filter(select => select != option) : undefined;
         this.setState({ selected: selected });
         this.props.onChange && this.props.onChange(selected && selected.map(select => select.value));
     }
@@ -116,13 +118,54 @@ class Select extends React.Component<SelectProps> {
 
     render() {
 
-        const { search, style, label, clearable, multiselect, onChange } = this.props;
+        const { search, style, label, clearable, multiselect, onChange, placeholder } = this.props;
         const { options, selected, menuVisible } = this.state;
 
-        let unselected = options;
-        if (multiselect && selected && options) {
-            unselected = options.filter(option => selected.findIndex(select => select == option) < 0)
-        };
+        const PlaceholderTSX = (
+            <div className='ui-select-holder-value-placeholder'>{placeholder}</div>
+        )
+
+        const ValueTSX = (
+            search ?
+                <input
+                    className='ui-select-holder-value-input'
+                    defaultValue={multiselect ? '' : selected && selected[0].text}
+                    onChange={event => this.filterOptions(event.target.value)}
+                    ref={ref => this.inputRef = ref}
+                /> : !multiselect && selected && selected[0].text
+        )
+
+        const StateIconTSX = (
+            <span className='ui-select-holder-down'>
+                <Icon type={menuVisible ? 'up' : 'down'} />
+            </span>
+        )
+
+        const ClearButtonTSX = (
+            <span
+                className='ui-select-holder-clear'
+                onClick={(event) => {
+                    event.stopPropagation();
+                    this.setState({ selected: undefined })
+                    onChange && onChange([]);
+                }}>
+                <Icon type='close' />
+            </span>
+        )
+
+        const unselected = !(multiselect && selected && options) ? options :
+            options.filter(option => selected.findIndex(select => select == option) < 0);
+
+        const MenuTSX = (
+            unselected && unselected.map((option, index) => (
+                <div
+                    className={'ui-select-menu-item'}
+                    children={option.text}
+                    onClick={() => this.onSelect(unselected[index])}
+                    key={option.key ? option.key : option.text}
+                />
+            ))
+        )
 
         const MultiSelectTSX = (
             multiselect && selected && selected.map(option => (
@@ -140,44 +183,6 @@ class Select extends React.Component<SelectProps> {
             ))
         )
 
-        const SearchBarTSX = (
-            <input
-                className='ui-select-holder-value-input'
-                defaultValue={multiselect ? '' : selected && selected[0].text}
-                onChange={event => this.filterOptions(event.target.value)}
-                ref={ref => this.inputRef = ref}
-            />
-        )
-
-        const ClearButtonTSX = (
-            <span
-                className='ui-select-holder-clear'
-                onClick={(event) => {
-                    event.stopPropagation();
-                    this.setState({ selected: undefined })
-                    onChange && onChange([]);
-                }}>
-                <Icon type='close' />
-            </span>
-        )
-
-        const StateIconTSX = (
-            <span className='ui-select-holder-down'>
-                <Icon type={menuVisible ? 'up' : 'down'} />
-            </span>
-        )
-
-        const MenuTSX = (
-            unselected && unselected.map((option, index) => (
-                <div
-                    className={'ui-select-menu-item'}
-                    children={option.text}
-                    onClick={() => this.onSelect(unselected[index])}
-                    key={option.key ? option.key : option.text}
-                />
-            ))
-        )
-
         return (
             <div className='ui-select' style={style}>
                 <div className='ui-select-label'>
@@ -186,7 +191,7 @@ class Select extends React.Component<SelectProps> {
                 <div className={'ui-select-holder' + (menuVisible ? ' active' : '')} onClick={() => this.toggleMenu()} ref={ref => this.holderRef = ref}>
                     <div className='ui-select-holder-value'>
                         {MultiSelectTSX}
-                        {search ? SearchBarTSX : !multiselect && selected && selected[0].text}
+                        {placeholder && !selected ? PlaceholderTSX : ValueTSX}
                     </div>
                     {clearable && ClearButtonTSX} {StateIconTSX}
                     <div className={'ui-select-menu' + (menuVisible ? ' visible' : '')}>{MenuTSX}</div>

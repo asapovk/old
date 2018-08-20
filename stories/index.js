@@ -101,7 +101,7 @@ storiesOf('💥 Core', module)
             <Select
                 label='Multiselect'
                 search={true}
-                defaultValue={['greg', 'irv', 'ann']}
+                placeholder='Select some'
                 options={optionsMulti}
                 style={{ padding: '80px' }}
                 clearable={true}
@@ -111,6 +111,7 @@ storiesOf('💥 Core', module)
             <Select
                 label='Select'
                 search={true}
+                placeholder='Select some'
                 defaultValue={'irv'}
                 options={optionsMulti}
                 style={{ padding: '80px' }}
