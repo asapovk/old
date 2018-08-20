@@ -27,26 +27,29 @@ interface Props {
 class Flexbox extends React.Component<Props> {
     render() {
         const { className, elementRef, pr, pl, pt, pb, p, flex, alignContent, alignSelf, alignItems, justifyContent, flexDirection, flexFlow, column } = this.props;
-        const props = {
+        const props: any = {
             className,
             ref: elementRef,
             style: {
+                position: 'relative',
                 display: 'flex',
                 flex: 1 || flex,
-                padding: p,
-                paddingTop: pt,
-                paddingLeft: pl,
-                paddingRight: pr,
-                paddingBottom: pb,
-                alignContent,
-                alignSelf,
-                alignItems,
-                justifyContent,
                 flexDirection: column ? "column" : flexDirection,
-                flexFlow,
                 ...this.props.style
             }
         }
+        if (p) props.style.padding = p;
+        if (pt) props.style.paddingTop = pt;
+        if (pl) props.style.paddingLeft = pl;
+        if (pr) props.style.paddingRight = pr;
+        if (pb) props.style.paddingBottom = pb;
+
+        if (alignContent) props.style.alignContent = alignContent;
+        if (alignSelf) props.style.alignSelf = alignSelf;
+        if (alignItems) props.style.alignItems = alignItems;
+        if (justifyContent) props.style.justifyContent = justifyContent;
+        if (flexFlow) props.style.padding = flexFlow;
+
         return React.createElement('div', props, this.props.children);
     }
 }
