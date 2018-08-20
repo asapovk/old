@@ -34,12 +34,16 @@ var Flexbox = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     Flexbox.prototype.render = function () {
-        var _a = this.props, className = _a.className, elementRef = _a.elementRef, pr = _a.pr, pl = _a.pl, pt = _a.pt, pb = _a.pb, p = _a.p, flex = _a.flex, alignContent = _a.alignContent, alignSelf = _a.alignSelf, alignItems = _a.alignItems, justifyContent = _a.justifyContent, flexDirection = _a.flexDirection, flexFlow = _a.flexFlow, column = _a.column;
+        var _a = this.props, className = _a.className, elementRef = _a.elementRef, pr = _a.pr, pl = _a.pl, pt = _a.pt, pb = _a.pb, p = _a.p, flex = _a.flex, flexBasis = _a.flexBasis, alignContent = _a.alignContent, alignSelf = _a.alignSelf, alignItems = _a.alignItems, justifyContent = _a.justifyContent, flexDirection = _a.flexDirection, flexFlow = _a.flexFlow, column = _a.column;
         var props = {
             className: className,
             ref: elementRef,
-            style: __assign({ position: 'relative', display: 'flex', flex: 1 || flex, flexDirection: column ? "column" : flexDirection }, this.props.style)
+            style: __assign({ position: 'relative', display: 'flex', flexDirection: column ? "column" : flexDirection }, this.props.style)
         };
+        if (flex)
+            props.style.flex = flex;
+        if (flexBasis)
+            props.style.flexBasis = flexBasis;
         if (p)
             props.style.padding = p;
         if (pt)
