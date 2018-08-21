@@ -1,5 +1,5 @@
 .ui-select {
-    box-sizing: border-box;
+    @include box-sizing(border-box);
     flex: 1;
     &-label {
         font-size: 12px;
@@ -9,7 +9,7 @@
     }
     &-holder {
         border: 1px solid;
-        border-radius: 2px;
+        @include border-radius(2px);
         border-color: $interface;
         padding: 8px;
         background: $page-background;
@@ -18,11 +18,13 @@
         display: flex;
         align-items: center;
         &-clear {
+            z-index: 1;
             color: $interface;
             font-size: 16px;
             padding-right: 5px;
         }
         &-down {
+            z-index: 1;
             font-size: 14px;
             color: $interface;
         }
@@ -31,27 +33,36 @@
             display: flex;
             align-items: center;
             flex-wrap: wrap;
+            margin: -5px;
             &-input {
-                -webkit-appearance: none;
-                -moz-appearance: none;
-                appearance: none;
-                box-sizing: border-box; 
+                @include css3-prefix(appearance, none);
+                @include box-sizing(border-box); 
                 background: none;
                 border: none;
                 outline: none;
                 color: inherit;
                 font-size: inherit; 
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                padding-right: 30px;
+                padding-left: 10px;
+                padding-bottom: 3px;
             }
             &-placeholder {
                 color: $pale;
+                padding-left: 5px;
             }
             &-option {
+                z-index: 1;
                 font-size: 12px;
                 display: flex;
                 color: $accent;
                 background: rgba($accent, 0.1);
                 border: 1px solid $accent;
-                border-radius: 2px;
+                @include border-radius(2px);
                 margin: 4px;
                 &-close {
                     border-right: 1px solid $accent;
@@ -72,7 +83,7 @@
         overflow: scroll;
         overflow-x: hidden;
         border: 1px solid;
-        border-radius: 0 0 2px 2px;
+        @include border-radius(0 0 2px 2px);
         border-color: $interface;
         border-top-color: rgba($pale, 0.3);
         top: 100%;

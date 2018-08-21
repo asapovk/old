@@ -100,7 +100,7 @@ storiesOf('💥 Core', module)
         <Viewport style={flexCentered}>
             <Select
                 label='Multiselect'
-                search={true}
+                // search={true}
                 placeholder='Select some'
                 options={optionsMulti}
                 style={{ padding: '80px' }}
@@ -112,7 +112,6 @@ storiesOf('💥 Core', module)
                 label='Select'
                 search={true}
                 placeholder='Select some'
-                defaultValue={'irv'}
                 options={optionsMulti}
                 style={{ padding: '80px' }}
                 onChange={(value) => console.log('Singe', value)}
