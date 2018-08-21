@@ -13,6 +13,7 @@ import { Icon } from '../src/Icon';
 import { Login } from '../src/Login';
 import { Checkbox } from '../src/Checkbox';
 import { Spinner } from '../src/Spinner';
+import { Spin } from '../src/Spin';
 import { Modal } from '../src/Modal';
 import { Flexbox } from '../src/Flexbox';
 import TooltipStory from './TooltipStory';
@@ -194,6 +195,13 @@ storiesOf('💥 Core', module)
     .add('Spinner', () => (
         <Viewport style={flexCentered}>
             <Spinner spinning />
+        </Viewport>
+    ))
+    .add('Spin', () => (
+        <Viewport style={flexCentered}>
+            <Spin>
+                <Icon type='sync' style={{ fontSize: 32 }} />
+            </Spin>
         </Viewport>
     ))
     .add('Modal', () => (
