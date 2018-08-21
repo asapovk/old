@@ -97,6 +97,35 @@ storiesOf('💥 Core', module)
             </div>
         </Viewport>
     ))
+    // .add('Filter', () => (
+    //     <Filter>
+    //         <FilterGroup lable="Основные">
+    //             <FilterSection label="Номер чека">
+    //                 <TextField placeholder="#" />
+    //             </FilterSection>
+    //             <FilterSection label="Приложение">
+    //                 <Select
+    //                     label='Приложения'
+    //                     placeholder='Выберите приложения'
+    //                     options={optionsMulti}
+    //                     clearable={true}
+    //                     multiselect={true}
+    //                 />
+    //             </FilterSection>
+    //             <FilterSection label="Организации">
+    //                 <Select
+    //                     label='Организация'
+    //                     placeholder='Выберите организацию'
+    //                     clearable={true}
+    //                     options={optionsMulti}
+    //                 />
+    //             </FilterSection>
+    //         </FilterGroup>
+    //         <FilterGroup lable="Дополнительные">
+
+    //         </FilterGroup>
+    //     </Filter>
+    // ))
     .add('Select', () => (
         <Viewport style={flexCentered}>
             <Select
