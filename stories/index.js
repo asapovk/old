@@ -44,6 +44,19 @@ for (let i = 0; i < 10; i++) {
     });
 }
 
+const optionsMulti = [
+    { text: "Gregory Oberbrunner MD", value: "greg" },
+    { text: "Craig O'Conner", value: "craig" },
+    { text: "Annette Kshlerin", value: "ann" },
+    { text: "Marjorie Hirthe", value: "marj" },
+    { text: "Israel Flatley", value: "isra" },
+    { text: "Kristin Smith", value: "kris" },
+    { text: "Dr. Hilda Willms", value: "hilda" },
+    { text: "Eric Gerhold", value: "eric" },
+    { text: "Laurie Stiedemann", value: "laurie" },
+    { text: "Irving Hauck", value: "irv" }
+];
+
 const columns = [
     { title: '#', dataIndex: 'id' },
     { title: 'Fullname', dataIndex: 'name' },
@@ -88,7 +101,8 @@ storiesOf('💥 Core', module)
             <Select
                 label='Multiselect'
                 search={true}
-                options={options}
+                placeholder='Select some'
+                options={optionsMulti}
                 style={{ padding: '80px' }}
                 clearable={true}
                 multiselect={true}
@@ -97,7 +111,9 @@ storiesOf('💥 Core', module)
             <Select
                 label='Select'
                 search={true}
-                options={options}
+                placeholder='Select some'
+                defaultValue={'irv'}
+                options={optionsMulti}
                 style={{ padding: '80px' }}
                 onChange={(value) => console.log('Singe', value)}
             />
@@ -118,6 +134,7 @@ storiesOf('💥 Core', module)
                         onAction: (event) => console.log(event)
                     }
                 ]}
+                noDataLabel='Данных то нету...'
             />
         </Viewport>
     ))
@@ -151,10 +168,15 @@ storiesOf('💥 Core', module)
         </Viewport>
     ))
     .add('Tooltip', () => (
-        <Viewport style={flexCentered}><TooltipStory /></Viewport>
+        <Viewport style={flexCentered}>
+            <TooltipStory />
+        </Viewport>
     ))
     .add('Checkbox', () => (
-        <Viewport style={flexCentered}><Checkbox label='Check me' /></Viewport>
+        <Viewport style={flexCentered}>
+            <Checkbox label='Check me' style={{ paddingRight: '40px' }} />
+            <Checkbox label='Check me' radio={true} />
+        </Viewport>
     ))
     .add('Icon', () => (
         <Viewport style={{ display: 'flex', alignItems: 'flex-start', flexDirection: 'row', fontSize: 24, justifyContent: 'space-between', padding: '80px' }}>

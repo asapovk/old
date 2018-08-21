@@ -33,7 +33,6 @@ class Tooltip extends React.Component {
     }
 
     componentDidMount() {
-        console.log('Ref', this.targetRef);
         // @ts-ignore
         const coords = ReactDOM.findDOMNode(this.targetRef).getBoundingClientRect();
         if (coords && this.targetRef) {

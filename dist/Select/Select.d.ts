@@ -1,9 +1,9 @@
 import React from 'react';
 interface SelectProps {
-    search?: any;
+    search?: boolean;
     style?: any;
-    label?: any;
-    placeholder?: any;
+    label?: string;
+    placeholder?: string;
     options?: {
         text: string;
         value: string;

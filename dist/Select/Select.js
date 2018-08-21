@@ -32,9 +32,26 @@ var Select = /** @class */ (function (_super) {
     }
     Select.prototype.componentWillMount = function () {
         var _this = this;
-        var selected = this.props.options && this.props.defaultValue && this.props.options.find(function (option) { return option.value == _this.props.defaultValue; });
+        var selected;
+        if (Array.isArray(this.props.defaultValue)) {
+            if (!this.props.multiselect) {
+                selected = this.props.options
+                    && this.props.options.find(function (option) { return option.value == _this.props.defaultValue[0]; })
+                    && [this.props.options.find(function (option) { return option.value == _this.props.defaultValue[0]; })];
+            }
+            else {
+                selected = this.props.options && this.props.options.filter(function (option) {
+                    return option.value == _this.props.defaultValue.find(function (value) { return value == option.value; });
+                });
+            }
+        }
+        else {
+            selected = this.props.options
+                && this.props.options.find(function (option) { return option.value == _this.props.defaultValue; })
+                && [this.props.options.find(function (option) { return option.value == _this.props.defaultValue; })];
+        }
         this.setState({
-            selected: selected && [selected],
+            selected: selected,
             options: this.props.options
         });
         document.addEventListener('mousedown', this.handleClickOutside);
@@ -63,6 +80,8 @@ var Select = /** @class */ (function (_super) {
             else {
                 selected = [option];
                 this.props.onChange && this.props.onChange(option.value);
+                if (this.inputRef)
+                    this.inputRef.value = option.text;
             }
             this.setState({
                 selected: selected,
@@ -71,7 +90,9 @@ var Select = /** @class */ (function (_super) {
         }
     };
     Select.prototype.onUnselect = function (option) {
-        var selected = this.state.selected && this.state.selected.filter(function (select) { return select != option; });
+        var selected = this.state.selected &&
+            this.state.selected.filter(function (select) { return select != option; }).length > 0 ?
+            this.state.selected.filter(function (select) { return select != option; }) : undefined;
         this.setState({ selected: selected });
         this.props.onChange && this.props.onChange(selected && selected.map(function (select) { return select.value; }));
     };
@@ -81,36 +102,35 @@ var Select = /** @class */ (function (_super) {
     };
     Select.prototype.render = function () {
         var _this = this;
-        var _a = this.props, search = _a.search, style = _a.style, label = _a.label, clearable = _a.clearable, multiselect = _a.multiselect, onChange = _a.onChange;
+        var _a = this.props, search = _a.search, style = _a.style, label = _a.label, clearable = _a.clearable, multiselect = _a.multiselect, onChange = _a.onChange, placeholder = _a.placeholder;
         var _b = this.state, options = _b.options, selected = _b.selected, menuVisible = _b.menuVisible;
-        var unselected = options;
-        if (multiselect && selected && options) {
-            unselected = options.filter(function (option) { return selected.findIndex(function (select) { return select == option; }) < 0; });
-        }
-        ;
-        var MultiSelectTSX = (multiselect && selected && selected.map(function (option) { return (react_1.default.createElement("div", { className: 'ui-select-holder-value-option' },
-            react_1.default.createElement("div", { className: 'ui-select-holder-value-option-close', onClick: function (event) {
-                    event.stopPropagation();
-                    _this.onUnselect(option);
-                } },
-                react_1.default.createElement(Icon_1.Icon, { type: 'close' })),
-            react_1.default.createElement("span", null, option.text))); }));
-        var SearchBarTSX = (react_1.default.createElement("input", { className: 'ui-select-holder-value-input', defaultValue: multiselect ? '' : selected && selected[0].text, onChange: function (event) { return _this.filterOptions(event.target.value); }, ref: function (ref) { return _this.inputRef = ref; } }));
+        var PlaceholderTSX = (react_1.default.createElement("div", { className: 'ui-select-holder-value-placeholder' }, placeholder));
+        var ValueTSX = (search ?
+            react_1.default.createElement("input", { className: 'ui-select-holder-value-input', defaultValue: multiselect ? '' : selected && selected[0].text, onChange: function (event) { return _this.filterOptions(event.target.value); }, ref: function (ref) { return _this.inputRef = ref; } }) : !multiselect && selected && selected[0].text);
+        var StateIconTSX = (react_1.default.createElement("span", { className: 'ui-select-holder-down' },
+            react_1.default.createElement(Icon_1.Icon, { type: menuVisible ? 'up' : 'down' })));
         var ClearButtonTSX = (react_1.default.createElement("span", { className: 'ui-select-holder-clear', onClick: function (event) {
                 event.stopPropagation();
                 _this.setState({ selected: undefined });
                 onChange && onChange([]);
             } },
             react_1.default.createElement(Icon_1.Icon, { type: 'close' })));
-        var StateIconTSX = (react_1.default.createElement("span", { className: 'ui-select-holder-down' },
-            react_1.default.createElement(Icon_1.Icon, { type: menuVisible ? 'up' : 'down' })));
+        var unselected = !(multiselect && selected && options) ? options :
+            options.filter(function (option) { return selected.findIndex(function (select) { return select == option; }) < 0; });
         var MenuTSX = (unselected && unselected.map(function (option, index) { return (react_1.default.createElement("div", { className: 'ui-select-menu-item', children: option.text, onClick: function () { return _this.onSelect(unselected[index]); }, key: option.key ? option.key : option.text })); }));
+        var MultiSelectTSX = (multiselect && selected && selected.map(function (option) { return (react_1.default.createElement("div", { className: 'ui-select-holder-value-option', key: option.text },
+            react_1.default.createElement("div", { className: 'ui-select-holder-value-option-close', onClick: function (event) {
+                    event.stopPropagation();
+                    _this.onUnselect(option);
+                } },
+                react_1.default.createElement(Icon_1.Icon, { type: 'close' })),
+            react_1.default.createElement("span", null, option.text))); }));
         return (react_1.default.createElement("div", { className: 'ui-select', style: style },
             react_1.default.createElement("div", { className: 'ui-select-label' }, label),
             react_1.default.createElement("div", { className: 'ui-select-holder' + (menuVisible ? ' active' : ''), onClick: function () { return _this.toggleMenu(); }, ref: function (ref) { return _this.holderRef = ref; } },
                 react_1.default.createElement("div", { className: 'ui-select-holder-value' },
                     MultiSelectTSX,
-                    search ? SearchBarTSX : !multiselect && selected && selected[0].text),
+                    placeholder && !selected ? PlaceholderTSX : ValueTSX),
                 clearable && ClearButtonTSX,
                 " ",
                 StateIconTSX,

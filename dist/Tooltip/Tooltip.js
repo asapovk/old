@@ -36,7 +36,6 @@ var Tooltip = /** @class */ (function (_super) {
         return _this;
     }
     Tooltip.prototype.componentDidMount = function () {
-        console.log('Ref', this.targetRef);
         // @ts-ignore
         var coords = react_dom_1.default.findDOMNode(this.targetRef).getBoundingClientRect();
         if (coords && this.targetRef) {
