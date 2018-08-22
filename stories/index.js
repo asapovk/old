@@ -13,10 +13,9 @@ import { Icon } from '../src/Icon';
 import { Login } from '../src/Login';
 import { Checkbox } from '../src/Checkbox';
 import { Spinner } from '../src/Spinner';
-import { Spin } from '../src/Spin';
 import { Modal } from '../src/Modal';
 import { Flexbox } from '../src/Flexbox';
-import { Finder } from '../src/Finder';
+import { Finder, FinderNav } from '../src/Finder';
 import TooltipStory from './TooltipStory';
 import Fakerator from 'fakerator';
 
@@ -98,40 +97,11 @@ storiesOf('💥 Core', module)
             </div>
         </Viewport>
     ))
-    // .add('Filter', () => (
-    //     <Filter>
-    //         <FilterGroup lable="Основные">
-    //             <FilterSection label="Номер чека">
-    //                 <TextField placeholder="#" />
-    //             </FilterSection>
-    //             <FilterSection label="Приложение">
-    //                 <Select
-    //                     label='Приложения'
-    //                     placeholder='Выберите приложения'
-    //                     options={optionsMulti}
-    //                     clearable={true}
-    //                     multiselect={true}
-    //                 />
-    //             </FilterSection>
-    //             <FilterSection label="Организации">
-    //                 <Select
-    //                     label='Организация'
-    //                     placeholder='Выберите организацию'
-    //                     clearable={true}
-    //                     options={optionsMulti}
-    //                 />
-    //             </FilterSection>
-    //         </FilterGroup>
-    //         <FilterGroup lable="Дополнительные">
-
-    //         </FilterGroup>
-    //     </Filter>
-    // ))
     .add('Select', () => (
         <Viewport style={flexCentered}>
             <Select
                 label='Multiselect'
-                // search={true}
+                search={true}
                 placeholder='Select some'
                 options={optionsMulti}
                 style={{ padding: '80px' }}
@@ -143,6 +113,7 @@ storiesOf('💥 Core', module)
                 label='Select'
                 search={true}
                 placeholder='Select some'
+                defaultValue={'irv'}
                 options={optionsMulti}
                 style={{ padding: '80px' }}
                 onChange={(value) => console.log('Singe', value)}
@@ -197,9 +168,23 @@ storiesOf('💥 Core', module)
             </Menu>
         </Viewport>
     ))
-    .add('Column View', () => (
+    .add('Finder', () => (
         <Viewport style={flexCentered}>
-            <Finder>
+            <Finder filter={true}>
+                <FinderNav label='One'>
+                    <FinderNav label='One.Two'>
+                        <FinderNav label='One.Two.Three'></FinderNav>
+                        <FinderNav label='One.Two.Four'></FinderNav>
+                    </FinderNav>
+                    <FinderNav label='One.Three'>
+                        <FinderNav label='One.Three.Three'></FinderNav>
+                        <FinderNav label='One.Three.Four'></FinderNav>
+                    </FinderNav>
+                    <FinderNav label='One.Four'></FinderNav>
+                </FinderNav>
+                <FinderNav label='Two'></FinderNav>
+                <FinderNav label='Three'></FinderNav>
+                <FinderNav label='Four'></FinderNav>
             </Finder>
         </Viewport>
     ))
@@ -221,6 +206,7 @@ storiesOf('💥 Core', module)
             <div className='cont'><Icon type='more' /><span className='desc'>more</span></div>
             <div className='cont'><Icon type='close' /><span className='desc'>close</span></div>
             <div className='cont'><Icon type='left' /><span className='desc'>left</span></div>
+            <div className='cont'><Icon type='right' /><span className='desc'>right</span></div>
             <div className='cont'><Icon type='down' /><span className='desc'>down</span></div>
             <div className='cont'><Icon type='up' /><span className='desc'>up</span></div>
             <div className='cont'><Icon type='check' /><span className='desc'>check</span></div>
@@ -231,13 +217,6 @@ storiesOf('💥 Core', module)
     .add('Spinner', () => (
         <Viewport style={flexCentered}>
             <Spinner spinning />
-        </Viewport>
-    ))
-    .add('Spin', () => (
-        <Viewport style={flexCentered}>
-            <Spin>
-                <Icon type='sync' style={{ fontSize: 32 }} />
-            </Spin>
         </Viewport>
     ))
     .add('Modal', () => (
@@ -253,75 +232,75 @@ storiesOf('💥 Core', module)
     .add('Flexbox', () => (
         <Viewport style={{ padding: 20 }}>
             <Flexbox style={{ border: "10px solid #000" }}>
-                <Flexbox justifyContent="center" style={{ background: "white" }} flex={1}>
+                <Flexbox justifyContent="center" style={{ background: "white" }}>
                     <div style={{ background: "#333", padding: 10 }}>div</div>
                     <div style={{ background: "#666", padding: 10 }}>div</div>
                     <div style={{ background: "#999", padding: 10 }}>div</div>
-                    <div style={{ color: "#333", fontSize: 12, position: "absolute", padding: 5, right: 0, top: 0, background: "rgba(255,255,255,0.5)" }}>{`flex={1} justifyContent="center"`}</div>
+                    <div style={{ color: "#333", fontSize: 12, position: "absolute", padding: 5, right: 0, top: 0, background: "rgba(255,255,255,0.5)" }}>justifyContent="center"</div>
                 </Flexbox>
             </Flexbox>
             <br />
             <Flexbox style={{ border: "10px solid #000" }}>
-                <Flexbox justifyContent="flex-start" style={{ background: "white" }} flex={1}>
+                <Flexbox justifyContent="flex-start" style={{ background: "white" }}>
                     <div style={{ background: "#333", padding: 10 }}>div</div>
                     <div style={{ background: "#666", padding: 10 }}>div</div>
                     <div style={{ background: "#999", padding: 10 }}>div</div>
-                    <div style={{ color: "#333", fontSize: 12, position: "absolute", padding: 5, right: 0, top: 0, background: "rgba(255,255,255,0.5)" }}>{`flex={1} justifyContent="flex-start" (default)`}</div>
+                    <div style={{ color: "#333", fontSize: 12, position: "absolute", padding: 5, right: 0, top: 0, background: "rgba(255,255,255,0.5)" }}>justifyContent="flex-start" (default)</div>
                 </Flexbox>
             </Flexbox>
             <br />
             <Flexbox style={{ border: "10px solid #000" }}>
-                <Flexbox justifyContent="space-between" style={{ background: "white" }} flex={1}>
+                <Flexbox justifyContent="space-between" style={{ background: "white" }}>
                     <div style={{ background: "#333", padding: 10 }}>div</div>
                     <div style={{ background: "#666", padding: 10 }}>div</div>
                     <div style={{ background: "#999", padding: 10 }}>div</div>
-                    <div style={{ color: "#333", fontSize: 12, position: "absolute", padding: 5, right: 0, top: 0, background: "rgba(255,255,255,0.5)" }}>{`flex={1} justifyContent="space-between"`}</div>
+                    <div style={{ color: "#333", fontSize: 12, position: "absolute", padding: 5, right: 0, top: 0, background: "rgba(255,255,255,0.5)" }}>justifyContent="space-between"</div>
                 </Flexbox>
             </Flexbox>
             <br />
             <Flexbox style={{ border: "10px solid #000" }}>
-                <Flexbox justifyContent="space-around" style={{ background: "white" }} flex={1}>
+                <Flexbox justifyContent="space-around" style={{ background: "white" }}>
                     <div style={{ background: "#333", padding: 10 }}>div</div>
                     <div style={{ background: "#666", padding: 10 }}>div</div>
                     <div style={{ background: "#999", padding: 10 }}>div</div>
-                    <div style={{ color: "#333", fontSize: 12, position: "absolute", padding: 5, right: 0, top: 0, background: "rgba(255,255,255,0.5)" }}>{`flex={1} justifyContent="space-around"`}</div>
+                    <div style={{ color: "#333", fontSize: 12, position: "absolute", padding: 5, right: 0, top: 0, background: "rgba(255,255,255,0.5)" }}>justifyContent="space-around"</div>
                 </Flexbox>
             </Flexbox>
             <br />
             <Flexbox style={{ border: "10px solid #000" }}>
-                <Flexbox justifyContent="space-evenly" style={{ background: "white" }} flex={1}>
+                <Flexbox justifyContent="space-evenly" style={{ background: "white" }}>
                     <div style={{ background: "#333", padding: 10 }}>div</div>
                     <div style={{ background: "#666", padding: 10 }}>div</div>
                     <div style={{ background: "#999", padding: 10 }}>div</div>
-                    <div style={{ color: "#333", fontSize: 12, position: "absolute", padding: 5, right: 0, top: 0, background: "rgba(255,255,255,0.5)" }}>{`flex={1} justifyContent="space-evenly"`}</div>
+                    <div style={{ color: "#333", fontSize: 12, position: "absolute", padding: 5, right: 0, top: 0, background: "rgba(255,255,255,0.5)" }}>justifyContent="space-evenly"</div>
                 </Flexbox>
             </Flexbox>
             <br />
             <Flexbox style={{ border: "10px solid #000" }}>
-                <Flexbox style={{ background: "white" }} flex={1} p={40}>
+                <Flexbox style={{ background: "white" }} p={40}>
                     <Flexbox style={{ background: "#333" }} pb={20} flex={1}>{`pb={20} flex={1}`}</Flexbox>
                     <Flexbox style={{ background: "#666" }} pl={20} flex={1}>{`pl={20} flex={2}`}</Flexbox>
                     <Flexbox style={{ background: "#999" }} pt={20} flex={1}>{`pt={20} flex={3}`}</Flexbox>
-                    <div style={{ color: "#333", fontSize: 12, position: "absolute", padding: 5, right: 0, top: 0, background: "rgba(255,255,255,0.5)" }}>{`flex={1} p={40}"`}</div>
+                    <div style={{ color: "#333", fontSize: 12, position: "absolute", padding: 5, right: 0, top: 0, background: "rgba(255,255,255,0.5)" }}>{`p={40}`}</div>
                 </Flexbox>
             </Flexbox>
             <br />
             <Flexbox style={{ border: "10px solid #000" }}>
-                <Flexbox column style={{ background: "white" }} flex={1}>
+                <Flexbox style={{ background: "white" }} column>
                     <Flexbox style={{ background: "#333" }} p={20} flex={1}>div</Flexbox>
                     <Flexbox style={{ background: "#666" }} p={20} flex={1}>div</Flexbox>
                     <Flexbox style={{ background: "#999" }} p={20} flex={1}>div</Flexbox>
-                    <div style={{ color: "#333", fontSize: 12, position: "absolute", padding: 5, right: 0, top: 0, background: "rgba(255,255,255,0.5)" }}>{`flex={1} column`}</div>
+                    <div style={{ color: "#333", fontSize: 12, position: "absolute", padding: 5, right: 0, top: 0, background: "rgba(255,255,255,0.5)" }}>{`column`}</div>
                 </Flexbox>
             </Flexbox>
             <br />
             <Flexbox style={{ border: "10px solid #000" }}>
-                <Flexbox column style={{ background: "white" }} flex={1}>
+                <Flexbox style={{ background: "white" }} column>
                     <Flexbox style={{ background: "#333" }} p={20} alignSelf="flex-end">alignSelf="flex-end"</Flexbox>
                     <Flexbox style={{ background: "#666" }} p={20} alignSelf="flex-start">alignSelf="flex-start"</Flexbox>
                     <Flexbox style={{ background: "#999" }} p={20} alignSelf="center">alignSelf="center"</Flexbox>
                     <Flexbox style={{ background: "#CCC" }} p={20} alignSelf="stretch">alignSelf="stretch" (default)</Flexbox>
-                    <div style={{ color: "#333", fontSize: 12, position: "absolute", padding: 5, right: 0, top: 0, background: "rgba(255,255,255,0.5)" }}>{`flex={1} column`}</div>
+                    <div style={{ color: "#333", fontSize: 12, position: "absolute", padding: 5, right: 0, top: 0, background: "rgba(255,255,255,0.5)" }}>{`column`}</div>
                 </Flexbox>
             </Flexbox>
             <br />
