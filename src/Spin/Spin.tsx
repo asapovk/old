@@ -1,0 +1,17 @@
+import React, { Component, CSSProperties } from 'react';
+
+interface Props {
+    style?: CSSProperties,
+}
+
+class Spin extends Component<Props> {
+    render() {
+        let className = "ui-spin";
+
+        return (
+            <span className={className} style={this.props.style}>{this.props.children}</span>
+        )
+    }
+}
+
+export default Spin

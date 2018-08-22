@@ -14,7 +14,7 @@ const icons = {
 };
 
 const Icon = props => (
-    <svg fill="currentColor" height="1em" width="1em" viewBox="0 0 128 128" style={props.style}>
+    <svg className="ui-icon" fill="currentColor" height="1em" width="1em" viewBox="0 0 128 128" style={props.style}>
         <g><path d={icons[props.type]}></path></g>
     </svg>
 );

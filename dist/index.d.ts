@@ -8,6 +8,7 @@ export { Nav as Nav } from './Menu';
 export { Tooltip as Tooltip } from './Tooltip';
 export { Icon as Icon } from './Icon';
 export { Login as Login } from './Login';
+export { Spin as Spin } from './Spin';
 export { Select as Select } from './Select';
 export { Spinner as Spinner } from './Spinner';
 export { Checkbox as Checkbox } from './Checkbox';
