@@ -11,5 +11,6 @@ export { Login as Login } from './Login'
 export { Select as Select } from './Select'
 export { Spinner as Spinner } from './Spinner'
 export { Checkbox as Checkbox } from './Checkbox'
+export { Finder as ColumnView } from './Finder'
 
 export { default as Portal } from 'react-portal';

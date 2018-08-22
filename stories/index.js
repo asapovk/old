@@ -15,6 +15,7 @@ import { Checkbox } from '../src/Checkbox';
 import { Spinner } from '../src/Spinner';
 import { Modal } from '../src/Modal';
 import { Flexbox } from '../src/Flexbox';
+import { Finder } from '../src/Finder';
 import TooltipStory from './TooltipStory';
 import Fakerator from 'fakerator';
 
@@ -165,6 +166,12 @@ storiesOf('💥 Core', module)
                 <Nav onClick={() => console.log('fly away')}>Peach</Nav>
                 <Nav>Strawberry</Nav>
             </Menu>
+        </Viewport>
+    ))
+    .add('Column View', () => (
+        <Viewport style={flexCentered}>
+            <Finder>
+            </Finder>
         </Viewport>
     ))
     .add('Tooltip', () => (
