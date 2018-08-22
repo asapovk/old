@@ -9,7 +9,7 @@ interface Props {
     pb?: number;
     p?: number;
     column?: boolean;
-    flex?: number;
+    flex?: number | string;
     flexBasis?: number;
     flexFrow?: number;
     flexShrink?: number;
