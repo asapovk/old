@@ -11,7 +11,9 @@ interface FinderNavProps {
 class FinderNav extends React.Component<FinderNavProps> {
 
     expand(children) {
-        this.props.render && typeof this.props.level != 'undefined' && this.props.render(children, this.props.filter ? true : false, this.props.level + 1)
+        this.props.render &&
+            typeof this.props.level != 'undefined' &&
+            this.props.render(children, this.props.filter ? true : false, this.props.level + 1);
     }
 
     render() {

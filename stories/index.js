@@ -172,7 +172,7 @@ storiesOf('💥 Core', module)
     .add('Finder', () => (
         <Viewport style={flexCentered}>
             <Finder filter={true}>
-                <FinderNav label='Fruits'>
+                <FinderNav label='Fruits' filter={true}>
                     <FinderNav label='Apples'>
                         <FinderNav label='Macintosh'></FinderNav>
                         <FinderNav label='Granny Smith'></FinderNav>

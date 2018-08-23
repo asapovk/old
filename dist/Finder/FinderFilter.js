@@ -23,11 +23,17 @@ var FinderFilter = /** @class */ (function (_super) {
     function FinderFilter() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
+    FinderFilter.prototype.onChange = function (value) {
+        typeof this.props.level != 'undefined' &&
+            this.props.filterChange &&
+            this.props.filterChange(value, this.props.level);
+    };
     FinderFilter.prototype.render = function () {
-        var _a = this.props, placeholder = _a.placeholder, clearable = _a.clearable;
+        var _this = this;
+        var _a = this.props, placeholder = _a.placeholder, clearable = _a.clearable, filterChange = _a.filterChange, level = _a.level;
         return (react_1.default.createElement("div", { className: 'ui-finder-filter' },
             react_1.default.createElement("div", { className: 'ui-finder-filter-input' },
-                react_1.default.createElement("input", { placeholder: placeholder }),
+                react_1.default.createElement("input", { placeholder: placeholder, onChange: function (event) { return _this.onChange(event.target.value); } }),
                 clearable && react_1.default.createElement("span", null,
                     react_1.default.createElement(__1.Icon, { type: 'close' })))));
     };
