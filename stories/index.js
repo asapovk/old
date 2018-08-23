@@ -185,6 +185,15 @@ storiesOf('💥 Core', module)
                 <FinderNav label='Two'></FinderNav>
                 <FinderNav label='Three'></FinderNav>
                 <FinderNav label='Four'></FinderNav>
+                <FinderNav label='Five'></FinderNav>
+                <FinderNav label='Six'></FinderNav>
+                <FinderNav label='Seven'></FinderNav>
+                <FinderNav label='Eight'></FinderNav>
+                <FinderNav label='Nine'></FinderNav>
+                <FinderNav label='Ten'></FinderNav>
+                <FinderNav label='Eleven'></FinderNav>
+                <FinderNav label='Twelve'></FinderNav>
+                <FinderNav label='Thirteen'></FinderNav>
             </Finder>
         </Viewport>
     ))

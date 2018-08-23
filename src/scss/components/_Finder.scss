@@ -2,23 +2,57 @@
     display: flex;
     align-items: stretch;
     &-menu, &-submenu {
-        padding: 20px 20px 15px 20px;
         border: 1px solid $interface;
-        border-radius: 2px;
     }
     &-submenu {
         margin-left: -1px;
         flex: 1;
+        border-radius: 0px 2px 2px 0px;
+    }
+    &-menu {
+        border-radius: 2px;
+        &-items {
+            padding: 10px 0px;
+            max-height: 320px;
+            overflow: auto;
+        }
     }
     &-nav {
         display: flex;
         align-items: flex-start;
-        padding-bottom: 5px;
-        cursor: pointer;
+        justify-content: space-between;
+        padding: 5px 10px;
+        &-label {
+            cursor: pointer;
+            padding-right: 10px;
+            line-height: 20px; 
+        }
+        svg {
+            font-size: 12px;
+            color: $pale;
+        }
+        &:hover {
+            background: rgba($pale, 0.3);
+        }
     }
     &-filter {
-        border: 1px solid $interface;
-        border-radius: 2px;
-        display: flex;
+        padding: 10px;
+        border-bottom: 1px solid $interface;
+        &-input {
+            border: 1px solid $interface;
+            border-radius: 2px;
+            display: flex;
+            input {
+                appearance: none;
+                background: none;
+                border: none;
+                font-size: inherit;
+                color: $text;
+                padding: 4px;
+                outline: none;
+            }
+
+        }
+        
     }
 }

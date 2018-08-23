@@ -15,7 +15,7 @@ class FinderFilter extends React.Component<FinderFilterProps> {
 
         return (
             <div className='ui-finder-filter'>
-                <div className='ui-finder-filter-submenu'>
+                <div className='ui-finder-filter-input'>
                     <input placeholder={placeholder} />
                     {clearable && <span><Icon type='close' /></span>}
                 </div>
