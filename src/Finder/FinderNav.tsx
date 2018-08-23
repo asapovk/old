@@ -20,8 +20,7 @@ class FinderNav extends React.Component<FinderNavProps> {
 
         return (
             <div className='ui-finder-nav' onClick={() => this.expand(children)}>
-                <div className='ui-finder-nav-label'>{label}</div>
-                <span><Icon type='right' /></span>
+                <div className='ui-finder-nav-label'>{label}<span><Icon type='right' /></span></div>
             </div>
         )
 

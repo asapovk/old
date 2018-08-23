@@ -1,7 +1,7 @@
 .ui-modal {
     z-index: 500;
     position: fixed;
-    background: $page-background;
+    background: rgba($page-background, 0.3);
     top: 0;
     left: 0;
     right: 0;

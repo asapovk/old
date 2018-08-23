@@ -16,7 +16,7 @@ import { Spinner } from '../src/Spinner';
 import { Spin } from '../src/Spin';
 import { Modal } from '../src/Modal';
 import { Flexbox } from '../src/Flexbox';
-import { Finder, FinderNav } from '../src/Finder';
+import { Finder, FinderNav, FinderSection } from '../src/Finder';
 import TooltipStory from './TooltipStory';
 import Fakerator from 'fakerator';
 
@@ -192,9 +192,13 @@ storiesOf('💥 Core', module)
                 <FinderNav label='Eight'></FinderNav>
                 <FinderNav label='Nine'></FinderNav>
                 <FinderNav label='Ten'></FinderNav>
-                <FinderNav label='Eleven'></FinderNav>
-                <FinderNav label='Twelve'></FinderNav>
-                <FinderNav label='Thirteen'></FinderNav>
+                <FinderSection label='And other numbers'>
+                    <FinderNav label='Ten'></FinderNav>
+                    <FinderNav label='Eleven'></FinderNav>
+                    <FinderNav label='Twelve'></FinderNav>
+                    <FinderNav label='Thirteen'></FinderNav>
+                </FinderSection>
+
             </Finder>
         </Viewport>
     ))

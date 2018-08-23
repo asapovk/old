@@ -21,7 +21,7 @@ class FinderSection extends React.Component<FinderSectionProps> {
                     {label}
                     <span><Icon type={this.state.expand ? 'up' : 'down'} /></span>
                 </div>
-                {this.state.expand && children}
+                <div className='ui-finder-section-children'>{this.state.expand && children}</div>
             </div>
         )
 

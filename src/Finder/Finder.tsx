@@ -43,7 +43,7 @@ class Finder extends React.Component<FinderProps> {
         const childrenWithProps = this.passProps(children, -1);
 
         const SubmenuTSX = (
-            this.state.submenu.map(menu => menu)
+            this.state.submenu.map((menu, index) => <menu key={index} />)
         )
 
         return (
