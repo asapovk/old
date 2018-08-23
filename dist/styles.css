@@ -1035,7 +1035,7 @@ table {
   background: rgba(92, 97, 115, 0.3);
 }
 .ui-finder-section-children {
-  padding-left: 20px;
+  padding: 0px 10px 0px 30px;
 }
 .ui-finder-filter {
   padding: 10px;

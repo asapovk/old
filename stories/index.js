@@ -197,6 +197,12 @@ storiesOf('💥 Core', module)
                     <FinderNav label='Eleven'></FinderNav>
                     <FinderNav label='Twelve'></FinderNav>
                     <FinderNav label='Thirteen'></FinderNav>
+                    <FinderSection label='And other numbers'>
+                        <FinderNav label='Ten'></FinderNav>
+                        <FinderNav label='Eleven'></FinderNav>
+                        <FinderNav label='Twelve'></FinderNav>
+                        <FinderNav label='Thirteen'></FinderNav>
+                    </FinderSection>
                 </FinderSection>
 
             </Finder>
