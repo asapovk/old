@@ -7,7 +7,6 @@ declare class Finder extends React.Component<FinderProps> {
     constructor(props: any);
     state: {
         submenu: any[];
-        filteredSubmenu: any[];
     };
     passProps(children: any, level: any): React.ReactElement<any>[];
     filterChange(value: any, level: any): void;

@@ -16,8 +16,7 @@ class Finder extends React.Component<FinderProps> {
     }
 
     state = {
-        submenu: [] as any[],
-        filteredSubmenu: [] as any[],
+        submenu: [] as any[]
     }
 
     passProps(children, level) {
@@ -27,21 +26,15 @@ class Finder extends React.Component<FinderProps> {
     }
 
     filterChange(value, level) {
-        let filteredSubmenu = Object.assign(this.state.submenu);
-        if (value != '') {
-            filteredSubmenu[level].childrens = filteredSubmenu[level].childrens.filter(
-                child => child.props.label.includes(value)
-            );
-            //console.log(value != '');
-        }
-        //console.log(value == '' ? this.state.submenu : 'filtered');
-        this.setState({ filteredSubmenu: filteredSubmenu });
+        let submenu = this.state.submenu;
+        submenu[level].filterValue = value;
+        this.setState({ submenu: submenu });
     };
 
     submenu(children, filter, level) {
         const childrenWithProps = this.passProps(children, level);
         let submenu = this.state.submenu;
-        submenu[level] = { childrens: childrenWithProps, filter: filter };
+        submenu[level] = { childrens: childrenWithProps, filter: filter, filterValue: '' };
         submenu.length = level + 1;
         this.setState({ submenu: submenu, filteredSubmenu: submenu });
     }
@@ -52,10 +45,12 @@ class Finder extends React.Component<FinderProps> {
         const childrenWithProps = this.passProps(children, -1);
 
         const SubmenuTSX = (
-            this.state.filteredSubmenu.map((menu, index) => (
+            this.state.submenu.map((menu, index) => (
                 <div className='ui-finder-submenu' key={index}>
                     {filter && <FinderFilter level={index} filterChange={this.filterChange} />}
-                    <div className='ui-finder-menu-items'>{menu.childrens}</div>
+                    <div className='ui-finder-menu-items'>{menu.childrens.filter(
+                        child => child.props.label.includes(menu.filterValue)
+                    )}</div>
                 </div>
             ))
         )
