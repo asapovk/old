@@ -444,7 +444,7 @@ table {
 .ui-modal {
   z-index: 500;
   position: fixed;
-  background: rgba(8, 9, 27, 0.53);
+  background: #292b36;
   top: 0;
   left: 0;
   right: 0;
@@ -465,7 +465,8 @@ table {
   opacity: 0;
   visibility: hidden;
   padding: 20px;
-  background: #464a58;
+  background: #292b36;
+  border: 1px solid #b1c6d1;
   min-width: 200px;
   position: relative;
   -webkit-transition: all 0.5s;

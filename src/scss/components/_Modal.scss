@@ -1,7 +1,7 @@
 .ui-modal {
     z-index: 500;
     position: fixed;
-    background: rgba(8,9,27,0.53);
+    background: $page-background;
     top: 0;
     left: 0;
     right: 0;
@@ -17,7 +17,8 @@
             opacity: 0;
             visibility: hidden;
             padding: 20px;
-            background: $ui-background;
+            background: $page-background;
+            border: 1px solid $interface;
             min-width: 200px;
             position: relative;
             @include css3-prefix("transition", all .5s);
