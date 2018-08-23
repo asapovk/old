@@ -4,14 +4,14 @@ import { Icon } from '../';
 interface FinderNavProps {
     label: string
     filter?: boolean
-    render: (children, filter, level) => void
-    level: number
+    render?: (children, filter, level) => void
+    level?: number
 }
 
 class FinderNav extends React.Component<FinderNavProps> {
 
     expand(children) {
-        this.props.render(children, this.props.filter ? true : false, this.props.level + 1)
+        this.props.render && this.props.level && this.props.render(children, this.props.filter ? true : false, this.props.level + 1)
     }
 
     render() {
