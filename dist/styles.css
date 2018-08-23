@@ -995,6 +995,7 @@ table {
 .ui-finder {
   display: flex;
   align-items: stretch;
+  color: white;
 }
 .ui-finder-menu, .ui-finder-submenu {
   border: 1px solid #b1c6d1;
@@ -1008,7 +1009,7 @@ table {
   border-radius: 2px;
 }
 .ui-finder-menu-items {
-  padding: 10px 0px;
+  padding: 10px;
   max-height: 320px;
   overflow: auto;
 }
@@ -1017,6 +1018,7 @@ table {
   align-items: flex-start;
   justify-content: space-between;
   padding: 5px 10px;
+  margin: 0px -10px;
 }
 .ui-finder-nav-label {
   cursor: pointer;

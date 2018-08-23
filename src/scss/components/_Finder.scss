@@ -1,6 +1,7 @@
 .ui-finder {
     display: flex;
     align-items: stretch;
+    color: $text;
     &-menu, &-submenu {
         border: 1px solid $interface;
     }
@@ -12,7 +13,7 @@
     &-menu {
         border-radius: 2px;
         &-items {
-            padding: 10px 0px;
+            padding: 10px;
             max-height: 320px;
             overflow: auto;
         }
@@ -22,6 +23,7 @@
         align-items: flex-start;
         justify-content: space-between;
         padding: 5px 10px;
+        margin: 0px -10px;
         &-label {
             cursor: pointer;
             padding-right: 10px;
