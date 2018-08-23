@@ -48,7 +48,7 @@ class Finder extends React.Component<FinderProps> {
             this.state.submenu.map((menu, index) => (
                 <div className='ui-finder-submenu' key={index}>
                     {filter && <FinderFilter level={index} filterChange={this.filterChange} />}
-                    <div className='ui-finder-menu-items'>{menu.childrens.filter(
+                    <div className='ui-finder-menu-items'>{menu.childrens && menu.childrens.filter(
                         child => child.props.label.includes(menu.filterValue)
                     )}</div>
                 </div>

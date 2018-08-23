@@ -54,7 +54,7 @@ var Finder = /** @class */ (function (_super) {
         var childrenWithProps = this.passProps(children, -1);
         var SubmenuTSX = (this.state.submenu.map(function (menu, index) { return (react_1.default.createElement("div", { className: 'ui-finder-submenu', key: index },
             filter && react_1.default.createElement(FinderFilter_1.default, { level: index, filterChange: _this.filterChange }),
-            react_1.default.createElement("div", { className: 'ui-finder-menu-items' }, menu.childrens.filter(function (child) { return child.props.label.includes(menu.filterValue); })))); }));
+            react_1.default.createElement("div", { className: 'ui-finder-menu-items' }, menu.childrens && menu.childrens.filter(function (child) { return child.props.label.includes(menu.filterValue); })))); }));
         return (react_1.default.createElement("div", { className: 'ui-finder' },
             react_1.default.createElement("div", { className: 'ui-finder-menu' },
                 filter && react_1.default.createElement(FinderFilter_1.default, { level: -1 }),
