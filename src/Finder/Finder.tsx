@@ -26,7 +26,7 @@ class Finder extends React.Component<FinderProps> {
 
     submenu(children, filter, level) {
         const SubmenuTSX = children && (
-            <div className='ui-finder-submenu'>
+            <div className='ui-finder-submenu' key={level}>
                 {filter && <FinderFilter />}
                 <div className='ui-finder-menu-items'>{this.passProps(children, level)}</div>
             </div>
@@ -43,7 +43,7 @@ class Finder extends React.Component<FinderProps> {
         const childrenWithProps = this.passProps(children, -1);
 
         const SubmenuTSX = (
-            this.state.submenu.map((menu, index) => <menu key={index} />)
+            this.state.submenu.map(menu => menu)
         )
 
         return (

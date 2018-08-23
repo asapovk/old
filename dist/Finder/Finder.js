@@ -35,7 +35,7 @@ var Finder = /** @class */ (function (_super) {
         });
     };
     Finder.prototype.submenu = function (children, filter, level) {
-        var SubmenuTSX = children && (react_1.default.createElement("div", { className: 'ui-finder-submenu' },
+        var SubmenuTSX = children && (react_1.default.createElement("div", { className: 'ui-finder-submenu', key: level },
             filter && react_1.default.createElement(FinderFilter_1.default, null),
             react_1.default.createElement("div", { className: 'ui-finder-menu-items' }, this.passProps(children, level))));
         var submenu = this.state.submenu;

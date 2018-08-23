@@ -35,7 +35,7 @@ var FinderSection = /** @class */ (function (_super) {
                 label,
                 react_1.default.createElement("span", null,
                     react_1.default.createElement(__1.Icon, { type: this.state.expand ? 'up' : 'down' }))),
-            this.state.expand && children));
+            react_1.default.createElement("div", { className: 'ui-finder-section-children' }, this.state.expand && children)));
     };
     return FinderSection;
 }(react_1.default.Component));

@@ -444,7 +444,7 @@ table {
 .ui-modal {
   z-index: 500;
   position: fixed;
-  background: #292b36;
+  background: rgba(41, 43, 54, 0.3);
   top: 0;
   left: 0;
   right: 0;
@@ -1012,26 +1012,30 @@ table {
 .ui-finder-menu-items {
   padding: 10px;
   max-height: 320px;
-  overflow: auto;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
-.ui-finder-nav {
+.ui-finder-nav, .ui-finder-section {
+  margin: 0px -10px;
+}
+.ui-finder-nav-label, .ui-finder-section-label {
+  padding: 5px 10px;
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  padding: 5px 10px;
-  margin: 0px -10px;
-}
-.ui-finder-nav-label {
   cursor: pointer;
-  padding-right: 10px;
   line-height: 20px;
 }
-.ui-finder-nav svg {
+.ui-finder-nav-label svg, .ui-finder-section-label svg {
   font-size: 12px;
   color: #5c6173;
+  padding-left: 10px;
 }
-.ui-finder-nav:hover {
+.ui-finder-nav-label:hover, .ui-finder-section-label:hover {
   background: rgba(92, 97, 115, 0.3);
+}
+.ui-finder-section-children {
+  padding-left: 20px;
 }
 .ui-finder-filter {
   padding: 10px;

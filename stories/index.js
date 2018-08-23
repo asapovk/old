@@ -172,16 +172,16 @@ storiesOf('💥 Core', module)
     .add('Finder', () => (
         <Viewport style={flexCentered}>
             <Finder filter={true}>
-                <FinderNav label='One'>
-                    <FinderNav label='One.Two'>
-                        <FinderNav label='One.Two.Three'></FinderNav>
-                        <FinderNav label='One.Two.Four'></FinderNav>
+                <FinderNav label='Fruits'>
+                    <FinderNav label='Apples'>
+                        <FinderNav label='Macintosh'></FinderNav>
+                        <FinderNav label='Granny Smith'></FinderNav>
+                        <FinderNav label='Honeycrisp'></FinderNav>
                     </FinderNav>
-                    <FinderNav label='One.Three'>
-                        <FinderNav label='One.Three.Three'></FinderNav>
-                        <FinderNav label='One.Three.Four'></FinderNav>
+                    <FinderNav label='Pears'>
+                        <FinderNav label='Anjou'></FinderNav>
+                        <FinderNav label='Bartlett'></FinderNav>
                     </FinderNav>
-                    <FinderNav label='One.Four'></FinderNav>
                 </FinderNav>
                 <FinderNav label='Two'></FinderNav>
                 <FinderNav label='Three'></FinderNav>

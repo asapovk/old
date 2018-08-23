@@ -30,9 +30,10 @@ var FinderNav = /** @class */ (function (_super) {
         var _this = this;
         var _a = this.props, label = _a.label, children = _a.children;
         return (react_1.default.createElement("div", { className: 'ui-finder-nav', onClick: function () { return _this.expand(children); } },
-            react_1.default.createElement("div", { className: 'ui-finder-nav-label' }, label),
-            react_1.default.createElement("span", null,
-                react_1.default.createElement(__1.Icon, { type: 'right' }))));
+            react_1.default.createElement("div", { className: 'ui-finder-nav-label' },
+                label,
+                react_1.default.createElement("span", null,
+                    react_1.default.createElement(__1.Icon, { type: 'right' })))));
     };
     return FinderNav;
 }(react_1.default.Component));
