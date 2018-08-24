@@ -28,6 +28,9 @@ var FinderNav = /** @class */ (function (_super) {
             typeof this.props.level != 'undefined' &&
             this.props.render(children, this.props.filter ? true : false, this.props.level + 1, this.props.filterPlaceholder);
     };
+    FinderNav.prototype.componentWillReceiveProps = function () {
+        console.log('recieve');
+    };
     FinderNav.prototype.render = function () {
         var _this = this;
         var _a = this.props, label = _a.label, children = _a.children;

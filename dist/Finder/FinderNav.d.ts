@@ -8,6 +8,7 @@ interface FinderNavProps {
 }
 declare class FinderNav extends React.Component<FinderNavProps> {
     expand(children: any): void;
+    componentWillReceiveProps(): void;
     render(): JSX.Element;
 }
 export default FinderNav;
