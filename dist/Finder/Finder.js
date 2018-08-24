@@ -41,23 +41,23 @@ var Finder = /** @class */ (function (_super) {
         this.setState({ submenu: submenu });
     };
     ;
-    Finder.prototype.submenu = function (children, filter, level) {
+    Finder.prototype.submenu = function (children, filter, level, filterPlaceholder) {
         var childrenWithProps = this.passProps(children, level);
         var submenu = this.state.submenu;
-        submenu[level] = { childrens: childrenWithProps, filter: filter, filterValue: '' };
+        submenu[level] = { childrens: childrenWithProps, filter: filter, filterValue: '', filterPlaceholder: filterPlaceholder };
         submenu.length = level + 1;
         this.setState({ submenu: submenu, filteredSubmenu: submenu });
     };
     Finder.prototype.render = function () {
         var _this = this;
-        var _a = this.props, filter = _a.filter, children = _a.children;
+        var _a = this.props, filter = _a.filter, children = _a.children, filterPlaceholder = _a.filterPlaceholder;
         var childrenWithProps = this.passProps(children, -1);
         var SubmenuTSX = (this.state.submenu.map(function (menu, index) { return (react_1.default.createElement("div", { className: 'ui-finder-submenu', key: index },
-            filter && react_1.default.createElement(FinderFilter_1.default, { level: index, filterChange: _this.filterChange }),
+            menu.filter && react_1.default.createElement(FinderFilter_1.default, { level: index, filterChange: _this.filterChange, placeholder: menu.filterPlaceholder }),
             react_1.default.createElement("div", { className: 'ui-finder-menu-items' }, menu.childrens && menu.childrens.filter(function (child) { return child.props.label.includes(menu.filterValue); })))); }));
         return (react_1.default.createElement("div", { className: 'ui-finder' },
             react_1.default.createElement("div", { className: 'ui-finder-menu' },
-                filter && react_1.default.createElement(FinderFilter_1.default, { level: -1 }),
+                filter && react_1.default.createElement(FinderFilter_1.default, { level: -1, placeholder: filterPlaceholder }),
                 react_1.default.createElement("div", { className: 'ui-finder-menu-items' }, childrenWithProps)),
             SubmenuTSX));
     };

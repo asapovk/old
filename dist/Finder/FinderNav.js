@@ -26,7 +26,7 @@ var FinderNav = /** @class */ (function (_super) {
     FinderNav.prototype.expand = function (children) {
         this.props.render &&
             typeof this.props.level != 'undefined' &&
-            this.props.render(children, this.props.filter ? true : false, this.props.level + 1);
+            this.props.render(children, this.props.filter ? true : false, this.props.level + 1, this.props.filterPlaceholder);
     };
     FinderNav.prototype.render = function () {
         var _this = this;

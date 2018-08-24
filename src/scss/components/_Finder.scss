@@ -4,6 +4,7 @@
     color: $text;
     &-menu, &-submenu {
         border: 1px solid $interface;
+        min-width: 200px;
     }
     &-submenu {
         margin-left: -1px;
@@ -58,6 +59,10 @@
                 color: $text;
                 padding: 4px;
                 outline: none;
+                font-size: 14px;
+                &::placeholder{
+                    color: $pale;
+                }
             }
 
         }

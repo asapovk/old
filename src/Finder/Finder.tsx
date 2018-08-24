@@ -5,6 +5,7 @@ import FinderFilter from './FinderFilter';
 interface FinderProps {
     filter?: boolean;
     tip?: boolean;
+    filterPlaceholder?: string
 }
 
 class Finder extends React.Component<FinderProps> {
@@ -31,23 +32,23 @@ class Finder extends React.Component<FinderProps> {
         this.setState({ submenu: submenu });
     };
 
-    submenu(children, filter, level) {
+    submenu(children, filter, level, filterPlaceholder) {
         const childrenWithProps = this.passProps(children, level);
         let submenu = this.state.submenu;
-        submenu[level] = { childrens: childrenWithProps, filter: filter, filterValue: '' };
+        submenu[level] = { childrens: childrenWithProps, filter: filter, filterValue: '', filterPlaceholder: filterPlaceholder };
         submenu.length = level + 1;
         this.setState({ submenu: submenu, filteredSubmenu: submenu });
     }
 
     render() {
 
-        const { filter, children } = this.props;
+        const { filter, children, filterPlaceholder } = this.props;
         const childrenWithProps = this.passProps(children, -1);
 
         const SubmenuTSX = (
             this.state.submenu.map((menu, index) => (
                 <div className='ui-finder-submenu' key={index}>
-                    {filter && <FinderFilter level={index} filterChange={this.filterChange} />}
+                    {menu.filter && <FinderFilter level={index} filterChange={this.filterChange} placeholder={menu.filterPlaceholder} />}
                     <div className='ui-finder-menu-items'>{menu.childrens && menu.childrens.filter(
                         child => child.props.label.includes(menu.filterValue)
                     )}</div>
@@ -58,7 +59,7 @@ class Finder extends React.Component<FinderProps> {
         return (
             <div className='ui-finder'>
                 <div className='ui-finder-menu'>
-                    {filter && <FinderFilter level={-1} />}
+                    {filter && <FinderFilter level={-1} placeholder={filterPlaceholder} />}
                     <div className='ui-finder-menu-items'>{childrenWithProps}</div>
                 </div>
                 {SubmenuTSX}

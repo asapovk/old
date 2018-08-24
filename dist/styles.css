@@ -1000,6 +1000,7 @@ table {
 }
 .ui-finder-menu, .ui-finder-submenu {
   border: 1px solid #b1c6d1;
+  min-width: 200px;
 }
 .ui-finder-submenu {
   margin-left: -1px;
@@ -1054,6 +1055,10 @@ table {
   color: white;
   padding: 4px;
   outline: none;
+  font-size: 14px;
+}
+.ui-finder-filter-input input::placeholder {
+  color: #5c6173;
 }
 
 /*# sourceMappingURL=styles.css.map */
