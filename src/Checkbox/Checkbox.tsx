@@ -20,28 +20,42 @@ class Checkbox extends React.Component<CheckboxProps> {
     }
 
     componentWillMount() {
-        if (this.props.defaultValue || this.props.checked) this.setState({ checked: true })
+        this.setState({
+            checked: this.props.checked || this.props.defaultValue || false
+        });
+    }
+
+    componentWillReceiveProps(nextProps) {
+        if (typeof nextProps.checked !== "undefined") {
+            this.setState({
+                checked: nextProps.checked
+            });
+        }
     }
 
     onChange() {
-        const checked = this.state.checked ? false : true;
-        this.setState({ checked: typeof this.props.checked != 'undefined' ? this.props.checked : checked });
-        this.props.onChange && this.props.onChange(checked);
+        this.props.onChange && this.props.onChange(!this.state.checked);
+
+        if (typeof this.props.checked === "undefined") {
+            this.setState({
+                checked: !this.state.checked
+            });
+        }
     }
 
     render() {
-        const { label, radio, checked, style, uppercase } = this.props;
-        const isChecked = this.state.checked || checked;
+        const { label, radio, style, uppercase } = this.props;
 
         let classes = 'ui-checkbox-input';
         if (radio) classes += ' ch-radio';
-        if (isChecked) classes += ' ch-checked';
+        if (this.state.checked) classes += ' ch-checked';
 
         const InputTSX = (
             <div className={classes}>
                 {
-                    isChecked ? radio ? <span className='circle'></span>
-                        : <Icon type='check' /> : ''
+                    this.state.checked ? (
+                        radio ? <span className='circle'></span> : <Icon type='check' />
+                    ) : null
                 }
             </div>
         )
