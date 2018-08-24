@@ -15,7 +15,7 @@ declare class Finder extends React.Component<FinderProps> {
         }[];
     };
     componentWillMount(): void;
-    passFinderProps(children: any, level: any): React.ReactChild[];
+    passFinderProps(children: any, level: any): any[];
     filterChange(value: any, level: any): void;
     submenu(children: any, filter: any, level: any, filterPlaceholder: any): void;
     render(): JSX.Element;

@@ -1,6 +1,5 @@
 import React from 'react';
 import FinderFilter from './FinderFilter';
-import { FinderNav, FinderSection } from './';
 //TODO:
 // - defaultValue
 // - display current element
@@ -40,9 +39,9 @@ class Finder extends React.Component<FinderProps> {
     }
 
     passFinderProps(children, level) {
-        return React.Children.map(children, child => {
-            if (child && child.isPrototypeOf) {
-                if (child.isPrototypeOf(FinderNav) || child.isPrototypeOf(FinderSection)) {
+        return React.Children.map(children, (child: any) => {
+            if (child && child.type && child.type.prototype) {
+                if (child.type.prototype.constructor.name === "FinderNav" || child.type.prototype.constructor.name === "FilterSection") {
                     return React.cloneElement(child as React.ReactElement<any>, { render: this.submenu, level: level })
                 }
             } return child
