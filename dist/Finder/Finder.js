@@ -68,7 +68,7 @@ var Finder = /** @class */ (function (_super) {
         var _this = this;
         var MenuesTSX = (this.state.menues.map(function (menu, index) { return (react_1.default.createElement("div", { className: 'ui-finder-menu', key: index },
             menu.filter && react_1.default.createElement(FinderFilter_1.default, { level: index, filterChange: _this.filterChange, placeholder: menu.filterPlaceholder }),
-            react_1.default.createElement("div", { className: 'ui-finder-menu-items' }, menu.childrens && menu.childrens.filter(function (child) { return child.props.label.includes(menu.filterValue); })))); }));
+            react_1.default.createElement("div", { className: 'ui-finder-menu-items' }, menu.childrens))); }));
         return (react_1.default.createElement("div", { className: 'ui-finder' }, MenuesTSX));
     };
     return Finder;

@@ -45,8 +45,7 @@ class Finder extends React.Component<FinderProps> {
                     return React.cloneElement(child as React.ReactElement<any>, { render: this.submenu, level: level })
                 }
             } return child
-        }
-        );
+        });
     }
 
     filterChange(value, level) {
@@ -72,9 +71,7 @@ class Finder extends React.Component<FinderProps> {
             this.state.menues.map((menu, index) => (
                 <div className='ui-finder-menu' key={index}>
                     {menu.filter && <FinderFilter level={index} filterChange={this.filterChange} placeholder={menu.filterPlaceholder} />}
-                    <div className='ui-finder-menu-items'>{menu.childrens && menu.childrens.filter(
-                        child => child.props.label.includes(menu.filterValue)
-                    )}</div>
+                    <div className='ui-finder-menu-items'>{menu.childrens}</div>
                 </div>
             ))
         )
