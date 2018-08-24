@@ -20,6 +20,7 @@ import { Finder, FinderNav, FinderSection } from '../src/Finder';
 import TooltipStory from './TooltipStory';
 import Fakerator from 'fakerator';
 import FinderStory from './FinderStory';
+import FinderTest from './FinderTest';
 
 const flexCentered = {
     display: 'flex',
@@ -91,8 +92,8 @@ class CheckboxWithState extends React.Component {
     }
     render() {
         return (
-            <div style={{padding: 20}}>
-                <Checkbox label={'Checkbox with State: ' + this.state.checboxstate} style={{ paddingRight: '40px' }} onChange={checboxstate => this.setState({checboxstate})} />
+            <div style={{ padding: 20 }}>
+                <Checkbox label={'Checkbox with State: ' + this.state.checboxstate} style={{ paddingRight: '40px' }} onChange={checboxstate => this.setState({ checboxstate })} />
             </div>
         )
     }
@@ -198,7 +199,7 @@ storiesOf('💥 Core', module)
         <Viewport style={flexCentered}>
             <Checkbox label='Check me' style={{ paddingRight: '40px' }} />
             <Checkbox label='Check me' radio={true} />
-            <CheckboxWithState/>
+            <CheckboxWithState />
         </Viewport>
     ))
     .add('Icon', () => (
@@ -326,4 +327,9 @@ storiesOf('🔪 Misc', module)
                 role={user.desc_role}
             />
         </Viewport>
+    ));
+
+storiesOf('Test', module)
+    .add('FinderTest', () => (
+        <FinderTest />
     ));
