@@ -30,11 +30,14 @@ var Finder = /** @class */ (function (_super) {
         return _this;
     }
     Finder.prototype.componentWillMount = function () {
-        var childrenWithProps = this.passProps(this.props.children, 0);
-        var menues = [{ childrens: childrenWithProps, filter: this.props.filter, filterValue: '', filterPlaceholder: this.props.filterPlaceholder }];
+        var menues = [{
+                childrens: this.passFinderProps(this.props.children, 0),
+                filter: this.props.filter, filterValue: '',
+                filterPlaceholder: this.props.filterPlaceholder
+            }];
         this.setState({ menues: menues });
     };
-    Finder.prototype.passProps = function (children, level) {
+    Finder.prototype.passFinderProps = function (children, level) {
         var _this = this;
         return react_1.default.Children.map(children, function (child) {
             return react_1.default.cloneElement(child, { render: _this.submenu, level: level });
@@ -47,9 +50,12 @@ var Finder = /** @class */ (function (_super) {
     };
     ;
     Finder.prototype.submenu = function (children, filter, level, filterPlaceholder) {
-        var childrenWithProps = this.passProps(children, level);
         var menues = this.state.menues;
-        menues[level] = { childrens: childrenWithProps, filter: filter, filterValue: '', filterPlaceholder: filterPlaceholder };
+        menues[level] = {
+            childrens: this.passFinderProps(children, level),
+            filter: filter, filterValue: '',
+            filterPlaceholder: filterPlaceholder
+        };
         menues.length = level + 1;
         this.setState({ menu: menues });
     };

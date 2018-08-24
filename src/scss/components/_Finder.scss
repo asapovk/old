@@ -3,7 +3,7 @@
     align-items: stretch;
     color: $text;
     &-menu, &-submenu {
-        border: 1px solid $interface;
+        border: 1px solid $highlight;
         min-width: 200px;
     }
     &-submenu {
@@ -46,9 +46,9 @@
     }
     &-filter {
         padding: 10px;
-        border-bottom: 1px solid $interface;
+        border-bottom: 1px solid $highlight;
         &-input {
-            border: 1px solid $interface;
+            border: 1px solid $highlight;
             border-radius: 2px;
             display: flex;
             input {

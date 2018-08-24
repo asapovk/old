@@ -3,14 +3,14 @@
     flex: 1;
     &-label {
         font-size: 12px;
-        color: $interface;
+        color: $highlight;
         margin-bottom: 5px;
         text-transform: uppercase;
     }
     &-holder {
         border: 1px solid;
         @include border-radius(2px);
-        border-color: $interface;
+        border-color: $highlight;
         padding: 8px;
         background: $page-background;
         min-height: 20px;
@@ -19,14 +19,14 @@
         align-items: center;
         &-clear {
             z-index: 1;
-            color: $interface;
+            color: $highlight;
             font-size: 16px;
             padding-right: 5px;
         }
         &-down {
             z-index: 1;
             font-size: 14px;
-            color: $interface;
+            color: $highlight;
         }
         &-value {
             flex: 1;
@@ -84,7 +84,7 @@
         overflow-x: hidden;
         border: 1px solid;
         @include border-radius(0 0 2px 2px);
-        border-color: $interface;
+        border-color: $highlight;
         border-top-color: rgba($pale, 0.3);
         top: 100%;
         width: 100%;

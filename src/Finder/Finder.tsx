@@ -31,12 +31,15 @@ class Finder extends React.Component<FinderProps> {
     }
 
     componentWillMount() {
-        const childrenWithProps = this.passProps(this.props.children, 0);
-        const menues = [{ childrens: childrenWithProps, filter: this.props.filter, filterValue: '', filterPlaceholder: this.props.filterPlaceholder }]
+        const menues = [{
+            childrens: this.passFinderProps(this.props.children, 0),
+            filter: this.props.filter, filterValue: '',
+            filterPlaceholder: this.props.filterPlaceholder
+        }]
         this.setState({ menues: menues });
     }
 
-    passProps(children, level) {
+    passFinderProps(children, level) {
         return React.Children.map(children, child =>
             React.cloneElement(child as React.ReactElement<any>, { render: this.submenu, level: level })
         );
@@ -49,9 +52,12 @@ class Finder extends React.Component<FinderProps> {
     };
 
     submenu(children, filter, level, filterPlaceholder) {
-        const childrenWithProps = this.passProps(children, level);
         let menues = this.state.menues;
-        menues[level] = { childrens: childrenWithProps, filter: filter, filterValue: '', filterPlaceholder: filterPlaceholder };
+        menues[level] = {
+            childrens: this.passFinderProps(children, level),
+            filter: filter, filterValue: '',
+            filterPlaceholder: filterPlaceholder
+        };
         menues.length = level + 1;
         this.setState({ menu: menues });
     }

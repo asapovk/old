@@ -4,7 +4,7 @@
     flex-direction: column;
     &-label {
         font-size: 12px;
-            color: $interface;
+            color: $highlight;
             margin-bottom: 5px;
             text-transform: uppercase;
     }
@@ -24,12 +24,12 @@
     &-input {
         border: 1px solid;
         border-radius: 2px;
-        border-color: $interface;
+        border-color: $highlight;
     }
     &-textarea {
         height: 100%;
         border: 1px solid;
         border-radius: 2px;
-        border-color: $interface;
+        border-color: $highlight;
     }
 }
