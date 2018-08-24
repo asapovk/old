@@ -18,6 +18,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importDefault(require("react"));
 var FinderFilter_1 = __importDefault(require("./FinderFilter"));
+var _1 = require("./");
 var Finder = /** @class */ (function (_super) {
     __extends(Finder, _super);
     function Finder(props) {
@@ -40,7 +41,12 @@ var Finder = /** @class */ (function (_super) {
     Finder.prototype.passFinderProps = function (children, level) {
         var _this = this;
         return react_1.default.Children.map(children, function (child) {
-            return react_1.default.cloneElement(child, { render: _this.submenu, level: level });
+            if (child && child.isPrototypeOf) {
+                if (child.isPrototypeOf(_1.FinderNav) || child.isPrototypeOf(_1.FinderSection)) {
+                    return react_1.default.cloneElement(child, { render: _this.submenu, level: level });
+                }
+            }
+            return child;
         });
     };
     Finder.prototype.filterChange = function (value, level) {
