@@ -150,7 +150,7 @@ storiesOf('💥 Core', module)
                         <Icon type='add' />
                     </Button>,
                     <Button decoration='none' style={{ fontSize: '24px' }}>
-                        <Icon type='pin' />
+                        <Icon type='filter' />
                     </Button>
                 ]}
                 toolsRight={[
