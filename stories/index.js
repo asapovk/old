@@ -82,7 +82,21 @@ const user = {
     modules: "helloworld,sandbox",
 }
 
-
+class CheckboxWithState extends React.Component {
+    constructor() {
+        super();
+        this.state = {
+            checboxstate: false
+        }
+    }
+    render() {
+        return (
+            <div style={{padding: 20}}>
+                <Checkbox label={'Checkbox with State: ' + this.state.checboxstate} style={{ paddingRight: '40px' }} onChange={checboxstate => this.setState({checboxstate})} />
+            </div>
+        )
+    }
+}
 storiesOf('💥 Core', module)
     .add('Viewport', () => (
         <Viewport style={flexCentered}>there's nothing to see.</Viewport>
@@ -184,6 +198,7 @@ storiesOf('💥 Core', module)
         <Viewport style={flexCentered}>
             <Checkbox label='Check me' style={{ paddingRight: '40px' }} />
             <Checkbox label='Check me' radio={true} />
+            <CheckboxWithState/>
         </Viewport>
     ))
     .add('Icon', () => (
