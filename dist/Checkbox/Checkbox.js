@@ -28,10 +28,11 @@ var Checkbox = /** @class */ (function (_super) {
         return _this;
     }
     Checkbox.prototype.componentWillMount = function () {
-        this.props.defaultValue && this.setState({ checked: true });
+        if (this.props.defaultValue || this.props.checked)
+            this.setState({ checked: true });
     };
     Checkbox.prototype.onChange = function () {
-        var checked = this.state.checked ? false : true;
+        var checked = this.props.checked ? true : this.state.checked ? false : true;
         this.setState({ checked: checked });
         this.props.onChange && this.props.onChange(checked);
     };

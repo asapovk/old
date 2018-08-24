@@ -1,6 +1,11 @@
 import React from 'react';
 import FinderFilter from './FinderFilter';
 
+//TODO:
+// - defaultValue
+// - display current element
+// - filter Section
+// - filter Menu
 
 interface FinderProps {
     filter?: boolean;
@@ -17,7 +22,18 @@ class Finder extends React.Component<FinderProps> {
     }
 
     state = {
-        submenu: [] as any[]
+        menues: [] as {
+            childrens: any
+            filter: boolean
+            filterValue: string
+            filterPlaceholder: string
+        }[]
+    }
+
+    componentWillMount() {
+        const childrenWithProps = this.passProps(this.props.children, 0);
+        const menues = [{ childrens: childrenWithProps, filter: this.props.filter, filterValue: '', filterPlaceholder: this.props.filterPlaceholder }]
+        this.setState({ menues: menues });
     }
 
     passProps(children, level) {
@@ -27,27 +43,25 @@ class Finder extends React.Component<FinderProps> {
     }
 
     filterChange(value, level) {
-        let submenu = this.state.submenu;
-        submenu[level].filterValue = value;
-        this.setState({ submenu: submenu });
+        let menues = this.state.menues;
+        menues[level].filterValue = value;
+        this.setState({ menues: menues });
     };
 
     submenu(children, filter, level, filterPlaceholder) {
         const childrenWithProps = this.passProps(children, level);
-        let submenu = this.state.submenu;
-        submenu[level] = { childrens: childrenWithProps, filter: filter, filterValue: '', filterPlaceholder: filterPlaceholder };
-        submenu.length = level + 1;
-        this.setState({ submenu: submenu, filteredSubmenu: submenu });
+        let menues = this.state.menues;
+        menues[level] = { childrens: childrenWithProps, filter: filter, filterValue: '', filterPlaceholder: filterPlaceholder };
+        menues.length = level + 1;
+        console.log(menues, level);
+        this.setState({ menu: menues });
     }
 
     render() {
 
-        const { filter, children, filterPlaceholder } = this.props;
-        const childrenWithProps = this.passProps(children, -1);
-
-        const SubmenuTSX = (
-            this.state.submenu.map((menu, index) => (
-                <div className='ui-finder-submenu' key={index}>
+        const MenuesTSX = (
+            this.state.menues.map((menu, index) => (
+                <div className='ui-finder-menu' key={index}>
                     {menu.filter && <FinderFilter level={index} filterChange={this.filterChange} placeholder={menu.filterPlaceholder} />}
                     <div className='ui-finder-menu-items'>{menu.childrens && menu.childrens.filter(
                         child => child.props.label.includes(menu.filterValue)
@@ -58,11 +72,7 @@ class Finder extends React.Component<FinderProps> {
 
         return (
             <div className='ui-finder'>
-                <div className='ui-finder-menu'>
-                    {filter && <FinderFilter level={-1} placeholder={filterPlaceholder} />}
-                    <div className='ui-finder-menu-items'>{childrenWithProps}</div>
-                </div>
-                {SubmenuTSX}
+                {MenuesTSX}
             </div>
         )
 

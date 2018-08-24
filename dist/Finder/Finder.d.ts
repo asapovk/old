@@ -7,8 +7,14 @@ interface FinderProps {
 declare class Finder extends React.Component<FinderProps> {
     constructor(props: any);
     state: {
-        submenu: any[];
+        menues: {
+            childrens: any;
+            filter: boolean;
+            filterValue: string;
+            filterPlaceholder: string;
+        }[];
     };
+    componentWillMount(): void;
     passProps(children: any, level: any): React.ReactElement<any>[];
     filterChange(value: any, level: any): void;
     submenu(children: any, filter: any, level: any, filterPlaceholder: any): void;
