@@ -53,7 +53,6 @@ class Finder extends React.Component<FinderProps> {
         let menues = this.state.menues;
         menues[level] = { childrens: childrenWithProps, filter: filter, filterValue: '', filterPlaceholder: filterPlaceholder };
         menues.length = level + 1;
-        console.log(menues, level);
         this.setState({ menu: menues });
     }
 

@@ -32,8 +32,8 @@ var Checkbox = /** @class */ (function (_super) {
             this.setState({ checked: true });
     };
     Checkbox.prototype.onChange = function () {
-        var checked = this.props.checked ? true : this.state.checked ? false : true;
-        this.setState({ checked: checked });
+        var checked = this.state.checked ? false : true;
+        this.setState({ checked: this.props.checked ? true : checked });
         this.props.onChange && this.props.onChange(checked);
     };
     Checkbox.prototype.render = function () {

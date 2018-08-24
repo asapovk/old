@@ -51,7 +51,6 @@ var Finder = /** @class */ (function (_super) {
         var menues = this.state.menues;
         menues[level] = { childrens: childrenWithProps, filter: filter, filterValue: '', filterPlaceholder: filterPlaceholder };
         menues.length = level + 1;
-        console.log(menues, level);
         this.setState({ menu: menues });
     };
     Finder.prototype.render = function () {
