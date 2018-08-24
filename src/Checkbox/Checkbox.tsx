@@ -8,6 +8,7 @@ interface CheckboxProps {
     onChange?: (checked) => void
     style?: any
     defaultValue?: boolean
+    uppercase?: boolean
 }
 interface Checkbox {
     checked: boolean
@@ -29,7 +30,7 @@ class Checkbox extends React.Component<CheckboxProps> {
     }
 
     render() {
-        const { label, radio, checked, style } = this.props;
+        const { label, radio, checked, style, uppercase } = this.props;
         const isChecked = this.state.checked || checked;
 
         let classes = 'ui-checkbox-input';
@@ -48,7 +49,7 @@ class Checkbox extends React.Component<CheckboxProps> {
         return (
             <div className='ui-checkbox' onClick={() => this.onChange()} style={style}>
                 {InputTSX}
-                <div className='ui-checkbox-label noselect'>{label}</div>
+                <div className={'ui-checkbox-label noselect' + (uppercase ? ' uppercase' : '')}>{label}</div>
             </div>
 
         )

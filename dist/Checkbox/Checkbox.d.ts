@@ -6,6 +6,7 @@ interface CheckboxProps {
     onChange?: (checked: any) => void;
     style?: any;
     defaultValue?: boolean;
+    uppercase?: boolean;
 }
 interface Checkbox {
     checked: boolean;
