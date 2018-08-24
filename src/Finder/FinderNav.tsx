@@ -17,10 +17,6 @@ class FinderNav extends React.Component<FinderNavProps> {
             this.props.render(children, this.props.filter ? true : false, this.props.level + 1, this.props.filterPlaceholder);
     }
 
-    componentWillReceiveProps() {
-        console.log('recieve');
-    }
-
     render() {
         const { label, children } = this.props;
 

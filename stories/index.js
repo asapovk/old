@@ -19,6 +19,7 @@ import { Flexbox } from '../src/Flexbox';
 import { Finder, FinderNav, FinderSection } from '../src/Finder';
 import TooltipStory from './TooltipStory';
 import Fakerator from 'fakerator';
+import FinderStory from './FinderStory';
 
 const flexCentered = {
     display: 'flex',
@@ -171,41 +172,7 @@ storiesOf('💥 Core', module)
     ))
     .add('Finder', () => (
         <Viewport style={flexCentered}>
-            <Finder filter={true} filterPlaceholder='search something'>
-                <FinderNav label='Fruits' filter={true} filterPlaceholder='choose your fruit'>
-                    <FinderNav label='Apples'>
-                        <FinderNav label='Macintosh'></FinderNav>
-                        <FinderNav label='Granny Smith'></FinderNav>
-                        <FinderNav label='Honeycrisp'></FinderNav>
-                    </FinderNav>
-                    <FinderNav label='Pears'>
-                        <FinderNav label='Anjou'></FinderNav>
-                        <FinderNav label='Bartlett'></FinderNav>
-                    </FinderNav>
-                </FinderNav>
-                <FinderNav label='Two'></FinderNav>
-                <FinderNav label='Three'></FinderNav>
-                <FinderNav label='Four'></FinderNav>
-                <FinderNav label='Five'></FinderNav>
-                <FinderNav label='Six'></FinderNav>
-                <FinderNav label='Seven'></FinderNav>
-                <FinderNav label='Eight'></FinderNav>
-                <FinderNav label='Nine'></FinderNav>
-                <FinderNav label='Ten'></FinderNav>
-                <FinderSection label='And other numbers'>
-                    <FinderNav label='Ten'></FinderNav>
-                    <FinderNav label='Eleven'></FinderNav>
-                    <FinderNav label='Twelve'></FinderNav>
-                    <FinderNav label='Thirteen'></FinderNav>
-                    <FinderSection label='And other numbers'>
-                        <FinderNav label='Ten'></FinderNav>
-                        <FinderNav label='Eleven'></FinderNav>
-                        <FinderNav label='Twelve'></FinderNav>
-                        <FinderNav label='Thirteen'></FinderNav>
-                    </FinderSection>
-                </FinderSection>
-
-            </Finder>
+            <FinderStory />
         </Viewport>
     ))
     .add('Tooltip', () => (
