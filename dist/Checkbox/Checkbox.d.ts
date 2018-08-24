@@ -2,7 +2,7 @@ import React from 'react';
 interface CheckboxProps {
     label?: string;
     radio?: boolean;
-    checked?: true;
+    checked?: boolean;
     onChange?: (checked: any) => void;
     style?: any;
     defaultValue?: boolean;

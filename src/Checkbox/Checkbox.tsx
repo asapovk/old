@@ -4,7 +4,7 @@ import { Icon } from '../Icon';
 interface CheckboxProps {
     label?: string
     radio?: boolean
-    checked?: true
+    checked?: boolean
     onChange?: (checked) => void
     style?: any
     defaultValue?: boolean
