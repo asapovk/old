@@ -5,7 +5,7 @@ interface FinderNavProps {
     label: string
     filter?: boolean
     filterPlaceholder?: string
-    render?: (filter, level, filterPlaceholder, updateChildren) => void
+    setMenu?: (filter, level, filterPlaceholder, updateChildren) => void
     level?: number
 }
 
@@ -17,9 +17,9 @@ class FinderNav extends React.Component<FinderNavProps> {
     }
 
     expand() {
-        this.props.render &&
+        this.props.setMenu &&
             typeof this.props.level != 'undefined' &&
-            this.props.render(
+            this.props.setMenu(
                 this.props.filter ? true : false, this.props.level + 1,
                 this.props.filterPlaceholder,
                 this.getChildren
