@@ -13,6 +13,7 @@ class FinderNav extends React.Component<FinderNavProps> {
 
     constructor(props) {
         super(props);
+        this.updateChildren = this.updateChildren.bind(this);
     }
 
     expand() {
@@ -22,8 +23,12 @@ class FinderNav extends React.Component<FinderNavProps> {
                 this.props.children,
                 this.props.filter ? true : false, this.props.level + 1,
                 this.props.filterPlaceholder,
-                this.expand
+                this.updateChildren
             );
+    }
+
+    updateChildren() {
+        return this.props.children;
     }
 
     render() {
