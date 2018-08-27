@@ -27,27 +27,31 @@ class Finder extends React.Component<FinderProps> {
             filterPlaceholder: string
             getChildren: () => void,
             level: number
+            index: number
         }[]
     }
 
     passFinderProps(children, level) {
+        let counter = 0;
         return React.Children.map(children, (child: any) => {
+            counter = counter + 1;
             if (child && child.type && child.type.prototype) {
                 if (child.type.prototype.constructor.name === "FinderNav" || child.type.prototype.constructor.name === "FilterSection") {
-                    return React.cloneElement(child as React.ReactElement<any>, { setMenu: this.setMenues, level: level })
+                    return React.cloneElement(child as React.ReactElement<any>, { setMenu: this.setMenues, level: level, index: counter })
                 }
             } return child
         });
     }
 
-    setMenues(filter, level, filterPlaceholder, getChildren) {
+    setMenues(filter, level, filterPlaceholder, getChildren, index) {
         let menues = this.state.menues;
         menues[level] = {
             filter: filter,
             filterValue: '',
             filterPlaceholder: filterPlaceholder,
             getChildren: getChildren,
-            level: level
+            level: level,
+            index: index
         };
         menues.length = level + 1;
         this.setState({ menu: menues });
@@ -63,11 +67,13 @@ class Finder extends React.Component<FinderProps> {
 
         const { filter, filterPlaceholder } = this.props;
 
+        let children = this.passFinderProps(this.props.children, -1);
+
         const MenuesTSX = (
             this.state.menues.map((menu, index) => (
                 <div className='ui-finder-menu' key={index}>
                     {menu.filter && <FinderFilter level={index} filterChange={this.filterChange} placeholder={menu.filterPlaceholder} />}
-                    <div className='ui-finder-menu-items'>{this.passFinderProps(menu.getChildren(), menu.level)}</div>
+                    <div className='ui-finder-menu-items'>{this.passFinderProps(children.find(child => child.props.index == menu.index).props.children, menu.level)}</div>
                 </div>
             ))
         )
@@ -76,7 +82,7 @@ class Finder extends React.Component<FinderProps> {
             <div className='ui-finder'>
                 <div className='ui-finder-menu'>
                     {filter && <FinderFilter level={0} filterChange={this.filterChange} placeholder={filterPlaceholder} />}
-                    {this.passFinderProps(this.props.children, -1)}
+                    {children}
                 </div>
                 {MenuesTSX}
             </div>
