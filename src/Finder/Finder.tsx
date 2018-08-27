@@ -31,11 +31,12 @@ class Finder extends React.Component<FinderProps> {
     }
 
     componentWillReceiveProps() {
-        this.state.menues.map(menu => {
-            console.log(menu)
-            menu.updateChildren()
-        }
-        );
+        const menues = this.state.menues.map(menu => {
+            menu.childrens = menu.updateChildren()
+            return menu
+        });
+        console.log(menues);
+        //this.setState({ menu: menues });
     }
 
     passFinderProps(children, level) {
@@ -85,7 +86,7 @@ class Finder extends React.Component<FinderProps> {
             <div className='ui-finder'>
                 <div className='ui-finder-menu'>
                     {filter && <FinderFilter level={0} filterChange={this.filterChange} placeholder={filterPlaceholder} />}
-                    {this.passFinderProps(this.props.children, 0)}
+                    {this.passFinderProps(this.props.children, -1)}
                 </div>
                 {MenuesTSX}
             </div>
