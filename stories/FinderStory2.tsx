@@ -1,5 +1,5 @@
 import React from 'react';
-import { Finder2, FinderNav2, FinderGroup2 } from '../src';
+import { Finder2, FinderNav2, FinderSection2 } from '../src';
 import { Checkbox } from '../src';
 
 import Fakerator from 'fakerator';
@@ -37,6 +37,14 @@ class Finder2Story extends React.Component {
                             }} />
                         ))}
                     </FinderNav2>
+                    <FinderSection2 label='And other numbers'>
+                        <FinderNav2 label='Ten'>
+                            <div>21</div>
+                        </FinderNav2>
+                        <FinderNav2 label='Eleven'>
+                            <div>33</div>
+                        </FinderNav2>
+                    </FinderSection2>
                     <FinderNav2 label='Fruits' filter filterPlaceholder='choose your fruit'>
                         <FinderNav2 label='Apples'>
                             <FinderNav2 label='Macintosh'></FinderNav2>
@@ -48,20 +56,9 @@ class Finder2Story extends React.Component {
                             <FinderNav2 label='Bartlett'></FinderNav2>
                         </FinderNav2>
                     </FinderNav2>
-                    <FinderNav2 label='Three'></FinderNav2>
-                    <FinderNav2 label='Four'></FinderNav2>
-                    <FinderNav2 label='Five'></FinderNav2>
-                    <FinderNav2 label='Six'></FinderNav2>
-                    <FinderNav2 label='Seven'></FinderNav2>
-                    <FinderNav2 label='Eight'></FinderNav2>
-                    <FinderNav2 label='Nine'></FinderNav2>
-                    <FinderNav2 label='Ten'></FinderNav2>
-                    <FinderGroup2 label='And other numbers'>
-                        <FinderNav2 label='Ten'><div>2</div></FinderNav2>
-                        <FinderNav2 label='Eleven'><div>3</div></FinderNav2>
-                        <FinderNav2 label='Twelve'><div>4</div></FinderNav2>
-                        <FinderNav2 label='Thirteen'><div>5</div></FinderNav2>
-                    </FinderGroup2>
+                    <FinderNav2 label='Three'>
+                        <div>12345</div>
+                    </FinderNav2>
                 </Finder2>
             </div>
         )

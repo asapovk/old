@@ -3,7 +3,8 @@ import { Flexbox } from '../Flexbox';
 import FinderNav from './FinderNav';
 import FinderContent from './FinderContent';
 import FinderFilter from './FinderFilter';
-import FinderGroup from './FinderGroup';
+import FinderSection from './FinderSection';
+import SectionRender from './SectionRender';
 
 interface MenuRenderProps {
     filter?: boolean
@@ -31,15 +32,15 @@ class MenuRender extends React.Component<MenuRenderProps> {
     isNav(child) {
         return this.isValid(child, FinderNav);
     }
-    isGroup(child) {
-        return this.isValid(child, FinderGroup);
+    isSection(child) {
+        return this.isValid(child, FinderSection);
     }
 
     private getAllSections(childs, sections = [] as any) {
         if (!Array.isArray(childs)) childs = [childs];
         let i = 0;
         while (i < childs.length) {
-            if (childs[i].key && childs[i].key.match('group')) {
+            if (childs[i].key && childs[i].key.match('section')) {
                 if (childs[i].props.children[1]) {
                     this.getAllSections(childs[i].props.children[1], sections);
                 }
@@ -57,20 +58,17 @@ class MenuRender extends React.Component<MenuRenderProps> {
         if (!Array.isArray(childs)) childs = [childs];
         return childs.map((child, index) => {
             if (this.isNav(child)) {
-                const key = "section" + level + "" + index;
+                const key = "section_" + level + "_" + index;
                 return React.cloneElement(child, {
                     csk: key,
                     key: key,
                     active: (key === this.state.csk),
-                    onClick: () => {
-                        console.log(key)
-                        this.setState({ csk: key })
-                    }
+                    onClick: () => this.setState({ csk: key })
                 });
             }
-            if (this.isGroup(child)) {
-                const key = "group" + level + "" + index;
-                const group = React.cloneElement(child, {
+            if (this.isSection(child)) {
+                const key = "section_" + level + "_" + index;
+                const nav = React.cloneElement(child, {
                     cgk: key,
                     key: key,
                     active: (key === this.state.cgk),
@@ -79,10 +77,12 @@ class MenuRender extends React.Component<MenuRenderProps> {
                     }
                 }) as any;
 
+                const sectionContent = this.FinderNavs(nav.props.children, level + 1);
+
                 return (
-                    <Fragment key={key}>
-                        {group}
-                        {this.state.cgk === key && this.FinderNavs(group.props.children, level + 1)}
+                    <Fragment key={"fragment_" + key}>
+                        {nav}
+                        <SectionRender filter={this.state.filter} children={sectionContent} />
                     </Fragment>
                 )
             }
@@ -111,15 +111,16 @@ class MenuRender extends React.Component<MenuRenderProps> {
         }
     }
 
-    private filterSection(sections) {
-        return sections.filter(section => {
-            if (section.key && section.key.match('group')) {
-                if (section.props.children[0].props.label) {
-                    return section.props.children[0].props.label.toUpperCase().match(this.state.filter)
+    private filterSection(childs) {
+        return childs.filter(child => {
+            if (child.key.match('fragment_section')) {
+                const section = child.props.children[0];
+                if (section.props.label) {
+                    return section.props.label.toUpperCase().match(this.state.filter)
                 }
             }
-            if (section.props.label) {
-                return section.props.label.toUpperCase().match(this.state.filter)
+            if (child.props.label) {
+                return child.props.label.toUpperCase().match(this.state.filter)
             }
             return true;
         })
