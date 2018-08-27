@@ -66,7 +66,6 @@
         &-input {
             border: 1px solid $highlight;
             border-radius: 2px;
-            width: 100%;
             input {
                 appearance: none;
                 background: none;
@@ -79,6 +78,7 @@
                 &::placeholder{
                     color: $pale;
                 }
+                width: 100%;
             }
         } 
         &-search-icon {

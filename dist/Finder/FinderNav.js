@@ -21,12 +21,17 @@ var __1 = require("../");
 var FinderNav = /** @class */ (function (_super) {
     __extends(FinderNav, _super);
     function FinderNav(props) {
-        return _super.call(this, props) || this;
+        var _this = _super.call(this, props) || this;
+        _this.updateChildren = _this.updateChildren.bind(_this);
+        return _this;
     }
     FinderNav.prototype.expand = function () {
         this.props.render &&
             typeof this.props.level != 'undefined' &&
-            this.props.render(this.props.children, this.props.filter ? true : false, this.props.level + 1, this.props.filterPlaceholder, this.expand);
+            this.props.render(this.props.children, this.props.filter ? true : false, this.props.level + 1, this.props.filterPlaceholder, this.updateChildren);
+    };
+    FinderNav.prototype.updateChildren = function () {
+        return this.props.children;
     };
     FinderNav.prototype.render = function () {
         var _this = this;

@@ -1135,7 +1135,6 @@ table {
 .ui-finder2-filter-input {
   border: 1px solid #858ca6;
   border-radius: 2px;
-  width: 100%;
 }
 .ui-finder2-filter-input input {
   appearance: none;
@@ -1146,6 +1145,7 @@ table {
   padding: 4px;
   outline: none;
   font-size: 14px;
+  width: 100%;
 }
 .ui-finder2-filter-input input::placeholder {
   color: #5c6173;
