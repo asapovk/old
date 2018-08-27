@@ -31,9 +31,9 @@ var FinderGroup = /** @class */ (function (_super) {
          */
         //@ts-ignore
         var _a = this.props, active = _a.active, onClick = _a.onClick, label = _a.label;
-        return (react_1.default.createElement(Flexbox_1.Flexbox, { alignItems: "center", className: "ui-finder-group" + (active ? " ui-finder-group-active" : ""), onClick: onClick },
-            react_1.default.createElement(Flexbox_1.Flexbox, { className: 'ui-finder-group-label', flex: 1, children: label }),
-            react_1.default.createElement(Flexbox_1.Flexbox, { className: 'ui-finder-group-icon' },
+        return (react_1.default.createElement(Flexbox_1.Flexbox, { alignItems: "center", className: "ui-finder2-group" + (active ? " ui-finder2-group-active" : ""), onClick: onClick },
+            react_1.default.createElement(Flexbox_1.Flexbox, { className: 'ui-finder2-group-label', flex: 1, children: label }),
+            react_1.default.createElement(Flexbox_1.Flexbox, { className: 'ui-finder2-group-icon' },
                 react_1.default.createElement(Icon_1.Icon, { type: 'right' }))));
     };
     return FinderGroup;

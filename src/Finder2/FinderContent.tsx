@@ -31,7 +31,7 @@ class FinderContent extends React.Component<FinderContentProps> {
             }
         }
         return (
-            <Flexbox column className="ui-finder-content">
+            <Flexbox column className="ui-finder2-content">
                 {filter && <FinderFilter placeholder={filterPlaceholder} clearable onChange={value => {
                     this.setState({ filter: value.toUpperCase() })
                 }} />}

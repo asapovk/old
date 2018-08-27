@@ -152,7 +152,7 @@ var MenuRender = /** @class */ (function (_super) {
             sections = this.filterSection(sections);
         }
         return (react_1.default.createElement(Flexbox_1.Flexbox, null,
-            react_1.default.createElement(Flexbox_1.Flexbox, { column: true, className: "ui-finder-menu" },
+            react_1.default.createElement(Flexbox_1.Flexbox, { column: true, className: "ui-finder2-menu" },
                 this.props.filter && react_1.default.createElement(FinderFilter_1.default, { placeholder: this.props.filterPlaceholder, clearable: true, onChange: function (value) {
                         _this.setState({ filter: value.toUpperCase() });
                     } }),

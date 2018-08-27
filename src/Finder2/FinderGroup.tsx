@@ -15,9 +15,9 @@ class FinderGroup extends React.Component<FinderGroupProps> {
         //@ts-ignore
         const { active, onClick, label } = this.props;
         return (
-            <Flexbox alignItems="center" className={`ui-finder-group${active ? " ui-finder-group-active" : ""}`} onClick={onClick}>
-                <Flexbox className='ui-finder-group-label' flex={1} children={label} />
-                <Flexbox className='ui-finder-group-icon'>
+            <Flexbox alignItems="center" className={`ui-finder2-group${active ? " ui-finder2-group-active" : ""}`} onClick={onClick}>
+                <Flexbox className='ui-finder2-group-label' flex={1} children={label} />
+                <Flexbox className='ui-finder2-group-icon'>
                     <Icon type='right' />
                 </Flexbox>
             </Flexbox>

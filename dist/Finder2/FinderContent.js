@@ -44,7 +44,7 @@ var FinderContent = /** @class */ (function (_super) {
                 });
             }
         }
-        return (react_1.default.createElement(Flexbox_1.Flexbox, { column: true, className: "ui-finder-content" },
+        return (react_1.default.createElement(Flexbox_1.Flexbox, { column: true, className: "ui-finder2-content" },
             filter && react_1.default.createElement(FinderFilter_1.default, { placeholder: filterPlaceholder, clearable: true, onChange: function (value) {
                     _this.setState({ filter: value.toUpperCase() });
                 } }),

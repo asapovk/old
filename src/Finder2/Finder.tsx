@@ -9,7 +9,7 @@ interface FinderProps {
 class Finder extends React.Component<FinderProps> {
     render() {
         return (
-            <div className="ui-finder">
+            <div className="ui-finder2">
                 <MenuRender {...this.props} />
             </div>
         )
