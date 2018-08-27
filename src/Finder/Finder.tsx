@@ -25,15 +25,28 @@ class Finder extends React.Component<FinderProps> {
             childrens: any
             filter: boolean
             filterValue: string
-            filterPlaceholder: string
-        }[]
+            filterPlaceholder: string,
+            updateChildren: () => void
+        }[],
+        fetching: false as boolean
     }
 
     componentWillMount() {
         const menues = [{
             childrens: this.passFinderProps(this.props.children, 0),
             filter: this.props.filter, filterValue: '',
-            filterPlaceholder: this.props.filterPlaceholder
+            filterPlaceholder: this.props.filterPlaceholder,
+            updateChildren: this.updateChildren
+        }]
+        this.setState({ menues: menues });
+    }
+
+    updateChildren() {
+        const menues = [{
+            childrens: this.passFinderProps(this.props.children, 0),
+            filter: this.props.filter, filterValue: '',
+            filterPlaceholder: this.props.filterPlaceholder,
+            updateChildren: this.updateChildren
         }]
         this.setState({ menues: menues });
     }
@@ -54,19 +67,25 @@ class Finder extends React.Component<FinderProps> {
         this.setState({ menues: menues });
     };
 
-    submenu(children, filter, level, filterPlaceholder) {
+    submenu(children, filter, level, filterPlaceholder, updateChildren, update) {
         let menues = this.state.menues;
         menues[level] = {
             childrens: this.passFinderProps(children, level),
             filter: filter, filterValue: '',
-            filterPlaceholder: filterPlaceholder
+            filterPlaceholder: filterPlaceholder,
+            updateChildren: updateChildren
         };
         menues.length = level + 1;
-        this.setState({ menu: menues });
+        this.setState({ menu: menues, fetching: update });
+    }
+
+    componentWillReceiveProps(nextProps) {
+        //this.state.menues && this.state.menues.map(menu => menu.updateChildren())
+        console.log(nextProps);
+        this.updateChildren();
     }
 
     render() {
-
         const MenuesTSX = (
             this.state.menues.map((menu, index) => (
                 <div className='ui-finder-menu' key={index}>

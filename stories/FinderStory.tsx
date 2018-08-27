@@ -14,6 +14,9 @@ class FinderStory extends React.Component<FinderProps> {
             <div>
                 <Checkbox checked={this.state.checked} onChange={() => this.setState({ checked: true })} label='store me' />
                 <Finder filter={true} filterPlaceholder='search something'>
+                    <Checkbox checked={this.state.checked} onChange={() => {
+                        this.setState({ checked: true });
+                    }} label='store me' />
                     <FinderNav label='Fruits' filter={true} filterPlaceholder='choose your fruit'>
                         <FinderNav label='Apples'>
                             <FinderNav label='Macintosh'></FinderNav>
@@ -28,7 +31,6 @@ class FinderStory extends React.Component<FinderProps> {
                     <FinderNav label='Two'>
                         <Checkbox checked={this.state.checked} onChange={() => {
                             this.setState({ checked: true });
-                            console.log('trigger')
                         }} label='store me' />
                     </FinderNav>
                     <FinderNav label='Three'></FinderNav>
