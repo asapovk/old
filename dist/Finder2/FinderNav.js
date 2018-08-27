@@ -31,10 +31,10 @@ var FinderNav = /** @class */ (function (_super) {
          */
         //@ts-ignore
         var _a = this.props, active = _a.active, onClick = _a.onClick, label = _a.label, badge = _a.badge;
-        return (react_1.default.createElement(Flexbox_1.Flexbox, { alignItems: "center", className: "ui-finder-section" + (active ? " ui-finder-section-active" : ""), onClick: onClick },
-            react_1.default.createElement(Flexbox_1.Flexbox, { className: 'ui-finder-section-label', flex: 1, children: label }),
-            badge ? react_1.default.createElement(Flexbox_1.Flexbox, { className: "ui-finder-section-badge" }, badge) : null,
-            react_1.default.createElement(Flexbox_1.Flexbox, { className: 'ui-finder-section-icon' },
+        return (react_1.default.createElement(Flexbox_1.Flexbox, { alignItems: "center", className: "ui-finder2-section" + (active ? " ui-finder2-section-active" : ""), onClick: onClick },
+            react_1.default.createElement(Flexbox_1.Flexbox, { className: 'ui-finder2-section-label', flex: 1, children: label }),
+            badge ? react_1.default.createElement(Flexbox_1.Flexbox, { className: "ui-finder2-section-badge" }, badge) : null,
+            react_1.default.createElement(Flexbox_1.Flexbox, { className: 'ui-finder2-section-icon' },
                 react_1.default.createElement(Icon_1.Icon, { type: 'right' }))));
     };
     return FinderNav;

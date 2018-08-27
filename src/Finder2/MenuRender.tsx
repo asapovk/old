@@ -134,7 +134,7 @@ class MenuRender extends React.Component<MenuRenderProps> {
         }
         return (
             <Flexbox>
-                <Flexbox column className="ui-finder-menu">
+                <Flexbox column className="ui-finder2-menu">
                     {this.props.filter && <FinderFilter placeholder={this.props.filterPlaceholder} clearable onChange={value => {
                         this.setState({ filter: value.toUpperCase() })
                     }} />}

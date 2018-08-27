@@ -35,11 +35,11 @@ var FinderFilter = /** @class */ (function (_super) {
     FinderFilter.prototype.render = function () {
         var _this = this;
         var _a = this.props, placeholder = _a.placeholder, clearable = _a.clearable;
-        return (react_1.default.createElement("div", { className: "ui-finder-filter" },
-            react_1.default.createElement(__1.Flexbox, { alignItems: "center", className: "ui-finder-filter-input" },
-                react_1.default.createElement(__1.Icon, { className: "ui-finder-filter-search-icon", type: "search" }),
+        return (react_1.default.createElement("div", { className: "ui-finder2-filter" },
+            react_1.default.createElement(__1.Flexbox, { alignItems: "center", className: "ui-finder2-filter-input" },
+                react_1.default.createElement(__1.Icon, { className: "ui-finder2-filter-search-icon", type: "search" }),
                 react_1.default.createElement("input", { ref: function (ref) { return _this.input = ref; }, placeholder: placeholder, onChange: this.onChange.bind(this) }),
-                clearable && (react_1.default.createElement(__1.Flexbox, { className: "ui-finder-filter-clear", alignItems: "center", justifyContent: "center", onClick: function () { return _this.onChange(null); } },
+                clearable && (react_1.default.createElement(__1.Flexbox, { className: "ui-finder2-filter-clear", alignItems: "center", justifyContent: "center", onClick: function () { return _this.onChange(null); } },
                     react_1.default.createElement(__1.Icon, { type: 'close' }))))));
     };
     return FinderFilter;

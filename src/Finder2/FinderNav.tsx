@@ -19,10 +19,10 @@ class FinderNav extends React.Component<FinderNavProps> {
         const { active, onClick, label, badge } = this.props;
 
         return (
-            <Flexbox alignItems="center" className={`ui-finder-section${active ? " ui-finder-section-active" : ""}`} onClick={onClick}>
-                <Flexbox className='ui-finder-section-label' flex={1} children={label} />
-                {badge ? <Flexbox className="ui-finder-section-badge">{badge}</Flexbox> : null}
-                <Flexbox className='ui-finder-section-icon'>
+            <Flexbox alignItems="center" className={`ui-finder2-section${active ? " ui-finder2-section-active" : ""}`} onClick={onClick}>
+                <Flexbox className='ui-finder2-section-label' flex={1} children={label} />
+                {badge ? <Flexbox className="ui-finder2-section-badge">{badge}</Flexbox> : null}
+                <Flexbox className='ui-finder2-section-icon'>
                     <Icon type='right' />
                 </Flexbox>
             </Flexbox>

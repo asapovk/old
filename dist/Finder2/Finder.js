@@ -35,7 +35,7 @@ var Finder = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     Finder.prototype.render = function () {
-        return (react_1.default.createElement("div", { className: "ui-finder" },
+        return (react_1.default.createElement("div", { className: "ui-finder2" },
             react_1.default.createElement(MenuRender_1.default, __assign({}, this.props))));
     };
     return Finder;
