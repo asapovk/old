@@ -185,7 +185,7 @@ storiesOf('💥 Core', module)
         </Viewport>
     ))
     .add('Finder', () => (
-        <Viewport style={flexCentered}>
+        <Viewport>
             <FinderStory />
         </Viewport>
     ))

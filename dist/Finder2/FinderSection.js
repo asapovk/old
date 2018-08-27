@@ -19,24 +19,23 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importDefault(require("react"));
 var Icon_1 = require("../Icon");
 var Flexbox_1 = require("../Flexbox");
-var FinderSection = /** @class */ (function (_super) {
-    __extends(FinderSection, _super);
-    function FinderSection() {
+var FinderGroup = /** @class */ (function (_super) {
+    __extends(FinderGroup, _super);
+    function FinderGroup() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
-    FinderSection.prototype.render = function () {
+    FinderGroup.prototype.render = function () {
         /**
          * Интерфейс специально неописан
          * системные пропсы
          */
         //@ts-ignore
-        var _a = this.props, active = _a.active, onClick = _a.onClick, label = _a.label, badge = _a.badge;
-        return (react_1.default.createElement(Flexbox_1.Flexbox, { alignItems: "center", className: "ui-finder-section" + (active ? " ui-finder-section-active" : ""), onClick: onClick },
-            react_1.default.createElement(Flexbox_1.Flexbox, { className: 'ui-finder-section-label', flex: 1, children: label }),
-            badge ? react_1.default.createElement(Flexbox_1.Flexbox, { className: "ui-finder-section-badge" }, badge) : null,
-            react_1.default.createElement(Flexbox_1.Flexbox, { className: 'ui-finder-section-icon' },
+        var _a = this.props, active = _a.active, onClick = _a.onClick, label = _a.label;
+        return (react_1.default.createElement(Flexbox_1.Flexbox, { alignItems: "center", className: "ui-finder2-group" + (active ? " ui-finder2-group-active" : ""), onClick: onClick },
+            react_1.default.createElement(Flexbox_1.Flexbox, { className: 'ui-finder2-group-label', flex: 1, children: label }),
+            react_1.default.createElement(Flexbox_1.Flexbox, { className: 'ui-finder2-group-icon' },
                 react_1.default.createElement(Icon_1.Icon, { type: 'right' }))));
     };
-    return FinderSection;
+    return FinderGroup;
 }(react_1.default.Component));
-exports.default = FinderSection;
+exports.default = FinderGroup;

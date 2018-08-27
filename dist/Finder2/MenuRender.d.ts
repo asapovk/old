@@ -11,7 +11,7 @@ declare class MenuRender extends React.Component<MenuRenderProps> {
     };
     isValid(child: any, cls: any): boolean;
     isNav(child: any): boolean;
-    isGroup(child: any): boolean;
+    isSection(child: any): boolean;
     private getAllSections;
     private FinderNavs;
     private finderContent;

@@ -8,16 +8,15 @@ declare class Finder extends React.Component<FinderProps> {
     constructor(props: any);
     state: {
         menues: {
-            childrens: any;
             filter: boolean;
             filterValue: string;
             filterPlaceholder: string;
-            updateChildren: () => void;
+            getChildren: () => void;
+            level: number;
         }[];
     };
-    componentWillReceiveProps(): void;
     passFinderProps(children: any, level: any): any[];
-    setMenues(children: any, filter: any, level: any, filterPlaceholder: any, updateChildren: any): void;
+    setMenues(filter: any, level: any, filterPlaceholder: any, getChildren: any): void;
     filterChange(value: any, level: any): void;
     render(): JSX.Element;
 }
