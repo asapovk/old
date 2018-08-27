@@ -1,5 +1,5 @@
-import React from 'react';
-import { Icon } from '../';
+import React, { Fragment } from 'react';
+import { Icon, Flexbox } from '../';
 
 interface FinderSectionProps {
     label?: string;
@@ -14,17 +14,18 @@ class FinderSection extends React.Component<FinderSectionProps> {
     render() {
 
         const { label, children } = this.props;
-
+        let active = false;
         return (
-            <div className='ui-finder-section'>
-                <div className='ui-finder-section-label' onClick={() => this.setState({ expand: this.state.expand ? false : true })}>
-                    {label}
-                    <span><Icon type={this.state.expand ? 'up' : 'down'} /></span>
-                </div>
+            <Fragment>
+                <Flexbox alignItems="center" className={`ui-finder-section${active ? " ui-finder-section-active" : ""}`} onClick={() => this.setState({ expand: this.state.expand ? false : true })}>
+                    <Flexbox className='ui-finder-section-label' flex={1} children={label} />
+                    <Flexbox className='ui-finder-section-icon'>
+                        <Icon Icon type={this.state.expand ? 'up' : 'down'} />
+                    </Flexbox>
+                </Flexbox>
                 <div className='ui-finder-section-children'>{this.state.expand && children}</div>
-            </div>
+            </Fragment>
         )
-
     }
 }
 

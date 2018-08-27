@@ -19,7 +19,6 @@ import { Flexbox } from '../src/Flexbox';
 import TooltipStory from './TooltipStory';
 import Fakerator from 'fakerator';
 import FinderStory from './FinderStory';
-import FinderStory2 from './FinderStory2';
 
 const flexCentered = {
     display: 'flex',
@@ -187,11 +186,6 @@ storiesOf('💥 Core', module)
     .add('Finder', () => (
         <Viewport>
             <FinderStory />
-        </Viewport>
-    ))
-    .add('Finder2', () => (
-        <Viewport>
-            <FinderStory2 />
         </Viewport>
     ))
     .add('Tooltip', () => (

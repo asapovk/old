@@ -1,8 +1,9 @@
 import React from 'react';
-import { Icon } from '../';
+import { Icon, Flexbox } from '../';
 
 interface FinderNavProps {
     label: string
+    badge?: number
     filter?: boolean
     filterPlaceholder?: string
     setMenu?: (filter, level, filterPlaceholder, updateChildren, index) => void
@@ -12,21 +13,16 @@ interface FinderNavProps {
 
 class FinderNav extends React.Component<FinderNavProps> {
 
-    constructor(props) {
-        super(props);
-        this.getChildren = this.getChildren.bind(this);
-    }
-
     expand() {
-        this.props.setMenu &&
-            typeof this.props.level != 'undefined' &&
+        if (this.props.setMenu && typeof this.props.level != 'undefined') {
             this.props.setMenu(
-                this.props.filter ? true : false, this.props.level + 1,
+                this.props.filter ? true : false,
+                this.props.level,
                 this.props.filterPlaceholder,
-                this.getChildren,
+                this.getChildren.bind(this),
                 this.props.index
             );
-        console.log(this.props.index);
+        }
     }
 
     getChildren() {
@@ -34,12 +30,17 @@ class FinderNav extends React.Component<FinderNavProps> {
     }
 
     render() {
-        const { label } = this.props;
+        const { label, badge } = this.props;
 
+        const active = false;
         return (
-            <div className='ui-finder-nav' onClick={() => this.expand()}>
-                <div className='ui-finder-nav-label'>{label}<span><Icon type='right' /></span></div>
-            </div>
+            <Flexbox alignItems="center" className={`ui-finder-nav${active ? " ui-finder-nav-active" : ""}`} onClick={() => this.expand()}>
+                <Flexbox className='ui-finder-nav-label' flex={1} children={label} />
+                {badge ? <Flexbox className="ui-finder-nav-badge">{badge}</Flexbox> : null}
+                <Flexbox className='ui-finder-nav-icon'>
+                    <Icon type='right' />
+                </Flexbox>
+            </Flexbox>
         )
 
     }

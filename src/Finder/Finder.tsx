@@ -1,5 +1,7 @@
 import React from 'react';
 import FinderFilter from './FinderFilter';
+import { Flexbox } from '../';
+
 //TODO:
 // - defaultValue
 // - display current element
@@ -17,7 +19,7 @@ class Finder extends React.Component<FinderProps> {
     constructor(props) {
         super(props);
         this.setMenues = this.setMenues.bind(this);
-        this.filterChange = this.filterChange.bind(this);
+        this.onChange = this.onChange.bind(this);
     }
 
     state = {
@@ -31,13 +33,40 @@ class Finder extends React.Component<FinderProps> {
         }[]
     }
 
-    passFinderProps(children, level) {
+    findComponentByIndex(childs, index) {
+        for (let i = 0; i < childs.length; i++) {
+            let child = childs[i];
+            if (!child.props || !child.props.index) {
+                continue;
+            }
+            if (child.props.index === index) {
+                return child.props.children;
+            }
+            let propsChild = child.props.children;
+            if (child.props.children) {
+                if (!Array.isArray(propsChild)) {
+                    propsChild = [propsChild];
+                }
+                const result = this.findComponentByIndex([propsChild], index);
+                if (result) {
+                    return result;
+                }
+            }
+        }
+        return null;
+    }
+
+    passFinderProps(children, menu: any = null) {
+        let level = 0;
+        if (menu) {
+            level = menu.level + 1;
+            children = this.findComponentByIndex(children, menu.index);
+        }
         let counter = 0;
         return React.Children.map(children, (child: any) => {
-            counter = counter + 1;
             if (child && child.type && child.type.prototype) {
                 if (child.type.prototype.constructor.name === "FinderNav" || child.type.prototype.constructor.name === "FilterSection") {
-                    return React.cloneElement(child as React.ReactElement<any>, { setMenu: this.setMenues, level: level, index: counter })
+                    return React.cloneElement(child as React.ReactElement<any>, { setMenu: this.setMenues, level, index: level + '.' + counter++ })
                 }
             } return child
         });
@@ -57,7 +86,7 @@ class Finder extends React.Component<FinderProps> {
         this.setState({ menu: menues });
     }
 
-    filterChange(value, level) {
+    onChange(value, level) {
         let menues = this.state.menues;
         menues[level].filterValue = value;
         this.setState({ menues: menues });
@@ -67,27 +96,28 @@ class Finder extends React.Component<FinderProps> {
 
         const { filter, filterPlaceholder } = this.props;
 
-        let children = this.passFinderProps(this.props.children, -1);
-
+        let children = this.passFinderProps(this.props.children);
+        let subChildren = children;
         const MenuesTSX = (
             this.state.menues.map((menu, index) => (
-                <div className='ui-finder-menu' key={index}>
-                    {menu.filter && <FinderFilter level={index} filterChange={this.filterChange} placeholder={menu.filterPlaceholder} />}
-                    <div className='ui-finder-menu-items'>{this.passFinderProps(children.find(child => child.props.index == menu.index).props.children, menu.level)}</div>
-                </div>
+                <Flexbox column className='ui-finder-menu' key={index + 1}>
+                    {menu.filter && <FinderFilter level={index + 1} onChange={this.onChange} placeholder={menu.filterPlaceholder} />}
+                    <Flexbox column className='ui-finder-menu-items'>
+                        {subChildren = this.passFinderProps(subChildren, menu)}
+                    </Flexbox>
+                </Flexbox>
             ))
         )
 
         return (
-            <div className='ui-finder'>
-                <div className='ui-finder-menu'>
-                    {filter && <FinderFilter level={0} filterChange={this.filterChange} placeholder={filterPlaceholder} />}
+            <Flexbox className='ui-finder'>
+                <Flexbox column className='ui-finder-menu'>
+                    {filter && <FinderFilter level={0} onChange={this.onChange} placeholder={filterPlaceholder} />}
                     {children}
-                </div>
+                </Flexbox>
                 {MenuesTSX}
-            </div>
+            </Flexbox>
         )
-
     }
 }
 

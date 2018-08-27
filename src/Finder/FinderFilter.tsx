@@ -1,32 +1,42 @@
 import React from 'react';
-import { Icon } from '../';
+import { Icon, Flexbox } from '../';
 
 
 interface FinderFilterProps {
-    placeholder?: string;
-    clearable?: boolean,
-    filterChange?: (value, level) => void;
-    level?: number
+    placeholder?: string
+    clearable?: boolean
+    onChange: (value, level) => void
+    level: number
 }
 
 class FinderFilter extends React.Component<FinderFilterProps> {
 
-    onChange(value) {
-        typeof this.props.level != 'undefined' &&
-            this.props.filterChange &&
-            this.props.filterChange(value, this.props.level);
+    input: HTMLInputElement
+
+    onChange(event) {
+        if (!event) {
+            this.props.onChange("", this.props.level);
+            this.input.value = "";
+            return;
+        }
+        this.props.onChange(event.target.value, this.props.level);
     }
 
     render() {
 
-        const { placeholder, clearable, filterChange, level } = this.props;
+        const { placeholder, clearable } = this.props;
 
         return (
-            <div className='ui-finder-filter'>
-                <div className='ui-finder-filter-input'>
-                    <input placeholder={placeholder} onChange={event => this.onChange(event.target.value)} />
-                    {clearable && <span><Icon type='close' /></span>}
-                </div>
+            <div className={`ui-finder2-filter`}>
+                <Flexbox alignItems="center" className={`ui-finder2-filter-input`}>
+                    <Icon className={`ui-finder2-filter-search-icon`} type="search" />
+                    <input ref={(ref: HTMLInputElement) => this.input = ref} placeholder={placeholder} onChange={this.onChange.bind(this)} />
+                    {clearable && (
+                        <Flexbox className={`ui-finder2-filter-clear`} alignItems="center" justifyContent="center" onClick={() => this.onChange(null)}>
+                            <Icon type='close' />
+                        </Flexbox>
+                    )}
+                </Flexbox>
             </div>
         )
 

@@ -1,24 +1,50 @@
 import React from 'react';
 import { Finder, FinderNav, FinderSection } from '../src';
-
 import { Checkbox } from '../src';
 
-interface FinderProps {
+import Fakerator from 'fakerator';
 
+var fakerator = Fakerator();
+
+const data = [] as any;
+
+for (let i = 0; i < 10; i++) {
+    data.push({
+        id: i + 1,
+        name: fakerator.names.name(),
+        age: fakerator.random.number(16, 50),
+        passport: fakerator.random.hex(16),
+    });
 }
-class FinderStory extends React.Component<FinderProps> {
+
+class FinderStory extends React.Component {
     state = {
-        checked: false as boolean
+        checkedNames: [] as any
     }
     render() {
         return (
             <div>
-                <Checkbox checked={this.state.checked} onChange={() => this.setState({ checked: true })} label='store me' />
-                <Finder filter={true} filterPlaceholder='search something'>
-                    <Checkbox checked={this.state.checked} onChange={() => {
-                        this.setState({ checked: true });
-                    }} label='store me' />
-                    <FinderNav label='Fruits' filter={true} filterPlaceholder='choose your fruit'>
+                <Finder filter filterPlaceholder='search something'>
+                    <FinderNav label="Пользователь" filter badge={this.state.checkedNames.length}>
+                        {data.map(item => (
+                            <Checkbox key={item.id} label={item.name} style={{ margin: 2 }} checked={this.state.checkedNames.findIndex(id => item.id === id) >= 0} onChange={state => {
+                                const checkedNames = this.state.checkedNames.filter(id => item.id != id);
+                                if (state) {
+                                    checkedNames.push(item.id);
+                                }
+                                this.setState({ checkedNames });
+                            }} />
+                        ))}
+                    </FinderNav>
+                    <FinderSection label='And other numbers'>
+                        <FinderNav label='Ten'>
+                            <div>21</div>
+                        </FinderNav>
+                        <FinderNav label='Eleven'>
+                            <div>33</div>
+                        </FinderNav>
+                    </FinderSection>
+                    <FinderNav label='Fruits' filter filterPlaceholder='choose your fruit'>
                         <FinderNav label='Apples'>
                             <FinderNav label='Macintosh'></FinderNav>
                             <FinderNav label='Granny Smith'></FinderNav>
@@ -29,31 +55,9 @@ class FinderStory extends React.Component<FinderProps> {
                             <FinderNav label='Bartlett'></FinderNav>
                         </FinderNav>
                     </FinderNav>
-                    <FinderNav label='Two'>
-                        <Checkbox checked={this.state.checked} onChange={() => {
-                            this.setState({ checked: true });
-                        }} label='store me' />
+                    <FinderNav label='Three'>
+                        <div>12345</div>
                     </FinderNav>
-                    <FinderNav label='Three'></FinderNav>
-                    <FinderNav label='Four'></FinderNav>
-                    <FinderNav label='Five'></FinderNav>
-                    <FinderNav label='Six'></FinderNav>
-                    <FinderNav label='Seven'></FinderNav>
-                    <FinderNav label='Eight'></FinderNav>
-                    <FinderNav label='Nine'></FinderNav>
-                    <FinderNav label='Ten'></FinderNav>
-                    <FinderSection label='And other numbers'>
-                        <FinderNav label='Ten'></FinderNav>
-                        <FinderNav label='Eleven'></FinderNav>
-                        <FinderNav label='Twelve'></FinderNav>
-                        <FinderNav label='Thirteen'></FinderNav>
-                        <FinderSection label='And other numbers'>
-                            <FinderNav label='Ten'></FinderNav>
-                            <FinderNav label='Eleven'></FinderNav>
-                            <FinderNav label='Twelve'></FinderNav>
-                            <FinderNav label='Thirteen'></FinderNav>
-                        </FinderSection>
-                    </FinderSection>
                 </Finder>
             </div>
         )

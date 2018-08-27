@@ -1,47 +1,50 @@
 .ui-finder {
-    display: flex;
-    align-items: stretch;
     color: $text;
-    &-menu, &-submenu {
-        border: 1px solid $highlight;
+    border: 1px solid $highlight;
+    margin: 10px;
+
+    &-menu {
+        border-right: 1px solid $highlight;
         min-width: 200px;
     }
-    &-submenu {
-        margin-left: -1px;
-        flex: 1;
-        border-radius: 0px 2px 2px 0px;
-    }
-    &-menu {
-        border-radius: 2px;
-        &-items {
-            padding: 10px;
-            max-height: 320px;
-            overflow-y: auto;
-            overflow-x: hidden;
-        }
-    }
+    
     &-nav, &-section {
-        margin: 0px -10px;
-        &-label {
-            padding: 5px 10px;
-            display: flex;
-            align-items: flex-start;
-            justify-content: space-between;
-            cursor: pointer;
-            line-height: 20px;
-            svg {
-                font-size: 12px;
-                color: $pale;
-                padding-left: 10px;
-            }
-            &:hover {
-                background: rgba($pale, 0.3);
-            }
+        cursor: pointer;
+        padding: 10px 10px;
+        &-icon {
+            font-size: 12px;
+            color: $pale;
+            padding-left: 10px;
         }
-    }
-    &-section {
+        &-badge {
+            font-size: 11px;
+            color: $accent;
+            background: rgba($accent, 0.1);
+            border: 1px solid $accent;
+            padding: 0px 4px 2px 4px;
+            border-radius: 2px;
+        }
+
+        &:hover {
+            background: rgba($pale, 0.4);
+        }
+        &-active {
+            background: rgba($pale, 0.2) !important;
+        }
+        &:first-child {
+            margin-top: 10px;
+        }
+        &:last-child {
+            margin-bottom: 10px;
+        }
         &-children {
-            padding: 0px 10px 0px 30px;
+            background: rgba(0,0,0,0.1);
+            & div:first-child {
+                margin-top: 0;
+            }
+            & div:last-child {
+                margin-bottom: 0;
+            }
         }
     }
     &-filter {
@@ -50,7 +53,6 @@
         &-input {
             border: 1px solid $highlight;
             border-radius: 2px;
-            display: flex;
             input {
                 appearance: none;
                 background: none;
@@ -63,9 +65,28 @@
                 &::placeholder{
                     color: $pale;
                 }
+                width: 100%;
             }
-
+        } 
+        &-search-icon {
+            padding: 0 0px 0 4px;
+            opacity: 0.3;
         }
-        
+        &-clear {
+            width: 25px;
+            height: 25px;
+            cursor: pointer;
+            svg {
+                position: absolute;
+                opacity: 0.5;
+                transition: all 0.1s;
+            }
+            &:hover {
+                svg {
+                    opacity: 1;
+                    transform: scale(1.1);
+                }
+            }
+        } 
     }
 }
