@@ -25,7 +25,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importStar(require("react"));
 var Flexbox_1 = require("../Flexbox");
-var FinderSection_1 = __importDefault(require("./FinderSection"));
+var FinderNav_1 = __importDefault(require("./FinderNav"));
 var FinderContent_1 = __importDefault(require("./FinderContent"));
 var FinderFilter_1 = __importDefault(require("./FinderFilter"));
 var FinderGroup_1 = __importDefault(require("./FinderGroup"));
@@ -51,8 +51,8 @@ var MenuRender = /** @class */ (function (_super) {
             return false;
         }
     };
-    MenuRender.prototype.isSection = function (child) {
-        return this.isValid(child, FinderSection_1.default);
+    MenuRender.prototype.isNav = function (child) {
+        return this.isValid(child, FinderNav_1.default);
     };
     MenuRender.prototype.isGroup = function (child) {
         return this.isValid(child, FinderGroup_1.default);
@@ -68,14 +68,14 @@ var MenuRender = /** @class */ (function (_super) {
                     this.getAllSections(childs[i].props.children[1], sections);
                 }
             }
-            if (this.isSection(childs[i])) {
+            if (this.isNav(childs[i])) {
                 sections.push(childs[i]);
             }
             i++;
         }
         return sections;
     };
-    MenuRender.prototype.finderSections = function (childs, level) {
+    MenuRender.prototype.FinderNavs = function (childs, level) {
         var _this = this;
         if (level === void 0) { level = 0; }
         if (!childs)
@@ -83,7 +83,7 @@ var MenuRender = /** @class */ (function (_super) {
         if (!Array.isArray(childs))
             childs = [childs];
         return childs.map(function (child, index) {
-            if (_this.isSection(child)) {
+            if (_this.isNav(child)) {
                 var key_1 = "section" + level + "" + index;
                 return react_1.default.cloneElement(child, {
                     csk: key_1,
@@ -107,7 +107,7 @@ var MenuRender = /** @class */ (function (_super) {
                 });
                 return (react_1.default.createElement(react_1.Fragment, { key: key_2 },
                     group,
-                    _this.state.cgk === key_2 && _this.finderSections(group.props.children, level + 1)));
+                    _this.state.cgk === key_2 && _this.FinderNavs(group.props.children, level + 1)));
             }
             return child;
         });
@@ -118,10 +118,10 @@ var MenuRender = /** @class */ (function (_super) {
             return null;
         try {
             var _a = this.getAllSections(childs)
-                .filter(function (child) { return _this.isSection(child); })
+                .filter(function (child) { return _this.isNav(child); })
                 .find(function (child) { return _this.state.csk === child.props.csk; })
                 .props, children = _a.children, filter = _a.filter, filterPlaceholder = _a.filterPlaceholder;
-            if (this.isSection(children)) {
+            if (this.isNav(children)) {
                 return (react_1.default.createElement(MenuRender, { children: children, filter: filter, filterPlaceholder: filterPlaceholder }));
             }
             return (react_1.default.createElement(FinderContent_1.default, { children: children, filter: filter, filterPlaceholder: filterPlaceholder }));
@@ -146,7 +146,7 @@ var MenuRender = /** @class */ (function (_super) {
     };
     MenuRender.prototype.render = function () {
         var _this = this;
-        var sections = this.finderSections(this.props.children);
+        var sections = this.FinderNavs(this.props.children);
         var content = this.finderContent(sections);
         if (this.state.filter) {
             sections = this.filterSection(sections);

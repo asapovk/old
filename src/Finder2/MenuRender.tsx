@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import { Flexbox } from '../Flexbox';
-import FinderSection from './FinderSection';
+import FinderNav from './FinderNav';
 import FinderContent from './FinderContent';
 import FinderFilter from './FinderFilter';
 import FinderGroup from './FinderGroup';
@@ -28,8 +28,8 @@ class MenuRender extends React.Component<MenuRenderProps> {
             return false
         }
     }
-    isSection(child) {
-        return this.isValid(child, FinderSection);
+    isNav(child) {
+        return this.isValid(child, FinderNav);
     }
     isGroup(child) {
         return this.isValid(child, FinderGroup);
@@ -44,7 +44,7 @@ class MenuRender extends React.Component<MenuRenderProps> {
                     this.getAllSections(childs[i].props.children[1], sections);
                 }
             }
-            if (this.isSection(childs[i])) {
+            if (this.isNav(childs[i])) {
                 sections.push(childs[i]);
             }
             i++;
@@ -52,11 +52,11 @@ class MenuRender extends React.Component<MenuRenderProps> {
         return sections
     }
 
-    private finderSections(childs, level = 0) {
+    private FinderNavs(childs, level = 0) {
         if (!childs) return null;
         if (!Array.isArray(childs)) childs = [childs];
         return childs.map((child, index) => {
-            if (this.isSection(child)) {
+            if (this.isNav(child)) {
                 const key = "section" + level + "" + index;
                 return React.cloneElement(child, {
                     csk: key,
@@ -82,7 +82,7 @@ class MenuRender extends React.Component<MenuRenderProps> {
                 return (
                     <Fragment key={key}>
                         {group}
-                        {this.state.cgk === key && this.finderSections(group.props.children, level + 1)}
+                        {this.state.cgk === key && this.FinderNavs(group.props.children, level + 1)}
                     </Fragment>
                 )
             }
@@ -94,11 +94,11 @@ class MenuRender extends React.Component<MenuRenderProps> {
         if (this.state.csk === null) return null;
         try {
             const { children, filter, filterPlaceholder } = this.getAllSections(childs)
-                .filter(child => this.isSection(child))
+                .filter(child => this.isNav(child))
                 .find(child => this.state.csk === child.props.csk)
                 .props;
 
-            if (this.isSection(children)) {
+            if (this.isNav(children)) {
                 return (
                     <MenuRender children={children} filter={filter} filterPlaceholder={filterPlaceholder} />
                 )
@@ -126,7 +126,7 @@ class MenuRender extends React.Component<MenuRenderProps> {
     }
 
     render() {
-        let sections = this.finderSections(this.props.children);
+        let sections = this.FinderNavs(this.props.children);
         const content = this.finderContent(sections);
 
         if (this.state.filter) {

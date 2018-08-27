@@ -3,7 +3,7 @@ import { Icon } from '../Icon';
 import { Flexbox } from '../Flexbox';
 
 interface FinderGroupProps {
-    label?: boolean
+    label?: string
 }
 
 class FinderGroup extends React.Component<FinderGroupProps> {

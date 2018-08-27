@@ -14,6 +14,11 @@ export { Spinner as Spinner } from './Spinner'
 export { Checkbox as Checkbox } from './Checkbox'
 export { Finder as Finder } from './Finder'
 export { FinderNav as FinderNav } from './Finder'
+
+export { Finder as Finder2 } from './Finder2'
+export { FinderNav as FinderNav2 } from './Finder2'
+export { FinderGroup as FinderGroup2 } from './Finder2'
+
 export { FinderSection as FinderSection } from './Finder'
 export { Modal as Modal } from './Modal'
 

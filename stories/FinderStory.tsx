@@ -1,5 +1,6 @@
 import React from 'react';
-import { Finder, FinderNav, FinderSection } from '../src/Finder';
+import { Finder, FinderNav, FinderSection } from '../src';
+
 import { Checkbox } from '../src';
 
 interface FinderProps {

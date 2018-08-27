@@ -2,12 +2,14 @@ import React from 'react';
 import { Icon } from '../Icon';
 import { Flexbox } from '../Flexbox';
 
-interface FinderSectionProps {
-    label?: boolean
+interface FinderNavProps {
+    label?: string
     badge?: number
+    filter?: boolean
+    filterPlaceholder?: string
 }
 
-class FinderSection extends React.Component<FinderSectionProps> {
+class FinderNav extends React.Component<FinderNavProps> {
     render() {
         /**
          * Интерфейс специально неописан
@@ -28,4 +30,4 @@ class FinderSection extends React.Component<FinderSectionProps> {
     }
 }
 
-export default FinderSection;
+export default FinderNav;
