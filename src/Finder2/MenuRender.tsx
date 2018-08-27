@@ -110,12 +110,27 @@ class MenuRender extends React.Component<MenuRenderProps> {
             return null;
         }
     }
+
+    private filterSection(sections) {
+        return sections.filter(section => {
+            if (section.key && section.key.match('group')) {
+                if (section.props.children[0].props.label) {
+                    return section.props.children[0].props.label.toUpperCase().match(this.state.filter)
+                }
+            }
+            if (section.props.label) {
+                return section.props.label.toUpperCase().match(this.state.filter)
+            }
+            return true;
+        })
+    }
+
     render() {
         let sections = this.finderSections(this.props.children);
         const content = this.finderContent(sections);
 
         if (this.state.filter) {
-            sections = sections.filter(section => section.props.label.toUpperCase().match(this.state.filter))
+            sections = this.filterSection(sections);
         }
         return (
             <Flexbox>

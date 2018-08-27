@@ -28,25 +28,34 @@ var Checkbox = /** @class */ (function (_super) {
         return _this;
     }
     Checkbox.prototype.componentWillMount = function () {
-        if (this.props.defaultValue || this.props.checked)
-            this.setState({ checked: true });
+        this.setState({
+            checked: this.props.checked || this.props.defaultValue || false
+        });
+    };
+    Checkbox.prototype.componentWillReceiveProps = function (nextProps) {
+        if (typeof nextProps.checked !== "undefined") {
+            this.setState({
+                checked: nextProps.checked
+            });
+        }
     };
     Checkbox.prototype.onChange = function () {
-        var checked = this.state.checked ? false : true;
-        this.setState({ checked: typeof this.props.checked != 'undefined' ? this.props.checked : checked });
-        this.props.onChange && this.props.onChange(checked);
+        this.props.onChange && this.props.onChange(!this.state.checked);
+        if (typeof this.props.checked === "undefined") {
+            this.setState({
+                checked: !this.state.checked
+            });
+        }
     };
     Checkbox.prototype.render = function () {
         var _this = this;
-        var _a = this.props, label = _a.label, radio = _a.radio, checked = _a.checked, style = _a.style, uppercase = _a.uppercase;
-        var isChecked = this.state.checked || checked;
+        var _a = this.props, label = _a.label, radio = _a.radio, style = _a.style, uppercase = _a.uppercase;
         var classes = 'ui-checkbox-input';
         if (radio)
             classes += ' ch-radio';
-        if (isChecked)
+        if (this.state.checked)
             classes += ' ch-checked';
-        var InputTSX = (react_1.default.createElement("div", { className: classes }, isChecked ? radio ? react_1.default.createElement("span", { className: 'circle' })
-            : react_1.default.createElement(Icon_1.Icon, { type: 'check' }) : ''));
+        var InputTSX = (react_1.default.createElement("div", { className: classes }, this.state.checked ? (radio ? react_1.default.createElement("span", { className: 'circle' }) : react_1.default.createElement(Icon_1.Icon, { type: 'check' })) : null));
         return (react_1.default.createElement("div", { className: 'ui-checkbox', onClick: function () { return _this.onChange(); }, style: style },
             InputTSX,
             react_1.default.createElement("div", { className: 'ui-checkbox-label noselect' + (uppercase ? ' uppercase' : '') }, label)));

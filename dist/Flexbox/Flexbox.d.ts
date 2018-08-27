@@ -1,15 +1,18 @@
 import React, { CSSProperties } from 'react';
 interface Props {
+    onClick?: () => void;
     elementRef?: any;
     style?: CSSProperties;
     className?: string;
+    w?: number;
+    h?: number;
     pr?: number;
     pl?: number;
     pt?: number;
     pb?: number;
     p?: number;
     column?: boolean;
-    flex?: number | string;
+    flex?: number;
     flexBasis?: number;
     flexFrow?: number;
     flexShrink?: number;

@@ -20,18 +20,24 @@ var react_1 = __importDefault(require("react"));
 var __1 = require("../");
 var FinderNav = /** @class */ (function (_super) {
     __extends(FinderNav, _super);
-    function FinderNav() {
-        return _super !== null && _super.apply(this, arguments) || this;
+    function FinderNav(props) {
+        var _this = _super.call(this, props) || this;
+        _this.updateChildren = _this.updateChildren.bind(_this);
+        return _this;
     }
-    FinderNav.prototype.expand = function (children) {
+    FinderNav.prototype.expand = function (children, update) {
         this.props.render &&
             typeof this.props.level != 'undefined' &&
-            this.props.render(children, this.props.filter ? true : false, this.props.level + 1, this.props.filterPlaceholder);
+            this.props.render(children, this.props.filter ? true : false, this.props.level + 1, this.props.filterPlaceholder, this.updateChildren, update);
+        console.log(this.props.children);
+    };
+    FinderNav.prototype.updateChildren = function () {
+        this.expand(this.props.children, true);
     };
     FinderNav.prototype.render = function () {
         var _this = this;
         var _a = this.props, label = _a.label, children = _a.children;
-        return (react_1.default.createElement("div", { className: 'ui-finder-nav', onClick: function () { return _this.expand(children); } },
+        return (react_1.default.createElement("div", { className: 'ui-finder-nav', onClick: function () { return _this.expand(children, false); } },
             react_1.default.createElement("div", { className: 'ui-finder-nav-label' },
                 label,
                 react_1.default.createElement("span", null,

@@ -16,6 +16,7 @@ declare class Checkbox extends React.Component<CheckboxProps> {
         checked: boolean;
     };
     componentWillMount(): void;
+    componentWillReceiveProps(nextProps: any): void;
     onChange(): void;
     render(): JSX.Element;
 }

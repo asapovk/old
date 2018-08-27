@@ -994,49 +994,71 @@ table {
 }
 
 .ui-finder {
-  display: flex;
-  align-items: stretch;
   color: white;
-}
-.ui-finder-menu, .ui-finder-submenu {
   border: 1px solid #858ca6;
-  min-width: 200px;
+  margin: 10px;
 }
-.ui-finder-submenu {
-  margin-left: -1px;
-  flex: 1;
-  border-radius: 0px 2px 2px 0px;
+.ui-finder-content {
+  border-right: 1px solid #858ca6;
+  padding: 10px;
+}
+.ui-finder-content > .ui-finder-filter {
+  margin: -10px -10px 10px -10px;
 }
 .ui-finder-menu {
-  border-radius: 2px;
+  border-right: 1px solid #858ca6;
+  min-width: 200px;
 }
-.ui-finder-menu-items {
-  padding: 10px;
-  max-height: 320px;
-  overflow-y: auto;
-  overflow-x: hidden;
-}
-.ui-finder-nav, .ui-finder-section {
-  margin: 0px -10px;
-}
-.ui-finder-nav-label, .ui-finder-section-label {
-  padding: 5px 10px;
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
+.ui-finder-section, .ui-finder-group {
   cursor: pointer;
-  line-height: 20px;
+  padding: 10px 10px;
 }
-.ui-finder-nav-label svg, .ui-finder-section-label svg {
+.ui-finder-section-icon, .ui-finder-group-icon {
   font-size: 12px;
   color: #5c6173;
   padding-left: 10px;
 }
-.ui-finder-nav-label:hover, .ui-finder-section-label:hover {
-  background: rgba(92, 97, 115, 0.3);
+.ui-finder-section-badge, .ui-finder-group-badge {
+  font-size: 11px;
+  color: #05afc8;
+  background: rgba(5, 175, 200, 0.1);
+  border: 1px solid #05afc8;
+  padding: 0px 4px 2px 4px;
+  border-radius: 2px;
 }
-.ui-finder-section-children {
-  padding: 0px 10px 0px 30px;
+.ui-finder-section:hover, .ui-finder-group:hover {
+  background: rgba(92, 97, 115, 0.4);
+}
+.ui-finder-section-active, .ui-finder-group-active {
+  background: rgba(92, 97, 115, 0.2) !important;
+}
+.ui-finder-section:first-child, .ui-finder-group:first-child {
+  margin-top: 10px;
+}
+.ui-finder-section:last-child, .ui-finder-group:last-child {
+  margin-bottom: 10px;
+}
+.ui-finder-group svg {
+  -webkit-transform: rotate(90deg);
+  -khtml-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  transform: rotate(90deg);
+  -webkit-transition: all 0.2s;
+  -khtml-transition: all 0.2s;
+  -moz-transition: all 0.2s;
+  -ms-transition: all 0.2s;
+  -o-transition: all 0.2s;
+  transition: all 0.2s;
+}
+.ui-finder-group-active svg {
+  -webkit-transform: rotate(-90deg);
+  -khtml-transform: rotate(-90deg);
+  -moz-transform: rotate(-90deg);
+  -ms-transform: rotate(-90deg);
+  -o-transform: rotate(-90deg);
+  transform: rotate(-90deg);
 }
 .ui-finder-filter {
   padding: 10px;
@@ -1059,6 +1081,24 @@ table {
 }
 .ui-finder-filter-input input::placeholder {
   color: #5c6173;
+}
+.ui-finder-filter-search-icon {
+  padding: 0 0px 0 4px;
+  opacity: 0.3;
+}
+.ui-finder-filter-clear {
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+}
+.ui-finder-filter-clear svg {
+  position: absolute;
+  opacity: 0.5;
+  transition: all 0.1s;
+}
+.ui-finder-filter-clear:hover svg {
+  opacity: 1;
+  transform: scale(1.1);
 }
 
 /*# sourceMappingURL=styles.css.map */

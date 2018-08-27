@@ -23,7 +23,8 @@ var Finder = /** @class */ (function (_super) {
     function Finder(props) {
         var _this = _super.call(this, props) || this;
         _this.state = {
-            menues: []
+            menues: [],
+            fetching: false
         };
         _this.submenu = _this.submenu.bind(_this);
         _this.filterChange = _this.filterChange.bind(_this);
@@ -33,7 +34,17 @@ var Finder = /** @class */ (function (_super) {
         var menues = [{
                 childrens: this.passFinderProps(this.props.children, 0),
                 filter: this.props.filter, filterValue: '',
-                filterPlaceholder: this.props.filterPlaceholder
+                filterPlaceholder: this.props.filterPlaceholder,
+                updateChildren: this.updateChildren
+            }];
+        this.setState({ menues: menues });
+    };
+    Finder.prototype.updateChildren = function () {
+        var menues = [{
+                childrens: this.passFinderProps(this.props.children, 0),
+                filter: this.props.filter, filterValue: '',
+                filterPlaceholder: this.props.filterPlaceholder,
+                updateChildren: this.updateChildren
             }];
         this.setState({ menues: menues });
     };
@@ -54,15 +65,21 @@ var Finder = /** @class */ (function (_super) {
         this.setState({ menues: menues });
     };
     ;
-    Finder.prototype.submenu = function (children, filter, level, filterPlaceholder) {
+    Finder.prototype.submenu = function (children, filter, level, filterPlaceholder, updateChildren, update) {
         var menues = this.state.menues;
         menues[level] = {
             childrens: this.passFinderProps(children, level),
             filter: filter, filterValue: '',
-            filterPlaceholder: filterPlaceholder
+            filterPlaceholder: filterPlaceholder,
+            updateChildren: updateChildren
         };
         menues.length = level + 1;
-        this.setState({ menu: menues });
+        this.setState({ menu: menues, fetching: update });
+    };
+    Finder.prototype.componentWillReceiveProps = function (nextProps) {
+        //this.state.menues && this.state.menues.map(menu => menu.updateChildren())
+        console.log(nextProps);
+        this.updateChildren();
     };
     Finder.prototype.render = function () {
         var _this = this;
