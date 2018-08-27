@@ -12,11 +12,15 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (Object.hasOwnProperty.call(mod, k)) result[k] = mod[k];
+    result["default"] = mod;
+    return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var react_1 = __importDefault(require("react"));
+var react_1 = __importStar(require("react"));
 var __1 = require("../");
 var FinderSection = /** @class */ (function (_super) {
     __extends(FinderSection, _super);
@@ -30,11 +34,12 @@ var FinderSection = /** @class */ (function (_super) {
     FinderSection.prototype.render = function () {
         var _this = this;
         var _a = this.props, label = _a.label, children = _a.children;
-        return (react_1.default.createElement("div", { className: 'ui-finder-section' },
-            react_1.default.createElement("div", { className: 'ui-finder-section-label', onClick: function () { return _this.setState({ expand: _this.state.expand ? false : true }); } },
-                label,
-                react_1.default.createElement("span", null,
-                    react_1.default.createElement(__1.Icon, { type: this.state.expand ? 'up' : 'down' }))),
+        var active = false;
+        return (react_1.default.createElement(react_1.Fragment, null,
+            react_1.default.createElement(__1.Flexbox, { alignItems: "center", className: "ui-finder-section" + (active ? " ui-finder-section-active" : ""), onClick: function () { return _this.setState({ expand: _this.state.expand ? false : true }); } },
+                react_1.default.createElement(__1.Flexbox, { className: 'ui-finder-section-label', flex: 1, children: label }),
+                react_1.default.createElement(__1.Flexbox, { className: 'ui-finder-section-icon' },
+                    react_1.default.createElement(__1.Icon, { Icon: true, type: this.state.expand ? 'up' : 'down' }))),
             react_1.default.createElement("div", { className: 'ui-finder-section-children' }, this.state.expand && children)));
     };
     return FinderSection;

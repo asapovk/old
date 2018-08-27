@@ -13,11 +13,13 @@ declare class Finder extends React.Component<FinderProps> {
             filterPlaceholder: string;
             getChildren: () => void;
             level: number;
+            index: number;
         }[];
     };
-    passFinderProps(children: any, level: any): any[];
-    setMenues(filter: any, level: any, filterPlaceholder: any, getChildren: any): void;
-    filterChange(value: any, level: any): void;
+    findComponentByIndex(childs: any, index: any): any;
+    passFinderProps(children: any, menu?: any): any[];
+    setMenues(filter: any, level: any, filterPlaceholder: any, getChildren: any, index: any): void;
+    onChange(value: any, level: any): void;
     render(): JSX.Element;
 }
 export default Finder;

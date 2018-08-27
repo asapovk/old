@@ -1,13 +1,14 @@
 import React from 'react';
 interface FinderNavProps {
     label: string;
+    badge?: number;
     filter?: boolean;
     filterPlaceholder?: string;
-    render?: (filter: any, level: any, filterPlaceholder: any, updateChildren: any) => void;
+    setMenu?: (filter: any, level: any, filterPlaceholder: any, updateChildren: any, index: any) => void;
     level?: number;
+    index?: number;
 }
 declare class FinderNav extends React.Component<FinderNavProps> {
-    constructor(props: any);
     expand(): void;
     getChildren(): React.ReactNode;
     render(): JSX.Element;

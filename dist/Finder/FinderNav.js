@@ -20,27 +20,26 @@ var react_1 = __importDefault(require("react"));
 var __1 = require("../");
 var FinderNav = /** @class */ (function (_super) {
     __extends(FinderNav, _super);
-    function FinderNav(props) {
-        var _this = _super.call(this, props) || this;
-        _this.getChildren = _this.getChildren.bind(_this);
-        return _this;
+    function FinderNav() {
+        return _super !== null && _super.apply(this, arguments) || this;
     }
     FinderNav.prototype.expand = function () {
-        this.props.render &&
-            typeof this.props.level != 'undefined' &&
-            this.props.render(this.props.filter ? true : false, this.props.level + 1, this.props.filterPlaceholder, this.getChildren);
+        if (this.props.setMenu && typeof this.props.level != 'undefined') {
+            this.props.setMenu(this.props.filter ? true : false, this.props.level, this.props.filterPlaceholder, this.getChildren.bind(this), this.props.index);
+        }
     };
     FinderNav.prototype.getChildren = function () {
         return this.props.children;
     };
     FinderNav.prototype.render = function () {
         var _this = this;
-        var label = this.props.label;
-        return (react_1.default.createElement("div", { className: 'ui-finder-nav', onClick: function () { return _this.expand(); } },
-            react_1.default.createElement("div", { className: 'ui-finder-nav-label' },
-                label,
-                react_1.default.createElement("span", null,
-                    react_1.default.createElement(__1.Icon, { type: 'right' })))));
+        var _a = this.props, label = _a.label, badge = _a.badge;
+        var active = false;
+        return (react_1.default.createElement(__1.Flexbox, { alignItems: "center", className: "ui-finder-nav" + (active ? " ui-finder-nav-active" : ""), onClick: function () { return _this.expand(); } },
+            react_1.default.createElement(__1.Flexbox, { className: 'ui-finder-nav-label', flex: 1, children: label }),
+            badge ? react_1.default.createElement(__1.Flexbox, { className: "ui-finder-nav-badge" }, badge) : null,
+            react_1.default.createElement(__1.Flexbox, { className: 'ui-finder-nav-icon' },
+                react_1.default.createElement(__1.Icon, { type: 'right' }))));
     };
     return FinderNav;
 }(react_1.default.Component));
