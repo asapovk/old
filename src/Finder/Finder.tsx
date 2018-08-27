@@ -16,7 +16,7 @@ class Finder extends React.Component<FinderProps> {
 
     constructor(props) {
         super(props);
-        this.submenu = this.submenu.bind(this);
+        this.setMenues = this.setMenues.bind(this);
         this.filterChange = this.filterChange.bind(this);
     }
 
@@ -25,40 +25,40 @@ class Finder extends React.Component<FinderProps> {
             childrens: any
             filter: boolean
             filterValue: string
-            filterPlaceholder: string,
+            filterPlaceholder: string
             updateChildren: () => void
-        }[],
-        fetching: false as boolean
+        }[]
     }
 
-    componentWillMount() {
-        const menues = [{
-            childrens: this.passFinderProps(this.props.children, 0),
-            filter: this.props.filter, filterValue: '',
-            filterPlaceholder: this.props.filterPlaceholder,
-            updateChildren: this.updateChildren
-        }]
-        this.setState({ menues: menues });
-    }
-
-    updateChildren() {
-        const menues = [{
-            childrens: this.passFinderProps(this.props.children, 0),
-            filter: this.props.filter, filterValue: '',
-            filterPlaceholder: this.props.filterPlaceholder,
-            updateChildren: this.updateChildren
-        }]
-        this.setState({ menues: menues });
+    componentWillReceiveProps() {
+        this.state.menues.map(menu => {
+            console.log(menu)
+            menu.updateChildren()
+        }
+        );
     }
 
     passFinderProps(children, level) {
         return React.Children.map(children, (child: any) => {
             if (child && child.type && child.type.prototype) {
                 if (child.type.prototype.constructor.name === "FinderNav" || child.type.prototype.constructor.name === "FilterSection") {
-                    return React.cloneElement(child as React.ReactElement<any>, { render: this.submenu, level: level })
+                    return React.cloneElement(child as React.ReactElement<any>, { render: this.setMenues, level: level })
                 }
             } return child
         });
+    }
+
+    setMenues(children, filter, level, filterPlaceholder, updateChildren) {
+        let menues = this.state.menues;
+        menues[level] = {
+            childrens: this.passFinderProps(children, level),
+            filter: filter,
+            filterValue: '',
+            filterPlaceholder: filterPlaceholder,
+            updateChildren: updateChildren
+        };
+        menues.length = level + 1;
+        this.setState({ menu: menues });
     }
 
     filterChange(value, level) {
@@ -67,25 +67,9 @@ class Finder extends React.Component<FinderProps> {
         this.setState({ menues: menues });
     };
 
-    submenu(children, filter, level, filterPlaceholder, updateChildren, update) {
-        let menues = this.state.menues;
-        menues[level] = {
-            childrens: this.passFinderProps(children, level),
-            filter: filter, filterValue: '',
-            filterPlaceholder: filterPlaceholder,
-            updateChildren: updateChildren
-        };
-        menues.length = level + 1;
-        this.setState({ menu: menues, fetching: update });
-    }
-
-    componentWillReceiveProps(nextProps) {
-        //this.state.menues && this.state.menues.map(menu => menu.updateChildren())
-        console.log(nextProps);
-        this.updateChildren();
-    }
-
     render() {
+
+        const { filter, filterPlaceholder } = this.props;
         const MenuesTSX = (
             this.state.menues.map((menu, index) => (
                 <div className='ui-finder-menu' key={index}>
@@ -99,6 +83,10 @@ class Finder extends React.Component<FinderProps> {
 
         return (
             <div className='ui-finder'>
+                <div className='ui-finder-menu'>
+                    {filter && <FinderFilter level={0} filterChange={this.filterChange} placeholder={filterPlaceholder} />}
+                    {this.passFinderProps(this.props.children, 0)}
+                </div>
                 {MenuesTSX}
             </div>
         )
