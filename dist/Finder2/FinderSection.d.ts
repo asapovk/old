@@ -1,9 +1,8 @@
 import React from 'react';
-interface FinderSectionProps {
-    label?: boolean;
-    badge?: number;
+interface FinderGroupProps {
+    label?: string;
 }
-declare class FinderSection extends React.Component<FinderSectionProps> {
+declare class FinderGroup extends React.Component<FinderGroupProps> {
     render(): JSX.Element;
 }
-export default FinderSection;
+export default FinderGroup;

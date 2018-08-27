@@ -22,15 +22,15 @@ var FinderNav = /** @class */ (function (_super) {
     __extends(FinderNav, _super);
     function FinderNav(props) {
         var _this = _super.call(this, props) || this;
-        _this.updateChildren = _this.updateChildren.bind(_this);
+        _this.getChildren = _this.getChildren.bind(_this);
         return _this;
     }
     FinderNav.prototype.expand = function () {
         this.props.render &&
             typeof this.props.level != 'undefined' &&
-            this.props.render(this.props.children, this.props.filter ? true : false, this.props.level + 1, this.props.filterPlaceholder, this.updateChildren);
+            this.props.render(this.props.filter ? true : false, this.props.level + 1, this.props.filterPlaceholder, this.getChildren);
     };
-    FinderNav.prototype.updateChildren = function () {
+    FinderNav.prototype.getChildren = function () {
         return this.props.children;
     };
     FinderNav.prototype.render = function () {

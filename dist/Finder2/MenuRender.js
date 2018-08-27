@@ -28,7 +28,8 @@ var Flexbox_1 = require("../Flexbox");
 var FinderNav_1 = __importDefault(require("./FinderNav"));
 var FinderContent_1 = __importDefault(require("./FinderContent"));
 var FinderFilter_1 = __importDefault(require("./FinderFilter"));
-var FinderGroup_1 = __importDefault(require("./FinderGroup"));
+var FinderSection_1 = __importDefault(require("./FinderSection"));
+var SectionRender_1 = __importDefault(require("./SectionRender"));
 var MenuRender = /** @class */ (function (_super) {
     __extends(MenuRender, _super);
     function MenuRender() {
@@ -54,8 +55,8 @@ var MenuRender = /** @class */ (function (_super) {
     MenuRender.prototype.isNav = function (child) {
         return this.isValid(child, FinderNav_1.default);
     };
-    MenuRender.prototype.isGroup = function (child) {
-        return this.isValid(child, FinderGroup_1.default);
+    MenuRender.prototype.isSection = function (child) {
+        return this.isValid(child, FinderSection_1.default);
     };
     MenuRender.prototype.getAllSections = function (childs, sections) {
         if (sections === void 0) { sections = []; }
@@ -63,7 +64,7 @@ var MenuRender = /** @class */ (function (_super) {
             childs = [childs];
         var i = 0;
         while (i < childs.length) {
-            if (childs[i].key && childs[i].key.match('group')) {
+            if (childs[i].key && childs[i].key.match('section')) {
                 if (childs[i].props.children[1]) {
                     this.getAllSections(childs[i].props.children[1], sections);
                 }
@@ -84,20 +85,17 @@ var MenuRender = /** @class */ (function (_super) {
             childs = [childs];
         return childs.map(function (child, index) {
             if (_this.isNav(child)) {
-                var key_1 = "section" + level + "" + index;
+                var key_1 = "section_" + level + "_" + index;
                 return react_1.default.cloneElement(child, {
                     csk: key_1,
                     key: key_1,
                     active: (key_1 === _this.state.csk),
-                    onClick: function () {
-                        console.log(key_1);
-                        _this.setState({ csk: key_1 });
-                    }
+                    onClick: function () { return _this.setState({ csk: key_1 }); }
                 });
             }
-            if (_this.isGroup(child)) {
-                var key_2 = "group" + level + "" + index;
-                var group = react_1.default.cloneElement(child, {
+            if (_this.isSection(child)) {
+                var key_2 = "section_" + level + "_" + index;
+                var nav = react_1.default.cloneElement(child, {
                     cgk: key_2,
                     key: key_2,
                     active: (key_2 === _this.state.cgk),
@@ -105,9 +103,10 @@ var MenuRender = /** @class */ (function (_super) {
                         _this.setState({ cgk: _this.state.cgk === key_2 ? null : key_2 });
                     }
                 });
-                return (react_1.default.createElement(react_1.Fragment, { key: key_2 },
-                    group,
-                    _this.state.cgk === key_2 && _this.FinderNavs(group.props.children, level + 1)));
+                var sectionContent = _this.FinderNavs(nav.props.children, level + 1);
+                return (react_1.default.createElement(react_1.Fragment, { key: "fragment_" + key_2 },
+                    nav,
+                    react_1.default.createElement(SectionRender_1.default, { filter: _this.state.filter, children: sectionContent })));
             }
             return child;
         });
@@ -130,16 +129,17 @@ var MenuRender = /** @class */ (function (_super) {
             return null;
         }
     };
-    MenuRender.prototype.filterSection = function (sections) {
+    MenuRender.prototype.filterSection = function (childs) {
         var _this = this;
-        return sections.filter(function (section) {
-            if (section.key && section.key.match('group')) {
-                if (section.props.children[0].props.label) {
-                    return section.props.children[0].props.label.toUpperCase().match(_this.state.filter);
+        return childs.filter(function (child) {
+            if (child.key.match('fragment_section')) {
+                var section = child.props.children[0];
+                if (section.props.label) {
+                    return section.props.label.toUpperCase().match(_this.state.filter);
                 }
             }
-            if (section.props.label) {
-                return section.props.label.toUpperCase().match(_this.state.filter);
+            if (child.props.label) {
+                return child.props.label.toUpperCase().match(_this.state.filter);
             }
             return true;
         });
