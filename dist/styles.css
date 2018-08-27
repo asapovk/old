@@ -1067,7 +1067,7 @@ table {
 .ui-finder-filter-input {
   border: 1px solid #858ca6;
   border-radius: 2px;
-  display: flex;
+  width: 100%;
 }
 .ui-finder-filter-input input {
   appearance: none;
