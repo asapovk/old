@@ -1,16 +1,19 @@
 import React, { CSSProperties } from 'react';
 
 interface Props {
+    onClick?: () => void
     elementRef?: any
     style?: CSSProperties
     className?: string
+    w?: number,
+    h?: number,
     pr?: number
     pl?: number
     pt?: number
     pb?: number
     p?: number
     column?: boolean
-    flex?: number | string
+    flex?: number
     flexBasis?: number
     flexFrow?: number
     flexShrink?: number
@@ -26,10 +29,11 @@ interface Props {
 
 class Flexbox extends React.Component<Props> {
     render() {
-        const { className, elementRef, pr, pl, pt, pb, p, flex, flexBasis, alignContent, alignSelf, alignItems, justifyContent, flexDirection, flexFlow, column } = this.props;
+        const { className, elementRef, onClick, w, h, pr, pl, pt, pb, p, flex, flexBasis, alignContent, alignSelf, alignItems, justifyContent, flexDirection, flexFlow, column } = this.props;
         const props: any = {
             className,
             ref: elementRef,
+            onClick,
             style: {
                 position: 'relative',
                 display: 'flex',
@@ -40,6 +44,8 @@ class Flexbox extends React.Component<Props> {
         if (flex) props.style.flex = flex;
         if (flexBasis) props.style.flexBasis = flexBasis;
 
+        if (w) props.style.width = w;
+        if (h) props.style.height = h;
         if (p) props.style.padding = p;
         if (pt) props.style.paddingTop = pt;
         if (pl) props.style.paddingLeft = pl;
