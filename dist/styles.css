@@ -524,6 +524,18 @@ table {
 .ui-modal-closeButton > i {
   font-size: 26px;
 }
+.ui-modal-title {
+  color: white;
+  font-size: 24px;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+.ui-modal-title > span {
+  display: block;
+  font-size: 14px;
+  padding-top: 8px;
+  color: #858ca6;
+}
 
 @media (max-width: 600px) {
   .ui-modal {

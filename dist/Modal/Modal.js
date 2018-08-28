@@ -21,6 +21,7 @@ var react_dom_1 = __importDefault(require("react-dom"));
 var react_portal_1 = require("react-portal");
 var Spinner_1 = require("../Spinner");
 var Flexbox_1 = require("../Flexbox");
+var ModalTitle_1 = __importDefault(require("./ModalTitle"));
 var Modal = /** @class */ (function (_super) {
     __extends(Modal, _super);
     function Modal(props) {
@@ -150,7 +151,9 @@ var Modal = /** @class */ (function (_super) {
         return (react_1.default.createElement(react_portal_1.Portal, null,
             react_1.default.createElement("div", { className: "ui-modal " + (this.state.visible && "ui-modal-visible") + " " + (this.state.hidding && "ui-modal-hidding"), ref: function (ref) { return _this.view = ref; } },
                 react_1.default.createElement(Flexbox_1.Flexbox, { flexDirection: "column", alignItems: "center", justifyContent: "center", style: { height: this.state.center ? "100%" : "auto" } },
-                    react_1.default.createElement("div", { className: this.props.loading ? "loading" : "", style: this.props.style, ref: function (ref) { return _this.modal = ref; } }, this.props.children)),
+                    react_1.default.createElement("div", { className: this.props.loading ? "loading" : "", style: this.props.style, ref: function (ref) { return _this.modal = ref; } },
+                        react_1.default.createElement(ModalTitle_1.default, { title: this.props.title, subtitle: this.props.subtitle }),
+                        this.props.children)),
                 react_1.default.createElement(Spinner_1.Spinner, { center: true, spinning: loading }))));
     };
     Modal.defaultProps = {

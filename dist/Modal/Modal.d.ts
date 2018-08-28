@@ -7,6 +7,8 @@ interface Props {
     loading?: boolean;
     center?: boolean;
     style?: CSSProperties;
+    title?: string;
+    subtitle?: string;
 }
 interface Modal {
     visible: boolean;
