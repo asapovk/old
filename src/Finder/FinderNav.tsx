@@ -3,13 +3,12 @@ import { Icon, Flexbox } from '../';
 
 interface FinderNavProps {
     label: string
-    badge?: number
+    badge?: string | number
     filter?: boolean
     filterPlaceholder?: string
     setMenu?: (filter, level, filterPlaceholder, updateChildren, index) => void
     level?: number
     index?: number
-    style?: CSSProperties
 }
 
 class FinderNav extends React.Component<FinderNavProps> {
@@ -31,11 +30,11 @@ class FinderNav extends React.Component<FinderNavProps> {
     }
 
     render() {
-        const { label, badge, style } = this.props;
+        const { label, badge } = this.props;
 
         const active = false;
         return (
-            <Flexbox style={style} alignItems="center" className={`ui-finder-nav${active ? " ui-finder-nav-active" : ""}`} onClick={() => this.expand()}>
+            <Flexbox alignItems="center" className={`ui-finder-nav${active ? " ui-finder-nav-active" : ""}`} onClick={() => this.expand()}>
                 <Flexbox className='ui-finder-nav-label' flex={1} children={label} />
                 {badge ? <Flexbox className="ui-finder-nav-badge">{badge}</Flexbox> : null}
                 <Flexbox className='ui-finder-nav-icon'>

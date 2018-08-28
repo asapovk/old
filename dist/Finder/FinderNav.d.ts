@@ -1,13 +1,12 @@
-import React, { CSSProperties } from 'react';
+import React from 'react';
 interface FinderNavProps {
     label: string;
-    badge?: number;
+    badge?: string | number;
     filter?: boolean;
     filterPlaceholder?: string;
     setMenu?: (filter: any, level: any, filterPlaceholder: any, updateChildren: any, index: any) => void;
     level?: number;
     index?: number;
-    style?: CSSProperties;
 }
 declare class FinderNav extends React.Component<FinderNavProps> {
     expand(): void;
