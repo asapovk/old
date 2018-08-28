@@ -34,7 +34,7 @@ var Flexbox = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     Flexbox.prototype.render = function () {
-        var _a = this.props, className = _a.className, elementRef = _a.elementRef, onClick = _a.onClick, w = _a.w, h = _a.h, pr = _a.pr, pl = _a.pl, pt = _a.pt, pb = _a.pb, p = _a.p, flex = _a.flex, flexBasis = _a.flexBasis, alignContent = _a.alignContent, alignSelf = _a.alignSelf, alignItems = _a.alignItems, justifyContent = _a.justifyContent, flexDirection = _a.flexDirection, flexFlow = _a.flexFlow, column = _a.column;
+        var _a = this.props, className = _a.className, elementRef = _a.elementRef, onClick = _a.onClick, w = _a.w, h = _a.h, pr = _a.pr, pl = _a.pl, pt = _a.pt, pb = _a.pb, p = _a.p, m = _a.m, mr = _a.mr, ml = _a.ml, mt = _a.mt, mb = _a.mb, flex = _a.flex, flexBasis = _a.flexBasis, alignContent = _a.alignContent, alignSelf = _a.alignSelf, alignItems = _a.alignItems, justifyContent = _a.justifyContent, flexDirection = _a.flexDirection, flexFlow = _a.flexFlow, column = _a.column;
         var props = {
             className: className,
             ref: elementRef,
@@ -59,6 +59,16 @@ var Flexbox = /** @class */ (function (_super) {
             props.style.paddingRight = pr;
         if (pb)
             props.style.paddingBottom = pb;
+        if (m)
+            props.style.margin = m;
+        if (mt)
+            props.style.marginTop = mt;
+        if (ml)
+            props.style.marginLeft = ml;
+        if (mr)
+            props.style.marginRight = mr;
+        if (mb)
+            props.style.marginBottom = mb;
         if (alignContent)
             props.style.alignContent = alignContent;
         if (alignSelf)

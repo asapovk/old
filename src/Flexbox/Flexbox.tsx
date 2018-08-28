@@ -7,11 +7,16 @@ interface Props {
     className?: string
     w?: number,
     h?: number,
+    p?: number
     pr?: number
     pl?: number
     pt?: number
     pb?: number
-    p?: number
+    m?: number
+    mr?: number
+    ml?: number
+    mt?: number
+    mb?: number
     column?: boolean
     flex?: number
     flexBasis?: number
@@ -29,7 +34,7 @@ interface Props {
 
 class Flexbox extends React.Component<Props> {
     render() {
-        const { className, elementRef, onClick, w, h, pr, pl, pt, pb, p, flex, flexBasis, alignContent, alignSelf, alignItems, justifyContent, flexDirection, flexFlow, column } = this.props;
+        const { className, elementRef, onClick, w, h, pr, pl, pt, pb, p, m, mr, ml, mt, mb, flex, flexBasis, alignContent, alignSelf, alignItems, justifyContent, flexDirection, flexFlow, column } = this.props;
         const props: any = {
             className,
             ref: elementRef,
@@ -51,6 +56,11 @@ class Flexbox extends React.Component<Props> {
         if (pl) props.style.paddingLeft = pl;
         if (pr) props.style.paddingRight = pr;
         if (pb) props.style.paddingBottom = pb;
+        if (m) props.style.margin = m;
+        if (mt) props.style.marginTop = mt;
+        if (ml) props.style.marginLeft = ml;
+        if (mr) props.style.marginRight = mr;
+        if (mb) props.style.marginBottom = mb;
 
         if (alignContent) props.style.alignContent = alignContent;
         if (alignSelf) props.style.alignSelf = alignSelf;

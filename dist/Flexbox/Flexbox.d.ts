@@ -6,11 +6,16 @@ interface Props {
     className?: string;
     w?: number;
     h?: number;
+    p?: number;
     pr?: number;
     pl?: number;
     pt?: number;
     pb?: number;
-    p?: number;
+    m?: number;
+    mr?: number;
+    ml?: number;
+    mt?: number;
+    mb?: number;
     column?: boolean;
     flex?: number;
     flexBasis?: number;
