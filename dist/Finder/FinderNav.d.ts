@@ -9,6 +9,7 @@ interface FinderNavProps {
     index?: number;
 }
 declare class FinderNav extends React.Component<FinderNavProps> {
+    static componentName: string;
     expand(): void;
     getChildren(): React.ReactNode;
     render(): JSX.Element;

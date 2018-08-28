@@ -13,6 +13,8 @@ interface FinderNavProps {
 
 class FinderNav extends React.Component<FinderNavProps> {
 
+    static componentName = "FinderNav";
+
     expand() {
         if (this.props.setMenu && typeof this.props.level != 'undefined') {
             this.props.setMenu(

@@ -8,6 +8,8 @@ interface FinderSectionProps {
 
 class FinderSection extends React.Component<FinderSectionProps> {
 
+    static componentName = "FinderNav";
+
     state = {
         expand: false as boolean
     }

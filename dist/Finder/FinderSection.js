@@ -42,6 +42,7 @@ var FinderSection = /** @class */ (function (_super) {
                     react_1.default.createElement(__1.Icon, { Icon: true, type: this.state.expand ? 'up' : 'down' }))),
             react_1.default.createElement("div", { className: 'ui-finder-section-children' }, this.state.expand && children)));
     };
+    FinderSection.componentName = "FinderNav";
     return FinderSection;
 }(react_1.default.Component));
 exports.default = FinderSection;

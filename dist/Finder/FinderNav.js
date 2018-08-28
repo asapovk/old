@@ -41,6 +41,7 @@ var FinderNav = /** @class */ (function (_super) {
             react_1.default.createElement(__1.Flexbox, { className: 'ui-finder-nav-icon' },
                 react_1.default.createElement(__1.Icon, { type: 'right' }))));
     };
+    FinderNav.componentName = "FinderNav";
     return FinderNav;
 }(react_1.default.Component));
 exports.default = FinderNav;

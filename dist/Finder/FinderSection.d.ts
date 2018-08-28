@@ -4,6 +4,7 @@ interface FinderSectionProps {
     style?: CSSProperties;
 }
 declare class FinderSection extends React.Component<FinderSectionProps> {
+    static componentName: string;
     state: {
         expand: boolean;
     };
