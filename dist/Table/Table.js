@@ -52,10 +52,10 @@ var Table = /** @class */ (function (_super) {
             var key = indexKey && row[indexKey] || index.toString();
             return (react_1.default.createElement(TableRow_1.default, { key: key, row: row, columns: columns, actions: actions, border: border, form: (form && form.key && key == form.key) && form.render, isSelected: (_this.state.selectedItems.some(function (item) { return item === key; })), isExpanding: (_this.state.expandedItems.some(function (item) { return item === key; })), isBlur: ((form && form.key && key != form.key) || isAddForm), scope: scope }));
         });
-        var addFormTSX = isData && typeof form != 'undefined' && typeof form.key === 'undefined' && TableForm_1.default(form.render, columns, {});
+        var addFormTSX = typeof form != 'undefined' && typeof form.key === 'undefined' && TableForm_1.default(form.render, columns, {});
         return (react_1.default.createElement("div", { className: 'ui-table', style: style },
             react_1.default.createElement("div", { className: 'ui-table-content' },
-                !addFormTSX && !isData && noDataLabelTSX,
+                !isData && noDataLabelTSX,
                 react_1.default.createElement("div", { className: 'ui-table-content-head-row', children: ColumnsTSX, style: actions && { marginRight: '32px' } }),
                 react_1.default.createElement("div", { className: 'ui-table-content-body' },
                     addFormTSX,
