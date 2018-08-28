@@ -55,7 +55,7 @@ var Table = /** @class */ (function (_super) {
         var addFormTSX = isData && typeof form != 'undefined' && typeof form.key === 'undefined' && TableForm_1.default(form.render, columns, {});
         return (react_1.default.createElement("div", { className: 'ui-table', style: style },
             react_1.default.createElement("div", { className: 'ui-table-content' },
-                !isData && noDataLabelTSX,
+                !addFormTSX && !isData && noDataLabelTSX,
                 react_1.default.createElement("div", { className: 'ui-table-content-head-row', children: ColumnsTSX, style: actions && { marginRight: '32px' } }),
                 react_1.default.createElement("div", { className: 'ui-table-content-body' },
                     addFormTSX,

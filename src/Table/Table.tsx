@@ -90,7 +90,7 @@ class Table extends React.Component<TableProps> {
         return (
             <div className='ui-table' style={style}>
                 <div className='ui-table-content'>
-                    {!isData && noDataLabelTSX}
+                    {!addFormTSX && !isData && noDataLabelTSX}
                     <div className='ui-table-content-head-row' children={ColumnsTSX} style={actions && { marginRight: '32px' }} />
                     <div className='ui-table-content-body'>
                         {addFormTSX}
