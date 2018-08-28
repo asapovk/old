@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { CSSProperties } from 'react';
 interface FinderProps {
     filter?: boolean;
     tip?: boolean;
     filterPlaceholder?: string;
+    style?: CSSProperties;
 }
 declare class Finder extends React.Component<FinderProps> {
     constructor(props: any);

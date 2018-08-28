@@ -33,10 +33,10 @@ var FinderSection = /** @class */ (function (_super) {
     }
     FinderSection.prototype.render = function () {
         var _this = this;
-        var _a = this.props, label = _a.label, children = _a.children;
+        var _a = this.props, label = _a.label, children = _a.children, style = _a.style;
         var active = false;
         return (react_1.default.createElement(react_1.Fragment, null,
-            react_1.default.createElement(__1.Flexbox, { alignItems: "center", className: "ui-finder-section" + (active ? " ui-finder-section-active" : ""), onClick: function () { return _this.setState({ expand: _this.state.expand ? false : true }); } },
+            react_1.default.createElement(__1.Flexbox, { style: style, alignItems: "center", className: "ui-finder-section" + (active ? " ui-finder-section-active" : ""), onClick: function () { return _this.setState({ expand: _this.state.expand ? false : true }); } },
                 react_1.default.createElement(__1.Flexbox, { className: 'ui-finder-section-label', flex: 1, children: label }),
                 react_1.default.createElement(__1.Flexbox, { className: 'ui-finder-section-icon' },
                     react_1.default.createElement(__1.Icon, { Icon: true, type: this.state.expand ? 'up' : 'down' }))),

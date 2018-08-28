@@ -33,9 +33,9 @@ var FinderNav = /** @class */ (function (_super) {
     };
     FinderNav.prototype.render = function () {
         var _this = this;
-        var _a = this.props, label = _a.label, badge = _a.badge;
+        var _a = this.props, label = _a.label, badge = _a.badge, style = _a.style;
         var active = false;
-        return (react_1.default.createElement(__1.Flexbox, { alignItems: "center", className: "ui-finder-nav" + (active ? " ui-finder-nav-active" : ""), onClick: function () { return _this.expand(); } },
+        return (react_1.default.createElement(__1.Flexbox, { style: style, alignItems: "center", className: "ui-finder-nav" + (active ? " ui-finder-nav-active" : ""), onClick: function () { return _this.expand(); } },
             react_1.default.createElement(__1.Flexbox, { className: 'ui-finder-nav-label', flex: 1, children: label }),
             badge ? react_1.default.createElement(__1.Flexbox, { className: "ui-finder-nav-badge" }, badge) : null,
             react_1.default.createElement(__1.Flexbox, { className: 'ui-finder-nav-icon' },
