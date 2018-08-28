@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { CSSProperties } from 'react';
 import { Icon, Flexbox } from '../';
 
 interface FinderNavProps {
@@ -7,8 +7,9 @@ interface FinderNavProps {
     filter?: boolean
     filterPlaceholder?: string
     setMenu?: (filter, level, filterPlaceholder, updateChildren, index) => void
-    level?: number,
+    level?: number
     index?: number
+    style?: CSSProperties
 }
 
 class FinderNav extends React.Component<FinderNavProps> {
@@ -30,11 +31,11 @@ class FinderNav extends React.Component<FinderNavProps> {
     }
 
     render() {
-        const { label, badge } = this.props;
+        const { label, badge, style } = this.props;
 
         const active = false;
         return (
-            <Flexbox alignItems="center" className={`ui-finder-nav${active ? " ui-finder-nav-active" : ""}`} onClick={() => this.expand()}>
+            <Flexbox style={style} alignItems="center" className={`ui-finder-nav${active ? " ui-finder-nav-active" : ""}`} onClick={() => this.expand()}>
                 <Flexbox className='ui-finder-nav-label' flex={1} children={label} />
                 {badge ? <Flexbox className="ui-finder-nav-badge">{badge}</Flexbox> : null}
                 <Flexbox className='ui-finder-nav-icon'>

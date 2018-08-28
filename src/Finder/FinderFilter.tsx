@@ -27,12 +27,12 @@ class FinderFilter extends React.Component<FinderFilterProps> {
         const { placeholder, clearable } = this.props;
 
         return (
-            <div className={`ui-finder2-filter`}>
-                <Flexbox alignItems="center" className={`ui-finder2-filter-input`}>
-                    <Icon className={`ui-finder2-filter-search-icon`} type="search" />
+            <div className={`ui-finder-filter`}>
+                <Flexbox alignItems="center" className={`ui-finder-filter-input`}>
+                    <Icon className={`ui-finder-filter-search-icon`} type="search" />
                     <input ref={(ref: HTMLInputElement) => this.input = ref} placeholder={placeholder} onChange={this.onChange.bind(this)} />
                     {clearable && (
-                        <Flexbox className={`ui-finder2-filter-clear`} alignItems="center" justifyContent="center" onClick={() => this.onChange(null)}>
+                        <Flexbox className={`ui-finder-filter-clear`} alignItems="center" justifyContent="center" onClick={() => this.onChange(null)}>
                             <Icon type='close' />
                         </Flexbox>
                     )}

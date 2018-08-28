@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { CSSProperties } from 'react';
 import FinderFilter from './FinderFilter';
 import { Flexbox } from '../';
 
@@ -12,6 +12,7 @@ interface FinderProps {
     filter?: boolean;
     tip?: boolean;
     filterPlaceholder?: string
+    style?: CSSProperties
 }
 
 class Finder extends React.Component<FinderProps> {
@@ -94,7 +95,7 @@ class Finder extends React.Component<FinderProps> {
 
     render() {
 
-        const { filter, filterPlaceholder } = this.props;
+        const { filter, filterPlaceholder, style } = this.props;
 
         let children = this.passFinderProps(this.props.children);
         let subChildren = children;
@@ -110,7 +111,7 @@ class Finder extends React.Component<FinderProps> {
         )
 
         return (
-            <Flexbox className='ui-finder'>
+            <Flexbox style={style} className='ui-finder'>
                 <Flexbox column className='ui-finder-menu'>
                     {filter && <FinderFilter level={0} onChange={this.onChange} placeholder={filterPlaceholder} />}
                     {children}

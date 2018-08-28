@@ -1,8 +1,9 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, CSSProperties } from 'react';
 import { Icon, Flexbox } from '../';
 
 interface FinderSectionProps {
-    label?: string;
+    label?: string
+    style?: CSSProperties
 }
 
 class FinderSection extends React.Component<FinderSectionProps> {
@@ -13,11 +14,11 @@ class FinderSection extends React.Component<FinderSectionProps> {
 
     render() {
 
-        const { label, children } = this.props;
+        const { label, children, style } = this.props;
         let active = false;
         return (
             <Fragment>
-                <Flexbox alignItems="center" className={`ui-finder-section${active ? " ui-finder-section-active" : ""}`} onClick={() => this.setState({ expand: this.state.expand ? false : true })}>
+                <Flexbox style={style} alignItems="center" className={`ui-finder-section${active ? " ui-finder-section-active" : ""}`} onClick={() => this.setState({ expand: this.state.expand ? false : true })}>
                     <Flexbox className='ui-finder-section-label' flex={1} children={label} />
                     <Flexbox className='ui-finder-section-icon'>
                         <Icon Icon type={this.state.expand ? 'up' : 'down'} />
