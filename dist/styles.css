@@ -1008,7 +1008,6 @@ table {
 .ui-finder {
   color: white;
   border: 1px solid #858ca6;
-  margin: 10px;
 }
 .ui-finder-menu {
   border-right: 1px solid #858ca6;
@@ -1089,114 +1088,6 @@ table {
   transition: all 0.1s;
 }
 .ui-finder-filter-clear:hover svg {
-  opacity: 1;
-  transform: scale(1.1);
-}
-
-.ui-finder2 {
-  color: white;
-  border: 1px solid #858ca6;
-  margin: 10px;
-}
-.ui-finder2-content {
-  border-right: 1px solid #858ca6;
-  padding: 10px;
-}
-.ui-finder2-content > .ui-finder2-filter {
-  margin: -10px -10px 10px -10px;
-}
-.ui-finder2-menu {
-  border-right: 1px solid #858ca6;
-  min-width: 200px;
-}
-.ui-finder2-section, .ui-finder2-group {
-  cursor: pointer;
-  padding: 10px 10px;
-}
-.ui-finder2-section-icon, .ui-finder2-group-icon {
-  font-size: 12px;
-  color: #5c6173;
-  padding-left: 10px;
-}
-.ui-finder2-section-badge, .ui-finder2-group-badge {
-  font-size: 11px;
-  color: #05afc8;
-  background: rgba(5, 175, 200, 0.1);
-  border: 1px solid #05afc8;
-  padding: 0px 4px 2px 4px;
-  border-radius: 2px;
-}
-.ui-finder2-section:hover, .ui-finder2-group:hover {
-  background: rgba(92, 97, 115, 0.4);
-}
-.ui-finder2-section-active, .ui-finder2-group-active {
-  background: rgba(92, 97, 115, 0.2) !important;
-}
-.ui-finder2-section:first-child, .ui-finder2-group:first-child {
-  margin-top: 10px;
-}
-.ui-finder2-section:last-child, .ui-finder2-group:last-child {
-  margin-bottom: 10px;
-}
-.ui-finder2-group svg {
-  -webkit-transform: rotate(90deg);
-  -khtml-transform: rotate(90deg);
-  -moz-transform: rotate(90deg);
-  -ms-transform: rotate(90deg);
-  -o-transform: rotate(90deg);
-  transform: rotate(90deg);
-  -webkit-transition: all 0.2s;
-  -khtml-transition: all 0.2s;
-  -moz-transition: all 0.2s;
-  -ms-transition: all 0.2s;
-  -o-transition: all 0.2s;
-  transition: all 0.2s;
-}
-.ui-finder2-group-active svg {
-  -webkit-transform: rotate(-90deg);
-  -khtml-transform: rotate(-90deg);
-  -moz-transform: rotate(-90deg);
-  -ms-transform: rotate(-90deg);
-  -o-transform: rotate(-90deg);
-  transform: rotate(-90deg);
-}
-.ui-finder2-filter {
-  padding: 10px;
-  border-bottom: 1px solid #858ca6;
-}
-.ui-finder2-filter-input {
-  border: 1px solid #858ca6;
-  border-radius: 2px;
-}
-.ui-finder2-filter-input input {
-  appearance: none;
-  background: none;
-  border: none;
-  font-size: inherit;
-  color: white;
-  padding: 4px;
-  outline: none;
-  font-size: 14px;
-  width: 100%;
-}
-.ui-finder2-filter-input input::placeholder {
-  color: #5c6173;
-}
-.ui-finder2-filter-search-icon {
-  padding: 0 0px 0 4px;
-  opacity: 0.3;
-}
-.ui-finder2-filter-clear {
-  width: 25px;
-  height: 25px;
-  cursor: pointer;
-}
-.ui-finder2-filter-clear svg {
-  position: absolute;
-  opacity: 0.5;
-  transition: all 0.1s;
-}
-.ui-finder2-filter-clear:hover svg {
   opacity: 1;
   transform: scale(1.1);
 }
