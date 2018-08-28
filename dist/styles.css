@@ -1029,6 +1029,7 @@ table {
   border: 1px solid #05afc8;
   padding: 0px 4px 2px 4px;
   border-radius: 2px;
+  margin-left: 5px;
 }
 .ui-finder-nav:hover, .ui-finder-section:hover {
   background: rgba(92, 97, 115, 0.4);
