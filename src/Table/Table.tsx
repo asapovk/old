@@ -85,12 +85,12 @@ class Table extends React.Component<TableProps> {
             )
         })
 
-        const addFormTSX = isData && typeof form != 'undefined' && typeof form.key === 'undefined' && TableForm(form.render, columns, {});
+        const addFormTSX = typeof form != 'undefined' && typeof form.key === 'undefined' && TableForm(form.render, columns, {});
 
         return (
             <div className='ui-table' style={style}>
                 <div className='ui-table-content'>
-                    {!addFormTSX && !isData && noDataLabelTSX}
+                    {!isData && noDataLabelTSX}
                     <div className='ui-table-content-head-row' children={ColumnsTSX} style={actions && { marginRight: '32px' }} />
                     <div className='ui-table-content-body'>
                         {addFormTSX}
