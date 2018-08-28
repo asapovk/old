@@ -229,7 +229,7 @@ storiesOf('💥 Core', module)
     ))
     .add('Modal', () => (
         <Viewport style={flexCentered}>
-            <Modal ref={ref => window.modal = ref}>
+            <Modal title="Модальное окно" subtitle={"Нажмите close"} ref={ref => window.modal = ref}>
                 <Flexbox justifyContent="center">
                     <Button onClick={() => window.modal.close()}>Close</Button>
                 </Flexbox>

@@ -4,7 +4,7 @@ import { Portal } from 'react-portal';
 
 import { Spinner } from '../Spinner';
 import { Flexbox } from '../Flexbox';
-
+import ModalTitle from './ModalTitle';
 interface Props {
     onClose?: () => void
     didClose?: () => void
@@ -13,6 +13,8 @@ interface Props {
     loading?: boolean
     center?: boolean
     style?: CSSProperties
+    title?: string
+    subtitle?: string
 }
 interface Modal {
     visible: boolean
@@ -168,6 +170,7 @@ class Modal extends React.Component<Props> {
                 <div className={`ui-modal ${this.state.visible && "ui-modal-visible"} ${this.state.hidding && "ui-modal-hidding"}`} ref={ref => this.view = ref}>
                     <Flexbox flexDirection="column" alignItems="center" justifyContent="center" style={{ height: this.state.center ? "100%" : "auto" }}>
                         <div className={this.props.loading ? "loading" : ""} style={this.props.style} ref={ref => this.modal = ref}>
+                            <ModalTitle title={this.props.title} subtitle={this.props.subtitle} />
                             {this.props.children}
                         </div>
                     </Flexbox>
