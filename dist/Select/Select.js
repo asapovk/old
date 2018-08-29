@@ -65,14 +65,13 @@ var Select = /** @class */ (function (_super) {
         }
     };
     Select.prototype.toggleMenu = function () {
+        if (this.props.disabled)
+            return;
         this.setState({
             menuVisible: this.state.menuVisible ? false : true
         });
     };
     Select.prototype.onSelect = function (option) {
-        if (this.props.disabled) {
-            return;
-        }
         var selected = this.state.selected ? this.state.selected : [];
         var isAlreadySelect = (selected.find(function (select) { return select == option; }));
         if (!isAlreadySelect) {
@@ -126,6 +125,8 @@ var Select = /** @class */ (function (_super) {
         var MenuTSX = (unselected && unselected.map(function (option, index) { return (react_1.default.createElement("div", { className: 'ui-select-menu-item', children: option.text, onClick: function () { return _this.onSelect(unselected[index]); }, key: option.key ? option.key : option.text })); }));
         var MultiSelectTSX = (multiselect && selected && selected.map(function (option) { return (react_1.default.createElement("div", { className: 'ui-select-holder-value-option', key: option.text },
             react_1.default.createElement("div", { className: 'ui-select-holder-value-option-close', onClick: function (event) {
+                    if (disabled)
+                        return;
                     event.stopPropagation();
                     _this.onUnselect(option);
                 } },

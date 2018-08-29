@@ -79,15 +79,13 @@ class Select extends React.Component<SelectProps> {
     }
 
     toggleMenu() {
+        if (this.props.disabled) return;
         this.setState({
             menuVisible: this.state.menuVisible ? false : true
         });
     }
 
     onSelect(option) {
-        if (this.props.disabled) {
-            return;
-        }
         let selected = this.state.selected ? this.state.selected : [];
         const isAlreadySelect = (selected.find(select => select == option));
 
@@ -181,6 +179,7 @@ class Select extends React.Component<SelectProps> {
                     <div
                         className='ui-select-holder-value-option-close'
                         onClick={(event) => {
+                            if (disabled) return;
                             event.stopPropagation();
                             this.onUnselect(option);
                         }}>
