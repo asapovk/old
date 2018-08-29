@@ -111,6 +111,10 @@
     border-bottom-right-radius: 0!important;
 }
 
+.disabled {
+    opacity: 0.5;
+}
+
 .sel-chosen {
     background: rgba($pale, 0.3);
 }

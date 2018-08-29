@@ -5,6 +5,7 @@ interface SelectProps {
     search?: boolean
     style?: any
     label?: string
+    disabled?: boolean
     placeholder?: string
     options?: {
         text: string
@@ -84,6 +85,9 @@ class Select extends React.Component<SelectProps> {
     }
 
     onSelect(option) {
+        if (this.props.disabled) {
+            return;
+        }
         let selected = this.state.selected ? this.state.selected : [];
         const isAlreadySelect = (selected.find(select => select == option));
 
@@ -118,7 +122,7 @@ class Select extends React.Component<SelectProps> {
 
     render() {
 
-        const { search, style, label, clearable, multiselect, onChange, placeholder } = this.props;
+        const { search, style, label, clearable, multiselect, onChange, placeholder, disabled } = this.props;
         const { options, selected, menuVisible } = this.state;
 
         const PlaceholderTSX = (
@@ -128,6 +132,7 @@ class Select extends React.Component<SelectProps> {
         const ValueTSX = (
             search ?
                 <input
+                    disabled={disabled}
                     className='ui-select-holder-value-input'
                     defaultValue={multiselect ? '' : selected && selected[0].text}
                     onChange={event => this.filterOptions(event.target.value)}
@@ -145,6 +150,9 @@ class Select extends React.Component<SelectProps> {
             <span
                 className='ui-select-holder-clear'
                 onClick={(event) => {
+                    if (disabled) {
+                        return;
+                    }
                     event.stopPropagation();
                     this.setState({ selected: undefined })
                     onChange && onChange([]);
@@ -188,7 +196,7 @@ class Select extends React.Component<SelectProps> {
                 <div className='ui-select-label'>
                     {label}
                 </div>
-                <div className={'ui-select-holder' + (menuVisible ? ' active' : '')} onClick={() => this.toggleMenu()} ref={ref => this.holderRef = ref}>
+                <div className={'ui-select-holder' + (menuVisible ? ' active' : '') + (disabled ? ' disabled' : '')} onClick={() => this.toggleMenu()} ref={ref => this.holderRef = ref}>
                     <div className='ui-select-holder-value'>
                         {MultiSelectTSX}
                         {placeholder && !selected ? PlaceholderTSX : ValueTSX}

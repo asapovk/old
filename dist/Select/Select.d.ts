@@ -3,6 +3,7 @@ interface SelectProps {
     search?: boolean;
     style?: any;
     label?: string;
+    disabled?: boolean;
     placeholder?: string;
     options?: {
         text: string;

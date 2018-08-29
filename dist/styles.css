@@ -781,6 +781,10 @@ table {
   border-bottom-right-radius: 0 !important;
 }
 
+.disabled {
+  opacity: 0.5;
+}
+
 .sel-chosen {
   background: rgba(92, 97, 115, 0.3);
 }
