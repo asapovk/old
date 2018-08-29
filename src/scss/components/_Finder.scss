@@ -2,13 +2,23 @@
     color: $text;
     border: 1px solid $highlight;
     &-menu {
-        border-right: 1px solid $highlight;
+        border-left: 1px solid $highlight;
+        margin-left: -1px;
         min-width: 200px;
+        &-items {
+            padding: 10px;
+            font-size: 16px;
+            line-height: 24px;
+        }
     }
-    
     &-nav, &-section {
         cursor: pointer;
-        padding: 10px 10px;
+        margin: 0 -10px;
+        padding: 8px 10px;
+        &-label {
+            font-size: 16px;
+            line-height: 24px;
+        }
         &-icon {
             font-size: 12px;
             color: $pale;
@@ -23,18 +33,11 @@
             border-radius: 2px;
             margin-left: 5px;
         }
-
         &:hover {
             background: rgba($pale, 0.4);
         }
         &-active {
             background: rgba($pale, 0.2) !important;
-        }
-        &:first-child {
-            margin-top: 10px;
-        }
-        &:last-child {
-            margin-bottom: 10px;
         }
         &-children {
             background: rgba(0,0,0,0.1);

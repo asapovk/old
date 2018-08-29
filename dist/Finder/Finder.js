@@ -97,10 +97,10 @@ var Finder = /** @class */ (function (_super) {
         var MenuesTSX = (this.state.menues.map(function (menu, index) { return (react_1.default.createElement(__1.Flexbox, { column: true, className: 'ui-finder-menu', key: index + 1 },
             menu.filter && react_1.default.createElement(FinderFilter_1.default, { level: index + 1, onChange: _this.onChange, placeholder: menu.filterPlaceholder }),
             react_1.default.createElement(__1.Flexbox, { column: true, className: 'ui-finder-menu-items' }, subChildren = _this.passFinderProps(subChildren, menu)))); }));
-        return (react_1.default.createElement(__1.Flexbox, { style: style, className: 'ui-finder' },
+        return (react_1.default.createElement(__1.Flexbox, { style: style, inline: true, className: 'ui-finder' },
             react_1.default.createElement(__1.Flexbox, { column: true, className: 'ui-finder-menu' },
                 filter && react_1.default.createElement(FinderFilter_1.default, { level: 0, onChange: this.onChange, placeholder: filterPlaceholder }),
-                children),
+                react_1.default.createElement(__1.Flexbox, { column: true, className: 'ui-finder-menu-items' }, children)),
             MenuesTSX));
     };
     return Finder;

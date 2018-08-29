@@ -114,7 +114,7 @@ class Finder extends React.Component<FinderProps> {
             <Flexbox style={style} inline={true} className='ui-finder'>
                 <Flexbox column className='ui-finder-menu'>
                     {filter && <FinderFilter level={0} onChange={this.onChange} placeholder={filterPlaceholder} />}
-                    {children}
+                    <Flexbox column className='ui-finder-menu-items'>{children}</Flexbox>
                 </Flexbox>
                 {MenuesTSX}
             </Flexbox>

@@ -1014,12 +1014,23 @@ table {
   border: 1px solid #858ca6;
 }
 .ui-finder-menu {
-  border-right: 1px solid #858ca6;
+  border-left: 1px solid #858ca6;
+  margin-left: -1px;
   min-width: 200px;
+}
+.ui-finder-menu-items {
+  padding: 10px;
+  font-size: 16px;
+  line-height: 24px;
 }
 .ui-finder-nav, .ui-finder-section {
   cursor: pointer;
-  padding: 10px 10px;
+  margin: 0 -10px;
+  padding: 8px 10px;
+}
+.ui-finder-nav-label, .ui-finder-section-label {
+  font-size: 16px;
+  line-height: 24px;
 }
 .ui-finder-nav-icon, .ui-finder-section-icon {
   font-size: 12px;
@@ -1040,12 +1051,6 @@ table {
 }
 .ui-finder-nav-active, .ui-finder-section-active {
   background: rgba(92, 97, 115, 0.2) !important;
-}
-.ui-finder-nav:first-child, .ui-finder-section:first-child {
-  margin-top: 10px;
-}
-.ui-finder-nav:last-child, .ui-finder-section:last-child {
-  margin-bottom: 10px;
 }
 .ui-finder-nav-children, .ui-finder-section-children {
   background: rgba(0, 0, 0, 0.1);
