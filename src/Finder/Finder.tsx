@@ -67,7 +67,6 @@ class Finder extends React.Component<FinderProps> {
         return React.Children.map(children, (child: any) => {
             if (child && child.type && child.type.prototype) {
                 if (child.type.prototype.constructor.componentName === "FinderNav" || child.type.prototype.constructor.componentName === "FilterSection") {
-                    console.log(child);
                     return React.cloneElement(child as React.ReactElement<any>, { setMenu: this.setMenues, level, index: level + '.' + counter++ })
                 }
             } return child

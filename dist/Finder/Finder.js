@@ -64,7 +64,6 @@ var Finder = /** @class */ (function (_super) {
         return react_1.default.Children.map(children, function (child) {
             if (child && child.type && child.type.prototype) {
                 if (child.type.prototype.constructor.componentName === "FinderNav" || child.type.prototype.constructor.componentName === "FilterSection") {
-                    console.log(child);
                     return react_1.default.cloneElement(child, { setMenu: _this.setMenues, level: level, index: level + '.' + counter++ });
                 }
             }
