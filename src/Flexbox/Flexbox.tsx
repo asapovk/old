@@ -18,6 +18,7 @@ interface Props {
     mt?: number
     mb?: number
     column?: boolean
+    inline?: boolean
     flex?: number
     flexBasis?: number
     flexFrow?: number
@@ -34,14 +35,14 @@ interface Props {
 
 class Flexbox extends React.Component<Props> {
     render() {
-        const { className, elementRef, onClick, w, h, pr, pl, pt, pb, p, m, mr, ml, mt, mb, flex, flexBasis, alignContent, alignSelf, alignItems, justifyContent, flexDirection, flexFlow, column } = this.props;
+        const { className, elementRef, onClick, w, h, pr, pl, pt, pb, p, m, mr, ml, mt, mb, flex, inline, flexBasis, alignContent, alignSelf, alignItems, justifyContent, flexDirection, flexFlow, column } = this.props;
         const props: any = {
             className,
             ref: elementRef,
             onClick,
             style: {
                 position: 'relative',
-                display: 'flex',
+                display: inline ? 'inline-flex' : 'flex',
                 flexDirection: column ? "column" : flexDirection,
                 ...this.props.style
             }

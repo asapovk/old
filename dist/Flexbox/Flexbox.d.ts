@@ -17,6 +17,7 @@ interface Props {
     mt?: number;
     mb?: number;
     column?: boolean;
+    inline?: boolean;
     flex?: number;
     flexBasis?: number;
     flexFrow?: number;
