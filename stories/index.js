@@ -213,6 +213,7 @@ storiesOf('💥 Core', module)
             <div className='cont'><Icon type='check' /><span className='desc'>check</span></div>
             <div className='cont'><Icon type='search' /><span className='desc'>search</span></div>
             <div className='cont'><Icon type='sync' /><span className='desc'>sync</span></div>
+            <div className='cont'><Icon type='settings' /><span className='desc'>settings</span></div>
         </Viewport >
     ))
     .add('Spinner', () => (
