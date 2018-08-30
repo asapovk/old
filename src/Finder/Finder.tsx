@@ -9,8 +9,8 @@ import { Flexbox } from '../';
 // - filter Menu
 
 interface FinderProps {
-    filter?: boolean;
-    tip?: boolean;
+    filter?: boolean
+    tip?: boolean
     filterPlaceholder?: string
     style?: CSSProperties
 }
@@ -20,102 +20,87 @@ class Finder extends React.Component<FinderProps> {
     constructor(props) {
         super(props);
         this.setMenues = this.setMenues.bind(this);
-        this.onChange = this.onChange.bind(this);
+        this.onFilterChange = this.onFilterChange.bind(this);
     }
 
     state = {
         menues: [] as {
+            index: string,
             filter: boolean
             filterValue: string
             filterPlaceholder: string
-            getChildren: () => void,
-            level: number
-            index: number
-        }[]
+        }[],
+        filterValue: '' as string
     }
 
-    findComponentByIndex(childs, index) {
-        for (let i = 0; i < childs.length; i++) {
-            let child = childs[i];
-            if (!child.props || !child.props.index) {
-                continue;
-            }
-            if (child.props.index === index) {
-                return child.props.children;
-            }
-            let propsChild = child.props.children;
-            if (child.props.children) {
-                if (!Array.isArray(propsChild)) {
-                    propsChild = [propsChild];
-                }
-                const result = this.findComponentByIndex([propsChild], index);
-                if (result) {
-                    return result;
-                }
-            }
-        }
-        return null;
+    componentWillMount() {
+        this.setMenues(0, 'root', this.props.filter, this.props.filterPlaceholder);
     }
 
-    passFinderProps(children, menu: any = null) {
-        let level = 0;
-        if (menu) {
-            level = menu.level + 1;
-            children = this.findComponentByIndex(children, menu.index);
-        }
-        let counter = 0;
-        return React.Children.map(children, (child: any) => {
-            if (child && child.type && child.type.prototype) {
-                if (child.type.prototype.constructor.componentName === "FinderNav" || child.type.prototype.constructor.componentName === "FilterSection") {
-                    return React.cloneElement(child as React.ReactElement<any>, { setMenu: this.setMenues, level, index: level + '.' + counter++ })
-                }
-            } return child
-        });
-    }
-
-    setMenues(filter, level, filterPlaceholder, getChildren, index) {
+    setMenues(level, index, filter, filterPlaceholder) {
         let menues = this.state.menues;
         menues[level] = {
+            index: index,
             filter: filter,
             filterValue: '',
             filterPlaceholder: filterPlaceholder,
-            getChildren: getChildren,
-            level: level,
-            index: index
         };
         menues.length = level + 1;
-        this.setState({ menu: menues });
+        this.setState({ menues: menues });
     }
 
-    onChange(value, level) {
+    onFilterChange(value, level) {
         let menues = this.state.menues;
         menues[level].filterValue = value;
         this.setState({ menues: menues });
     };
 
+    filterChildren(children, filterValue) {
+        if (children) {
+            return children.filter(child => child.props.label && child.props.label.includes(filterValue))
+        }
+        return children
+    }
+
+    passFinderProps(children, level) {
+        let counter = 0;
+        return React.Children.map(children, (child: any) => {
+            return React.cloneElement(child as React.ReactElement<any>, { setMenu: this.setMenues, level: level, index: level + '.' + counter++ })
+        });
+    }
+
+    getCurrentChildren(children, menu, level) {
+        let currentChildren = children;
+
+        for (let i = 1; i <= level; i++) {
+            console.log(currentChildren, this.state.menues[i].index);
+            currentChildren = this.passFinderProps(React.Children.map(currentChildren, (child: any) => {
+                if (child.props.index === this.state.menues[i].index) return child.props.children
+            }), i);
+        }
+
+        return this.filterChildren(currentChildren, menu.filterValue);
+    }
+
     render() {
 
-        const { filter, filterPlaceholder, style } = this.props;
+        const { style } = this.props;
 
-        let children = this.passFinderProps(this.props.children);
-        let subChildren = children;
+        const children = this.passFinderProps(this.props.children, 0);
+
         const MenuesTSX = (
             this.state.menues.map((menu, index) => (
-                <Flexbox column className='ui-finder-menu' key={index + 1}>
-                    {menu.filter && <FinderFilter level={index + 1} onChange={this.onChange} placeholder={menu.filterPlaceholder} />}
+                <Flexbox column className='ui-finder-menu' key={index}>
+                    {menu.filter && <FinderFilter level={index} onChange={this.onFilterChange} placeholder={menu.filterPlaceholder} />}
                     <Flexbox column className='ui-finder-menu-items'>
-                        {subChildren = this.passFinderProps(subChildren, menu)}
+                        {this.getCurrentChildren(children, menu, index)}
                     </Flexbox>
                 </Flexbox>
             ))
-        )
+        );
 
         return (
             <Flexbox style={style} inline={true} className='ui-finder'>
-                <Flexbox column className='ui-finder-menu'>
-                    {filter && <FinderFilter level={0} onChange={this.onChange} placeholder={filterPlaceholder} />}
-                    <Flexbox column className='ui-finder-menu-items'>{children}</Flexbox>
-                </Flexbox>
                 {MenuesTSX}
             </Flexbox>
         )

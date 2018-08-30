@@ -14,6 +14,7 @@ class FinderFilter extends React.Component<FinderFilterProps> {
     input: HTMLInputElement
 
     onChange(event) {
+
         if (!event) {
             this.props.onChange("", this.props.level);
             this.input.value = "";
