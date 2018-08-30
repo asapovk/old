@@ -24,14 +24,13 @@ var FinderNav = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     FinderNav.prototype.expand = function () {
-        if (this.props.setMenu && typeof this.props.level != 'undefined') {
-            this.props.setMenu(this.props.level + 1, this.props.index, this.props.filter ? true : false, this.props.filterPlaceholder);
+        if (this.props.setFinderMenu && typeof this.props.finderLevel != 'undefined') {
+            this.props.setFinderMenu(this.props.finderLevel + 1, this.props.finderIndex, this.props.filter ? true : false, this.props.filterPlaceholder);
         }
     };
     FinderNav.prototype.render = function () {
         var _this = this;
-        var _a = this.props, label = _a.label, badge = _a.badge;
-        var active = false;
+        var _a = this.props, label = _a.label, badge = _a.badge, active = _a.active;
         return (react_1.default.createElement(__1.Flexbox, { alignItems: "center", className: "ui-finder-nav" + (active ? " ui-finder-nav-active" : ""), onClick: function () { return _this.expand(); } },
             react_1.default.createElement(__1.Flexbox, { className: 'ui-finder-nav-label', flex: 1, children: label }),
             badge ? react_1.default.createElement(__1.Flexbox, { className: "ui-finder-nav-badge" }, badge) : null,

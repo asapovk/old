@@ -53,7 +53,7 @@ var Finder = /** @class */ (function (_super) {
     ;
     Finder.prototype.filterChildren = function (children, filterValue) {
         if (children) {
-            return children.filter(function (child) { return child.props.label && child.props.label.includes(filterValue); });
+            return children.filter(function (child) { return child.props.label && child.props.label.toUpperCase().includes(filterValue.toUpperCase()); });
         }
         return children;
     };
@@ -61,16 +61,17 @@ var Finder = /** @class */ (function (_super) {
         var _this = this;
         var counter = 0;
         return react_1.default.Children.map(children, function (child) {
-            return react_1.default.cloneElement(child, { setMenu: _this.setMenues, level: level, index: level + '.' + counter++ });
+            var index = level + '.' + counter;
+            var active = (_this.state.menues.find(function (menu) { return menu.index == index; }));
+            return react_1.default.cloneElement(child, { setFinderMenu: _this.setMenues, finderLevel: level, finderIndex: level + '.' + counter++, active: active });
         });
     };
-    Finder.prototype.getCurrentChildren = function (children, menu, level) {
+    Finder.prototype.getCurrentChildren = function (children, filterValue, level) {
         var _this = this;
         var currentChildren = children;
         var _loop_1 = function (i) {
-            console.log(currentChildren, this_1.state.menues[i].index);
             currentChildren = this_1.passFinderProps(react_1.default.Children.map(currentChildren, function (child) {
-                if (child.props.index === _this.state.menues[i].index)
+                if (child.props.finderIndex === _this.state.menues[i].index)
                     return child.props.children;
             }), i);
         };
@@ -78,7 +79,7 @@ var Finder = /** @class */ (function (_super) {
         for (var i = 1; i <= level; i++) {
             _loop_1(i);
         }
-        return this.filterChildren(currentChildren, menu.filterValue);
+        return this.filterChildren(currentChildren, filterValue);
     };
     Finder.prototype.render = function () {
         var _this = this;
@@ -86,7 +87,7 @@ var Finder = /** @class */ (function (_super) {
         var children = this.passFinderProps(this.props.children, 0);
         var MenuesTSX = (this.state.menues.map(function (menu, index) { return (react_1.default.createElement(__1.Flexbox, { column: true, className: 'ui-finder-menu', key: index },
             menu.filter && react_1.default.createElement(FinderFilter_1.default, { level: index, onChange: _this.onFilterChange, placeholder: menu.filterPlaceholder }),
-            react_1.default.createElement(__1.Flexbox, { column: true, className: 'ui-finder-menu-items' }, _this.getCurrentChildren(children, menu, index)))); }));
+            react_1.default.createElement(__1.Flexbox, { column: true, className: 'ui-finder-menu-items' }, _this.getCurrentChildren(children, menu.filterValue, index)))); }));
         return (react_1.default.createElement(__1.Flexbox, { style: style, inline: true, className: 'ui-finder' }, MenuesTSX));
     };
     return Finder;

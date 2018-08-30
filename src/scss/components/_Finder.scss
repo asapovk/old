@@ -9,6 +9,11 @@
             padding: 10px;
             font-size: 16px;
             line-height: 24px;
+            max-height: 640px;
+            overflow: auto;
+            > * {
+                flex-shrink: 0;
+            }
         }
     }
     &-nav, &-section {
@@ -40,7 +45,7 @@
             background: rgba($pale, 0.2) !important;
         }
         &-children {
-            background: rgba(0,0,0,0.1);
+            padding-left: 20px;
             & div:first-child {
                 margin-top: 0;
             }

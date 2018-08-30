@@ -21,7 +21,7 @@ declare class Finder extends React.Component<FinderProps> {
     onFilterChange(value: any, level: any): void;
     filterChildren(children: any, filterValue: any): any;
     passFinderProps(children: any, level: any): React.ReactElement<any>[];
-    getCurrentChildren(children: any, menu: any, level: any): any;
+    getCurrentChildren(children: any, filterValue: any, level: any): any;
     render(): JSX.Element;
 }
 export default Finder;

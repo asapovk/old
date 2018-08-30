@@ -4,9 +4,10 @@ interface FinderNavProps {
     badge?: string | number;
     filter?: boolean;
     filterPlaceholder?: string;
-    setMenu?: (level: any, index: any, filter: any, filterPlaceholder: any) => void;
-    level?: number;
-    index?: number;
+    setFinderMenu?: (level: any, index: any, filter: any, filterPlaceholder: any) => void;
+    finderLevel?: number;
+    finderIndex?: number;
+    active?: boolean;
 }
 declare class FinderNav extends React.Component<FinderNavProps> {
     static componentName: string;

@@ -1023,6 +1023,11 @@ table {
   padding: 10px;
   font-size: 16px;
   line-height: 24px;
+  max-height: 640px;
+  overflow: auto;
+}
+.ui-finder-menu-items > * {
+  flex-shrink: 0;
 }
 .ui-finder-nav, .ui-finder-section {
   cursor: pointer;
@@ -1054,7 +1059,7 @@ table {
   background: rgba(92, 97, 115, 0.2) !important;
 }
 .ui-finder-nav-children, .ui-finder-section-children {
-  background: rgba(0, 0, 0, 0.1);
+  padding-left: 20px;
 }
 .ui-finder-nav-children div:first-child, .ui-finder-section-children div:first-child {
   margin-top: 0;
