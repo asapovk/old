@@ -80,11 +80,11 @@ $rowHeightMin: 40px;
     align-items: center;
     cursor: pointer;
     position: relative;
+    font-weight: 600;
 }
 
 .nav-active {
     color: $accent;
-    font-weight: 600;
     span {
         position: absolute;
         bottom: 0px;
