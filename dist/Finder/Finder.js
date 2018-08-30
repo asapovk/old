@@ -24,84 +24,70 @@ var Finder = /** @class */ (function (_super) {
     function Finder(props) {
         var _this = _super.call(this, props) || this;
         _this.state = {
-            menues: []
+            menues: [],
+            filterValue: ''
         };
         _this.setMenues = _this.setMenues.bind(_this);
-        _this.onChange = _this.onChange.bind(_this);
+        _this.onFilterChange = _this.onFilterChange.bind(_this);
         return _this;
     }
-    Finder.prototype.findComponentByIndex = function (childs, index) {
-        for (var i = 0; i < childs.length; i++) {
-            var child = childs[i];
-            if (!child.props || !child.props.index) {
-                continue;
-            }
-            if (child.props.index === index) {
-                return child.props.children;
-            }
-            var propsChild = child.props.children;
-            if (child.props.children) {
-                if (!Array.isArray(propsChild)) {
-                    propsChild = [propsChild];
-                }
-                var result = this.findComponentByIndex([propsChild], index);
-                if (result) {
-                    return result;
-                }
-            }
-        }
-        return null;
+    Finder.prototype.componentWillMount = function () {
+        this.setMenues(0, 'root', this.props.filter, this.props.filterPlaceholder);
     };
-    Finder.prototype.passFinderProps = function (children, menu) {
-        var _this = this;
-        if (menu === void 0) { menu = null; }
-        var level = 0;
-        if (menu) {
-            level = menu.level + 1;
-            children = this.findComponentByIndex(children, menu.index);
-        }
-        var counter = 0;
-        return react_1.default.Children.map(children, function (child) {
-            if (child && child.type && child.type.prototype) {
-                if (child.type.prototype.constructor.componentName === "FinderNav" || child.type.prototype.constructor.componentName === "FilterSection") {
-                    return react_1.default.cloneElement(child, { setMenu: _this.setMenues, level: level, index: level + '.' + counter++ });
-                }
-            }
-            return child;
-        });
-    };
-    Finder.prototype.setMenues = function (filter, level, filterPlaceholder, getChildren, index) {
+    Finder.prototype.setMenues = function (level, index, filter, filterPlaceholder) {
         var menues = this.state.menues;
         menues[level] = {
+            index: index,
             filter: filter,
             filterValue: '',
             filterPlaceholder: filterPlaceholder,
-            getChildren: getChildren,
-            level: level,
-            index: index
         };
         menues.length = level + 1;
-        this.setState({ menu: menues });
+        this.setState({ menues: menues });
     };
-    Finder.prototype.onChange = function (value, level) {
+    Finder.prototype.onFilterChange = function (value, level) {
         var menues = this.state.menues;
         menues[level].filterValue = value;
         this.setState({ menues: menues });
     };
     ;
+    Finder.prototype.filterChildren = function (children, filterValue) {
+        if (children) {
+            return children.filter(function (child) { return child.props.label && child.props.label.includes(filterValue); });
+        }
+        return children;
+    };
+    Finder.prototype.passFinderProps = function (children, level) {
+        var _this = this;
+        var counter = 0;
+        return react_1.default.Children.map(children, function (child) {
+            return react_1.default.cloneElement(child, { setMenu: _this.setMenues, level: level, index: level + '.' + counter++ });
+        });
+    };
+    Finder.prototype.getCurrentChildren = function (children, menu, level) {
+        var _this = this;
+        var currentChildren = children;
+        var _loop_1 = function (i) {
+            console.log(currentChildren, this_1.state.menues[i].index);
+            currentChildren = this_1.passFinderProps(react_1.default.Children.map(currentChildren, function (child) {
+                if (child.props.index === _this.state.menues[i].index)
+                    return child.props.children;
+            }), i);
+        };
+        var this_1 = this;
+        for (var i = 1; i <= level; i++) {
+            _loop_1(i);
+        }
+        return this.filterChildren(currentChildren, menu.filterValue);
+    };
     Finder.prototype.render = function () {
         var _this = this;
-        var _a = this.props, filter = _a.filter, filterPlaceholder = _a.filterPlaceholder, style = _a.style;
-        var children = this.passFinderProps(this.props.children);
-        var subChildren = children;
-        var MenuesTSX = (this.state.menues.map(function (menu, index) { return (react_1.default.createElement(__1.Flexbox, { column: true, className: 'ui-finder-menu', key: index + 1 },
-            menu.filter && react_1.default.createElement(FinderFilter_1.default, { level: index + 1, onChange: _this.onChange, placeholder: menu.filterPlaceholder }),
-            react_1.default.createElement(__1.Flexbox, { column: true, className: 'ui-finder-menu-items' }, subChildren = _this.passFinderProps(subChildren, menu)))); }));
-        return (react_1.default.createElement(__1.Flexbox, { style: style, inline: true, className: 'ui-finder' },
-            react_1.default.createElement(__1.Flexbox, { column: true, className: 'ui-finder-menu' },
-                filter && react_1.default.createElement(FinderFilter_1.default, { level: 0, onChange: this.onChange, placeholder: filterPlaceholder }),
-                react_1.default.createElement(__1.Flexbox, { column: true, className: 'ui-finder-menu-items' }, children)),
-            MenuesTSX));
+        var style = this.props.style;
+        var children = this.passFinderProps(this.props.children, 0);
+        var MenuesTSX = (this.state.menues.map(function (menu, index) { return (react_1.default.createElement(__1.Flexbox, { column: true, className: 'ui-finder-menu', key: index },
+            menu.filter && react_1.default.createElement(FinderFilter_1.default, { level: index, onChange: _this.onFilterChange, placeholder: menu.filterPlaceholder }),
+            react_1.default.createElement(__1.Flexbox, { column: true, className: 'ui-finder-menu-items' }, _this.getCurrentChildren(children, menu, index)))); }));
+        return (react_1.default.createElement(__1.Flexbox, { style: style, inline: true, className: 'ui-finder' }, MenuesTSX));
     };
     return Finder;
 }(react_1.default.Component));

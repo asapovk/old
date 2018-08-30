@@ -4,14 +4,13 @@ interface FinderNavProps {
     badge?: string | number;
     filter?: boolean;
     filterPlaceholder?: string;
-    setMenu?: (filter: any, level: any, filterPlaceholder: any, updateChildren: any, index: any) => void;
+    setMenu?: (level: any, index: any, filter: any, filterPlaceholder: any) => void;
     level?: number;
     index?: number;
 }
 declare class FinderNav extends React.Component<FinderNavProps> {
     static componentName: string;
     expand(): void;
-    getChildren(): React.ReactNode;
     render(): JSX.Element;
 }
 export default FinderNav;

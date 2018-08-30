@@ -25,11 +25,8 @@ var FinderNav = /** @class */ (function (_super) {
     }
     FinderNav.prototype.expand = function () {
         if (this.props.setMenu && typeof this.props.level != 'undefined') {
-            this.props.setMenu(this.props.filter ? true : false, this.props.level, this.props.filterPlaceholder, this.getChildren.bind(this), this.props.index);
+            this.props.setMenu(this.props.level + 1, this.props.index, this.props.filter ? true : false, this.props.filterPlaceholder);
         }
-    };
-    FinderNav.prototype.getChildren = function () {
-        return this.props.children;
     };
     FinderNav.prototype.render = function () {
         var _this = this;
