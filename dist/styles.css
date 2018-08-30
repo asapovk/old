@@ -410,11 +410,11 @@ table {
   align-items: center;
   cursor: pointer;
   position: relative;
+  font-weight: 600;
 }
 
 .nav-active {
   color: #05afc8;
-  font-weight: 600;
 }
 .nav-active span {
   position: absolute;
@@ -647,6 +647,7 @@ table {
   box-sizing: border-box;
   flex: 1;
   font-size: 16px;
+  color: #fff;
 }
 .ui-select-label {
   font-size: 12px;
