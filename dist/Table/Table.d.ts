@@ -30,6 +30,8 @@ declare class Table extends React.Component<TableProps> {
         expandedItems: string[];
         page: number;
     };
+    mainview?: HTMLDivElement;
+    table: HTMLDivElement | null;
     static defaultProps: {
         noDataLabel: string;
     };

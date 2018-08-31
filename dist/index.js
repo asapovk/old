@@ -37,4 +37,4 @@ exports.FinderSection = Finder_3.FinderSection;
 var Modal_1 = require("./Modal");
 exports.Modal = Modal_1.Modal;
 var react_portal_1 = require("react-portal");
-exports.Portal = react_portal_1.default;
+exports.Portal = react_portal_1.Portal;

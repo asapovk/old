@@ -32,6 +32,32 @@ var Table = /** @class */ (function (_super) {
         };
         return _this;
     }
+    // constructor(props) {
+    //     super(props);
+    //     this.onScroll = this.onScroll.bind(this);
+    // }
+    // onScroll(e) {
+    //     console.log(e);
+    //     if (this.table) {
+    //         console.log(this.table.);
+    //     }
+    // }
+    // componentDidMount() {
+    //     let parent: any = this.table;
+    //     while (parent != null && parent.className != "ui-view") {
+    //         parent = parent.parentNode;
+    //     }
+    //     this.mainview = parent;
+    //     if (this.mainview) {
+    //         console.log(this.mainview.addEventListener)
+    //         this.mainview.addEventListener('scroll', this.onScroll);
+    //     }
+    // }
+    // componentWillUnmount() {
+    //     if (this.mainview) {
+    //         this.mainview.removeEventListener('scroll', this.onScroll);
+    //     }
+    // }
     Table.prototype.render = function () {
         var _this = this;
         var _a = this.props, columns = _a.columns, actions = _a.actions, border = _a.border, indexKey = _a.indexKey, scope = _a.scope, form = _a.form, style = _a.style, pagination = _a.pagination, noDataLabel = _a.noDataLabel;
@@ -53,7 +79,7 @@ var Table = /** @class */ (function (_super) {
             return (react_1.default.createElement(TableRow_1.default, { key: key, row: row, columns: columns, actions: actions, border: border, form: (form && form.key && key == form.key) && form.render, isSelected: (_this.state.selectedItems.some(function (item) { return item === key; })), isExpanding: (_this.state.expandedItems.some(function (item) { return item === key; })), isBlur: ((form && form.key && key != form.key) || isAddForm), scope: scope }));
         });
         var addFormTSX = typeof form != 'undefined' && typeof form.key === 'undefined' && TableForm_1.default(form.render, columns, {});
-        return (react_1.default.createElement("div", { className: 'ui-table', style: style },
+        return (react_1.default.createElement("div", { className: 'ui-table', style: style, ref: function (ref) { return _this.table = ref; } },
             react_1.default.createElement("div", { className: 'ui-table-content' },
                 !isData && noDataLabelTSX,
                 react_1.default.createElement("div", { className: 'ui-table-content-head-row', children: ColumnsTSX, style: actions && { marginRight: '32px' } }),
