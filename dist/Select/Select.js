@@ -22,37 +22,23 @@ var Select = /** @class */ (function (_super) {
     __extends(Select, _super);
     function Select(props) {
         var _this = _super.call(this, props) || this;
-        _this.handleClickOutside = _this.handleClickOutside.bind(_this);
+        _this.holderRef = null;
+        _this.searchRef = null;
         _this.state = {
-            options: [],
-            selected: undefined,
-            menuVisible: false
+            selectedValues: [],
+            menuVisible: false,
+            filteredValues: [],
+            isFilterActive: false
         };
+        _this.handleClickOutside = _this.handleClickOutside.bind(_this);
         return _this;
     }
     Select.prototype.componentWillMount = function () {
         var _this = this;
-        var selected;
-        if (Array.isArray(this.props.defaultValue)) {
-            if (!this.props.multiselect) {
-                selected = this.props.options
-                    && this.props.options.find(function (option) { return option.value == _this.props.defaultValue[0]; })
-                    && [this.props.options.find(function (option) { return option.value == _this.props.defaultValue[0]; })];
-            }
-            else {
-                selected = this.props.options && this.props.options.filter(function (option) {
-                    return option.value == _this.props.defaultValue.find(function (value) { return value == option.value; });
-                });
-            }
-        }
-        else {
-            selected = this.props.options
-                && this.props.options.find(function (option) { return option.value == _this.props.defaultValue; })
-                && [this.props.options.find(function (option) { return option.value == _this.props.defaultValue; })];
-        }
+        var defaultValue = Array.isArray(this.props.defaultValue) ? this.props.defaultValue : [this.props.defaultValue];
+        defaultValue = defaultValue.filter(function (value) { return _this.props.options && _this.props.options.find(function (option) { return option.value === value; }); });
         this.setState({
-            selected: selected,
-            options: this.props.options
+            selectedValues: defaultValue
         });
         document.addEventListener('mousedown', this.handleClickOutside);
     };
@@ -68,80 +54,116 @@ var Select = /** @class */ (function (_super) {
         if (this.props.disabled)
             return;
         this.setState({
-            menuVisible: this.state.menuVisible ? false : true
+            menuVisible: this.state.menuVisible ?
+                this.props.dontClose ? true : false
+                : true
         });
     };
-    Select.prototype.onSelect = function (option) {
-        var selected = this.state.selected ? this.state.selected : [];
-        var isAlreadySelect = (selected.find(function (select) { return select == option; }));
-        if (!isAlreadySelect) {
+    Select.prototype.onSelect = function (selectedValue) {
+        var selectedValues = this.state.selectedValues;
+        var isValueSelect = (selectedValues.find(function (value) { return value == selectedValue; }));
+        if (!isValueSelect) {
             if (this.props.multiselect) {
-                selected.push(option);
-                this.props.onChange && this.props.onChange(selected.map(function (select) { return select.value; }));
+                selectedValues.push(selectedValue);
+                this.props.onChange && this.props.onChange(selectedValues);
             }
             else {
-                selected = [option];
-                this.props.onChange && this.props.onChange(option.value);
-                if (this.inputRef)
-                    this.inputRef.value = option.text;
+                selectedValues = [selectedValue];
+                this.props.onChange && this.props.onChange(selectedValue);
             }
             this.setState({
-                selected: selected,
-                menuVisible: this.state.menuVisible ? false : true
+                selectedValues: selectedValues,
+                menuVisible: this.state.menuVisible ?
+                    this.props.dontClose ? true : false
+                    : true
             });
+            if (this.searchRef)
+                this.searchRef.value = '';
         }
     };
-    Select.prototype.onUnselect = function (option) {
-        var selected = this.state.selected &&
-            this.state.selected.filter(function (select) { return select != option; }).length > 0 ?
-            this.state.selected.filter(function (select) { return select != option; }) : undefined;
-        this.setState({ selected: selected });
-        this.props.onChange && this.props.onChange(selected && selected.map(function (select) { return select.value; }));
+    Select.prototype.onUnselect = function (unselectedValue) {
+        var selectedValues = this.state.selectedValues;
+        var isValueSelect = (selectedValues.find(function (value) { return value == unselectedValue; }));
+        if (isValueSelect) {
+            selectedValues = selectedValues.filter(function (item) { return item != unselectedValue; });
+            this.props.onChange && this.props.multiselect && this.props.onChange(selectedValues);
+            this.setState({ selectedValues: selectedValues });
+        }
     };
-    Select.prototype.filterOptions = function (value) {
-        var filteredOptions = this.props.options ? this.props.options.filter(function (option) { return option.text.includes(value); }) : [];
-        this.setState({ options: filteredOptions, menuVisible: filteredOptions.length > 0 ? true : false });
+    Select.prototype.filterOptions = function (searchText) {
+        var filteredOptions = this.props.options && searchText ?
+            this.props.options.filter(function (option) { return option.text.toUpperCase().includes(searchText.toUpperCase()); }) : [];
+        var filteredValues = filteredOptions.map(function (option) { return option.value; });
+        this.setState({ filteredValues: filteredValues, menuVisible: true, isFilterActive: searchText ? true : false });
+    };
+    Select.prototype.searchKeyDown = function (event) {
+        if (!event.target.value && this.props.multiselect) {
+            if (event.keyCode == 8) {
+                var selectedValues = this.state.selectedValues;
+                selectedValues.pop();
+                this.setState({ selectedValues: selectedValues });
+                this.props.onChange && this.props.onChange(selectedValues);
+            }
+        }
     };
     Select.prototype.render = function () {
         var _this = this;
-        var _a = this.props, search = _a.search, style = _a.style, label = _a.label, clearable = _a.clearable, multiselect = _a.multiselect, onChange = _a.onChange, placeholder = _a.placeholder, disabled = _a.disabled;
-        var _b = this.state, options = _b.options, selected = _b.selected, menuVisible = _b.menuVisible;
-        var PlaceholderTSX = (react_1.default.createElement("div", { className: 'ui-select-holder-value-placeholder' }, placeholder));
-        var ValueTSX = (search ?
-            react_1.default.createElement("input", { disabled: disabled, className: 'ui-select-holder-value-input', defaultValue: multiselect ? '' : selected && selected[0].text, onChange: function (event) { return _this.filterOptions(event.target.value); }, ref: function (ref) { return _this.inputRef = ref; } }) : !multiselect && selected && selected[0].text);
-        var StateIconTSX = (react_1.default.createElement("span", { className: 'ui-select-holder-down' },
-            react_1.default.createElement(Icon_1.Icon, { type: menuVisible ? 'up' : 'down' })));
+        var _a = this.props, search = _a.search, style = _a.style, label = _a.label, clearable = _a.clearable, multiselect = _a.multiselect, onChange = _a.onChange, placeholder = _a.placeholder, disabled = _a.disabled, options = _a.options;
+        var _b = this.state, selectedValues = _b.selectedValues, filteredValues = _b.filteredValues, menuVisible = _b.menuVisible, isFilterActive = _b.isFilterActive;
+        var selectedItems = [];
+        var availableItems = [];
+        if (options) {
+            selectedItems = selectedValues.map(function (value) {
+                return options.find(function (option) { return option.value === value; });
+            });
+            if (multiselect) {
+                availableItems = options.filter(function (option) {
+                    return !(isFilterActive && !filteredValues.find(function (value) { return option.value === value; }))
+                        && !selectedValues.find(function (value) { return option.value === value; });
+                });
+            }
+            else {
+                availableItems = options.filter(function (option) {
+                    return !(isFilterActive && !filteredValues.find(function (value) { return option.value === value; }));
+                });
+            }
+        }
+        var somethingSelected = (selectedItems.length > 0);
+        var MenuItemsTSX = (availableItems.length > 0 ?
+            availableItems.map(function (option, index) { return (react_1.default.createElement("div", { className: 'ui-select-menu-item' +
+                    ((!multiselect && selectedValues.find(function (value) { return option.value === value; })) ? '-active' : ''), children: option.text, onClick: function () { return _this.onSelect(option.value); }, key: index })); }) : react_1.default.createElement("div", { className: 'ui-select-menu-item-nofound' }, isFilterActive ? 'Не найдено' : 'Нет доступных значений'));
+        var MultiSelectItemsTSX = (selectedItems.map(function (option) { return (react_1.default.createElement("div", { className: 'ui-select-holder-value-option', key: option.text },
+            react_1.default.createElement("div", { className: 'ui-select-holder-value-option-close', onClick: function (event) {
+                    if (disabled)
+                        return;
+                    event.stopPropagation();
+                    _this.onUnselect(option.value);
+                } },
+                react_1.default.createElement(Icon_1.Icon, { type: 'close' })),
+            react_1.default.createElement("span", null, option.text))); }));
+        var SearchTSX = (react_1.default.createElement("input", { disabled: disabled, className: 'ui-select-holder-value-input', placeholder: !somethingSelected ? placeholder : undefined, onChange: function (event) { return _this.filterOptions(event.target.value); }, onKeyDown: this.searchKeyDown.bind(this), ref: function (ref) { return _this.searchRef = ref; }, style: !multiselect ? { position: 'absolute' } : undefined }));
+        var HolderTSX = (somethingSelected ?
+            multiselect ? MultiSelectItemsTSX : !isFilterActive && react_1.default.createElement("div", { className: 'ui-select-holder-value-text' }, selectedItems[0].text)
+            : (!search && placeholder) && react_1.default.createElement("div", { className: 'ui-select-holder-value-placeholder' }, placeholder));
         var ClearButtonTSX = (react_1.default.createElement("span", { className: 'ui-select-holder-clear', onClick: function (event) {
                 if (disabled) {
                     return;
                 }
                 event.stopPropagation();
-                _this.setState({ selected: undefined });
-                onChange && onChange([]);
+                _this.setState({ selectedValues: [] });
+                onChange && onChange(multiselect ? [] : null);
             } },
             react_1.default.createElement(Icon_1.Icon, { type: 'close' })));
-        var unselected = !(multiselect && selected && options) ? options :
-            options.filter(function (option) { return selected.findIndex(function (select) { return select == option; }) < 0; });
-        var MenuTSX = (unselected && unselected.map(function (option, index) { return (react_1.default.createElement("div", { className: 'ui-select-menu-item', children: option.text, onClick: function () { return _this.onSelect(unselected[index]); }, key: option.key ? option.key : option.text })); }));
-        var MultiSelectTSX = (multiselect && selected && selected.map(function (option) { return (react_1.default.createElement("div", { className: 'ui-select-holder-value-option', key: option.text },
-            react_1.default.createElement("div", { className: 'ui-select-holder-value-option-close', onClick: function (event) {
-                    if (disabled)
-                        return;
-                    event.stopPropagation();
-                    _this.onUnselect(option);
-                } },
-                react_1.default.createElement(Icon_1.Icon, { type: 'close' })),
-            react_1.default.createElement("span", null, option.text))); }));
         return (react_1.default.createElement("div", { className: 'ui-select', style: style },
             react_1.default.createElement("div", { className: 'ui-select-label' }, label),
             react_1.default.createElement("div", { className: 'ui-select-holder' + (menuVisible ? ' active' : '') + (disabled ? ' disabled' : ''), onClick: function () { return _this.toggleMenu(); }, ref: function (ref) { return _this.holderRef = ref; } },
                 react_1.default.createElement("div", { className: 'ui-select-holder-value' },
-                    MultiSelectTSX,
-                    placeholder && !selected ? PlaceholderTSX : ValueTSX),
-                clearable && ClearButtonTSX,
-                " ",
-                StateIconTSX,
-                react_1.default.createElement("div", { className: 'ui-select-menu' + (menuVisible ? ' visible' : '') }, MenuTSX))));
+                    HolderTSX,
+                    search && SearchTSX),
+                (clearable && somethingSelected) && ClearButtonTSX,
+                react_1.default.createElement("span", { className: 'ui-select-holder-down' },
+                    react_1.default.createElement(Icon_1.Icon, { type: menuVisible ? 'up' : 'down' })),
+                react_1.default.createElement("div", { className: 'ui-select-menu' + (menuVisible ? ' visible' : '') }, MenuItemsTSX))));
     };
     return Select;
 }(react_1.default.Component));

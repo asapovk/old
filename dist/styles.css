@@ -676,6 +676,7 @@ table {
   color: #858ca6;
   font-size: 16px;
   padding-right: 5px;
+  cursor: pointer;
 }
 .ui-select-holder-down {
   z-index: 1;
@@ -688,6 +689,9 @@ table {
   align-items: center;
   flex-wrap: wrap;
   margin: -5px;
+}
+.ui-select-holder-value-text {
+  padding-left: 5px;
 }
 .ui-select-holder-value-input {
   -webkit-appearance: none;
@@ -707,14 +711,11 @@ table {
   outline: none;
   color: inherit;
   font-size: inherit;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  padding-right: 30px;
-  padding-left: 10px;
-  padding-bottom: 3px;
+  flex: 1 1 auto;
+  padding-left: 5px;
+}
+.ui-select-holder-value-input::placeholder {
+  color: #5c6173;
 }
 .ui-select-holder-value-placeholder {
   color: #5c6173;
@@ -771,6 +772,15 @@ table {
   padding: 8px;
 }
 .ui-select-menu-item:hover {
+  background: rgba(92, 97, 115, 0.3);
+}
+.ui-select-menu-item-nofound {
+  padding: 10px;
+  color: #5c6173;
+}
+.ui-select-menu-item-active {
+  cursor: pointer;
+  padding: 8px;
   background: rgba(92, 97, 115, 0.3);
 }
 

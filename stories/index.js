@@ -118,18 +118,21 @@ storiesOf('💥 Core', module)
                 label='Multiselect'
                 search={true}
                 placeholder='Select some'
+                defaultValue={['irv', 'greg']}
                 options={optionsMulti}
                 style={{ padding: '80px' }}
                 clearable={true}
                 multiselect={true}
                 onChange={(value) => console.log('Multi', value)}
+            //dontClose={true}
             />
             <Select
                 label='Select'
                 search={true}
                 placeholder='Select some'
-                defaultValue={'irv'}
+                defaultValue={'ann'}
                 options={optionsMulti}
+                clearable={true}
                 style={{ padding: '80px' }}
                 onChange={(value) => console.log('Singe', value)}
             />
