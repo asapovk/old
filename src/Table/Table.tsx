@@ -37,9 +37,42 @@ class Table extends React.Component<TableProps> {
         page: 1,
     }
 
+    mainview?: HTMLDivElement;
+    table: HTMLDivElement | null
+
     static defaultProps = {
         noDataLabel: 'Нет данных'
     }
+    // constructor(props) {
+    //     super(props);
+
+    //     this.onScroll = this.onScroll.bind(this);
+    // }
+
+    // onScroll(e) {
+    //     console.log(e);
+    //     if (this.table) {
+
+    //         console.log(this.table.);
+    //     }
+    // }
+
+    // componentDidMount() {
+    //     let parent: any = this.table;
+    //     while (parent != null && parent.className != "ui-view") {
+    //         parent = parent.parentNode;
+    //     }
+    //     this.mainview = parent;
+    //     if (this.mainview) {
+    //         console.log(this.mainview.addEventListener)
+    //         this.mainview.addEventListener('scroll', this.onScroll);
+    //     }
+    // }
+    // componentWillUnmount() {
+    //     if (this.mainview) {
+    //         this.mainview.removeEventListener('scroll', this.onScroll);
+    //     }
+    // }
 
     render() {
 
@@ -88,7 +121,7 @@ class Table extends React.Component<TableProps> {
         const addFormTSX = typeof form != 'undefined' && typeof form.key === 'undefined' && TableForm(form.render, columns, {});
 
         return (
-            <div className='ui-table' style={style}>
+            <div className='ui-table' style={style} ref={ref => this.table = ref}>
                 <div className='ui-table-content'>
                     {!isData && noDataLabelTSX}
                     <div className='ui-table-content-head-row' children={ColumnsTSX} style={actions && { marginRight: '32px' }} />
