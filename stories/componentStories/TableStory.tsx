@@ -22,11 +22,9 @@ class TableStory extends React.Component {
         }
 
         const tableColumns = [
-            { title: '#', dataIndex: 'id' },
-            {
-                title: 'Fullname', dataIndex: 'name', render: (value, row) => <TableCustomCell value={value} row={row} />
-            },
-            { title: 'Age', dataIndex: 'age' },
+            { title: '#', dataIndex: 'id', width: 40 },
+            { title: 'Fullname', dataIndex: 'name', render: (value, row) => <TableCustomCell value={value} row={row} /> },
+            { title: 'Age', dataIndex: 'age', width: 40 },
             { title: 'Passport ID', dataIndex: 'passport' }
         ]
 

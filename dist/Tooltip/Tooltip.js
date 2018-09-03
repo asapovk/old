@@ -16,7 +16,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var react_portal_1 = require("react-portal");
 var react_1 = require("react");
 var react_dom_1 = __importDefault(require("react-dom"));
 var react_2 = __importDefault(require("react"));
@@ -60,6 +59,7 @@ var Tooltip = /** @class */ (function (_super) {
     };
     Tooltip.prototype.updateTooltipPosition = function () {
         var coord = this.state.targetCoord;
+        console.log(coord);
         switch (this.state.position) {
             case 'center-right':
                 return this.setState({
@@ -98,10 +98,13 @@ var Tooltip = /** @class */ (function (_super) {
         ChildrenJSX = react_2.default.cloneElement(react_2.default.Children.only(ChildrenJSX), {
             ref: function (ref) { return _this.targetRef = ref; }
         });
-        var PopupJSX = (react_2.default.createElement("div", { ref: function (ref) { return _this.tooltipRef = ref; }, className: classes, style: this.state.tooltipStyle, children: this.state.content }));
+        console.log(this.targetRef, this.state.targetCoord);
+        var PopupTSX = (react_2.default.createElement("div", { ref: function (ref) { return _this.tooltipRef = ref; }, className: classes, style: this.state.tooltipStyle, children: this.state.content }));
+        var Viewport = document.getElementById('viewport');
+        var Portal = Viewport && react_dom_1.default.createPortal(PopupTSX, Viewport);
         return (react_2.default.createElement(react_1.Fragment, null,
             ChildrenJSX,
-            this.state.show ? react_2.default.createElement(react_portal_1.Portal, null, PopupJSX) : null));
+            this.state.show ? Portal : null));
     };
     return Tooltip;
 }(react_2.default.Component));

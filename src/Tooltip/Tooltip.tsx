@@ -117,10 +117,13 @@ class Tooltip extends React.Component {
             />
         )
 
+        const Viewport = document.getElementById('viewport')
+        const Portal = Viewport && ReactDOM.createPortal(PopupTSX, Viewport);
+
         return (
             <Fragment>
                 {ChildrenJSX}
-                {this.state.show ? <Portal>{PopupTSX}</Portal> : null}
+                {this.state.show ? Portal : null}
             </Fragment>
         )
     }
