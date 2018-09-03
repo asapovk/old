@@ -16,6 +16,7 @@ import {
     Flexbox
 } from '../src';
 
+import SampleStory from './componentStories/_SampleStory';
 import TooltipStory from './componentStories/TooltipStory';
 import FinderStory from './componentStories/FinderStory';
 import FlexboxStory from './componentStories/FlexboxStory';
@@ -31,7 +32,7 @@ const flexCentered = {
 
 storiesOf('💥 Core', module)
     .add('Viewport', () => (
-        <Viewport style={flexCentered}>there's nothing to see.</Viewport>
+        <SampleStory />
     ))
     .add('Button', () => (
         <Viewport style={flexCentered}><Button>Click me</Button></Viewport>

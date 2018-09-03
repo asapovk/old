@@ -60,7 +60,7 @@ class Tooltip extends React.Component {
 
     updateTooltipPosition() {
         const coord = this.state.targetCoord;
-
+        console.log(coord);
         switch (this.state.position) {
             case 'center-right':
                 return this.setState({
@@ -105,6 +105,8 @@ class Tooltip extends React.Component {
                 ref: (ref) => this.targetRef = ref
             }
         )
+
+        console.log(this.targetRef, this.state.targetCoord);
 
         const PopupTSX = (
             <div
