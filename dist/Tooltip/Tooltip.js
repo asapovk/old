@@ -59,7 +59,6 @@ var Tooltip = /** @class */ (function (_super) {
     };
     Tooltip.prototype.updateTooltipPosition = function () {
         var coord = this.state.targetCoord;
-        console.log(coord);
         switch (this.state.position) {
             case 'center-right':
                 return this.setState({
@@ -98,7 +97,6 @@ var Tooltip = /** @class */ (function (_super) {
         ChildrenJSX = react_2.default.cloneElement(react_2.default.Children.only(ChildrenJSX), {
             ref: function (ref) { return _this.targetRef = ref; }
         });
-        console.log(this.targetRef, this.state.targetCoord);
         var PopupTSX = (react_2.default.createElement("div", { ref: function (ref) { return _this.tooltipRef = ref; }, className: classes, style: this.state.tooltipStyle, children: this.state.content }));
         var Viewport = document.getElementById('viewport');
         var Portal = Viewport && react_dom_1.default.createPortal(PopupTSX, Viewport);
