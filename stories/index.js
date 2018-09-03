@@ -3,22 +3,25 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import '../src/scss/main.scss';
 
-import { TextField } from '../src/TextField';
-import { Select } from '../src/Select';
-import { Table } from '../src/Table';
-import { Viewport } from '../src/Viewport';
-import { Button } from '../src/Button';
-import { Menu, Nav } from '../src/Menu';
-import { Icon } from '../src/Icon';
-import { Login } from '../src/Login';
-import { Checkbox } from '../src/Checkbox';
-import { Spinner } from '../src/Spinner';
-import { Spin } from '../src/Spin';
-import { Modal } from '../src/Modal';
-import { Flexbox } from '../src/Flexbox';
-import TooltipStory from './TooltipStory';
-import Fakerator from 'fakerator';
-import FinderStory from './FinderStory';
+import {
+    TextField,
+    Viewport,
+    Button,
+    Icon,
+    Login,
+    Checkbox,
+    Spinner,
+    Spin,
+    Modal,
+    Flexbox
+} from '../src';
+
+import TooltipStory from './componentStories/TooltipStory';
+import FinderStory from './componentStories/FinderStory';
+import FlexboxStory from './componentStories/FlexboxStory';
+import TableStory from './componentStories/TableStory';
+import SelectStory from './componentStories/SelectStory';
+import { MenuStory, loginUser } from './componentStories/MenuStory';
 
 const flexCentered = {
     display: 'flex',
@@ -26,76 +29,6 @@ const flexCentered = {
     justifyContent: 'center'
 }
 
-var fakerator = Fakerator();
-
-const data = [];
-for (let i = 0; i < 200; i++) {
-    data.push({
-        id: i + 1,
-        name: fakerator.names.name(),
-        age: fakerator.random.number(16, 50),
-        passport: fakerator.random.hex(16),
-    });
-}
-
-const options = [];
-for (let i = 0; i < 10; i++) {
-    options.push({
-        text: fakerator.names.name(),
-        value: fakerator.random.hex(4),
-    });
-}
-
-const optionsMulti = [
-    { text: "Gregory Oberbrunner MD", value: "greg" },
-    { text: "Craig O'Conner", value: "craig" },
-    { text: "Annette Kshlerin", value: "ann" },
-    { text: "Marjorie Hirthe", value: "marj" },
-    { text: "Israel Flatley", value: "isra" },
-    { text: "Kristin Smith", value: "kris" },
-    { text: "Dr. Hilda Willms", value: "hilda" },
-    { text: "Eric Gerhold", value: "eric" },
-    { text: "Laurie Stiedemann", value: "laurie" },
-    { text: "Irving Hauck", value: "irv" }
-];
-
-const columns = [
-    { title: '#', dataIndex: 'id' },
-    { title: 'Fullname', dataIndex: 'name' },
-    { title: 'Age', dataIndex: 'age' },
-    { title: 'Passport ID', dataIndex: 'passport' }
-
-]
-
-const user = {
-    id_user: 1,
-    login: "admin",
-    first_name: "Администратор",
-    last_name: "",
-    middle_name: "",
-    email: null,
-    id_role: 1,
-    nm_rome: "admin",
-    desc_role: "Адмнистратор",
-    session_uuid: "00000000-0000-0000-0000-000000000000",
-    modules: "helloworld,sandbox",
-}
-
-class CheckboxWithState extends React.Component {
-    constructor() {
-        super();
-        this.state = {
-            checboxstate: false
-        }
-    }
-    render() {
-        return (
-            <div style={{ padding: 20 }}>
-                <Checkbox label={'Checkbox with State: ' + this.state.checboxstate} style={{ paddingRight: '40px' }} onChange={checboxstate => this.setState({ checboxstate })} />
-            </div>
-        )
-    }
-}
 storiesOf('💥 Core', module)
     .add('Viewport', () => (
         <Viewport style={flexCentered}>there's nothing to see.</Viewport>
@@ -113,78 +46,13 @@ storiesOf('💥 Core', module)
         </Viewport>
     ))
     .add('Select', () => (
-        <Viewport style={flexCentered}>
-            <Select
-                label='Multiselect'
-                search={true}
-                placeholder='Select some'
-                defaultValue={['irv', 'greg']}
-                options={optionsMulti}
-                style={{ padding: '80px' }}
-                clearable={true}
-                multiselect={true}
-                onChange={(value) => console.log('Multi', value)}
-            //dontClose={true}
-            />
-            <Select
-                label='Select'
-                search={true}
-                placeholder='Select some'
-                defaultValue={'ann'}
-                options={optionsMulti}
-                clearable={true}
-                style={{ padding: '80px' }}
-                onChange={(value) => console.log('Singe', value)}
-            />
-        </Viewport>
+        <SelectStory />
     ))
     .add('Table', () => (
-        <Viewport>
-            <Table
-                style={{ padding: 20 }}
-                data={data}
-                pagination={{
-                    pageSize: 10
-                }}
-                columns={columns}
-                actions={[
-                    {
-                        label: "Action",
-                        onAction: (event) => console.log(event)
-                    }
-                ]}
-                noDataLabel='Данных то нету...'
-            />
-        </Viewport>
+        <TableStory />
     ))
     .add('Menu', () => (
-        <Viewport>
-            <Menu
-                header={<div><span style={{ fontWeight: 700, paddingRight: '10px' }}>Connect</span><span>Module</span></div>}
-                search={true}
-                toolsLeft={[
-                    <Button decoration='none' style={{ fontSize: '24px' }}>
-                        <Icon type='add' />
-                    </Button>,
-                    <Button decoration='none' style={{ fontSize: '24px' }}>
-                        <Icon type='filter' />
-                    </Button>
-                ]}
-                toolsRight={[
-                    <Login
-                        name={user.first_name}
-                        login={user.login}
-                        fullname={user.first_name + ' ' + user.last_name}
-                        role={user.desc_role}
-                    />
-                ]}
-            >
-                <Nav active={true}>Pineapple</Nav>
-                <Nav>Grape</Nav>
-                <Nav onClick={() => console.log('fly away')}>Peach</Nav>
-                <Nav>Strawberry</Nav>
-            </Menu>
-        </Viewport>
+        <MenuStory />
     ))
     .add('Finder', () => (
         <Viewport style={flexCentered}>
@@ -200,7 +68,6 @@ storiesOf('💥 Core', module)
         <Viewport style={flexCentered}>
             <Checkbox label='Check me' style={{ paddingRight: '40px' }} />
             <Checkbox label='Check me' radio={true} />
-            <CheckboxWithState />
         </Viewport>
     ))
     .add('Icon', () => (
@@ -242,91 +109,17 @@ storiesOf('💥 Core', module)
         </Viewport>
     ))
     .add('Flexbox', () => (
-        <Viewport style={{ padding: 20 }}>
-            <Flexbox style={{ border: "10px solid #000" }}>
-                <Flexbox justifyContent="center" style={{ background: "white" }} flex={1}>
-                    <div style={{ background: "#333", padding: 10 }}>div</div>
-                    <div style={{ background: "#666", padding: 10 }}>div</div>
-                    <div style={{ background: "#999", padding: 10 }}>div</div>
-                    <div style={{ color: "#333", fontSize: 12, position: "absolute", padding: 5, right: 0, top: 0, background: "rgba(255,255,255,0.5)" }}>{`flex={1} justifyContent="center"`}</div>
-                </Flexbox>
-            </Flexbox>
-            <br />
-            <Flexbox style={{ border: "10px solid #000" }}>
-                <Flexbox justifyContent="flex-start" style={{ background: "white" }} flex={1}>
-                    <div style={{ background: "#333", padding: 10 }}>div</div>
-                    <div style={{ background: "#666", padding: 10 }}>div</div>
-                    <div style={{ background: "#999", padding: 10 }}>div</div>
-                    <div style={{ color: "#333", fontSize: 12, position: "absolute", padding: 5, right: 0, top: 0, background: "rgba(255,255,255,0.5)" }}>{`flex={1} justifyContent="flex-start" (default)`}</div>
-                </Flexbox>
-            </Flexbox>
-            <br />
-            <Flexbox style={{ border: "10px solid #000" }}>
-                <Flexbox justifyContent="space-between" style={{ background: "white" }} flex={1}>
-                    <div style={{ background: "#333", padding: 10 }}>div</div>
-                    <div style={{ background: "#666", padding: 10 }}>div</div>
-                    <div style={{ background: "#999", padding: 10 }}>div</div>
-                    <div style={{ color: "#333", fontSize: 12, position: "absolute", padding: 5, right: 0, top: 0, background: "rgba(255,255,255,0.5)" }}>{`flex={1} justifyContent="space-between"`}</div>
-                </Flexbox>
-            </Flexbox>
-            <br />
-            <Flexbox style={{ border: "10px solid #000" }}>
-                <Flexbox justifyContent="space-around" style={{ background: "white" }} flex={1}>
-                    <div style={{ background: "#333", padding: 10 }}>div</div>
-                    <div style={{ background: "#666", padding: 10 }}>div</div>
-                    <div style={{ background: "#999", padding: 10 }}>div</div>
-                    <div style={{ color: "#333", fontSize: 12, position: "absolute", padding: 5, right: 0, top: 0, background: "rgba(255,255,255,0.5)" }}>{`flex={1} justifyContent="space-around"`}</div>
-                </Flexbox>
-            </Flexbox>
-            <br />
-            <Flexbox style={{ border: "10px solid #000" }}>
-                <Flexbox justifyContent="space-evenly" style={{ background: "white" }} flex={1}>
-                    <div style={{ background: "#333", padding: 10 }}>div</div>
-                    <div style={{ background: "#666", padding: 10 }}>div</div>
-                    <div style={{ background: "#999", padding: 10 }}>div</div>
-                    <div style={{ color: "#333", fontSize: 12, position: "absolute", padding: 5, right: 0, top: 0, background: "rgba(255,255,255,0.5)" }}>{`flex={1} justifyContent="space-evenly"`}</div>
-                </Flexbox>
-            </Flexbox>
-            <br />
-            <Flexbox style={{ border: "10px solid #000" }}>
-                <Flexbox style={{ background: "white" }} flex={1} p={40}>
-                    <Flexbox style={{ background: "#333" }} pb={20} flex={1}>{`pb={20} flex={1}`}</Flexbox>
-                    <Flexbox style={{ background: "#666" }} pl={20} flex={1}>{`pl={20} flex={2}`}</Flexbox>
-                    <Flexbox style={{ background: "#999" }} pt={20} flex={1}>{`pt={20} flex={3}`}</Flexbox>
-                    <div style={{ color: "#333", fontSize: 12, position: "absolute", padding: 5, right: 0, top: 0, background: "rgba(255,255,255,0.5)" }}>{`flex={1} p={40}"`}</div>
-                </Flexbox>
-            </Flexbox>
-            <br />
-            <Flexbox style={{ border: "10px solid #000" }}>
-                <Flexbox column style={{ background: "white" }} flex={1}>
-                    <Flexbox style={{ background: "#333" }} p={20} flex={1}>div</Flexbox>
-                    <Flexbox style={{ background: "#666" }} p={20} flex={1}>div</Flexbox>
-                    <Flexbox style={{ background: "#999" }} p={20} flex={1}>div</Flexbox>
-                    <div style={{ color: "#333", fontSize: 12, position: "absolute", padding: 5, right: 0, top: 0, background: "rgba(255,255,255,0.5)" }}>{`flex={1} column`}</div>
-                </Flexbox>
-            </Flexbox>
-            <br />
-            <Flexbox style={{ border: "10px solid #000" }}>
-                <Flexbox column style={{ background: "white" }} flex={1}>
-                    <Flexbox style={{ background: "#333" }} p={20} alignSelf="flex-end">alignSelf="flex-end"</Flexbox>
-                    <Flexbox style={{ background: "#666" }} p={20} alignSelf="flex-start">alignSelf="flex-start"</Flexbox>
-                    <Flexbox style={{ background: "#999" }} p={20} alignSelf="center">alignSelf="center"</Flexbox>
-                    <Flexbox style={{ background: "#CCC" }} p={20} alignSelf="stretch">alignSelf="stretch" (default)</Flexbox>
-                    <div style={{ color: "#333", fontSize: 12, position: "absolute", padding: 5, right: 0, top: 0, background: "rgba(255,255,255,0.5)" }}>{`flex={1} column`}</div>
-                </Flexbox>
-            </Flexbox>
-            <br />
-        </Viewport >
+        <FlexboxStory />
     ));
 
 storiesOf('🔪 Misc', module)
     .add('Login', () => (
         <Viewport style={flexCentered}>
             <Login
-                name={user.first_name}
-                login={user.login}
-                fullname={user.first_name + ' ' + user.last_name}
-                role={user.desc_role}
+                name={loginUser.first_name}
+                login={loginUser.login}
+                fullname={loginUser.first_name + ' ' + loginUser.last_name}
+                role={loginUser.desc_role}
             />
         </Viewport>
     ));

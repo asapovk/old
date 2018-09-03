@@ -1,5 +1,5 @@
 import React from 'react';
-import { Tooltip, Button } from '../src';
+import { Tooltip, Button } from '../../src';
 
 interface TooltipStory {
     tooltip: any

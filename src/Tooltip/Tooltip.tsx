@@ -106,7 +106,7 @@ class Tooltip extends React.Component {
             }
         )
 
-        const PopupJSX = (
+        const PopupTSX = (
             <div
                 ref={ref => this.tooltipRef = ref}
                 className={classes}
@@ -118,7 +118,7 @@ class Tooltip extends React.Component {
         return (
             <Fragment>
                 {ChildrenJSX}
-                {this.state.show ? <Portal>{PopupJSX}</Portal> : null}
+                {this.state.show ? <Portal>{PopupTSX}</Portal> : null}
             </Fragment>
         )
     }

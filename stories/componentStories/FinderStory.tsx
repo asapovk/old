@@ -1,6 +1,5 @@
 import React from 'react';
-import { Finder, FinderNav, FinderSection } from '../src';
-import { Checkbox } from '../src';
+import { Finder, FinderNav, FinderSection, Checkbox } from '../../src';
 
 import Fakerator from 'fakerator';
 
