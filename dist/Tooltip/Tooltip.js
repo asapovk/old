@@ -19,25 +19,53 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = require("react");
 var react_dom_1 = __importDefault(require("react-dom"));
 var react_2 = __importDefault(require("react"));
+var TooltipTypes;
+(function (TooltipTypes) {
+    TooltipTypes["error"] = "error";
+})(TooltipTypes || (TooltipTypes = {}));
+var TooltipPositions;
+(function (TooltipPositions) {
+    TooltipPositions["Bottom Left"] = "bottom-left";
+    TooltipPositions["Bottom Rigth"] = "bottom-right";
+    TooltipPositions["Bottom Center"] = "bottom-center";
+    TooltipPositions["Top Left"] = "top-left";
+    TooltipPositions["Top Rigth"] = "top-right";
+    TooltipPositions["Top Center"] = "top-center";
+    TooltipPositions["Left top"] = "left-top";
+    TooltipPositions["Left middle"] = "left-middle";
+    TooltipPositions["Left bottom"] = "left-bottom";
+    TooltipPositions["Right top"] = "right-top";
+    TooltipPositions["Right middle"] = "right-middle";
+    TooltipPositions["Right bottom"] = "right-bottom";
+})(TooltipPositions || (TooltipPositions = {}));
 var Tooltip = /** @class */ (function (_super) {
     __extends(Tooltip, _super);
-    function Tooltip(props) {
-        var _this = _super.call(this, props) || this;
-        _this.handleClickOutside = _this.handleClickOutside.bind(_this);
+    function Tooltip() {
+        var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.state = {
-            targetCoord: {},
-            tooltipStyle: { top: 0, left: 0 },
-            content: [],
-            type: '',
+            targetCoord: {
+                top: 0,
+                bottom: 0,
+                left: 0,
+                right: 0
+            },
+            tooltipStyle: {
+                top: 0,
+                left: 0
+            },
+            content: undefined,
             position: 'bottom-left',
             show: false
+        };
+        _this.handleClickOutside = function (event) {
+            _this.tooltipRef && !_this.tooltipRef.contains(event.target) && _this.hide();
         };
         return _this;
     }
     Tooltip.prototype.componentDidMount = function () {
-        // @ts-ignore
-        var coords = react_dom_1.default.findDOMNode(this.targetRef).getBoundingClientRect();
-        if (coords && this.targetRef) {
+        var targetElement = this.targetRef && react_dom_1.default.findDOMNode(this.targetRef);
+        if (targetElement) {
+            var coords = targetElement.getBoundingClientRect();
             this.setState({
                 targetCoord: {
                     top: coords.top + document.documentElement.scrollTop,
@@ -52,56 +80,118 @@ var Tooltip = /** @class */ (function (_super) {
     Tooltip.prototype.componentWillUnmount = function () {
         document.removeEventListener('mousedown', this.handleClickOutside);
     };
-    Tooltip.prototype.handleClickOutside = function (event) {
-        if (this.tooltipRef && !this.tooltipRef.contains(event.target)) {
-            this.hide();
+    Tooltip.prototype.updateTooltipCoord = function (position) {
+        var targetCoord = this.state.targetCoord;
+        var tooltipHeight = this.tooltipRef && this.tooltipRef.offsetHeight;
+        var tooltipStyle = this.state.tooltipStyle;
+        if (targetCoord && tooltipHeight) {
+            switch (position) {
+                case 'bottom-left':
+                    tooltipStyle = {
+                        top: targetCoord.bottom + 10,
+                        left: targetCoord.left
+                    };
+                    break;
+                case 'bottom-right':
+                    tooltipStyle = {
+                        top: 0,
+                        left: 0
+                    };
+                    break;
+                case 'bottom-center':
+                    tooltipStyle = {
+                        top: 0,
+                        left: 0
+                    };
+                    break;
+                case 'top-left':
+                    tooltipStyle = {
+                        top: 0,
+                        left: 0
+                    };
+                    break;
+                case 'top-right':
+                    tooltipStyle = {
+                        top: 0,
+                        left: 0
+                    };
+                    break;
+                case 'top-center':
+                    tooltipStyle = {
+                        top: 0,
+                        left: 0
+                    };
+                    break;
+                case 'left-top':
+                    tooltipStyle = {
+                        top: 0,
+                        left: 0
+                    };
+                    break;
+                case 'left-middle':
+                    tooltipStyle = {
+                        top: 0,
+                        left: 0
+                    };
+                    break;
+                case 'left-bottom':
+                    tooltipStyle = {
+                        top: 0,
+                        left: 0
+                    };
+                    break;
+                case 'right-top':
+                    tooltipStyle = {
+                        top: 0,
+                        left: 0
+                    };
+                    break;
+                case 'right-middle':
+                    tooltipStyle = {
+                        top: targetCoord.top + Math.round((targetCoord.bottom - targetCoord.top) / 2) - tooltipHeight / 2,
+                        left: targetCoord.right + 20
+                    };
+                    break;
+                case 'right-bottom':
+                    tooltipStyle = {
+                        top: 0,
+                        left: 0
+                    };
+                    break;
+            }
         }
+        this.setState({
+            position: position,
+            tooltipStyle: tooltipStyle,
+        });
     };
-    Tooltip.prototype.updateTooltipPosition = function () {
-        var coord = this.state.targetCoord;
-        switch (this.state.position) {
-            case 'center-right':
-                return this.setState({
-                    tooltipStyle: {
-                        top: coord.top + Math.round((coord.bottom - coord.top) / 2) - this.tooltipRef.offsetHeight / 2,
-                        left: coord.right + 20
-                    }
-                });
-            default:
-                return this.setState({
-                    tooltipStyle: {
-                        top: coord.bottom + 10,
-                        left: coord.left
-                    }
-                });
-        }
-    };
-    Tooltip.prototype.show = function (content, type, position) {
+    Tooltip.prototype.show = function (content, position) {
         var _this = this;
         this.setState({
             content: content,
-            type: 'tooltip-' + type,
-            position: position ? position : 'bottom-left',
             show: true
-        }, function () {
-            _this.updateTooltipPosition();
-        });
+        }, function () { return _this.updateTooltipCoord(position ? position : _this.state.position); });
     };
     Tooltip.prototype.hide = function () {
         this.setState({ show: false });
     };
     Tooltip.prototype.render = function () {
         var _this = this;
-        var classes = 'tooltip ' + this.state.type + ' ' + this.state.position;
-        var ChildrenJSX = react_2.default.isValidElement(this.props.children) ? this.props.children : react_2.default.createElement("div", null, this.props.children);
-        ChildrenJSX = react_2.default.cloneElement(react_2.default.Children.only(ChildrenJSX), {
+        var classes = 'ui-tooltip ';
+        if (this.props.type)
+            classes += 'tp-' + this.props.type;
+        if (this.state.position)
+            classes += 'tp-' + this.state.position;
+        var children = react_2.default.isValidElement(this.props.children) ?
+            this.props.children : react_2.default.createElement("div", null, this.props.children);
+        var childrenWithRef = react_2.default.cloneElement(react_2.default.Children.only(children), {
             ref: function (ref) { return _this.targetRef = ref; }
         });
         var TooltipTSX = (react_2.default.createElement("div", { ref: function (ref) { return _this.tooltipRef = ref; }, className: classes, style: this.state.tooltipStyle, children: this.state.content }));
         var ViewportHTML = document.getElementById('0cd82567-7684-4147-ab02-dd3c56332364');
         var Portal = react_dom_1.default.createPortal(TooltipTSX, ViewportHTML ? ViewportHTML : document.body);
         return (react_2.default.createElement(react_1.Fragment, null,
-            ChildrenJSX,
+            childrenWithRef,
             this.state.show ? Portal : null));
     };
     return Tooltip;

@@ -554,7 +554,7 @@ table {
     box-shadow: 0;
   }
 }
-.tooltip {
+.ui-tooltip {
   position: absolute;
   background: #464a58;
   border: 1px solid;
@@ -568,7 +568,7 @@ table {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-.tooltip:before {
+.ui-tooltip:before {
   position: absolute;
   content: "";
   width: 10px;
@@ -578,17 +578,17 @@ table {
   transform: rotate(45deg);
   z-index: 2;
 }
-.tooltip-error {
+.ui-tooltip-error {
   background: #f44336;
   color: white;
   border: none;
 }
-.tooltip-error:before {
+.ui-tooltip-error:before {
   background: #f44336;
   box-shadow: none;
 }
 
-.bottom-left:before {
+.tp-bottom-left:before {
   top: -5px;
   left: 1em;
   right: auto;

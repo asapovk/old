@@ -13,17 +13,19 @@ class TableCustomCell extends React.Component<TableCustomCellProps> {
     render() {
 
         return (
-            <Tooltip ref={ref => this.tooltip = ref}>
-                <div
-                    onClick={event => {
-                        event.stopPropagation();
-                        this.tooltip.show('Hello ' + this.props.row, 'center-right')
-                    }}
-                    style={{ textDecoration: 'underline', textDecorationColor: 'rgb(30, 210, 255)', cursor: 'pointer' }}
-                >
-                    {this.props.row}
-                </div>
-            </Tooltip>
+            <div>
+                <Tooltip ref={ref => this.tooltip = ref}>
+                    <div
+                        onClick={event => {
+                            event.stopPropagation();
+                            this.tooltip.show('Hello ' + this.props.row)
+                        }}
+                        style={{ textDecoration: 'underline', textDecorationColor: 'rgb(30, 210, 255)', cursor: 'pointer', width: 'max-content' }}
+                    >
+                        {this.props.row}
+                    </div>
+                </Tooltip>
+            </div>
         )
     }
 }
