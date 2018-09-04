@@ -28,9 +28,9 @@ export default class TableCheckbox extends React.Component<Props> {
             buttonsComponents.push(
                 <div
                     onClick={() => this.props.onChange(i + 1)}
-                    className={`ui-table-paggination-button${page === i + 1 ? ' active' : ''}`}
+                    className={`ui-table-paggination-button${page === i + 1 ? ' pgn-active' : ''}`}
                     key={i}
-                    children={`${i * pageSize}-${i * pageSize + pageSize}`}
+                    children={`${i * pageSize}–${i * pageSize + pageSize}`}
                 />
             )
         }

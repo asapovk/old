@@ -17,7 +17,7 @@ class TableCustomCell extends React.Component<TableCustomCellProps> {
                 <div
                     onClick={event => {
                         event.stopPropagation();
-                        this.tooltip.show('Hello ' + this.props.row)
+                        this.tooltip.show('Hello ' + this.props.row, 'center-right')
                     }}
                     style={{ textDecoration: 'underline', textDecorationColor: 'rgb(30, 210, 255)', cursor: 'pointer' }}
                 >

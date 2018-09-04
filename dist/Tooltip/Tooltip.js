@@ -97,9 +97,9 @@ var Tooltip = /** @class */ (function (_super) {
         ChildrenJSX = react_2.default.cloneElement(react_2.default.Children.only(ChildrenJSX), {
             ref: function (ref) { return _this.targetRef = ref; }
         });
-        var PopupTSX = (react_2.default.createElement("div", { ref: function (ref) { return _this.tooltipRef = ref; }, className: classes, style: this.state.tooltipStyle, children: this.state.content }));
-        var Viewport = document.getElementById('viewport');
-        var Portal = Viewport && react_dom_1.default.createPortal(PopupTSX, Viewport);
+        var TooltipTSX = (react_2.default.createElement("div", { ref: function (ref) { return _this.tooltipRef = ref; }, className: classes, style: this.state.tooltipStyle, children: this.state.content }));
+        var ViewportHTML = document.getElementById('0cd82567-7684-4147-ab02-dd3c56332364');
+        var Portal = react_dom_1.default.createPortal(TooltipTSX, ViewportHTML ? ViewportHTML : document.body);
         return (react_2.default.createElement(react_1.Fragment, null,
             ChildrenJSX,
             this.state.show ? Portal : null));

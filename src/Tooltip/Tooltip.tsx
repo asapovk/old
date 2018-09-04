@@ -106,7 +106,7 @@ class Tooltip extends React.Component {
             }
         )
 
-        const PopupTSX = (
+        const TooltipTSX = (
             <div
                 ref={ref => this.tooltipRef = ref}
                 className={classes}
@@ -115,8 +115,8 @@ class Tooltip extends React.Component {
             />
         )
 
-        const Viewport = document.getElementById('viewport')
-        const Portal = Viewport && ReactDOM.createPortal(PopupTSX, Viewport);
+        const ViewportHTML = document.getElementById('0cd82567-7684-4147-ab02-dd3c56332364');
+        const Portal = ReactDOM.createPortal(TooltipTSX, ViewportHTML ? ViewportHTML : document.body);
 
         return (
             <Fragment>

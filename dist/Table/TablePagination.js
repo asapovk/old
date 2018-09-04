@@ -32,7 +32,7 @@ var TableCheckbox = /** @class */ (function (_super) {
         }
         var buttonsComponents = [];
         var _loop_1 = function (i) {
-            buttonsComponents.push(react_1.default.createElement("div", { onClick: function () { return _this.props.onChange(i + 1); }, className: "ui-table-paggination-button" + (page === i + 1 ? ' active' : ''), key: i, children: i * pageSize + "-" + (i * pageSize + pageSize) }));
+            buttonsComponents.push(react_1.default.createElement("div", { onClick: function () { return _this.props.onChange(i + 1); }, className: "ui-table-paggination-button" + (page === i + 1 ? ' pgn-active' : ''), key: i, children: i * pageSize + "\u2013" + (i * pageSize + pageSize) }));
         };
         for (var i = 0; i < buttons; i++) {
             _loop_1(i);

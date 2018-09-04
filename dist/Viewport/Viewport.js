@@ -27,7 +27,7 @@ var Viewport = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     Viewport.prototype.render = function () {
-        return (react_1.default.createElement("div", { className: 'ui-view', id: 'viewport', style: this.props.style, children: this.props.children }));
+        return (react_1.default.createElement("div", { className: 'ui-view', id: '0cd82567-7684-4147-ab02-dd3c56332364', style: this.props.style, children: this.props.children }));
     };
     return Viewport;
 }(react_1.Component));

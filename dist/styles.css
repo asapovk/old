@@ -289,24 +289,25 @@ table {
   display: flex;
 }
 .ui-table-paggination {
-  padding: 34px 5px 5px 5px;
+  padding: 54px 5px 5px 0px;
 }
 .ui-table-paggination-button {
   cursor: pointer;
-  border-radius: 4px;
-  padding: 4px;
+  border-radius: 0px 4px 4px 0px;
+  padding: 4px 8px 4px 10px;
   font-size: 12px;
   font-weight: 500;
+  text-align: right;
   color: rgba(255, 255, 255, 0.5);
   background: rgba(255, 255, 255, 0.05);
-  margin-bottom: 5px;
+  margin-bottom: 8px;
 }
 .ui-table-paggination-button:hover {
-  color: rgba(255, 255, 255, 0.8);
+  color: white;
 }
-.ui-table-paggination-button.active {
+.ui-table-paggination-button.pgn-active {
   color: white !important;
-  background: rgba(255, 255, 255, 0.1);
+  background: #464a58;
 }
 
 .ui-button {

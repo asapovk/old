@@ -145,22 +145,23 @@
         }
     }
     &-paggination {
-        padding: 34px 5px 5px 5px;
+        padding: 54px 5px 5px 0px;
         &-button {
             cursor: pointer;
-            border-radius: 4px;
-            padding: 4px;
+            border-radius: 0px 4px 4px 0px;
+            padding: 4px 8px 4px 10px;
             font-size: 12px;
             font-weight: 500;
+            text-align: right;
             color: rgba(255,255,255,0.5);
             background: rgba(255,255,255,0.05);
-            margin-bottom: 5px;
+            margin-bottom: 8px;
             &:hover {
-                color: rgba(255,255,255,0.8);
+                color: $text;
             }
-            &.active {
-                color: rgba(255,255,255,1) !important;
-                background: rgba(255,255,255,0.1);
+            &.pgn-active {
+                color: $text !important;
+                background: $ui-background;
             }
         }
     }

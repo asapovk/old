@@ -8,7 +8,7 @@ interface ViewportProps {
 class Viewport extends Component<ViewportProps> {
     render() {
         return (
-            <div className='ui-view' id='viewport' style={this.props.style} children={this.props.children} />
+            <div className='ui-view' id='0cd82567-7684-4147-ab02-dd3c56332364' style={this.props.style} children={this.props.children} />
         )
     }
 }
