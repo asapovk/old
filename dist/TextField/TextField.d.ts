@@ -1,7 +1,7 @@
 import React from 'react';
 declare enum TextFieldTypes {
-    'Password' = "password",
-    'Numbers' = "number"
+    'password' = "password",
+    'number' = "number"
 }
 interface ValidateObject {
     error?: string;

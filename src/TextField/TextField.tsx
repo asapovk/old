@@ -1,8 +1,8 @@
 import React from 'react';
 
 enum TextFieldTypes {
-    'Password' = 'password',
-    'Numbers' = 'number'
+    'password' = 'password',
+    'number' = 'number'
 }
 
 interface ValidateObject {

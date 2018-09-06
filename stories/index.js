@@ -40,7 +40,7 @@ storiesOf('💥 Core', module)
     .add('TextField', () => (
         <Viewport style={flexCentered}>
             <div style={{ width: '626px', display: 'flex', flexDirection: 'column', height: '500px' }}>
-                <TextField label='Just input' style={{ flexBasis: '90px', flexGrow: '0' }} />
+                <TextField label='Just input' style={{ flexBasis: '90px', flexGrow: '0' }} type='password' />
                 <TextField multiline={true} label='Textarea' style={{ paddingBottom: '40px' }} />
                 <TextField multiline={true} singlerow={true} label='Singlerow textarea' />
             </div>
