@@ -79,6 +79,10 @@ table {
   text-transform: uppercase;
 }
 
+.disabled {
+  opacity: 0.5;
+}
+
 ::-webkit-scrollbar {
   width: 10px;
   border: 2px solid #292b36;
@@ -792,10 +796,6 @@ table {
 .active {
   border-bottom-left-radius: 0 !important;
   border-bottom-right-radius: 0 !important;
-}
-
-.disabled {
-  opacity: 0.5;
 }
 
 .sel-chosen {

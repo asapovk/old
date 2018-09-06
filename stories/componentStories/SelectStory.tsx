@@ -34,6 +34,7 @@ class SelectStory extends React.Component {
                     style={{ padding: '80px' }}
                     clearable={true}
                     multiselect={true}
+                // disabled={true}
                 //onChange={(value) => console.log('Multi', value)}
                 />
                 <Select
@@ -44,6 +45,7 @@ class SelectStory extends React.Component {
                     options={selectOptions}
                     clearable={true}
                     style={{ padding: '80px' }}
+                //disabled={true}
                 //onChange={(value) => console.log('Singe', value)}
                 />
             </Viewport>

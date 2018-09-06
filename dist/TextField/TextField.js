@@ -51,14 +51,19 @@ var UITextField = /** @class */ (function (_super) {
     };
     UITextField.prototype.render = function () {
         var _this = this;
-        var _a = this.props, label = _a.label, value = _a.value, defaultValue = _a.defaultValue, style = _a.style, className = _a.className, multiline = _a.multiline, singlerow = _a.singlerow;
-        var InputTSX = (react_1.default.createElement("input", { className: 'ui-textfield-reset' + (this.props.decoration == 'none' ? '' : ' ui-textfield-input'), defaultValue: defaultValue, value: value, onChange: function (event) { return _this.onChange(event.currentTarget.value); } }));
+        var _a = this.props, label = _a.label, value = _a.value, defaultValue = _a.defaultValue, style = _a.style, className = _a.className, multiline = _a.multiline, singlerow = _a.singlerow, disabled = _a.disabled;
+        var classes = 'ui-textfield ';
+        if (className)
+            classes += className;
+        if (disabled)
+            classes += 'disabled';
+        var InputTSX = (react_1.default.createElement("input", { className: 'ui-textfield-reset' + (this.props.decoration == 'none' ? '' : ' ui-textfield-input'), defaultValue: defaultValue, value: value, onChange: function (event) { return _this.onChange(event.currentTarget.value); }, disabled: disabled }));
         var TextAreaTSX = (react_1.default.createElement("textarea", { className: 'ui-textfield-reset' + (this.props.decoration == 'none' ? '' : ' ui-textfield-textarea'), defaultValue: defaultValue, value: value, onChange: function (event) { return _this.onChange(event.currentTarget.value); }, onKeyDown: function (event) {
                 if (singlerow && event.keyCode === 13) {
                     event.preventDefault();
                 }
-            } }));
-        return (react_1.default.createElement("div", { className: 'ui-textfield' + (className ? ' ' + className : ''), style: style },
+            }, disabled: disabled }));
+        return (react_1.default.createElement("div", { className: classes, style: style },
             label && react_1.default.createElement("div", { className: 'ui-textfield-label' }, label),
             multiline ? TextAreaTSX : InputTSX));
     };

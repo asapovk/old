@@ -15,6 +15,7 @@ interface TextFieldProps {
     multiline?: boolean;
     singlerow?: boolean;
     decoration?: 'none';
+    disabled?: boolean;
     onError?: (error: string[] | null) => void;
     onChange?: (value: string) => void;
 }

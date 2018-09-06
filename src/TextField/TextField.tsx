@@ -16,6 +16,7 @@ interface TextFieldProps {
     multiline?: boolean
     singlerow?: boolean
     decoration?: 'none'
+    disabled?: boolean
     onError?: (error: string[] | null) => void
     onChange?: (value: string) => void
 }
@@ -52,7 +53,11 @@ class UITextField extends React.Component<TextFieldProps> {
     }
 
     render() {
-        const { label, value, defaultValue, style, className, multiline, singlerow } = this.props;
+        const { label, value, defaultValue, style, className, multiline, singlerow, disabled } = this.props;
+
+        let classes = 'ui-textfield ';
+        if (className) classes += className;
+        if (disabled) classes += 'disabled';
 
         const InputTSX = (
             <input
@@ -60,6 +65,7 @@ class UITextField extends React.Component<TextFieldProps> {
                 defaultValue={defaultValue}
                 value={value}
                 onChange={(event) => this.onChange(event.currentTarget.value)}
+                disabled={disabled}
             />
         )
 
@@ -74,11 +80,12 @@ class UITextField extends React.Component<TextFieldProps> {
                         event.preventDefault();
                     }
                 }}
+                disabled={disabled}
             />
         )
 
         return (
-            <div className={'ui-textfield' + (className ? ' ' + className : '')} style={style}>
+            <div className={classes} style={style}>
                 {label && <div className='ui-textfield-label'>{label}</div>}
                 {multiline ? TextAreaTSX : InputTSX}
             </div>

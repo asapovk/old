@@ -212,11 +212,11 @@ class Select extends React.Component<SelectProps> {
         )
 
         return (
-            <div className='ui-select' style={style}>
+            <div className={'ui-select' + (disabled ? ' disabled' : '')} style={style}>
                 <div className='ui-select-label'>
                     {label}
                 </div>
-                <div className={'ui-select-holder' + (menuVisible ? ' active' : '') + (disabled ? ' disabled' : '')} onClick={() => this.toggleMenu()} ref={ref => this.holderRef = ref}>
+                <div className={'ui-select-holder' + (menuVisible ? ' active' : '')} onClick={() => this.toggleMenu()} ref={ref => this.holderRef = ref}>
                     <div className='ui-select-holder-value'>
                         {HolderTSX}
                         {search && SearchTSX}
