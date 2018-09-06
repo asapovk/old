@@ -1,4 +1,8 @@
 import React from 'react';
+declare enum TextFieldTypes {
+    'Password' = "password",
+    'Numbers' = "number"
+}
 interface ValidateObject {
     error?: string;
     regex: RegExp;
@@ -16,6 +20,7 @@ interface TextFieldProps {
     singlerow?: boolean;
     decoration?: 'none';
     disabled?: boolean;
+    type?: TextFieldTypes;
     onError?: (error: string[] | null) => void;
     onChange?: (value: string) => void;
 }

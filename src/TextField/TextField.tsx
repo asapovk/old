@@ -1,5 +1,10 @@
 import React from 'react';
 
+enum TextFieldTypes {
+    'Password' = 'password',
+    'Numbers' = 'number'
+}
+
 interface ValidateObject {
     error?: string
     regex: RegExp
@@ -17,6 +22,7 @@ interface TextFieldProps {
     singlerow?: boolean
     decoration?: 'none'
     disabled?: boolean
+    type?: TextFieldTypes
     onError?: (error: string[] | null) => void
     onChange?: (value: string) => void
 }
@@ -53,7 +59,7 @@ class UITextField extends React.Component<TextFieldProps> {
     }
 
     render() {
-        const { label, value, defaultValue, style, className, multiline, singlerow, disabled } = this.props;
+        const { label, value, defaultValue, style, className, multiline, singlerow, disabled, type } = this.props;
 
         let classes = 'ui-textfield ';
         if (className) classes += className;
@@ -66,6 +72,7 @@ class UITextField extends React.Component<TextFieldProps> {
                 value={value}
                 onChange={(event) => this.onChange(event.currentTarget.value)}
                 disabled={disabled}
+                type={type}
             />
         )
 

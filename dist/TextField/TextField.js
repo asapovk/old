@@ -17,6 +17,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importDefault(require("react"));
+var TextFieldTypes;
+(function (TextFieldTypes) {
+    TextFieldTypes["Password"] = "password";
+    TextFieldTypes["Numbers"] = "number";
+})(TextFieldTypes || (TextFieldTypes = {}));
 var UITextField = /** @class */ (function (_super) {
     __extends(UITextField, _super);
     function UITextField() {
@@ -51,13 +56,13 @@ var UITextField = /** @class */ (function (_super) {
     };
     UITextField.prototype.render = function () {
         var _this = this;
-        var _a = this.props, label = _a.label, value = _a.value, defaultValue = _a.defaultValue, style = _a.style, className = _a.className, multiline = _a.multiline, singlerow = _a.singlerow, disabled = _a.disabled;
+        var _a = this.props, label = _a.label, value = _a.value, defaultValue = _a.defaultValue, style = _a.style, className = _a.className, multiline = _a.multiline, singlerow = _a.singlerow, disabled = _a.disabled, type = _a.type;
         var classes = 'ui-textfield ';
         if (className)
             classes += className;
         if (disabled)
             classes += 'disabled';
-        var InputTSX = (react_1.default.createElement("input", { className: 'ui-textfield-reset' + (this.props.decoration == 'none' ? '' : ' ui-textfield-input'), defaultValue: defaultValue, value: value, onChange: function (event) { return _this.onChange(event.currentTarget.value); }, disabled: disabled }));
+        var InputTSX = (react_1.default.createElement("input", { className: 'ui-textfield-reset' + (this.props.decoration == 'none' ? '' : ' ui-textfield-input'), defaultValue: defaultValue, value: value, onChange: function (event) { return _this.onChange(event.currentTarget.value); }, disabled: disabled, type: type }));
         var TextAreaTSX = (react_1.default.createElement("textarea", { className: 'ui-textfield-reset' + (this.props.decoration == 'none' ? '' : ' ui-textfield-textarea'), defaultValue: defaultValue, value: value, onChange: function (event) { return _this.onChange(event.currentTarget.value); }, onKeyDown: function (event) {
                 if (singlerow && event.keyCode === 13) {
                     event.preventDefault();
