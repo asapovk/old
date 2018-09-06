@@ -17,11 +17,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importDefault(require("react"));
-var TextFieldTypes;
-(function (TextFieldTypes) {
-    TextFieldTypes["password"] = "password";
-    TextFieldTypes["number"] = "number";
-})(TextFieldTypes || (TextFieldTypes = {}));
 var UITextField = /** @class */ (function (_super) {
     __extends(UITextField, _super);
     function UITextField() {
