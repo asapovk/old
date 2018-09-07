@@ -11,7 +11,18 @@
     box-shadow: 0px 2px 4px 0px $shadow;
     &:active {
         box-shadow: none;
-    } 
+    }
+    &.loading {
+        > span:first-child{
+            filter: blur(1px);
+            opacity: 0.4;
+        }
+        > span:last-child{
+            position: absolute;
+            left: 50%;
+            margin-left: -8px;
+        }
+    }
 }
 
 .btn-strip {

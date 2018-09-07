@@ -329,6 +329,15 @@ table {
 .ui-button:active {
   box-shadow: none;
 }
+.ui-button.loading > span:first-child {
+  filter: blur(1px);
+  opacity: 0.4;
+}
+.ui-button.loading > span:last-child {
+  position: absolute;
+  left: 50%;
+  margin-left: -8px;
+}
 
 .btn-strip {
   background: none;
@@ -803,6 +812,7 @@ table {
 }
 
 .ui-spin {
+  display: inline-block;
   line-height: 0;
   -webkit-animation: ui-spin-rotation 1.5s linear infinite;
   -khtml-animation: ui-spin-rotation 1.5s linear infinite;

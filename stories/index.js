@@ -35,7 +35,19 @@ storiesOf('💥 Core', module)
         <SampleStory />
     ))
     .add('Button', () => (
-        <Viewport style={flexCentered}><Button>Click me</Button></Viewport>
+        <Viewport style={flexCentered}>
+            <Flexbox>
+                <Flexbox p={10}>
+                    <Button>Simple button</Button>
+                </Flexbox>
+                <Flexbox p={10}>
+                    <Button decoration="none">Decoration none</Button>
+                </Flexbox>
+                <Flexbox p={10}>
+                    <Button loading>Loading button</Button>
+                </Flexbox>
+            </Flexbox>
+        </Viewport>
     ))
     .add('TextField', () => (
         <Viewport style={flexCentered}>
