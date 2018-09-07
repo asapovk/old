@@ -315,6 +315,7 @@ table {
 }
 
 .ui-button {
+  position: relative;
   border: none;
   font: inherit;
   outline: none;
@@ -337,6 +338,9 @@ table {
   position: absolute;
   left: 50%;
   margin-left: -8px;
+}
+.ui-button.loading > span:last-child > svg {
+  font-size: 18px;
 }
 
 .btn-strip {
