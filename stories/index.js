@@ -13,7 +13,6 @@ import {
     Spinner,
     Spin,
     Modal,
-    Widget,
     Flexbox
 } from '../src';
 
@@ -23,6 +22,7 @@ import FinderStory from './componentStories/FinderStory';
 import FlexboxStory from './componentStories/FlexboxStory';
 import TableStory from './componentStories/TableStory';
 import SelectStory from './componentStories/SelectStory';
+import WidgetStory from './componentStories/WidgetStory';
 import { MenuStory, loginUser } from './componentStories/MenuStory';
 
 const flexCentered = {
@@ -113,19 +113,7 @@ storiesOf('💥 Core', module)
         </Viewport>
     ))
     .add('Widget', () => (
-        <Viewport>
-            <Flexbox>
-                <Flexbox p={10}>
-                    <Widget>Просто виджет</Widget>
-                </Flexbox>
-                <Flexbox p={10}>
-                    <Widget loading={"Виджет с загрузкой"}></Widget>
-                </Flexbox>
-                <Flexbox p={10}>
-                    <Widget title="Stat">Виджет с заголовком</Widget>
-                </Flexbox>
-            </Flexbox>
-        </Viewport>
+        <WidgetStory />
     ))
     .add('Modal', () => (
         <Viewport style={flexCentered}>

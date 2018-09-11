@@ -30,7 +30,10 @@ var Button = /** @class */ (function (_super) {
     Button.prototype.render = function () {
         var _a = this.props, onClick = _a.onClick, title = _a.title, children = _a.children, style = _a.style, loading = _a.loading;
         var classes = 'ui-widget';
-        return (react_1.default.createElement(index_1.Flexbox, { column: true, justifyContent: "center", className: classes, onClick: onClick, style: style },
+        if (onClick) {
+            classes += " ui-widget-clickable";
+        }
+        return (react_1.default.createElement(index_1.Flexbox, { column: true, flex: 1, justifyContent: "center", alignItems: "center", className: classes, onClick: onClick, style: style },
             title ? (react_1.default.createElement("div", { className: "ui-widget-title" }, title)) : "",
             loading ? (react_1.default.createElement(index_1.Flexbox, { column: true, alignItems: "center", alignSelf: "center", justifyContent: "center" },
                 react_1.default.createElement(index_1.Spin, null,

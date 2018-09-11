@@ -15,9 +15,11 @@ class Button extends Component<ButtonProps> {
 
         const { onClick, title, children, style, loading } = this.props;
         let classes = 'ui-widget';
-
+        if (onClick) {
+            classes += " ui-widget-clickable"
+        }
         return (
-            <Flexbox column justifyContent="center" className={classes} onClick={onClick} style={style}>
+            <Flexbox column flex={1} justifyContent="center" alignItems="center" className={classes} onClick={onClick} style={style}>
                 {title ? (
                     <div className="ui-widget-title">{title}</div>
                 ) : ""}

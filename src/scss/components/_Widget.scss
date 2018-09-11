@@ -3,13 +3,25 @@
     background: rgba($shadow, 0.2);
     border: 2px solid rgba($text, 0.2);
     border-radius: 4px;
-    margin: 20px;
+    @include css3-prefix("transition", all .2s);
+    @include css3-prefix("user-select", none);
 
     &-title {
+        width: 100%;
         font-weight: 600;
         font-size: 28px;
         padding-bottom: 15px
     }
+
+    &-clickable {
+        &:hover {
+            @include css3-prefix("transform", scale(1.05));
+        }
+        &:active {
+            @include css3-prefix("transform", scale(1));
+        }
+    }
+
     &-loadingtext {
         padding-top: 10px;
     }
