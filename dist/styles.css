@@ -85,31 +85,31 @@ table {
 
 ::-webkit-scrollbar {
   width: 10px;
-  border: 2px solid #f1f1f1;
+  border: 2px solid #292b36;
   padding: 20px;
 }
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: #292b36;
   border-radius: 5px;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
   border-radius: 5px;
-  background: #7c7c7c;
-  border: 2px solid #f1f1f1;
+  background: #5c6173;
+  border: 2px solid #292b36;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #01a2bb;
+  background: #05afc8;
 }
 
 .ui-view {
-  color: #424242;
-  background: #f1f1f1;
+  color: white;
+  background: #292b36;
   position: absolute;
   top: 0;
   left: 0;
@@ -125,7 +125,7 @@ table {
 }
 .ui-textfield-label {
   font-size: 12px;
-  color: #424242;
+  color: white;
   margin-bottom: 5px;
   text-transform: uppercase;
 }
@@ -145,15 +145,15 @@ table {
 .ui-textfield-input {
   border: 1px solid;
   border-radius: 2px;
-  border-color: #bcc1d1;
-  background: white;
+  border-color: #858ca6;
+  background: #292b36;
 }
 .ui-textfield-textarea {
   height: 100%;
   border: 1px solid;
   border-radius: 2px;
-  border-color: #bcc1d1;
-  background: white;
+  border-color: #858ca6;
+  background: #292b36;
 }
 
 .ui-table {
@@ -170,14 +170,14 @@ table {
   text-transform: uppercase;
   font-size: 14px;
   padding: 10px 20px;
-  color: #464646;
+  color: #b1c6d1;
 }
 .ui-table-content-head-row-column {
   margin-right: 20px;
 }
 .ui-table-content-body {
-  background: white;
-  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
+  background: #464a58;
+  box-shadow: 0px 2px 4px 0px #131419;
 }
 .ui-table-content-body-row {
   display: flex;
@@ -185,7 +185,7 @@ table {
   align-items: stretch;
   padding: 20px;
   border-bottom: solid 1px;
-  border-color: rgba(66, 66, 66, 0.15);
+  border-color: rgba(255, 255, 255, 0.15);
   position: relative;
 }
 .ui-table-content-body-row-column {
@@ -211,14 +211,14 @@ table {
   left: 20px;
   top: 0;
   bottom: 0;
-  background: linear-gradient(90deg, white 80%, rgba(255, 255, 255, 0) 100%);
+  background: linear-gradient(90deg, #464a58 80%, rgba(70, 74, 88, 0) 100%);
   padding-right: 20px;
 }
 .ui-table-content-body-row-select-checkbox {
   height: 28px;
   width: 28px;
   border: solid 2px;
-  border-color: #01a2bb;
+  border-color: #05afc8;
   border-radius: 28px;
   display: flex;
   align-items: center;
@@ -245,7 +245,7 @@ table {
   right: 0;
   top: 0;
   bottom: 0;
-  background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, white 20%);
+  background: linear-gradient(90deg, rgba(70, 74, 88, 0) 0%, #464a58 20%);
   padding-left: 20px;
 }
 .ui-table-content-body-row-actions-buttons-edit {
@@ -255,34 +255,34 @@ table {
 }
 .ui-table-content-body-row-actions svg {
   font-size: 32px;
-  color: #01a2bb;
+  color: #05afc8;
   align-self: center;
 }
 .ui-table-content-body-row-actions button {
   margin-left: 15px;
-  color: #464646;
+  color: #b1c6d1;
   text-transform: uppercase;
   font-size: 14px;
   font-weight: 500;
   box-shadow: none;
 }
 .ui-table-content-body-row-actions .accent {
-  color: #01a2bb;
+  color: #05afc8;
 }
 .ui-table-content-body-row .selected {
   display: flex;
 }
 .ui-table-content-body-row .selected > div {
-  background: #01a2bb;
+  background: #05afc8;
 }
 .ui-table-content-body-row .selected > div > svg {
   display: block;
 }
 .ui-table-content .edited {
-  background: #f1f1f1;
+  background: #292b36;
   border-top: solid 2px;
   border-bottom: solid 2px;
-  border-color: #7c7c7c;
+  border-color: #5c6173;
   padding: 30px 20px;
 }
 .ui-table-content .blur {
@@ -304,16 +304,16 @@ table {
   font-size: 12px;
   font-weight: 500;
   text-align: right;
-  color: rgba(66, 66, 66, 0.5);
-  background: rgba(66, 66, 66, 0.05);
+  color: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.05);
   margin-bottom: 8px;
 }
 .ui-table-paggination-button:hover {
-  color: #424242;
+  color: white;
 }
 .ui-table-paggination-button.pgn-active {
-  color: #424242 !important;
-  background: white;
+  color: white !important;
+  background: #464a58;
 }
 
 .ui-button {
@@ -321,13 +321,13 @@ table {
   border: none;
   font: inherit;
   outline: none;
-  background: white;
-  color: #424242;
-  border-radius: 20px;
+  background: #464a58;
+  color: white;
+  border-radius: 2px;
   padding: 10px 16px;
   width: fit-content;
   cursor: pointer;
-  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 2px 4px 0px #131419;
 }
 .ui-button:active {
   box-shadow: none;
@@ -354,7 +354,7 @@ table {
 .ui-menu {
   display: flex;
   flex-direction: row;
-  background: white;
+  background: #464a58;
   align-items: flex-start;
   padding: 0px 40px;
 }
@@ -390,12 +390,12 @@ table {
   max-width: 632px;
   border: 1px solid;
   border-radius: 2px;
-  border-color: #bcc1d1;
-  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
+  border-color: #858ca6;
+  box-shadow: 0px 2px 4px 0px #131419;
 }
 .ui-menu-interactions-toolsbar-search-icon {
   font-size: 18px;
-  color: #01a2bb;
+  color: #05afc8;
   padding-right: 10px;
   cursor: pointer;
 }
@@ -434,13 +434,13 @@ table {
 }
 
 .nav-active {
-  color: #01a2bb;
+  color: #05afc8;
 }
 .nav-active span {
   position: absolute;
   bottom: 0px;
   height: 3px;
-  background: #01a2bb;
+  background: #05afc8;
   left: 0;
   right: 0;
   z-index: 1;
@@ -465,7 +465,7 @@ table {
 .ui-modal {
   z-index: 500;
   position: fixed;
-  background: rgba(241, 241, 241, 0.3);
+  background: rgba(41, 43, 54, 0.3);
   top: 0;
   left: 0;
   right: 0;
@@ -486,8 +486,8 @@ table {
   opacity: 0;
   visibility: hidden;
   padding: 20px;
-  background: #f1f1f1;
-  border: 1px solid #464646;
+  background: #292b36;
+  border: 1px solid #b1c6d1;
   min-width: 200px;
   position: relative;
   -webkit-transition: all 0.5s;
@@ -545,7 +545,7 @@ table {
   font-size: 26px;
 }
 .ui-modal-title {
-  color: #424242;
+  color: white;
   font-size: 24px;
   font-weight: 500;
   margin-bottom: 20px;
@@ -554,7 +554,7 @@ table {
   display: block;
   font-size: 14px;
   padding-top: 8px;
-  color: #bcc1d1;
+  color: #858ca6;
 }
 
 @media (max-width: 600px) {
@@ -575,14 +575,14 @@ table {
 }
 .ui-tooltip {
   position: absolute;
-  background: white;
+  background: #464a58;
   border: 1px solid;
-  border-color: rgba(241, 241, 241, 0.7);
+  border-color: rgba(41, 43, 54, 0.7);
   padding: 8px 16px;
   font-size: 14px;
   border-radius: 4px;
   box-shadow: 0px 2px 4px 0px rgba(20, 20, 20, 0.2);
-  color: #424242;
+  color: white;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -592,7 +592,7 @@ table {
   content: "";
   width: 10px;
   height: 10px;
-  background: white;
+  background: #464a58;
   -webkit-transform: rotate(45deg);
   transform: rotate(45deg);
   z-index: 2;
@@ -613,7 +613,7 @@ table {
   right: auto;
   bottom: auto;
   margin-left: 0;
-  box-shadow: -1px -1px 0 0 rgba(241, 241, 241, 0.7);
+  box-shadow: -1px -1px 0 0 rgba(41, 43, 54, 0.7);
 }
 
 .ui-login {
@@ -635,7 +635,7 @@ table {
   width: 30px;
   height: 30px;
   font-size: 14px;
-  text-shadow: 0px 1px 6px rgba(0, 0, 0, 0.5);
+  text-shadow: 0px 1px 6px rgba(19, 20, 25, 0.5);
 }
 .ui-login-menu {
   padding: 5px;
@@ -644,7 +644,7 @@ table {
   font-weight: bold;
 }
 .ui-login-menu-login {
-  color: #464646;
+  color: #b1c6d1;
   padding-top: 4px;
 }
 .ui-login-menu-role {
@@ -667,11 +667,11 @@ table {
   box-sizing: border-box;
   flex: 1;
   font-size: 16px;
-  color: #424242;
+  color: white;
 }
 .ui-select-label {
   font-size: 12px;
-  color: #424242;
+  color: white;
   margin-bottom: 5px;
   text-transform: uppercase;
 }
@@ -683,9 +683,9 @@ table {
   -ms-border-radius: 2px;
   -o-border-radius: 2px;
   border-radius: 2px;
-  border-color: #bcc1d1;
+  border-color: #858ca6;
   padding: 8px;
-  background: white;
+  background: #292b36;
   min-height: 20px;
   position: relative;
   display: flex;
@@ -693,7 +693,7 @@ table {
 }
 .ui-select-holder-clear {
   z-index: 1;
-  color: #bcc1d1;
+  color: #858ca6;
   font-size: 16px;
   padding-right: 5px;
   cursor: pointer;
@@ -701,7 +701,7 @@ table {
 .ui-select-holder-down {
   z-index: 1;
   font-size: 14px;
-  color: #bcc1d1;
+  color: #858ca6;
 }
 .ui-select-holder-value {
   flex: 1;
@@ -735,19 +735,19 @@ table {
   padding-left: 5px;
 }
 .ui-select-holder-value-input::placeholder {
-  color: #7c7c7c;
+  color: #5c6173;
 }
 .ui-select-holder-value-placeholder {
-  color: #7c7c7c;
+  color: #5c6173;
   padding-left: 5px;
 }
 .ui-select-holder-value-option {
   z-index: 1;
   font-size: 12px;
   display: flex;
-  color: #01a2bb;
-  background: rgba(1, 162, 187, 0.1);
-  border: 1px solid #01a2bb;
+  color: #05afc8;
+  background: rgba(5, 175, 200, 0.1);
+  border: 1px solid #05afc8;
   -webkit-border-radius: 2px;
   -khtml-border-radius: 2px;
   -moz-border-radius: 2px;
@@ -757,7 +757,7 @@ table {
   margin: 4px;
 }
 .ui-select-holder-value-option-close {
-  border-right: 1px solid #01a2bb;
+  border-right: 1px solid #05afc8;
   display: flex;
   align-items: center;
   padding: 4px;
@@ -778,11 +778,11 @@ table {
   -ms-border-radius: 0 0 2px 2px;
   -o-border-radius: 0 0 2px 2px;
   border-radius: 0 0 2px 2px;
-  border-color: #bcc1d1;
-  border-top-color: rgba(124, 124, 124, 0.3);
+  border-color: #858ca6;
+  border-top-color: rgba(92, 97, 115, 0.3);
   top: 100%;
   width: 100%;
-  background: #f1f1f1;
+  background: #292b36;
   z-index: 11;
   left: 0;
   margin: 0 -1px;
@@ -792,16 +792,16 @@ table {
   padding: 8px;
 }
 .ui-select-menu-item:hover {
-  background: rgba(124, 124, 124, 0.3);
+  background: rgba(92, 97, 115, 0.3);
 }
 .ui-select-menu-item-nofound {
   padding: 10px;
-  color: #7c7c7c;
+  color: #5c6173;
 }
 .ui-select-menu-item-active {
   cursor: pointer;
   padding: 8px;
-  background: rgba(124, 124, 124, 0.3);
+  background: rgba(92, 97, 115, 0.3);
 }
 
 .visible {
@@ -814,7 +814,7 @@ table {
 }
 
 .sel-chosen {
-  background: rgba(124, 124, 124, 0.3);
+  background: rgba(92, 97, 115, 0.3);
 }
 
 .ui-spin {
@@ -1011,7 +1011,7 @@ table {
 .ui-checkbox-input {
   width: 16px;
   height: 16px;
-  border: 1px solid #464646;
+  border: 1px solid #b1c6d1;
   border-radius: 2px;
   display: flex;
   align-items: center;
@@ -1020,7 +1020,7 @@ table {
 .ui-checkbox-label {
   padding-left: 5px;
   font-size: 14px;
-  color: #424242;
+  color: white;
 }
 
 .ch-radio {
@@ -1028,23 +1028,39 @@ table {
 }
 
 .ch-checked {
-  border-color: #01a2bb;
+  border-color: #05afc8;
 }
 
 .circle {
   height: 10px;
   width: 10px;
-  background-color: #424242;
+  background-color: white;
   border-radius: 50%;
 }
 
+.ui-widget {
+  padding: 15px;
+  background: rgba(19, 20, 25, 0.2);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  margin: 20px;
+}
+.ui-widget-title {
+  font-weight: 600;
+  font-size: 28px;
+  padding-bottom: 15px;
+}
+.ui-widget-loadingtext {
+  padding-top: 10px;
+}
+
 .ui-finder {
-  color: #424242;
-  border: 1px solid #bcc1d1;
-  background: white;
+  color: white;
+  border: 1px solid #858ca6;
+  background: #292b36;
 }
 .ui-finder-menu {
-  border-left: 1px solid #bcc1d1;
+  border-left: 1px solid #858ca6;
   margin-left: -1px;
   min-width: 200px;
 }
@@ -1069,23 +1085,23 @@ table {
 }
 .ui-finder-nav-icon, .ui-finder-section-icon {
   font-size: 12px;
-  color: #7c7c7c;
+  color: #5c6173;
   padding-left: 10px;
 }
 .ui-finder-nav-badge, .ui-finder-section-badge {
   font-size: 11px;
-  color: #01a2bb;
-  background: rgba(1, 162, 187, 0.1);
-  border: 1px solid #01a2bb;
+  color: #05afc8;
+  background: rgba(5, 175, 200, 0.1);
+  border: 1px solid #05afc8;
   padding: 0px 4px 2px 4px;
   border-radius: 2px;
   margin-left: 5px;
 }
 .ui-finder-nav:hover, .ui-finder-section:hover {
-  background: rgba(124, 124, 124, 0.4);
+  background: rgba(92, 97, 115, 0.4);
 }
 .ui-finder-nav-active, .ui-finder-section-active {
-  background: rgba(124, 124, 124, 0.2) !important;
+  background: rgba(92, 97, 115, 0.2) !important;
 }
 .ui-finder-nav-children, .ui-finder-section-children {
   padding-left: 20px;
@@ -1098,10 +1114,10 @@ table {
 }
 .ui-finder-filter {
   padding: 10px;
-  border-bottom: 1px solid #bcc1d1;
+  border-bottom: 1px solid #858ca6;
 }
 .ui-finder-filter-input {
-  border: 1px solid #bcc1d1;
+  border: 1px solid #858ca6;
   border-radius: 2px;
 }
 .ui-finder-filter-input input {
@@ -1109,14 +1125,14 @@ table {
   background: none;
   border: none;
   font-size: inherit;
-  color: #424242;
+  color: white;
   padding: 4px;
   outline: none;
   font-size: 14px;
   width: 100%;
 }
 .ui-finder-filter-input input::placeholder {
-  color: #7c7c7c;
+  color: #5c6173;
 }
 .ui-finder-filter-search-icon {
   padding: 0 0px 0 4px;

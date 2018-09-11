@@ -16,4 +16,5 @@ export { Finder as Finder } from './Finder';
 export { FinderNav as FinderNav } from './Finder';
 export { FinderSection as FinderSection } from './Finder';
 export { Modal as Modal } from './Modal';
+export { Widget as Widget } from './Widget';
 export { Portal as Portal } from 'react-portal';

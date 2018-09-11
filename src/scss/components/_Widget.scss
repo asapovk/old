@@ -1,0 +1,16 @@
+.ui-widget {
+    padding: 15px;
+    background: rgba($shadow, 0.2);
+    border: 2px solid rgba($text, 0.2);
+    border-radius: 4px;
+    margin: 20px;
+
+    &-title {
+        font-weight: 600;
+        font-size: 28px;
+        padding-bottom: 15px
+    }
+    &-loadingtext {
+        padding-top: 10px;
+    }
+}

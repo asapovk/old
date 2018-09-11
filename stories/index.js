@@ -13,6 +13,7 @@ import {
     Spinner,
     Spin,
     Modal,
+    Widget,
     Flexbox
 } from '../src';
 
@@ -109,6 +110,21 @@ storiesOf('💥 Core', module)
             <Spin>
                 <Icon type='sync' style={{ fontSize: 32 }} />
             </Spin>
+        </Viewport>
+    ))
+    .add('Widget', () => (
+        <Viewport>
+            <Flexbox>
+                <Flexbox p={10}>
+                    <Widget>Просто виджет</Widget>
+                </Flexbox>
+                <Flexbox p={10}>
+                    <Widget loading={"Виджет с загрузкой"}></Widget>
+                </Flexbox>
+                <Flexbox p={10}>
+                    <Widget title="Stat">Виджет с заголовком</Widget>
+                </Flexbox>
+            </Flexbox>
         </Viewport>
     ))
     .add('Modal', () => (
