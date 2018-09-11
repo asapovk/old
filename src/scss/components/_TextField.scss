@@ -25,11 +25,14 @@
         border: 1px solid;
         border-radius: 2px;
         border-color: $highlight;
+        background: $ui-input-background;
     }
     &-textarea {
         height: 100%;
         border: 1px solid;
         border-radius: 2px;
         border-color: $highlight;
+        background: $ui-input-background;
+
     }
 }

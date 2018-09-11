@@ -1,11 +1,14 @@
 //Mixins
 @import "mixins/css3";
-//Fonts
+
 @import "reset";
-@import "general";
 
 //Theme
 @import 'themes/telegram-dark/Theme';
+@import 'themes/whitebox/Theme';
+
+@import "general";
+
 
 //Components
 @import 'components/Viewport';

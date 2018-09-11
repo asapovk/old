@@ -14,7 +14,7 @@
         @include border-radius(2px);
         border-color: $highlight;
         padding: 8px;
-        background: $page-background;
+        background: $ui-input-background;
         min-height: 20px;
         position: relative;
         display: flex;

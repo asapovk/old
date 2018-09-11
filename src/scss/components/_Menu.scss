@@ -38,7 +38,7 @@ $rowHeightMin: 40px;
                 border: 1px solid;
                 border-radius: 2px;
                 border-color: $highlight;
-                box-shadow: 0px 2px 4px 0px rgba($shadow,0.3); 
+                box-shadow: 0px 2px 4px 0px $shadow; 
                 &-icon {
                     font-size: 18px;
                     color: $accent;

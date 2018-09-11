@@ -1,13 +1,15 @@
 @import 'fonts';
 
-$page-background: rgb(243, 243, 243);
-$text: rgb(31, 31, 31);
-$interface: rgb(51, 8, 49);
-$pale: rgb(231, 231, 231);
+$page-background: rgb(241, 241, 241);
+$text: rgb(66, 66, 66);
+$interface: rgb(70, 70, 70);
+$pale: rgb(124, 124, 124);
 $ui-background: rgb(255, 255, 255);
 $highlight: rgb(188, 193, 209);
-$accent: rgb(0, 139, 160);
+$accent: rgb(1, 162, 187);
 $red: rgb(244, 67, 54);
 $shadow: rgba(0, 0, 0, 0.1);
 
-$interfaceold: rgb(154, 170, 179);
+$ui-input-background: rgb(255, 255, 255);
+$ui-finder-background: rgb(255, 255, 255);
+$ui-button-radius: 20px;

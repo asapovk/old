@@ -5,7 +5,7 @@
     outline: none;
     background: $ui-background;
     color: $text;
-    border-radius: 2px;
+    border-radius: $ui-button-radius;
     padding: 10px 16px;
     width: fit-content;
     cursor: pointer;

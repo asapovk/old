@@ -19,14 +19,14 @@
         }
         &-body {
             background: $ui-background;
-            box-shadow: 0px 2px 4px 0px rgba(20,20,20,0.5);
+            box-shadow: 0px 2px 4px 0px $shadow;
             &-row {
                 display: flex;
                 flex-direction: row;
                 align-items: stretch;
                 padding: 20px;
                 border-bottom: solid 1px;
-                border-color: $pale;
+                border-color: rgba($text, 0.15);
                 position: relative;
                 &-column {
                     margin-right: 20px;
@@ -51,7 +51,7 @@
                     left: 20px;
                     top: 0;
                     bottom: 0;
-                    background: linear-gradient(90deg, rgba(70,74,88,1) 80%, rgba(70,74,88,0) 100%);
+                    background: linear-gradient(90deg, $ui-background 80%, rgba($ui-background ,0) 100%);
                     padding-right: 20px;
                     &-checkbox {
                         height: 28px;
@@ -84,7 +84,7 @@
                         right: 0;
                         top: 0;
                         bottom: 0;
-                        background: linear-gradient(90deg, rgba(70,74,88,0) 0%, rgba(70,74,88,1) 20%);
+                        background: linear-gradient(90deg, rgba($ui-background ,0) 0%, $ui-background 20%);
                         padding-left: 20px;
                         &-edit {
                             display: flex;
@@ -151,8 +151,8 @@
             font-size: 12px;
             font-weight: 500;
             text-align: right;
-            color: rgba(255,255,255,0.5);
-            background: rgba(255,255,255,0.05);
+            color: rgba($text,0.5);
+            background: rgba($text,0.05);
             margin-bottom: 8px;
             &:hover {
                 color: $text;
