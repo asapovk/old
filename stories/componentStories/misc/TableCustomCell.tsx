@@ -1,5 +1,5 @@
 import React from 'react';
-import { Tooltip } from '../../../src';
+import { Popup } from '../../../src';
 
 interface TableCustomCellProps {
     value
@@ -8,23 +8,25 @@ interface TableCustomCellProps {
 
 class TableCustomCell extends React.Component<TableCustomCellProps> {
 
-    tooltip: any;
+    popup: any;
 
     render() {
-
+        const PopupTriggerTSX = (
+            <div
+                style={{
+                    textDecoration: 'underline',
+                    textDecorationColor: 'rgb(30, 210, 255)',
+                    cursor: 'pointer',
+                    width: 'max-content'
+                }}
+                children={this.props.row}
+            />
+        )
         return (
             <div>
-                <Tooltip ref={ref => this.tooltip = ref}>
-                    <div
-                        onClick={event => {
-                            event.stopPropagation();
-                            this.tooltip.show('Hello ' + this.props.row)
-                        }}
-                        style={{ textDecoration: 'underline', textDecorationColor: 'rgb(30, 210, 255)', cursor: 'pointer', width: 'max-content' }}
-                    >
-                        {this.props.row}
-                    </div>
-                </Tooltip>
+                <Popup trigger={PopupTriggerTSX}>
+                    {'Hello ' + this.props.row}
+                </Popup>
             </div>
         )
     }

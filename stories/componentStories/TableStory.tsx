@@ -1,5 +1,5 @@
 import React from 'react';
-import { Viewport, Table, Tooltip } from '../../src';
+import { Viewport, Table } from '../../src';
 import TableCustomCell from './misc/TableCustomCell'
 import Fakerator from 'fakerator';
 

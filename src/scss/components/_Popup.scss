@@ -1,6 +1,6 @@
 $page-background-t: rgba($page-background, 0.7);
 
-.ui-tooltip {
+.ui-popup {
     position: absolute;
     background: $ui-background;
     border: 1px solid;
@@ -34,7 +34,7 @@ $page-background-t: rgba($page-background, 0.7);
     }
 }
 
-.tp-bottom-left {
+.pp-bottom-left {
     &:before {
         top: -5px;
         left:1em;

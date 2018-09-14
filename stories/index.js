@@ -17,7 +17,7 @@ import {
 } from '../src';
 
 import SampleStory from './componentStories/_SampleStory';
-import TooltipStory from './componentStories/TooltipStory';
+import PopupStory from './componentStories/PopupStory';
 import FinderStory from './componentStories/FinderStory';
 import FlexboxStory from './componentStories/FlexboxStory';
 import TableStory from './componentStories/TableStory';
@@ -60,9 +60,9 @@ storiesOf('💥 Core', module)
             <FinderStory />
         </Viewport>
     ))
-    .add('Tooltip', () => (
+    .add('Popup', () => (
         <Viewport style={flexCentered}>
-            <TooltipStory />
+            <PopupStory />
         </Viewport>
     ))
     .add('Checkbox', () => (
