@@ -28,7 +28,7 @@ var Spinner = /** @class */ (function (_super) {
     }
     Spinner.prototype.render = function () {
         if (!this.props.spinning) {
-            return null;
+            return this.props.children || null;
         }
         var spin = (react_1.default.createElement("div", { className: "ui-spinner" + (this.props.dark ? " dark" : "") }, Array(12).fill("").map(function (e, i) { return react_1.default.createElement("div", { key: i }); })));
         if (this.props.center) {

@@ -5,6 +5,6 @@ interface Props {
     dark?: boolean;
 }
 declare class Spinner extends Component<Props> {
-    render(): JSX.Element | null;
+    render(): {} | null;
 }
 export default Spinner;

@@ -1,4 +1,5 @@
 .ui-spin {
+    display: inline-block;
     line-height: 0;
     @include animation(ui-spin-rotation 1.5s linear infinite);
 }

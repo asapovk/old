@@ -9,7 +9,7 @@ interface Props {
 class Spinner extends Component<Props> {
     render() {
         if (!this.props.spinning) {
-            return null;
+            return this.props.children || null;
         }
         const spin = (
             <div className={`ui-spinner${this.props.dark ? " dark" : ""}`}>

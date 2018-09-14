@@ -22,6 +22,7 @@ import FinderStory from './componentStories/FinderStory';
 import FlexboxStory from './componentStories/FlexboxStory';
 import TableStory from './componentStories/TableStory';
 import SelectStory from './componentStories/SelectStory';
+import WidgetStory from './componentStories/WidgetStory';
 import { MenuStory, loginUser } from './componentStories/MenuStory';
 
 const flexCentered = {
@@ -35,7 +36,19 @@ storiesOf('💥 Core', module)
         <SampleStory />
     ))
     .add('Button', () => (
-        <Viewport style={flexCentered}><Button>Click me</Button></Viewport>
+        <Viewport style={flexCentered}>
+            <Flexbox>
+                <Flexbox p={10}>
+                    <Button>Simple button</Button>
+                </Flexbox>
+                <Flexbox p={10}>
+                    <Button decoration="none">Decoration none</Button>
+                </Flexbox>
+                <Flexbox p={10}>
+                    <Button loading>Loading button</Button>
+                </Flexbox>
+            </Flexbox>
+        </Viewport>
     ))
     .add('TextField', () => (
         <Viewport style={flexCentered}>
@@ -98,6 +111,9 @@ storiesOf('💥 Core', module)
                 <Icon type='sync' style={{ fontSize: 32 }} />
             </Spin>
         </Viewport>
+    ))
+    .add('Widget', () => (
+        <WidgetStory />
     ))
     .add('Modal', () => (
         <Viewport style={flexCentered}>

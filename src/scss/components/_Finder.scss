@@ -1,6 +1,7 @@
 .ui-finder {
     color: $text;
     border: 1px solid $highlight;
+    background: $ui-finder-background;
     &-menu {
         border-left: 1px solid $highlight;
         margin-left: -1px;

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Spin, Icon } from '../index';
 
 interface ButtonProps {
     label?: string
@@ -15,16 +16,25 @@ interface ButtonProps {
 class Button extends Component<ButtonProps> {
     render() {
 
-        const { decoration, labelCase, onClick, label, children, className, style } = this.props;
+        const { decoration, labelCase, onClick, label, children, className, style, loading } = this.props;
         let classes = 'ui-button';
 
         if (decoration == 'none') classes += ' btn-strip';
         if (labelCase == 'upper') classes += ' uppercase';
+        if (loading) classes += ' loading';
+
         classes += className ? ' ' + className : '';
 
         return (
-            <button className={classes} onClick={onClick} style={style}>{label || children}</button>
-        )
+            <button className={classes} onClick={onClick} style={style}>
+                <span>{label || children}</span>
+                {loading && (
+                    <Spin>
+                        <Icon type="sync" />
+                    </Spin>
+                )}
+            </button>
+        );
     }
 }
 
