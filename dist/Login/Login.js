@@ -17,14 +17,13 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importDefault(require("react"));
-var Tooltip_1 = require("../Tooltip");
+var Popup_1 = require("../Popup");
 var Login = /** @class */ (function (_super) {
     __extends(Login, _super);
     function Login() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     Login.prototype.render = function () {
-        var _this = this;
         var _a = this.props, name = _a.name, fullname = _a.fullname, login = _a.login, role = _a.role, children = _a.children, avatar = _a.avatar;
         var MenuTSX = (react_1.default.createElement("div", { className: 'ui-login-menu' },
             fullname && react_1.default.createElement("div", { className: 'ui-login-menu-fullname' }, fullname),
@@ -35,10 +34,10 @@ var Login = /** @class */ (function (_super) {
             children && react_1.default.createElement("div", { className: 'ui-login-menu-actions' }, children)));
         var AvatarTSX = (react_1.default.createElement("div", { className: 'ui-login-avatar' }, avatar ? avatar :
             react_1.default.createElement("div", { className: 'ui-login-avatar-generated' }, login.charAt(0))));
-        return (react_1.default.createElement(Tooltip_1.Tooltip, { ref: function (ref) { return _this.tooltip = ref; } },
-            react_1.default.createElement("div", { className: 'ui-login', onClick: function () { return _this.tooltip.show(MenuTSX); } },
-                AvatarTSX,
-                name)));
+        var LoginTSX = (react_1.default.createElement("div", { className: 'ui-login' },
+            AvatarTSX,
+            name));
+        return (react_1.default.createElement(Popup_1.Popup, { trigger: LoginTSX }, MenuTSX));
     };
     return Login;
 }(react_1.default.Component));
