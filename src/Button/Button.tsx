@@ -1,6 +1,17 @@
 import React, { Component } from 'react';
-import { ButtonProps } from './ThemedButton';
 import { Spin, Icon } from '../index';
+
+export interface ButtonProps {
+    label?: string
+    outline?: boolean
+    decoration?: 'none' | 'accent'
+    loading?: boolean
+    icon?: Component
+    labelCase?: 'upper' | 'lower' | 'capitalize' | 'sentence'
+    onClick?: (MouseEvent?) => any
+    className?: string
+    style?: any
+}
 
 interface ThemedButtonProps extends ButtonProps {
     theme
