@@ -1,5 +1,5 @@
 import { Component } from 'react';
-interface ButtonProps {
+interface Props {
     label?: string;
     loading?: boolean | string;
     onClick?: (MouseEvent?: any) => any;
@@ -7,7 +7,7 @@ interface ButtonProps {
     style?: any;
     title?: string;
 }
-declare class Button extends Component<ButtonProps> {
+declare class Widget extends Component<Props> {
     render(): JSX.Element;
 }
-export default Button;
+export default Widget;

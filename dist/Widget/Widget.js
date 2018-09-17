@@ -22,24 +22,24 @@ var __importStar = (this && this.__importStar) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importStar(require("react"));
 var index_1 = require("../index");
-var Button = /** @class */ (function (_super) {
-    __extends(Button, _super);
-    function Button() {
+var Widget = /** @class */ (function (_super) {
+    __extends(Widget, _super);
+    function Widget() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
-    Button.prototype.render = function () {
+    Widget.prototype.render = function () {
         var _a = this.props, onClick = _a.onClick, title = _a.title, children = _a.children, style = _a.style, loading = _a.loading;
         var classes = 'ui-widget';
         if (onClick) {
             classes += " ui-widget-clickable";
         }
-        return (react_1.default.createElement(index_1.Flexbox, { column: true, flex: 1, justifyContent: "center", alignItems: "center", className: classes, onClick: onClick, style: style },
+        return (react_1.default.createElement(index_1.Flexbox, { column: true, flex: 1, justifyContent: "center", className: classes, onClick: onClick, style: style },
             title ? (react_1.default.createElement("div", { className: "ui-widget-title" }, title)) : "",
-            loading ? (react_1.default.createElement(index_1.Flexbox, { column: true, alignItems: "center", alignSelf: "center", justifyContent: "center" },
+            loading ? (react_1.default.createElement(index_1.Flexbox, { column: true, className: "ui-widget-loading", alignItems: "center", alignSelf: "center", justifyContent: "center" },
                 react_1.default.createElement(index_1.Spin, null,
                     react_1.default.createElement(index_1.Icon, { type: "sync" })),
                 typeof loading === "string" && react_1.default.createElement("div", { className: "ui-widget-loadingtext" }, "loading"))) : children));
     };
-    return Button;
+    return Widget;
 }(react_1.Component));
-exports.default = Button;
+exports.default = Widget;

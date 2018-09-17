@@ -1,0 +1,35 @@
+.ui-widgetstat {
+    &-title {
+        font-size: 16px;
+        text-transform: uppercase;
+    }
+    &-subtitle {
+        font-size: 12px;
+        opacity: 0.5;
+    }
+    &-subtitle2 {
+        font-size: 12px;
+        text-align: right;
+        opacity: 0.5;
+    }
+    &-value1 {
+        color: $accent;
+        font-weight: 600;
+        font-size: 28px;
+        text-transform: uppercase;
+    }
+    &-value2 {
+        color: $accent;
+        font-size: 16px;
+        text-transform: uppercase;
+        svg {
+            margin-right: 5px;
+        }
+    }
+    &-extra {
+        background: rgba($shadow, 0.5);
+        margin: 15px -15px -15px -15px;
+        border-top: 1px solid rgba($text, 0.2);
+        // padding: 15px;
+    }
+}

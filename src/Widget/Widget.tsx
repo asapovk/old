@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { Spin, Icon, Flexbox } from '../index';
 
-interface ButtonProps {
+interface Props {
     label?: string
     loading?: boolean | string
     onClick?: (MouseEvent?) => any
@@ -10,7 +10,7 @@ interface ButtonProps {
     title?: string
 }
 
-class Button extends Component<ButtonProps> {
+class Widget extends Component<Props> {
     render() {
 
         const { onClick, title, children, style, loading } = this.props;
@@ -19,12 +19,12 @@ class Button extends Component<ButtonProps> {
             classes += " ui-widget-clickable"
         }
         return (
-            <Flexbox column flex={1} justifyContent="center" alignItems="center" className={classes} onClick={onClick} style={style}>
+            <Flexbox column flex={1} justifyContent="center" className={classes} onClick={onClick} style={style}>
                 {title ? (
                     <div className="ui-widget-title">{title}</div>
                 ) : ""}
                 {loading ? (
-                    <Flexbox column alignItems="center" alignSelf="center" justifyContent="center">
+                    <Flexbox column className="ui-widget-loading" alignItems="center" alignSelf="center" justifyContent="center">
                         <Spin>
                             <Icon type="sync" />
                         </Spin>
@@ -36,4 +36,4 @@ class Button extends Component<ButtonProps> {
     }
 }
 
-export default Button;
+export default Widget;

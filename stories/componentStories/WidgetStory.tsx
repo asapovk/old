@@ -21,6 +21,13 @@ class WidgetStory extends React.Component {
                     <Flexbox p={10}>
                         <Widget title="Виджет кнопка" onClick={_ => this.setState({ counter: this.state.counter + 1 })}>Нажали раз: {this.state.counter}</Widget>
                     </Flexbox>
+                    <Flexbox p={10}>
+                        <Widget title="1 004 491">
+                            <div style={{ color: "rgba(0,0,0,0)" }}>
+                                Пользователей загеристрировано
+                            </div>
+                        </Widget>
+                    </Flexbox>
                 </Flexbox>
             </Viewport>
         )
