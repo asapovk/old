@@ -1,5 +1,5 @@
 import React from 'react';
-import { Tooltip } from '../Tooltip';
+import { Popup } from '../Popup';
 
 interface LoginProps {
     name: any
@@ -33,13 +33,17 @@ class Login extends React.Component<LoginProps> {
             </div>
         )
 
+        const LoginTSX = (
+            <div className='ui-login'>
+                {AvatarTSX}
+                {name}
+            </div>
+        )
+
         return (
-            <Tooltip ref={ref => this.tooltip = ref}>
-                <div className='ui-login' onClick={() => this.tooltip.show(MenuTSX)}>
-                    {AvatarTSX}
-                    {name}
-                </div>
-            </Tooltip>
+            <Popup trigger={LoginTSX}>
+                {MenuTSX}
+            </Popup>
         )
     }
 }

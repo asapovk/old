@@ -5,8 +5,12 @@ export { Viewport as Viewport } from './Viewport'
 export { Button as Button } from './Button'
 export { Menu as Menu } from './Menu'
 export { Nav as Nav } from './Menu'
+<<<<<<< HEAD
 export { Tooltip as Tooltip } from './Tooltip'
 export { Title as Title } from './Title'
+=======
+export { Popup as Popup } from './Popup'
+>>>>>>> 9bc342ce079fdc991cad0080151bb1c5f88c4457
 export { Icon as Icon } from './Icon'
 export { Login as Login } from './Login'
 export { Spin as Spin } from './Spin'
