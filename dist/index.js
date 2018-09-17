@@ -14,15 +14,10 @@ var Menu_1 = require("./Menu");
 exports.Menu = Menu_1.Menu;
 var Menu_2 = require("./Menu");
 exports.Nav = Menu_2.Nav;
-<<<<<<< HEAD
-var Tooltip_1 = require("./Tooltip");
-exports.Tooltip = Tooltip_1.Tooltip;
-var Title_1 = require("./Title");
-exports.Title = Title_1.Title;
-=======
 var Popup_1 = require("./Popup");
 exports.Popup = Popup_1.Popup;
->>>>>>> 9bc342ce079fdc991cad0080151bb1c5f88c4457
+var Title_1 = require("./Title");
+exports.Title = Title_1.Title;
 var Icon_1 = require("./Icon");
 exports.Icon = Icon_1.Icon;
 var Login_1 = require("./Login");
