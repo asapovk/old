@@ -1,32 +1,24 @@
 import React, { Component } from 'react';
+import { ButtonProps } from './ThemedButton';
 import { Spin, Icon } from '../index';
 
-interface ButtonProps {
-    label?: string
-    outline?: boolean
-    decoration?: 'none' | 'accent'
-    loading?: boolean
-    icon?: Component
-    labelCase?: 'upper' | 'lower' | 'capitalize' | 'sentence'
-    onClick?: (MouseEvent?) => any
-    className?: string
-    style?: any
+interface ThemedButtonProps extends ButtonProps {
+    theme
 }
 
-class Button extends Component<ButtonProps> {
+class Button extends Component<ThemedButtonProps> {
     render() {
 
-        const { decoration, labelCase, onClick, label, children, className, style, loading } = this.props;
+        const { labelCase, onClick, label, children, className, style, loading, theme } = this.props;
         let classes = 'ui-button';
 
-        if (decoration == 'none') classes += ' btn-strip';
         if (labelCase == 'upper') classes += ' uppercase';
         if (loading) classes += ' loading';
 
         classes += className ? ' ' + className : '';
 
         return (
-            <button className={classes} onClick={onClick} style={style}>
+            <button className={classes} onClick={onClick} style={{ ...theme.btnStyle, ...style }}>
                 <span>{label || children}</span>
                 {loading && (
                     <Spin>

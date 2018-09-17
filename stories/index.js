@@ -36,7 +36,7 @@ storiesOf('💥 Core', module)
         <SampleStory />
     ))
     .add('Button', () => (
-        <Viewport style={flexCentered}>
+        <Viewport style={flexCentered} theme='telegramDark'>
             <Flexbox>
                 <Flexbox p={10}>
                     <Button>Simple button</Button>
