@@ -23,6 +23,8 @@ import FlexboxStory from './componentStories/FlexboxStory';
 import TableStory from './componentStories/TableStory';
 import SelectStory from './componentStories/SelectStory';
 import WidgetStory from './componentStories/WidgetStory';
+import TitleStory from './componentStories/TitleStory';
+import WidgetStatStory from './componentStories/WidgetStatStory';
 import { MenuStory, loginUser } from './componentStories/MenuStory';
 
 const flexCentered = {
@@ -78,6 +80,9 @@ storiesOf('💥 Core', module)
             <TooltipStory />
         </Viewport>
     ))
+    .add('Title', () => (
+        <TitleStory />
+    ))
     .add('Checkbox', () => (
         <Viewport style={flexCentered}>
             <Checkbox label='Check me' style={{ paddingRight: '40px' }} />
@@ -114,6 +119,9 @@ storiesOf('💥 Core', module)
     ))
     .add('Widget', () => (
         <WidgetStory />
+    ))
+    .add('WidgetStat', () => (
+        <WidgetStatStory />
     ))
     .add('Modal', () => (
         <Viewport style={flexCentered}>

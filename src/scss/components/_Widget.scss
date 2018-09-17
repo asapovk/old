@@ -3,26 +3,28 @@
     background: rgba($shadow, 0.2);
     border: 2px solid rgba($text, 0.2);
     border-radius: 4px;
-    @include css3-prefix("transition", all .2s);
+    @include css3-prefix("transition", all .1s);
     @include css3-prefix("user-select", none);
-
-    &-title {
-        width: 100%;
-        font-weight: 600;
-        font-size: 28px;
-        padding-bottom: 15px
-    }
 
     &-clickable {
         &:hover {
             @include css3-prefix("transform", scale(1.05));
         }
         &:active {
-            @include css3-prefix("transform", scale(1));
+            @include css3-prefix("transform", scale(1.03));
         }
     }
 
+    &-loading {
+        font-size: 24px;
+        font-weight: 500;
+        color: rgba($text, 0.5);
+        svg { 
+            color: $accent;
+        }
+    }
     &-loadingtext {
+        font-size: 16px;
         padding-top: 10px;
     }
 }
