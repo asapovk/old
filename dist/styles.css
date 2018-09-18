@@ -1254,4 +1254,35 @@ table {
   transform: scale(1.1);
 }
 
+.ui-chart {
+  padding: 15px;
+  background: rgba(19, 20, 25, 0.2);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  -webkit-transition: all 0.1s;
+  -khtml-transition: all 0.1s;
+  -moz-transition: all 0.1s;
+  -ms-transition: all 0.1s;
+  -o-transition: all 0.1s;
+  transition: all 0.1s;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+.ui-chart-loading {
+  font-size: 24px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.5);
+}
+.ui-chart-loading svg {
+  color: #05afc8;
+}
+.ui-chart-loadingtext {
+  font-size: 16px;
+  padding-top: 10px;
+}
+
 /*# sourceMappingURL=styles.css.map */

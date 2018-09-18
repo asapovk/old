@@ -35,80 +35,56 @@ var react_chartjs_2_1 = require("react-chartjs-2");
 var Chart = /** @class */ (function (_super) {
     __extends(Chart, _super);
     function Chart() {
-        var _this = _super !== null && _super.apply(this, arguments) || this;
-        _this.state = {
-            value: 0
-        };
-        return _this;
+        return _super !== null && _super.apply(this, arguments) || this;
     }
-    Chart.prototype.componentWillMount = function () {
-        if (this.props.data) {
-            this.setState({
-                value: this.props.data.length - 1
-            });
-        }
-    };
-    Chart.prototype.changeDataSet = function () {
-        var item = this.props.data[this.state.value];
-        if (!item)
-            return;
-        return {
-            label: item.title,
-            data: item.values,
-            pointHoverBackgroundColor: item.backgroundColor || this.props.theme.background,
-            pointHoverBorderColor: item.borderColor || this.props.theme.text,
-            backgroundColor: item.backgroundColor || this.props.theme.background,
-            borderColor: item.borderColor || this.props.theme.accent,
-            borderJoinStyle: item.borderJoinStyle || 'miter',
-            borderCapStyle: item.borderCapStyle || 'butt',
-        };
-    };
     Chart.prototype.render = function () {
-        var _this = this;
+        var _a = this.props, labels = _a.labels, data = _a.data, responsive = _a.responsive, tension = _a.tension, loading = _a.loading, style = _a.style, legendDisplay = _a.legendDisplay, theme = _a.theme;
         chart_js_1.defaults.global.defaultFontColor = "#fff";
         chart_js_1.defaults.global.defaultFontSize = 14;
-        chart_js_1.defaults.global.responsive = this.props.responsive || true;
-        var data = {
-            labels: this.props.labels,
-            datasets: [Object.assign({}, this.changeDataSet(), {
+        chart_js_1.defaults.global.responsive = responsive || true;
+        var chartData = {
+            labels: labels,
+            datasets: data.map(function (item) {
+                return {
+                    label: item.title,
+                    data: item.values,
+                    pointHoverBackgroundColor: item.backgroundColor || theme.background,
+                    pointHoverBorderColor: item.borderColor || theme.text,
+                    backgroundColor: item.backgroundColor || theme.background,
+                    borderColor: item.borderColor || theme.accent,
+                    borderJoinStyle: item.borderJoinStyle || 'miter',
+                    borderCapStyle: item.borderCapStyle || 'butt',
                     fill: false,
-                    lineTension: this.props.tension || 0.4,
+                    lineTension: tension || 0.4,
                     borderDash: [],
                     borderDashOffset: 0.0,
-                    pointBorderColor: this.props.theme.accent,
-                    pointBackgroundColor: this.props.theme.background,
+                    pointBorderColor: theme.accent,
+                    pointBackgroundColor: theme.background,
                     pointBorderWidth: 2,
                     pointRadius: 6,
                     pointHitRadius: 6,
                     pointHoverRadius: 6,
                     pointHoverBorderWidth: 2,
-                })]
+                };
+            })
         };
-        return (react_1.default.createElement(index_1.Flexbox, { column: true, flex: 1, justifyContent: "center", style: this.props.style, className: "ui-chart" }, this.props.loading ? (react_1.default.createElement(index_1.Flexbox, { column: true, className: "ui-chart-loading", alignItems: "center", alignSelf: "center", justifyContent: "center" },
+        return (react_1.default.createElement(index_1.Flexbox, { column: true, flex: 1, justifyContent: "center", className: "ui-chart" }, loading ? (react_1.default.createElement(index_1.Flexbox, { column: true, className: "ui-chart-loading", alignItems: "center", alignSelf: "center", justifyContent: "center" },
             react_1.default.createElement(index_1.Spin, null,
                 react_1.default.createElement(index_1.Icon, { type: "sync" })),
-            typeof this.props.loading === "string" && react_1.default.createElement("div", { className: "ui-chart-loadingtext" }, "loading"))) : react_1.default.createElement(index_1.Flexbox, null,
-            react_1.default.createElement(index_1.Select, { style: { position: 'absolute', width: '120px', top: 30, left: 80 }, options: this.props.data.map(function (item, i) {
-                    return {
-                        text: item.title,
-                        value: i.toString()
-                    };
-                }), defaultValue: this.state.value.toString(), onChange: function (val) { return _this.setState({
-                    value: val
-                }); }, label: this.props.selectLabel }),
-            react_1.default.createElement(react_chartjs_2_1.Line, { data: data, options: {
+            typeof loading === "string" && react_1.default.createElement("div", { className: "ui-chart-loadingtext" }, "loading"))) :
+            react_1.default.createElement(react_chartjs_2_1.Line, { data: chartData, options: {
                     scales: {
                         xAxes: [{
                                 display: true,
                                 gridLines: {
-                                    color: this.props.theme.accent,
+                                    color: theme.accent,
                                     lineWidth: 0.2,
                                 }
                             }],
                         yAxes: [{
                                 display: true,
                                 gridLines: {
-                                    color: this.props.theme.accent,
+                                    color: theme.accent,
                                     lineWidth: 0.2,
                                 },
                                 ticks: {
@@ -117,9 +93,9 @@ var Chart = /** @class */ (function (_super) {
                             }],
                     },
                     legend: {
-                        display: false
+                        display: legendDisplay || true
                     }
-                } }))));
+                } })));
     };
     return Chart;
 }(react_1.default.Component));
