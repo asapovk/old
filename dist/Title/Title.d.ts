@@ -12,6 +12,7 @@ declare class Title extends Component<Props> {
     state: {
         on: boolean;
     };
+    onChange(on: any): void;
     componentWillMount(): void;
     render(): JSX.Element;
 }

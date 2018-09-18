@@ -15,9 +15,15 @@ class Title extends Component<Props> {
     state = {
         on: false
     }
+    onChange(on) {
+        this.setState({ on });
+        if (this.props.onChange) {
+            this.props.onChange(on);
+        }
+    }
     componentWillMount() {
         if (this.props.defaultValue) {
-            this.setState({ on: true });
+            this.onChange(true);
         }
     }
     render() {
@@ -32,15 +38,15 @@ class Title extends Component<Props> {
                 {(typeof onChange === "function") ? (
                     <Flexbox>
                         <div
-                            onClick={() => this.setState({ on: true })}
+                            onClick={() => this.onChange(true)}
                             className={`ui-title-action${state ? " ui-title-action-active" : ""}`}>{onLabel || "ВКЛ"}</div>
                         <div
-                            onClick={() => this.setState({ on: !state })}
-                            className={`ui-title-switch${!state ? " ui-title-switch-active" : ""}`}>
-                            <span />
-                        </div>
+                            onClick={() => this.onChange(!state)}
+                            className={`ui-title-switch${!state ? " ui-title-switch-active" : ""}`}
+                            children={<span />}
+                        />
                         <div
-                            onClick={() => this.setState({ on: false })}
+                            onClick={() => this.onChange(false)}
                             className={`ui-title-action${!state ? " ui-title-action-active" : ""}`}>{offLabel || "ВЫКЛ"}</div>
                     </Flexbox>
                 ) : null}

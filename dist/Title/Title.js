@@ -31,9 +31,15 @@ var Title = /** @class */ (function (_super) {
         };
         return _this;
     }
+    Title.prototype.onChange = function (on) {
+        this.setState({ on: on });
+        if (this.props.onChange) {
+            this.props.onChange(on);
+        }
+    };
     Title.prototype.componentWillMount = function () {
         if (this.props.defaultValue) {
-            this.setState({ on: true });
+            this.onChange(true);
         }
     };
     Title.prototype.render = function () {
@@ -44,10 +50,9 @@ var Title = /** @class */ (function (_super) {
         return (react_1.default.createElement(index_1.Flexbox, { className: classes, style: style },
             children,
             (typeof onChange === "function") ? (react_1.default.createElement(index_1.Flexbox, null,
-                react_1.default.createElement("div", { onClick: function () { return _this.setState({ on: true }); }, className: "ui-title-action" + (state ? " ui-title-action-active" : "") }, onLabel || "ВКЛ"),
-                react_1.default.createElement("div", { onClick: function () { return _this.setState({ on: !state }); }, className: "ui-title-switch" + (!state ? " ui-title-switch-active" : "") },
-                    react_1.default.createElement("span", null)),
-                react_1.default.createElement("div", { onClick: function () { return _this.setState({ on: false }); }, className: "ui-title-action" + (!state ? " ui-title-action-active" : "") }, offLabel || "ВЫКЛ"))) : null));
+                react_1.default.createElement("div", { onClick: function () { return _this.onChange(true); }, className: "ui-title-action" + (state ? " ui-title-action-active" : "") }, onLabel || "ВКЛ"),
+                react_1.default.createElement("div", { onClick: function () { return _this.onChange(!state); }, className: "ui-title-switch" + (!state ? " ui-title-switch-active" : ""), children: react_1.default.createElement("span", null) }),
+                react_1.default.createElement("div", { onClick: function () { return _this.onChange(false); }, className: "ui-title-action" + (!state ? " ui-title-action-active" : "") }, offLabel || "ВЫКЛ"))) : null));
     };
     return Title;
 }(react_1.Component));

@@ -331,6 +331,7 @@ table {
   border-radius: 20px;
 }
 .ui-title-switch > span {
+  transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
   position: absolute;
   top: 4px;
   left: 4px;
@@ -341,14 +342,14 @@ table {
   background: #05afc8;
 }
 .ui-title-switch-active > span {
-  left: auto;
-  right: 4px;
+  left: 34px;
 }
 .ui-title-action {
   cursor: pointer;
   padding: 0 10px;
   color: #05afc8;
   opacity: 0.3;
+  transition: opacity 0.3s cubic-bezier(0.19, 1, 0.22, 1);
 }
 .ui-title-action-active {
   opacity: 1;

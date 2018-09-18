@@ -13,6 +13,7 @@
         width: 60px;
         border-radius: 20px;
         > span {
+            transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
             position: absolute;
             top: 4px;
             left: 4px;
@@ -24,8 +25,7 @@
         }
         &-active {
             > span {
-                left: auto;
-                right: 4px;
+                left: 34px;
             }
         }
     }
@@ -34,6 +34,7 @@
         padding: 0 10px;
         color: $accent;
         opacity: 0.3;
+        transition: opacity 0.3s cubic-bezier(0.19, 1, 0.22, 1);
         &-active {
             opacity: 1;
         }
