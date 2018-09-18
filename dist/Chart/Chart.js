@@ -28,7 +28,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importDefault(require("react"));
-var Select_1 = require("../Select");
+var index_1 = require("../index");
 var Themes_1 = __importDefault(require("../Themes"));
 var chart_js_1 = require("chart.js");
 var react_chartjs_2_1 = require("react-chartjs-2");
@@ -82,8 +82,11 @@ var Chart = /** @class */ (function (_super) {
                     pointHoverBorderWidth: 2,
                 })]
         };
-        return (react_1.default.createElement("div", { style: { padding: 15 } },
-            react_1.default.createElement(Select_1.Select, { style: { position: 'absolute', width: '120px', top: 30, left: 80 }, options: this.props.data.map(function (item, i) {
+        return (react_1.default.createElement(index_1.Flexbox, { column: true, flex: 1, justifyContent: "center", style: this.props.style, className: "ui-chart" }, this.props.loading ? (react_1.default.createElement(index_1.Flexbox, { column: true, className: "ui-chart-loading", alignItems: "center", alignSelf: "center", justifyContent: "center" },
+            react_1.default.createElement(index_1.Spin, null,
+                react_1.default.createElement(index_1.Icon, { type: "sync" })),
+            typeof this.props.loading === "string" && react_1.default.createElement("div", { className: "ui-chart-loadingtext" }, "loading"))) : react_1.default.createElement(index_1.Flexbox, null,
+            react_1.default.createElement(index_1.Select, { style: { position: 'absolute', width: '120px', top: 30, left: 80 }, options: this.props.data.map(function (item, i) {
                     return {
                         text: item.title,
                         value: i.toString()
@@ -114,7 +117,7 @@ var Chart = /** @class */ (function (_super) {
                     legend: {
                         display: false
                     }
-                } })));
+                } }))));
     };
     return Chart;
 }(react_1.default.Component));

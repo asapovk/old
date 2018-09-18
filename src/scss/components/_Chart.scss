@@ -1,0 +1,22 @@
+.ui-chart {
+    padding: 15px;
+    background: rgba($shadow, 0.2);
+    border: 2px solid rgba($text, 0.2);
+    border-radius: 4px;
+    
+    @include css3-prefix("transition", all .1s);
+    @include css3-prefix("user-select", none);
+
+    &-loading {
+        font-size: 24px;
+        font-weight: 500;
+        color: rgba($text, 0.5);
+        svg { 
+            color: $accent;
+        }
+    }
+    &-loadingtext {
+        font-size: 16px;
+        padding-top: 10px;
+    }
+}

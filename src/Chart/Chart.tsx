@@ -1,6 +1,5 @@
 import React from 'react';
-import { Icon } from '../Icon';
-import { Select } from '../Select';
+import { Spin, Icon, Flexbox, Select } from '../index';
 import Theme from '../Themes';
 import { defaults } from 'chart.js';
 import { Line } from 'react-chartjs-2';
@@ -17,7 +16,9 @@ export interface Props {
     labels: string[]
     data: DataSet[]
     responsive?: boolean
-    tension?: number
+    tension?: number,
+    loading?: boolean,
+    style?: any
 }
 export interface ThemedProps extends Props {
     theme
@@ -77,45 +78,54 @@ class Chart extends React.Component<ThemedProps> {
 
         };
         return (
-            <div style={{ padding: 15 }}>
-                <Select
-                    style={{ position: 'absolute', width: '120px', top: 30, left: 80 }}
-                    options={this.props.data.map((item, i) => {
-                        return {
-                            text: item.title,
-                            value: i.toString()
-                        }
-                    })}
-                    defaultValue={this.state.value.toString()}
-                    onChange={(val) => this.setState({
-                        value: val
-                    })}
-                />
-                <Line data={data} options={{
-                    scales: {
-                        xAxes: [{
-                            display: true,
-                            gridLines: {
-                                color: this.props.theme.accent,
-                                lineWidth: 0.2,
-                            }
-                        }],
-                        yAxes: [{
-                            display: true,
-                            gridLines: {
-                                color: this.props.theme.accent,
-                                lineWidth: 0.2,
+            <Flexbox column flex={1} justifyContent="center" style={this.props.style} className="ui-chart">
+                {this.props.loading ? (
+                    <Flexbox column className="ui-chart-loading" alignItems="center" alignSelf="center" justifyContent="center">
+                        <Spin>
+                            <Icon type="sync" />
+                        </Spin>
+                        {typeof this.props.loading === "string" && <div className="ui-chart-loadingtext">loading</div>}
+                    </Flexbox>
+                ) : <Flexbox>
+                        <Select
+                            style={{ position: 'absolute', width: '120px', top: 30, left: 80 }}
+                            options={this.props.data.map((item, i) => {
+                                return {
+                                    text: item.title,
+                                    value: i.toString()
+                                }
+                            })}
+                            defaultValue={this.state.value.toString()}
+                            onChange={(val) => this.setState({
+                                value: val
+                            })}
+                        />
+                        <Line data={data} options={{
+                            scales: {
+                                xAxes: [{
+                                    display: true,
+                                    gridLines: {
+                                        color: this.props.theme.accent,
+                                        lineWidth: 0.2,
+                                    }
+                                }],
+                                yAxes: [{
+                                    display: true,
+                                    gridLines: {
+                                        color: this.props.theme.accent,
+                                        lineWidth: 0.2,
+                                    },
+                                    ticks: {
+                                        beginAtZero: true
+                                    }
+                                }],
                             },
-                            ticks: {
-                                beginAtZero: true
+                            legend: {
+                                display: false
                             }
-                        }],
-                    },
-                    legend: {
-                        display: false
-                    }
-                }} />
-            </div >
+                        }} />
+                    </Flexbox>}
+            </Flexbox>
         );
     }
 }
