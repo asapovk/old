@@ -1,6 +1,6 @@
 .ui-widgetstat {
     &-title {
-        font-size: 16px;
+        font-size: 18px;
         text-transform: uppercase;
     }
     &-subtitle {
@@ -20,11 +20,19 @@
     }
     &-value2 {
         color: $accent;
-        font-size: 16px;
+        font-size: 18px;
         text-transform: uppercase;
         svg {
-            margin-right: 5px;
+            position: absolute;
+            left: -30px;
+            top: -5px;
+            font-size: 28px;
         }
+    }
+    &-button {
+        font-size: 14px;
+        padding: 10px 10px;
+        text-decoration: underline;
     }
     &-extra {
         background: rgba($shadow, 0.5);

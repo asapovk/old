@@ -26,7 +26,7 @@ class WidgetStat extends Component<Props> {
                 <Flexbox column className={classes}>
                     <Flexbox flex={1}>
                         <Flexbox pr={10} flex={1} className="ui-widgetstat-title">{title}</Flexbox>
-                        <Flexbox className="ui-widgetstat-value2"><Icon type="more" />{value2}</Flexbox>
+                        <Flexbox className="ui-widgetstat-value2"><Icon type="chart" />{value2}</Flexbox>
                     </Flexbox>
                     <Flexbox pt={5}>
                         <Flexbox pr={10} flex={1} className="ui-widgetstat-subtitle">{subtitle}</Flexbox>
@@ -34,7 +34,7 @@ class WidgetStat extends Component<Props> {
                     </Flexbox>
                     <Flexbox pt={10} alignItems="center">
                         <Flexbox pr={10} flex={1} className="ui-widgetstat-value1">{value1}</Flexbox>
-                        {typeof onClick === "function" ? <Button onClick={onClick}>{actionTitle || "Подробнее"}</Button> : null}
+                        {typeof onClick === "function" ? <Button decoration="none" className="ui-widgetstat-button" onClick={onClick}>{actionTitle || "Подробнее"}</Button> : null}
                     </Flexbox>
                 </Flexbox>
                 {typeof children !== "undefined" ? (

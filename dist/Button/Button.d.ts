@@ -1,5 +1,5 @@
 import { Component } from 'react';
-interface ButtonProps {
+export interface ButtonProps {
     label?: string;
     outline?: boolean;
     decoration?: 'none' | 'accent';
@@ -10,7 +10,10 @@ interface ButtonProps {
     className?: string;
     style?: any;
 }
-declare class Button extends Component<ButtonProps> {
+interface ThemedButtonProps extends ButtonProps {
+    theme: any;
+}
+declare class Button extends Component<ThemedButtonProps> {
     render(): JSX.Element;
 }
 export default Button;

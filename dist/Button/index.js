@@ -1,4 +1,4 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var Button_1 = require("./Button");
-exports.Button = Button_1.default;
+var ThemedButton_1 = require("./ThemedButton");
+exports.Button = ThemedButton_1.default;

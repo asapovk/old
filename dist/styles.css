@@ -108,8 +108,6 @@ table {
 }
 
 .ui-view {
-  color: white;
-  background: #292b36;
   position: absolute;
   top: 0;
   left: 0;
@@ -361,13 +359,9 @@ table {
   border: none;
   font: inherit;
   outline: none;
-  background: #464a58;
-  color: white;
-  border-radius: 2px;
   padding: 10px 16px;
   width: fit-content;
   cursor: pointer;
-  box-shadow: 0px 2px 4px 0px #131419;
 }
 .ui-button:active {
   box-shadow: none;
@@ -383,12 +377,6 @@ table {
 }
 .ui-button.loading > span:last-child > svg {
   font-size: 18px;
-}
-
-.btn-strip {
-  background: none;
-  box-shadow: none;
-  padding: 0;
 }
 
 .ui-menu {
@@ -1126,7 +1114,7 @@ table {
 }
 
 .ui-widgetstat-title {
-  font-size: 16px;
+  font-size: 18px;
   text-transform: uppercase;
 }
 .ui-widgetstat-subtitle {
@@ -1146,11 +1134,19 @@ table {
 }
 .ui-widgetstat-value2 {
   color: #05afc8;
-  font-size: 16px;
+  font-size: 18px;
   text-transform: uppercase;
 }
 .ui-widgetstat-value2 svg {
-  margin-right: 5px;
+  position: absolute;
+  left: -30px;
+  top: -5px;
+  font-size: 28px;
+}
+.ui-widgetstat-button {
+  font-size: 14px;
+  padding: 10px 10px;
+  text-decoration: underline;
 }
 .ui-widgetstat-extra {
   background: rgba(19, 20, 25, 0.5);
