@@ -18,8 +18,10 @@ export interface Props {
     responsive?: boolean
     tension?: number,
     loading?: boolean,
-    style?: any
+    style?: any,
+    selectLabel?: string
 }
+
 export interface ThemedProps extends Props {
     theme
 }
@@ -39,7 +41,6 @@ class Chart extends React.Component<ThemedProps> {
 
     changeDataSet() {
         const item = this.props.data[this.state.value];
-
         if (!item) return;
 
         return {
@@ -77,7 +78,6 @@ class Chart extends React.Component<ThemedProps> {
                 pointHoverRadius: 6,
                 pointHoverBorderWidth: 2,
             })]
-
         };
         return (
             <Flexbox column flex={1} justifyContent="center" style={this.props.style} className="ui-chart">
@@ -101,6 +101,7 @@ class Chart extends React.Component<ThemedProps> {
                             onChange={(val) => this.setState({
                                 value: val
                             })}
+                            label={this.props.selectLabel}
                         />
                         <Line data={data} options={{
                             scales: {
