@@ -7,7 +7,7 @@ interface DataSet {
     borderJoinStyle?: "bevel" | "round" | "miter";
 }
 export interface Props {
-    labals: string[];
+    labels: string[];
     data: DataSet[];
     responsive?: boolean;
     tension?: number;

@@ -16,6 +16,7 @@ interface Props {
 }
 
 class WidgetStat extends Component<Props> {
+
     render() {
 
         const { children, onClick, actionTitle, loading, style, title, subtitle, subtitle2, value1, value2 } = this.props;
@@ -38,7 +39,7 @@ class WidgetStat extends Component<Props> {
                     </Flexbox>
                 </Flexbox>
                 {typeof children !== "undefined" ? (
-                    <div className="ui-widgetstat-extra">{children}</div>
+                    <Flexbox flex={1} className="ui-widgetstat-extra">{children}</Flexbox>
                 ) : null}
             </Widget>
         );

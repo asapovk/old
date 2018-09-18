@@ -43,7 +43,7 @@ var WidgetStat = /** @class */ (function (_super) {
                 react_1.default.createElement(index_1.Flexbox, { pt: 10, alignItems: "center" },
                     react_1.default.createElement(index_1.Flexbox, { pr: 10, flex: 1, className: "ui-widgetstat-value1" }, value1),
                     typeof onClick === "function" ? react_1.default.createElement(index_1.Button, { decoration: "none", className: "ui-widgetstat-button", onClick: onClick }, actionTitle || "Подробнее") : null)),
-            typeof children !== "undefined" ? (react_1.default.createElement("div", { className: "ui-widgetstat-extra" }, children)) : null));
+            typeof children !== "undefined" ? (react_1.default.createElement(index_1.Flexbox, { flex: 1, className: "ui-widgetstat-extra" }, children)) : null));
     };
     return WidgetStat;
 }(react_1.Component));

@@ -28,59 +28,69 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importDefault(require("react"));
+var Select_1 = require("../Select");
 var Themes_1 = __importDefault(require("../Themes"));
 var chart_js_1 = require("chart.js");
 var react_chartjs_2_1 = require("react-chartjs-2");
 var Chart = /** @class */ (function (_super) {
     __extends(Chart, _super);
     function Chart() {
-        return _super !== null && _super.apply(this, arguments) || this;
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.state = {
+            value: 0
+        };
+        return _this;
     }
+    Chart.prototype.componentWillMount = function () {
+        if (this.props.data) {
+            this.setState({
+                value: this.props.data.length - 1
+            });
+        }
+    };
+    Chart.prototype.changeDataSet = function () {
+        var item = this.props.data[this.state.value];
+        return {
+            label: item.title,
+            data: item.values,
+            pointHoverBackgroundColor: item.backgroundColor || this.props.theme.background,
+            pointHoverBorderColor: item.borderColor || this.props.theme.text,
+            backgroundColor: item.backgroundColor || this.props.theme.background,
+            borderColor: item.borderColor || this.props.theme.accent,
+            borderJoinStyle: item.borderJoinStyle || 'miter',
+            borderCapStyle: item.borderCapStyle || 'butt',
+        };
+    };
     Chart.prototype.render = function () {
         var _this = this;
         chart_js_1.defaults.global.defaultFontColor = "#fff";
         chart_js_1.defaults.global.defaultFontSize = 14;
-        chart_js_1.defaults.global.scales = {
-            xAxes: [{
-                    display: true,
-                    gridLines: {
-                        display: false,
-                        color: "#FFFFFF"
-                    },
-                    scaleLabel: {
-                        display: true,
-                        labelString: 'Month'
-                    }
-                }],
-        };
         chart_js_1.defaults.global.responsive = this.props.responsive || true;
         var data = {
-            labels: this.props.labals,
-            datasets: this.props.data.map(function (item) {
-                return {
-                    label: item.title,
-                    data: item.values,
+            labels: this.props.labels,
+            datasets: [Object.assign({}, this.changeDataSet(), {
                     fill: false,
-                    lineTension: _this.props.tension || 0.4,
-                    backgroundColor: item.backgroundColor || _this.props.theme.background,
-                    borderColor: item.borderColor || _this.props.theme.accent,
-                    borderCapStyle: item.borderCapStyle || 'butt',
+                    lineTension: this.props.tension || 0.4,
                     borderDash: [],
                     borderDashOffset: 0.0,
-                    borderJoinStyle: item.borderJoinStyle || 'miter',
-                    pointBorderColor: _this.props.theme.accent,
-                    pointBackgroundColor: _this.props.theme.background,
+                    pointBorderColor: this.props.theme.accent,
+                    pointBackgroundColor: this.props.theme.background,
                     pointBorderWidth: 2,
                     pointRadius: 6,
                     pointHitRadius: 6,
                     pointHoverRadius: 6,
-                    pointHoverBackgroundColor: item.backgroundColor || _this.props.theme.background,
-                    pointHoverBorderColor: item.borderColor || _this.props.theme.text,
                     pointHoverBorderWidth: 2,
-                };
-            }),
+                })]
         };
-        return (react_1.default.createElement("div", null,
+        return (react_1.default.createElement("div", { style: { padding: 15 } },
+            react_1.default.createElement(Select_1.Select, { style: { position: 'absolute', width: '120px', top: 30, left: 80 }, options: this.props.data.map(function (item, i) {
+                    return {
+                        text: item.title,
+                        value: i.toString()
+                    };
+                }), defaultValue: this.state.value.toString(), onChange: function (val) { return _this.setState({
+                    value: val
+                }); } }),
             react_1.default.createElement(react_chartjs_2_1.Line, { data: data, options: {
                     scales: {
                         xAxes: [{
@@ -95,8 +105,14 @@ var Chart = /** @class */ (function (_super) {
                                 gridLines: {
                                     color: this.props.theme.accent,
                                     lineWidth: 0.2,
+                                },
+                                ticks: {
+                                    beginAtZero: true
                                 }
                             }],
+                    },
+                    legend: {
+                        display: false
                     }
                 } })));
     };
