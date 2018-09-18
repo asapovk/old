@@ -13,6 +13,7 @@ export interface Props {
     tension?: number;
     loading?: boolean;
     style?: any;
+    selectLabel?: string;
 }
 export interface ThemedProps extends Props {
     theme: any;

@@ -95,7 +95,7 @@ var Chart = /** @class */ (function (_super) {
                     };
                 }), defaultValue: this.state.value.toString(), onChange: function (val) { return _this.setState({
                     value: val
-                }); } }),
+                }); }, label: this.props.selectLabel }),
             react_1.default.createElement(react_chartjs_2_1.Line, { data: data, options: {
                     scales: {
                         xAxes: [{
