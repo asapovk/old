@@ -15,3 +15,5 @@ export interface themeNames {
 export const ThemeContext = React.createContext(
     themes.telegramDark // default value
 );
+
+export default ThemeContext.Consumer;

@@ -24,6 +24,7 @@ import TableStory from './componentStories/TableStory';
 import SelectStory from './componentStories/SelectStory';
 import WidgetStory from './componentStories/WidgetStory';
 import TitleStory from './componentStories/TitleStory';
+import ChartStory from './componentStories/ChartStory';
 import WidgetStatStory from './componentStories/WidgetStatStory';
 import { MenuStory, loginUser } from './componentStories/MenuStory';
 
@@ -69,6 +70,9 @@ storiesOf('💥 Core', module)
     ))
     .add('Menu', () => (
         <MenuStory />
+    ))
+    .add('Chart', () => (
+        <ChartStory />
     ))
     .add('Finder', () => (
         <Viewport style={flexCentered}>
