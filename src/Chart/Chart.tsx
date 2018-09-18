@@ -40,6 +40,8 @@ class Chart extends React.Component<ThemedProps> {
     changeDataSet() {
         const item = this.props.data[this.state.value];
 
+        if (!item) return;
+
         return {
             label: item.title,
             data: item.values,

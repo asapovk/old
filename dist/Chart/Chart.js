@@ -50,6 +50,8 @@ var Chart = /** @class */ (function (_super) {
     };
     Chart.prototype.changeDataSet = function () {
         var item = this.props.data[this.state.value];
+        if (!item)
+            return;
         return {
             label: item.title,
             data: item.values,
