@@ -17,7 +17,8 @@ class ThemedButton extends React.Component<ButtonProps> {
                             background: this.props.decoration === 'accent' ? theme.highlight : theme.interface,
                             boxShadow: '0px 2px 4px 0px ' + theme.shadow,
                             borderRadius: theme.corner,
-                            color: theme.text
+                            color: theme.text,
+                            border: '1px solid ' + theme.pale
                         },
                 }} />}
             </ThemeContext.Consumer>

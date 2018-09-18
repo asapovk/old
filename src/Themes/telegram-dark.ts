@@ -7,7 +7,8 @@ const accentColors = {
 
 export default {
     background: 'rgb(41, 43, 54)',
-    interface: 'rgb(70, 74, 88)',
+    interface: 'rgb(50, 54, 68)',
+    pale: 'rgb(80, 84, 98)',
     lowlight: 'rgb(135, 153, 162)',
     text: 'rgb(233, 233, 233)',
     highlight: accentColors.blue,
