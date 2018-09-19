@@ -31,7 +31,7 @@ class SelectStory extends React.Component {
                     placeholder='Select some'
                     defaultValue={['irv', 'greg']}
                     options={selectOptions}
-                    style={{ padding: '80px' }}
+                    style={{ padding: '40px' }}
                     clearable={true}
                     multiselect={true}
                     // disabled={true}
@@ -44,7 +44,7 @@ class SelectStory extends React.Component {
                     defaultValue={'ann'}
                     options={selectOptions}
                     clearable={true}
-                    style={{ padding: '80px' }}
+                    style={{ padding: '40px' }}
                     //disabled={true}
                     onChange={(value) => console.log('Singe', value)}
                 />
