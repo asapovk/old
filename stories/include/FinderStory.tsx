@@ -1,5 +1,5 @@
 import React from 'react';
-import { Finder, FinderNav, FinderSection, Checkbox } from '../../src';
+import { Flexbox, Finder, FinderNav, FinderSection, Checkbox } from '../../src';
 
 import Fakerator from 'fakerator';
 
@@ -22,7 +22,7 @@ class FinderStory extends React.Component {
     }
     render() {
         return (
-            <div>
+            <Flexbox alignContent="center" justifyContent="center">
                 <Finder filter filterPlaceholder='search something'>
                     <FinderNav label="Пользователь" filter badge={this.state.checkedNames.length}>
                         {data.map(item => (
@@ -58,7 +58,7 @@ class FinderStory extends React.Component {
                         <div>12345</div>
                     </FinderNav>
                 </Finder>
-            </div>
+            </Flexbox>
         )
     }
 }

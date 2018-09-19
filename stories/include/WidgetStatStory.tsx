@@ -7,7 +7,7 @@ class WidgetStatStory extends React.Component {
     }
     render() {
         return (
-            <Fragment>
+            <Flexbox alignContent="center" justifyContent="center" pr={30} pl={30}>
                 <Flexbox flex={1} alignItems={"flex-start"}>
                     <Flexbox p={10} flex={1}>
                         <WidgetStat
@@ -42,19 +42,19 @@ class WidgetStatStory extends React.Component {
                             onClick={() => { }}
                         >
                             <Flexbox column>
-                                <Flexbox>
+                                <Flexbox p={10}>
                                     <Flexbox flex={1}>
                                         <Icon type="check" />
                                     </Flexbox>
                                     <Flexbox>Done</Flexbox>
                                 </Flexbox>
-                                <Flexbox pt={10}>
+                                <Flexbox p={10} pt={10}>
                                     <Flexbox flex={1}>
                                         <Icon type="check" />
                                     </Flexbox>
                                     <Flexbox>Done</Flexbox>
                                 </Flexbox>
-                                <Flexbox pt={10}>
+                                <Flexbox p={10} pt={10}>
                                     <Flexbox flex={1}>
                                         <Icon type="check" />
                                     </Flexbox>
@@ -64,7 +64,7 @@ class WidgetStatStory extends React.Component {
                         </WidgetStat>
                     </Flexbox>
                 </Flexbox>
-            </Fragment>
+            </Flexbox>
         )
     }
 }

@@ -5,7 +5,7 @@ class FlexboxStory extends React.Component {
 
     render() {
         return (
-            <div>
+            <div style={{ padding: "0 40px" }}>
                 <Flexbox style={{ border: "10px solid #000" }}>
                     <Flexbox justifyContent="center" style={{ background: "white" }} flex={1}>
                         <div style={{ background: "#333", padding: 10 }}>div</div>

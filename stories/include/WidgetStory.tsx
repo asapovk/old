@@ -7,7 +7,7 @@ class WidgetStory extends React.Component {
     }
     render() {
         return (
-            <Fragment>
+            <Flexbox alignContent="center" justifyContent="center" pr={30} pl={30}>
                 <Flexbox flex={1}>
                     <Flexbox p={10} flex={1}>
                         <Widget>Просто виджет</Widget>
@@ -29,7 +29,7 @@ class WidgetStory extends React.Component {
                         </Widget>
                     </Flexbox>
                 </Flexbox>
-            </Fragment>
+            </Flexbox>
         )
 
     }

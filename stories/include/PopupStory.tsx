@@ -1,5 +1,5 @@
 import React from 'react';
-import { Popup, Button } from '../../src';
+import { Flexbox, Popup, Button } from '../../src';
 
 interface PopupStory {
     tooltip: any
@@ -8,9 +8,11 @@ interface PopupStory {
 class PopupStory extends React.Component {
     render() {
         return (
-            <Popup trigger={<Button label='Call Tooltip'></Button>}>
-                <a>Hello</a>
-            </Popup>
+            <Flexbox alignContent="center" justifyContent="center">
+                <Popup trigger={<Button label='Call Tooltip'></Button>}>
+                    <a>Hello</a>
+                </Popup>
+            </Flexbox>
         )
 
     }
