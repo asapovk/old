@@ -114,6 +114,8 @@ table {
   bottom: 0;
   right: 0;
   overflow: auto;
+  font-size: 16px;
+  line-height: 24px;
 }
 
 .ui-textfield {
@@ -360,9 +362,11 @@ table {
   border: none;
   font: inherit;
   outline: none;
-  padding: 10px 16px;
+  padding: 8px 16px;
   width: fit-content;
   cursor: pointer;
+  font-size: 16px;
+  line-height: 24px;
 }
 .ui-button:active {
   box-shadow: none;
@@ -696,11 +700,11 @@ table {
   box-sizing: border-box;
   flex: 1;
   font-size: 16px;
-  color: white;
+  color: #fff;
 }
 .ui-select-label {
   font-size: 12px;
-  color: white;
+  color: #fff;
   margin-bottom: 5px;
   text-transform: uppercase;
 }
@@ -712,9 +716,9 @@ table {
   -ms-border-radius: 2px;
   -o-border-radius: 2px;
   border-radius: 2px;
-  border-color: #858ca6;
+  border-color: #fff;
   padding: 8px;
-  background: #292b36;
+  background: #000;
   min-height: 20px;
   position: relative;
   display: flex;
@@ -722,7 +726,7 @@ table {
 }
 .ui-select-holder-clear {
   z-index: 1;
-  color: #858ca6;
+  color: #fff;
   font-size: 16px;
   padding-right: 5px;
   cursor: pointer;
@@ -730,7 +734,7 @@ table {
 .ui-select-holder-down {
   z-index: 1;
   font-size: 14px;
-  color: #858ca6;
+  color: #fff;
 }
 .ui-select-holder-value {
   flex: 1;
@@ -763,20 +767,17 @@ table {
   flex: 1 1 auto;
   padding-left: 5px;
 }
-.ui-select-holder-value-input::placeholder {
-  color: #5c6173;
-}
 .ui-select-holder-value-placeholder {
-  color: #5c6173;
+  color: #fff;
   padding-left: 5px;
 }
 .ui-select-holder-value-option {
   z-index: 1;
   font-size: 12px;
   display: flex;
-  color: #05afc8;
-  background: rgba(5, 175, 200, 0.1);
-  border: 1px solid #05afc8;
+  color: #fff;
+  background: #000;
+  border: 1px solid #fff;
   -webkit-border-radius: 2px;
   -khtml-border-radius: 2px;
   -moz-border-radius: 2px;
@@ -786,7 +787,7 @@ table {
   margin: 4px;
 }
 .ui-select-holder-value-option-close {
-  border-right: 1px solid #05afc8;
+  border-right: 1px solid #fff;
   display: flex;
   align-items: center;
   padding: 4px;
@@ -807,11 +808,11 @@ table {
   -ms-border-radius: 0 0 2px 2px;
   -o-border-radius: 0 0 2px 2px;
   border-radius: 0 0 2px 2px;
-  border-color: #858ca6;
-  border-top-color: rgba(92, 97, 115, 0.3);
+  border-color: #fff;
+  border-top-color: #fff;
   top: 100%;
   width: 100%;
-  background: #292b36;
+  background: #000;
   z-index: 11;
   left: 0;
   margin: 0 -1px;
@@ -948,7 +949,6 @@ table {
   }
 }
 .ui-spinner {
-  color: white;
   display: inline-block;
   position: relative;
   width: 64px;
@@ -967,7 +967,8 @@ table {
   width: 5px;
   height: 14px;
   border-radius: 20%;
-  background: rgba(255, 255, 255, 0.5);
+  opacity: 1;
+  background: #7e7e7e;
 }
 .ui-spinner div:nth-child(1) {
   transform: rotate(0deg);
@@ -1017,12 +1018,6 @@ table {
   transform: rotate(330deg);
   animation-delay: 0s;
 }
-.ui-spinner.dark {
-  color: black;
-}
-.ui-spinner.dark div {
-  background: rgba(0, 0, 0, 0.5);
-}
 
 @keyframes ui-spinner-animation {
   0% {
@@ -1038,39 +1033,29 @@ table {
   cursor: pointer;
 }
 .ui-checkbox-input {
-  width: 16px;
-  height: 16px;
-  border: 1px solid #b1c6d1;
-  border-radius: 2px;
+  width: 17px;
+  height: 17px;
+  border: 0.5px solid;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 .ui-checkbox-label {
   padding-left: 5px;
-  font-size: 14px;
+  font-size: 16px;
+  line-height: 24px;
   color: white;
 }
-
-.ch-radio {
-  border-radius: 15px;
-}
-
-.ch-checked {
-  border-color: #05afc8;
-}
-
-.circle {
+.ui-checkbox-circle {
   height: 10px;
   width: 10px;
-  background-color: white;
   border-radius: 50%;
 }
 
 .ui-widget {
   padding: 15px;
-  background: rgba(19, 20, 25, 0.2);
-  border: 2px solid rgba(255, 255, 255, 0.2);
+  background: rgba(51, 51, 51, 0.2);
+  border: 0.5px solid rgba(51, 51, 51, 0.2);
   border-radius: 4px;
   -webkit-transition: all 0.1s;
   -khtml-transition: all 0.1s;
@@ -1104,10 +1089,10 @@ table {
 .ui-widget-loading {
   font-size: 24px;
   font-weight: 500;
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(51, 51, 51, 0.5);
 }
 .ui-widget-loading svg {
-  color: #05afc8;
+  color: #333;
 }
 .ui-widget-loadingtext {
   font-size: 16px;
@@ -1128,13 +1113,11 @@ table {
   opacity: 0.5;
 }
 .ui-widgetstat-value1 {
-  color: #05afc8;
   font-weight: 600;
   font-size: 28px;
   text-transform: uppercase;
 }
 .ui-widgetstat-value2 {
-  color: #05afc8;
   font-size: 18px;
   text-transform: uppercase;
 }
@@ -1150,7 +1133,6 @@ table {
   text-decoration: underline;
 }
 .ui-widgetstat-extra {
-  background: rgba(19, 20, 25, 0.5);
   margin: 15px -15px -15px -15px;
   border-top: 1px solid rgba(255, 255, 255, 0.2);
 }
