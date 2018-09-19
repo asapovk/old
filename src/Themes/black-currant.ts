@@ -6,12 +6,12 @@ const accentColors = {
 }
 
 export default {
-    background: 'rgb(38, 36, 38)',
-    interface: 'rgb(50, 54, 68)',
-    pale: 'rgb(191, 191, 191)',
-    lowlight: 'rgb(146, 143, 148)',
-    text: 'rgb(38, 36, 38)',
-    highlight: 'rgb(127, 8, 191)',
+    background: 'rgb(36, 33, 38)',
+    interface: 'rgb(51, 47, 54)',
+    pale: 'rgb(93, 75, 102)',
+    lowlight: 'rgb(175, 162, 182)',
+    text: 'rgb(233, 233, 233)',
+    highlight: 'rgb(216, 15, 105)',
     accents: accentColors,
     shadow: 'rgb(19, 20, 25)',
     corner: '2px',
