@@ -23,7 +23,7 @@ class Title extends Component<Props> {
     }
     componentWillMount() {
         if (this.props.defaultValue) {
-            this.onChange(true);
+            this.setState({ on: true });
         }
     }
     render() {

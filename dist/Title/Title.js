@@ -39,7 +39,7 @@ var Title = /** @class */ (function (_super) {
     };
     Title.prototype.componentWillMount = function () {
         if (this.props.defaultValue) {
-            this.onChange(true);
+            this.setState({ on: true });
         }
     };
     Title.prototype.render = function () {
