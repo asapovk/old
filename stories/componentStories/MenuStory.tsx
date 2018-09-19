@@ -15,7 +15,7 @@ export const loginUser = {
     modules: "helloworld,sandbox",
 }
 
-export class MenuStory extends React.Component {
+export default class MenuStory extends React.Component {
 
     render() {
         return (
