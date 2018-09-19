@@ -45,15 +45,17 @@ class View extends React.Component {
     render() {
         return (
             <Viewport theme={this.state.theme}>
-                <Select 
-                    options={[
-                        {text: "Черная смородина", value: "blackCurrant"}, 
-                        {text: "Белая смородина", value: "whiteCurrant"}
-                    ]} 
-                    defaultValue={this.state.theme} 
-                    onChange={theme => this.setState({theme})}
-                />
-                <hr/>
+                <Flexbox p={40}>
+                    <Select 
+                        label={"Тема оформления"}
+                        options={[
+                            {text: "Черная смородина", value: "blackCurrant"}, 
+                            {text: "Белая смородина", value: "whiteCurrant"}
+                        ]} 
+                        defaultValue={this.state.theme} 
+                        onChange={theme => this.setState({theme})}
+                    />
+                </Flexbox>
                 {this.props.children}
             </Viewport>
         )
