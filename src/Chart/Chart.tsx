@@ -80,6 +80,10 @@ class Chart extends React.Component<Props & ThemedProps> {
                                 gridLines: {
                                     color: theme.accent,
                                     lineWidth: 0.2,
+                                },
+                                ticks: {
+                                    beginAtZero: true,
+                                    fontColor: theme.text
                                 }
                             }],
                             yAxes: [{
@@ -89,7 +93,8 @@ class Chart extends React.Component<Props & ThemedProps> {
                                     lineWidth: 0.2,
                                 },
                                 ticks: {
-                                    beginAtZero: true
+                                    beginAtZero: true,
+                                    fontColor: "#F00000"
                                 }
                             }],
                         },
@@ -108,7 +113,7 @@ export default (props: Props) => (
         {theme => (
             <Chart {...props} theme={{
                 text: theme.text,
-                accent: theme.accents.blue,
+                accent: theme.highlight,
                 background: theme.background
             }} />
         )}
