@@ -29,6 +29,7 @@ interface Props {
     flexDirection?: "row" | "row-reverse" | "column" | "column-reverse";
     flexWrap?: "nowrap" | "wrap" | "wrap-reverse";
     flexFlow?: "flex-direction" | "flex-wrap";
+    children?: any;
 }
 declare class Flexbox extends React.Component<Props> {
     render(): React.DetailedReactHTMLElement<any, HTMLElement>;

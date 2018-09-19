@@ -12,12 +12,24 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importDefault(require("react"));
 var Icon_1 = require("../Icon");
+var Themes_1 = __importDefault(require("../Themes"));
 var Checkbox = /** @class */ (function (_super) {
     __extends(Checkbox, _super);
     function Checkbox() {
@@ -49,17 +61,27 @@ var Checkbox = /** @class */ (function (_super) {
     };
     Checkbox.prototype.render = function () {
         var _this = this;
-        var _a = this.props, label = _a.label, radio = _a.radio, style = _a.style, uppercase = _a.uppercase;
-        var classes = 'ui-checkbox-input';
-        if (radio)
-            classes += ' ch-radio';
-        if (this.state.checked)
-            classes += ' ch-checked';
-        var InputTSX = (react_1.default.createElement("div", { className: classes }, this.state.checked ? (radio ? react_1.default.createElement("span", { className: 'circle' }) : react_1.default.createElement(Icon_1.Icon, { type: 'check' })) : null));
-        return (react_1.default.createElement("div", { className: 'ui-checkbox', onClick: function () { return _this.onChange(); }, style: style },
+        var _a = this.props, label = _a.label, radio = _a.radio, style = _a.style, uppercase = _a.uppercase, theme = _a.theme;
+        var InputTSX = (react_1.default.createElement("div", { className: 'ui-checkbox-input', style: this.state.checked ? __assign({}, theme.checkboxInputActive) : __assign({}, theme.checkboxInput) }, this.state.checked ? (radio ? react_1.default.createElement("span", { className: 'ui-checkbox-circle', style: theme.checkboxCircle }) : react_1.default.createElement(Icon_1.Icon, { type: 'check' })) : null));
+        return (react_1.default.createElement("div", { className: 'ui-checkbox', onClick: function () { return _this.onChange(); }, style: __assign({}, style, theme.checkbox) },
             InputTSX,
             react_1.default.createElement("div", { className: 'ui-checkbox-label noselect' + (uppercase ? ' uppercase' : '') }, label)));
     };
     return Checkbox;
 }(react_1.default.Component));
-exports.default = Checkbox;
+exports.default = (function (props) { return (react_1.default.createElement(Themes_1.default, null, function (theme) { return (react_1.default.createElement(Checkbox, __assign({}, props, { theme: {
+        checkbox: {
+            color: theme.text
+        },
+        checkboxInput: {
+            borderColor: theme.text,
+            borderRadius: props.radio ? '15px' : theme.corner
+        },
+        checkboxInputActive: {
+            borderColor: theme.highlight,
+            borderRadius: props.radio ? '15px' : theme.corner
+        },
+        checkboxCircle: {
+            background: theme.text
+        }
+    } }))); })); });

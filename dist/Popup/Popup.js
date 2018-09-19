@@ -12,6 +12,17 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
@@ -19,6 +30,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = require("react");
 var react_dom_1 = __importDefault(require("react-dom"));
 var react_2 = __importDefault(require("react"));
+var Themes_1 = __importDefault(require("../Themes"));
 var Popup = /** @class */ (function (_super) {
     __extends(Popup, _super);
     function Popup() {
@@ -170,4 +182,4 @@ var Popup = /** @class */ (function (_super) {
     };
     return Popup;
 }(react_2.default.Component));
-exports.default = Popup;
+exports.default = (function (props) { return (react_2.default.createElement(Themes_1.default, null, function (theme) { return (react_2.default.createElement(Popup, __assign({}, props, { theme: {} }))); })); });

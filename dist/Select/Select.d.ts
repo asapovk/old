@@ -1,9 +1,9 @@
-import React, { CSSProperties } from 'react';
+import { CSSProperties } from 'react';
 interface SelectOption {
     text: string;
     value: string;
 }
-interface SelectProps {
+interface Props {
     search?: boolean;
     style?: CSSProperties;
     label?: string;
@@ -15,26 +15,13 @@ interface SelectProps {
     defaultValue?: string | string[];
     dontClose?: boolean;
     onChange?: (value: string | string[] | null) => void;
+    children?: any;
 }
-declare class Select extends React.Component<SelectProps> {
-    private: any;
-    holderRef: HTMLDivElement | null;
-    searchRef: HTMLInputElement | null;
-    state: {
-        selectedValues: string[];
-        menuVisible: boolean;
-        filteredValues: string[];
-        isFilterActive: boolean;
-    };
-    constructor(props: any);
-    componentWillMount(): void;
-    componentWillUnmount(): void;
-    handleClickOutside(event: any): void;
-    toggleMenu(): void;
-    onSelect(selectedValue: string): void;
-    onUnselect(unselectedValue: string): void;
-    filterOptions(searchText: string): void;
-    searchKeyDown(event: any): void;
-    render(): JSX.Element;
+export interface ThemedProps {
+    theme: any;
 }
-export default Select;
+export interface ThemedProps {
+    theme: any;
+}
+declare const _default: (props: Props) => JSX.Element;
+export default _default;

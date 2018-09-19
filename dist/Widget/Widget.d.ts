@@ -1,4 +1,3 @@
-import { Component } from 'react';
 interface Props {
     label?: string;
     loading?: boolean | string;
@@ -6,8 +5,10 @@ interface Props {
     className?: string;
     style?: any;
     title?: string;
+    children?: any;
 }
-declare class Widget extends Component<Props> {
-    render(): JSX.Element;
+export interface ThemedProps {
+    theme: any;
 }
-export default Widget;
+declare const _default: (props: Props) => JSX.Element;
+export default _default;

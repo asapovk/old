@@ -1,6 +1,7 @@
 .ui-select {
     @include box-sizing(border-box);
     flex: 1;
+    line-height: 1;
     font-size: 16px;
     color: #fff;
     &-label {

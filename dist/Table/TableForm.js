@@ -17,6 +17,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importDefault(require("react"));
+var Themes_1 = __importDefault(require("../Themes"));
 var TableFormHOC = /** @class */ (function (_super) {
     __extends(TableFormHOC, _super);
     function TableFormHOC(props) {
@@ -57,4 +58,4 @@ var TableFormHOC = /** @class */ (function (_super) {
     };
     return TableFormHOC;
 }(react_1.default.Component));
-exports.default = (function (Form, columns, row) { return react_1.default.createElement(TableFormHOC, { data: row, columns: columns, Form: Form }); });
+exports.default = (function (Form, columns, row) { return (react_1.default.createElement(Themes_1.default, null, function (theme) { return (react_1.default.createElement(TableFormHOC, { data: row, columns: columns, Form: Form, theme: {} })); })); });

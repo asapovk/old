@@ -1,5 +1,5 @@
 import { Component } from 'react';
-export interface ButtonProps {
+export interface Props {
     label?: string;
     outline?: boolean;
     decoration?: 'none' | 'accent';
@@ -9,11 +9,7 @@ export interface ButtonProps {
     onClick?: (MouseEvent?: any) => any;
     className?: string;
     style?: any;
+    children?: any;
 }
-interface ThemedButtonProps extends ButtonProps {
-    theme: any;
-}
-declare class Button extends Component<ThemedButtonProps> {
-    render(): JSX.Element;
-}
-export default Button;
+declare const _default: (props: Props) => JSX.Element;
+export default _default;

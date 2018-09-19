@@ -12,6 +12,17 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
@@ -19,6 +30,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importDefault(require("react"));
 var FinderFilter_1 = __importDefault(require("./FinderFilter"));
 var __1 = require("../");
+var Themes_1 = __importDefault(require("../Themes"));
 var Finder = /** @class */ (function (_super) {
     __extends(Finder, _super);
     function Finder(props) {
@@ -57,7 +69,7 @@ var Finder = /** @class */ (function (_super) {
         }
         return children;
     };
-    Finder.prototype.passFinderProps = function (children, level) {
+    Finder.prototype.passProps = function (children, level) {
         var _this = this;
         var counter = 0;
         return react_1.default.Children.map(children, function (child) {
@@ -70,7 +82,7 @@ var Finder = /** @class */ (function (_super) {
         var _this = this;
         var currentChildren = children;
         var _loop_1 = function (i) {
-            currentChildren = this_1.passFinderProps(react_1.default.Children.map(currentChildren, function (child) {
+            currentChildren = this_1.passProps(react_1.default.Children.map(currentChildren, function (child) {
                 if (child.props.finderIndex === _this.state.menues[i].index)
                     return child.props.children;
             }), i);
@@ -84,7 +96,7 @@ var Finder = /** @class */ (function (_super) {
     Finder.prototype.render = function () {
         var _this = this;
         var style = this.props.style;
-        var children = this.passFinderProps(this.props.children, 0);
+        var children = this.passProps(this.props.children, 0);
         var MenuesTSX = (this.state.menues.map(function (menu, index) { return (react_1.default.createElement(__1.Flexbox, { column: true, className: 'ui-finder-menu', key: index },
             menu.filter && react_1.default.createElement(FinderFilter_1.default, { level: index, onChange: _this.onFilterChange, placeholder: menu.filterPlaceholder }),
             react_1.default.createElement(__1.Flexbox, { column: true, className: 'ui-finder-menu-items' }, _this.getCurrentChildren(children, menu.filterValue, index)))); }));
@@ -92,4 +104,4 @@ var Finder = /** @class */ (function (_super) {
     };
     return Finder;
 }(react_1.default.Component));
-exports.default = Finder;
+exports.default = (function (props) { return (react_1.default.createElement(Themes_1.default, null, function (theme) { return (react_1.default.createElement(Finder, __assign({}, props, { theme: {} }))); })); });

@@ -1,19 +1,14 @@
-import { Component } from 'react';
 interface Props {
     style?: any;
-    children: string;
+    children?: any;
     defaultValue?: boolean;
     value?: boolean;
     onLabel?: string;
     offLabel?: string;
     onChange?: (state: boolean) => void;
 }
-declare class Title extends Component<Props> {
-    state: {
-        on: boolean;
-    };
-    onChange(on: any): void;
-    componentWillMount(): void;
-    render(): JSX.Element;
+export interface ThemedProps {
+    theme: any;
 }
-export default Title;
+declare const _default: (props: Props) => JSX.Element;
+export default _default;

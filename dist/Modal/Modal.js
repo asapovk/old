@@ -12,6 +12,17 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
@@ -22,6 +33,7 @@ var react_portal_1 = require("react-portal");
 var Spinner_1 = require("../Spinner");
 var Flexbox_1 = require("../Flexbox");
 var ModalTitle_1 = __importDefault(require("./ModalTitle"));
+var Themes_1 = __importDefault(require("../Themes"));
 var Modal = /** @class */ (function (_super) {
     __extends(Modal, _super);
     function Modal(props) {
@@ -164,4 +176,4 @@ var Modal = /** @class */ (function (_super) {
     };
     return Modal;
 }(react_1.default.Component));
-exports.default = Modal;
+exports.default = (function (props) { return (react_1.default.createElement(Themes_1.default, null, function (theme) { return (react_1.default.createElement(Modal, __assign({}, props, { theme: {} }))); })); });

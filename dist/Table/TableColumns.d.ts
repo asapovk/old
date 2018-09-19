@@ -1,10 +1,11 @@
-import React from 'react';
-interface TableColumnsProps {
+interface Props {
     row: any;
     columns: any;
     scope?: any;
+    children?: any;
 }
-export default class TableColumns extends React.Component<TableColumnsProps> {
-    render(): any;
+export interface ThemedProps {
+    theme: any;
 }
-export {};
+declare const _default: (props: Props) => JSX.Element;
+export default _default;

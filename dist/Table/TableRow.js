@@ -28,10 +28,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importDefault(require("react"));
-//import TableCheckbox from './TableCheckbox';
 var TableColumns_1 = __importDefault(require("./TableColumns"));
 var TableForm_1 = __importDefault(require("./TableForm"));
 var TableActions_1 = __importDefault(require("./TableActions"));
+var Themes_1 = __importDefault(require("../Themes"));
 var TableRow = /** @class */ (function (_super) {
     __extends(TableRow, _super);
     function TableRow() {
@@ -51,4 +51,4 @@ var TableRow = /** @class */ (function (_super) {
     };
     return TableRow;
 }(react_1.default.Component));
-exports.default = TableRow;
+exports.default = (function (props) { return (react_1.default.createElement(Themes_1.default, null, function (theme) { return (react_1.default.createElement(TableRow, __assign({}, props, { theme: {} }))); })); });

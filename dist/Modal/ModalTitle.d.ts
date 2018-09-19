@@ -1,9 +1,9 @@
-import React from 'react';
 interface Props {
     title?: string;
     subtitle?: string;
 }
-declare class ModalTitle extends React.Component<Props> {
-    render(): JSX.Element | null;
+export interface ThemedProps {
+    theme: any;
 }
-export default ModalTitle;
+declare const _default: (props: Props) => JSX.Element;
+export default _default;

@@ -4,7 +4,7 @@ interface ValidateObject {
     regex: RegExp;
     isMatch?: boolean;
 }
-interface TextFieldProps {
+interface Props {
     theme?: any;
     label?: string;
     validate?: Array<ValidateObject>;
@@ -19,10 +19,10 @@ interface TextFieldProps {
     type?: 'password' | 'number';
     onError?: (error: string[] | null) => void;
     onChange?: (value: string) => void;
+    children?: any;
 }
-declare class UITextField extends React.Component<TextFieldProps> {
-    validate(value: string): boolean;
-    onChange(value: string): void;
-    render(): JSX.Element;
+export interface ThemedProps {
+    theme: any;
 }
-export default UITextField;
+declare const _default: (props: Props) => JSX.Element;
+export default _default;

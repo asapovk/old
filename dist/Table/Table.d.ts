@@ -1,6 +1,5 @@
-import React from 'react';
 import { PaginationProps } from './TablePagination';
-export interface TableProps {
+export interface Props {
     data: any[];
     columns: {
         title?: string;
@@ -23,18 +22,10 @@ export interface TableProps {
     style?: any;
     pagination?: PaginationProps;
     noDataLabel?: string;
+    children?: any;
 }
-declare class Table extends React.Component<TableProps> {
-    state: {
-        selectedItems: string[];
-        expandedItems: string[];
-        page: number;
-    };
-    mainview?: HTMLDivElement;
-    table: HTMLDivElement | null;
-    static defaultProps: {
-        noDataLabel: string;
-    };
-    render(): JSX.Element;
+export interface ThemedProps {
+    theme: any;
 }
-export default Table;
+declare const _default: (props: Props) => JSX.Element;
+export default _default;

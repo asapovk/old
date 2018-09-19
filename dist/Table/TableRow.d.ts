@@ -1,5 +1,4 @@
-import React from 'react';
-interface TableRowProps {
+interface Props {
     row: {
         [dataIndex: string]: string;
     };
@@ -11,9 +10,10 @@ interface TableRowProps {
     border?: any;
     scope?: any;
     form?: any;
+    children?: any;
 }
-export default class TableRow extends React.Component<TableRowProps> {
-    onClick(): void;
-    render(): JSX.Element;
+export interface ThemedProps {
+    theme: any;
 }
-export {};
+declare const _default: (props: Props) => JSX.Element;
+export default _default;

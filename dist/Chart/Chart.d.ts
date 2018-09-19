@@ -15,7 +15,7 @@ export interface Props {
     style?: any;
     legendDisplay?: boolean;
 }
-export interface ThemedProps extends Props {
+export interface ThemedProps {
     theme: any;
 }
 declare const _default: (props: Props) => JSX.Element;

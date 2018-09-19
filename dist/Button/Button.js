@@ -30,9 +30,13 @@ var __importStar = (this && this.__importStar) || function (mod) {
     result["default"] = mod;
     return result;
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importStar(require("react"));
 var index_1 = require("../index");
+var Themes_1 = __importDefault(require("../Themes"));
 var Button = /** @class */ (function (_super) {
     __extends(Button, _super);
     function Button() {
@@ -53,4 +57,18 @@ var Button = /** @class */ (function (_super) {
     };
     return Button;
 }(react_1.Component));
-exports.default = Button;
+exports.default = (function (props) { return (react_1.default.createElement(Themes_1.default, null, function (theme) { return (react_1.default.createElement(Button, __assign({}, props, { theme: {
+        btnStyle: props.decoration === 'none'
+            ? {
+                background: 'none',
+                padding: 0,
+                color: theme.text
+            }
+            : {
+                background: props.decoration === 'accent' ? theme.highlight : theme.interface,
+                boxShadow: '0px 2px 4px 0px ' + theme.shadow,
+                borderRadius: theme.corner,
+                color: theme.text,
+                border: '0.5px solid ' + theme.pale
+            },
+    } }))); })); });

@@ -1,5 +1,4 @@
-import React from 'react';
-interface MenuProps {
+interface Props {
     header?: any;
     search?: boolean;
     toolsLeft?: any[];
@@ -10,11 +9,10 @@ interface MenuProps {
     searchValue?: string;
     onSearch?: (value: string) => void;
     onSearchSubmit?: (value: string) => void;
+    children?: any;
 }
-declare class Menu extends React.Component<MenuProps> {
-    state: {
-        searchField: string;
-    };
-    render(): JSX.Element;
+export interface ThemedProps {
+    theme: any;
 }
-export default Menu;
+declare const _default: (props: Props) => JSX.Element;
+export default _default;
