@@ -58,7 +58,7 @@ class TextField extends React.Component<Props & ThemedProps> {
     }
 
     render() {
-        const { label, value, defaultValue, style, className, multiline, singlerow, disabled, type } = this.props;
+        const { label, value, defaultValue, style, className, multiline, singlerow, disabled, type, theme } = this.props;
 
         let classes = 'ui-textfield ';
         if (className) classes += className;
@@ -70,6 +70,10 @@ class TextField extends React.Component<Props & ThemedProps> {
                 defaultValue={defaultValue}
                 value={value}
                 onChange={(event) => this.onChange(event.currentTarget.value)}
+                style={{
+                    borderColor: theme.borderColor,
+                    backgroundColor: theme.backgroundColor
+                }}
                 disabled={disabled}
                 type={type}
             />
@@ -86,13 +90,17 @@ class TextField extends React.Component<Props & ThemedProps> {
                         event.preventDefault();
                     }
                 }}
+                style={{
+                    borderColor: theme.borderColor,
+                    backgroundColor: theme.backgroundColor
+                }}
                 disabled={disabled}
             />
         )
 
         return (
             <div className={classes} style={style}>
-                {label && <div className='ui-textfield-label'>{label}</div>}
+                {label && <div style={{ color: theme.labelColor }} className='ui-textfield-label'>{label}</div>}
                 {multiline ? TextAreaTSX : InputTSX}
             </div>
         )
@@ -103,7 +111,9 @@ export default (props: Props) => (
     <Theme>
         {theme => (
             <TextField {...props} theme={{
-
+                backgroundColor: theme.interface,
+                borderColor: theme.pale,
+                labelColor: theme.lowlight
             }} />
         )}
     </Theme>
