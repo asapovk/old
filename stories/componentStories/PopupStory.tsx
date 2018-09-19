@@ -8,7 +8,7 @@ interface PopupStory {
 class PopupStory extends React.Component {
     render() {
         return (
-            <Popup trigger={<Button>Call Tooltip</Button>}>
+            <Popup trigger={<Button label='Call Tooltip'></Button>}>
                 <a>Hello</a>
             </Popup>
         )
