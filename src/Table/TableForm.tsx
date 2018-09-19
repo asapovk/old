@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Button } from '../Button';
+import Theme from '../Themes';
 
 export interface TableFormProps {
     Column
@@ -10,11 +11,14 @@ export interface TableFormProps {
     columns
     formData
 }
-
-interface TableFormHOCProps {
+interface Props {
     data: any
     columns: any
     Form: any
+    children?: any
+}
+export interface ThemedProps {
+    theme
 }
 
 interface TableFormHOC {
@@ -25,7 +29,7 @@ interface TableFormHOC {
     save: any
 }
 
-class TableFormHOC extends React.Component<TableFormHOCProps> {
+class TableFormHOC extends React.Component<Props & ThemedProps> {
 
     constructor(props) {
         super(props);
@@ -96,4 +100,12 @@ class TableFormHOC extends React.Component<TableFormHOCProps> {
     }
 }
 
-export default (Form, columns, row) => <TableFormHOC data={row} columns={columns} Form={Form} />
+export default (Form, columns, row) => (
+    <Theme>
+        {theme => (
+            <TableFormHOC data={row} columns={columns} Form={Form} theme={{
+
+            }} />
+        )}
+    </Theme>
+)

@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { TextField } from '../TextField';
 import { Icon } from '../Icon';
+import Theme from '../Themes';
 
-interface MenuProps {
+interface Props {
     header?: any
     search?: boolean
     toolsLeft?: any[]
@@ -13,8 +14,12 @@ interface MenuProps {
     searchValue?: string
     onSearch?: (value: string) => void
     onSearchSubmit?: (value: string) => void
+    children?: any
 }
-class Menu extends React.Component<MenuProps> {
+export interface ThemedProps {
+    theme
+}
+class Menu extends React.Component<Props & ThemedProps> {
 
     state = {
         searchField: '' as string
@@ -63,4 +68,12 @@ class Menu extends React.Component<MenuProps> {
     }
 }
 
-export default Menu;
+export default (props: Props) => (
+    <Theme>
+        {theme => (
+            <Menu {...props} theme={{
+
+            }} />
+        )}
+    </Theme>
+);

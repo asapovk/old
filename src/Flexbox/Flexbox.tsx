@@ -30,6 +30,7 @@ interface Props {
     flexDirection?: "row" | "row-reverse" | "column" | "column-reverse"
     flexWrap?: "nowrap" | "wrap" | "wrap-reverse"
     flexFlow?: "flex-direction" | "flex-wrap"
+    children?: any
 }
 
 

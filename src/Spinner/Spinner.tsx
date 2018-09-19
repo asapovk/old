@@ -1,12 +1,16 @@
 import React, { Component } from 'react';
+import Theme from '../Themes';
 
 interface Props {
     spinning?: boolean,
     center?: boolean,
     dark?: boolean,
+    children?: any
 }
-
-class Spinner extends Component<Props> {
+export interface ThemedProps {
+    theme
+}
+class Spinner extends Component<Props & ThemedProps> {
     render() {
         if (!this.props.spinning) {
             return this.props.children || null;
@@ -37,4 +41,12 @@ class Spinner extends Component<Props> {
     }
 }
 
-export default Spinner
+export default (props: Props) => (
+    <Theme>
+        {theme => (
+            <Spinner {...props} theme={{
+
+            }} />
+        )}
+    </Theme>
+);

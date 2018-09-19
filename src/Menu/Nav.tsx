@@ -1,10 +1,16 @@
 import React, { Component } from 'react';
+import Theme from '../Themes';
 
-interface MenuNavProps {
+interface Props {
     active?: boolean
     onClick?: () => void
+    children?: any
 }
-class MenuNav extends React.Component<MenuNavProps> {
+
+export interface ThemedProps {
+    theme
+}
+class MenuNav extends React.Component<Props & ThemedProps> {
 
     render() {
         const { active, onClick } = this.props;
@@ -17,4 +23,12 @@ class MenuNav extends React.Component<MenuNavProps> {
     }
 }
 
-export default MenuNav
+export default (props: Props) => (
+    <Theme>
+        {theme => (
+            <MenuNav {...props} theme={{
+
+            }} />
+        )}
+    </Theme>
+);

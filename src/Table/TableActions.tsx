@@ -1,8 +1,20 @@
 import React from 'react';
 import { Button } from '../Button';
 import { Icon } from '../Icon';
+import Theme from '../Themes';
 
-export default props => (
+
+export interface Props {
+    actions: any[]
+    data: any
+    children?: any
+}
+
+export interface ThemedProps {
+    theme
+}
+
+const TableActions = props => (
     <div className='ui-table-content-body-row-actions'>
         <Icon type='more' />
         <div className='ui-table-content-body-row-actions-buttons'>{
@@ -15,3 +27,13 @@ export default props => (
         }</div>
     </div>
 )
+
+export default (props: Props) => (
+    <Theme>
+        {theme => (
+            <TableActions {...props} theme={{
+
+            }} />
+        )}
+    </Theme>
+);

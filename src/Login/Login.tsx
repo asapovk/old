@@ -1,17 +1,22 @@
 import React from 'react';
 import { Popup } from '../Popup';
+import Theme from '../Themes';
 
-interface LoginProps {
+interface Props {
     name: any
     fullname?: any
     avatar?: any
     login?: any
     role?: any
+    children?: any
+}
+export interface ThemedProps {
+    theme
 }
 interface Login {
     tooltip: any
 }
-class Login extends React.Component<LoginProps> {
+class Login extends React.Component<Props & ThemedProps> {
 
     render() {
         const { name, fullname, login, role, children, avatar } = this.props;
@@ -48,4 +53,12 @@ class Login extends React.Component<LoginProps> {
     }
 }
 
-export default Login;
+export default (props: Props) => (
+    <Theme>
+        {theme => (
+            <Login {...props} theme={{
+
+            }} />
+        )}
+    </Theme>
+);

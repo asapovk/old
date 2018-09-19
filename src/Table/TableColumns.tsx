@@ -1,12 +1,16 @@
 import React from 'react';
+import Theme from '../Themes';
 
-interface TableColumnsProps {
+interface Props {
     row
     columns
     scope?
+    children?: any
 }
-
-export default class TableColumns extends React.Component<TableColumnsProps> {
+export interface ThemedProps {
+    theme
+}
+class TableColumns extends React.Component<Props & ThemedProps> {
 
     render() {
         const { row, columns, scope } = this.props;
@@ -27,5 +31,14 @@ export default class TableColumns extends React.Component<TableColumnsProps> {
             )
         });
     }
-
 }
+
+export default (props: Props) => (
+    <Theme>
+        {theme => (
+            <TableColumns {...props} theme={{
+
+            }} />
+        )}
+    </Theme>
+);

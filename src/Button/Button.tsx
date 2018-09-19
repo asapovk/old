@@ -12,6 +12,7 @@ export interface Props {
     onClick?: (MouseEvent?) => any
     className?: string
     style?: any
+    children?: any
 }
 
 interface ThemedProps {

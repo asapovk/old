@@ -1,17 +1,20 @@
 import React, { Component, Fragment, Children } from 'react';
 import { Flexbox } from '../index';
+import Theme from '../Themes';
 
 interface Props {
     style?: any
-    children: string
+    children?: any
     defaultValue?: boolean
     value?: boolean
     onLabel?: string
     offLabel?: string
     onChange?: (state: boolean) => void
 }
-
-class Title extends Component<Props> {
+export interface ThemedProps {
+    theme
+}
+class Title extends Component<Props & ThemedProps> {
     state = {
         on: false
     }
@@ -55,4 +58,12 @@ class Title extends Component<Props> {
     }
 }
 
-export default Title;
+export default (props: Props) => (
+    <Theme>
+        {theme => (
+            <Title {...props} theme={{
+
+            }} />
+        )}
+    </Theme>
+);

@@ -1,4 +1,5 @@
 import React, { Component, ComponentElement } from 'react';
+import Theme from '../Themes';
 
 export interface PaginationProps {
     pageSize: number
@@ -9,9 +10,12 @@ interface Props {
     page: number
     data: any[]
     onChange: (page: number) => void
+    children?: any
 }
-
-export default class TableCheckbox extends React.Component<Props> {
+export interface ThemedProps {
+    theme
+}
+class TableCheckbox extends React.Component<Props & ThemedProps> {
 
     render() {
         const { data, pagination, page } = this.props;
@@ -42,3 +46,13 @@ export default class TableCheckbox extends React.Component<Props> {
         )
     }
 }
+
+export default (props: Props) => (
+    <Theme>
+        {theme => (
+            <TableCheckbox {...props} theme={{
+
+            }} />
+        )}
+    </Theme>
+);
