@@ -2,26 +2,26 @@
     @include box-sizing(border-box);
     flex: 1;
     font-size: 16px;
-    color: $text;
+    color: #fff;
     &-label {
         font-size: 12px;
-        color: $text;
+        color: #fff;
         margin-bottom: 5px;
         text-transform: uppercase;
     }
     &-holder {
         border: 1px solid;
         @include border-radius(2px);
-        border-color: $highlight;
+        border-color: #fff;
         padding: 8px;
-        background: $ui-input-background;
+        background: #000;
         min-height: 20px;
         position: relative;
         display: flex;
         align-items: center;
         &-clear {
             z-index: 1;
-            color: $highlight;
+            color: #fff;
             font-size: 16px;
             padding-right: 5px;
             cursor: pointer;
@@ -29,7 +29,7 @@
         &-down {
             z-index: 1;
             font-size: 14px;
-            color: $highlight;
+            color: #fff;
         }
         &-value {
             flex: 1;
@@ -50,25 +50,22 @@
                 font-size: inherit;
                 flex: 1 1 auto;
                 padding-left: 5px;
-                &::placeholder {
-                    color: $pale;
-                }
             }
             &-placeholder {
-                color: $pale;
+                color: #fff;
                 padding-left: 5px;
             }
             &-option {
                 z-index: 1;
                 font-size: 12px;
                 display: flex;
-                color: $accent;
-                background: rgba($accent, 0.1);
-                border: 1px solid $accent;
+                color: #fff;
+                background: #000;
+                border: 1px solid #fff;
                 @include border-radius(2px);
                 margin: 4px;
                 &-close {
-                    border-right: 1px solid $accent;
+                    border-right: 1px solid #fff;
                     display: flex;
                     align-items: center;
                     padding: 4px;
@@ -87,11 +84,11 @@
         overflow-x: hidden;
         border: 1px solid;
         @include border-radius(0 0 2px 2px);
-        border-color: $highlight;
-        border-top-color: rgba($pale, 0.3);
+        border-color: #fff;
+        border-top-color: #fff;
         top: 100%;
         width: 100%;
-        background: $page-background;
+        background: #000;
         z-index: 11;
         left: 0;
         margin: 0 -1px;

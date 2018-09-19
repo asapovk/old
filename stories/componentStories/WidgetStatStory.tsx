@@ -7,7 +7,7 @@ class WidgetStatStory extends React.Component {
     }
     render() {
         return (
-            <Viewport>
+            <Viewport theme="whiteCurrant">
                 <Flexbox flex={1} alignItems={"flex-start"}>
                     <Flexbox p={10} flex={1}>
                         <WidgetStat
@@ -66,7 +66,6 @@ class WidgetStatStory extends React.Component {
                 </Flexbox>
             </Viewport>
         )
-
     }
 }
 

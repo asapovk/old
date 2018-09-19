@@ -7,7 +7,7 @@ class WidgetStory extends React.Component {
     }
     render() {
         return (
-            <Viewport>
+            <Viewport theme="blackCurrant">
                 <Flexbox flex={1}>
                     <Flexbox p={10} flex={1}>
                         <Widget>Просто виджет</Widget>

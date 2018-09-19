@@ -1,5 +1,4 @@
 .ui-spinner {
-    color: rgba(255, 255, 255, 1);
     display: inline-block;
     position: relative;
     width: 64px;
@@ -16,7 +15,8 @@
             width: 5px;
             height: 14px;
             border-radius: 20%;
-            background: rgba(255, 255, 255, 0.5);
+            opacity: 1;
+            background: rgb(126, 126, 126);
           }
           &:nth-child(1) {
             transform: rotate(0deg);
@@ -66,12 +66,6 @@
             transform: rotate(330deg);
             animation-delay: 0s;
           }
-      }
-      &.dark {
-        color: rgba(0, 0,0, 1);
-        div {
-          background: rgba(0, 0, 0, 0.5);
-        }
       }
   }
   

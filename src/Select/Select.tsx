@@ -125,7 +125,7 @@ class Select extends React.Component<Props & ThemedProps> {
 
     render() {
 
-        const { search, style, label, clearable, multiselect, onChange, placeholder, disabled, options } = this.props;
+        const { search, style, label, clearable, multiselect, onChange, placeholder, disabled, options, theme } = this.props;
         const { selectedValues, filteredValues, menuVisible, isFilterActive } = this.state;
 
         let selectedItems: SelectOption[] = [];
@@ -170,9 +170,17 @@ class Select extends React.Component<Props & ThemedProps> {
 
         const MultiSelectItemsTSX = (
             selectedItems.map(option => (
-                <div className='ui-select-holder-value-option' key={option.text}>
+                <div className='ui-select-holder-value-option' key={option.text} style={{
+                    background: theme.background,
+                    borderColor: theme.borderColor,
+                    color: theme.textColor,
+                }}>
                     <div
                         className='ui-select-holder-value-option-close'
+                        style={{
+                            borderColor: theme.borderColor,
+                            color: theme.textColor,
+                        }}
                         onClick={(event) => {
                             if (disabled) return;
                             event.stopPropagation();
@@ -193,7 +201,7 @@ class Select extends React.Component<Props & ThemedProps> {
                 onChange={event => this.filterOptions(event.target.value)}
                 onKeyDown={this.searchKeyDown.bind(this)}
                 ref={ref => this.searchRef = ref}
-                style={!multiselect ? { position: 'absolute' } : undefined}
+                style={{ position: !multiselect ? 'absolute' : "relative", color: theme.textColor, }}
             />
         )
 
@@ -205,6 +213,7 @@ class Select extends React.Component<Props & ThemedProps> {
 
         const ClearButtonTSX = (
             <span
+                style={{ color: theme.labelColor }}
                 className='ui-select-holder-clear'
                 onClick={(event) => {
                     if (disabled) {
@@ -216,23 +225,32 @@ class Select extends React.Component<Props & ThemedProps> {
                 }}>
                 <Icon type='close' />
             </span>
-        )
+        );
 
         return (
-            <div className={'ui-select' + (disabled ? ' disabled' : '')} style={style}>
-                <div className='ui-select-label'>
+            <div className={'ui-select' + (disabled ? ' disabled' : '')} style={{
+                ...style
+            }}>
+                <div className='ui-select-label' style={{ color: theme.labelColor }}>
                     {label}
                 </div>
-                <div className={'ui-select-holder' + (menuVisible ? ' active' : '')} onClick={() => this.toggleMenu()} ref={ref => this.holderRef = ref}>
-                    <div className='ui-select-holder-value'>
+                <div
+                    className={'ui-select-holder' + (menuVisible ? ' active' : '')}
+                    onClick={() => this.toggleMenu()}
+                    ref={ref => this.holderRef = ref}
+                    style={{
+                        background: theme.background,
+                        borderColor: theme.borderColor,
+                    }}>
+                    <div className='ui-select-holder-value' style={{ color: theme.textColor }}>
                         {HolderTSX}
                         {search && SearchTSX}
                     </div>
                     {(clearable && somethingSelected) && ClearButtonTSX}
-                    <span className='ui-select-holder-down'>
+                    <span className='ui-select-holder-down' style={{ color: theme.labelColor }}>
                         <Icon type={menuVisible ? 'up' : 'down'} />
                     </span>
-                    <div className={'ui-select-menu' + (menuVisible ? ' visible' : '')}>{MenuItemsTSX}</div>
+                    <div className={'ui-select-menu' + (menuVisible ? ' visible' : '')} style={{ borderColor: theme.borderColor, background: theme.background }}>{MenuItemsTSX}</div>
                 </div>
             </div>
         )
@@ -243,7 +261,10 @@ export default (props: Props) => (
     <Theme>
         {theme => (
             <Select {...props} theme={{
-
+                background: theme.interface,
+                labelColor: theme.lowlight,
+                textColor: theme.text,
+                borderColor: theme.pale
             }} />
         )}
     </Theme>

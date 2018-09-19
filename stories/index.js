@@ -39,7 +39,7 @@ storiesOf('💥 Core', module)
         <SampleStory />
     ))
     .add('Button', () => (
-        <Viewport style={flexCentered} theme='blackCurrant'>
+        <Viewport style={flexCentered} theme='whiteCurrant'>
             <Flexbox>
                 <Flexbox p={10}>
                     <Button>Simple button</Button>
@@ -110,7 +110,7 @@ storiesOf('💥 Core', module)
         </Viewport >
     ))
     .add('Spinner', () => (
-        <Viewport style={flexCentered}>
+        <Viewport style={flexCentered} theme="blackCurrant">
             <Spinner spinning />
         </Viewport>
     ))
@@ -128,7 +128,7 @@ storiesOf('💥 Core', module)
         <WidgetStatStory />
     ))
     .add('Modal', () => (
-        <Viewport style={flexCentered}>
+        <Viewport style={flexCentered} theme="whiteCurrant">
             <Modal title="Модальное окно" subtitle={"Нажмите close"} ref={ref => window.modal = ref}>
                 <Flexbox justifyContent="center">
                     <Button onClick={() => window.modal.close()}>Close</Button>

@@ -23,16 +23,20 @@ class Widget extends Component<Props & ThemedProps> {
             classes += " ui-widget-clickable"
         }
         return (
-            <Flexbox column flex={1} justifyContent="center" className={classes} onClick={onClick} style={style}>
+            <Flexbox column flex={1} justifyContent="center" className={classes} onClick={onClick} style={{
+                ...style,
+                background: this.props.theme.background,
+                borderColor: this.props.theme.borderColor
+            }}>
                 {title ? (
                     <div className="ui-widget-title">{title}</div>
                 ) : ""}
                 {loading ? (
                     <Flexbox column className="ui-widget-loading" alignItems="center" alignSelf="center" justifyContent="center">
                         <Spin>
-                            <Icon type="sync" />
+                            <Icon type="sync" style={{ color: this.props.theme.highlight }} />
                         </Spin>
-                        {typeof loading === "string" && <div className="ui-widget-loadingtext">loading</div>}
+                        {typeof loading === "string" && <div className="ui-widget-loadingtext" style={{ color: this.props.theme.lowlight }}>loading</div>}
                     </Flexbox>
                 ) : children}
             </Flexbox>
@@ -44,7 +48,10 @@ export default (props: Props) => (
     <Theme>
         {theme => (
             <Widget {...props} theme={{
-
+                background: theme.interface,
+                borderColor: `rgba(${theme.pale}, 1)`,
+                lowlight: theme.lowlight,
+                highlight: theme.highlight
             }} />
         )}
     </Theme>
