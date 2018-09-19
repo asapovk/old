@@ -4,11 +4,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importDefault(require("react"));
-var telegram_dark_1 = __importDefault(require("./telegram-dark"));
-var clean_bright_1 = __importDefault(require("./clean-bright"));
+var black_currant_1 = __importDefault(require("./black-currant"));
+var white_currant_1 = __importDefault(require("./white-currant"));
 exports.themes = {
-    telegramDark: telegram_dark_1.default, cleanBright: clean_bright_1.default
+    blackCurrant: black_currant_1.default, whiteCurrant: white_currant_1.default
 };
-exports.ThemeContext = react_1.default.createContext(exports.themes.telegramDark // default value
+exports.ThemeContext = react_1.default.createContext(exports.themes.blackCurrant // default value
 );
 exports.default = exports.ThemeContext.Consumer;
