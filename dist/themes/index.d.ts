@@ -1,6 +1,6 @@
 import React from 'react';
 export declare const themes: {
-    telegramDark: {
+    blackCurrant: {
         background: string;
         interface: string;
         pale: string;
@@ -16,7 +16,7 @@ export declare const themes: {
         shadow: string;
         corner: string;
     };
-    cleanBright: {
+    whiteCurrant: {
         background: string;
         interface: string;
         pale: string;
@@ -34,7 +34,7 @@ export declare const themes: {
     };
 };
 export interface themeNames {
-    theme?: 'telegramDark' | 'cleanBright';
+    theme?: 'blackCurrant' | 'whiteCurrant';
 }
 export declare const ThemeContext: React.Context<{
     background: string;
