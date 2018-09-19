@@ -27,6 +27,6 @@ class View extends React.Component {
     }
 }
 export default (Name) => () => {
-    const C = require('./componentStories/' + Name).default;
+    const C = require('./include/' + Name).default;
     return <View><C /></View>
 }

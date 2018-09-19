@@ -3,7 +3,7 @@ import $ from './StoryRender';
 import { storiesOf } from '@storybook/react';
 import '../src/scss/main.scss';
 
-storiesOf('Основные компоненты', module)
+storiesOf('Основные компоненты')
     .add('Viewport', $('ViewportStory'))
     .add('Button', $('ButtonStory'))
     .add('TextField', $('TextfieldStory'))
@@ -23,5 +23,5 @@ storiesOf('Основные компоненты', module)
     .add('Modal', $('ModalStory'))
     .add('Flexbox', $('FlexboxStory'));
 
-storiesOf('Другое', module)
+storiesOf('Другое')
     .add('Login', $('LoginStory'));
