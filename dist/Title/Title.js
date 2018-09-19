@@ -59,16 +59,19 @@ var Title = /** @class */ (function (_super) {
     };
     Title.prototype.render = function () {
         var _this = this;
-        var _a = this.props, children = _a.children, style = _a.style, onChange = _a.onChange, value = _a.value, onLabel = _a.onLabel, offLabel = _a.offLabel;
+        var _a = this.props, children = _a.children, style = _a.style, onChange = _a.onChange, value = _a.value, onLabel = _a.onLabel, offLabel = _a.offLabel, theme = _a.theme;
         var classes = 'ui-title';
         var state = (typeof value !== "undefined") ? value : this.state.on;
         return (react_1.default.createElement(index_1.Flexbox, { className: classes, style: style },
             children,
             (typeof onChange === "function") ? (react_1.default.createElement(index_1.Flexbox, null,
-                react_1.default.createElement("div", { onClick: function () { return _this.onChange(true); }, className: "ui-title-action" + (state ? " ui-title-action-active" : "") }, onLabel || "ВКЛ"),
-                react_1.default.createElement("div", { onClick: function () { return _this.onChange(!state); }, className: "ui-title-switch" + (!state ? " ui-title-switch-active" : ""), children: react_1.default.createElement("span", null) }),
-                react_1.default.createElement("div", { onClick: function () { return _this.onChange(false); }, className: "ui-title-action" + (!state ? " ui-title-action-active" : "") }, offLabel || "ВЫКЛ"))) : null));
+                react_1.default.createElement("div", { onClick: function () { return _this.onChange(true); }, style: { color: theme.highlightColor }, className: "ui-title-action" + (state ? " ui-title-action-active" : "") }, onLabel || "ВКЛ"),
+                react_1.default.createElement("div", { onClick: function () { return _this.onChange(!state); }, style: { borderColor: theme.highlightColor }, className: "ui-title-switch" + (!state ? " ui-title-switch-active" : ""), children: react_1.default.createElement("span", { style: { background: theme.highlightColor } }) }),
+                react_1.default.createElement("div", { onClick: function () { return _this.onChange(false); }, style: { color: theme.highlightColor }, className: "ui-title-action" + (!state ? " ui-title-action-active" : "") }, offLabel || "ВЫКЛ"))) : null));
     };
     return Title;
 }(react_1.Component));
-exports.default = (function (props) { return (react_1.default.createElement(Themes_1.default, null, function (theme) { return (react_1.default.createElement(Title, __assign({}, props, { theme: {} }))); })); });
+exports.default = (function (props) { return (react_1.default.createElement(Themes_1.default, null, function (theme) { return (react_1.default.createElement(Title, __assign({}, props, { theme: {
+        textColor: theme.text,
+        highlightColor: theme.highlight
+    } }))); })); });

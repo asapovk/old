@@ -79,6 +79,10 @@ var Chart = /** @class */ (function (_super) {
                                 gridLines: {
                                     color: theme.accent,
                                     lineWidth: 0.2,
+                                },
+                                ticks: {
+                                    beginAtZero: true,
+                                    fontColor: theme.text
                                 }
                             }],
                         yAxes: [{
@@ -88,7 +92,8 @@ var Chart = /** @class */ (function (_super) {
                                     lineWidth: 0.2,
                                 },
                                 ticks: {
-                                    beginAtZero: true
+                                    beginAtZero: true,
+                                    fontColor: "#F00000"
                                 }
                             }],
                     },
@@ -101,6 +106,6 @@ var Chart = /** @class */ (function (_super) {
 }(react_1.default.Component));
 exports.default = (function (props) { return (react_1.default.createElement(Themes_1.default, null, function (theme) { return (react_1.default.createElement(Chart, __assign({}, props, { theme: {
         text: theme.text,
-        accent: theme.accents.blue,
+        accent: theme.highlight,
         background: theme.background
     } }))); })); });

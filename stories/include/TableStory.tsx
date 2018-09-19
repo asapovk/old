@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import { Viewport, Table } from '../../src';
+import { Flexbox, Table } from '../../src';
 import TableCustomCell from './misc/TableCustomCell'
 import Fakerator from 'fakerator';
 
@@ -30,9 +30,8 @@ class TableStory extends React.Component {
 
         return (
 
-            <Fragment>
+            <Flexbox p={40} column flex={1}>
                 <Table
-                    style={{ padding: 20 }}
                     data={tableData}
                     pagination={{
                         pageSize: 10
@@ -46,7 +45,7 @@ class TableStory extends React.Component {
                     ]}
                     noDataLabel='Данных то нету...'
                 />
-            </Fragment>
+            </Flexbox>
         )
     }
 }

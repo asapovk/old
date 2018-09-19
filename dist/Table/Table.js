@@ -69,8 +69,10 @@ var Table = /** @class */ (function (_super) {
             return (react_1.default.createElement(TableRow_1.default, { key: key, row: row, columns: columns, actions: actions, border: border, form: (form && form.key && key == form.key) && form.render, isSelected: (_this.state.selectedItems.some(function (item) { return item === key; })), isExpanding: (_this.state.expandedItems.some(function (item) { return item === key; })), isBlur: ((form && form.key && key != form.key) || isAddForm), scope: scope }));
         });
         var addFormTSX = typeof form != 'undefined' && typeof form.key === 'undefined' && TableForm_1.default(form.render, columns, {});
-        return (react_1.default.createElement("div", { className: 'ui-table', ref: function (ref) { return _this.table = ref; }, style: __assign({ boxShadow: "0px 2px 4px 0px " + theme.shadowColor }, style) },
-            react_1.default.createElement("div", { className: 'ui-table-content' },
+        return (react_1.default.createElement("div", { className: 'ui-table', ref: function (ref) { return _this.table = ref; }, style: style },
+            react_1.default.createElement("div", { className: 'ui-table-content', style: {
+                    boxShadow: "0px 2px 4px 0px " + theme.shadowColor,
+                } },
                 !isData && noDataLabelTSX,
                 react_1.default.createElement("div", { className: 'ui-table-content-head-row', children: ColumnsTSX, style: actions && { marginRight: '32px' } }),
                 react_1.default.createElement("div", { className: 'ui-table-content-body' },
