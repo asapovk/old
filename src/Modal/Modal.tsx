@@ -5,6 +5,7 @@ import { Portal } from 'react-portal';
 import { Spinner } from '../Spinner';
 import { Flexbox } from '../Flexbox';
 import ModalTitle from './ModalTitle';
+import Theme from '../Themes';
 interface Props {
     onClose?: () => void
     didClose?: () => void
@@ -15,6 +16,10 @@ interface Props {
     style?: CSSProperties
     title?: string
     subtitle?: string
+    children?: any
+}
+export interface ThemedProps {
+    theme
 }
 interface Modal {
     visible: boolean
@@ -22,7 +27,7 @@ interface Modal {
     modal: any
 }
 
-class Modal extends React.Component<Props> {
+class Modal extends React.Component<Props & ThemedProps> {
 
     static defaultProps = {
         onClose: _ => { },
@@ -181,4 +186,12 @@ class Modal extends React.Component<Props> {
     }
 }
 
-export default Modal;
+export default (props: Props) => (
+    <Theme>
+        {theme => (
+            <Modal {...props} theme={{
+
+            }} />
+        )}
+    </Theme>
+);

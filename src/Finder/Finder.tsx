@@ -12,6 +12,7 @@ interface Props {
     tip?: boolean
     filterPlaceholder?: string
     style?: CSSProperties
+    children?: any
 }
 export interface ThemedProps {
     theme

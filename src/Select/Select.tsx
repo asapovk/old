@@ -19,6 +19,10 @@ interface Props {
     defaultValue?: string | string[]
     dontClose?: boolean
     onChange?: (value: string | string[] | null) => void
+    children?: any
+}
+export interface ThemedProps {
+    theme
 }
 export interface ThemedProps {
     theme

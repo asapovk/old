@@ -2,6 +2,7 @@ import { Portal } from 'react-portal'
 import { Fragment, ReactElement } from 'react';
 import ReactDOM from 'react-dom';
 import React from 'react';
+import Theme from '../Themes';
 
 interface TargetCoordinates {
     top: number
@@ -15,7 +16,7 @@ interface PopupCoordinates {
     left: number
 }
 
-interface PopupProps {
+interface Props {
     type?: 'error'
     position?:
     'bottom-left' |
@@ -32,9 +33,12 @@ interface PopupProps {
     'right-bottom',
     trigger: any,
     on?: 'hover' | 'click'
+    children?: any
 }
-
-class Popup extends React.Component<PopupProps> {
+export interface ThemedProps {
+    theme
+}
+class Popup extends React.Component<Props & ThemedProps> {
 
     state = {
         triggerCoord: {
@@ -208,5 +212,12 @@ class Popup extends React.Component<PopupProps> {
     }
 }
 
+export default (props: Props) => (
+    <Theme>
+        {theme => (
+            <Popup {...props} theme={{
 
-export default Popup;
+            }} />
+        )}
+    </Theme>
+);

@@ -1,10 +1,10 @@
 import React, { Fragment } from 'react';
-//import TableCheckbox from './TableCheckbox';
 import TableColumns from './TableColumns';
 import TableForm from './TableForm';
 import TableActions from './TableActions';
+import Theme from '../Themes';
 
-interface TableRowProps {
+interface Props {
     row: {
         [dataIndex: string]: string
     }
@@ -16,9 +16,12 @@ interface TableRowProps {
     border?
     scope?
     form?
+    children?: any
 }
-
-export default class TableRow extends React.Component<TableRowProps> {
+export interface ThemedProps {
+    theme
+}
+class TableRow extends React.Component<Props & ThemedProps> {
 
     onClick() {
 
@@ -42,3 +45,13 @@ export default class TableRow extends React.Component<TableRowProps> {
         )
     }
 }
+
+export default (props: Props) => (
+    <Theme>
+        {theme => (
+            <TableRow {...props} theme={{
+
+            }} />
+        )}
+    </Theme>
+);

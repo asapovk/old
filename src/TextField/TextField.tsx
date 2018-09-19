@@ -1,11 +1,12 @@
 import React from 'react';
+import Theme from '../Themes';
 
 interface ValidateObject {
     error?: string
     regex: RegExp
     isMatch?: boolean
 }
-interface TextFieldProps {
+interface Props {
     theme?: any
     label?: string
     validate?: Array<ValidateObject>
@@ -20,9 +21,12 @@ interface TextFieldProps {
     type?: 'password' | 'number'
     onError?: (error: string[] | null) => void
     onChange?: (value: string) => void
+    children?: any
 }
-
-class UITextField extends React.Component<TextFieldProps> {
+export interface ThemedProps {
+    theme
+}
+class TextField extends React.Component<Props & ThemedProps> {
 
     public validate(value: string): boolean {
         const errors: string[] = [];
@@ -95,4 +99,12 @@ class UITextField extends React.Component<TextFieldProps> {
     }
 }
 
-export default UITextField;
+export default (props: Props) => (
+    <Theme>
+        {theme => (
+            <TextField {...props} theme={{
+
+            }} />
+        )}
+    </Theme>
+);

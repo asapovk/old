@@ -4,6 +4,7 @@ import { Icon, Flexbox } from '../';
 interface FinderSectionProps {
     label?: string
     style?: CSSProperties
+    children?: any
 }
 
 class FinderSection extends React.Component<FinderSectionProps> {

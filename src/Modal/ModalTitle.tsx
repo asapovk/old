@@ -1,11 +1,14 @@
 import React, { Fragment } from 'react';
+import Theme from '../Themes';
 
 interface Props {
     title?: string
     subtitle?: string
 }
-
-class ModalTitle extends React.Component<Props> {
+export interface ThemedProps {
+    theme
+}
+class ModalTitle extends React.Component<Props & ThemedProps> {
     render() {
         if (!this.props.title) {
             return null;
@@ -24,4 +27,12 @@ class ModalTitle extends React.Component<Props> {
     }
 }
 
-export default ModalTitle;
+export default (props: Props) => (
+    <Theme>
+        {theme => (
+            <ModalTitle {...props} theme={{
+
+            }} />
+        )}
+    </Theme>
+);

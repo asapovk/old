@@ -1,5 +1,6 @@
 import React, { Component, Fragment, Children } from 'react';
 import { Widget, Icon, Button, Flexbox } from '../index';
+import Theme from '../Themes';
 
 interface Props {
     loading?: boolean | string
@@ -14,8 +15,10 @@ interface Props {
     value1: string
     value2: string
 }
-
-class WidgetStat extends Component<Props> {
+export interface ThemedProps {
+    theme
+}
+class WidgetStat extends Component<Props & ThemedProps> {
 
     render() {
 
@@ -46,4 +49,12 @@ class WidgetStat extends Component<Props> {
     }
 }
 
-export default WidgetStat;
+export default (props: Props) => (
+    <Theme>
+        {theme => (
+            <WidgetStat {...props} theme={{
+
+            }} />
+        )}
+    </Theme>
+);

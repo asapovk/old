@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import { Spin, Icon, Flexbox } from '../index';
+import Theme from '../Themes';
 
 interface Props {
     label?: string
@@ -8,9 +9,12 @@ interface Props {
     className?: string
     style?: any
     title?: string
+    children?: any
 }
-
-class Widget extends Component<Props> {
+export interface ThemedProps {
+    theme
+}
+class Widget extends Component<Props & ThemedProps> {
     render() {
 
         const { onClick, title, children, style, loading } = this.props;
@@ -36,4 +40,12 @@ class Widget extends Component<Props> {
     }
 }
 
-export default Widget;
+export default (props: Props) => (
+    <Theme>
+        {theme => (
+            <Widget {...props} theme={{
+
+            }} />
+        )}
+    </Theme>
+);

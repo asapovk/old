@@ -3,8 +3,9 @@ import TableRow from './TableRow';
 import TableForm from './TableForm';
 import TablePagination, { PaginationProps } from './TablePagination';
 import { Flexbox } from '../Flexbox';
+import Theme from '../Themes';
 
-export interface TableProps {
+export interface Props {
     data: any[]
     columns: {
         title?: string
@@ -27,9 +28,12 @@ export interface TableProps {
     style?: any
     pagination?: PaginationProps
     noDataLabel?: string;
+    children?: any
 }
-
-class Table extends React.Component<TableProps> {
+export interface ThemedProps {
+    theme
+}
+class Table extends React.Component<Props & ThemedProps> {
 
     state = {
         selectedItems: [] as string[],
@@ -143,4 +147,12 @@ class Table extends React.Component<TableProps> {
     }
 }
 
-export default Table;
+export default (props: Props) => (
+    <Theme>
+        {theme => (
+            <Table {...props} theme={{
+
+            }} />
+        )}
+    </Theme>
+);
