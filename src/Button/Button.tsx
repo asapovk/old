@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { Spin, Icon } from '../index';
+import Theme from '../Themes';
 
-export interface ButtonProps {
+export interface Props {
     label?: string
     outline?: boolean
     decoration?: 'none' | 'accent'
@@ -13,11 +14,11 @@ export interface ButtonProps {
     style?: any
 }
 
-interface ThemedButtonProps extends ButtonProps {
+interface ThemedProps {
     theme
 }
 
-class Button extends Component<ThemedButtonProps> {
+class Button extends Component<Props & ThemedProps> {
     render() {
 
         const { labelCase, onClick, label, children, className, style, loading, theme } = this.props;
@@ -41,4 +42,24 @@ class Button extends Component<ThemedButtonProps> {
     }
 }
 
-export default Button;
+export default (props: Props) => (
+    <Theme>
+        {theme => (
+            <Button {...props} theme={{
+                btnStyle: props.decoration === 'none'
+                    ? {
+                        background: 'none',
+                        padding: 0,
+                        color: theme.text
+                    }
+                    : {
+                        background: props.decoration === 'accent' ? theme.highlight : theme.interface,
+                        boxShadow: '0px 2px 4px 0px ' + theme.shadow,
+                        borderRadius: theme.corner,
+                        color: theme.text,
+                        border: '1px solid ' + theme.pale
+                    },
+            }} />
+        )}
+    </Theme>
+);

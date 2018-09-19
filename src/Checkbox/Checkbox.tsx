@@ -1,7 +1,8 @@
 import React from 'react';
 import { Icon } from '../Icon';
+import Theme from '../Themes';
 
-interface CheckboxProps {
+interface Props {
     label?: string
     radio?: boolean
     checked?: boolean
@@ -13,7 +14,10 @@ interface CheckboxProps {
 interface Checkbox {
     checked: boolean
 }
-class Checkbox extends React.Component<CheckboxProps> {
+export interface ThemedProps {
+    theme
+}
+class Checkbox extends React.Component<Props & ThemedProps> {
 
     state = {
         checked: false
@@ -70,4 +74,12 @@ class Checkbox extends React.Component<CheckboxProps> {
     }
 }
 
-export default Checkbox;
+export default (props: Props) => (
+    <Theme>
+        {theme => (
+            <Checkbox {...props} theme={{
+
+            }} />
+        )}
+    </Theme>
+);

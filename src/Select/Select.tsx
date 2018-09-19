@@ -1,12 +1,13 @@
 import React, { CSSProperties } from 'react';
 import { Icon } from '../Icon';
+import Theme from '../Themes';
 
 interface SelectOption {
     text: string
     value: string
 }
 
-interface SelectProps {
+interface Props {
     search?: boolean
     style?: CSSProperties
     label?: string
@@ -19,8 +20,10 @@ interface SelectProps {
     dontClose?: boolean
     onChange?: (value: string | string[] | null) => void
 }
-
-class Select extends React.Component<SelectProps> {
+export interface ThemedProps {
+    theme
+}
+class Select extends React.Component<Props & ThemedProps> {
 
     private
     holderRef = null as HTMLDivElement | null
@@ -232,5 +235,12 @@ class Select extends React.Component<SelectProps> {
     }
 }
 
+export default (props: Props) => (
+    <Theme>
+        {theme => (
+            <Select {...props} theme={{
 
-export default Select;
+            }} />
+        )}
+    </Theme>
+);

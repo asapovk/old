@@ -1,19 +1,22 @@
 import React, { CSSProperties } from 'react';
 import FinderFilter from './FinderFilter';
 import { Flexbox } from '../';
+import Theme from '../Themes';
 
 //TODO:
 // - defaultValue
 // - section
 
-interface FinderProps {
+interface Props {
     filter?: boolean
     tip?: boolean
     filterPlaceholder?: string
     style?: CSSProperties
 }
-
-class Finder extends React.Component<FinderProps> {
+export interface ThemedProps {
+    theme
+}
+class Finder extends React.Component<Props & ThemedProps> {
 
     constructor(props) {
         super(props);
@@ -60,7 +63,7 @@ class Finder extends React.Component<FinderProps> {
         return children
     }
 
-    passFinderProps(children, level) {
+    passProps(children, level) {
         let counter = 0;
         return React.Children.map(children, (child: any) => {
             let index = level + '.' + counter;
@@ -73,7 +76,7 @@ class Finder extends React.Component<FinderProps> {
         let currentChildren = children;
 
         for (let i = 1; i <= level; i++) {
-            currentChildren = this.passFinderProps(
+            currentChildren = this.passProps(
                 React.Children.map(currentChildren, (child: any) => {
                     if (child.props.finderIndex === this.state.menues[i].index) return child.props.children
                 }),
@@ -87,7 +90,7 @@ class Finder extends React.Component<FinderProps> {
 
         const { style } = this.props;
 
-        const children = this.passFinderProps(this.props.children, 0);
+        const children = this.passProps(this.props.children, 0);
 
         const MenuesTSX = (
             this.state.menues.map((menu, index) => (
@@ -108,4 +111,13 @@ class Finder extends React.Component<FinderProps> {
     }
 }
 
-export default Finder;
+
+export default (props: Props) => (
+    <Theme>
+        {theme => (
+            <Finder {...props} theme={{
+
+            }} />
+        )}
+    </Theme>
+);

@@ -22,11 +22,11 @@ export interface Props {
     legendDisplay?: boolean
 }
 
-export interface ThemedProps extends Props {
+export interface ThemedProps {
     theme
 }
 
-class Chart extends React.Component<ThemedProps> {
+class Chart extends React.Component<Props & ThemedProps> {
     render() {
         const { labels, data, responsive, tension, loading, style, legendDisplay, theme } = this.props;
 
