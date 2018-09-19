@@ -41,14 +41,20 @@ var TableRow = /** @class */ (function (_super) {
     };
     TableRow.prototype.render = function () {
         var _this = this;
-        var _a = this.props, row = _a.row, isSelected = _a.isSelected, isExpanding = _a.isExpanding, isBlur = _a.isBlur, actions = _a.actions, border = _a.border, scope = _a.scope, columns = _a.columns, form = _a.form;
+        var _a = this.props, row = _a.row, isSelected = _a.isSelected, isExpanding = _a.isExpanding, isBlur = _a.isBlur, actions = _a.actions, border = _a.border, scope = _a.scope, columns = _a.columns, form = _a.form, theme = _a.theme;
         if (form) {
             return TableForm_1.default(form, columns, row);
         }
-        return (react_1.default.createElement("div", { className: "ui-table-content-body-row " + (isBlur ? 'blur' : 'hover'), onClick: function (event) { return _this.onClick(); } },
+        return (react_1.default.createElement("div", { className: "ui-table-content-body-row " + (isBlur ? 'blur' : 'hover'), style: {
+                backgroundColor: theme.backgroundColor,
+                borderColor: theme.borderColor,
+            }, onClick: function (event) { return _this.onClick(); } },
             react_1.default.createElement(TableColumns_1.default, __assign({}, this.props)),
             actions && react_1.default.createElement(TableActions_1.default, { actions: actions, data: row })));
     };
     return TableRow;
 }(react_1.default.Component));
-exports.default = (function (props) { return (react_1.default.createElement(Themes_1.default, null, function (theme) { return (react_1.default.createElement(TableRow, __assign({}, props, { theme: {} }))); })); });
+exports.default = (function (props) { return (react_1.default.createElement(Themes_1.default, null, function (theme) { return (react_1.default.createElement(TableRow, __assign({}, props, { theme: {
+        backgroundColor: theme.interface,
+        borderColor: theme.pale,
+    } }))); })); });

@@ -19,9 +19,15 @@ var Button_1 = require("../Button");
 var Icon_1 = require("../Icon");
 var Themes_1 = __importDefault(require("../Themes"));
 var TableActions = function (props) { return (react_1.default.createElement("div", { className: 'ui-table-content-body-row-actions' },
-    react_1.default.createElement(Icon_1.Icon, { type: 'more' }),
-    react_1.default.createElement("div", { className: 'ui-table-content-body-row-actions-buttons' }, props.actions.map(function (action, index) { return (react_1.default.createElement(Button_1.Button, { decoration: 'none', key: index, className: action.className, onClick: function (event) {
+    react_1.default.createElement(Icon_1.Icon, { type: 'more', style: { color: props.theme.actionColor } }),
+    react_1.default.createElement("div", { className: 'ui-table-content-body-row-actions-buttons', style: {
+            // TODO: gradient opacity
+            background: "linear-gradient(90deg, " + props.theme.backgroundColor + " 0%, " + props.theme.backgroundColor + " 20%)"
+        } }, props.actions.map(function (action, index) { return (react_1.default.createElement(Button_1.Button, { decoration: 'none', key: index, className: action.className, onClick: function (event) {
             event.stopPropagation();
             action.onAction(props.data);
         } }, action.label)); })))); };
-exports.default = (function (props) { return (react_1.default.createElement(Themes_1.default, null, function (theme) { return (react_1.default.createElement(TableActions, __assign({}, props, { theme: {} }))); })); });
+exports.default = (function (props) { return (react_1.default.createElement(Themes_1.default, null, function (theme) { return (react_1.default.createElement(TableActions, __assign({}, props, { theme: {
+        backgroundColor: theme.interface,
+        actionColor: theme.highlight,
+    } }))); })); });

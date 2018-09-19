@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { Viewport, Flexbox, Widget } from '../../src';
 
 class WidgetStory extends React.Component {
@@ -7,7 +7,7 @@ class WidgetStory extends React.Component {
     }
     render() {
         return (
-            <Viewport theme="blackCurrant">
+            <Fragment>
                 <Flexbox flex={1}>
                     <Flexbox p={10} flex={1}>
                         <Widget>Просто виджет</Widget>
@@ -29,7 +29,7 @@ class WidgetStory extends React.Component {
                         </Widget>
                     </Flexbox>
                 </Flexbox>
-            </Viewport>
+            </Fragment>
         )
 
     }

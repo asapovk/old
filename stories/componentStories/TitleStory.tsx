@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { Viewport, Flexbox, Title, Icon } from '../../src';
 
 class TitleStory extends React.Component {
@@ -7,7 +7,7 @@ class TitleStory extends React.Component {
     }
     render() {
         return (
-            <Viewport>
+            <Fragment>
                 <Flexbox p={40}>
                     <Title>Простой заголовок</Title>
                 </Flexbox>
@@ -19,7 +19,7 @@ class TitleStory extends React.Component {
                         onChange={state => { console.log(state) }}
                     />
                 </Flexbox>
-            </Viewport>
+            </Fragment>
         )
 
     }

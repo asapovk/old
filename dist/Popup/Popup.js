@@ -164,7 +164,7 @@ var Popup = /** @class */ (function (_super) {
     };
     Popup.prototype.render = function () {
         var _this = this;
-        var _a = this.props, position = _a.position, children = _a.children, type = _a.type, trigger = _a.trigger, on = _a.on;
+        var _a = this.props, position = _a.position, children = _a.children, type = _a.type, trigger = _a.trigger, theme = _a.theme;
         var TriggerTSX = react_2.default.createElement("div", { onClick: function () { return _this.show(); }, ref: function (ref) { return _this.triggerRef = ref; } }, trigger);
         var classes = 'ui-popup';
         if (type)
@@ -173,7 +173,7 @@ var Popup = /** @class */ (function (_super) {
             classes += ' pp-' + position;
         else
             classes += ' pp-bottom-left';
-        var PopupTSX = (react_2.default.createElement("div", { ref: function (ref) { return _this.popupRef = ref; }, className: classes, style: this.state.popupStyle, children: children }));
+        var PopupTSX = (react_2.default.createElement("div", { ref: function (ref) { return _this.popupRef = ref; }, className: classes, style: __assign({ background: theme.background, color: theme.color, boxShadow: "0px 2px 4px 0px " + theme.shadowColor, borderColor: theme.borderColor }, this.state.popupStyle), children: children }));
         var ViewportHTML = document.getElementById('0cd82567-7684-4147-ab02-dd3c56332364');
         var Portal = react_dom_1.default.createPortal(PopupTSX, ViewportHTML ? ViewportHTML : document.body);
         return (react_2.default.createElement(react_1.Fragment, null,
@@ -182,4 +182,9 @@ var Popup = /** @class */ (function (_super) {
     };
     return Popup;
 }(react_2.default.Component));
-exports.default = (function (props) { return (react_2.default.createElement(Themes_1.default, null, function (theme) { return (react_2.default.createElement(Popup, __assign({}, props, { theme: {} }))); })); });
+exports.default = (function (props) { return (react_2.default.createElement(Themes_1.default, null, function (theme) { return (react_2.default.createElement(Popup, __assign({}, props, { theme: {
+        color: theme.text,
+        shadowColor: theme.shadow,
+        borderColor: theme.pale,
+        background: theme.interface
+    } }))); })); });

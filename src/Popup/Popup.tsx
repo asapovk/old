@@ -1,5 +1,4 @@
-import { Portal } from 'react-portal'
-import { Fragment, ReactElement } from 'react';
+import { Fragment } from 'react';
 import ReactDOM from 'react-dom';
 import React from 'react';
 import Theme from '../Themes';
@@ -182,7 +181,7 @@ class Popup extends React.Component<Props & ThemedProps> {
 
     render() {
 
-        const { position, children, type, trigger, on } = this.props;
+        const { position, children, type, trigger, theme } = this.props;
 
         const TriggerTSX = <div onClick={() => this.show()} ref={ref => this.triggerRef = ref}>{trigger}</div>
 
@@ -195,7 +194,13 @@ class Popup extends React.Component<Props & ThemedProps> {
             <div
                 ref={ref => this.popupRef = ref}
                 className={classes}
-                style={this.state.popupStyle}
+                style={{
+                    background: theme.background,
+                    color: theme.color,
+                    boxShadow: `0px 2px 4px 0px ${theme.shadowColor}`,
+                    borderColor: theme.borderColor,
+                    ...this.state.popupStyle
+                }}
                 children={children}
             />
         )
@@ -216,7 +221,10 @@ export default (props: Props) => (
     <Theme>
         {theme => (
             <Popup {...props} theme={{
-
+                color: theme.text,
+                shadowColor: theme.shadow,
+                borderColor: theme.pale,
+                background: theme.interface
             }} />
         )}
     </Theme>

@@ -1,11 +1,11 @@
 import React from 'react';
-import { Flexbox, Viewport } from '../../src';
+import { Flexbox } from '../../src';
 
 class FlexboxStory extends React.Component {
 
     render() {
         return (
-            <Viewport style={{ padding: 20 }}>
+            <div>
                 <Flexbox style={{ border: "10px solid #000" }}>
                     <Flexbox justifyContent="center" style={{ background: "white" }} flex={1}>
                         <div style={{ background: "#333", padding: 10 }}>div</div>
@@ -79,7 +79,7 @@ class FlexboxStory extends React.Component {
                     </Flexbox>
                 </Flexbox>
                 <br />
-            </Viewport>
+            </div>
         )
     }
 }

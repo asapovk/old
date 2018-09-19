@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { Viewport, Table } from '../../src';
 import TableCustomCell from './misc/TableCustomCell'
 import Fakerator from 'fakerator';
@@ -30,7 +30,7 @@ class TableStory extends React.Component {
 
         return (
 
-            <Viewport>
+            <Fragment>
                 <Table
                     style={{ padding: 20 }}
                     data={tableData}
@@ -46,7 +46,7 @@ class TableStory extends React.Component {
                     ]}
                     noDataLabel='Данных то нету...'
                 />
-            </Viewport>
+            </Fragment>
         )
     }
 }

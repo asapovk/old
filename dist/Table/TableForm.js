@@ -52,10 +52,16 @@ var TableFormHOC = /** @class */ (function (_super) {
         return (react_1.default.createElement("div", { className: 'ui-table-content-body-row-actions' + (props.className ? ' ' + props.className : ''), children: props.children, style: props.style }));
     };
     TableFormHOC.prototype.render = function () {
-        var _a = this.props, Form = _a.Form, data = _a.data, columns = _a.columns;
-        return (react_1.default.createElement("div", { className: 'ui-table-content-body-row edited' },
+        var _a = this.props, Form = _a.Form, data = _a.data, columns = _a.columns, theme = _a.theme;
+        return (react_1.default.createElement("div", { className: 'ui-table-content-body-row edited', style: {
+                backgroundColor: theme.backgroundColor,
+                borderColor: theme.borderColor,
+            } },
             react_1.default.createElement(Form, { data: data, columns: columns, formData: this.formData, setData: this.setData, setValid: this.setValid, Column: this.Column, Subrow: this.Subrow, Actions: this.Actions })));
     };
     return TableFormHOC;
 }(react_1.default.Component));
-exports.default = (function (Form, columns, row) { return (react_1.default.createElement(Themes_1.default, null, function (theme) { return (react_1.default.createElement(TableFormHOC, { data: row, columns: columns, Form: Form, theme: {} })); })); });
+exports.default = (function (Form, columns, row) { return (react_1.default.createElement(Themes_1.default, null, function (theme) { return (react_1.default.createElement(TableFormHOC, { data: row, columns: columns, Form: Form, theme: {
+        backgroundColor: theme.interface,
+        borderColor: theme.pale,
+    } })); })); });

@@ -24,7 +24,7 @@ class Login extends React.Component<Props & ThemedProps> {
         const MenuTSX = (
             <div className='ui-login-menu'>
                 {fullname && <div className='ui-login-menu-fullname'>{fullname}</div>}
-                {login && <div className='ui-login-menu-login'>{'@' + login}</div>}
+                {login && <div style={{ color: this.props.theme.textColor }} className='ui-login-menu-login'>{'@' + login}</div>}
                 {role && <div className='ui-login-menu-role'>Роль: {role}</div>}
                 {children && <div className='ui-login-menu-actions'>{children}</div>}
             </div>
@@ -33,7 +33,7 @@ class Login extends React.Component<Props & ThemedProps> {
         const AvatarTSX = (
             <div className='ui-login-avatar'>
                 {avatar ? avatar :
-                    <div className='ui-login-avatar-generated'>{login.charAt(0)}</div>
+                    <div className='ui-login-avatar-generated' style={{ textShadow: this.props.theme.textShadow }}>{login.charAt(0)}</div>
                 }
             </div>
         )
@@ -57,6 +57,8 @@ export default (props: Props) => (
     <Theme>
         {theme => (
             <Login {...props} theme={{
+                textColor: theme.text,
+                textShadow: `0px 1px 6px rgba(${theme.shadow}, 0.5)`
 
             }} />
         )}

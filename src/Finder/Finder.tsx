@@ -89,13 +89,15 @@ class Finder extends React.Component<Props & ThemedProps> {
 
     render() {
 
-        const { style } = this.props;
+        const { style, theme } = this.props;
 
         const children = this.passProps(this.props.children, 0);
 
         const MenuesTSX = (
             this.state.menues.map((menu, index) => (
-                <Flexbox column className='ui-finder-menu' key={index}>
+                <Flexbox column className='ui-finder-menu' key={index} style={{
+                    borderColor: theme.borderColor,
+                }}>
                     {menu.filter && <FinderFilter level={index} onChange={this.onFilterChange} placeholder={menu.filterPlaceholder} />}
                     <Flexbox column className='ui-finder-menu-items'>
                         {this.getCurrentChildren(children, menu.filterValue, index)}
@@ -105,7 +107,11 @@ class Finder extends React.Component<Props & ThemedProps> {
         );
 
         return (
-            <Flexbox style={style} inline={true} className='ui-finder'>
+            <Flexbox style={{
+                backgroundColor: theme.backgroundColor,
+                borderColor: theme.borderColor,
+                ...style
+            }} inline={true} className='ui-finder'>
                 {MenuesTSX}
             </Flexbox>
         )
@@ -117,7 +123,8 @@ export default (props: Props) => (
     <Theme>
         {theme => (
             <Finder {...props} theme={{
-
+                backgroundColor: theme.background,
+                borderColor: theme.pale
             }} />
         )}
     </Theme>

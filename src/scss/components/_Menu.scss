@@ -4,7 +4,7 @@ $rowHeightMin: 40px;
 .ui-menu {
     display: flex;
     flex-direction: row;
-    background: $ui-background;
+    background: #000;
     align-items: flex-start;
     padding: 0px 40px;
     &-header {
@@ -28,6 +28,7 @@ $rowHeightMin: 40px;
             height: $rowHeight;
         }
         &-toolsbar {
+            line-height: 1;
             align-items: flex-end;
             &-search {
                 height: $rowHeightMin;
@@ -35,13 +36,10 @@ $rowHeightMin: 40px;
                 align-items: center;
                 flex: 1;
                 max-width: 632px; 
-                border: 1px solid;
+                border: 0.5px solid;
                 border-radius: 2px;
-                border-color: $highlight;
-                box-shadow: 0px 2px 4px 0px $shadow; 
                 &-icon {
                     font-size: 18px;
-                    color: $accent;
                     padding-right: 10px;
                     cursor: pointer;
                 }
@@ -81,15 +79,12 @@ $rowHeightMin: 40px;
     cursor: pointer;
     position: relative;
     font-weight: 600;
-}
-
-.nav-active {
-    color: $accent;
+    color: #999;
     span {
         position: absolute;
         bottom: 0px;
         height: 3px;
-        background: $accent;
+        background: #fff;
         left: 0;
         right: 0;
         z-index: 1;

@@ -39,13 +39,13 @@ var Login = /** @class */ (function (_super) {
         var _a = this.props, name = _a.name, fullname = _a.fullname, login = _a.login, role = _a.role, children = _a.children, avatar = _a.avatar;
         var MenuTSX = (react_1.default.createElement("div", { className: 'ui-login-menu' },
             fullname && react_1.default.createElement("div", { className: 'ui-login-menu-fullname' }, fullname),
-            login && react_1.default.createElement("div", { className: 'ui-login-menu-login' }, '@' + login),
+            login && react_1.default.createElement("div", { style: { color: this.props.theme.textColor }, className: 'ui-login-menu-login' }, '@' + login),
             role && react_1.default.createElement("div", { className: 'ui-login-menu-role' },
                 "\u0420\u043E\u043B\u044C: ",
                 role),
             children && react_1.default.createElement("div", { className: 'ui-login-menu-actions' }, children)));
         var AvatarTSX = (react_1.default.createElement("div", { className: 'ui-login-avatar' }, avatar ? avatar :
-            react_1.default.createElement("div", { className: 'ui-login-avatar-generated' }, login.charAt(0))));
+            react_1.default.createElement("div", { className: 'ui-login-avatar-generated', style: { textShadow: this.props.theme.textShadow } }, login.charAt(0))));
         var LoginTSX = (react_1.default.createElement("div", { className: 'ui-login' },
             AvatarTSX,
             name));
@@ -53,4 +53,7 @@ var Login = /** @class */ (function (_super) {
     };
     return Login;
 }(react_1.default.Component));
-exports.default = (function (props) { return (react_1.default.createElement(Themes_1.default, null, function (theme) { return (react_1.default.createElement(Login, __assign({}, props, { theme: {} }))); })); });
+exports.default = (function (props) { return (react_1.default.createElement(Themes_1.default, null, function (theme) { return (react_1.default.createElement(Login, __assign({}, props, { theme: {
+        textColor: theme.text,
+        textShadow: "0px 1px 6px rgba(" + theme.shadow + ", 0.5)"
+    } }))); })); });

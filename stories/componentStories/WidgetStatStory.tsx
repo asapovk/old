@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { Viewport, Flexbox, WidgetStat, Icon } from '../../src';
 
 class WidgetStatStory extends React.Component {
@@ -7,7 +7,7 @@ class WidgetStatStory extends React.Component {
     }
     render() {
         return (
-            <Viewport theme="whiteCurrant">
+            <Fragment>
                 <Flexbox flex={1} alignItems={"flex-start"}>
                     <Flexbox p={10} flex={1}>
                         <WidgetStat
@@ -64,7 +64,7 @@ class WidgetStatStory extends React.Component {
                         </WidgetStat>
                     </Flexbox>
                 </Flexbox>
-            </Viewport>
+            </Fragment>
         )
     }
 }

@@ -1,7 +1,22 @@
 .ui-modal {
+    &-mask {
+        z-index: 500;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        opacity: 0;
+        opacity: 0;
+        visibility: hidden;
+        @include css3-prefix("transition", all .25s);
+        &-visible {
+            visibility: visible;
+            opacity: 0.2;
+        }
+    }
     z-index: 500;
     position: fixed;
-    background: rgba($page-background, 0.3);
     top: 0;
     left: 0;
     right: 0;
@@ -17,13 +32,12 @@
             opacity: 0;
             visibility: hidden;
             padding: 20px;
-            background: $page-background;
-            border: 1px solid $interface;
             min-width: 200px;
             position: relative;
             @include css3-prefix("transition", all .5s);
             @include css3-prefix("box-shadow", 15px 0 50px rgba(0, 0, 0, 0.3));
             @include css3-prefix("transform", scale(0.2));
+            border: 0.5px solid;
             border-radius: 2px;
         }
     }
@@ -54,7 +68,6 @@
         }
     }
     &-title {
-        color: $text;
         font-size: 24px;
         font-weight: 500;
         margin-bottom: 20px;
@@ -62,7 +75,6 @@
             display: block;
             font-size: 14px;
             padding-top: 8px;
-            color: $highlight;
         }
     }
 }

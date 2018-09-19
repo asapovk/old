@@ -9,6 +9,7 @@ import {
     Button,
     Icon,
     Login,
+    Select,
     Checkbox,
     Spinner,
     Spin,
@@ -34,12 +35,37 @@ const flexCentered = {
     justifyContent: 'center'
 }
 
+class View extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            theme: "blackCurrant"
+        }
+    }
+    render() {
+        return (
+            <Viewport theme={this.state.theme}>
+                <Select 
+                    options={[
+                        {text: "Черная смородина", value: "blackCurrant"}, 
+                        {text: "Белая смородина", value: "whiteCurrant"}
+                    ]} 
+                    defaultValue={this.state.theme} 
+                    onChange={theme => this.setState({theme})}
+                />
+                <hr/>
+                {this.props.children}
+            </Viewport>
+        )
+    }
+}
+
 storiesOf('💥 Core', module)
     .add('Viewport', () => (
-        <SampleStory />
+        <View>there's nothing to see.</View>
     ))
     .add('Button', () => (
-        <Viewport style={flexCentered} theme='whiteCurrant'>
+        <View>
             <Flexbox>
                 <Flexbox p={10}>
                     <Button>Simple button</Button>
@@ -51,50 +77,60 @@ storiesOf('💥 Core', module)
                     <Button loading>Loading button</Button>
                 </Flexbox>
             </Flexbox>
-        </Viewport>
+        </View>
     ))
     .add('TextField', () => (
-        <Viewport style={flexCentered}>
+        <View>
             <div style={{ width: '626px', display: 'flex', flexDirection: 'column', height: '500px' }}>
                 <TextField label='Just input' style={{ flexBasis: '90px', flexGrow: '0' }} type='password' />
                 <TextField multiline={true} label='Textarea' style={{ paddingBottom: '40px' }} />
                 <TextField multiline={true} singlerow={true} label='Singlerow textarea' />
             </div>
-        </Viewport>
+        </View>
     ))
     .add('Select', () => (
-        <SelectStory />
+        <View>
+            <SelectStory />
+        </View>
     ))
     .add('Table', () => (
-        <TableStory />
+        <View>
+            <TableStory />
+        </View>
     ))
     .add('Menu', () => (
-        <MenuStory />
+        <View>
+            <MenuStory />
+        </View>
     ))
     .add('Chart', () => (
-        <ChartStory />
+        <View>
+            <ChartStory />
+        </View>
     ))
     .add('Finder', () => (
-        <Viewport style={flexCentered}>
+        <View>
             <FinderStory />
-        </Viewport>
+        </View>
     ))
     .add('Popup', () => (
-        <Viewport style={flexCentered}>
+        <View>
             <PopupStory />
-        </Viewport>
+        </View>
     ))
     .add('Title', () => (
-        <TitleStory />
+        <View>
+            <TitleStory />
+        </View>
     ))
     .add('Checkbox', () => (
-        <Viewport style={flexCentered}>
+        <View>
             <Checkbox label='Check me' style={{ paddingRight: '40px' }} />
             <Checkbox label='Check me' radio={true} />
-        </Viewport>
+        </View>
     ))
     .add('Icon', () => (
-        <Viewport style={{ display: 'flex', alignItems: 'flex-start', flexDirection: 'row', fontSize: 24, justifyContent: 'space-between', padding: '80px' }}>
+        <View>
             <style children='.desc{font-size: 12px; color: #5c6173; padding-top: 10px} .cont{display: flex; align-items: center; flex-direction: column}' />
             <div className='cont'><Icon type='add' /><span className='desc'>Add</span></div>
             <div className='cont'><Icon type='more' /><span className='desc'>more</span></div>
@@ -107,48 +143,54 @@ storiesOf('💥 Core', module)
             <div className='cont'><Icon type='search' /><span className='desc'>search</span></div>
             <div className='cont'><Icon type='sync' /><span className='desc'>sync</span></div>
             <div className='cont'><Icon type='settings' /><span className='desc'>settings</span></div>
-        </Viewport >
+        </View>
     ))
     .add('Spinner', () => (
-        <Viewport style={flexCentered} theme="blackCurrant">
+        <View>
             <Spinner spinning />
-        </Viewport>
+        </View>
     ))
     .add('Spin', () => (
-        <Viewport style={flexCentered}>
+        <View>
             <Spin>
                 <Icon type='sync' style={{ fontSize: 32 }} />
             </Spin>
-        </Viewport>
+        </View>
     ))
     .add('Widget', () => (
-        <WidgetStory />
+        <View>
+            <WidgetStory />
+        </View>
     ))
     .add('WidgetStat', () => (
-        <WidgetStatStory />
+        <View>
+            <WidgetStatStory />
+        </View>
     ))
     .add('Modal', () => (
-        <Viewport style={flexCentered} theme="whiteCurrant">
+        <View>
             <Modal title="Модальное окно" subtitle={"Нажмите close"} ref={ref => window.modal = ref}>
                 <Flexbox justifyContent="center">
                     <Button onClick={() => window.modal.close()}>Close</Button>
                 </Flexbox>
             </Modal>
             <Button onClick={() => window.modal.open()}>Open</Button>
-        </Viewport>
+        </View>
     ))
     .add('Flexbox', () => (
-        <FlexboxStory />
+        <View>
+            <FlexboxStory />
+        </View>
     ));
 
 storiesOf('🔪 Misc', module)
     .add('Login', () => (
-        <Viewport style={flexCentered}>
+        <View>
             <Login
                 name={loginUser.first_name}
                 login={loginUser.login}
                 fullname={loginUser.first_name + ' ' + loginUser.last_name}
                 role={loginUser.desc_role}
             />
-        </Viewport>
+        </View>
     ));

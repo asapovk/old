@@ -1,11 +1,10 @@
 import React, { CSSProperties } from 'react';
 import ReactDOM from 'react-dom';
 import { Portal } from 'react-portal';
-
 import { Spinner } from '../Spinner';
-import { Flexbox } from '../Flexbox';
-import ModalTitle from './ModalTitle';
-import Theme from '../Themes';
+import ModalMask from './ModalMask';
+import ModalView from './ModalView';
+
 interface Props {
     onClose?: () => void
     didClose?: () => void
@@ -18,16 +17,14 @@ interface Props {
     subtitle?: string
     children?: any
 }
-export interface ThemedProps {
-    theme
-}
+
 interface Modal {
     visible: boolean
     view: any
     modal: any
 }
 
-class Modal extends React.Component<Props & ThemedProps> {
+class Modal extends React.Component<Props> {
 
     static defaultProps = {
         onClose: _ => { },
@@ -166,19 +163,11 @@ class Modal extends React.Component<Props & ThemedProps> {
         if (typeof loading === "string") {
             loadingText = loading;
         }
-        //@ts-ignore
-        window.a = () => {
-            return this.view;
-        }
         return (
             <Portal>
+                <ModalMask visible={this.state.visible} />
                 <div className={`ui-modal ${this.state.visible && "ui-modal-visible"} ${this.state.hidding && "ui-modal-hidding"}`} ref={ref => this.view = ref}>
-                    <Flexbox flexDirection="column" alignItems="center" justifyContent="center" style={{ height: this.state.center ? "100%" : "auto" }}>
-                        <div className={this.props.loading ? "loading" : ""} style={this.props.style} ref={ref => this.modal = ref}>
-                            <ModalTitle title={this.props.title} subtitle={this.props.subtitle} />
-                            {this.props.children}
-                        </div>
-                    </Flexbox>
+                    <ModalView {...this.props} center={this.state.center} wrapperReference={ref => this.modal = ref} />
                     <Spinner center spinning={loading} />
                 </div>
             </Portal>
@@ -186,12 +175,4 @@ class Modal extends React.Component<Props & ThemedProps> {
     }
 }
 
-export default (props: Props) => (
-    <Theme>
-        {theme => (
-            <Modal {...props} theme={{
-
-            }} />
-        )}
-    </Theme>
-);
+export default Modal;

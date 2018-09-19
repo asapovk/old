@@ -28,14 +28,20 @@ class TableRow extends React.Component<Props & ThemedProps> {
     }
 
     render() {
-        const { row, isSelected, isExpanding, isBlur, actions, border, scope, columns, form } = this.props;
+        const { row, isSelected, isExpanding, isBlur, actions, border, scope, columns, form, theme } = this.props;
 
         if (form) {
             return TableForm(form, columns, row)
         }
 
         return (
-            <div className={`ui-table-content-body-row ${isBlur ? 'blur' : 'hover'}`} onClick={(event) => this.onClick()}>
+            <div
+                className={`ui-table-content-body-row ${isBlur ? 'blur' : 'hover'}`}
+                style={{
+                    backgroundColor: theme.backgroundColor,
+                    borderColor: theme.borderColor,
+                }}
+                onClick={(event) => this.onClick()}>
                 {/* {this.state.onSelect && (
                 <TableCheckbox active={this.props.isSelected} />
                 )} */}
@@ -50,7 +56,8 @@ export default (props: Props) => (
     <Theme>
         {theme => (
             <TableRow {...props} theme={{
-
+                backgroundColor: theme.interface,
+                borderColor: theme.pale,
             }} />
         )}
     </Theme>

@@ -143,7 +143,9 @@ var Select = /** @class */ (function (_super) {
         var somethingSelected = (selectedItems.length > 0);
         var MenuItemsTSX = (availableItems.length > 0 ?
             availableItems.map(function (option, index) { return (react_1.default.createElement("div", { className: 'ui-select-menu-item' +
-                    ((!multiselect && selectedValues.find(function (value) { return option.value === value; })) ? '-active' : ''), children: option.text, onClick: function () { return _this.onSelect(option.value); }, key: index })); }) : react_1.default.createElement("div", { className: 'ui-select-menu-item-nofound' }, isFilterActive ? 'Не найдено' : 'Нет доступных значений'));
+                    ((!multiselect && selectedValues.find(function (value) { return option.value === value; })) ? '-active' : ''), children: option.text, onClick: function () { return _this.onSelect(option.value); }, key: index, style: {
+                    color: theme.textColor
+                } })); }) : react_1.default.createElement("div", { className: 'ui-select-menu-item-nofound' }, isFilterActive ? 'Не найдено' : 'Нет доступных значений'));
         var MultiSelectItemsTSX = (selectedItems.map(function (option) { return (react_1.default.createElement("div", { className: 'ui-select-holder-value-option', key: option.text, style: {
                 background: theme.background,
                 borderColor: theme.borderColor,

@@ -1,5 +1,4 @@
-import React from 'react';
-interface FinderNavProps {
+interface Props {
     label: string;
     badge?: string | number;
     filter?: boolean;
@@ -9,9 +8,8 @@ interface FinderNavProps {
     finderIndex?: number;
     active?: boolean;
 }
-declare class FinderNav extends React.Component<FinderNavProps> {
-    static componentName: string;
-    expand(): void;
-    render(): JSX.Element;
+export interface ThemedProps {
+    theme: any;
 }
-export default FinderNav;
+declare const _default: (props: Props) => JSX.Element;
+export default _default;

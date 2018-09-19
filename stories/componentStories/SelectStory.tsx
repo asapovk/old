@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { Viewport, Select } from '../../src';
 
 const flexCentered = {
@@ -24,7 +24,7 @@ class SelectStory extends React.Component {
 
     render() {
         return (
-            <Viewport style={flexCentered}>
+            <Fragment>
                 <Select
                     label='Multiselect'
                     search={true}
@@ -48,7 +48,7 @@ class SelectStory extends React.Component {
                     //disabled={true}
                     onChange={(value) => console.log('Singe', value)}
                 />
-            </Viewport>
+            </Fragment>
         )
     }
 }

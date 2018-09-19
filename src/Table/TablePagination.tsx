@@ -18,7 +18,7 @@ export interface ThemedProps {
 class TableCheckbox extends React.Component<Props & ThemedProps> {
 
     render() {
-        const { data, pagination, page } = this.props;
+        const { data, pagination, page, theme } = this.props;
         const { pageSize } = pagination;
         const buttons = Math.ceil(data.length / pageSize);
 
@@ -32,7 +32,12 @@ class TableCheckbox extends React.Component<Props & ThemedProps> {
             buttonsComponents.push(
                 <div
                     onClick={() => this.props.onChange(i + 1)}
-                    className={`ui-table-paggination-button${page === i + 1 ? ' pgn-active' : ''}`}
+                    className={`ui-table-paggination-button`}
+                    style={{
+                        color: theme.textColor,
+                        backgroundColor: theme.backgroundColor,
+                        opacity: page === i + 1 ? 1 : 0.5
+                    }}
                     key={i}
                     children={`${i * pageSize}–${i * pageSize + pageSize}`}
                 />
@@ -51,7 +56,8 @@ export default (props: Props) => (
     <Theme>
         {theme => (
             <TableCheckbox {...props} theme={{
-
+                textColor: theme.text,
+                backgroundColor: theme.interface,
             }} />
         )}
     </Theme>

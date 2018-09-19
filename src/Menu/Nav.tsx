@@ -13,13 +13,16 @@ export interface ThemedProps {
 class MenuNav extends React.Component<Props & ThemedProps> {
 
     render() {
-        const { active, onClick } = this.props;
-
-        let classes = 'ui-menu-nav'
-
-        if (active) classes += ' nav-active'
-
-        return <div className={classes} onClick={onClick}>{this.props.children}{active && <span />}</div>
+        const { active, onClick, theme } = this.props;
+        return (
+            <div
+                className="ui-menu-nav"
+                onClick={onClick}
+                style={{
+                    color: active ? theme.textColorActive : theme.textColor
+                }}
+            >{this.props.children}{active && <span style={{ backgroundColor: theme.textColorActive }} />}</div>
+        )
     }
 }
 
@@ -27,7 +30,8 @@ export default (props: Props) => (
     <Theme>
         {theme => (
             <MenuNav {...props} theme={{
-
+                textColor: theme.text,
+                textColorActive: theme.highlight,
             }} />
         )}
     </Theme>

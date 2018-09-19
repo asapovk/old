@@ -36,7 +36,7 @@ var TableCheckbox = /** @class */ (function (_super) {
     }
     TableCheckbox.prototype.render = function () {
         var _this = this;
-        var _a = this.props, data = _a.data, pagination = _a.pagination, page = _a.page;
+        var _a = this.props, data = _a.data, pagination = _a.pagination, page = _a.page, theme = _a.theme;
         var pageSize = pagination.pageSize;
         var buttons = Math.ceil(data.length / pageSize);
         if (buttons <= 1) {
@@ -44,7 +44,11 @@ var TableCheckbox = /** @class */ (function (_super) {
         }
         var buttonsComponents = [];
         var _loop_1 = function (i) {
-            buttonsComponents.push(react_1.default.createElement("div", { onClick: function () { return _this.props.onChange(i + 1); }, className: "ui-table-paggination-button" + (page === i + 1 ? ' pgn-active' : ''), key: i, children: i * pageSize + "\u2013" + (i * pageSize + pageSize) }));
+            buttonsComponents.push(react_1.default.createElement("div", { onClick: function () { return _this.props.onChange(i + 1); }, className: "ui-table-paggination-button", style: {
+                    color: theme.textColor,
+                    backgroundColor: theme.backgroundColor,
+                    opacity: page === i + 1 ? 1 : 0.5
+                }, key: i, children: i * pageSize + "\u2013" + (i * pageSize + pageSize) }));
         };
         for (var i = 0; i < buttons; i++) {
             _loop_1(i);
@@ -53,4 +57,7 @@ var TableCheckbox = /** @class */ (function (_super) {
     };
     return TableCheckbox;
 }(react_1.default.Component));
-exports.default = (function (props) { return (react_1.default.createElement(Themes_1.default, null, function (theme) { return (react_1.default.createElement(TableCheckbox, __assign({}, props, { theme: {} }))); })); });
+exports.default = (function (props) { return (react_1.default.createElement(Themes_1.default, null, function (theme) { return (react_1.default.createElement(TableCheckbox, __assign({}, props, { theme: {
+        textColor: theme.text,
+        backgroundColor: theme.interface,
+    } }))); })); });

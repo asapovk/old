@@ -161,6 +161,9 @@ class Select extends React.Component<Props & ThemedProps> {
                         children={option.text}
                         onClick={() => this.onSelect(option.value)}
                         key={index}
+                        style={{
+                            color: theme.textColor
+                        }}
                     />
                 )) : <div className={'ui-select-menu-item-nofound'}>
                     {isFilterActive ? 'Не найдено' : 'Нет доступных значений'}

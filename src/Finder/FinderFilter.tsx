@@ -1,15 +1,17 @@
 import React from 'react';
 import { Icon, Flexbox } from '../';
+import Theme from '../Themes';
 
-
-interface FinderFilterProps {
+interface Props {
     placeholder?: string
     clearable?: boolean
     onChange: (value, level) => void
     level: number
 }
-
-class FinderFilter extends React.Component<FinderFilterProps> {
+export interface ThemedProps {
+    theme
+}
+class FinderFilter extends React.Component<Props & ThemedProps> {
 
     input: HTMLInputElement
 
@@ -25,11 +27,16 @@ class FinderFilter extends React.Component<FinderFilterProps> {
 
     render() {
 
-        const { placeholder, clearable } = this.props;
+        const { placeholder, clearable, theme } = this.props;
 
         return (
-            <div className={`ui-finder-filter`}>
-                <Flexbox alignItems="center" className={`ui-finder-filter-input`}>
+            <div className={`ui-finder-filter`} style={{
+                borderColor: theme.borderColor,
+            }}>
+                <Flexbox alignItems="center" className={`ui-finder-filter-input`} style={{
+                    background: theme.inputBackground,
+                    borderColor: theme.borderColor,
+                }}>
                     <Icon className={`ui-finder-filter-search-icon`} type="search" />
                     <input ref={(ref: HTMLInputElement) => this.input = ref} placeholder={placeholder} onChange={this.onChange.bind(this)} />
                     {clearable && (
@@ -44,4 +51,15 @@ class FinderFilter extends React.Component<FinderFilterProps> {
     }
 }
 
-export default FinderFilter;
+
+export default (props: Props) => (
+    <Theme>
+        {theme => (
+            <FinderFilter {...props} theme={{
+                backgroundColor: theme.background,
+                inputBackground: theme.interface,
+                borderColor: theme.pale
+            }} />
+        )}
+    </Theme>
+);

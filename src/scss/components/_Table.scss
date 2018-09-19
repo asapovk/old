@@ -1,5 +1,6 @@
 .ui-table {
     overflow-wrap: break-word;
+    line-height: 1;
     display: flex;
     &-content {
         flex: 1;
@@ -11,22 +12,19 @@
                 text-transform: uppercase;
                 font-size: 14px;
                 padding: 10px 20px;
-                color: $interface;
+                color: #000;
                 &-column{
                     margin-right: 20px;
                 }
             }
         }
         &-body {
-            background: $ui-background;
-            box-shadow: 0px 2px 4px 0px $shadow;
             &-row {
                 display: flex;
                 flex-direction: row;
                 align-items: stretch;
                 padding: 20px;
-                border-bottom: solid 1px;
-                border-color: rgba($text, 0.15);
+                border-bottom: solid 0.5px;
                 position: relative;
                 &-column {
                     margin-right: 20px;
@@ -43,32 +41,7 @@
                         position: relative;
                     }
                 }
-                &-select {
-                    display: none; 
-                    position: absolute;
-                    flex-direction: row;
-                    align-items: center;
-                    left: 20px;
-                    top: 0;
-                    bottom: 0;
-                    background: linear-gradient(90deg, $ui-background 80%, rgba($ui-background ,0) 100%);
-                    padding-right: 20px;
-                    &-checkbox {
-                        height: 28px;
-                        width: 28px;
-                        border: solid 2px;
-                        border-color: $accent;
-                        border-radius: 28px;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        color: white;
-                        > svg {
-                            font-size: 20px;
-                            display: none; 
-                        }
-                    }                
-                }
+               
                 &-actions {
                     text-transform: uppercase;
                     position: relative;
@@ -84,7 +57,6 @@
                         right: 0;
                         top: 0;
                         bottom: 0;
-                        background: linear-gradient(90deg, rgba($ui-background ,0) 0%, $ui-background 20%);
                         padding-left: 20px;
                         &-edit {
                             display: flex;
@@ -94,38 +66,21 @@
                     }
                     svg {
                         font-size: 32px;
-                        color: $accent;
                         align-self: center;
                     }
                     button {
                         margin-left: 15px;
-                        color: $interface;
                         text-transform: uppercase;
                         font-size: 14px;
                         font-weight: 500;
                         box-shadow: none;
                     }
-                    .accent {
-                        color: $accent;
-                    }
                 }
-                .selected {
-                    display: flex;
-                    > div {
-                        background: $accent;
-                        > svg {
-                            display: block;
-                        }
-                    }
-                }
-                
             }
         }
         .edited {
-            background: $page-background;
             border-top: solid 2px;
             border-bottom: solid 2px;
-            border-color: $pale;
             padding: 30px 20px;
         }
         .blur {
@@ -151,16 +106,7 @@
             font-size: 12px;
             font-weight: 500;
             text-align: right;
-            color: rgba($text,0.5);
-            background: rgba($text,0.05);
             margin-bottom: 8px;
-            &:hover {
-                color: $text;
-            }
-            &.pgn-active {
-                color: $text !important;
-                background: $ui-background;
-            }
         }
     }
 }

@@ -1,8 +1,5 @@
 interface Props {
-    placeholder?: string;
-    clearable?: boolean;
-    onChange: (value: any, level: any) => void;
-    level: number;
+    visible: boolean;
 }
 export interface ThemedProps {
     theme: any;

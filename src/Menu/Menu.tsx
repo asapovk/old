@@ -27,7 +27,7 @@ class Menu extends React.Component<Props & ThemedProps> {
 
     render() {
 
-        const { children, header, toolsLeft, toolsRight, style, search, searchValue, searchDefaultValue, onSearch } = this.props;
+        const { children, header, toolsLeft, toolsRight, style, search, searchValue, searchDefaultValue, onSearch, theme } = this.props;
 
         const isDouble = (search || toolsLeft)
 
@@ -36,7 +36,11 @@ class Menu extends React.Component<Props & ThemedProps> {
         const SearchIconTSX = <span className='ui-menu-interactions-toolsbar-search-icon' onClick={() => this.props.onSearchSubmit && this.props.onSearchSubmit(this.state.searchField)}><Icon type='search' /></span>
 
         const SearchJSX = (
-            <div className='ui-menu-interactions-toolsbar-search'>
+            <div className='ui-menu-interactions-toolsbar-search' style={{
+                background: theme.searchBackgroundColor,
+                borderColor: theme.borderColor,
+                boxShadow: `0px 2px 4px 0px ${theme.shadowColor}`
+            }}>
                 <TextField
                     value={searchValue}
                     defaultValue={searchDefaultValue}
@@ -50,7 +54,10 @@ class Menu extends React.Component<Props & ThemedProps> {
         )
 
         return (
-            <div className='ui-menu' style={style}>
+            <div className='ui-menu' style={{
+                backgroundColor: theme.backgroundColor,
+                ...style
+            }}>
                 {header && <div className={'ui-menu-header' + (isDouble ? ' header-max' : '')}>{HeaderJSX}</div>}
                 <div className='ui-menu-interactions'>
                     {isDouble &&
@@ -72,7 +79,11 @@ export default (props: Props) => (
     <Theme>
         {theme => (
             <Menu {...props} theme={{
-
+                borderColor: theme.pale,
+                actionColor: theme.highlight,
+                backgroundColor: theme.interface,
+                searchBackgroundColor: theme.background,
+                shadowColor: theme.shadow
             }} />
         )}
     </Theme>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { Viewport, Menu, Nav, Button, Icon, Login } from '../../src';
 
 export const loginUser = {
@@ -19,7 +19,7 @@ export class MenuStory extends React.Component {
 
     render() {
         return (
-            <Viewport>
+            <Fragment>
                 <Menu
                     header={<div><span style={{ fontWeight: 700, paddingRight: '10px' }}>Connect</span><span>Module</span></div>}
                     search={true}
@@ -45,7 +45,7 @@ export class MenuStory extends React.Component {
                     <Nav onClick={() => console.log('fly away')}>Peach</Nav>
                     <Nav>Strawberry</Nav>
                 </Menu>
-            </Viewport>
+            </Fragment>
         )
     }
 }

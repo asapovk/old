@@ -95,13 +95,18 @@ var Finder = /** @class */ (function (_super) {
     };
     Finder.prototype.render = function () {
         var _this = this;
-        var style = this.props.style;
+        var _a = this.props, style = _a.style, theme = _a.theme;
         var children = this.passProps(this.props.children, 0);
-        var MenuesTSX = (this.state.menues.map(function (menu, index) { return (react_1.default.createElement(__1.Flexbox, { column: true, className: 'ui-finder-menu', key: index },
+        var MenuesTSX = (this.state.menues.map(function (menu, index) { return (react_1.default.createElement(__1.Flexbox, { column: true, className: 'ui-finder-menu', key: index, style: {
+                borderColor: theme.borderColor,
+            } },
             menu.filter && react_1.default.createElement(FinderFilter_1.default, { level: index, onChange: _this.onFilterChange, placeholder: menu.filterPlaceholder }),
             react_1.default.createElement(__1.Flexbox, { column: true, className: 'ui-finder-menu-items' }, _this.getCurrentChildren(children, menu.filterValue, index)))); }));
-        return (react_1.default.createElement(__1.Flexbox, { style: style, inline: true, className: 'ui-finder' }, MenuesTSX));
+        return (react_1.default.createElement(__1.Flexbox, { style: __assign({ backgroundColor: theme.backgroundColor, borderColor: theme.borderColor }, style), inline: true, className: 'ui-finder' }, MenuesTSX));
     };
     return Finder;
 }(react_1.default.Component));
-exports.default = (function (props) { return (react_1.default.createElement(Themes_1.default, null, function (theme) { return (react_1.default.createElement(Finder, __assign({}, props, { theme: {} }))); })); });
+exports.default = (function (props) { return (react_1.default.createElement(Themes_1.default, null, function (theme) { return (react_1.default.createElement(Finder, __assign({}, props, { theme: {
+        backgroundColor: theme.background,
+        borderColor: theme.pale
+    } }))); })); });

@@ -42,18 +42,22 @@ var Menu = /** @class */ (function (_super) {
     }
     Menu.prototype.render = function () {
         var _this = this;
-        var _a = this.props, children = _a.children, header = _a.header, toolsLeft = _a.toolsLeft, toolsRight = _a.toolsRight, style = _a.style, search = _a.search, searchValue = _a.searchValue, searchDefaultValue = _a.searchDefaultValue, onSearch = _a.onSearch;
+        var _a = this.props, children = _a.children, header = _a.header, toolsLeft = _a.toolsLeft, toolsRight = _a.toolsRight, style = _a.style, search = _a.search, searchValue = _a.searchValue, searchDefaultValue = _a.searchDefaultValue, onSearch = _a.onSearch, theme = _a.theme;
         var isDouble = (search || toolsLeft);
         var HeaderJSX = !header.label ? header : react_1.default.createElement("div", { className: 'ui-menu-header-title', onClick: header.onAction }, header.label);
         var SearchIconTSX = react_1.default.createElement("span", { className: 'ui-menu-interactions-toolsbar-search-icon', onClick: function () { return _this.props.onSearchSubmit && _this.props.onSearchSubmit(_this.state.searchField); } },
             react_1.default.createElement(Icon_1.Icon, { type: 'search' }));
-        var SearchJSX = (react_1.default.createElement("div", { className: 'ui-menu-interactions-toolsbar-search' },
+        var SearchJSX = (react_1.default.createElement("div", { className: 'ui-menu-interactions-toolsbar-search', style: {
+                background: theme.searchBackgroundColor,
+                borderColor: theme.borderColor,
+                boxShadow: "0px 2px 4px 0px " + theme.shadowColor
+            } },
             react_1.default.createElement(TextField_1.TextField, { value: searchValue, defaultValue: searchDefaultValue, onChange: function (value) {
                     _this.setState({ searchField: value });
                     onSearch && onSearch(value);
                 }, decoration: 'none' }),
             SearchIconTSX));
-        return (react_1.default.createElement("div", { className: 'ui-menu', style: style },
+        return (react_1.default.createElement("div", { className: 'ui-menu', style: __assign({ backgroundColor: theme.backgroundColor }, style) },
             header && react_1.default.createElement("div", { className: 'ui-menu-header' + (isDouble ? ' header-max' : '') }, HeaderJSX),
             react_1.default.createElement("div", { className: 'ui-menu-interactions' },
                 isDouble &&
@@ -66,4 +70,10 @@ var Menu = /** @class */ (function (_super) {
     };
     return Menu;
 }(react_1.default.Component));
-exports.default = (function (props) { return (react_1.default.createElement(Themes_1.default, null, function (theme) { return (react_1.default.createElement(Menu, __assign({}, props, { theme: {} }))); })); });
+exports.default = (function (props) { return (react_1.default.createElement(Themes_1.default, null, function (theme) { return (react_1.default.createElement(Menu, __assign({}, props, { theme: {
+        borderColor: theme.pale,
+        actionColor: theme.highlight,
+        backgroundColor: theme.interface,
+        searchBackgroundColor: theme.background,
+        shadowColor: theme.shadow
+    } }))); })); });

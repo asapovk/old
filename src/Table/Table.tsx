@@ -47,40 +47,10 @@ class Table extends React.Component<Props & ThemedProps> {
     static defaultProps = {
         noDataLabel: 'Нет данных'
     }
-    // constructor(props) {
-    //     super(props);
-
-    //     this.onScroll = this.onScroll.bind(this);
-    // }
-
-    // onScroll(e) {
-    //     console.log(e);
-    //     if (this.table) {
-
-    //         console.log(this.table.);
-    //     }
-    // }
-
-    // componentDidMount() {
-    //     let parent: any = this.table;
-    //     while (parent != null && parent.className != "ui-view") {
-    //         parent = parent.parentNode;
-    //     }
-    //     this.mainview = parent;
-    //     if (this.mainview) {
-    //         console.log(this.mainview.addEventListener)
-    //         this.mainview.addEventListener('scroll', this.onScroll);
-    //     }
-    // }
-    // componentWillUnmount() {
-    //     if (this.mainview) {
-    //         this.mainview.removeEventListener('scroll', this.onScroll);
-    //     }
-    // }
 
     render() {
 
-        const { columns, actions, border, indexKey, scope, form, style, pagination, noDataLabel } = this.props;
+        const { columns, actions, border, indexKey, scope, form, style, pagination, noDataLabel, theme } = this.props;
 
         let { data } = this.props;
 
@@ -101,8 +71,13 @@ class Table extends React.Component<Props & ThemedProps> {
         const isAddForm = (typeof form != 'undefined' && typeof form.key === 'undefined');
 
         const ColumnsTSX = isData && !isAddForm ? columns.map(column => (
-            <div className={'ui-table-content-head-row-column ' + column.dataIndex} key={column.dataIndex} style={column.width ? { flexBasis: column.width } : { flex: 1 }}>{column.title}</div>
-        )) : isData && <div className={'ui-table-content-head-row-column'} style={{ flex: 1 }}>Добавить</div>
+            <div className={'ui-table-content-head-row-column ' + column.dataIndex} key={column.dataIndex} style={{
+                flexBasis: column.width ? column.width : 'auto',
+                flex: column.width ? 'auto' : 1,
+                color: theme.titleColor
+            }}>{column.title}</div>
+        )) : isData && <div className={'ui-table-content-head-row-column'} style={{ flex: 1 }
+        }>Добавить</div>
 
         const RowsTSX = isData && data.map((row, index) => {
             const key = indexKey && row[indexKey] || index.toString()
@@ -125,7 +100,10 @@ class Table extends React.Component<Props & ThemedProps> {
         const addFormTSX = typeof form != 'undefined' && typeof form.key === 'undefined' && TableForm(form.render, columns, {});
 
         return (
-            <div className='ui-table' style={style} ref={ref => this.table = ref}>
+            <div className='ui-table' ref={ref => this.table = ref} style={{
+                boxShadow: `0px 2px 4px 0px ${theme.shadowColor}`,
+                ...style
+            }}>
                 <div className='ui-table-content'>
                     {!isData && noDataLabelTSX}
                     <div className='ui-table-content-head-row' children={ColumnsTSX} style={actions && { marginRight: '32px' }} />
@@ -151,7 +129,9 @@ export default (props: Props) => (
     <Theme>
         {theme => (
             <Table {...props} theme={{
-
+                backgroundColor: theme.interface,
+                titleColor: theme.lowlight,
+                shadowColor: theme.shadow,
             }} />
         )}
     </Theme>

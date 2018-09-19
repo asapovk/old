@@ -29,22 +29,16 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importDefault(require("react"));
 var Themes_1 = __importDefault(require("../Themes"));
-var MenuNav = /** @class */ (function (_super) {
-    __extends(MenuNav, _super);
-    function MenuNav() {
+var ModalMask = /** @class */ (function (_super) {
+    __extends(ModalMask, _super);
+    function ModalMask() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
-    MenuNav.prototype.render = function () {
-        var _a = this.props, active = _a.active, onClick = _a.onClick, theme = _a.theme;
-        return (react_1.default.createElement("div", { className: "ui-menu-nav", onClick: onClick, style: {
-                color: active ? theme.textColorActive : theme.textColor
-            } },
-            this.props.children,
-            active && react_1.default.createElement("span", { style: { backgroundColor: theme.textColorActive } })));
+    ModalMask.prototype.render = function () {
+        return (react_1.default.createElement("div", { className: "ui-modal-mask" + (this.props.visible ? " ui-modal-mask-visible" : ""), style: { backgroundColor: this.props.theme.backgroundColor } }));
     };
-    return MenuNav;
+    return ModalMask;
 }(react_1.default.Component));
-exports.default = (function (props) { return (react_1.default.createElement(Themes_1.default, null, function (theme) { return (react_1.default.createElement(MenuNav, __assign({}, props, { theme: {
-        textColor: theme.text,
-        textColorActive: theme.highlight,
+exports.default = (function (props) { return (react_1.default.createElement(Themes_1.default, null, function (theme) { return (react_1.default.createElement(ModalMask, __assign({}, props, { theme: {
+        backgroundColor: theme.text
     } }))); })); });
