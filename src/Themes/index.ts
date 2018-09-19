@@ -1,15 +1,15 @@
 import React from 'react';
 import telegramDark from './telegram-dark'
-import cleanBright from './clean-bright'
+import whiteCurrant from './white-currant'
 
 export const themes = {
-    telegramDark, cleanBright
+    telegramDark, whiteCurrant
 };
 
 export interface themeNames {
     theme?:
     'telegramDark' |
-    'cleanBright'
+    'whiteCurrant'
 }
 
 export const ThemeContext = React.createContext(

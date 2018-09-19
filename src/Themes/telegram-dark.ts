@@ -1,17 +1,17 @@
 const accentColors = {
-    red: 'rgb(244, 67, 54)',
-    green: 'rgb(48, 219, 87)',
-    blue: 'rgb(30, 175, 198)',
-    orange: 'rgb(273, 204, 27)',
+    red: 'rgb(255, 25, 25)',
+    green: 'rgb(8, 191, 52)',
+    blue: 'rgb(0, 122, 255)',
+    orange: 'rgb(255, 149, 0)',
 }
 
 export default {
-    background: 'rgb(41, 43, 54)',
+    background: 'rgb(38, 36, 38)',
     interface: 'rgb(50, 54, 68)',
-    pale: 'rgb(80, 84, 98)',
-    lowlight: 'rgb(135, 153, 162)',
-    text: 'rgb(233, 233, 233)',
-    highlight: accentColors.blue,
+    pale: 'rgb(191, 191, 191)',
+    lowlight: 'rgb(146, 143, 148)',
+    text: 'rgb(38, 36, 38)',
+    highlight: 'rgb(127, 8, 191)',
     accents: accentColors,
     shadow: 'rgb(19, 20, 25)',
     corner: '2px',
