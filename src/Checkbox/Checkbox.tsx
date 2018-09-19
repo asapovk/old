@@ -48,24 +48,20 @@ class Checkbox extends React.Component<Props & ThemedProps> {
     }
 
     render() {
-        const { label, radio, style, uppercase } = this.props;
-
-        let classes = 'ui-checkbox-input';
-        if (radio) classes += ' ch-radio';
-        if (this.state.checked) classes += ' ch-checked';
+        const { label, radio, style, uppercase, theme } = this.props;
 
         const InputTSX = (
-            <div className={classes}>
+            <div className='ui-checkbox-input' style={this.state.checked ? { ...theme.checkboxInputActive } : { ...theme.checkboxInput }}>
                 {
                     this.state.checked ? (
-                        radio ? <span className='circle'></span> : <Icon type='check' />
+                        radio ? <span className='ui-checkbox-circle' style={...theme.checkboxCircle}></span> : <Icon type='check' />
                     ) : null
                 }
             </div>
         )
 
         return (
-            <div className='ui-checkbox' onClick={() => this.onChange()} style={style}>
+            <div className='ui-checkbox' onClick={() => this.onChange()} style={{ ...style, ...theme.checkbox }}>
                 {InputTSX}
                 <div className={'ui-checkbox-label noselect' + (uppercase ? ' uppercase' : '')}>{label}</div>
             </div>
@@ -78,7 +74,20 @@ export default (props: Props) => (
     <Theme>
         {theme => (
             <Checkbox {...props} theme={{
-
+                checkbox: {
+                    color: theme.text
+                },
+                checkboxInput: {
+                    borderColor: theme.text,
+                    borderRadius: props.radio ? '15px' : theme.corner
+                },
+                checkboxInputActive: {
+                    borderColor: theme.highlight,
+                    borderRadius: props.radio ? '15px' : theme.corner
+                },
+                checkboxCircle: {
+                    background: theme.text
+                }
             }} />
         )}
     </Theme>
