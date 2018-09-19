@@ -63,22 +63,32 @@ var TextField = /** @class */ (function (_super) {
     };
     TextField.prototype.render = function () {
         var _this = this;
-        var _a = this.props, label = _a.label, value = _a.value, defaultValue = _a.defaultValue, style = _a.style, className = _a.className, multiline = _a.multiline, singlerow = _a.singlerow, disabled = _a.disabled, type = _a.type;
+        var _a = this.props, label = _a.label, value = _a.value, defaultValue = _a.defaultValue, style = _a.style, className = _a.className, multiline = _a.multiline, singlerow = _a.singlerow, disabled = _a.disabled, type = _a.type, theme = _a.theme;
         var classes = 'ui-textfield ';
         if (className)
             classes += className;
         if (disabled)
             classes += 'disabled';
-        var InputTSX = (react_1.default.createElement("input", { className: 'ui-textfield-reset' + (this.props.decoration == 'none' ? '' : ' ui-textfield-input'), defaultValue: defaultValue, value: value, onChange: function (event) { return _this.onChange(event.currentTarget.value); }, disabled: disabled, type: type }));
+        var InputTSX = (react_1.default.createElement("input", { className: 'ui-textfield-reset' + (this.props.decoration == 'none' ? '' : ' ui-textfield-input'), defaultValue: defaultValue, value: value, onChange: function (event) { return _this.onChange(event.currentTarget.value); }, style: {
+                borderColor: theme.borderColor,
+                backgroundColor: theme.backgroundColor
+            }, disabled: disabled, type: type }));
         var TextAreaTSX = (react_1.default.createElement("textarea", { className: 'ui-textfield-reset' + (this.props.decoration == 'none' ? '' : ' ui-textfield-textarea'), defaultValue: defaultValue, value: value, onChange: function (event) { return _this.onChange(event.currentTarget.value); }, onKeyDown: function (event) {
                 if (singlerow && event.keyCode === 13) {
                     event.preventDefault();
                 }
+            }, style: {
+                borderColor: theme.borderColor,
+                backgroundColor: theme.backgroundColor
             }, disabled: disabled }));
         return (react_1.default.createElement("div", { className: classes, style: style },
-            label && react_1.default.createElement("div", { className: 'ui-textfield-label' }, label),
+            label && react_1.default.createElement("div", { style: { color: theme.labelColor }, className: 'ui-textfield-label' }, label),
             multiline ? TextAreaTSX : InputTSX));
     };
     return TextField;
 }(react_1.default.Component));
-exports.default = (function (props) { return (react_1.default.createElement(Themes_1.default, null, function (theme) { return (react_1.default.createElement(TextField, __assign({}, props, { theme: {} }))); })); });
+exports.default = (function (props) { return (react_1.default.createElement(Themes_1.default, null, function (theme) { return (react_1.default.createElement(TextField, __assign({}, props, { theme: {
+        backgroundColor: theme.interface,
+        borderColor: theme.pale,
+        labelColor: theme.lowlight
+    } }))); })); });
