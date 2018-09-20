@@ -56,9 +56,9 @@ export default (props: Props) => (
     <Theme>
         {theme => (
             <FinderFilter {...props} theme={{
-                backgroundColor: theme.background,
-                inputBackground: theme.interface,
-                borderColor: theme.pale
+                backgroundColor: theme.background.rgb,
+                inputBackground: theme.interface.rgb,
+                borderColor: theme.pale.rgb
             }} />
         )}
     </Theme>

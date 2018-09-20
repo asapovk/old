@@ -8,14 +8,13 @@ const accentColors = {
 }
 
 export default {
-    background: 'rgb(36, 33, 38)',
-    interface: 'rgb(51, 47, 54)',
-    pale: 'rgb(93, 75, 102)',
-    lowlight: 'rgb(175, 162, 182)',
-    text: 'rgb(233, 233, 233)',
-    highlight: 'rgb(216, 15, 105)',
+    background: getColors(36, 33, 38),
+    interface: getColors(51, 47, 54),
+    pale: getColors(93, 75, 102),
+    lowlight: getColors(175, 162, 182),
+    text: getColors(233, 233, 233),
+    highlight: getColors(216, 15, 105),
     accents: accentColors,
-    shadow: 'rgb(19, 20, 25)',
+    shadow: getColors(19, 20, 25),
     corner: '2px',
-    color: getColors(36, 33, 38)
 }

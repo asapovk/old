@@ -88,7 +88,7 @@ var TextField = /** @class */ (function (_super) {
     return TextField;
 }(react_1.default.Component));
 exports.default = (function (props) { return (react_1.default.createElement(Themes_1.default, null, function (theme) { return (react_1.default.createElement(TextField, __assign({}, props, { theme: {
-        backgroundColor: theme.interface,
-        borderColor: theme.pale,
-        labelColor: theme.lowlight
+        backgroundColor: theme.interface.rgb,
+        borderColor: theme.pale.rgb,
+        labelColor: theme.lowlight.rgb
     } }))); })); });

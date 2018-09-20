@@ -107,8 +107,8 @@ export default (Form, columns, row) => (
     <Theme>
         {theme => (
             <TableFormHOC data={row} columns={columns} Form={Form} theme={{
-                backgroundColor: theme.interface,
-                borderColor: theme.pale,
+                backgroundColor: theme.interface.rgb,
+                borderColor: theme.pale.rgb,
             }} />
         )}
     </Theme>

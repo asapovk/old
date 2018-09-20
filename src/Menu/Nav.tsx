@@ -30,8 +30,8 @@ export default (props: Props) => (
     <Theme>
         {theme => (
             <MenuNav {...props} theme={{
-                textColor: theme.text,
-                textColorActive: theme.highlight,
+                textColor: theme.text.rgb,
+                textColorActive: theme.highlight.rgb,
             }} />
         )}
     </Theme>

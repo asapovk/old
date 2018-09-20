@@ -56,8 +56,8 @@ export default (props: Props) => (
     <Theme>
         {theme => (
             <TableCheckbox {...props} theme={{
-                textColor: theme.text,
-                backgroundColor: theme.interface,
+                textColor: theme.text.rgb,
+                backgroundColor: theme.interface.rgb,
             }} />
         )}
     </Theme>

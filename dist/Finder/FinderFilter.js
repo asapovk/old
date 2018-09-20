@@ -61,7 +61,7 @@ var FinderFilter = /** @class */ (function (_super) {
     return FinderFilter;
 }(react_1.default.Component));
 exports.default = (function (props) { return (react_1.default.createElement(Themes_1.default, null, function (theme) { return (react_1.default.createElement(FinderFilter, __assign({}, props, { theme: {
-        backgroundColor: theme.background,
-        inputBackground: theme.interface,
-        borderColor: theme.pale
+        backgroundColor: theme.background.rgb,
+        inputBackground: theme.interface.rgb,
+        borderColor: theme.pale.rgb
     } }))); })); });

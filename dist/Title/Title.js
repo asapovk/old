@@ -72,6 +72,6 @@ var Title = /** @class */ (function (_super) {
     return Title;
 }(react_1.Component));
 exports.default = (function (props) { return (react_1.default.createElement(Themes_1.default, null, function (theme) { return (react_1.default.createElement(Title, __assign({}, props, { theme: {
-        textColor: theme.text,
-        highlightColor: theme.highlight
+        textColor: theme.text.rgb,
+        highlightColor: theme.highlight.rgb
     } }))); })); });

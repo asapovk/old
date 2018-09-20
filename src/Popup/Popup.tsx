@@ -221,10 +221,10 @@ export default (props: Props) => (
     <Theme>
         {theme => (
             <Popup {...props} theme={{
-                color: theme.text,
-                shadowColor: theme.shadow,
-                borderColor: theme.pale,
-                background: theme.interface
+                color: theme.text.rgb,
+                shadowColor: theme.shadow.rgb,
+                borderColor: theme.pale.rgb,
+                background: theme.interface.rgb
             }} />
         )}
     </Theme>

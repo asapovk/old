@@ -54,6 +54,6 @@ var Login = /** @class */ (function (_super) {
     return Login;
 }(react_1.default.Component));
 exports.default = (function (props) { return (react_1.default.createElement(Themes_1.default, null, function (theme) { return (react_1.default.createElement(Login, __assign({}, props, { theme: {
-        textColor: theme.text,
-        textShadow: "0px 1px 6px rgba(" + theme.shadow + ", 0.5)"
+        textColor: theme.text.rgb,
+        textShadow: "0px 1px 6px rgba(" + theme.shadow.rgb + ", 0.5)"
     } }))); })); });

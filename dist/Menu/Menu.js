@@ -71,9 +71,9 @@ var Menu = /** @class */ (function (_super) {
     return Menu;
 }(react_1.default.Component));
 exports.default = (function (props) { return (react_1.default.createElement(Themes_1.default, null, function (theme) { return (react_1.default.createElement(Menu, __assign({}, props, { theme: {
-        borderColor: theme.pale,
-        actionColor: theme.highlight,
-        backgroundColor: theme.interface,
-        searchBackgroundColor: theme.background,
-        shadowColor: theme.shadow
+        borderColor: theme.pale.rgb,
+        actionColor: theme.highlight.rgb,
+        backgroundColor: theme.interface.rgb,
+        searchBackgroundColor: theme.background.rgb,
+        shadowColor: theme.shadow.rgb
     } }))); })); });

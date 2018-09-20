@@ -264,10 +264,10 @@ export default (props: Props) => (
     <Theme>
         {theme => (
             <Select {...props} theme={{
-                background: theme.interface,
-                labelColor: theme.lowlight,
-                textColor: theme.text,
-                borderColor: theme.pale
+                background: theme.interface.rgb,
+                labelColor: theme.lowlight.rgb,
+                textColor: theme.text.rgb,
+                borderColor: theme.pale.rgb
             }} />
         )}
     </Theme>

@@ -45,6 +45,6 @@ var MenuNav = /** @class */ (function (_super) {
     return MenuNav;
 }(react_1.default.Component));
 exports.default = (function (props) { return (react_1.default.createElement(Themes_1.default, null, function (theme) { return (react_1.default.createElement(MenuNav, __assign({}, props, { theme: {
-        textColor: theme.text,
-        textColorActive: theme.highlight,
+        textColor: theme.text.rgb,
+        textColorActive: theme.highlight.rgb,
     } }))); })); });

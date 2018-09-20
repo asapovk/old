@@ -51,14 +51,14 @@ export default (props: Props) => (
                     ? {
                         background: 'none',
                         padding: 0,
-                        color: theme.text
+                        color: theme.text.rgb
                     }
                     : {
-                        background: props.decoration === 'accent' ? theme.highlight : theme.interface,
-                        boxShadow: '0px 2px 4px 0px ' + theme.shadow,
+                        background: props.decoration === 'accent' ? theme.highlight.rgb : theme.interface.rgb,
+                        boxShadow: '0px 2px 4px 0px ' + theme.shadow.rgb,
                         borderRadius: theme.corner,
-                        color: theme.text,
-                        border: '0.5px solid ' + theme.pale,
+                        color: theme.text.rgb,
+                        border: '0.5px solid ' + theme.pale.rgb,
                     }
             }} />
         )}

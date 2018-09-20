@@ -62,6 +62,6 @@ var TableFormHOC = /** @class */ (function (_super) {
     return TableFormHOC;
 }(react_1.default.Component));
 exports.default = (function (Form, columns, row) { return (react_1.default.createElement(Themes_1.default, null, function (theme) { return (react_1.default.createElement(TableFormHOC, { data: row, columns: columns, Form: Form, theme: {
-        backgroundColor: theme.interface,
-        borderColor: theme.pale,
+        backgroundColor: theme.interface.rgb,
+        borderColor: theme.pale.rgb,
     } })); })); });

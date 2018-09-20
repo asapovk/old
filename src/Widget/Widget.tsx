@@ -48,10 +48,10 @@ export default (props: Props) => (
     <Theme>
         {theme => (
             <Widget {...props} theme={{
-                background: theme.interface,
-                borderColor: `rgba(${theme.pale}, 1)`,
-                lowlight: theme.lowlight,
-                highlight: theme.highlight
+                background: theme.interface.rgb,
+                borderColor: `rgba(${theme.pale.rgb}, 1)`,
+                lowlight: theme.lowlight.rgb,
+                highlight: theme.highlight.rgb
             }} />
         )}
     </Theme>

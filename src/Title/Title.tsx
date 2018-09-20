@@ -65,8 +65,8 @@ export default (props: Props) => (
     <Theme>
         {theme => (
             <Title {...props} theme={{
-                textColor: theme.text,
-                highlightColor: theme.highlight
+                textColor: theme.text.rgb,
+                highlightColor: theme.highlight.rgb
             }} />
         )}
     </Theme>

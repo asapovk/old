@@ -79,11 +79,11 @@ export default (props: Props) => (
     <Theme>
         {theme => (
             <Menu {...props} theme={{
-                borderColor: theme.pale,
-                actionColor: theme.highlight,
-                backgroundColor: theme.interface,
-                searchBackgroundColor: theme.background,
-                shadowColor: theme.shadow
+                borderColor: theme.pale.rgb,
+                actionColor: theme.highlight.rgb,
+                backgroundColor: theme.interface.rgb,
+                searchBackgroundColor: theme.background.rgb,
+                shadowColor: theme.shadow.rgb
             }} />
         )}
     </Theme>

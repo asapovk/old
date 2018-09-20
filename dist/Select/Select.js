@@ -192,8 +192,8 @@ var Select = /** @class */ (function (_super) {
     return Select;
 }(react_1.default.Component));
 exports.default = (function (props) { return (react_1.default.createElement(Themes_1.default, null, function (theme) { return (react_1.default.createElement(Select, __assign({}, props, { theme: {
-        background: theme.interface,
-        labelColor: theme.lowlight,
-        textColor: theme.text,
-        borderColor: theme.pale
+        background: theme.interface.rgb,
+        labelColor: theme.lowlight.rgb,
+        textColor: theme.text.rgb,
+        borderColor: theme.pale.rgb
     } }))); })); });

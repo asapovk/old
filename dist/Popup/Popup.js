@@ -183,8 +183,8 @@ var Popup = /** @class */ (function (_super) {
     return Popup;
 }(react_2.default.Component));
 exports.default = (function (props) { return (react_2.default.createElement(Themes_1.default, null, function (theme) { return (react_2.default.createElement(Popup, __assign({}, props, { theme: {
-        color: theme.text,
-        shadowColor: theme.shadow,
-        borderColor: theme.pale,
-        background: theme.interface
+        color: theme.text.rgb,
+        shadowColor: theme.shadow.rgb,
+        borderColor: theme.pale.rgb,
+        background: theme.interface.rgb
     } }))); })); });

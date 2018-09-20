@@ -123,8 +123,8 @@ export default (props: Props) => (
     <Theme>
         {theme => (
             <Finder {...props} theme={{
-                backgroundColor: theme.background,
-                borderColor: theme.pale
+                backgroundColor: theme.background.rgb,
+                borderColor: theme.pale.rgb
             }} />
         )}
     </Theme>

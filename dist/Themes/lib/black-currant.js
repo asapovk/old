@@ -8,14 +8,13 @@ var accentColors = {
     orange: 'rgb(255, 149, 0)',
 };
 exports.default = {
-    background: 'rgb(36, 33, 38)',
-    interface: 'rgb(51, 47, 54)',
-    pale: 'rgb(93, 75, 102)',
-    lowlight: 'rgb(175, 162, 182)',
-    text: 'rgb(233, 233, 233)',
-    highlight: 'rgb(216, 15, 105)',
+    background: utilities_1.getColors(36, 33, 38),
+    interface: utilities_1.getColors(51, 47, 54),
+    pale: utilities_1.getColors(93, 75, 102),
+    lowlight: utilities_1.getColors(175, 162, 182),
+    text: utilities_1.getColors(233, 233, 233),
+    highlight: utilities_1.getColors(216, 15, 105),
     accents: accentColors,
-    shadow: 'rgb(19, 20, 25)',
+    shadow: utilities_1.getColors(19, 20, 25),
     corner: '2px',
-    color: utilities_1.getColors(36, 33, 38)
 };

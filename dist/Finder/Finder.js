@@ -107,6 +107,6 @@ var Finder = /** @class */ (function (_super) {
     return Finder;
 }(react_1.default.Component));
 exports.default = (function (props) { return (react_1.default.createElement(Themes_1.default, null, function (theme) { return (react_1.default.createElement(Finder, __assign({}, props, { theme: {
-        backgroundColor: theme.background,
-        borderColor: theme.pale
+        backgroundColor: theme.background.rgb,
+        borderColor: theme.pale.rgb
     } }))); })); });

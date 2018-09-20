@@ -57,8 +57,8 @@ export default (props: Props) => (
     <Theme>
         {theme => (
             <Login {...props} theme={{
-                textColor: theme.text,
-                textShadow: `0px 1px 6px rgba(${theme.shadow}, 0.5)`
+                textColor: theme.text.rgb,
+                textShadow: `0px 1px 6px rgba(${theme.shadow.rgb}, 0.5)`
 
             }} />
         )}

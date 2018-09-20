@@ -53,5 +53,5 @@ var FinderNav = /** @class */ (function (_super) {
     return FinderNav;
 }(react_1.default.Component));
 exports.default = (function (props) { return (react_1.default.createElement(Themes_1.default, null, function (theme) { return (react_1.default.createElement(FinderNav, __assign({}, props, { theme: {
-        badgeColor: theme.highlight
+        badgeColor: theme.highlight.rgb
     } }))); })); });

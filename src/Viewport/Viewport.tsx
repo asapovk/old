@@ -13,7 +13,7 @@ class Viewport extends Component<ViewportProps> {
         const theme = themes[this.props.theme ? this.props.theme : 'blackCurrant'];
         return (
             <ThemeContext.Provider value={theme}>
-                <div className='ui-view' id='0cd82567-7684-4147-ab02-dd3c56332364' style={{ ...this.props.style, ...{ background: theme.background, color: theme.text } }} children={this.props.children} />
+                <div className='ui-view' id='0cd82567-7684-4147-ab02-dd3c56332364' style={{ ...this.props.style, ...{ background: theme.background.rgb, color: theme.text.rgb } }} children={this.props.children} />
             </ThemeContext.Provider>
         )
     }

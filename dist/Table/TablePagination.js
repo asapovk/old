@@ -58,6 +58,6 @@ var TableCheckbox = /** @class */ (function (_super) {
     return TableCheckbox;
 }(react_1.default.Component));
 exports.default = (function (props) { return (react_1.default.createElement(Themes_1.default, null, function (theme) { return (react_1.default.createElement(TableCheckbox, __assign({}, props, { theme: {
-        textColor: theme.text,
-        backgroundColor: theme.interface,
+        textColor: theme.text.rgb,
+        backgroundColor: theme.interface.rgb,
     } }))); })); });

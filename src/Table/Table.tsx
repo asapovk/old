@@ -128,9 +128,9 @@ export default (props: Props) => (
     <Theme>
         {theme => (
             <Table {...props} theme={{
-                backgroundColor: theme.interface,
-                titleColor: theme.lowlight,
-                shadowColor: theme.shadow,
+                backgroundColor: theme.interface.rgb,
+                titleColor: theme.lowlight.rgb,
+                shadowColor: theme.shadow.rgb,
             }} />
         )}
     </Theme>

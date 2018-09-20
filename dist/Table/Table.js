@@ -86,7 +86,7 @@ var Table = /** @class */ (function (_super) {
     return Table;
 }(react_1.default.Component));
 exports.default = (function (props) { return (react_1.default.createElement(Themes_1.default, null, function (theme) { return (react_1.default.createElement(Table, __assign({}, props, { theme: {
-        backgroundColor: theme.interface,
-        titleColor: theme.lowlight,
-        shadowColor: theme.shadow,
+        backgroundColor: theme.interface.rgb,
+        titleColor: theme.lowlight.rgb,
+        shadowColor: theme.shadow.rgb,
     } }))); })); });

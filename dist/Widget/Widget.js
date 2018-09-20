@@ -58,8 +58,8 @@ var Widget = /** @class */ (function (_super) {
     return Widget;
 }(react_1.Component));
 exports.default = (function (props) { return (react_1.default.createElement(Themes_1.default, null, function (theme) { return (react_1.default.createElement(Widget, __assign({}, props, { theme: {
-        background: theme.interface,
-        borderColor: "rgba(" + theme.pale + ", 1)",
-        lowlight: theme.lowlight,
-        highlight: theme.highlight
+        background: theme.interface.rgb,
+        borderColor: "rgba(" + theme.pale.rgb + ", 1)",
+        lowlight: theme.lowlight.rgb,
+        highlight: theme.highlight.rgb
     } }))); })); });

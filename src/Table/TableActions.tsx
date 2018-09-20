@@ -35,8 +35,8 @@ export default (props: Props) => (
     <Theme>
         {theme => (
             <TableActions {...props} theme={{
-                backgroundColor: theme.interface,
-                actionColor: theme.highlight,
+                backgroundColor: theme.interface.rgb,
+                actionColor: theme.highlight.rgb,
             }} />
         )}
     </Theme>

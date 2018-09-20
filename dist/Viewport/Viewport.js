@@ -41,7 +41,7 @@ var Viewport = /** @class */ (function (_super) {
     Viewport.prototype.render = function () {
         var theme = Themes_1.themes[this.props.theme ? this.props.theme : 'blackCurrant'];
         return (react_1.default.createElement(Themes_1.ThemeContext.Provider, { value: theme },
-            react_1.default.createElement("div", { className: 'ui-view', id: '0cd82567-7684-4147-ab02-dd3c56332364', style: __assign({}, this.props.style, { background: theme.background, color: theme.text }), children: this.props.children })));
+            react_1.default.createElement("div", { className: 'ui-view', id: '0cd82567-7684-4147-ab02-dd3c56332364', style: __assign({}, this.props.style, { background: theme.background.rgb, color: theme.text.rgb }), children: this.props.children })));
     };
     return Viewport;
 }(react_1.Component));

@@ -28,6 +28,6 @@ var TableActions = function (props) { return (react_1.default.createElement("div
             action.onAction(props.data);
         } }, action.label)); })))); };
 exports.default = (function (props) { return (react_1.default.createElement(Themes_1.default, null, function (theme) { return (react_1.default.createElement(TableActions, __assign({}, props, { theme: {
-        backgroundColor: theme.interface,
-        actionColor: theme.highlight,
+        backgroundColor: theme.interface.rgb,
+        actionColor: theme.highlight.rgb,
     } }))); })); });

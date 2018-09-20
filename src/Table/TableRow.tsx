@@ -56,8 +56,8 @@ export default (props: Props) => (
     <Theme>
         {theme => (
             <TableRow {...props} theme={{
-                backgroundColor: theme.interface,
-                borderColor: theme.pale,
+                backgroundColor: theme.interface.rgb,
+                borderColor: theme.pale.rgb,
             }} />
         )}
     </Theme>

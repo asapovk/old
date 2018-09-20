@@ -75,18 +75,18 @@ export default (props: Props) => (
         {theme => (
             <Checkbox {...props} theme={{
                 checkbox: {
-                    color: theme.text
+                    color: theme.text.rgb
                 },
                 checkboxInput: {
-                    borderColor: theme.text,
+                    borderColor: theme.text.rgb,
                     borderRadius: props.radio ? '15px' : theme.corner
                 },
                 checkboxInputActive: {
-                    borderColor: theme.highlight,
+                    borderColor: theme.highlight.rgb,
                     borderRadius: props.radio ? '15px' : theme.corner
                 },
                 checkboxCircle: {
-                    background: theme.text
+                    background: theme.text.rgb
                 }
             }} />
         )}

@@ -50,7 +50,7 @@ export default (props: Props) => (
     <Theme>
         {theme => (
             <FinderNav {...props} theme={{
-                badgeColor: theme.highlight
+                badgeColor: theme.highlight.rgb
             }} />
         )}
     </Theme>

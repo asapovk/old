@@ -111,9 +111,9 @@ export default (props: Props) => (
     <Theme>
         {theme => (
             <TextField {...props} theme={{
-                backgroundColor: theme.interface,
-                borderColor: theme.pale,
-                labelColor: theme.lowlight
+                backgroundColor: theme.interface.rgb,
+                borderColor: theme.pale.rgb,
+                labelColor: theme.lowlight.rgb
             }} />
         )}
     </Theme>

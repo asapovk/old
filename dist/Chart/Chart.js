@@ -105,7 +105,7 @@ var Chart = /** @class */ (function (_super) {
     return Chart;
 }(react_1.default.Component));
 exports.default = (function (props) { return (react_1.default.createElement(Themes_1.default, null, function (theme) { return (react_1.default.createElement(Chart, __assign({}, props, { theme: {
-        text: theme.text,
-        accent: theme.highlight,
-        background: theme.background
+        text: theme.text.rgb,
+        accent: theme.highlight.rgb,
+        background: theme.background.rgb
     } }))); })); });

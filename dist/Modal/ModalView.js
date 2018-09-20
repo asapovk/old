@@ -46,8 +46,8 @@ var ModalView = /** @class */ (function (_super) {
     return ModalView;
 }(react_1.default.Component));
 exports.default = (function (props) { return (react_1.default.createElement(Themes_1.default, null, function (theme) { return (react_1.default.createElement(ModalView, __assign({}, props, { theme: {
-        titleColor: theme.text,
-        subtitleColor: theme.lowlight,
-        borderColor: theme.pale,
-        background: theme.interface
+        titleColor: theme.text.rgb,
+        subtitleColor: theme.lowlight.rgb,
+        borderColor: theme.pale.rgb,
+        background: theme.interface.rgb
     } }))); })); });

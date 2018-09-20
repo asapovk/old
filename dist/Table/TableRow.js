@@ -55,6 +55,6 @@ var TableRow = /** @class */ (function (_super) {
     return TableRow;
 }(react_1.default.Component));
 exports.default = (function (props) { return (react_1.default.createElement(Themes_1.default, null, function (theme) { return (react_1.default.createElement(TableRow, __assign({}, props, { theme: {
-        backgroundColor: theme.interface,
-        borderColor: theme.pale,
+        backgroundColor: theme.interface.rgb,
+        borderColor: theme.pale.rgb,
     } }))); })); });

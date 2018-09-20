@@ -39,10 +39,10 @@ export default (props: Props) => (
     <Theme>
         {theme => (
             <ModalView {...props} theme={{
-                titleColor: theme.text,
-                subtitleColor: theme.lowlight,
-                borderColor: theme.pale,
-                background: theme.interface
+                titleColor: theme.text.rgb,
+                subtitleColor: theme.lowlight.rgb,
+                borderColor: theme.pale.rgb,
+                background: theme.interface.rgb
             }} />
         )}
     </Theme>

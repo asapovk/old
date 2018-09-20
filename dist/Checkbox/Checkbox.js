@@ -71,17 +71,17 @@ var Checkbox = /** @class */ (function (_super) {
 }(react_1.default.Component));
 exports.default = (function (props) { return (react_1.default.createElement(Themes_1.default, null, function (theme) { return (react_1.default.createElement(Checkbox, __assign({}, props, { theme: {
         checkbox: {
-            color: theme.text
+            color: theme.text.rgb
         },
         checkboxInput: {
-            borderColor: theme.text,
+            borderColor: theme.text.rgb,
             borderRadius: props.radio ? '15px' : theme.corner
         },
         checkboxInputActive: {
-            borderColor: theme.highlight,
+            borderColor: theme.highlight.rgb,
             borderRadius: props.radio ? '15px' : theme.corner
         },
         checkboxCircle: {
-            background: theme.text
+            background: theme.text.rgb
         }
     } }))); })); });

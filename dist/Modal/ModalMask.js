@@ -40,5 +40,5 @@ var ModalMask = /** @class */ (function (_super) {
     return ModalMask;
 }(react_1.default.Component));
 exports.default = (function (props) { return (react_1.default.createElement(Themes_1.default, null, function (theme) { return (react_1.default.createElement(ModalMask, __assign({}, props, { theme: {
-        backgroundColor: theme.text
+        backgroundColor: theme.text.rgb
     } }))); })); });

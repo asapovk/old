@@ -112,9 +112,9 @@ export default (props: Props) => (
     <Theme>
         {theme => (
             <Chart {...props} theme={{
-                text: theme.text,
-                accent: theme.highlight,
-                background: theme.background
+                text: theme.text.rgb,
+                accent: theme.highlight.rgb,
+                background: theme.background.rgb
             }} />
         )}
     </Theme>
