@@ -61,6 +61,7 @@ class WidgetStatStory extends React.Component {
                                     <Flexbox>Done</Flexbox>
                                 </Flexbox>
                             </Flexbox>
+                            <div>123</div>
                         </WidgetStat>
                     </Flexbox>
                 </Flexbox>
