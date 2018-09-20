@@ -1060,6 +1060,9 @@ table {
   margin: 15px -15px -15px -15px;
   border-top: 1px solid rgba(255, 255, 255, 0.2);
 }
+.ui-widgetstat-extra > :not(:last-child) {
+  border-bottom: 1px solid rgba(216, 15, 105, 0.2);
+}
 
 .ui-finder {
   border: 0.5px solid;
