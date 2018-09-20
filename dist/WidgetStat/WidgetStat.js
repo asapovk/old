@@ -45,22 +45,26 @@ var WidgetStat = /** @class */ (function (_super) {
     WidgetStat.prototype.render = function () {
         var _a = this.props, children = _a.children, onClick = _a.onClick, actionTitle = _a.actionTitle, loading = _a.loading, style = _a.style, title = _a.title, subtitle = _a.subtitle, subtitle2 = _a.subtitle2, value1 = _a.value1, value2 = _a.value2;
         var classes = 'ui-widgetstat';
-        console.log(this.props.theme.text.rgb);
         return (react_1.default.createElement(index_1.Widget, { loading: loading, style: style },
             react_1.default.createElement(index_1.Flexbox, { column: true, className: classes },
                 react_1.default.createElement(index_1.Flexbox, { flex: 1 },
-                    react_1.default.createElement(index_1.Flexbox, { pr: 10, flex: 1, className: "ui-widgetstat-title", style: { color: this.props.theme.text.rgb } }, title),
-                    react_1.default.createElement(index_1.Flexbox, { className: "ui-widgetstat-value2", style: { color: this.props.theme.highlight.rgb } },
+                    react_1.default.createElement(index_1.Flexbox, { pr: 10, flex: 1, className: "ui-widgetstat-title", style: this.props.theme.titleStyle }, title),
+                    react_1.default.createElement(index_1.Flexbox, { className: "ui-widgetstat-value2", style: this.props.theme.valueStyle },
                         react_1.default.createElement(index_1.Icon, { type: "chart" }),
                         value2)),
                 react_1.default.createElement(index_1.Flexbox, { pt: 5 },
-                    react_1.default.createElement(index_1.Flexbox, { pr: 10, flex: 1, className: "ui-widgetstat-subtitle", style: { color: this.props.theme.lowlight.rgb } }, subtitle),
-                    react_1.default.createElement(index_1.Flexbox, { className: "ui-widgetstat-subtitle2", style: { color: this.props.theme.lowlight.rgb } }, subtitle2)),
+                    react_1.default.createElement(index_1.Flexbox, { pr: 10, flex: 1, className: "ui-widgetstat-subtitle", style: this.props.theme.subtitleStyle }, subtitle),
+                    react_1.default.createElement(index_1.Flexbox, { className: "ui-widgetstat-subtitle2", style: this.props.theme.subtitleStyle }, subtitle2)),
                 react_1.default.createElement(index_1.Flexbox, { pt: 10, alignItems: "center" },
-                    react_1.default.createElement(index_1.Flexbox, { pr: 10, flex: 1, className: "ui-widgetstat-value1", style: { color: this.props.theme.highlight.rgb } }, value1),
+                    react_1.default.createElement(index_1.Flexbox, { pr: 10, flex: 1, className: "ui-widgetstat-value1", style: this.props.theme.valueStyle }, value1),
                     typeof onClick === "function" ? react_1.default.createElement(index_1.Button, { decoration: "none", className: "ui-widgetstat-button", onClick: onClick }, actionTitle || "Подробнее") : null)),
-            typeof children !== "undefined" ? (react_1.default.createElement(index_1.Flexbox, { flex: 1, flexDirection: 'column', className: "ui-widgetstat-extra" }, children)) : null));
+            typeof children !== "undefined" ? (react_1.default.createElement(index_1.Flexbox, { flex: 1, flexDirection: 'column', className: "ui-widgetstat-extra", style: this.props.theme.extraStyle }, children)) : null));
     };
     return WidgetStat;
 }(react_1.Component));
-exports.default = (function (props) { return (react_1.default.createElement(Themes_1.default, null, function (theme) { return (react_1.default.createElement(WidgetStat, __assign({}, props, { theme: theme }))); })); });
+exports.default = (function (props) { return (react_1.default.createElement(Themes_1.default, null, function (theme) { return (react_1.default.createElement(WidgetStat, __assign({}, props, { theme: {
+        titleStyle: { color: theme.text.rgb },
+        valueStyle: { color: theme.highlight.rgb },
+        subtitleStyle: { color: theme.lowlight.rgb },
+        extraStyle: { borderColor: theme.pale.rgb }
+    } }))); })); });
