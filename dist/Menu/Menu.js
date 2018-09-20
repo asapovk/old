@@ -28,7 +28,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importDefault(require("react"));
-var TextField_1 = require("../TextField");
 var Icon_1 = require("../Icon");
 var Themes_1 = __importDefault(require("../Themes"));
 var Menu = /** @class */ (function (_super) {
@@ -50,14 +49,15 @@ var Menu = /** @class */ (function (_super) {
         var SearchJSX = (react_1.default.createElement("div", { className: 'ui-menu-interactions-toolsbar-search', style: {
                 background: theme.searchBackgroundColor,
                 borderColor: theme.borderColor,
-                boxShadow: "0px 2px 4px 0px " + theme.shadowColor
+                boxShadow: "0px 2px 4px 0px " + theme.shadowColor,
+                borderRadius: theme.borderRadius
             } },
-            react_1.default.createElement(TextField_1.TextField, { value: searchValue, defaultValue: searchDefaultValue, onChange: function (value) {
-                    _this.setState({ searchField: value });
-                    onSearch && onSearch(value);
-                }, decoration: 'none' }),
+            react_1.default.createElement("input", { value: searchValue, defaultValue: searchDefaultValue, onChange: function (event) {
+                    _this.setState({ searchField: event.target.value });
+                    onSearch && onSearch(event.target.value);
+                } }),
             SearchIconTSX));
-        return (react_1.default.createElement("div", { className: 'ui-menu', style: __assign({ backgroundColor: theme.backgroundColor }, style) },
+        return (react_1.default.createElement("div", { className: 'ui-menu', style: __assign({ backgroundColor: theme.backgroundColor, borderColor: theme.borderColor }, style) },
             header && react_1.default.createElement("div", { className: 'ui-menu-header' + (isDouble ? ' header-max' : '') }, HeaderJSX),
             react_1.default.createElement("div", { className: 'ui-menu-interactions' },
                 isDouble &&
@@ -74,6 +74,7 @@ exports.default = (function (props) { return (react_1.default.createElement(Them
         borderColor: theme.pale.rgb,
         actionColor: theme.highlight.rgb,
         backgroundColor: theme.interface.rgb,
-        searchBackgroundColor: theme.background.rgb,
-        shadowColor: theme.shadow.rgb
+        searchBackgroundColor: theme.interface.rgb,
+        shadowColor: theme.shadow.rgb,
+        borderRadius: theme.corner
     } }))); })); });

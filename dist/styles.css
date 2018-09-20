@@ -328,6 +328,7 @@ table {
   background: #000;
   align-items: flex-start;
   padding: 0px 40px;
+  border-bottom: 0.5px solid;
 }
 .ui-menu-header {
   display: flex;
@@ -361,12 +362,24 @@ table {
   flex: 1;
   max-width: 632px;
   border: 0.5px solid;
-  border-radius: 2px;
 }
 .ui-menu-interactions-toolsbar-search-icon {
   font-size: 18px;
   padding-right: 10px;
   cursor: pointer;
+}
+.ui-menu-interactions-toolsbar-search input {
+  appearance: none;
+  box-sizing: border-box;
+  resize: none;
+  border: none;
+  background: none;
+  padding: 8px;
+  outline: none;
+  position: relative;
+  color: inherit;
+  font-size: inherit;
+  width: 100%;
 }
 .ui-menu-interactions-toolsbar-tools {
   display: flex;

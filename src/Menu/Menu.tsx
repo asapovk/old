@@ -39,16 +39,17 @@ class Menu extends React.Component<Props & ThemedProps> {
             <div className='ui-menu-interactions-toolsbar-search' style={{
                 background: theme.searchBackgroundColor,
                 borderColor: theme.borderColor,
-                boxShadow: `0px 2px 4px 0px ${theme.shadowColor}`
+                boxShadow: `0px 2px 4px 0px ${theme.shadowColor}`,
+                borderRadius: theme.borderRadius
             }}>
-                <TextField
+                <input
                     value={searchValue}
                     defaultValue={searchDefaultValue}
-                    onChange={(value) => {
-                        this.setState({ searchField: value });
-                        onSearch && onSearch(value);
+                    onChange={(event) => {
+                        this.setState({ searchField: event.target.value });
+                        onSearch && onSearch(event.target.value);
                     }}
-                    decoration='none' />
+                />
                 {SearchIconTSX}
             </div>
         )
@@ -56,6 +57,7 @@ class Menu extends React.Component<Props & ThemedProps> {
         return (
             <div className='ui-menu' style={{
                 backgroundColor: theme.backgroundColor,
+                borderColor: theme.borderColor,
                 ...style
             }}>
                 {header && <div className={'ui-menu-header' + (isDouble ? ' header-max' : '')}>{HeaderJSX}</div>}
@@ -82,8 +84,9 @@ export default (props: Props) => (
                 borderColor: theme.pale.rgb,
                 actionColor: theme.highlight.rgb,
                 backgroundColor: theme.interface.rgb,
-                searchBackgroundColor: theme.background.rgb,
-                shadowColor: theme.shadow.rgb
+                searchBackgroundColor: theme.interface.rgb,
+                shadowColor: theme.shadow.rgb,
+                borderRadius: theme.corner
             }} />
         )}
     </Theme>
