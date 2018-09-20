@@ -58,8 +58,8 @@ export default (props: Props) => (
                         boxShadow: '0px 2px 4px 0px ' + theme.shadow,
                         borderRadius: theme.corner,
                         color: theme.text,
-                        border: '0.5px solid ' + theme.pale
-                    },
+                        border: '0.5px solid ' + theme.pale,
+                    }
             }} />
         )}
     </Theme>

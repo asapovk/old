@@ -1,6 +1,6 @@
 import React from 'react';
-import blackCurrant from './black-currant'
-import whiteCurrant from './white-currant'
+import blackCurrant from './lib/black-currant'
+import whiteCurrant from './lib/white-currant'
 
 export const themes = {
     blackCurrant, whiteCurrant
