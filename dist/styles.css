@@ -1083,7 +1083,7 @@ table {
 }
 .ui-finder-menu {
   border-left: 0.5px solid;
-  margin-left: -1px;
+  margin-left: -0.5px;
   min-width: 200px;
 }
 .ui-finder-menu-items {
