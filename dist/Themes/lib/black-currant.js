@@ -10,7 +10,7 @@ var accentColors = {
 exports.default = {
     background: utilities_1.getColors(36, 33, 38),
     interface: utilities_1.getColors(51, 47, 54),
-    pale: utilities_1.getColors(93, 75, 102),
+    pale: utilities_1.getColors(80, 60, 70),
     lowlight: utilities_1.getColors(175, 162, 182),
     text: utilities_1.getColors(233, 233, 233),
     highlight: utilities_1.getColors(216, 15, 105),

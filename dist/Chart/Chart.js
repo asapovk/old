@@ -82,7 +82,7 @@ var Chart = /** @class */ (function (_super) {
                                 },
                                 ticks: {
                                     beginAtZero: true,
-                                    fontColor: theme.text
+                                    fontColor: theme.chartTextColor
                                 }
                             }],
                         yAxes: [{
@@ -93,7 +93,7 @@ var Chart = /** @class */ (function (_super) {
                                 },
                                 ticks: {
                                     beginAtZero: true,
-                                    fontColor: "#F00000"
+                                    fontColor: theme.chartTextColor
                                 }
                             }],
                     },
@@ -107,5 +107,6 @@ var Chart = /** @class */ (function (_super) {
 exports.default = (function (props) { return (react_1.default.createElement(Themes_1.default, null, function (theme) { return (react_1.default.createElement(Chart, __assign({}, props, { theme: {
         text: theme.text.rgb,
         accent: theme.highlight.rgb,
-        background: theme.background.rgb
+        background: theme.background.rgb,
+        chartTextColor: theme.text.hex
     } }))); })); });
