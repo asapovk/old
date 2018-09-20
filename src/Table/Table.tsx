@@ -101,12 +101,13 @@ class Table extends React.Component<Props & ThemedProps> {
 
         return (
             <div className='ui-table' ref={ref => this.table = ref} style={style}>
-                <div className='ui-table-content' style={{
-                    boxShadow: `0px 2px 4px 0px ${theme.shadowColor}`,
-                }}>
+                <div className='ui-table-content'>
                     {!isData && noDataLabelTSX}
                     <div className='ui-table-content-head-row' children={ColumnsTSX} style={actions && { marginRight: '32px' }} />
-                    <div className='ui-table-content-body'>
+                    <div className='ui-table-content-body' style={{
+                        border: `0.5px solid ${theme.borderColor}`,
+                        borderRadius: theme.borderRadius
+                    }}>
                         {addFormTSX}
                         {RowsTSX}
                     </div>
@@ -131,6 +132,8 @@ export default (props: Props) => (
                 backgroundColor: theme.interface.rgb,
                 titleColor: theme.lowlight.rgb,
                 shadowColor: theme.shadow.rgb,
+                borderColor: theme.pale.rgb,
+                borderRadius: theme.corner
             }} />
         )}
     </Theme>

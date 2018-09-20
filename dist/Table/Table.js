@@ -70,12 +70,13 @@ var Table = /** @class */ (function (_super) {
         });
         var addFormTSX = typeof form != 'undefined' && typeof form.key === 'undefined' && TableForm_1.default(form.render, columns, {});
         return (react_1.default.createElement("div", { className: 'ui-table', ref: function (ref) { return _this.table = ref; }, style: style },
-            react_1.default.createElement("div", { className: 'ui-table-content', style: {
-                    boxShadow: "0px 2px 4px 0px " + theme.shadowColor,
-                } },
+            react_1.default.createElement("div", { className: 'ui-table-content' },
                 !isData && noDataLabelTSX,
                 react_1.default.createElement("div", { className: 'ui-table-content-head-row', children: ColumnsTSX, style: actions && { marginRight: '32px' } }),
-                react_1.default.createElement("div", { className: 'ui-table-content-body' },
+                react_1.default.createElement("div", { className: 'ui-table-content-body', style: {
+                        border: "0.5px solid " + theme.borderColor,
+                        borderRadius: theme.borderRadius
+                    } },
                     addFormTSX,
                     RowsTSX)),
             pagination && data && (react_1.default.createElement(TablePagination_1.default, { pagination: pagination, page: this.state.page, data: this.props.data, onChange: function (page) { return _this.setState({ page: page }); } }))));
@@ -89,4 +90,6 @@ exports.default = (function (props) { return (react_1.default.createElement(Them
         backgroundColor: theme.interface.rgb,
         titleColor: theme.lowlight.rgb,
         shadowColor: theme.shadow.rgb,
+        borderColor: theme.pale.rgb,
+        borderRadius: theme.corner
     } }))); })); });
