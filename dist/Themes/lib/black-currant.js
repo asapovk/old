@@ -2,10 +2,10 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var utilities_1 = require("../utilities");
 var accentColors = {
-    red: 'rgb(255, 25, 25)',
-    green: 'rgb(8, 191, 52)',
-    blue: 'rgb(0, 122, 255)',
-    orange: 'rgb(255, 149, 0)',
+    red: utilities_1.getColors(255, 25, 25),
+    green: utilities_1.getColors(8, 191, 52),
+    blue: utilities_1.getColors(0, 122, 255),
+    orange: utilities_1.getColors(255, 149, 0),
 };
 exports.default = {
     background: utilities_1.getColors(36, 33, 38),

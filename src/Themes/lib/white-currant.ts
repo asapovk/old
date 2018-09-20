@@ -1,10 +1,10 @@
 import { getColors } from '../utilities';
 
 const accentColors = {
-    red: 'rgb(255, 25, 25)',
-    green: 'rgb(8, 191, 52)',
-    blue: 'rgb(0, 122, 255)',
-    orange: 'rgb(255, 149, 0)',
+    red: getColors(255, 25, 25),
+    green: getColors(8, 191, 52),
+    blue: getColors(0, 122, 255),
+    orange: getColors(255, 149, 0),
 }
 
 export default {

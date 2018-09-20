@@ -30,10 +30,26 @@ declare const _default: {
         hex: string;
     };
     accents: {
-        red: string;
-        green: string;
-        blue: string;
-        orange: string;
+        red: {
+            rgb: string;
+            rgba: (alpha: number) => string;
+            hex: string;
+        };
+        green: {
+            rgb: string;
+            rgba: (alpha: number) => string;
+            hex: string;
+        };
+        blue: {
+            rgb: string;
+            rgba: (alpha: number) => string;
+            hex: string;
+        };
+        orange: {
+            rgb: string;
+            rgba: (alpha: number) => string;
+            hex: string;
+        };
     };
     shadow: {
         rgb: string;

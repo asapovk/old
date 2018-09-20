@@ -22,5 +22,4 @@ export { Widget as Widget } from './Widget'
 export { WidgetStat as WidgetStat } from './WidgetStat'
 export { default as Theme } from './Themes'
 
-
 export { Portal as Portal } from 'react-portal';
