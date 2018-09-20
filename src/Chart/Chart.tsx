@@ -83,7 +83,7 @@ class Chart extends React.Component<Props & ThemedProps> {
                                 },
                                 ticks: {
                                     beginAtZero: true,
-                                    fontColor: theme.text
+                                    fontColor: theme.chartTextColor
                                 }
                             }],
                             yAxes: [{
@@ -94,7 +94,7 @@ class Chart extends React.Component<Props & ThemedProps> {
                                 },
                                 ticks: {
                                     beginAtZero: true,
-                                    fontColor: "#F00000"
+                                    fontColor: theme.chartTextColor
                                 }
                             }],
                         },
@@ -114,7 +114,8 @@ export default (props: Props) => (
             <Chart {...props} theme={{
                 text: theme.text.rgb,
                 accent: theme.highlight.rgb,
-                background: theme.background.rgb
+                background: theme.background.rgb,
+                chartTextColor: theme.text.hex
             }} />
         )}
     </Theme>
