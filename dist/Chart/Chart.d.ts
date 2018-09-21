@@ -1,6 +1,7 @@
 interface DataSet {
     title: string;
     values: number[];
+    color?: string;
     borderColor?: string;
     backgroundColor?: string;
     borderCapStyle?: "butt" | "round" | "square";

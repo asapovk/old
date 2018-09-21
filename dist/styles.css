@@ -1044,11 +1044,8 @@ table {
   text-decoration: underline;
 }
 .ui-widgetstat-extra {
-  margin: 15px -15px -15px -15px;
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
-}
-.ui-widgetstat-extra > :not(:last-child) {
-  border-bottom: 1px solid rgba(216, 15, 105, 0.2);
+  margin: 14.5px -14.5px -14.5px -14.5px;
+  border-top: 0.5px solid;
 }
 
 .ui-finder {
