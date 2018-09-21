@@ -1,6 +1,7 @@
 import React, { CSSProperties } from 'react';
 import { Icon } from '../Icon';
 import Theme from '../Themes';
+import SelectMenuItem from './SelectMenuItem'
 
 interface SelectOption {
     text: string
@@ -154,16 +155,12 @@ class Select extends React.Component<Props & ThemedProps> {
         const MenuItemsTSX = (
             availableItems.length > 0 ?
                 availableItems.map((option, index) => (
-                    <div
-                        className={'ui-select-menu-item' +
-                            ((!multiselect && selectedValues.find(value => option.value === value)) ? '-active' : '')
-                        }
+                    <SelectMenuItem
                         children={option.text}
                         onClick={() => this.onSelect(option.value)}
                         key={index}
-                        style={{
-                            color: theme.textColor
-                        }}
+                        theme={theme.SelectMenuItem}
+                        active={!multiselect && selectedValues.find(value => option.value === value)}
                     />
                 )) : <div className={'ui-select-menu-item-nofound'}>
                     {isFilterActive ? 'Не найдено' : 'Нет доступных значений'}
@@ -267,7 +264,11 @@ export default (props: Props) => (
                 background: theme.interface.rgb,
                 labelColor: theme.lowlight.rgb,
                 textColor: theme.text.rgb,
-                borderColor: theme.pale.rgb
+                borderColor: theme.pale.rgb,
+                SelectMenuItem: {
+                    text: theme.text.rgb,
+                    background: theme.pale.rgba(0.5)
+                }
             }} />
         )}
     </Theme>

@@ -635,11 +635,9 @@ table {
   flex: 1;
   line-height: 1;
   font-size: 16px;
-  color: #fff;
 }
 .ui-select-label {
   font-size: 12px;
-  color: #fff;
   margin-bottom: 5px;
   text-transform: uppercase;
 }
@@ -651,9 +649,7 @@ table {
   -ms-border-radius: 2px;
   -o-border-radius: 2px;
   border-radius: 2px;
-  border-color: #fff;
   padding: 8px;
-  background: #000;
   min-height: 20px;
   position: relative;
   display: flex;
@@ -661,7 +657,6 @@ table {
 }
 .ui-select-holder-clear {
   z-index: 1;
-  color: #fff;
   font-size: 16px;
   padding-right: 5px;
   cursor: pointer;
@@ -669,7 +664,6 @@ table {
 .ui-select-holder-down {
   z-index: 1;
   font-size: 14px;
-  color: #fff;
 }
 .ui-select-holder-value {
   flex: 1;
@@ -703,16 +697,13 @@ table {
   padding-left: 5px;
 }
 .ui-select-holder-value-placeholder {
-  color: #fff;
   padding-left: 5px;
 }
 .ui-select-holder-value-option {
   z-index: 1;
   font-size: 12px;
   display: flex;
-  color: #fff;
-  background: #000;
-  border: 1px solid #fff;
+  border: 1px solid;
   -webkit-border-radius: 2px;
   -khtml-border-radius: 2px;
   -moz-border-radius: 2px;
@@ -722,7 +713,7 @@ table {
   margin: 4px;
 }
 .ui-select-holder-value-option-close {
-  border-right: 1px solid #fff;
+  border-right: 1px solid;
   display: flex;
   align-items: center;
   padding: 4px;
@@ -743,11 +734,8 @@ table {
   -ms-border-radius: 0 0 2px 2px;
   -o-border-radius: 0 0 2px 2px;
   border-radius: 0 0 2px 2px;
-  border-color: #fff;
-  border-top-color: #fff;
   top: 100%;
   width: 100%;
-  background: #000;
   z-index: 11;
   left: 0;
   margin: 0 -1px;
@@ -756,17 +744,8 @@ table {
   cursor: pointer;
   padding: 8px;
 }
-.ui-select-menu-item:hover {
-  background: rgba(92, 97, 115, 0.3);
-}
 .ui-select-menu-item-nofound {
   padding: 10px;
-  color: #5c6173;
-}
-.ui-select-menu-item-active {
-  cursor: pointer;
-  padding: 8px;
-  background: rgba(92, 97, 115, 0.3);
 }
 
 .visible {
@@ -776,10 +755,6 @@ table {
 .active {
   border-bottom-left-radius: 0 !important;
   border-bottom-right-radius: 0 !important;
-}
-
-.sel-chosen {
-  background: rgba(92, 97, 115, 0.3);
 }
 
 .ui-spin {
