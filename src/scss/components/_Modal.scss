@@ -12,7 +12,7 @@
         @include css3-prefix("transition", all .25s);
         &-visible {
             visibility: visible;
-            opacity: 0.2;
+            opacity: 0.7;
         }
     }
     z-index: 500;
@@ -35,7 +35,6 @@
             min-width: 200px;
             position: relative;
             @include css3-prefix("transition", all .5s);
-            @include css3-prefix("box-shadow", 15px 0 50px rgba(0, 0, 0, 0.3));
             @include css3-prefix("transform", scale(0.2));
             border: 0.5px solid;
             border-radius: 2px;
@@ -61,8 +60,6 @@
         padding: 10px;
         margin: -10px;
         margin-left: 10px;
-        color: #bbb;
-        background: rgba(255, 255, 255, 0);
         > i {
             font-size: 26px;
         }

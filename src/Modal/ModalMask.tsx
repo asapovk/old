@@ -20,7 +20,7 @@ export default (props: Props) => (
     <Theme>
         {theme => (
             <ModalMask {...props} theme={{
-                backgroundColor: theme.text.rgb
+                backgroundColor: theme.background.rgb
             }} />
         )}
     </Theme>

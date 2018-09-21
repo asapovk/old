@@ -479,7 +479,7 @@ table {
 }
 .ui-modal-mask-visible {
   visibility: visible;
-  opacity: 0.2;
+  opacity: 0.7;
 }
 .ui-modal > div > div {
   opacity: 0;
@@ -493,12 +493,6 @@ table {
   -ms-transition: all 0.5s;
   -o-transition: all 0.5s;
   transition: all 0.5s;
-  -webkit-box-shadow: 15px 0 50px rgba(0, 0, 0, 0.3);
-  -khtml-box-shadow: 15px 0 50px rgba(0, 0, 0, 0.3);
-  -moz-box-shadow: 15px 0 50px rgba(0, 0, 0, 0.3);
-  -ms-box-shadow: 15px 0 50px rgba(0, 0, 0, 0.3);
-  -o-box-shadow: 15px 0 50px rgba(0, 0, 0, 0.3);
-  box-shadow: 15px 0 50px rgba(0, 0, 0, 0.3);
   -webkit-transform: scale(0.2);
   -khtml-transform: scale(0.2);
   -moz-transform: scale(0.2);
@@ -536,8 +530,6 @@ table {
   padding: 10px;
   margin: -10px;
   margin-left: 10px;
-  color: #bbb;
-  background: rgba(255, 255, 255, 0);
 }
 .ui-modal-closeButton > i {
   font-size: 26px;
