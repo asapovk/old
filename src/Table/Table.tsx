@@ -71,11 +71,9 @@ class Table extends React.Component<Props & ThemedProps> {
         const isAddForm = (typeof form != 'undefined' && typeof form.key === 'undefined');
 
         const ColumnsTSX = isData && !isAddForm ? columns.map(column => (
-            <div className={'ui-table-content-head-row-column ' + column.dataIndex} key={column.dataIndex} style={{
-                flexBasis: column.width ? column.width : 'auto',
-                flex: column.width ? 'auto' : 1,
-                color: theme.titleColor
-            }}>{column.title}</div>
+            <div className={'ui-table-content-head-row-column ' + column.dataIndex} key={column.dataIndex} style={
+                column.width ? { flexBasis: column.width, color: theme.titleColor } : { flex: 1, color: theme.titleColor }
+            }>{column.title}</div>
         )) : isData && <div className={'ui-table-content-head-row-column'} style={{ flex: 1 }
         }>Добавить</div>
 
