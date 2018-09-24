@@ -7,7 +7,7 @@ moment.locale("ru_RU");
 
 interface Props {
     format?: string
-    value?: string
+    value?: Moment | string
     // locale?: string
     onChange?: (date: Moment | string) => void
 }
@@ -30,18 +30,23 @@ class DatePicker extends React.Component<Props & ThemedProps> {
         if (this.props.value) {
             if (this.props.format) {
                 this.setState({
-                    value: moment(this.props.value, this.props.format),
-                    format: this.props.format
+                    value: moment(this.props.value, this.props.format)
                 });
             } else {
                 this.setState({
                     value: this.props.value
                 });
             }
+        } else {
+            if (this.props.format) {
+                this.setState({
+                    format: this.props.format
+                });
+            }
         }
+
     }
     render() {
-
         return (
             <Flexbox column>
                 <TextField
