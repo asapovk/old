@@ -32,38 +32,60 @@ var index_1 = require("../index");
 var Themes_1 = __importDefault(require("../Themes"));
 var chart_js_1 = require("chart.js");
 var react_chartjs_2_1 = require("react-chartjs-2");
+var chartTypes = {
+    'default': function (item, theme) { return ({
+        pointHoverBackgroundColor: item.backgroundColor || theme.background,
+        pointHoverBorderColor: item.borderColor || theme.text,
+        backgroundColor: item.backgroundColor || theme.background,
+        borderColor: item.color || item.borderColor || theme.accent,
+        borderJoinStyle: item.borderJoinStyle || 'miter',
+        borderCapStyle: item.borderCapStyle || 'butt',
+        fill: item.fill || false,
+        lineTension: 0.4,
+        borderDash: [],
+        borderWidth: 3,
+        borderDashOffset: 0.0,
+        pointBorderColor: item.color || theme.accent,
+        pointBackgroundColor: theme.background,
+        pointBorderWidth: 2,
+        pointRadius: 5,
+        pointHitRadius: 5,
+        pointHoverRadius: 5,
+        pointHoverBorderWidth: 2,
+    }); },
+    'miniProc': function (item, theme) { return ({
+        pointHoverBackgroundColor: item.backgroundColor || theme.background,
+        pointHoverBorderColor: item.borderColor || theme.text,
+        backgroundColor: item.backgroundColor || theme.background,
+        borderColor: item.color || item.borderColor || theme.accent,
+        borderJoinStyle: item.borderJoinStyle || 'miter',
+        borderCapStyle: item.borderCapStyle || 'butt',
+        fill: item.fill || false,
+        lineTension: 0,
+        borderDash: [],
+        borderWidth: 1,
+        borderDashOffset: 0.0,
+        pointBorderColor: item.color || theme.accent,
+        pointBackgroundColor: theme.background,
+        pointBorderWidth: 0,
+        pointRadius: 0,
+        pointHitRadius: 0,
+        pointHoverRadius: 0,
+        pointHoverBorderWidth: 1,
+    }); }
+};
 var Chart = /** @class */ (function (_super) {
     __extends(Chart, _super);
     function Chart() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     Chart.prototype.render = function () {
-        var _a = this.props, labels = _a.labels, data = _a.data, responsive = _a.responsive, tension = _a.tension, loading = _a.loading, style = _a.style, legendDisplay = _a.legendDisplay, theme = _a.theme;
+        var _a = this.props, labels = _a.labels, data = _a.data, responsive = _a.responsive, type = _a.type, tension = _a.tension, loading = _a.loading, style = _a.style, legendDisplay = _a.legendDisplay, theme = _a.theme;
         chart_js_1.defaults.global.defaultFontSize = 14;
         var chartData = {
             labels: labels,
             datasets: data.map(function (item) {
-                return {
-                    label: item.title,
-                    data: item.values,
-                    pointHoverBackgroundColor: item.backgroundColor || theme.background,
-                    pointHoverBorderColor: item.borderColor || theme.text,
-                    backgroundColor: item.backgroundColor || theme.background,
-                    borderColor: item.color || item.borderColor || theme.accent,
-                    borderJoinStyle: item.borderJoinStyle || 'miter',
-                    borderCapStyle: item.borderCapStyle || 'butt',
-                    fill: item.fill || false,
-                    lineTension: tension || 0.4,
-                    borderDash: [],
-                    borderDashOffset: 0.0,
-                    pointBorderColor: item.color || theme.accent,
-                    pointBackgroundColor: theme.background,
-                    pointBorderWidth: 2,
-                    pointRadius: 6,
-                    pointHitRadius: 6,
-                    pointHoverRadius: 6,
-                    pointHoverBorderWidth: 2,
-                };
+                return __assign({ label: item.title, data: item.values }, chartTypes[type || 'default'](item, theme));
             })
         };
         return (react_1.default.createElement(index_1.Flexbox, { column: true, flex: 1, justifyContent: "center", className: "ui-chart", style: style }, loading ? (react_1.default.createElement(index_1.Flexbox, { column: true, className: "ui-chart-loading", alignItems: "center", alignSelf: "center", justifyContent: "center" },
@@ -94,7 +116,7 @@ var Chart = /** @class */ (function (_super) {
                                 display: true,
                                 gridLines: {
                                     color: theme.accent,
-                                    lineWidth: 1.2,
+                                    lineWidth: 0.2,
                                 },
                                 ticks: {
                                     beginAtZero: true,

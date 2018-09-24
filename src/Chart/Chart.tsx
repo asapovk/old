@@ -34,9 +34,51 @@ export interface ThemedProps {
     theme
 }
 
+const chartTypes: any = {
+    'default': (item, theme) => ({
+        pointHoverBackgroundColor: item.backgroundColor || theme.background,
+        pointHoverBorderColor: item.borderColor || theme.text,
+        backgroundColor: item.backgroundColor || theme.background,
+        borderColor: item.color || item.borderColor || theme.accent,
+        borderJoinStyle: item.borderJoinStyle || 'miter',
+        borderCapStyle: item.borderCapStyle || 'butt',
+        fill: item.fill || false,
+        lineTension: 0.4,
+        borderDash: [],
+        borderWidth: 3,
+        borderDashOffset: 0.0,
+        pointBorderColor: item.color || theme.accent,
+        pointBackgroundColor: theme.background,
+        pointBorderWidth: 2,
+        pointRadius: 5,
+        pointHitRadius: 5,
+        pointHoverRadius: 5,
+        pointHoverBorderWidth: 2,
+    }),
+    'miniProc': (item, theme) => ({
+        pointHoverBackgroundColor: item.backgroundColor || theme.background,
+        pointHoverBorderColor: item.borderColor || theme.text,
+        backgroundColor: item.backgroundColor || theme.background,
+        borderColor: item.color || item.borderColor || theme.accent,
+        borderJoinStyle: item.borderJoinStyle || 'miter',
+        borderCapStyle: item.borderCapStyle || 'butt',
+        fill: item.fill || false,
+        lineTension: 0,
+        borderDash: [],
+        borderWidth: 1,
+        borderDashOffset: 0.0,
+        pointBorderColor: item.color || theme.accent,
+        pointBackgroundColor: theme.background,
+        pointBorderWidth: 0,
+        pointRadius: 0,
+        pointHitRadius: 0,
+        pointHoverRadius: 0,
+        pointHoverBorderWidth: 1,
+    })
+}
 class Chart extends React.Component<Props & ThemedProps> {
     render() {
-        const { labels, data, responsive, tension, loading, style, legendDisplay, theme } = this.props;
+        const { labels, data, responsive, type, tension, loading, style, legendDisplay, theme } = this.props;
 
         defaults.global.defaultFontSize = 14;
 
@@ -46,24 +88,7 @@ class Chart extends React.Component<Props & ThemedProps> {
                 return {
                     label: item.title,
                     data: item.values,
-
-                    pointHoverBackgroundColor: item.backgroundColor || theme.background,
-                    pointHoverBorderColor: item.borderColor || theme.text,
-                    backgroundColor: item.backgroundColor || theme.background,
-                    borderColor: item.color || item.borderColor || theme.accent,
-                    borderJoinStyle: item.borderJoinStyle || 'miter',
-                    borderCapStyle: item.borderCapStyle || 'butt',
-                    fill: item.fill || false,
-                    lineTension: tension || 0.4,
-                    borderDash: [],
-                    borderDashOffset: 0.0,
-                    pointBorderColor: item.color || theme.accent,
-                    pointBackgroundColor: theme.background,
-                    pointBorderWidth: 2,
-                    pointRadius: 6,
-                    pointHitRadius: 6,
-                    pointHoverRadius: 6,
-                    pointHoverBorderWidth: 2,
+                    ...chartTypes[type || 'default'](item, theme),
                 }
             })
         };
@@ -103,7 +128,7 @@ class Chart extends React.Component<Props & ThemedProps> {
 
                                 gridLines: {
                                     color: theme.accent,
-                                    lineWidth: 1.2,
+                                    lineWidth: 0.2,
                                 },
                                 ticks: {
                                     beginAtZero: true,
