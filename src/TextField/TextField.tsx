@@ -100,6 +100,9 @@ class TextField extends React.Component<Props & ThemedProps> {
                     onFocus={this.props.onFocus}
                     onBlur={this.props.onBlur}
                     defaultValue={defaultValue}
+                    style={{
+                        color: this.props.theme.textColor
+                    }}
                     value={value}
                     onChange={(event) => this.onChange(event.currentTarget.value)}
                     disabled={disabled}
@@ -121,6 +124,9 @@ class TextField extends React.Component<Props & ThemedProps> {
                     onFocus={this.props.onFocus}
                     onBlur={this.props.onBlur}
                     defaultValue={defaultValue}
+                    style={{
+                        color: this.props.theme.textColor
+                    }}
                     value={value}
                     onChange={(event) => this.onChange(event.currentTarget.value)}
                     onKeyDown={(event) => {
@@ -147,6 +153,7 @@ export default (props: Props) => (
     <Theme>
         {theme => (
             <TextField {...props} theme={{
+                textColor: theme.text.rgb,
                 backgroundColor: theme.interface.rgb,
                 borderColor: theme.pale.rgb,
                 labelColor: theme.lowlight.rgb,

@@ -47,11 +47,11 @@ class DatePicker extends React.Component<Props & ThemedProps> {
                 <TextField
                     value={this.state.value.format(this.state.format || "DD • MMMM • YYYY")}
                     onClick={() => this.setState({ active: !this.state.active })}
-                    onChange={value => {
-                        if (moment(value).isValid()) {
-                            this.setState({ value });
-                        }
-                    }}
+                    // onChange={value => {
+                    //     if (moment(value).isValid()) {
+                    //         this.setState({ value });
+                    //     }
+                    // }}
                     rightIcon="calendar"
                 />
                 <MonthGrid
