@@ -1,7 +1,9 @@
 import React, { CSSProperties } from 'react';
 
 interface Props {
-    onClick?: () => void
+    onClick?: (event: any) => void
+    onFocus?: (event: any) => void
+    onBlur?: (event: any) => void
     elementRef?: any
     style?: CSSProperties
     className?: string

@@ -4,6 +4,7 @@ interface DataSet {
     color?: string;
     borderColor?: string;
     backgroundColor?: string;
+    fill?: boolean;
     borderCapStyle?: "butt" | "round" | "square";
     borderJoinStyle?: "bevel" | "round" | "miter";
 }
@@ -15,6 +16,11 @@ export interface Props {
     loading?: boolean;
     style?: any;
     legendDisplay?: boolean;
+    noAnimation?: boolean;
+    animationDuration?: number;
+    onAnimationComplete?: () => void;
+    onAnimationProgress?: () => void;
+    type?: "default" | "miniProc";
 }
 export interface ThemedProps {
     theme: any;

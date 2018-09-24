@@ -39,9 +39,7 @@ var Chart = /** @class */ (function (_super) {
     }
     Chart.prototype.render = function () {
         var _a = this.props, labels = _a.labels, data = _a.data, responsive = _a.responsive, tension = _a.tension, loading = _a.loading, style = _a.style, legendDisplay = _a.legendDisplay, theme = _a.theme;
-        chart_js_1.defaults.global.defaultFontColor = "#fff";
         chart_js_1.defaults.global.defaultFontSize = 14;
-        chart_js_1.defaults.global.responsive = responsive || true;
         var chartData = {
             labels: labels,
             datasets: data.map(function (item) {
@@ -54,7 +52,7 @@ var Chart = /** @class */ (function (_super) {
                     borderColor: item.color || item.borderColor || theme.accent,
                     borderJoinStyle: item.borderJoinStyle || 'miter',
                     borderCapStyle: item.borderCapStyle || 'butt',
-                    fill: false,
+                    fill: item.fill || false,
                     lineTension: tension || 0.4,
                     borderDash: [],
                     borderDashOffset: 0.0,
@@ -68,11 +66,18 @@ var Chart = /** @class */ (function (_super) {
                 };
             })
         };
-        return (react_1.default.createElement(index_1.Flexbox, { column: true, flex: 1, justifyContent: "center", className: "ui-chart" }, loading ? (react_1.default.createElement(index_1.Flexbox, { column: true, className: "ui-chart-loading", alignItems: "center", alignSelf: "center", justifyContent: "center" },
+        return (react_1.default.createElement(index_1.Flexbox, { column: true, flex: 1, justifyContent: "center", className: "ui-chart", style: style }, loading ? (react_1.default.createElement(index_1.Flexbox, { column: true, className: "ui-chart-loading", alignItems: "center", alignSelf: "center", justifyContent: "center" },
             react_1.default.createElement(index_1.Spin, null,
                 react_1.default.createElement(index_1.Icon, { type: "sync" })),
-            typeof loading === "string" && react_1.default.createElement("div", { className: "ui-chart-loadingtext" }, "loading"))) :
+            typeof loading === "string" && react_1.default.createElement("div", { className: "ui-chart-loadingtext" }, loading))) :
             react_1.default.createElement(react_chartjs_2_1.Line, { data: chartData, options: {
+                    responsive: responsive !== undefined ? responsive : true,
+                    animation: this.props.noAnimation ? false : {
+                        animateScale: true,
+                        duration: this.props.animationDuration || 1000,
+                        onComplete: this.props.onAnimationComplete,
+                        onProgress: this.props.onAnimationProgress
+                    },
                     scales: {
                         xAxes: [{
                                 display: true,
@@ -89,7 +94,7 @@ var Chart = /** @class */ (function (_super) {
                                 display: true,
                                 gridLines: {
                                     color: theme.accent,
-                                    lineWidth: 0.2,
+                                    lineWidth: 1.2,
                                 },
                                 ticks: {
                                     beginAtZero: true,
@@ -98,15 +103,18 @@ var Chart = /** @class */ (function (_super) {
                             }],
                     },
                     legend: {
-                        display: legendDisplay || true
+                        display: legendDisplay !== undefined ? legendDisplay : true,
+                        labels: {
+                            fontColor: theme.chartTextColor
+                        }
                     }
                 } })));
     };
     return Chart;
 }(react_1.default.Component));
 exports.default = (function (props) { return (react_1.default.createElement(Themes_1.default, null, function (theme) { return (react_1.default.createElement(Chart, __assign({}, props, { theme: {
-        text: theme.text.rgb,
-        accent: theme.highlight.rgb,
-        background: theme.background.rgb,
-        chartTextColor: theme.text.hex
+        text: theme.text.hex,
+        accent: theme.highlight.hex,
+        background: theme.background.hex,
+        chartTextColor: "#777777"
     } }))); })); });

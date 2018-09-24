@@ -1,5 +1,6 @@
 export { Table as Table } from './Table'
 export { Flexbox as Flexbox } from './Flexbox'
+export { DatePicker as DatePicker } from './DatePicker'
 export { TextField as TextField } from './TextField'
 export { Viewport as Viewport } from './Viewport'
 export { Button as Button } from './Button'

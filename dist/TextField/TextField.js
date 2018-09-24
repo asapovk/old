@@ -29,6 +29,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importDefault(require("react"));
 var Themes_1 = __importDefault(require("../Themes"));
+var __1 = require("../");
+var Icon_1 = __importDefault(require("../Icon/Icon"));
 var TextField = /** @class */ (function (_super) {
     __extends(TextField, _super);
     function TextField() {
@@ -69,18 +71,34 @@ var TextField = /** @class */ (function (_super) {
             classes += className;
         if (disabled)
             classes += 'disabled';
-        var InputTSX = (react_1.default.createElement("input", { className: 'ui-textfield-reset' + (this.props.decoration == 'none' ? '' : ' ui-textfield-input'), defaultValue: defaultValue, value: value, onChange: function (event) { return _this.onChange(event.currentTarget.value); }, style: {
+        var rightIcon = null;
+        var leftIcon = null;
+        if (this.props.rightIcon) {
+            rightIcon = (react_1.default.createElement(__1.Flexbox, { style: { width: 24, height: 34, fontSize: 34, paddingRight: 5, color: this.props.theme.iconColor } },
+                react_1.default.createElement(Icon_1.default, { type: this.props.rightIcon })));
+        }
+        if (this.props.leftIcon) {
+            leftIcon = (react_1.default.createElement(__1.Flexbox, { style: { width: 24, height: 34, fontSize: 34, paddingLeft: 5, color: this.props.theme.iconColor } },
+                react_1.default.createElement(Icon_1.default, { type: this.props.leftIcon })));
+        }
+        var InputTSX = (react_1.default.createElement(__1.Flexbox, { onClick: this.props.onClick, className: (this.props.decoration == 'none' ? '' : ' ui-textfield-input'), style: {
                 borderColor: theme.borderColor,
                 backgroundColor: theme.backgroundColor
-            }, disabled: disabled, type: type }));
-        var TextAreaTSX = (react_1.default.createElement("textarea", { className: 'ui-textfield-reset' + (this.props.decoration == 'none' ? '' : ' ui-textfield-textarea'), defaultValue: defaultValue, value: value, onChange: function (event) { return _this.onChange(event.currentTarget.value); }, onKeyDown: function (event) {
-                if (singlerow && event.keyCode === 13) {
-                    event.preventDefault();
-                }
-            }, style: {
+            } },
+            leftIcon,
+            react_1.default.createElement("input", { onFocus: this.props.onFocus, onBlur: this.props.onBlur, defaultValue: defaultValue, value: value, onChange: function (event) { return _this.onChange(event.currentTarget.value); }, disabled: disabled, type: type }),
+            rightIcon));
+        var TextAreaTSX = (react_1.default.createElement(__1.Flexbox, { onClick: this.props.onClick, className: (this.props.decoration == 'none' ? '' : ' ui-textfield-textarea'), style: {
                 borderColor: theme.borderColor,
                 backgroundColor: theme.backgroundColor
-            }, disabled: disabled }));
+            } },
+            leftIcon,
+            react_1.default.createElement("textarea", { onFocus: this.props.onFocus, onBlur: this.props.onBlur, defaultValue: defaultValue, value: value, onChange: function (event) { return _this.onChange(event.currentTarget.value); }, onKeyDown: function (event) {
+                    if (singlerow && event.keyCode === 13) {
+                        event.preventDefault();
+                    }
+                }, disabled: disabled }),
+            rightIcon));
         return (react_1.default.createElement("div", { className: classes, style: style },
             label && react_1.default.createElement("div", { style: { color: theme.labelColor }, className: 'ui-textfield-label' }, label),
             multiline ? TextAreaTSX : InputTSX));
@@ -90,5 +108,6 @@ var TextField = /** @class */ (function (_super) {
 exports.default = (function (props) { return (react_1.default.createElement(Themes_1.default, null, function (theme) { return (react_1.default.createElement(TextField, __assign({}, props, { theme: {
         backgroundColor: theme.interface.rgb,
         borderColor: theme.pale.rgb,
-        labelColor: theme.lowlight.rgb
+        labelColor: theme.lowlight.rgb,
+        iconColor: theme.lowlight.rgb,
     } }))); })); });

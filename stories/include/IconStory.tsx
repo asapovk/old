@@ -1,23 +1,31 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { Icon, Flexbox } from '../../src';
+import { svgIconPath } from '../../src/Icon/Icon';
 
 export default class Story extends React.Component {
+
     render() {
-        return (
-            <Flexbox justifyContent="space-around" alignContent="center" p={40}>
-                <style children='.desc{font-size: 14px; padding-top: 10px} .cont{font-size: 24px; display: flex; align-items: center; flex-direction: column}' />
-                <div className='cont'><Icon type='add' /><span className='desc'>Add</span></div>
-                <div className='cont'><Icon type='more' /><span className='desc'>more</span></div>
-                <div className='cont'><Icon type='close' /><span className='desc'>close</span></div>
-                <div className='cont'><Icon type='left' /><span className='desc'>left</span></div>
-                <div className='cont'><Icon type='right' /><span className='desc'>right</span></div>
-                <div className='cont'><Icon type='down' /><span className='desc'>down</span></div>
-                <div className='cont'><Icon type='up' /><span className='desc'>up</span></div>
-                <div className='cont'><Icon type='check' /><span className='desc'>check</span></div>
-                <div className='cont'><Icon type='search' /><span className='desc'>search</span></div>
-                <div className='cont'><Icon type='sync' /><span className='desc'>sync</span></div>
-                <div className='cont'><Icon type='settings' /><span className='desc'>settings</span></div>
+        const HahaIcon = props => <Icon type={props.type} style={{ fontSize: 34 }} />
+        const Icons = Object.keys(svgIconPath).map(key =>
+            <Flexbox column key={key} p={20} justifyContent="center" alignItems="center" alignContent="center">
+                <HahaIcon type={key} />
+                <div style={{ opacity: 0.5, fontSize: 12, textAlign: "center" }}>{key}</div>
             </Flexbox>
-        )
+        );
+
+        const Rows: any = [[]];
+        Icons.forEach(element => {
+            let Row = Rows[Rows.length - 1];
+            if (Row.length > 10) {
+                Rows.push([]);
+                Row = Rows[Rows.length - 1];
+            }
+            Row.push(element);
+        })
+        return (
+            <Flexbox column alignItems="stretch" flex={1} pr={40} pl={40}>
+                {Rows.map(Row => <Flexbox justifyContent="center">{Row}</Flexbox>)}
+            </Flexbox>
+        );
     }
 }
