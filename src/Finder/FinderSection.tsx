@@ -24,7 +24,7 @@ class FinderSection extends React.Component<FinderSectionProps> {
                 <Flexbox style={style} alignItems="center" className={`ui-finder-section${active ? " ui-finder-section-active" : ""}`} onClick={() => this.setState({ expand: this.state.expand ? false : true })}>
                     <Flexbox className='ui-finder-section-label' flex={1} children={label} />
                     <Flexbox className='ui-finder-section-icon'>
-                        <Icon Icon type={this.state.expand ? 'up' : 'down'} />
+                        <Icon type={this.state.expand ? 'up' : 'down'} />
                     </Flexbox>
                 </Flexbox>
                 <div className='ui-finder-section-children'>{this.state.expand && children}</div>
