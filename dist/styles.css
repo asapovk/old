@@ -172,6 +172,8 @@ table {
   -webkit-transform: matrix3d(1, 0, 0, 0, 0, 0, 1, 0.008, 0, -1, 0, 0, 0, 0, 0, 1);
   -o-transform: matrix3d(1, 0, 0, 0, 0, 0, 1, 0.008, 0, -1, 0, 0, 0, 0, 0, 1);
   -ms-transform: matrix3d(1, 0, 0, 0, 0, 0, 1, 0.008, 0, -1, 0, 0, 0, 0, 0, 1);
+  visibility: hidden;
+  opacity: 0;
 }
 .ui-datepicker-active {
   transform: inherit;
@@ -179,6 +181,8 @@ table {
   -webkit-transform: inherit;
   -o-transform: inherit;
   -ms-transform: inherit;
+  visibility: visible;
+  opacity: 1;
 }
 .ui-datepicker-monthgrid-title-month {
   font-size: 16px;

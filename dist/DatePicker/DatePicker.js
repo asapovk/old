@@ -61,16 +61,21 @@ var DatePicker = /** @class */ (function (_super) {
     DatePicker.prototype.render = function () {
         var _this = this;
         return (react_1.default.createElement(__1.Flexbox, { column: true },
-            react_1.default.createElement(__1.TextField, { value: this.state.value.format(this.state.format || "DD • MMMM • YYYY"), onClick: function () { return _this.setState({ active: !_this.state.active }); }, onChange: function (value) {
-                    if (moment_1.default(value).isValid()) {
-                        _this.setState({ value: value });
-                    }
-                }, rightIcon: "calendar" }),
+            react_1.default.createElement(__1.TextField, { value: this.state.value.format(this.state.format || "DD • MMMM • YYYY"), onClick: function () { return _this.setState({ active: !_this.state.active }); }, 
+                // onChange={value => {
+                //     if (moment(value).isValid()) {
+                //         this.setState({ value });
+                //     }
+                // }}
+                rightIcon: "calendar" }),
             react_1.default.createElement(MonthGrid_1.MonthGrid, { active: this.state.active, value: this.state.value, onChange: function (value) {
                     _this.setState({ value: value, active: false });
                     if (_this.props.onChange) {
                         if (_this.state.format) {
                             _this.props.onChange(value.format(_this.state.format));
+                        }
+                        else {
+                            _this.props.onChange(value);
                         }
                     }
                 } })));

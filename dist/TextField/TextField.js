@@ -86,14 +86,18 @@ var TextField = /** @class */ (function (_super) {
                 backgroundColor: theme.backgroundColor
             } },
             leftIcon,
-            react_1.default.createElement("input", { onFocus: this.props.onFocus, onBlur: this.props.onBlur, defaultValue: defaultValue, value: value, onChange: function (event) { return _this.onChange(event.currentTarget.value); }, disabled: disabled, type: type }),
+            react_1.default.createElement("input", { onFocus: this.props.onFocus, onBlur: this.props.onBlur, defaultValue: defaultValue, style: {
+                    color: this.props.theme.textColor
+                }, value: value, onChange: function (event) { return _this.onChange(event.currentTarget.value); }, disabled: disabled, type: type }),
             rightIcon));
         var TextAreaTSX = (react_1.default.createElement(__1.Flexbox, { onClick: this.props.onClick, className: (this.props.decoration == 'none' ? '' : ' ui-textfield-textarea'), style: {
                 borderColor: theme.borderColor,
                 backgroundColor: theme.backgroundColor
             } },
             leftIcon,
-            react_1.default.createElement("textarea", { onFocus: this.props.onFocus, onBlur: this.props.onBlur, defaultValue: defaultValue, value: value, onChange: function (event) { return _this.onChange(event.currentTarget.value); }, onKeyDown: function (event) {
+            react_1.default.createElement("textarea", { onFocus: this.props.onFocus, onBlur: this.props.onBlur, defaultValue: defaultValue, style: {
+                    color: this.props.theme.textColor
+                }, value: value, onChange: function (event) { return _this.onChange(event.currentTarget.value); }, onKeyDown: function (event) {
                     if (singlerow && event.keyCode === 13) {
                         event.preventDefault();
                     }
@@ -106,6 +110,7 @@ var TextField = /** @class */ (function (_super) {
     return TextField;
 }(react_1.default.Component));
 exports.default = (function (props) { return (react_1.default.createElement(Themes_1.default, null, function (theme) { return (react_1.default.createElement(TextField, __assign({}, props, { theme: {
+        textColor: theme.text.rgb,
         backgroundColor: theme.interface.rgb,
         borderColor: theme.pale.rgb,
         labelColor: theme.lowlight.rgb,

@@ -62,6 +62,8 @@ class DatePicker extends React.Component<Props & ThemedProps> {
                         if (this.props.onChange) {
                             if (this.state.format) {
                                 this.props.onChange(value.format(this.state.format));
+                            } else {
+                                this.props.onChange(value);
                             }
                         }
                     }}
