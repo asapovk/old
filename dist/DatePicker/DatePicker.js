@@ -47,13 +47,19 @@ var DatePicker = /** @class */ (function (_super) {
         if (this.props.value) {
             if (this.props.format) {
                 this.setState({
-                    value: moment_1.default(this.props.value, this.props.format),
-                    format: this.props.format
+                    value: moment_1.default(this.props.value, this.props.format)
                 });
             }
             else {
                 this.setState({
                     value: this.props.value
+                });
+            }
+        }
+        else {
+            if (this.props.format) {
+                this.setState({
+                    format: this.props.format
                 });
             }
         }

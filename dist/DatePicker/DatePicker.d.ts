@@ -1,7 +1,7 @@
 import { Moment } from 'moment';
 interface Props {
     format?: string;
-    value?: string;
+    value?: Moment | string;
     onChange?: (date: Moment | string) => void;
 }
 export interface ThemedProps {
