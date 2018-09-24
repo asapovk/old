@@ -30,7 +30,8 @@ class DatePicker extends React.Component<Props & ThemedProps> {
         if (this.props.value) {
             if (this.props.format) {
                 this.setState({
-                    value: moment(this.props.value, this.props.format)
+                    value: moment(this.props.value, this.props.format),
+                    format: this.props.format
                 });
             } else {
                 this.setState({
