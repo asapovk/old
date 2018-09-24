@@ -30,6 +30,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importDefault(require("react"));
 var Icon_1 = require("../Icon");
 var Themes_1 = __importDefault(require("../Themes"));
+var SelectMenuItem_1 = __importDefault(require("./SelectMenuItem"));
 var Select = /** @class */ (function (_super) {
     __extends(Select, _super);
     function Select(props) {
@@ -142,10 +143,7 @@ var Select = /** @class */ (function (_super) {
         }
         var somethingSelected = (selectedItems.length > 0);
         var MenuItemsTSX = (availableItems.length > 0 ?
-            availableItems.map(function (option, index) { return (react_1.default.createElement("div", { className: 'ui-select-menu-item' +
-                    ((!multiselect && selectedValues.find(function (value) { return option.value === value; })) ? '-active' : ''), children: option.text, onClick: function () { return _this.onSelect(option.value); }, key: index, style: {
-                    color: theme.textColor
-                } })); }) : react_1.default.createElement("div", { className: 'ui-select-menu-item-nofound' }, isFilterActive ? 'Не найдено' : 'Нет доступных значений'));
+            availableItems.map(function (option, index) { return (react_1.default.createElement(SelectMenuItem_1.default, { children: option.text, onClick: function () { return _this.onSelect(option.value); }, key: index, theme: theme.SelectMenuItem, active: !multiselect && selectedValues.find(function (value) { return option.value === value; }) })); }) : react_1.default.createElement("div", { className: 'ui-select-menu-item-nofound' }, isFilterActive ? 'Не найдено' : 'Нет доступных значений'));
         var MultiSelectItemsTSX = (selectedItems.map(function (option) { return (react_1.default.createElement("div", { className: 'ui-select-holder-value-option', key: option.text, style: {
                 background: theme.background,
                 borderColor: theme.borderColor,
@@ -195,5 +193,9 @@ exports.default = (function (props) { return (react_1.default.createElement(Them
         background: theme.interface.rgb,
         labelColor: theme.lowlight.rgb,
         textColor: theme.text.rgb,
-        borderColor: theme.pale.rgb
+        borderColor: theme.pale.rgb,
+        SelectMenuItem: {
+            text: theme.text.rgb,
+            background: theme.pale.rgba(0.5)
+        }
     } }))); })); });
