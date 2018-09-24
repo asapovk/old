@@ -66,7 +66,7 @@ var MonthGrid = /** @class */ (function (_super) {
                     }, disaplayWeeks: true }),
                 grid.map(function (week, index) {
                     return react_1.default.createElement(__1.Flexbox, { key: index, className: "ui-datepicker-monthgrid-week" }, week.map(function (day, index) {
-                        return (react_1.default.createElement(Day_1.default, { key: index, day: day, active: _this.state.active, onClick: function () {
+                        return (react_1.default.createElement(Day_1.default, { key: index, day: day, active: _this.state.active, minValue: _this.props.minValue, maxValue: _this.props.maxValue, onClick: function () {
                                 _this.setState({ active: day.clone() });
                                 _this.props.onChange && _this.props.onChange(day.clone());
                             } }));

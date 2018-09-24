@@ -8,15 +8,14 @@ moment.locale("ru_RU");
 interface Props {
     format?: string
     value?: Moment | string
+    minValue?: Moment
+    maxValue?: Moment
     // locale?: string
     onChange?: (date: Moment | string) => void
 }
 
 export interface ThemedProps {
     theme
-}
-interface DatePicker {
-
 }
 class DatePicker extends React.Component<Props & ThemedProps> {
 
@@ -45,7 +44,6 @@ class DatePicker extends React.Component<Props & ThemedProps> {
                 });
             }
         }
-
     }
     render() {
         return (
@@ -63,6 +61,8 @@ class DatePicker extends React.Component<Props & ThemedProps> {
                 <MonthGrid
                     active={this.state.active}
                     value={this.state.value}
+                    minValue={this.props.minValue}
+                    maxValue={this.props.maxValue}
                     onChange={value => {
                         this.setState({ value, active: false });
                         if (this.props.onChange) {

@@ -75,7 +75,7 @@ var DatePicker = /** @class */ (function (_super) {
                 //     }
                 // }}
                 rightIcon: "calendar" }),
-            react_1.default.createElement(MonthGrid_1.MonthGrid, { active: this.state.active, value: this.state.value, onChange: function (value) {
+            react_1.default.createElement(MonthGrid_1.MonthGrid, { active: this.state.active, value: this.state.value, minValue: this.props.minValue, maxValue: this.props.maxValue, onChange: function (value) {
                     _this.setState({ value: value, active: false });
                     if (_this.props.onChange) {
                         if (_this.state.format) {

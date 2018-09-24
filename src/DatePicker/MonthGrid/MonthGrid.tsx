@@ -6,6 +6,8 @@ import Day from './Day';
 
 interface Props {
     value: Moment,
+    minValue?: Moment
+    maxValue?: Moment
     style?: CSSProperties
     active?: boolean
     onChange?: (date: Moment) => void
@@ -68,6 +70,8 @@ class MonthGrid extends React.Component<Props & ThemedProps> {
                                         key={index}
                                         day={day}
                                         active={this.state.active}
+                                        minValue={this.props.minValue}
+                                        maxValue={this.props.maxValue}
                                         onClick={() => {
                                             this.setState({ active: day.clone() });
                                             this.props.onChange && this.props.onChange(day.clone());

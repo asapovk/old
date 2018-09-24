@@ -36,8 +36,9 @@ var MonthGridDay = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     MonthGridDay.prototype.render = function () {
-        var _a = this.props, active = _a.active, day = _a.day, onClick = _a.onClick;
+        var _a = this.props, active = _a.active, day = _a.day, onClick = _a.onClick, minValue = _a.minValue, maxValue = _a.maxValue;
         var style = this.props.theme.default;
+        var disabled = false;
         if (day.format("YYYYMMDD") === active.format("YYYYMMDD")) {
             style = __assign({}, style, this.props.theme.active);
         }
@@ -47,7 +48,18 @@ var MonthGridDay = /** @class */ (function (_super) {
         if (day.format("MM") !== moment_1.default().format("MM")) {
             style = __assign({}, style, this.props.theme.anotherMonth);
         }
-        return (react_1.default.createElement(__1.Flexbox, { justifyContent: "center", alignItems: "center", className: "ui-datepicker-monthgrid-day", onClick: onClick, children: day.date(), style: style }));
+        if (minValue && minValue > day) {
+            disabled = true;
+            style = __assign({}, style, this.props.theme.disabledDay);
+        }
+        if (maxValue && maxValue < day) {
+            disabled = true;
+            style = __assign({}, style, this.props.theme.disabledDay);
+        }
+        return (react_1.default.createElement(__1.Flexbox, { justifyContent: "center", alignItems: "center", className: "ui-datepicker-monthgrid-day", onClick: function () {
+                if (!disabled)
+                    onClick && onClick();
+            }, children: day.date(), style: style }));
     };
     return MonthGridDay;
 }(react_1.default.Component));
@@ -68,5 +80,8 @@ exports.default = (function (props) { return (react_1.default.createElement(__1.
         },
         anotherMonth: {
             background: theme.interface.rgba(0.3),
+        },
+        disabledDay: {
+            opacity: 0.3
         }
     } }))); })); });
