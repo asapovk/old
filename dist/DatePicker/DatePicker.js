@@ -67,7 +67,12 @@ var DatePicker = /** @class */ (function (_super) {
     };
     DatePicker.prototype.render = function () {
         var _this = this;
-        return (react_1.default.createElement(__1.Flexbox, { column: true },
+        return (react_1.default.createElement(__1.Flexbox, { column: true, style: { lineHeight: 1 } },
+            react_1.default.createElement("div", { style: {
+                    color: this.props.theme.labelColor, fontSize: 12,
+                    marginBottom: 5,
+                    textTransform: 'uppercase',
+                } }, this.props.label),
             react_1.default.createElement(__1.TextField, { value: this.state.value.format(this.state.format || "DD • MMMM • YYYY"), onClick: function () { return _this.setState({ active: !_this.state.active }); }, 
                 // onChange={value => {
                 //     if (moment(value).isValid()) {
@@ -75,18 +80,21 @@ var DatePicker = /** @class */ (function (_super) {
                 //     }
                 // }}
                 rightIcon: "calendar" }),
-            react_1.default.createElement(MonthGrid_1.MonthGrid, { active: this.state.active, value: this.state.value, minValue: this.props.minValue, maxValue: this.props.maxValue, onChange: function (value) {
-                    _this.setState({ value: value, active: false });
-                    if (_this.props.onChange) {
-                        if (_this.state.format) {
-                            _this.props.onChange(value.format(_this.state.format));
+            this.state.active &&
+                react_1.default.createElement(MonthGrid_1.MonthGrid, { active: this.state.active, value: this.state.value, minValue: this.props.minValue, maxValue: this.props.maxValue, onChange: function (value) {
+                        _this.setState({ value: value, active: false });
+                        if (_this.props.onChange) {
+                            if (_this.state.format) {
+                                _this.props.onChange(value.format(_this.state.format));
+                            }
+                            else {
+                                _this.props.onChange(value);
+                            }
                         }
-                        else {
-                            _this.props.onChange(value);
-                        }
-                    }
-                } })));
+                    } })));
     };
     return DatePicker;
 }(react_1.default.Component));
-exports.default = (function (props) { return (react_1.default.createElement(__1.Theme, null, function (theme) { return (react_1.default.createElement(DatePicker, __assign({}, props, { theme: {} }))); })); });
+exports.default = (function (props) { return (react_1.default.createElement(__1.Theme, null, function (theme) { return (react_1.default.createElement(DatePicker, __assign({}, props, { theme: {
+        labelColor: theme.lowlight.rgb
+    } }))); })); });
