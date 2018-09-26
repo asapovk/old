@@ -1,6 +1,5 @@
 import React, { Fragment } from 'react';
-import { Modal, Button, Flexbox, Portal, Viewport, Theme } from '../';
-import { getTheme } from '../Themes';
+import { Modal, Button, Flexbox, Portal, Viewport, Theme, utils } from '../';
 
 export interface NotificationOptions {
     title: string
@@ -12,7 +11,7 @@ class Notifications extends React.Component {
         notifications: []
     }
     pushNotification(options: NotificationOptions) {
-        const theme = getTheme();
+        const theme = utils.getTheme();
         this.setState({
             notifications: this.state.notifications.concat(
                 <div style={{
