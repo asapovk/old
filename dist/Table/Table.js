@@ -70,7 +70,7 @@ var Table = /** @class */ (function (_super) {
                 !isData && noDataLabelTSX,
                 react_1.default.createElement("div", { className: 'ui-table-content-head-row', children: ColumnsTSX, style: actions && { marginRight: '32px' } }),
                 react_1.default.createElement("div", { className: 'ui-table-content-body', style: {
-                        border: "0.5px solid " + theme.borderColor,
+                        borderColor: theme.borderColor,
                         borderRadius: theme.borderRadius
                     } },
                     addFormTSX,

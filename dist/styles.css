@@ -238,6 +238,9 @@ table {
 .ui-table-content-head-row-column {
   margin-right: 20px;
 }
+.ui-table-content-body {
+  border: solid 0.5px;
+}
 .ui-table-content-body-row {
   display: flex;
   flex-direction: row;
