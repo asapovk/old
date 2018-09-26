@@ -24,6 +24,5 @@ export interface themeNames {
     theme?: 'blackCurrant' | 'whiteCurrant';
 }
 export declare const ThemeContext: React.Context<ThemeInterface>;
-export declare const getTheme: () => ThemeInterface;
 declare const _default: React.ComponentType<React.ConsumerProps<ThemeInterface>>;
 export default _default;

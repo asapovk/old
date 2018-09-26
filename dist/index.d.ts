@@ -23,8 +23,4 @@ export { Widget as Widget } from './Widget';
 export { WidgetStat as WidgetStat } from './WidgetStat';
 export { default as Theme } from './Themes';
 export { Portal as Portal } from 'react-portal';
-export declare const utils: {
-    getTheme: () => import("./Themes").ThemeInterface;
-    alert: (options: import("./Action/Alert").AlertOptions) => void;
-    notification: (options: import("./Action/Notification").NotificationOptions) => void;
-};
+export { default as utils } from './utils';
