@@ -48,5 +48,7 @@ var WidgetStat_1 = require("./WidgetStat");
 exports.WidgetStat = WidgetStat_1.WidgetStat;
 var Themes_1 = require("./Themes");
 exports.Theme = Themes_1.default;
+var Action_1 = require("./Action");
+exports.Action = Action_1.default;
 var react_portal_1 = require("react-portal");
 exports.Portal = react_portal_1.Portal;

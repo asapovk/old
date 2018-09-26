@@ -36,12 +36,52 @@ var react_1 = __importStar(require("react"));
 var Viewport = /** @class */ (function (_super) {
     __extends(Viewport, _super);
     function Viewport() {
-        return _super !== null && _super.apply(this, arguments) || this;
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.state = {
+            mountedActions: []
+        };
+        return _this;
     }
+    Viewport.prototype.componentDidMount = function () {
+        //@ts-ignore
+        document.__uiviewport = this;
+    };
+    /**
+     * Добавляет компонент в viewport
+     * возвращает индекс
+     */
+    Viewport.prototype.mountAction = function (component) {
+        var index = this.state.mountedActions.length;
+        this.setState({
+            mountedActions: this.state.mountedActions.concat([component])
+        });
+        return index;
+    };
+    /**
+     * Удаляет компонент из viewport
+     * по индексу
+     */
+    Viewport.prototype.unmountAction = function (index) {
+        if (this.state.mountedActions[index]) {
+            this.setState({
+                mountedActions: this.state.mountedActions.filter(function (item, i) { return i !== index; })
+            });
+        }
+    };
+    Object.defineProperty(Viewport.prototype, "theme", {
+        get: function () {
+            return Themes_1.themes[this.props.theme ? this.props.theme : 'blackCurrant'];
+        },
+        enumerable: true,
+        configurable: true
+    });
     Viewport.prototype.render = function () {
-        var theme = Themes_1.themes[this.props.theme ? this.props.theme : 'blackCurrant'];
-        return (react_1.default.createElement(Themes_1.ThemeContext.Provider, { value: theme },
-            react_1.default.createElement("div", { className: 'ui-view', id: '0cd82567-7684-4147-ab02-dd3c56332364', style: __assign({}, this.props.style, { background: theme.background.rgb, color: theme.text.rgb }), children: this.props.children })));
+        return (react_1.default.createElement(Themes_1.ThemeContext.Provider, { value: this.theme },
+            react_1.default.createElement("div", { "data-viewport": true, className: 'ui-view', id: '0cd82567-7684-4147-ab02-dd3c56332364', style: __assign({}, this.props.style, { background: this.theme.background.rgb, color: this.theme.text.rgb }) },
+                this.props.children,
+                this.state.mountedActions.map(function (action, index) {
+                    return react_1.default.createElement(react_1.Fragment, { key: index }, action);
+                }))));
     };
     return Viewport;
 }(react_1.Component));
