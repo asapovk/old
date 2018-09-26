@@ -22,7 +22,7 @@ export default class MenuStory extends React.Component {
             <Fragment>
                 <Menu
                     header={<div><span style={{ fontWeight: 700, paddingRight: '10px' }}>Connect</span><span>Module</span></div>}
-                    search={true}
+                    //search={true}
                     toolsLeft={[
                         <Button decoration='none' style={{ fontSize: '24px' }}>
                             <Icon type='add' />

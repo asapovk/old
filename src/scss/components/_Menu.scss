@@ -60,10 +60,9 @@ $rowHeightMin: 40px;
             &-tools {
                 display: flex;
                 align-items: center;
-                height: $rowHeightMin;
-                padding-left: 30px;
+                padding-left: 32px;
                 > * {
-                    padding-left: 10px;
+                    padding-left: 8px !important;
                 }
             }
         }
