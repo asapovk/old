@@ -39,7 +39,7 @@ var FinderSection = /** @class */ (function (_super) {
             react_1.default.createElement(__1.Flexbox, { style: style, alignItems: "center", className: "ui-finder-section" + (active ? " ui-finder-section-active" : ""), onClick: function () { return _this.setState({ expand: _this.state.expand ? false : true }); } },
                 react_1.default.createElement(__1.Flexbox, { className: 'ui-finder-section-label', flex: 1, children: label }),
                 react_1.default.createElement(__1.Flexbox, { className: 'ui-finder-section-icon' },
-                    react_1.default.createElement(__1.Icon, { Icon: true, type: this.state.expand ? 'up' : 'down' }))),
+                    react_1.default.createElement(__1.Icon, { type: this.state.expand ? 'up' : 'down' }))),
             react_1.default.createElement("div", { className: 'ui-finder-section-children' }, this.state.expand && children)));
     };
     FinderSection.componentName = "FinderNav";

@@ -119,6 +119,7 @@ table {
 }
 
 .ui-textfield {
+  position: relative;
   display: flex;
   flex: 1;
   flex-direction: column;
@@ -129,7 +130,17 @@ table {
   margin-bottom: 5px;
   text-transform: uppercase;
 }
-.ui-textfield-reset {
+.ui-textfield-input {
+  border: 1px solid;
+  border-radius: 2px;
+}
+.ui-textfield-textarea {
+  height: 100%;
+  border: 1px solid;
+  border-radius: 2px;
+}
+.ui-textfield > div > input,
+.ui-textfield > div > textarea {
   appearance: none;
   box-sizing: border-box;
   resize: none;
@@ -142,14 +153,59 @@ table {
   font-size: inherit;
   width: 100%;
 }
-.ui-textfield-input {
-  border: 1px solid;
-  border-radius: 2px;
+
+.ui-datepicker {
+  position: relative;
+  user-select: none;
+  transform-origin: center top 0px;
+  transition: all 0.3s ease 0s;
+  -moz-transform-origin: center top 0px;
+  -moz-transition: all 0.3s ease 0s;
+  -webkit-transform-origin: center top 0px;
+  -webkit-transition: all 0.3s ease 0s;
+  -o-transform-origin: center top 0px;
+  -o-transition: all 0.3s ease 0s;
+  -ms-transform-origin: center top 0px;
+  -ms-transition: all 0.3s ease 0s;
+  transform: matrix3d(1, 0, 0, 0, 0, 0, 1, 0.008, 0, -1, 0, 0, 0, 0, 0, 1);
+  -moz-transform: matrix3d(1, 0, 0, 0, 0, 0, 1, 0.008, 0, -1, 0, 0, 0, 0, 0, 1);
+  -webkit-transform: matrix3d(1, 0, 0, 0, 0, 0, 1, 0.008, 0, -1, 0, 0, 0, 0, 0, 1);
+  -o-transform: matrix3d(1, 0, 0, 0, 0, 0, 1, 0.008, 0, -1, 0, 0, 0, 0, 0, 1);
+  -ms-transform: matrix3d(1, 0, 0, 0, 0, 0, 1, 0.008, 0, -1, 0, 0, 0, 0, 0, 1);
+  visibility: hidden;
+  opacity: 0;
 }
-.ui-textfield-textarea {
-  height: 100%;
-  border: 1px solid;
-  border-radius: 2px;
+.ui-datepicker-active {
+  transform: inherit;
+  -moz-transform: inherit;
+  -webkit-transform: inherit;
+  -o-transform: inherit;
+  -ms-transform: inherit;
+  visibility: visible;
+  opacity: 1;
+}
+.ui-datepicker-monthgrid-title-month {
+  font-size: 16px;
+  font-weight: 500;
+}
+.ui-datepicker-monthgrid-title-year {
+  font-size: 12px;
+  font-weight: 500;
+}
+.ui-datepicker-monthgrid-title-weeks-day {
+  text-transform: uppercase;
+  font-size: 12px;
+  width: 30px;
+  height: 20px;
+  border: 0.5px solid;
+}
+.ui-datepicker-monthgrid-day {
+  transition: all 0.3s;
+  border: 0.5px solid;
+  font-weight: 500;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
 }
 
 .ui-table {
@@ -304,7 +360,7 @@ table {
   width: fit-content;
   cursor: pointer;
   font-size: 16px;
-  line-height: 24px;
+  line-height: 20px;
 }
 .ui-button:active {
   box-shadow: none;

@@ -1,5 +1,6 @@
 export { Table as Table } from './Table'
 export { Flexbox as Flexbox } from './Flexbox'
+export { DatePicker as DatePicker } from './DatePicker'
 export { TextField as TextField } from './TextField'
 export { Viewport as Viewport } from './Viewport'
 export { Button as Button } from './Button'
@@ -21,5 +22,6 @@ export { Modal as Modal } from './Modal'
 export { Widget as Widget } from './Widget'
 export { WidgetStat as WidgetStat } from './WidgetStat'
 export { default as Theme } from './Themes'
+export { default as Action } from './Action'
 
 export { Portal as Portal } from 'react-portal';

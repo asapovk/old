@@ -108,6 +108,7 @@ class Finder extends React.Component<Props & ThemedProps> {
 
         return (
             <Flexbox style={{
+                color: theme.textColor,
                 backgroundColor: theme.backgroundColor,
                 borderColor: theme.borderColor,
                 ...style
@@ -123,6 +124,7 @@ export default (props: Props) => (
     <Theme>
         {theme => (
             <Finder {...props} theme={{
+                textColor: theme.text.rgb,
                 backgroundColor: theme.background.rgb,
                 borderColor: theme.pale.rgb
             }} />

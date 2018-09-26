@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import Theme from '../Themes';
+import { Flexbox } from '../';
+import { default as Icon, IconType } from '../Icon/Icon';
 
 interface ValidateObject {
     error?: string
@@ -19,8 +21,14 @@ interface Props {
     decoration?: 'none'
     disabled?: boolean
     type?: 'password' | 'number'
+    rightIcon?: IconType
+    leftIcon?: IconType
     onError?: (error: string[] | null) => void
     onChange?: (value: string) => void
+    onClick?: (event: any) => void
+    onFocus?: (event: any) => void
+    onBlur?: (event: any) => void
+
     children?: any
 }
 export interface ThemedProps {
@@ -64,38 +72,72 @@ class TextField extends React.Component<Props & ThemedProps> {
         if (className) classes += className;
         if (disabled) classes += 'disabled';
 
+        let rightIcon: any = null;
+        let leftIcon: any = null;
+        if (this.props.rightIcon) {
+            rightIcon = (
+                <Flexbox style={{ width: 24, height: 34, fontSize: 34, paddingRight: 5, color: this.props.theme.iconColor }}>
+                    <Icon type={this.props.rightIcon} />
+                </Flexbox>
+            )
+        }
+        if (this.props.leftIcon) {
+            leftIcon = (
+                <Flexbox style={{ width: 24, height: 34, fontSize: 34, paddingLeft: 5, color: this.props.theme.iconColor }}>
+                    <Icon type={this.props.leftIcon} />
+                </Flexbox>
+            )
+        }
         const InputTSX = (
-            <input
-                className={'ui-textfield-reset' + (this.props.decoration == 'none' ? '' : ' ui-textfield-input')}
-                defaultValue={defaultValue}
-                value={value}
-                onChange={(event) => this.onChange(event.currentTarget.value)}
-                style={{
+            <Flexbox
+                onClick={this.props.onClick}
+                className={(this.props.decoration == 'none' ? '' : ' ui-textfield-input')} style={{
                     borderColor: theme.borderColor,
                     backgroundColor: theme.backgroundColor
-                }}
-                disabled={disabled}
-                type={type}
-            />
+                }}>
+                {leftIcon}
+                <input
+                    onFocus={this.props.onFocus}
+                    onBlur={this.props.onBlur}
+                    defaultValue={defaultValue}
+                    style={{
+                        color: this.props.theme.textColor
+                    }}
+                    value={value}
+                    onChange={(event) => this.onChange(event.currentTarget.value)}
+                    disabled={disabled}
+                    type={type}
+                />
+                {rightIcon}
+            </Flexbox>
         )
 
         const TextAreaTSX = (
-            <textarea
-                className={'ui-textfield-reset' + (this.props.decoration == 'none' ? '' : ' ui-textfield-textarea')}
-                defaultValue={defaultValue}
-                value={value}
-                onChange={(event) => this.onChange(event.currentTarget.value)}
-                onKeyDown={(event) => {
-                    if (singlerow && event.keyCode === 13) {
-                        event.preventDefault();
-                    }
-                }}
-                style={{
+            <Flexbox
+                onClick={this.props.onClick}
+                className={(this.props.decoration == 'none' ? '' : ' ui-textfield-textarea')} style={{
                     borderColor: theme.borderColor,
                     backgroundColor: theme.backgroundColor
-                }}
-                disabled={disabled}
-            />
+                }}>
+                {leftIcon}
+                <textarea
+                    onFocus={this.props.onFocus}
+                    onBlur={this.props.onBlur}
+                    defaultValue={defaultValue}
+                    style={{
+                        color: this.props.theme.textColor
+                    }}
+                    value={value}
+                    onChange={(event) => this.onChange(event.currentTarget.value)}
+                    onKeyDown={(event) => {
+                        if (singlerow && event.keyCode === 13) {
+                            event.preventDefault();
+                        }
+                    }}
+                    disabled={disabled}
+                />
+                {rightIcon}
+            </Flexbox>
         )
 
         return (
@@ -111,9 +153,11 @@ export default (props: Props) => (
     <Theme>
         {theme => (
             <TextField {...props} theme={{
+                textColor: theme.text.rgb,
                 backgroundColor: theme.interface.rgb,
                 borderColor: theme.pale.rgb,
-                labelColor: theme.lowlight.rgb
+                labelColor: theme.lowlight.rgb,
+                iconColor: theme.lowlight.rgb,
             }} />
         )}
     </Theme>
