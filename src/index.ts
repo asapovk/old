@@ -25,9 +25,9 @@ export { default as Theme } from './Themes'
 
 export { Portal as Portal } from 'react-portal';
 
-import alert from './Action/Alert';
-import notification from './Action/Notification';
-import { getTheme } from './Themes'
+import alert from './utils/Alert';
+import notification from './utils/Notification';
+import getTheme from './utils/getTheme'
 
 export const utils = {
     getTheme,

@@ -33,10 +33,4 @@ export const ThemeContext = React.createContext(
     themes.blackCurrant // default value
 );
 
-export const getTheme = () => {
-    //@ts-ignore
-    const theme = (document.__uiviewport && document.__uiviewport.theme) || blackCurrant;
-    return theme as ThemeInterface;
-}
-
 export default ThemeContext.Consumer;
