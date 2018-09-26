@@ -21,21 +21,6 @@ export default class Story extends React.Component {
                             })}
                             children="Test" />
                     </Flexbox>
-                    <Flexbox column p={10} style={{ border: "1px solid #555" }}>
-                        <pre>
-                            {`utils.notification({
-    title: "Test", 
-    text: "some text"
-})`}
-                        </pre>
-                        <hr />
-                        <Button
-                            onClick={() => utils.notification({
-                                title: "Test",
-                                text: "some text"
-                            })}
-                            children="Test" />
-                    </Flexbox>
                 </Flexbox>
 
             </Flexbox>

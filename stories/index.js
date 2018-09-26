@@ -6,7 +6,6 @@ import '../src/scss/main.scss';
 storiesOf('Основные компоненты')
     .add('Viewport', $('ViewportStory'))
     .add('Button', $('ButtonStory'))
-    .add('Action', $('ActionStory'))
     .add('TextField', $('TextfieldStory'))
     .add('Select', $('SelectStory'))
     .add('DatePicker', $('DatePickerStory'))
@@ -27,3 +26,8 @@ storiesOf('Основные компоненты')
 
 storiesOf('Другое')
     .add('Login', $('LoginStory'));
+
+storiesOf("utils")
+    .add('alert', $('UtilsAlertStory'))
+    .add('notification', $('UtilsNotificationStory'))
+    .add('getTheme', $('UtilsGetThemeStory'))
