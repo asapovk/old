@@ -23,12 +23,4 @@ export { Widget as Widget } from './Widget';
 export { WidgetStat as WidgetStat } from './WidgetStat';
 export { default as Theme } from './Themes';
 export { Portal as Portal } from 'react-portal';
-<<<<<<< HEAD
 export { default as utils } from './utils';
-=======
-export declare const utils: {
-    getTheme: () => import("./Themes").ThemeInterface;
-    alert: (options: import("./utils/alert").AlertOptions) => void;
-    notification: (options: import("./utils/notification").NotificationOptions) => void;
-};
->>>>>>> Table style fixes

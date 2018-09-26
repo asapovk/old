@@ -50,16 +50,5 @@ var Themes_1 = require("./Themes");
 exports.Theme = Themes_1.default;
 var react_portal_1 = require("react-portal");
 exports.Portal = react_portal_1.Portal;
-<<<<<<< HEAD
 var utils_1 = require("./utils");
 exports.utils = utils_1.default;
-=======
-var alert_1 = __importDefault(require("./utils/alert"));
-var notification_1 = __importDefault(require("./utils/notification"));
-var getTheme_1 = __importDefault(require("./utils/getTheme"));
-exports.utils = {
-    getTheme: getTheme_1.default,
-    alert: alert_1.default,
-    notification: notification_1.default,
-};
->>>>>>> Table style fixes
