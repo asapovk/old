@@ -4,6 +4,7 @@ interface Props {
     value?: Moment | string;
     minValue?: Moment;
     maxValue?: Moment;
+    label?: string;
     onChange?: (date: Moment | string) => void;
 }
 export interface ThemedProps {
