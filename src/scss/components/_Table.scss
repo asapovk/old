@@ -78,8 +78,9 @@
             }
         }
         .edited {
-            border: solid 1px;
+            border: solid 0.5px;
             padding: 30px 20px;
+            margin: -0.5px;
         }
         .blur {
             filter: blur(2px);

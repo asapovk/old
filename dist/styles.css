@@ -296,8 +296,9 @@ table {
   box-shadow: none;
 }
 .ui-table-content .edited {
-  border: solid 1px;
+  border: solid 0.5px;
   padding: 30px 20px;
+  margin: -0.5px;
 }
 .ui-table-content .blur {
   filter: blur(2px);
