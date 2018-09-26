@@ -1,247 +1,29 @@
 import React from 'react';
+import { GetColor } from './utilities';
 export declare const themes: {
-    blackCurrant: {
-        background: {
-            rgb: string;
-            rgba: (alpha: number) => string;
-            hex: string;
-        };
-        interface: {
-            rgb: string;
-            rgba: (alpha: number) => string;
-            hex: string;
-        };
-        pale: {
-            rgb: string;
-            rgba: (alpha: number) => string;
-            hex: string;
-        };
-        lowlight: {
-            rgb: string;
-            rgba: (alpha: number) => string;
-            hex: string;
-        };
-        text: {
-            rgb: string;
-            rgba: (alpha: number) => string;
-            hex: string;
-        };
-        highlight: {
-            rgb: string;
-            rgba: (alpha: number) => string;
-            hex: string;
-        };
-        accents: {
-            red: {
-                rgb: string;
-                rgba: (alpha: number) => string;
-                hex: string;
-            };
-            green: {
-                rgb: string;
-                rgba: (alpha: number) => string;
-                hex: string;
-            };
-            blue: {
-                rgb: string;
-                rgba: (alpha: number) => string;
-                hex: string;
-            };
-            orange: {
-                rgb: string;
-                rgba: (alpha: number) => string;
-                hex: string;
-            };
-        };
-        shadow: {
-            rgb: string;
-            rgba: (alpha: number) => string;
-            hex: string;
-        };
-        corner: string;
-    };
-    whiteCurrant: {
-        background: {
-            rgb: string;
-            rgba: (alpha: number) => string;
-            hex: string;
-        };
-        interface: {
-            rgb: string;
-            rgba: (alpha: number) => string;
-            hex: string;
-        };
-        pale: {
-            rgb: string;
-            rgba: (alpha: number) => string;
-            hex: string;
-        };
-        lowlight: {
-            rgb: string;
-            rgba: (alpha: number) => string;
-            hex: string;
-        };
-        text: {
-            rgb: string;
-            rgba: (alpha: number) => string;
-            hex: string;
-        };
-        highlight: {
-            rgb: string;
-            rgba: (alpha: number) => string;
-            hex: string;
-        };
-        accents: {
-            red: {
-                rgb: string;
-                rgba: (alpha: number) => string;
-                hex: string;
-            };
-            green: {
-                rgb: string;
-                rgba: (alpha: number) => string;
-                hex: string;
-            };
-            blue: {
-                rgb: string;
-                rgba: (alpha: number) => string;
-                hex: string;
-            };
-            orange: {
-                rgb: string;
-                rgba: (alpha: number) => string;
-                hex: string;
-            };
-        };
-        shadow: {
-            rgb: string;
-            rgba: (alpha: number) => string;
-            hex: string;
-        };
-        corner: string;
-    };
+    blackCurrant: ThemeInterface;
+    whiteCurrant: ThemeInterface;
 };
+export interface ThemeInterface {
+    background: GetColor;
+    interface: GetColor;
+    pale: GetColor;
+    lowlight: GetColor;
+    text: GetColor;
+    highlight: GetColor;
+    accents: {
+        red: GetColor;
+        green: GetColor;
+        blue: GetColor;
+        orange: GetColor;
+    };
+    shadow: GetColor;
+    corner: string;
+}
 export interface themeNames {
     theme?: 'blackCurrant' | 'whiteCurrant';
 }
-export declare const ThemeContext: React.Context<{
-    background: {
-        rgb: string;
-        rgba: (alpha: number) => string;
-        hex: string;
-    };
-    interface: {
-        rgb: string;
-        rgba: (alpha: number) => string;
-        hex: string;
-    };
-    pale: {
-        rgb: string;
-        rgba: (alpha: number) => string;
-        hex: string;
-    };
-    lowlight: {
-        rgb: string;
-        rgba: (alpha: number) => string;
-        hex: string;
-    };
-    text: {
-        rgb: string;
-        rgba: (alpha: number) => string;
-        hex: string;
-    };
-    highlight: {
-        rgb: string;
-        rgba: (alpha: number) => string;
-        hex: string;
-    };
-    accents: {
-        red: {
-            rgb: string;
-            rgba: (alpha: number) => string;
-            hex: string;
-        };
-        green: {
-            rgb: string;
-            rgba: (alpha: number) => string;
-            hex: string;
-        };
-        blue: {
-            rgb: string;
-            rgba: (alpha: number) => string;
-            hex: string;
-        };
-        orange: {
-            rgb: string;
-            rgba: (alpha: number) => string;
-            hex: string;
-        };
-    };
-    shadow: {
-        rgb: string;
-        rgba: (alpha: number) => string;
-        hex: string;
-    };
-    corner: string;
-}>;
-declare const _default: React.ComponentType<React.ConsumerProps<{
-    background: {
-        rgb: string;
-        rgba: (alpha: number) => string;
-        hex: string;
-    };
-    interface: {
-        rgb: string;
-        rgba: (alpha: number) => string;
-        hex: string;
-    };
-    pale: {
-        rgb: string;
-        rgba: (alpha: number) => string;
-        hex: string;
-    };
-    lowlight: {
-        rgb: string;
-        rgba: (alpha: number) => string;
-        hex: string;
-    };
-    text: {
-        rgb: string;
-        rgba: (alpha: number) => string;
-        hex: string;
-    };
-    highlight: {
-        rgb: string;
-        rgba: (alpha: number) => string;
-        hex: string;
-    };
-    accents: {
-        red: {
-            rgb: string;
-            rgba: (alpha: number) => string;
-            hex: string;
-        };
-        green: {
-            rgb: string;
-            rgba: (alpha: number) => string;
-            hex: string;
-        };
-        blue: {
-            rgb: string;
-            rgba: (alpha: number) => string;
-            hex: string;
-        };
-        orange: {
-            rgb: string;
-            rgba: (alpha: number) => string;
-            hex: string;
-        };
-    };
-    shadow: {
-        rgb: string;
-        rgba: (alpha: number) => string;
-        hex: string;
-    };
-    corner: string;
-}>>;
+export declare const ThemeContext: React.Context<ThemeInterface>;
+export declare const getTheme: () => ThemeInterface;
+declare const _default: React.ComponentType<React.ConsumerProps<ThemeInterface>>;
 export default _default;

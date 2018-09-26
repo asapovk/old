@@ -50,10 +50,10 @@ var Viewport = /** @class */ (function (_super) {
      * Добавляет компонент в viewport
      * возвращает индекс
      */
-    Viewport.prototype.mountAction = function (component) {
+    Viewport.prototype.mountAction = function (component, id, extra) {
         var index = this.state.mountedActions.length;
         this.setState({
-            mountedActions: this.state.mountedActions.concat([component])
+            mountedActions: this.state.mountedActions.concat([{ component: component, id: id, extra: extra }])
         });
         return index;
     };
@@ -68,6 +68,13 @@ var Viewport = /** @class */ (function (_super) {
             });
         }
     };
+    /**
+     * Удаляет компонент из viewport
+     * по индексу
+     */
+    Viewport.prototype.getActionById = function (id) {
+        return this.state.mountedActions.find(function (action) { return action.id === id; }) || null;
+    };
     Object.defineProperty(Viewport.prototype, "theme", {
         get: function () {
             return Themes_1.themes[this.props.theme ? this.props.theme : 'blackCurrant'];
@@ -80,7 +87,7 @@ var Viewport = /** @class */ (function (_super) {
             react_1.default.createElement("div", { "data-viewport": true, className: 'ui-view', id: '0cd82567-7684-4147-ab02-dd3c56332364', style: __assign({}, this.props.style, { background: this.theme.background.rgb, color: this.theme.text.rgb }) },
                 this.props.children,
                 this.state.mountedActions.map(function (action, index) {
-                    return react_1.default.createElement(react_1.Fragment, { key: index }, action);
+                    return react_1.default.createElement(react_1.Fragment, { key: index }, action.component);
                 }))));
     };
     return Viewport;

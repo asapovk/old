@@ -22,6 +22,15 @@ export { Modal as Modal } from './Modal'
 export { Widget as Widget } from './Widget'
 export { WidgetStat as WidgetStat } from './WidgetStat'
 export { default as Theme } from './Themes'
-export { default as Action } from './Action'
 
 export { Portal as Portal } from 'react-portal';
+
+import alert from './Action/Alert';
+import notification from './Action/Notification';
+import { getTheme } from './Themes'
+
+export const utils = {
+    getTheme,
+    alert,
+    notification,
+}

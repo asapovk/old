@@ -11,4 +11,9 @@ exports.themes = {
 };
 exports.ThemeContext = react_1.default.createContext(exports.themes.blackCurrant // default value
 );
+exports.getTheme = function () {
+    //@ts-ignore
+    var theme = (document.__uiviewport && document.__uiviewport.theme) || black_currant_1.default;
+    return theme;
+};
 exports.default = exports.ThemeContext.Consumer;

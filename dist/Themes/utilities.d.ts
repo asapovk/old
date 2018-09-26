@@ -1,5 +1,6 @@
-export declare const getColors: (red: number, green: number, blue: number) => {
+export interface GetColor {
     rgb: string;
-    rgba: (alpha: number) => string;
     hex: string;
-};
+    rgba: (alpha: number) => string;
+}
+export declare const getColors: (red: number, green: number, blue: number) => GetColor;

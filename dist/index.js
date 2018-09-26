@@ -1,4 +1,7 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 var Table_1 = require("./Table");
 exports.Table = Table_1.Table;
@@ -48,7 +51,13 @@ var WidgetStat_1 = require("./WidgetStat");
 exports.WidgetStat = WidgetStat_1.WidgetStat;
 var Themes_1 = require("./Themes");
 exports.Theme = Themes_1.default;
-var Action_1 = require("./Action");
-exports.Action = Action_1.default;
 var react_portal_1 = require("react-portal");
 exports.Portal = react_portal_1.Portal;
+var Alert_1 = __importDefault(require("./Action/Alert"));
+var Notification_1 = __importDefault(require("./Action/Notification"));
+var Themes_2 = require("./Themes");
+exports.utils = {
+    getTheme: Themes_2.getTheme,
+    alert: Alert_1.default,
+    notification: Notification_1.default,
+};

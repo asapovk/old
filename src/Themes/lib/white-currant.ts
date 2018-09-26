@@ -1,4 +1,5 @@
 import { getColors } from '../utilities';
+import { ThemeInterface } from '../';
 
 const accentColors = {
     red: getColors(255, 25, 25),
@@ -17,4 +18,4 @@ export default {
     accents: accentColors,
     shadow: getColors(180, 180, 180),
     corner: '2px',
-}
+} as ThemeInterface

@@ -208,6 +208,17 @@ table {
   cursor: pointer;
 }
 
+.ui-notifications {
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 100;
+  float: right;
+}
+.ui-notifications-item {
+  margin: 10;
+}
+
 .ui-table {
   overflow-wrap: break-word;
   line-height: 1;

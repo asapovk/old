@@ -24,10 +24,10 @@ class Viewport extends Component<ViewportProps> {
      * Добавляет компонент в viewport
      * возвращает индекс
      */
-    public mountAction(component: any) {
+    public mountAction(component: any, id?: string, extra?: any) {
         const index = this.state.mountedActions.length;
         this.setState({
-            mountedActions: this.state.mountedActions.concat([component])
+            mountedActions: this.state.mountedActions.concat([{ component, id, extra }])
         });
         return index;
     }
@@ -42,6 +42,13 @@ class Viewport extends Component<ViewportProps> {
             });
         }
     }
+    /**
+     * Удаляет компонент из viewport
+     * по индексу
+     */
+    public getActionById(id: string) {
+        return this.state.mountedActions.find(action => action.id === id) || null;
+    }
 
     public get theme() {
         return themes[this.props.theme ? this.props.theme : 'blackCurrant']
@@ -53,7 +60,7 @@ class Viewport extends Component<ViewportProps> {
                 <div data-viewport className='ui-view' id='0cd82567-7684-4147-ab02-dd3c56332364' style={{ ...this.props.style, ...{ background: this.theme.background.rgb, color: this.theme.text.rgb } }}>
                     {this.props.children}
                     {this.state.mountedActions.map((action, index) => {
-                        return <Fragment key={index}>{action}</Fragment>
+                        return <Fragment key={index}>{action.component}</Fragment>
                     })}
                 </div>
             </ThemeContext.Provider>
