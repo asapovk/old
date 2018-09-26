@@ -19,12 +19,15 @@
         }
         &-body {
             border: solid 0.5px; 
+            > :not(:last-child) {
+                border-bottom: solid 0.5px;
+            }
             &-row {
                 display: flex;
                 flex-direction: row;
                 align-items: stretch;
                 padding: 20px;
-                border-bottom: solid 0.5px;
+                
                 position: relative;
                 &-column {
                     margin-right: 20px;
