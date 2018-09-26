@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Spin, Icon } from '../index';
+import { Spin, Icon, utils } from '../index';
 import Theme from '../Themes';
 
 export interface Props {
