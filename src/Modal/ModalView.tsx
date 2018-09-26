@@ -18,6 +18,7 @@ class ModalView extends React.Component<Props & ThemedProps> {
         return (
             <Flexbox flexDirection="column" alignItems="center" justifyContent="center" style={{ height: this.props.center ? "100%" : "auto" }}>
                 <div className={this.props.loading ? "loading" : ""} style={{
+                    color: this.props.theme.textColor,
                     background: this.props.theme.background,
                     borderColor: this.props.theme.borderColor,
                     ...this.props.style
@@ -39,6 +40,7 @@ export default (props: Props) => (
     <Theme>
         {theme => (
             <ModalView {...props} theme={{
+                textColor: theme.text.rgb,
                 titleColor: theme.text.rgb,
                 subtitleColor: theme.lowlight.rgb,
                 borderColor: theme.pale.rgb,
