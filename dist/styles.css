@@ -451,11 +451,10 @@ table {
 .ui-menu-interactions-toolsbar-tools {
   display: flex;
   align-items: center;
-  height: 40px;
-  padding-left: 30px;
+  padding-left: 32px;
 }
 .ui-menu-interactions-toolsbar-tools > * {
-  padding-left: 10px;
+  padding-left: 8px !important;
 }
 .ui-menu-toolsbar {
   display: flex;
@@ -474,7 +473,7 @@ table {
 
 .ui-menu-nav {
   display: flex;
-  font-size: 16px;
+  font-size: 15px;
   padding: 0 20px;
   align-items: center;
   cursor: pointer;

@@ -42,39 +42,37 @@ var Menu = /** @class */ (function (_super) {
     Menu.prototype.render = function () {
         var _this = this;
         var _a = this.props, children = _a.children, header = _a.header, toolsLeft = _a.toolsLeft, toolsRight = _a.toolsRight, style = _a.style, search = _a.search, searchValue = _a.searchValue, searchDefaultValue = _a.searchDefaultValue, onSearch = _a.onSearch, theme = _a.theme;
-        var isDouble = (search || toolsLeft);
-        var HeaderJSX = !header.label ? header : react_1.default.createElement("div", { className: 'ui-menu-header-title', onClick: header.onAction }, header.label);
-        var SearchIconTSX = react_1.default.createElement("span", { className: 'ui-menu-interactions-toolsbar-search-icon', onClick: function () { return _this.props.onSearchSubmit && _this.props.onSearchSubmit(_this.state.searchField); } },
-            react_1.default.createElement(Icon_1.Icon, { type: 'search' }));
-        var SearchJSX = (react_1.default.createElement("div", { className: 'ui-menu-interactions-toolsbar-search', style: {
-                background: theme.searchBackgroundColor,
-                borderColor: theme.borderColor,
-                boxShadow: "0px 2px 4px 0px " + theme.shadowColor,
-                borderRadius: theme.borderRadius
-            } },
-            react_1.default.createElement("input", { value: searchValue, defaultValue: searchDefaultValue, onChange: function (event) {
-                    _this.setState({ searchField: event.target.value });
-                    onSearch && onSearch(event.target.value);
-                } }),
-            SearchIconTSX));
-        return (react_1.default.createElement("div", { className: 'ui-menu', style: __assign({ backgroundColor: theme.backgroundColor, borderColor: theme.borderColor }, style) },
-            header && react_1.default.createElement("div", { className: 'ui-menu-header' + (isDouble ? ' header-max' : '') }, HeaderJSX),
+        var ToolBarTSX = (react_1.default.createElement("div", { className: 'ui-menu-interactions-toolsbar-tools', style: { height: search ? '40px' : '60px' } }, toolsLeft && toolsLeft.map(function (tool, index) { return react_1.default.cloneElement(tool, { key: index }); })));
+        var SearchBarTSX = (react_1.default.createElement("div", { className: 'ui-menu-interactions-toolsbar' },
+            react_1.default.createElement("div", { className: 'ui-menu-interactions-toolsbar-search', style: __assign({}, theme.searchBar) },
+                react_1.default.createElement("input", { value: searchValue, defaultValue: searchDefaultValue, onChange: function (event) {
+                        _this.setState({ searchField: event.target.value });
+                        onSearch && onSearch(event.target.value);
+                    } }),
+                react_1.default.createElement("span", { className: 'ui-menu-interactions-toolsbar-search-icon', onClick: function () { return _this.props.onSearchSubmit && _this.props.onSearchSubmit(_this.state.searchField); } },
+                    react_1.default.createElement(Icon_1.Icon, { type: 'search' }))),
+            ToolBarTSX));
+        return (react_1.default.createElement("div", { className: 'ui-menu', style: __assign({}, theme.menu, style) },
+            header && react_1.default.createElement("div", { className: 'ui-menu-header' + (search ? ' header-max' : '') }, !header.label ? header : react_1.default.createElement("div", { className: 'ui-menu-header-title', onClick: header.onAction }, header.label)),
             react_1.default.createElement("div", { className: 'ui-menu-interactions' },
-                isDouble &&
-                    react_1.default.createElement("div", { className: 'ui-menu-interactions-toolsbar' },
-                        search && SearchJSX,
-                        react_1.default.createElement("div", { className: 'ui-menu-interactions-toolsbar-tools' }, toolsLeft && toolsLeft.map(function (tool, index) { return react_1.default.cloneElement(tool, { key: index }); }))),
-                children && react_1.default.createElement("div", { className: 'ui-menu-interactions-navbar' + (isDouble ? ' nav-min' : '') }, children)),
-            toolsRight && react_1.default.createElement("div", { className: 'ui-menu-toolsbar' + (isDouble ? ' bar-max' : '') },
+                search && SearchBarTSX,
+                children && react_1.default.createElement("div", { className: 'ui-menu-interactions-navbar' + (search ? ' nav-min' : '') },
+                    children,
+                    !search && ToolBarTSX)),
+            toolsRight && react_1.default.createElement("div", { className: 'ui-menu-toolsbar' + (search ? ' bar-max' : '') },
                 react_1.default.createElement("div", { className: 'ui-menu-toolsbar-tools' }, toolsRight.map(function (tool, index) { return react_1.default.cloneElement(tool, { key: index }); })))));
     };
     return Menu;
 }(react_1.default.Component));
 exports.default = (function (props) { return (react_1.default.createElement(Themes_1.default, null, function (theme) { return (react_1.default.createElement(Menu, __assign({}, props, { theme: {
-        borderColor: theme.pale.rgb,
-        actionColor: theme.highlight.rgb,
-        backgroundColor: theme.interface.rgb,
-        searchBackgroundColor: theme.interface.rgb,
-        shadowColor: theme.shadow.rgb,
-        borderRadius: theme.corner
+        menu: {
+            backgroundColor: theme.interface.rgb,
+            borderColor: theme.pale.rgb,
+        },
+        searchBar: {
+            background: theme.interface.rgb,
+            borderColor: theme.pale.rgb,
+            boxShadow: "0px 2px 4px 0px " + theme.shadow.rgb,
+            borderRadius: theme.corner
+        }
     } }))); })); });

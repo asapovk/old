@@ -1,5 +1,5 @@
 import React from 'react';
-import { Popup } from '../../../src';
+import { Popup, Theme } from '../../../src';
 
 interface TableCustomCellProps {
     value
@@ -12,15 +12,19 @@ class TableCustomCell extends React.Component<TableCustomCellProps> {
 
     render() {
         const PopupTriggerTSX = (
-            <div
-                style={{
-                    textDecoration: 'underline',
-                    textDecorationColor: 'rgb(30, 210, 255)',
-                    cursor: 'pointer',
-                    width: 'max-content'
-                }}
-                children={this.props.row}
-            />
+            <Theme>
+                {theme => (
+                    <div
+                        style={{
+                            textDecoration: 'underline',
+                            textDecorationColor: theme.highlight.rgb,
+                            cursor: 'pointer',
+                            width: 'max-content'
+                        }}
+                        children={this.props.row}
+                    />
+                )}
+            </Theme>
         )
         return (
             <div>
