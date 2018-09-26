@@ -38,8 +38,7 @@ class TableRow extends React.Component<Props & ThemedProps> {
             <div
                 className={`ui-table-content-body-row ${isBlur ? 'blur' : 'hover'}`}
                 style={{
-                    backgroundColor: theme.backgroundColor,
-                    borderColor: theme.borderColor,
+                    borderColor: theme.borderColor
                 }}
                 onClick={(event) => this.onClick()}>
                 {/* {this.state.onSelect && (

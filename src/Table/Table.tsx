@@ -104,7 +104,8 @@ class Table extends React.Component<Props & ThemedProps> {
                     <div className='ui-table-content-head-row' children={ColumnsTSX} style={actions && { marginRight: '32px' }} />
                     <div className='ui-table-content-body' style={{
                         borderColor: theme.borderColor,
-                        borderRadius: theme.borderRadius
+                        borderRadius: theme.borderRadius,
+                        background: theme.backgroundColor
                     }}>
                         {addFormTSX}
                         {RowsTSX}

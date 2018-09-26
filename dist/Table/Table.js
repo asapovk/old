@@ -71,7 +71,8 @@ var Table = /** @class */ (function (_super) {
                 react_1.default.createElement("div", { className: 'ui-table-content-head-row', children: ColumnsTSX, style: actions && { marginRight: '32px' } }),
                 react_1.default.createElement("div", { className: 'ui-table-content-body', style: {
                         borderColor: theme.borderColor,
-                        borderRadius: theme.borderRadius
+                        borderRadius: theme.borderRadius,
+                        background: theme.backgroundColor
                     } },
                     addFormTSX,
                     RowsTSX)),

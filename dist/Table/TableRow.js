@@ -46,8 +46,7 @@ var TableRow = /** @class */ (function (_super) {
             return TableForm_1.default(form, columns, row);
         }
         return (react_1.default.createElement("div", { className: "ui-table-content-body-row " + (isBlur ? 'blur' : 'hover'), style: {
-                backgroundColor: theme.backgroundColor,
-                borderColor: theme.borderColor,
+                borderColor: theme.borderColor
             }, onClick: function (event) { return _this.onClick(); } },
             react_1.default.createElement(TableColumns_1.default, __assign({}, this.props)),
             actions && react_1.default.createElement(TableActions_1.default, { actions: actions, data: row })));
