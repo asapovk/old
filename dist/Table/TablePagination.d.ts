@@ -9,7 +9,7 @@ interface Props {
     onChange: (page: number) => void;
     children?: any;
 }
-declare class TableCheckbox extends React.Component<Props> {
+declare class TablePagination extends React.Component<Props> {
     render(): JSX.Element | null;
 }
-export default TableCheckbox;
+export default TablePagination;

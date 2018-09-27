@@ -1,6 +1,5 @@
-import React, { Component, ComponentElement } from 'react';
+import React, { Component } from 'react';
 import Theme from '../Themes';
-import Table from '../Themes/styles/Table';
 
 export interface PaginationProps {
     pageSize: number
@@ -14,7 +13,7 @@ interface Props {
     children?: any
 }
 
-class TableCheckbox extends React.Component<Props> {
+class TablePagination extends React.Component<Props> {
 
     render() {
         const { data, pagination, page } = this.props;
@@ -29,7 +28,7 @@ class TableCheckbox extends React.Component<Props> {
 
         for (let i = 0; i < buttons; i++) {
             buttonsComponents.push(
-                <Theme>
+                <Theme key={i}>
                     {styles => (
                         <div
                             onClick={() => this.props.onChange(i + 1)}
@@ -39,7 +38,6 @@ class TableCheckbox extends React.Component<Props> {
                                 backgroundColor: styles.table.pagination.backgroundColor,
                                 opacity: page === i + 1 ? 1 : 0.5
                             }}
-                            key={i}
                             children={`${i * pageSize}–${i * pageSize + pageSize}`}
                         />
                     )}
@@ -55,4 +53,4 @@ class TableCheckbox extends React.Component<Props> {
     }
 }
 
-export default TableCheckbox;
+export default TablePagination;

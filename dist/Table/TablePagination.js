@@ -18,12 +18,12 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importDefault(require("react"));
 var Themes_1 = __importDefault(require("../Themes"));
-var TableCheckbox = /** @class */ (function (_super) {
-    __extends(TableCheckbox, _super);
-    function TableCheckbox() {
+var TablePagination = /** @class */ (function (_super) {
+    __extends(TablePagination, _super);
+    function TablePagination() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
-    TableCheckbox.prototype.render = function () {
+    TablePagination.prototype.render = function () {
         var _this = this;
         var _a = this.props, data = _a.data, pagination = _a.pagination, page = _a.page;
         var pageSize = pagination.pageSize;
@@ -33,17 +33,17 @@ var TableCheckbox = /** @class */ (function (_super) {
         }
         var buttonsComponents = [];
         var _loop_1 = function (i) {
-            buttonsComponents.push(react_1.default.createElement(Themes_1.default, null, function (styles) { return (react_1.default.createElement("div", { onClick: function () { return _this.props.onChange(i + 1); }, className: "ui-table-paggination-button", style: {
+            buttonsComponents.push(react_1.default.createElement(Themes_1.default, { key: i }, function (styles) { return (react_1.default.createElement("div", { onClick: function () { return _this.props.onChange(i + 1); }, className: "ui-table-paggination-button", style: {
                     color: styles.table.pagination.textColor,
                     backgroundColor: styles.table.pagination.backgroundColor,
                     opacity: page === i + 1 ? 1 : 0.5
-                }, key: i, children: i * pageSize + "\u2013" + (i * pageSize + pageSize) })); }));
+                }, children: i * pageSize + "\u2013" + (i * pageSize + pageSize) })); }));
         };
         for (var i = 0; i < buttons; i++) {
             _loop_1(i);
         }
         return (react_1.default.createElement("div", { className: 'ui-table-paggination' }, buttonsComponents));
     };
-    return TableCheckbox;
+    return TablePagination;
 }(react_1.default.Component));
-exports.default = TableCheckbox;
+exports.default = TablePagination;

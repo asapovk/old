@@ -51,7 +51,6 @@ class Viewport extends Component<ViewportProps> {
 
     render() {
         const uiStyles = createStyles(this.props.theme);
-        console.log(uiStyles);
         return (
             <ThemeContext.Provider value={uiStyles}>
                 <div data-viewport className='ui-view' id='0cd82567-7684-4147-ab02-dd3c56332364' style={{ ...this.props.style, ...uiStyles.viewport.main }}>
