@@ -8,10 +8,8 @@ interface Props {
     onChange: (value, level) => void
     level: number
 }
-export interface ThemedProps {
-    theme
-}
-class FinderFilter extends React.Component<Props & ThemedProps> {
+
+class FinderFilter extends React.Component<Props> {
 
     input: HTMLInputElement
 
@@ -27,39 +25,32 @@ class FinderFilter extends React.Component<Props & ThemedProps> {
 
     render() {
 
-        const { placeholder, clearable, theme } = this.props;
+        const { placeholder, clearable } = this.props;
 
         return (
-            <div className={`ui-finder-filter`} style={{
-                borderColor: theme.borderColor,
-            }}>
-                <Flexbox alignItems="center" className={`ui-finder-filter-input`} style={{
-                    background: theme.inputBackground,
-                    borderColor: theme.borderColor,
-                }}>
-                    <Icon className={`ui-finder-filter-search-icon`} type="search" />
-                    <input ref={(ref: HTMLInputElement) => this.input = ref} placeholder={placeholder} onChange={this.onChange.bind(this)} />
-                    {clearable && (
-                        <Flexbox className={`ui-finder-filter-clear`} alignItems="center" justifyContent="center" onClick={() => this.onChange(null)}>
-                            <Icon type='close' />
+            <Theme>
+                {styles => (
+                    <div className={`ui-finder-filter`} style={{
+                        borderColor: styles.finder.filter.borderColor,
+                    }}>
+                        <Flexbox alignItems="center" className={`ui-finder-filter-input`} style={{
+                            background: styles.finder.filter.inputBackground,
+                            borderColor: styles.finder.filter.borderColor,
+                        }}>
+                            <Icon className={`ui-finder-filter-search-icon`} type="search" />
+                            <input ref={(ref: HTMLInputElement) => this.input = ref} placeholder={placeholder} onChange={this.onChange.bind(this)} />
+                            {clearable && (
+                                <Flexbox className={`ui-finder-filter-clear`} alignItems="center" justifyContent="center" onClick={() => this.onChange(null)}>
+                                    <Icon type='close' />
+                                </Flexbox>
+                            )}
                         </Flexbox>
-                    )}
-                </Flexbox>
-            </div>
+                    </div>
+                )}
+            </Theme>
         )
-
     }
 }
 
 
-export default (props: Props) => (
-    <Theme>
-        {theme => (
-            <FinderFilter {...props} theme={{
-                backgroundColor: theme.background.rgb,
-                inputBackground: theme.interface.rgb,
-                borderColor: theme.pale.rgb
-            }} />
-        )}
-    </Theme>
-);
+export default FinderFilter;

@@ -52,16 +52,14 @@ var TableFormHOC = /** @class */ (function (_super) {
         return (react_1.default.createElement("div", { className: 'ui-table-content-body-row-actions' + (props.className ? ' ' + props.className : ''), children: props.children, style: props.style }));
     };
     TableFormHOC.prototype.render = function () {
-        var _a = this.props, Form = _a.Form, data = _a.data, columns = _a.columns, theme = _a.theme;
-        return (react_1.default.createElement("div", { className: 'ui-table-content-body-row edited', style: {
-                backgroundColor: theme.backgroundColor,
-                borderColor: theme.borderColor,
+        var _this = this;
+        var _a = this.props, Form = _a.Form, data = _a.data, columns = _a.columns;
+        return (react_1.default.createElement(Themes_1.default, null, function (styles) { return (react_1.default.createElement("div", { className: 'ui-table-content-body-row edited', style: {
+                backgroundColor: styles.table.form.backgroundColor,
+                borderColor: styles.table.form.borderColor,
             } },
-            react_1.default.createElement(Form, { data: data, columns: columns, formData: this.formData, setData: this.setData, setValid: this.setValid, Column: this.Column, Subrow: this.Subrow, Actions: this.Actions })));
+            react_1.default.createElement(Form, { data: data, columns: columns, formData: _this.formData, setData: _this.setData, setValid: _this.setValid, Column: _this.Column, Subrow: _this.Subrow, Actions: _this.Actions }))); }));
     };
     return TableFormHOC;
 }(react_1.default.Component));
-exports.default = (function (Form, columns, row) { return (react_1.default.createElement(Themes_1.default, null, function (theme) { return (react_1.default.createElement(TableFormHOC, { data: row, columns: columns, Form: Form, theme: {
-        backgroundColor: theme.background.rgb,
-        borderColor: theme.pale.rgb,
-    } })); })); });
+exports.default = (function (Form, columns, row) { return react_1.default.createElement(TableFormHOC, { data: row, columns: columns, Form: Form }); });

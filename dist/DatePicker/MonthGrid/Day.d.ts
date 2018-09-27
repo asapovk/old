@@ -1,3 +1,4 @@
+import React from 'react';
 import { Moment } from 'moment';
 interface Props {
     active: Moment;
@@ -6,8 +7,7 @@ interface Props {
     maxValue?: Moment;
     onClick?: () => void;
 }
-export interface ThemedProps {
-    theme: any;
+declare class MonthGridDay extends React.Component<Props> {
+    render(): JSX.Element;
 }
-declare const _default: (props: Props) => JSX.Element;
-export default _default;
+export default MonthGridDay;

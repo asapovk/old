@@ -95,19 +95,15 @@ var Finder = /** @class */ (function (_super) {
     };
     Finder.prototype.render = function () {
         var _this = this;
-        var _a = this.props, style = _a.style, theme = _a.theme;
+        var style = this.props.style;
         var children = this.passProps(this.props.children, 0);
-        var MenuesTSX = (this.state.menues.map(function (menu, index) { return (react_1.default.createElement(__1.Flexbox, { column: true, className: 'ui-finder-menu', key: index, style: {
-                borderColor: theme.borderColor,
+        var MenuesTSX = function (style) { return (_this.state.menues.map(function (menu, index) { return (react_1.default.createElement(__1.Flexbox, { column: true, className: 'ui-finder-menu', key: index, style: {
+                borderColor: style.borderColor,
             } },
             menu.filter && react_1.default.createElement(FinderFilter_1.default, { level: index, onChange: _this.onFilterChange, placeholder: menu.filterPlaceholder }),
-            react_1.default.createElement(__1.Flexbox, { column: true, className: 'ui-finder-menu-items' }, _this.getCurrentChildren(children, menu.filterValue, index)))); }));
-        return (react_1.default.createElement(__1.Flexbox, { style: __assign({ color: theme.textColor, backgroundColor: theme.backgroundColor, borderColor: theme.borderColor }, style), inline: true, className: 'ui-finder' }, MenuesTSX));
+            react_1.default.createElement(__1.Flexbox, { column: true, className: 'ui-finder-menu-items' }, _this.getCurrentChildren(children, menu.filterValue, index)))); })); };
+        return (react_1.default.createElement(Themes_1.default, null, function (styles) { return (react_1.default.createElement(__1.Flexbox, { style: __assign({ color: styles.finder.main.textColor, backgroundColor: styles.finder.main.backgroundColor, borderColor: styles.finder.main.borderColor }, style), inline: true, className: 'ui-finder' }, MenuesTSX(styles.finder.main))); }));
     };
     return Finder;
 }(react_1.default.Component));
-exports.default = (function (props) { return (react_1.default.createElement(Themes_1.default, null, function (theme) { return (react_1.default.createElement(Finder, __assign({}, props, { theme: {
-        textColor: theme.text.rgb,
-        backgroundColor: theme.background.rgb,
-        borderColor: theme.pale.rgb
-    } }))); })); });
+exports.default = Finder;

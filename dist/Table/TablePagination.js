@@ -12,17 +12,6 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-var __assign = (this && this.__assign) || function () {
-    __assign = Object.assign || function(t) {
-        for (var s, i = 1, n = arguments.length; i < n; i++) {
-            s = arguments[i];
-            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-                t[p] = s[p];
-        }
-        return t;
-    };
-    return __assign.apply(this, arguments);
-};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
@@ -36,7 +25,7 @@ var TableCheckbox = /** @class */ (function (_super) {
     }
     TableCheckbox.prototype.render = function () {
         var _this = this;
-        var _a = this.props, data = _a.data, pagination = _a.pagination, page = _a.page, theme = _a.theme;
+        var _a = this.props, data = _a.data, pagination = _a.pagination, page = _a.page;
         var pageSize = pagination.pageSize;
         var buttons = Math.ceil(data.length / pageSize);
         if (buttons <= 1) {
@@ -44,11 +33,11 @@ var TableCheckbox = /** @class */ (function (_super) {
         }
         var buttonsComponents = [];
         var _loop_1 = function (i) {
-            buttonsComponents.push(react_1.default.createElement("div", { onClick: function () { return _this.props.onChange(i + 1); }, className: "ui-table-paggination-button", style: {
-                    color: theme.textColor,
-                    backgroundColor: theme.backgroundColor,
+            buttonsComponents.push(react_1.default.createElement(Themes_1.default, null, function (styles) { return (react_1.default.createElement("div", { onClick: function () { return _this.props.onChange(i + 1); }, className: "ui-table-paggination-button", style: {
+                    color: styles.table.pagination.textColor,
+                    backgroundColor: styles.table.pagination.backgroundColor,
                     opacity: page === i + 1 ? 1 : 0.5
-                }, key: i, children: i * pageSize + "\u2013" + (i * pageSize + pageSize) }));
+                }, key: i, children: i * pageSize + "\u2013" + (i * pageSize + pageSize) })); }));
         };
         for (var i = 0; i < buttons; i++) {
             _loop_1(i);
@@ -57,7 +46,4 @@ var TableCheckbox = /** @class */ (function (_super) {
     };
     return TableCheckbox;
 }(react_1.default.Component));
-exports.default = (function (props) { return (react_1.default.createElement(Themes_1.default, null, function (theme) { return (react_1.default.createElement(TableCheckbox, __assign({}, props, { theme: {
-        textColor: theme.text.rgb,
-        backgroundColor: theme.interface.rgb,
-    } }))); })); });
+exports.default = TableCheckbox;

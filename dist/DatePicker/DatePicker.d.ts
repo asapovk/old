@@ -1,4 +1,5 @@
-import { Moment } from 'moment';
+import React from 'react';
+import moment, { Moment } from 'moment';
 interface Props {
     format?: string;
     value?: Moment | string;
@@ -7,8 +8,13 @@ interface Props {
     label?: string;
     onChange?: (date: Moment | string) => void;
 }
-export interface ThemedProps {
-    theme: any;
+declare class DatePicker extends React.Component<Props> {
+    state: {
+        active: boolean;
+        value: moment.Moment;
+        format: string;
+    };
+    componentWillMount(): void;
+    render(): JSX.Element;
 }
-declare const _default: (props: Props) => JSX.Element;
-export default _default;
+export default DatePicker;

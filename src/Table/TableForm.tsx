@@ -11,14 +11,12 @@ export interface TableFormProps {
     columns
     formData
 }
+
 interface Props {
     data: any
     columns: any
     Form: any
     children?: any
-}
-export interface ThemedProps {
-    theme
 }
 
 interface TableFormHOC {
@@ -29,7 +27,7 @@ interface TableFormHOC {
     save: any
 }
 
-class TableFormHOC extends React.Component<Props & ThemedProps> {
+class TableFormHOC extends React.Component<Props> {
 
     constructor(props) {
         super(props);
@@ -90,26 +88,21 @@ class TableFormHOC extends React.Component<Props & ThemedProps> {
 
     render() {
 
-        const { Form, data, columns, theme } = this.props;
+        const { Form, data, columns } = this.props;
 
         return (
-            <div className='ui-table-content-body-row edited' style={{
-                backgroundColor: theme.backgroundColor,
-                borderColor: theme.borderColor,
-            }}>
-                <Form data={data} columns={columns} formData={this.formData} setData={this.setData} setValid={this.setValid} Column={this.Column} Subrow={this.Subrow} Actions={this.Actions} />
-            </div>
+            <Theme>
+                {styles => (
+                    <div className='ui-table-content-body-row edited' style={{
+                        backgroundColor: styles.table.form.backgroundColor,
+                        borderColor: styles.table.form.borderColor,
+                    }}>
+                        <Form data={data} columns={columns} formData={this.formData} setData={this.setData} setValid={this.setValid} Column={this.Column} Subrow={this.Subrow} Actions={this.Actions} />
+                    </div>
+                )}
+            </Theme>
         )
     }
 }
 
-export default (Form, columns, row) => (
-    <Theme>
-        {theme => (
-            <TableFormHOC data={row} columns={columns} Form={Form} theme={{
-                backgroundColor: theme.background.rgb,
-                borderColor: theme.pale.rgb,
-            }} />
-        )}
-    </Theme>
-)
+export default (Form, columns, row) => <TableFormHOC data={row} columns={columns} Form={Form} />

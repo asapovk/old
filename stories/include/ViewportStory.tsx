@@ -1,7 +1,7 @@
-import React, { Fragment } from 'react';
-import { Button, Flexbox } from '../../src';
+import React, { Component } from 'react';
+import { Flexbox } from '../../src';
 
-export default class Story extends React.Component {
+export default class Story extends Component {
     render() {
         return (
             <Flexbox column justifyContent="center" alignContent="center" p={40}>

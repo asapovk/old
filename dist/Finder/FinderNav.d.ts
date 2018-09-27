@@ -1,3 +1,4 @@
+import React from 'react';
 interface Props {
     label: string;
     badge?: string | number;
@@ -8,8 +9,9 @@ interface Props {
     finderIndex?: number;
     active?: boolean;
 }
-export interface ThemedProps {
-    theme: any;
+declare class FinderNav extends React.Component<Props> {
+    static componentName: string;
+    expand(): void;
+    render(): JSX.Element;
 }
-declare const _default: (props: Props) => JSX.Element;
-export default _default;
+export default FinderNav;

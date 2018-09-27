@@ -12,17 +12,6 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-var __assign = (this && this.__assign) || function () {
-    __assign = Object.assign || function(t) {
-        for (var s, i = 1, n = arguments.length; i < n; i++) {
-            s = arguments[i];
-            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-                t[p] = s[p];
-        }
-        return t;
-    };
-    return __assign.apply(this, arguments);
-};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
@@ -35,10 +24,9 @@ var ModalMask = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     ModalMask.prototype.render = function () {
-        return (react_1.default.createElement("div", { className: "ui-modal-mask" + (this.props.visible ? " ui-modal-mask-visible" : ""), style: { backgroundColor: this.props.theme.backgroundColor } }));
+        var _this = this;
+        return (react_1.default.createElement(Themes_1.default, null, function (styles) { return (react_1.default.createElement("div", { className: "ui-modal-mask" + (_this.props.visible ? " ui-modal-mask-visible" : ""), style: styles.modal.main })); }));
     };
     return ModalMask;
 }(react_1.default.Component));
-exports.default = (function (props) { return (react_1.default.createElement(Themes_1.default, null, function (theme) { return (react_1.default.createElement(ModalMask, __assign({}, props, { theme: {
-        backgroundColor: theme.background.rgb
-    } }))); })); });
+exports.default = ModalMask;

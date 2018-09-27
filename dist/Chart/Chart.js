@@ -80,63 +80,61 @@ var Chart = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     Chart.prototype.render = function () {
-        var _a = this.props, labels = _a.labels, data = _a.data, responsive = _a.responsive, type = _a.type, tension = _a.tension, loading = _a.loading, style = _a.style, legendDisplay = _a.legendDisplay, theme = _a.theme;
+        var _this = this;
+        var _a = this.props, labels = _a.labels, data = _a.data, responsive = _a.responsive, type = _a.type, tension = _a.tension, loading = _a.loading, style = _a.style, legendDisplay = _a.legendDisplay;
         chart_js_1.defaults.global.defaultFontSize = 14;
-        var chartData = {
-            labels: labels,
-            datasets: data.map(function (item) {
-                return __assign({ label: item.title, data: item.values }, chartTypes[type || 'default'](item, theme));
-            })
+        var chartData = function (style) {
+            return {
+                labels: labels,
+                datasets: data.map(function (item) {
+                    return __assign({ label: item.title, data: item.values }, chartTypes[type || 'default'](item, style));
+                })
+            };
         };
-        return (react_1.default.createElement(index_1.Flexbox, { column: true, flex: 1, justifyContent: "center", className: "ui-chart", style: style }, loading ? (react_1.default.createElement(index_1.Flexbox, { column: true, className: "ui-chart-loading", alignItems: "center", alignSelf: "center", justifyContent: "center" },
+        return (react_1.default.createElement(Themes_1.default, null, function (styles) { return (react_1.default.createElement(index_1.Flexbox, { column: true, flex: 1, justifyContent: "center", className: "ui-chart", style: style }, loading ? (react_1.default.createElement(index_1.Flexbox, { column: true, className: "ui-chart-loading", alignItems: "center", alignSelf: "center", justifyContent: "center" },
             react_1.default.createElement(index_1.Spin, null,
                 react_1.default.createElement(index_1.Icon, { type: "sync" })),
             typeof loading === "string" && react_1.default.createElement("div", { className: "ui-chart-loadingtext" }, loading))) :
-            react_1.default.createElement(react_chartjs_2_1.Line, { data: chartData, options: {
+            react_1.default.createElement(react_chartjs_2_1.Line, { data: chartData(styles.chart), options: {
                     responsive: responsive !== undefined ? responsive : true,
-                    animation: this.props.noAnimation ? false : {
+                    animation: _this.props.noAnimation ? false : {
                         animateScale: true,
-                        duration: this.props.animationDuration || 1000,
-                        onComplete: this.props.onAnimationComplete,
-                        onProgress: this.props.onAnimationProgress
+                        duration: _this.props.animationDuration || 1000,
+                        onComplete: _this.props.onAnimationComplete,
+                        onProgress: _this.props.onAnimationProgress
                     },
                     scales: {
                         xAxes: [{
                                 display: true,
                                 gridLines: {
-                                    color: theme.accent,
+                                    color: styles.chart.accent,
                                     lineWidth: 0.2,
                                 },
                                 ticks: {
                                     beginAtZero: true,
-                                    fontColor: theme.chartTextColor
+                                    fontColor: styles.chart.chartTextColor
                                 }
                             }],
                         yAxes: [{
                                 display: true,
                                 gridLines: {
-                                    color: theme.accent,
+                                    color: styles.chart.accent,
                                     lineWidth: 0.2,
                                 },
                                 ticks: {
                                     beginAtZero: true,
-                                    fontColor: theme.chartTextColor
+                                    fontColor: styles.chart.chartTextColor
                                 }
                             }],
                     },
                     legend: {
                         display: legendDisplay !== undefined ? legendDisplay : true,
                         labels: {
-                            fontColor: theme.chartTextColor
+                            fontColor: styles.chart.chartTextColor
                         }
                     }
-                } })));
+                } }))); }));
     };
     return Chart;
 }(react_1.default.Component));
-exports.default = (function (props) { return (react_1.default.createElement(Themes_1.default, null, function (theme) { return (react_1.default.createElement(Chart, __assign({}, props, { theme: {
-        text: theme.text.hex,
-        accent: theme.highlight.hex,
-        background: theme.background.hex,
-        chartTextColor: "#777777"
-    } }))); })); });
+exports.default = Chart;

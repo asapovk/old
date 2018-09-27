@@ -14,6 +14,7 @@ interface DataSet {
     borderCapStyle?: "butt" | "round" | "square"
     borderJoinStyle?: "bevel" | "round" | "miter"
 }
+
 export interface Props {
     labels: string[]
     data: DataSet[]
@@ -28,10 +29,6 @@ export interface Props {
     onAnimationProgress?: () => void
 
     type?: "default" | "miniProc"
-}
-
-export interface ThemedProps {
-    theme
 }
 
 const chartTypes: any = {
@@ -76,88 +73,83 @@ const chartTypes: any = {
         pointHoverBorderWidth: 1,
     })
 }
-class Chart extends React.Component<Props & ThemedProps> {
+class Chart extends React.Component<Props> {
     render() {
-        const { labels, data, responsive, type, tension, loading, style, legendDisplay, theme } = this.props;
+        const { labels, data, responsive, type, tension, loading, style, legendDisplay } = this.props;
 
         defaults.global.defaultFontSize = 14;
 
-        const chartData = {
-            labels: labels,
-            datasets: data.map(item => {
-                return {
-                    label: item.title,
-                    data: item.values,
-                    ...chartTypes[type || 'default'](item, theme),
-                }
-            })
+        const chartData = (style) => {
+            return {
+                labels: labels,
+                datasets: data.map(item => {
+                    return {
+                        label: item.title,
+                        data: item.values,
+                        ...chartTypes[type || 'default'](item, style),
+                    }
+                })
+            }
         };
 
         return (
-            <Flexbox column flex={1} justifyContent="center" className="ui-chart" style={style}>
-                {loading ? (
-                    <Flexbox column className="ui-chart-loading" alignItems="center" alignSelf="center" justifyContent="center">
-                        <Spin>
-                            <Icon type="sync" />
-                        </Spin>
-                        {typeof loading === "string" && <div className="ui-chart-loadingtext">{loading}</div>}
-                    </Flexbox>
-                ) :
-                    <Line data={chartData} options={{
-                        responsive: responsive !== undefined ? responsive : true,
-                        animation: this.props.noAnimation ? (false as any) : {
-                            animateScale: true,
-                            duration: this.props.animationDuration || 1000,
-                            onComplete: this.props.onAnimationComplete,
-                            onProgress: this.props.onAnimationProgress
-                        },
-                        scales: {
-                            xAxes: [{
-                                display: true,
-                                gridLines: {
-                                    color: theme.accent,
-                                    lineWidth: 0.2,
+            <Theme>
+                {styles => (
+                    <Flexbox column flex={1} justifyContent="center" className="ui-chart" style={style}>
+                        {loading ? (
+                            <Flexbox column className="ui-chart-loading" alignItems="center" alignSelf="center" justifyContent="center">
+                                <Spin>
+                                    <Icon type="sync" />
+                                </Spin>
+                                {typeof loading === "string" && <div className="ui-chart-loadingtext">{loading}</div>}
+                            </Flexbox>
+                        ) :
+                            <Line data={chartData(styles.chart)} options={{
+                                responsive: responsive !== undefined ? responsive : true,
+                                animation: this.props.noAnimation ? (false as any) : {
+                                    animateScale: true,
+                                    duration: this.props.animationDuration || 1000,
+                                    onComplete: this.props.onAnimationComplete,
+                                    onProgress: this.props.onAnimationProgress
                                 },
-                                ticks: {
-                                    beginAtZero: true,
-                                    fontColor: theme.chartTextColor
-                                }
-                            }],
-                            yAxes: [{
-                                display: true,
+                                scales: {
+                                    xAxes: [{
+                                        display: true,
+                                        gridLines: {
+                                            color: styles.chart.accent,
+                                            lineWidth: 0.2,
+                                        },
+                                        ticks: {
+                                            beginAtZero: true,
+                                            fontColor: styles.chart.chartTextColor
+                                        }
+                                    }],
+                                    yAxes: [{
+                                        display: true,
 
-                                gridLines: {
-                                    color: theme.accent,
-                                    lineWidth: 0.2,
+                                        gridLines: {
+                                            color: styles.chart.accent,
+                                            lineWidth: 0.2,
+                                        },
+                                        ticks: {
+                                            beginAtZero: true,
+                                            fontColor: styles.chart.chartTextColor
+                                        }
+                                    }],
                                 },
-                                ticks: {
-                                    beginAtZero: true,
-                                    fontColor: theme.chartTextColor
+                                legend: {
+                                    display: legendDisplay !== undefined ? legendDisplay : true,
+                                    labels: {
+                                        fontColor: styles.chart.chartTextColor
+                                    }
                                 }
-                            }],
-                        },
-                        legend: {
-                            display: legendDisplay !== undefined ? legendDisplay : true,
-                            labels: {
-                                fontColor: theme.chartTextColor
-                            }
+                            }} />
                         }
-                    }} />
-                }
-            </Flexbox>
+                    </Flexbox>
+                )}
+            </Theme>
         );
     }
 }
 
-export default (props: Props) => (
-    <Theme>
-        {theme => (
-            <Chart {...props} theme={{
-                text: theme.text.hex,
-                accent: theme.highlight.hex,
-                background: theme.background.hex,
-                chartTextColor: "#777777"
-            }} />
-        )}
-    </Theme>
-);
+export default Chart;

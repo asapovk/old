@@ -11,15 +11,18 @@ class Notifications extends React.Component {
         notifications: []
     }
     pushNotification(options: NotificationOptions) {
-        const theme = utils.getTheme();
         this.setState({
             notifications: this.state.notifications.concat(
-                <div style={{
-                    color: theme.text.hex
-                }}>
-                    <div>{options.title}</div>
-                    <div>{options.text}</div>
-                </div>
+                <Theme>
+                    {styles => (
+                        <div style={{
+                            color: styles.theme.text.hex
+                        }}>
+                            <div>{options.title}</div>
+                            <div>{options.text}</div>
+                        </div>
+                    )}
+                </Theme>
             )
         })
     }

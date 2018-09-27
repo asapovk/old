@@ -164,7 +164,7 @@ var Popup = /** @class */ (function (_super) {
     };
     Popup.prototype.render = function () {
         var _this = this;
-        var _a = this.props, position = _a.position, children = _a.children, type = _a.type, trigger = _a.trigger, theme = _a.theme;
+        var _a = this.props, position = _a.position, children = _a.children, type = _a.type, trigger = _a.trigger;
         var TriggerTSX = react_2.default.createElement("div", { onClick: function () { return _this.show(); }, ref: function (ref) { return _this.triggerRef = ref; } }, trigger);
         var classes = 'ui-popup';
         if (type)
@@ -173,18 +173,13 @@ var Popup = /** @class */ (function (_super) {
             classes += ' pp-' + position;
         else
             classes += ' pp-bottom-left';
-        var PopupTSX = (react_2.default.createElement("div", { ref: function (ref) { return _this.popupRef = ref; }, className: classes, style: __assign({ background: theme.background, color: theme.color, boxShadow: "0px 2px 4px 0px " + theme.shadowColor, borderColor: theme.borderColor }, this.state.popupStyle), children: children }));
+        var PopupTSX = function (style) { return (react_2.default.createElement("div", { ref: function (ref) { return _this.popupRef = ref; }, className: classes, style: __assign({ background: style.background, color: style.color, boxShadow: "0px 2px 4px 0px " + style.shadowColor, borderColor: style.borderColor }, _this.state.popupStyle), children: children })); };
         var ViewportHTML = document.getElementById('0cd82567-7684-4147-ab02-dd3c56332364');
-        var Portal = react_dom_1.default.createPortal(PopupTSX, ViewportHTML ? ViewportHTML : document.body);
-        return (react_2.default.createElement(react_1.Fragment, null,
+        var Portal = function (style) { return react_dom_1.default.createPortal(PopupTSX(style), ViewportHTML ? ViewportHTML : document.body); };
+        return (react_2.default.createElement(Themes_1.default, null, function (styles) { return (react_2.default.createElement(react_1.Fragment, null,
             TriggerTSX,
-            this.state.show ? Portal : null));
+            _this.state.show ? Portal(styles.popup) : null)); }));
     };
     return Popup;
 }(react_2.default.Component));
-exports.default = (function (props) { return (react_2.default.createElement(Themes_1.default, null, function (theme) { return (react_2.default.createElement(Popup, __assign({}, props, { theme: {
-        color: theme.text.rgb,
-        shadowColor: theme.shadow.rgb,
-        borderColor: theme.pale.rgb,
-        background: theme.interface.rgb
-    } }))); })); });
+exports.default = Popup;

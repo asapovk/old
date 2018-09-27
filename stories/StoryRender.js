@@ -1,8 +1,7 @@
-import React from 'react';
-
+import React, { Component } from 'react';
 import { Viewport, Select, Flexbox } from '../src';
 
-class View extends React.Component {
+class View extends Component {
     constructor(props) {
         super(props);
         this.state = { theme: "blackCurrant" }

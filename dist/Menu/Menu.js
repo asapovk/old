@@ -41,38 +41,27 @@ var Menu = /** @class */ (function (_super) {
     }
     Menu.prototype.render = function () {
         var _this = this;
-        var _a = this.props, children = _a.children, header = _a.header, toolsLeft = _a.toolsLeft, toolsRight = _a.toolsRight, style = _a.style, search = _a.search, searchValue = _a.searchValue, searchDefaultValue = _a.searchDefaultValue, onSearch = _a.onSearch, theme = _a.theme;
+        var _a = this.props, children = _a.children, header = _a.header, toolsLeft = _a.toolsLeft, toolsRight = _a.toolsRight, style = _a.style, search = _a.search, searchValue = _a.searchValue, searchDefaultValue = _a.searchDefaultValue, onSearch = _a.onSearch;
         var ToolBarTSX = (react_1.default.createElement("div", { className: 'ui-menu-interactions-toolsbar-tools', style: { height: search ? '40px' : '60px' } }, toolsLeft && toolsLeft.map(function (tool, index) { return react_1.default.cloneElement(tool, { key: index }); })));
-        var SearchBarTSX = (react_1.default.createElement("div", { className: 'ui-menu-interactions-toolsbar' },
-            react_1.default.createElement("div", { className: 'ui-menu-interactions-toolsbar-search', style: __assign({}, theme.searchBar) },
+        var SearchBarTSX = function (style) { return (react_1.default.createElement("div", { className: 'ui-menu-interactions-toolsbar' },
+            react_1.default.createElement("div", { className: 'ui-menu-interactions-toolsbar-search', style: __assign({}, style.searchBar) },
                 react_1.default.createElement("input", { value: searchValue, defaultValue: searchDefaultValue, onChange: function (event) {
                         _this.setState({ searchField: event.target.value });
                         onSearch && onSearch(event.target.value);
                     } }),
                 react_1.default.createElement("span", { className: 'ui-menu-interactions-toolsbar-search-icon', onClick: function () { return _this.props.onSearchSubmit && _this.props.onSearchSubmit(_this.state.searchField); } },
                     react_1.default.createElement(Icon_1.Icon, { type: 'search' }))),
-            ToolBarTSX));
-        return (react_1.default.createElement("div", { className: 'ui-menu', style: __assign({}, theme.menu, style) },
+            ToolBarTSX)); };
+        return (react_1.default.createElement(Themes_1.default, null, function (styles) { return (react_1.default.createElement("div", { className: 'ui-menu', style: __assign({}, styles.menu.main.menu, style) },
             header && react_1.default.createElement("div", { className: 'ui-menu-header' + (search ? ' header-max' : '') }, !header.label ? header : react_1.default.createElement("div", { className: 'ui-menu-header-title', onClick: header.onAction }, header.label)),
             react_1.default.createElement("div", { className: 'ui-menu-interactions' },
-                search && SearchBarTSX,
+                search && SearchBarTSX(styles.menu.main),
                 children && react_1.default.createElement("div", { className: 'ui-menu-interactions-navbar' + (search ? ' nav-min' : '') },
                     children,
                     !search && ToolBarTSX)),
             toolsRight && react_1.default.createElement("div", { className: 'ui-menu-toolsbar' + (search ? ' bar-max' : '') },
-                react_1.default.createElement("div", { className: 'ui-menu-toolsbar-tools' }, toolsRight.map(function (tool, index) { return react_1.default.cloneElement(tool, { key: index }); })))));
+                react_1.default.createElement("div", { className: 'ui-menu-toolsbar-tools' }, toolsRight.map(function (tool, index) { return react_1.default.cloneElement(tool, { key: index }); }))))); }));
     };
     return Menu;
 }(react_1.default.Component));
-exports.default = (function (props) { return (react_1.default.createElement(Themes_1.default, null, function (theme) { return (react_1.default.createElement(Menu, __assign({}, props, { theme: {
-        menu: {
-            backgroundColor: theme.interface.rgb,
-            borderColor: theme.pale.rgb,
-        },
-        searchBar: {
-            background: theme.interface.rgb,
-            borderColor: theme.pale.rgb,
-            boxShadow: "0px 2px 4px 0px " + theme.shadow.rgb,
-            borderRadius: theme.corner
-        }
-    } }))); })); });
+exports.default = Menu;

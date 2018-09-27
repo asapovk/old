@@ -1,18 +1,42 @@
 import React, { Fragment } from 'react';
-import { Button, Flexbox } from '../../src';
+import { Button, Flexbox, Title } from '../../src';
 
 export default class Story extends React.Component {
     render() {
         return (
-            <Flexbox justifyContent="center" alignContent="center" p={40}>
-                <Flexbox p={10}>
-                    <Button>Simple button</Button>
+            <Flexbox justifyContent="space-between" p={40} mt={-40}>
+                <Flexbox flexDirection='column'>
+                    <Title>Normal</Title>
+                    <Flexbox pb={10} pt={20}>
+                        <Button>Simple button</Button>
+                    </Flexbox>
+                    <Flexbox pb={10}>
+                        <Button decoration='highlight'>Highligt button</Button>
+                    </Flexbox>
                 </Flexbox>
-                <Flexbox p={10}>
-                    <Button decoration="none">Decoration none</Button>
+                <Flexbox flexDirection='column'>
+                    <Title>Accents</Title>
+                    <Flexbox pb={10} pt={20}>
+                        <Button decoration='red'>Accent red button</Button>
+                    </Flexbox>
+                    <Flexbox pb={10}>
+                        <Button decoration='green'>Accent green button</Button>
+                    </Flexbox>
+                    <Flexbox pb={10}>
+                        <Button decoration='blue'>Accent blue button</Button>
+                    </Flexbox>
+                    <Flexbox pb={10}>
+                        <Button decoration='orange'>Accent orange button</Button>
+                    </Flexbox>
                 </Flexbox>
-                <Flexbox p={10}>
-                    <Button loading>Loading button</Button>
+                <Flexbox flexDirection='column'>
+                    <Title>Modified</Title>
+                    <Flexbox pb={10} pt={20}>
+                        <Button decoration="none">Without decoration button</Button>
+                    </Flexbox>
+                    <Flexbox pb={10}>
+                        <Button loading>Loading button</Button>
+                    </Flexbox>
                 </Flexbox>
             </Flexbox>
         )

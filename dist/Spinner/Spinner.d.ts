@@ -1,11 +1,11 @@
+import { Component } from 'react';
 interface Props {
     spinning?: boolean;
     center?: boolean;
     dark?: boolean;
     children?: any;
 }
-export interface ThemedProps {
-    theme: any;
+declare class Spinner extends Component<Props> {
+    render(): any;
 }
-declare const _default: (props: Props) => JSX.Element;
-export default _default;
+export default Spinner;

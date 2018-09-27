@@ -12,17 +12,6 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-var __assign = (this && this.__assign) || function () {
-    __assign = Object.assign || function(t) {
-        for (var s, i = 1, n = arguments.length; i < n; i++) {
-            s = arguments[i];
-            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-                t[p] = s[p];
-        }
-        return t;
-    };
-    return __assign.apply(this, arguments);
-};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
@@ -37,23 +26,20 @@ var Login = /** @class */ (function (_super) {
     }
     Login.prototype.render = function () {
         var _a = this.props, name = _a.name, fullname = _a.fullname, login = _a.login, role = _a.role, children = _a.children, avatar = _a.avatar;
-        var MenuTSX = (react_1.default.createElement("div", { className: 'ui-login-menu' },
+        var MenuTSX = function (style) { return (react_1.default.createElement("div", { className: 'ui-login-menu' },
             fullname && react_1.default.createElement("div", { className: 'ui-login-menu-fullname' }, fullname),
-            login && react_1.default.createElement("div", { style: { color: this.props.theme.textColor }, className: 'ui-login-menu-login' }, '@' + login),
+            login && react_1.default.createElement("div", { style: { color: style.textColor }, className: 'ui-login-menu-login' }, '@' + login),
             role && react_1.default.createElement("div", { className: 'ui-login-menu-role' },
                 "\u0420\u043E\u043B\u044C: ",
                 role),
-            children && react_1.default.createElement("div", { className: 'ui-login-menu-actions' }, children)));
-        var AvatarTSX = (react_1.default.createElement("div", { className: 'ui-login-avatar' }, avatar ? avatar :
-            react_1.default.createElement("div", { className: 'ui-login-avatar-generated', style: { textShadow: this.props.theme.textShadow } }, login.charAt(0))));
-        var LoginTSX = (react_1.default.createElement("div", { className: 'ui-login' },
-            AvatarTSX,
-            name));
-        return (react_1.default.createElement(Popup_1.Popup, { trigger: LoginTSX }, MenuTSX));
+            children && react_1.default.createElement("div", { className: 'ui-login-menu-actions' }, children))); };
+        var AvatarTSX = function (style) { return (react_1.default.createElement("div", { className: 'ui-login-avatar' }, avatar ? avatar :
+            react_1.default.createElement("div", { className: 'ui-login-avatar-generated', style: { textShadow: style.textShadow } }, login.charAt(0)))); };
+        var LoginTSX = function (style) { return (react_1.default.createElement("div", { className: 'ui-login' },
+            AvatarTSX(style),
+            name)); };
+        return (react_1.default.createElement(Themes_1.default, null, function (styles) { return (react_1.default.createElement(Popup_1.Popup, { trigger: LoginTSX(styles.login) }, MenuTSX(styles.login))); }));
     };
     return Login;
 }(react_1.default.Component));
-exports.default = (function (props) { return (react_1.default.createElement(Themes_1.default, null, function (theme) { return (react_1.default.createElement(Login, __assign({}, props, { theme: {
-        textColor: theme.text.rgb,
-        textShadow: "0px 1px 6px rgba(" + theme.shadow.rgb + ", 0.5)"
-    } }))); })); });
+exports.default = Login;

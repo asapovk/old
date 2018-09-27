@@ -1,10 +1,9 @@
-import { CSSProperties } from 'react';
+import { Component, CSSProperties } from 'react';
 interface Props {
     style?: CSSProperties;
     children?: any;
 }
-export interface ThemedProps {
-    theme: any;
+declare class Spin extends Component<Props> {
+    render(): JSX.Element;
 }
-declare const _default: (props: Props) => JSX.Element;
-export default _default;
+export default Spin;

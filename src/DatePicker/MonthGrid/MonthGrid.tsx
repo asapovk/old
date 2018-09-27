@@ -13,16 +13,13 @@ interface Props {
     onChange?: (date: Moment) => void
 }
 
-export interface ThemedProps {
-    theme
-}
 interface MonthGrid {
     state: {
         date: Moment
         active: Moment
     }
 }
-class MonthGrid extends React.Component<Props & ThemedProps> {
+class MonthGrid extends React.Component<Props> {
 
     state = {
         date: moment(),
@@ -50,53 +47,46 @@ class MonthGrid extends React.Component<Props & ThemedProps> {
     render() {
         const grid = this.getMonthGrid();
         return (
-            <div className={`ui-datepicker ${this.props.active ? "ui-datepicker-active" : ""}`} style={{
-                ...this.props.theme.style,
-                ...this.props.style
-            }}>
-                <Flexbox column className="ui-datepicker-monthgrid">
-                    <Title
-                        date={this.state.date}
-                        onChange={date => {
-                            this.setState({ date })
-                        }}
-                        disaplayWeeks={true}
-                    />
-                    {grid.map((week, index) =>
-                        <Flexbox key={index} className="ui-datepicker-monthgrid-week">
-                            {week.map((day, index) => {
-                                return (
-                                    <Day
-                                        key={index}
-                                        day={day}
-                                        active={this.state.active}
-                                        minValue={this.props.minValue}
-                                        maxValue={this.props.maxValue}
-                                        onClick={() => {
-                                            this.setState({ active: day.clone() });
-                                            this.props.onChange && this.props.onChange(day.clone());
-                                        }}
-                                    />
-                                )
-                            })}
+            <Theme>
+                {styles => (
+                    <div className={`ui-datepicker ${this.props.active ? "ui-datepicker-active" : ""}`} style={{
+                        ...styles.datePicker.monthGrid.style,
+                        ...this.props.style
+                    }}>
+                        <Flexbox column className="ui-datepicker-monthgrid">
+                            <Title
+                                date={this.state.date}
+                                onChange={date => {
+                                    this.setState({ date })
+                                }}
+                                disaplayWeeks={true}
+                            />
+                            {grid.map((week, index) =>
+                                <Flexbox key={index} className="ui-datepicker-monthgrid-week">
+                                    {week.map((day, index) => {
+                                        return (
+                                            <Day
+                                                key={index}
+                                                day={day}
+                                                active={this.state.active}
+                                                minValue={this.props.minValue}
+                                                maxValue={this.props.maxValue}
+                                                onClick={() => {
+                                                    this.setState({ active: day.clone() });
+                                                    this.props.onChange && this.props.onChange(day.clone());
+                                                }}
+                                            />
+                                        )
+                                    })}
+                                </Flexbox>
+                            )}
                         </Flexbox>
-                    )}
-                </Flexbox>
-            </div>
+                    </div>
+                )}
+            </Theme>
+
         )
     }
 }
 
-export default (props: Props) => (
-    <Theme>
-        {theme => (
-            <MonthGrid {...props} theme={{
-                style: {
-                    border: "1px solid " + theme.pale.hex,
-                    borderTop: 0,
-                    top: "-" + theme.corner
-                }
-            }} />
-        )}
-    </Theme>
-);
+export default MonthGrid;

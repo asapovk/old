@@ -1,6 +1,5 @@
-import React, { CSSProperties } from 'react';
-import { Icon } from '../Icon';
-import Theme from '../Themes';
+import React, { Component, CSSProperties } from 'react';
+import { Theme, Icon } from '..';
 import SelectMenuItem from './SelectMenuItem'
 
 interface SelectOption {
@@ -22,13 +21,7 @@ interface Props {
     onChange?: (value: string | string[] | null) => void
     children?: any
 }
-export interface ThemedProps {
-    theme
-}
-export interface ThemedProps {
-    theme
-}
-class Select extends React.Component<Props & ThemedProps> {
+class Select extends Component<Props> {
 
     private
     holderRef = null as HTMLDivElement | null
@@ -126,7 +119,7 @@ class Select extends React.Component<Props & ThemedProps> {
 
     render() {
 
-        const { search, style, label, clearable, multiselect, onChange, placeholder, disabled, options, theme } = this.props;
+        const { search, style, label, clearable, multiselect, onChange, placeholder, disabled, options } = this.props;
         const { selectedValues, filteredValues, menuVisible, isFilterActive } = this.state;
 
         let selectedItems: SelectOption[] = [];
@@ -152,34 +145,33 @@ class Select extends React.Component<Props & ThemedProps> {
 
         const somethingSelected = (selectedItems.length > 0);
 
-        const MenuItemsTSX = (
+        const MenuItemsTSX = (style) => (
             availableItems.length > 0 ?
                 availableItems.map((option, index) => (
                     <SelectMenuItem
                         children={option.text}
                         onClick={() => this.onSelect(option.value)}
                         key={index}
-                        theme={theme.SelectMenuItem}
+                        theme={style.SelectMenuItem}
                         active={!multiselect && selectedValues.find(value => option.value === value)}
                     />
                 )) : <div className={'ui-select-menu-item-nofound'}>
                     {isFilterActive ? 'Не найдено' : 'Нет доступных значений'}
                 </div>
-
         )
 
-        const MultiSelectItemsTSX = (
+        const MultiSelectItemsTSX = (style) => (
             selectedItems.map(option => (
                 <div className='ui-select-holder-value-option' key={option.text} style={{
-                    background: theme.background,
-                    borderColor: theme.borderColor,
-                    color: theme.textColor,
+                    background: style.background,
+                    borderColor: style.borderColor,
+                    color: style.textColor,
                 }}>
                     <div
                         className='ui-select-holder-value-option-close'
                         style={{
-                            borderColor: theme.borderColor,
-                            color: theme.textColor,
+                            borderColor: style.borderColor,
+                            color: style.textColor,
                         }}
                         onClick={(event) => {
                             if (disabled) return;
@@ -193,7 +185,7 @@ class Select extends React.Component<Props & ThemedProps> {
             ))
         )
 
-        const SearchTSX = (
+        const SearchTSX = (style) => (
             <input
                 disabled={disabled}
                 className='ui-select-holder-value-input'
@@ -201,19 +193,19 @@ class Select extends React.Component<Props & ThemedProps> {
                 onChange={event => this.filterOptions(event.target.value)}
                 onKeyDown={this.searchKeyDown.bind(this)}
                 ref={ref => this.searchRef = ref}
-                style={{ position: !multiselect ? 'absolute' : "relative", color: theme.textColor, }}
+                style={{ position: !multiselect ? 'absolute' : "relative", color: style.textColor, }}
             />
         )
 
-        const HolderTSX = (
+        const HolderTSX = (style) => (
             somethingSelected ?
-                multiselect ? MultiSelectItemsTSX : !isFilterActive && <div className='ui-select-holder-value-text'>{selectedItems[0].text}</div>
+                multiselect ? MultiSelectItemsTSX(style) : !isFilterActive && <div className='ui-select-holder-value-text'>{selectedItems[0].text}</div>
                 : (!search && placeholder) && <div className='ui-select-holder-value-placeholder'>{placeholder}</div>
         )
 
-        const ClearButtonTSX = (
+        const ClearButtonTSX = (style) => (
             <span
-                style={{ color: theme.labelColor }}
+                style={{ color: style.labelColor }}
                 className='ui-select-holder-clear'
                 onClick={(event) => {
                     if (disabled) {
@@ -228,48 +220,38 @@ class Select extends React.Component<Props & ThemedProps> {
         );
 
         return (
-            <div className={'ui-select' + (disabled ? ' disabled' : '')} style={{
-                ...style
-            }}>
-                <div className='ui-select-label' style={{ color: theme.labelColor }}>
-                    {label}
-                </div>
-                <div
-                    className={'ui-select-holder' + (menuVisible ? ' active' : '')}
-                    onClick={() => this.toggleMenu()}
-                    ref={ref => this.holderRef = ref}
-                    style={{
-                        background: theme.background,
-                        borderColor: theme.borderColor,
+            <Theme>
+                {styles => (
+                    <div className={'ui-select' + (disabled ? ' disabled' : '')} style={{
+                        ...style
                     }}>
-                    <div className='ui-select-holder-value' style={{ color: theme.textColor }}>
-                        {HolderTSX}
-                        {search && SearchTSX}
+                        <div className='ui-select-label' style={{ color: styles.select.labelColor }}>
+                            {label}
+                        </div>
+                        <div
+                            className={'ui-select-holder' + (menuVisible ? ' active' : '')}
+                            onClick={() => this.toggleMenu()}
+                            ref={ref => this.holderRef = ref}
+                            style={{
+                                background: styles.select.background,
+                                borderColor: styles.select.borderColor,
+                            }}>
+                            <div className='ui-select-holder-value' style={{ color: styles.select.textColor }}>
+                                {HolderTSX(styles.select)}
+                                {search && <SearchTSX style={styles.select} />}
+                            </div>
+                            {(clearable && somethingSelected) && <ClearButtonTSX style={styles.select} />}
+                            <span className='ui-select-holder-down' style={{ color: styles.select.labelColor }}>
+                                <Icon type={menuVisible ? 'up' : 'down'} />
+                            </span>
+                            <div className={'ui-select-menu' + (menuVisible ? ' visible' : '')} style={{ borderColor: styles.select.borderColor, background: styles.select.background }}>{MenuItemsTSX(styles.select)}</div>
+                        </div>
                     </div>
-                    {(clearable && somethingSelected) && ClearButtonTSX}
-                    <span className='ui-select-holder-down' style={{ color: theme.labelColor }}>
-                        <Icon type={menuVisible ? 'up' : 'down'} />
-                    </span>
-                    <div className={'ui-select-menu' + (menuVisible ? ' visible' : '')} style={{ borderColor: theme.borderColor, background: theme.background }}>{MenuItemsTSX}</div>
-                </div>
-            </div>
+                )}
+            </Theme>
+
         )
     }
 }
 
-export default (props: Props) => (
-    <Theme>
-        {theme => (
-            <Select {...props} theme={{
-                background: theme.interface.rgb,
-                labelColor: theme.lowlight.rgb,
-                textColor: theme.text.rgb,
-                borderColor: theme.pale.rgb,
-                SelectMenuItem: {
-                    text: theme.text.rgb,
-                    background: theme.pale.rgba(0.5)
-                }
-            }} />
-        )}
-    </Theme>
-);
+export default Select;

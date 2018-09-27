@@ -59,9 +59,9 @@ var MonthGrid = /** @class */ (function (_super) {
     MonthGrid.prototype.render = function () {
         var _this = this;
         var grid = this.getMonthGrid();
-        return (react_1.default.createElement("div", { className: "ui-datepicker " + (this.props.active ? "ui-datepicker-active" : ""), style: __assign({}, this.props.theme.style, this.props.style) },
+        return (react_1.default.createElement(__1.Theme, null, function (styles) { return (react_1.default.createElement("div", { className: "ui-datepicker " + (_this.props.active ? "ui-datepicker-active" : ""), style: __assign({}, styles.datePicker.monthGrid.style, _this.props.style) },
             react_1.default.createElement(__1.Flexbox, { column: true, className: "ui-datepicker-monthgrid" },
-                react_1.default.createElement(Title_1.default, { date: this.state.date, onChange: function (date) {
+                react_1.default.createElement(Title_1.default, { date: _this.state.date, onChange: function (date) {
                         _this.setState({ date: date });
                     }, disaplayWeeks: true }),
                 grid.map(function (week, index) {
@@ -71,14 +71,8 @@ var MonthGrid = /** @class */ (function (_super) {
                                 _this.props.onChange && _this.props.onChange(day.clone());
                             } }));
                     }));
-                }))));
+                })))); }));
     };
     return MonthGrid;
 }(react_1.default.Component));
-exports.default = (function (props) { return (react_1.default.createElement(__1.Theme, null, function (theme) { return (react_1.default.createElement(MonthGrid, __assign({}, props, { theme: {
-        style: {
-            border: "1px solid " + theme.pale.hex,
-            borderTop: 0,
-            top: "-" + theme.corner
-        }
-    } }))); })); });
+exports.default = MonthGrid;

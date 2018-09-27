@@ -8,13 +8,9 @@ interface Props {
     onChange?: (date: Moment) => void
 }
 
-export interface ThemedProps {
-    theme
-}
-
-class MonthGridTitle extends React.Component<Props & ThemedProps> {
+class MonthGridTitle extends React.Component<Props> {
     render() {
-        const { date, disaplayWeeks, onChange, theme } = this.props;
+        const { date, disaplayWeeks, onChange } = this.props;
 
         const Next = (props) => (
             <Flexbox flexBasis={20} alignItems="center"
@@ -25,49 +21,37 @@ class MonthGridTitle extends React.Component<Props & ThemedProps> {
         const Back = () => <Next previous />;
 
         return (
-            <Fragment>
-                <Flexbox className="ui-datepicker-monthgrid-title" style={theme.style}>
-                    <Back />
-                    <Flexbox column flex={1} alignItems="center" justifyContent="center">
-                        <div className="ui-datepicker-monthgrid-title-month">{date.format("MMMM")}</div>
-                        <div className="ui-datepicker-monthgrid-title-year">{date.format("YYYY")}</div>
-                    </Flexbox>
-                    <Next />
-                </Flexbox>
-                {disaplayWeeks && (
-                    <Flexbox className="ui-datepicker-monthgrid-title-weeks">
-                        {moment.weekdaysShort(true).map(day => (
-                            <Flexbox
-                                key={day}
-                                style={theme.weekDayStyle}
-                                className="ui-datepicker-monthgrid-title-weeks-day"
-                                justifyContent="center"
-                                alignItems="center"
-                                children={day.slice(0, 2)}
-                            />
-                        ))}
-                    </Flexbox>
+            <Theme>
+                {styles => (
+                    <Fragment>
+                        <Flexbox className="ui-datepicker-monthgrid-title" style={styles.datePicker.title.style}>
+                            <Back />
+                            <Flexbox column flex={1} alignItems="center" justifyContent="center">
+                                <div className="ui-datepicker-monthgrid-title-month">{date.format("MMMM")}</div>
+                                <div className="ui-datepicker-monthgrid-title-year">{date.format("YYYY")}</div>
+                            </Flexbox>
+                            <Next />
+                        </Flexbox>
+                        {disaplayWeeks && (
+                            <Flexbox className="ui-datepicker-monthgrid-title-weeks">
+                                {moment.weekdaysShort(true).map(day => (
+                                    <Flexbox
+                                        key={day}
+                                        style={styles.datePicker.title.weekDayStyle}
+                                        className="ui-datepicker-monthgrid-title-weeks-day"
+                                        justifyContent="center"
+                                        alignItems="center"
+                                        children={day.slice(0, 2)}
+                                    />
+                                ))}
+                            </Flexbox>
+                        )}
+                    </Fragment>
                 )}
-            </Fragment>
+            </Theme>
+
         )
     }
 }
 
-export default (props: Props) => (
-    <Theme>
-        {theme => (
-            <MonthGridTitle {...props} theme={{
-                style: {
-                    color: theme.lowlight.hex,
-                    background: theme.interface.hex,
-                    borderColor: theme.interface.hex,
-                },
-                weekDayStyle: {
-                    color: theme.lowlight.hex,
-                    background: theme.interface.hex,
-                    borderColor: theme.interface.hex,
-                }
-            }} />
-        )}
-    </Theme>
-);
+export default MonthGridTitle;

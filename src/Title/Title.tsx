@@ -1,6 +1,5 @@
-import React, { Component, Fragment, Children } from 'react';
-import { Flexbox } from '../index';
-import Theme from '../Themes';
+import React, { Component } from 'react';
+import { Flexbox, Theme } from '../index';
 
 interface Props {
     style?: any
@@ -11,10 +10,7 @@ interface Props {
     offLabel?: string
     onChange?: (state: boolean) => void
 }
-export interface ThemedProps {
-    theme
-}
-class Title extends Component<Props & ThemedProps> {
+class Title extends Component<Props> {
     state = {
         on: false
     }
@@ -30,44 +26,41 @@ class Title extends Component<Props & ThemedProps> {
         }
     }
     render() {
-        const { children, style, onChange, value, onLabel, offLabel, theme } = this.props;
-        let classes = 'ui-title';
+        const { children, style, onChange, value, onLabel, offLabel } = this.props;
 
+        let classes = 'ui-title';
         const state = (typeof value !== "undefined") ? value : this.state.on;
 
         return (
-            <Flexbox className={classes} style={style}>
-                {children}
-                {(typeof onChange === "function") ? (
-                    <Flexbox>
-                        <div
-                            onClick={() => this.onChange(true)}
-                            style={{ color: theme.highlightColor }}
-                            className={`ui-title-action${state ? " ui-title-action-active" : ""}`}>{onLabel || "ВКЛ"}</div>
-                        <div
-                            onClick={() => this.onChange(!state)}
-                            style={{ borderColor: theme.highlightColor }}
-                            className={`ui-title-switch${!state ? " ui-title-switch-active" : ""}`}
-                            children={<span style={{ background: theme.highlightColor }} />}
-                        />
-                        <div
-                            onClick={() => this.onChange(false)}
-                            style={{ color: theme.highlightColor }}
-                            className={`ui-title-action${!state ? " ui-title-action-active" : ""}`}>{offLabel || "ВЫКЛ"}</div>
+            <Theme>
+                {styles => (
+                    <Flexbox className={classes} style={style}>
+                        {children}
+                        {(typeof onChange === "function") ? (
+                            <Flexbox>
+                                <div
+                                    onClick={() => this.onChange(true)}
+                                    style={styles.title.active}
+                                    className={`ui-title-action${state ? " ui-title-action-active" : ""}`}>{onLabel || "ВКЛ"}</div>
+                                <div
+                                    onClick={() => this.onChange(!state)}
+                                    style={{ borderColor: styles.theme.highlight.rgb }}
+                                    className={`ui-title-switch${!state ? " ui-title-switch-active" : ""}`}
+                                    children={<span style={{ background: styles.theme.highlight.rgb }} />}
+                                />
+                                <div
+                                    onClick={() => this.onChange(false)}
+                                    style={styles.title.active}
+                                    className={`ui-title-action${!state ? " ui-title-action-active" : ""}`}
+                                    children={offLabel || "ВЫКЛ"}
+                                />
+                            </Flexbox>
+                        ) : null}
                     </Flexbox>
-                ) : null}
-            </Flexbox>
+                )}
+            </Theme>
         );
     }
 }
 
-export default (props: Props) => (
-    <Theme>
-        {theme => (
-            <Title {...props} theme={{
-                textColor: theme.text.rgb,
-                highlightColor: theme.highlight.rgb
-            }} />
-        )}
-    </Theme>
-);
+export default Title;

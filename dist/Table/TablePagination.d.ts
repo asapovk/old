@@ -1,3 +1,4 @@
+import React from 'react';
 export interface PaginationProps {
     pageSize: number;
 }
@@ -8,8 +9,7 @@ interface Props {
     onChange: (page: number) => void;
     children?: any;
 }
-export interface ThemedProps {
-    theme: any;
+declare class TableCheckbox extends React.Component<Props> {
+    render(): JSX.Element | null;
 }
-declare const _default: (props: Props) => JSX.Element;
-export default _default;
+export default TableCheckbox;

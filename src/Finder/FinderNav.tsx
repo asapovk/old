@@ -12,10 +12,8 @@ interface Props {
     finderIndex?: number,
     active?: boolean
 }
-export interface ThemedProps {
-    theme
-}
-class FinderNav extends React.Component<Props & ThemedProps> {
+
+class FinderNav extends React.Component<Props> {
 
     static componentName = "FinderNav";
 
@@ -31,27 +29,22 @@ class FinderNav extends React.Component<Props & ThemedProps> {
     }
 
     render() {
-        const { label, badge, active, theme } = this.props;
+        const { label, badge, active } = this.props;
 
         return (
-            <Flexbox alignItems="center" className={`ui-finder-nav${active ? " ui-finder-nav-active" : ""}`} onClick={() => this.expand()}>
-                <Flexbox className='ui-finder-nav-label' flex={1} children={label} />
-                {badge ? <Flexbox className="ui-finder-nav-badge" style={{ color: theme.badgeColor }}>{badge}</Flexbox> : null}
-                <Flexbox className='ui-finder-nav-icon'>
-                    <Icon type='right' />
-                </Flexbox>
-            </Flexbox>
+            <Theme>
+                {styles => (
+                    <Flexbox alignItems="center" className={`ui-finder-nav${active ? " ui-finder-nav-active" : ""}`} onClick={() => this.expand()}>
+                        <Flexbox className='ui-finder-nav-label' flex={1} children={label} />
+                        {badge ? <Flexbox className="ui-finder-nav-badge" style={{ color: styles.finder.nav.badgeColor }}>{badge}</Flexbox> : null}
+                        <Flexbox className='ui-finder-nav-icon'>
+                            <Icon type='right' />
+                        </Flexbox>
+                    </Flexbox>
+                )}
+            </Theme>
         )
-
     }
 }
 
-export default (props: Props) => (
-    <Theme>
-        {theme => (
-            <FinderNav {...props} theme={{
-                badgeColor: theme.highlight.rgb
-            }} />
-        )}
-    </Theme>
-);
+export default FinderNav;

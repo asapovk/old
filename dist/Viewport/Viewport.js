@@ -42,10 +42,6 @@ var Viewport = /** @class */ (function (_super) {
         };
         return _this;
     }
-    Viewport.prototype.componentDidMount = function () {
-        //@ts-ignore
-        document.__uiviewport = this;
-    };
     /**
      * Добавляет компонент в viewport
      * возвращает индекс
@@ -75,16 +71,11 @@ var Viewport = /** @class */ (function (_super) {
     Viewport.prototype.getActionById = function (id) {
         return this.state.mountedActions.find(function (action) { return action.id === id; }) || null;
     };
-    Object.defineProperty(Viewport.prototype, "theme", {
-        get: function () {
-            return Themes_1.themes[this.props.theme ? this.props.theme : 'blackCurrant'];
-        },
-        enumerable: true,
-        configurable: true
-    });
     Viewport.prototype.render = function () {
-        return (react_1.default.createElement(Themes_1.ThemeContext.Provider, { value: this.theme },
-            react_1.default.createElement("div", { "data-viewport": true, className: 'ui-view', id: '0cd82567-7684-4147-ab02-dd3c56332364', style: __assign({}, this.props.style, { background: this.theme.background.rgb, color: this.theme.text.rgb }) },
+        var uiStyles = Themes_1.createStyles(this.props.theme);
+        console.log(uiStyles);
+        return (react_1.default.createElement(Themes_1.ThemeContext.Provider, { value: uiStyles },
+            react_1.default.createElement("div", { "data-viewport": true, className: 'ui-view', id: '0cd82567-7684-4147-ab02-dd3c56332364', style: __assign({}, this.props.style, uiStyles.viewport.main) },
                 this.props.children,
                 this.state.mountedActions.map(function (action, index) {
                     return react_1.default.createElement(react_1.Fragment, { key: index }, action.component);

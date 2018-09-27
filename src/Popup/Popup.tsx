@@ -34,10 +34,8 @@ interface Props {
     on?: 'hover' | 'click'
     children?: any
 }
-export interface ThemedProps {
-    theme
-}
-class Popup extends React.Component<Props & ThemedProps> {
+
+class Popup extends React.Component<Props> {
 
     state = {
         triggerCoord: {
@@ -181,7 +179,7 @@ class Popup extends React.Component<Props & ThemedProps> {
 
     render() {
 
-        const { position, children, type, trigger, theme } = this.props;
+        const { position, children, type, trigger } = this.props;
 
         const TriggerTSX = <div onClick={() => this.show()} ref={ref => this.triggerRef = ref}>{trigger}</div>
 
@@ -190,15 +188,15 @@ class Popup extends React.Component<Props & ThemedProps> {
         if (position) classes += ' pp-' + position
         else classes += ' pp-bottom-left';
 
-        const PopupTSX = (
+        const PopupTSX = (style) => (
             <div
                 ref={ref => this.popupRef = ref}
                 className={classes}
                 style={{
-                    background: theme.background,
-                    color: theme.color,
-                    boxShadow: `0px 2px 4px 0px ${theme.shadowColor}`,
-                    borderColor: theme.borderColor,
+                    background: style.background,
+                    color: style.color,
+                    boxShadow: `0px 2px 4px 0px ${style.shadowColor}`,
+                    borderColor: style.borderColor,
                     ...this.state.popupStyle
                 }}
                 children={children}
@@ -206,26 +204,19 @@ class Popup extends React.Component<Props & ThemedProps> {
         )
 
         const ViewportHTML = document.getElementById('0cd82567-7684-4147-ab02-dd3c56332364');
-        const Portal = ReactDOM.createPortal(PopupTSX, ViewportHTML ? ViewportHTML : document.body);
+        const Portal = (style) => ReactDOM.createPortal(PopupTSX(style), ViewportHTML ? ViewportHTML : document.body);
 
         return (
-            <Fragment>
-                {TriggerTSX}
-                {this.state.show ? Portal : null}
-            </Fragment>
+            <Theme>
+                {styles => (
+                    <Fragment>
+                        {TriggerTSX}
+                        {this.state.show ? Portal(styles.popup) : null}
+                    </Fragment>
+                )}
+            </Theme>
         )
     }
 }
 
-export default (props: Props) => (
-    <Theme>
-        {theme => (
-            <Popup {...props} theme={{
-                color: theme.text.rgb,
-                shadowColor: theme.shadow.rgb,
-                borderColor: theme.pale.rgb,
-                background: theme.interface.rgb
-            }} />
-        )}
-    </Theme>
-);
+export default Popup;

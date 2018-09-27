@@ -1,8 +1,8 @@
+import React from 'react';
 interface Props {
     visible: boolean;
 }
-export interface ThemedProps {
-    theme: any;
+declare class ModalMask extends React.Component<Props> {
+    render(): JSX.Element;
 }
-declare const _default: (props: Props) => JSX.Element;
-export default _default;
+export default ModalMask;

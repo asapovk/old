@@ -13,11 +13,11 @@ class TableCustomCell extends React.Component<TableCustomCellProps> {
     render() {
         const PopupTriggerTSX = (
             <Theme>
-                {theme => (
+                {styles => (
                     <div
                         style={{
                             textDecoration: 'underline',
-                            textDecorationColor: theme.highlight.rgb,
+                            textDecorationColor: styles.theme.highlight.rgb,
                             cursor: 'pointer',
                             width: 'max-content'
                         }}

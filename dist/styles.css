@@ -83,30 +83,6 @@ table {
   opacity: 0.5;
 }
 
-::-webkit-scrollbar {
-  width: 10px;
-  border: 2px solid #292b36;
-  padding: 20px;
-}
-
-/* Track */
-::-webkit-scrollbar-track {
-  background: #292b36;
-  border-radius: 5px;
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-  border-radius: 5px;
-  background: #5c6173;
-  border: 2px solid #292b36;
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: #05afc8;
-}
-
 .ui-view {
   position: absolute;
   top: 0;
@@ -1017,7 +993,6 @@ table {
   padding-left: 5px;
   font-size: 16px;
   line-height: 24px;
-  color: white;
 }
 .ui-checkbox-circle {
   height: 10px;

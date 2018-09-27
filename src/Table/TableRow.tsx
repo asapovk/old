@@ -18,46 +18,40 @@ interface Props {
     form?
     children?: any
 }
-export interface ThemedProps {
-    theme
-}
-class TableRow extends React.Component<Props & ThemedProps> {
+
+class TableRow extends React.Component<Props> {
 
     onClick() {
 
     }
 
     render() {
-        const { row, isSelected, isExpanding, isBlur, actions, border, scope, columns, form, theme } = this.props;
+        const { row, isSelected, isExpanding, isBlur, actions, border, scope, columns, form } = this.props;
 
         if (form) {
             return TableForm(form, columns, row)
         }
 
         return (
-            <div
-                className={`ui-table-content-body-row ${isBlur ? 'blur' : 'hover'}`}
-                style={{
-                    borderColor: theme.borderColor
-                }}
-                onClick={(event) => this.onClick()}>
-                {/* {this.state.onSelect && (
+            <Theme>
+                {styles => (
+                    <div
+                        className={`ui-table-content-body-row ${isBlur ? 'blur' : 'hover'}`}
+                        style={{
+                            borderColor: styles.table.row.borderColor
+                        }}
+                        onClick={(event) => this.onClick()}>
+                        {/* {this.state.onSelect && (
                 <TableCheckbox active={this.props.isSelected} />
                 )} */}
-                <TableColumns {...this.props} />
-                {actions && <TableActions actions={actions} data={row} />}
-            </div>
+                        <TableColumns {...this.props} />
+                        {actions && <TableActions actions={actions} data={row} />}
+                    </div>
+                )}
+            </Theme>
+
         )
     }
 }
 
-export default (props: Props) => (
-    <Theme>
-        {theme => (
-            <TableRow {...props} theme={{
-                backgroundColor: theme.interface.rgb,
-                borderColor: theme.pale.rgb,
-            }} />
-        )}
-    </Theme>
-);
+export default TableRow;

@@ -7,10 +7,8 @@ interface Props {
     dark?: boolean,
     children?: any
 }
-export interface ThemedProps {
-    theme
-}
-class Spinner extends Component<Props & ThemedProps> {
+
+class Spinner extends Component<Props> {
     render() {
         if (!this.props.spinning) {
             return this.props.children || null;
@@ -41,12 +39,4 @@ class Spinner extends Component<Props & ThemedProps> {
     }
 }
 
-export default (props: Props) => (
-    <Theme>
-        {theme => (
-            <Spinner {...props} theme={{
-
-            }} />
-        )}
-    </Theme>
-);
+export default Spinner;

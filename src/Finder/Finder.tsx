@@ -3,10 +3,6 @@ import FinderFilter from './FinderFilter';
 import { Flexbox } from '../';
 import Theme from '../Themes';
 
-//TODO:
-// - defaultValue
-// - section
-
 interface Props {
     filter?: boolean
     tip?: boolean
@@ -14,10 +10,8 @@ interface Props {
     style?: CSSProperties
     children?: any
 }
-export interface ThemedProps {
-    theme
-}
-class Finder extends React.Component<Props & ThemedProps> {
+
+class Finder extends React.Component<Props> {
 
     constructor(props) {
         super(props);
@@ -89,14 +83,14 @@ class Finder extends React.Component<Props & ThemedProps> {
 
     render() {
 
-        const { style, theme } = this.props;
+        const { style } = this.props;
 
         const children = this.passProps(this.props.children, 0);
 
-        const MenuesTSX = (
+        const MenuesTSX = (style) => (
             this.state.menues.map((menu, index) => (
                 <Flexbox column className='ui-finder-menu' key={index} style={{
-                    borderColor: theme.borderColor,
+                    borderColor: style.borderColor,
                 }}>
                     {menu.filter && <FinderFilter level={index} onChange={this.onFilterChange} placeholder={menu.filterPlaceholder} />}
                     <Flexbox column className='ui-finder-menu-items'>
@@ -107,27 +101,20 @@ class Finder extends React.Component<Props & ThemedProps> {
         );
 
         return (
-            <Flexbox style={{
-                color: theme.textColor,
-                backgroundColor: theme.backgroundColor,
-                borderColor: theme.borderColor,
-                ...style
-            }} inline={true} className='ui-finder'>
-                {MenuesTSX}
-            </Flexbox>
+            <Theme>
+                {styles => (
+                    <Flexbox style={{
+                        color: styles.finder.main.textColor,
+                        backgroundColor: styles.finder.main.backgroundColor,
+                        borderColor: styles.finder.main.borderColor,
+                        ...style
+                    }} inline={true} className='ui-finder'>
+                        {MenuesTSX(styles.finder.main)}
+                    </Flexbox>
+                )}
+            </Theme>
         )
     }
 }
 
-
-export default (props: Props) => (
-    <Theme>
-        {theme => (
-            <Finder {...props} theme={{
-                textColor: theme.text.rgb,
-                backgroundColor: theme.background.rgb,
-                borderColor: theme.pale.rgb
-            }} />
-        )}
-    </Theme>
-);
+export default Finder

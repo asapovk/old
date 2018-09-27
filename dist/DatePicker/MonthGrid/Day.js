@@ -37,51 +37,33 @@ var MonthGridDay = /** @class */ (function (_super) {
     }
     MonthGridDay.prototype.render = function () {
         var _a = this.props, active = _a.active, day = _a.day, onClick = _a.onClick, minValue = _a.minValue, maxValue = _a.maxValue;
-        var style = this.props.theme.default;
         var disabled = false;
-        if (day.format("YYYYMMDD") === active.format("YYYYMMDD")) {
-            style = __assign({}, style, this.props.theme.active);
-        }
-        if (day.format("YYYYMMDD") === moment_1.default().format("YYYYMMDD")) {
-            style = __assign({}, style, this.props.theme.current);
-        }
-        if (day.format("MM") !== moment_1.default().format("MM")) {
-            style = __assign({}, style, this.props.theme.anotherMonth);
-        }
-        if (minValue && minValue > day) {
-            disabled = true;
-            style = __assign({}, style, this.props.theme.disabledDay);
-        }
-        if (maxValue && maxValue < day) {
-            disabled = true;
-            style = __assign({}, style, this.props.theme.disabledDay);
-        }
-        return (react_1.default.createElement(__1.Flexbox, { justifyContent: "center", alignItems: "center", className: "ui-datepicker-monthgrid-day", onClick: function () {
+        var setStyles = function (styles) {
+            var style = styles.default;
+            if (day.format("YYYYMMDD") === active.format("YYYYMMDD")) {
+                style = __assign({}, style, styles.active);
+            }
+            if (day.format("YYYYMMDD") === moment_1.default().format("YYYYMMDD")) {
+                style = __assign({}, style, styles.current);
+            }
+            if (day.format("MM") !== moment_1.default().format("MM")) {
+                style = __assign({}, style, styles.anotherMonth);
+            }
+            if (minValue && minValue > day) {
+                disabled = true;
+                style = __assign({}, style, styles.disabledDay);
+            }
+            if (maxValue && maxValue < day) {
+                disabled = true;
+                style = __assign({}, style, styles.disabledDay);
+            }
+            return style;
+        };
+        return (react_1.default.createElement(__1.Theme, null, function (styles) { return (react_1.default.createElement(__1.Flexbox, { justifyContent: "center", alignItems: "center", className: "ui-datepicker-monthgrid-day", onClick: function () {
                 if (!disabled)
                     onClick && onClick();
-            }, children: day.date(), style: style }));
+            }, children: day.date(), style: setStyles(styles.datePicker.day) })); }));
     };
     return MonthGridDay;
 }(react_1.default.Component));
-exports.default = (function (props) { return (react_1.default.createElement(__1.Theme, null, function (theme) { return (react_1.default.createElement(MonthGridDay, __assign({}, props, { theme: {
-        default: {
-            fontSize: 14,
-            borderRadius: theme.corner,
-            background: theme.interface.hex,
-            borderColor: theme.background.hex,
-            color: theme.text.hex,
-        },
-        active: {
-            borderColor: theme.highlight.hex,
-        },
-        current: {
-            background: theme.highlight.hex,
-            color: "#ffffff"
-        },
-        anotherMonth: {
-            background: theme.interface.rgba(0.3),
-        },
-        disabledDay: {
-            opacity: 0.3
-        }
-    } }))); })); });
+exports.default = MonthGridDay;

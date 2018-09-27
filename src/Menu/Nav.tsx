@@ -7,32 +7,24 @@ interface Props {
     children?: any
 }
 
-export interface ThemedProps {
-    theme
-}
-class MenuNav extends React.Component<Props & ThemedProps> {
+class MenuNav extends Component<Props> {
 
     render() {
-        const { active, onClick, theme } = this.props;
+        const { active, onClick } = this.props;
         return (
-            <div
-                className="ui-menu-nav"
-                onClick={onClick}
-                style={{
-                    color: active ? theme.textColorActive : theme.textColor
-                }}
-            >{this.props.children}{active && <span style={{ backgroundColor: theme.textColorActive }} />}</div>
+            <Theme>
+                {styles => (
+                    <div
+                        className="ui-menu-nav"
+                        onClick={onClick}
+                        style={{
+                            color: active ? styles.menu.nav.textColorActive : styles.menu.nav.textColor
+                        }}
+                    >{this.props.children}{active && <span style={{ backgroundColor: styles.menu.nav.textColorActive }} />}</div>
+                )}
+            </Theme>
         )
     }
 }
 
-export default (props: Props) => (
-    <Theme>
-        {theme => (
-            <MenuNav {...props} theme={{
-                textColor: theme.text.rgb,
-                textColorActive: theme.highlight.rgb,
-            }} />
-        )}
-    </Theme>
-);
+export default MenuNav;

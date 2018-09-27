@@ -1,3 +1,4 @@
+import React from 'react';
 interface Props {
     header?: any;
     search?: boolean;
@@ -11,8 +12,10 @@ interface Props {
     onSearchSubmit?: (value: string) => void;
     children?: any;
 }
-export interface ThemedProps {
-    theme: any;
+declare class Menu extends React.Component<Props> {
+    state: {
+        searchField: string;
+    };
+    render(): JSX.Element;
 }
-declare const _default: (props: Props) => JSX.Element;
-export default _default;
+export default Menu;

@@ -61,27 +61,12 @@ var Checkbox = /** @class */ (function (_super) {
     };
     Checkbox.prototype.render = function () {
         var _this = this;
-        var _a = this.props, label = _a.label, radio = _a.radio, style = _a.style, uppercase = _a.uppercase, theme = _a.theme;
-        var InputTSX = (react_1.default.createElement("div", { className: 'ui-checkbox-input', style: this.state.checked ? __assign({}, theme.checkboxInputActive) : __assign({}, theme.checkboxInput) }, this.state.checked ? (radio ? react_1.default.createElement("span", { className: 'ui-checkbox-circle', style: theme.checkboxCircle }) : react_1.default.createElement(Icon_1.Icon, { type: 'check' })) : null));
-        return (react_1.default.createElement("div", { className: 'ui-checkbox', onClick: function () { return _this.onChange(); }, style: __assign({}, style, theme.checkbox) },
-            InputTSX,
-            react_1.default.createElement("div", { className: 'ui-checkbox-label noselect' + (uppercase ? ' uppercase' : '') }, label)));
+        var _a = this.props, label = _a.label, radio = _a.radio, style = _a.style, uppercase = _a.uppercase;
+        var InputTSX = function (style) { return (react_1.default.createElement("div", { className: 'ui-checkbox-input', style: _this.state.checked ? __assign({}, style.inputActive(radio)) : __assign({}, style.input(radio)) }, _this.state.checked ? (radio ? react_1.default.createElement("span", { className: 'ui-checkbox-circle', style: style.circle }) : react_1.default.createElement(Icon_1.Icon, { type: 'check' })) : null)); };
+        return (react_1.default.createElement(Themes_1.default, null, function (styles) { return (react_1.default.createElement("div", { className: 'ui-checkbox', onClick: function () { return _this.onChange(); }, style: __assign({}, style, styles.checkbox.main) },
+            InputTSX(styles.checkbox),
+            react_1.default.createElement("div", { className: 'ui-checkbox-label noselect' + (uppercase ? ' uppercase' : '') }, label))); }));
     };
     return Checkbox;
 }(react_1.default.Component));
-exports.default = (function (props) { return (react_1.default.createElement(Themes_1.default, null, function (theme) { return (react_1.default.createElement(Checkbox, __assign({}, props, { theme: {
-        checkbox: {
-            color: theme.text.rgb
-        },
-        checkboxInput: {
-            borderColor: theme.text.rgb,
-            borderRadius: props.radio ? '15px' : theme.corner
-        },
-        checkboxInputActive: {
-            borderColor: theme.highlight.rgb,
-            borderRadius: props.radio ? '15px' : theme.corner
-        },
-        checkboxCircle: {
-            background: theme.text.rgb
-        }
-    } }))); })); });
+exports.default = Checkbox;

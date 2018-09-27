@@ -48,18 +48,13 @@ var Widget = /** @class */ (function (_super) {
         if (onClick) {
             classes += " ui-widget-clickable";
         }
-        return (react_1.default.createElement(index_1.Flexbox, { column: true, flex: 1, justifyContent: "center", className: classes, onClick: onClick, style: __assign({}, style, { background: this.props.theme.background, borderColor: this.props.theme.borderColor }) },
+        return (react_1.default.createElement(Themes_1.default, null, function (styles) { return (react_1.default.createElement(index_1.Flexbox, { column: true, flex: 1, justifyContent: "center", className: classes, onClick: onClick, style: __assign({}, style, { background: styles.widget.background, borderColor: styles.widget.borderColor }) },
             title ? (react_1.default.createElement("div", { className: "ui-widget-title" }, title)) : "",
             loading ? (react_1.default.createElement(index_1.Flexbox, { column: true, className: "ui-widget-loading", alignItems: "center", alignSelf: "center", justifyContent: "center" },
                 react_1.default.createElement(index_1.Spin, null,
-                    react_1.default.createElement(index_1.Icon, { type: "sync", style: { color: this.props.theme.highlight } })),
-                typeof loading === "string" && react_1.default.createElement("div", { className: "ui-widget-loadingtext", style: { color: this.props.theme.lowlight } }, "loading"))) : children));
+                    react_1.default.createElement(index_1.Icon, { type: "sync", style: { color: styles.widget.highlight } })),
+                typeof loading === "string" && react_1.default.createElement("div", { className: "ui-widget-loadingtext", style: { color: styles.widget.lowlight } }, "loading"))) : children)); }));
     };
     return Widget;
 }(react_1.Component));
-exports.default = (function (props) { return (react_1.default.createElement(Themes_1.default, null, function (theme) { return (react_1.default.createElement(Widget, __assign({}, props, { theme: {
-        background: theme.interface.rgb,
-        borderColor: "rgba(" + theme.pale.rgb + ", 1)",
-        lowlight: theme.lowlight.rgb,
-        highlight: theme.highlight.rgb
-    } }))); })); });
+exports.default = Widget;

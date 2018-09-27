@@ -6,7 +6,6 @@ interface ValidateObject {
     isMatch?: boolean;
 }
 interface Props {
-    theme?: any;
     label?: string;
     validate?: Array<ValidateObject>;
     defaultValue?: string;
@@ -27,8 +26,9 @@ interface Props {
     onBlur?: (event: any) => void;
     children?: any;
 }
-export interface ThemedProps {
-    theme: any;
+declare class TextField extends React.Component<Props> {
+    validate(value: string): boolean;
+    onChange(value: string): void;
+    render(): JSX.Element;
 }
-declare const _default: (props: Props) => JSX.Element;
-export default _default;
+export default TextField;

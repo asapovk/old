@@ -28,13 +28,12 @@ var Notifications = /** @class */ (function (_super) {
         return _this;
     }
     Notifications.prototype.pushNotification = function (options) {
-        var theme = __1.utils.getTheme();
         this.setState({
-            notifications: this.state.notifications.concat(react_1.default.createElement("div", { style: {
-                    color: theme.text.hex
+            notifications: this.state.notifications.concat(react_1.default.createElement(__1.Theme, null, function (styles) { return (react_1.default.createElement("div", { style: {
+                    color: styles.theme.text.hex
                 } },
                 react_1.default.createElement("div", null, options.title),
-                react_1.default.createElement("div", null, options.text)))
+                react_1.default.createElement("div", null, options.text))); }))
         });
     };
     Notifications.prototype.render = function () {

@@ -1,3 +1,4 @@
+import React from 'react';
 interface Props {
     row: {
         [dataIndex: string]: string;
@@ -12,8 +13,8 @@ interface Props {
     form?: any;
     children?: any;
 }
-export interface ThemedProps {
-    theme: any;
+declare class TableRow extends React.Component<Props> {
+    onClick(): void;
+    render(): JSX.Element;
 }
-declare const _default: (props: Props) => JSX.Element;
-export default _default;
+export default TableRow;

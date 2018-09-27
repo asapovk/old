@@ -1,16 +1,15 @@
-import { themeNames } from '../Themes';
+import { themeName } from '../Themes';
 import { Component } from 'react';
-interface ViewportProps extends themeNames {
+interface ViewportProps {
     children?: any;
     style?: any;
-    theme?: any;
+    theme?: themeName;
 }
 interface State {
     mountedActions: any[];
 }
 declare class Viewport extends Component<ViewportProps> {
     state: State;
-    componentDidMount(): void;
     /**
      * Добавляет компонент в viewport
      * возвращает индекс
@@ -26,7 +25,6 @@ declare class Viewport extends Component<ViewportProps> {
      * по индексу
      */
     getActionById(id: string): any;
-    readonly theme: any;
     render(): JSX.Element;
 }
 export default Viewport;

@@ -1,4 +1,3 @@
-import React from 'react';
 import $ from './StoryRender';
 import { storiesOf } from '@storybook/react';
 import '../src/scss/main.scss';

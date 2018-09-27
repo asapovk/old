@@ -1,5 +1,6 @@
 import React, { Component, ComponentElement } from 'react';
 import Theme from '../Themes';
+import Table from '../Themes/styles/Table';
 
 export interface PaginationProps {
     pageSize: number
@@ -12,13 +13,11 @@ interface Props {
     onChange: (page: number) => void
     children?: any
 }
-export interface ThemedProps {
-    theme
-}
-class TableCheckbox extends React.Component<Props & ThemedProps> {
+
+class TableCheckbox extends React.Component<Props> {
 
     render() {
-        const { data, pagination, page, theme } = this.props;
+        const { data, pagination, page } = this.props;
         const { pageSize } = pagination;
         const buttons = Math.ceil(data.length / pageSize);
 
@@ -30,17 +29,21 @@ class TableCheckbox extends React.Component<Props & ThemedProps> {
 
         for (let i = 0; i < buttons; i++) {
             buttonsComponents.push(
-                <div
-                    onClick={() => this.props.onChange(i + 1)}
-                    className={`ui-table-paggination-button`}
-                    style={{
-                        color: theme.textColor,
-                        backgroundColor: theme.backgroundColor,
-                        opacity: page === i + 1 ? 1 : 0.5
-                    }}
-                    key={i}
-                    children={`${i * pageSize}–${i * pageSize + pageSize}`}
-                />
+                <Theme>
+                    {styles => (
+                        <div
+                            onClick={() => this.props.onChange(i + 1)}
+                            className={`ui-table-paggination-button`}
+                            style={{
+                                color: styles.table.pagination.textColor,
+                                backgroundColor: styles.table.pagination.backgroundColor,
+                                opacity: page === i + 1 ? 1 : 0.5
+                            }}
+                            key={i}
+                            children={`${i * pageSize}–${i * pageSize + pageSize}`}
+                        />
+                    )}
+                </Theme>
             )
         }
 
@@ -52,13 +55,4 @@ class TableCheckbox extends React.Component<Props & ThemedProps> {
     }
 }
 
-export default (props: Props) => (
-    <Theme>
-        {theme => (
-            <TableCheckbox {...props} theme={{
-                textColor: theme.text.rgb,
-                backgroundColor: theme.interface.rgb,
-            }} />
-        )}
-    </Theme>
-);
+export default TableCheckbox;

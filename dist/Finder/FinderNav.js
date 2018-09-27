@@ -12,17 +12,6 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-var __assign = (this && this.__assign) || function () {
-    __assign = Object.assign || function(t) {
-        for (var s, i = 1, n = arguments.length; i < n; i++) {
-            s = arguments[i];
-            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-                t[p] = s[p];
-        }
-        return t;
-    };
-    return __assign.apply(this, arguments);
-};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
@@ -42,16 +31,14 @@ var FinderNav = /** @class */ (function (_super) {
     };
     FinderNav.prototype.render = function () {
         var _this = this;
-        var _a = this.props, label = _a.label, badge = _a.badge, active = _a.active, theme = _a.theme;
-        return (react_1.default.createElement(__1.Flexbox, { alignItems: "center", className: "ui-finder-nav" + (active ? " ui-finder-nav-active" : ""), onClick: function () { return _this.expand(); } },
+        var _a = this.props, label = _a.label, badge = _a.badge, active = _a.active;
+        return (react_1.default.createElement(Themes_1.default, null, function (styles) { return (react_1.default.createElement(__1.Flexbox, { alignItems: "center", className: "ui-finder-nav" + (active ? " ui-finder-nav-active" : ""), onClick: function () { return _this.expand(); } },
             react_1.default.createElement(__1.Flexbox, { className: 'ui-finder-nav-label', flex: 1, children: label }),
-            badge ? react_1.default.createElement(__1.Flexbox, { className: "ui-finder-nav-badge", style: { color: theme.badgeColor } }, badge) : null,
+            badge ? react_1.default.createElement(__1.Flexbox, { className: "ui-finder-nav-badge", style: { color: styles.finder.nav.badgeColor } }, badge) : null,
             react_1.default.createElement(__1.Flexbox, { className: 'ui-finder-nav-icon' },
-                react_1.default.createElement(__1.Icon, { type: 'right' }))));
+                react_1.default.createElement(__1.Icon, { type: 'right' })))); }));
     };
     FinderNav.componentName = "FinderNav";
     return FinderNav;
 }(react_1.default.Component));
-exports.default = (function (props) { return (react_1.default.createElement(Themes_1.default, null, function (theme) { return (react_1.default.createElement(FinderNav, __assign({}, props, { theme: {
-        badgeColor: theme.highlight.rgb
-    } }))); })); });
+exports.default = FinderNav;

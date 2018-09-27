@@ -10,34 +10,25 @@ export interface Props {
     children?: any
 }
 
-export interface ThemedProps {
-    theme
-}
-
 const TableActions = props => (
-    <div className='ui-table-content-body-row-actions'>
-        <Icon type='more' style={{ color: props.theme.actionColor }} />
-        <div className='ui-table-content-body-row-actions-buttons' style={{
-            // TODO: gradient opacity
-            background: `linear-gradient(90deg, ${props.theme.backgroundColor} 0%, ${props.theme.backgroundColor} 20%)`
-        }}>{
-                props.actions.map((action, index) => (
-                    <Button decoration='none' key={index} className={action.className} onClick={event => {
-                        event.stopPropagation();
-                        action.onAction(props.data);
-                    }}>{action.label}</Button>
-                ))
-            }</div>
-    </div>
-)
-
-export default (props: Props) => (
     <Theme>
-        {theme => (
-            <TableActions {...props} theme={{
-                backgroundColor: theme.interface.rgb,
-                actionColor: theme.highlight.rgb,
-            }} />
+        {styles => (
+            <div className='ui-table-content-body-row-actions'>
+                <Icon type='more' style={{ color: styles.table.actions.actionColor }} />
+                <div className='ui-table-content-body-row-actions-buttons' style={{
+                    // TODO: gradient opacity
+                    background: `linear-gradient(90deg, ${styles.table.actions.backgroundColor} 0%, ${styles.table.actions.backgroundColor} 20%)`
+                }}>{
+                        props.actions.map((action, index) => (
+                            <Button decoration='none' key={index} className={action.className} onClick={event => {
+                                event.stopPropagation();
+                                action.onAction(props.data);
+                            }}>{action.label}</Button>
+                        ))
+                    }</div>
+            </div>
         )}
     </Theme>
-);
+)
+
+export default TableActions;

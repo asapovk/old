@@ -1,3 +1,4 @@
+import React from 'react';
 interface Props {
     label?: string;
     radio?: boolean;
@@ -7,8 +8,16 @@ interface Props {
     defaultValue?: boolean;
     uppercase?: boolean;
 }
-export interface ThemedProps {
-    theme: any;
+interface Checkbox {
+    checked: boolean;
 }
-declare const _default: (props: Props) => JSX.Element;
-export default _default;
+declare class Checkbox extends React.Component<Props> {
+    state: {
+        checked: boolean;
+    };
+    componentWillMount(): void;
+    componentWillReceiveProps(nextProps: any): void;
+    onChange(): void;
+    render(): JSX.Element;
+}
+export default Checkbox;

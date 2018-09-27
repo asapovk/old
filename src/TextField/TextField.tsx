@@ -9,7 +9,6 @@ interface ValidateObject {
     isMatch?: boolean
 }
 interface Props {
-    theme?: any
     label?: string
     validate?: Array<ValidateObject>
     defaultValue?: string
@@ -28,13 +27,10 @@ interface Props {
     onClick?: (event: any) => void
     onFocus?: (event: any) => void
     onBlur?: (event: any) => void
-
     children?: any
 }
-export interface ThemedProps {
-    theme
-}
-class TextField extends React.Component<Props & ThemedProps> {
+
+class TextField extends React.Component<Props> {
 
     public validate(value: string): boolean {
         const errors: string[] = [];
@@ -66,58 +62,62 @@ class TextField extends React.Component<Props & ThemedProps> {
     }
 
     render() {
-        const { label, value, defaultValue, style, className, multiline, singlerow, disabled, type, theme } = this.props;
+        const { label, value, defaultValue, style, className, multiline, singlerow, disabled, type } = this.props;
 
         let classes = 'ui-textfield ';
         if (className) classes += className;
         if (disabled) classes += 'disabled';
 
-        let rightIcon: any = null;
-        let leftIcon: any = null;
-        if (this.props.rightIcon) {
-            rightIcon = (
-                <Flexbox style={{ width: 24, height: 34, fontSize: 34, paddingRight: 5, color: this.props.theme.iconColor }}>
-                    <Icon type={this.props.rightIcon} />
-                </Flexbox>
-            )
+        const rightIcon = (style) => {
+            if (this.props.rightIcon) {
+                return (
+                    <Flexbox style={{ width: 24, height: 34, fontSize: 34, paddingRight: 5, color: style.iconColor }}>
+                        <Icon type={this.props.rightIcon} />
+                    </Flexbox>
+                )
+            } else return null
         }
-        if (this.props.leftIcon) {
-            leftIcon = (
-                <Flexbox style={{ width: 24, height: 34, fontSize: 34, paddingLeft: 5, color: this.props.theme.iconColor }}>
-                    <Icon type={this.props.leftIcon} />
-                </Flexbox>
-            )
+
+        const leftIcon = (style) => {
+            if (this.props.leftIcon) {
+                return (
+                    <Flexbox style={{ width: 24, height: 34, fontSize: 34, paddingLeft: 5, color: style.iconColor }}>
+                        <Icon type={this.props.leftIcon} />
+                    </Flexbox>
+                )
+            } else return null
         }
-        const InputTSX = (
+
+        const InputTSX = (style) => (
             <Flexbox
                 onClick={this.props.onClick}
                 className={(this.props.decoration == 'none' ? '' : ' ui-textfield-input')} style={{
-                    borderColor: theme.borderColor,
-                    backgroundColor: theme.backgroundColor
+                    borderColor: style.borderColor,
+                    backgroundColor: style.backgroundColor
                 }}>
-                {leftIcon}
+                {leftIcon(style)}
                 <input
                     onFocus={this.props.onFocus}
                     onBlur={this.props.onBlur}
                     defaultValue={defaultValue}
                     style={{
-                        color: this.props.theme.textColor
+                        color: style.textColor
                     }}
                     value={value}
                     onChange={(event) => this.onChange(event.currentTarget.value)}
                     disabled={disabled}
                     type={type}
                 />
-                {rightIcon}
+                {rightIcon(style)}
             </Flexbox>
         )
 
-        const TextAreaTSX = (
+        const TextAreaTSX = (style) => (
             <Flexbox
                 onClick={this.props.onClick}
                 className={(this.props.decoration == 'none' ? '' : ' ui-textfield-textarea')} style={{
-                    borderColor: theme.borderColor,
-                    backgroundColor: theme.backgroundColor
+                    borderColor: style.borderColor,
+                    backgroundColor: style.backgroundColor
                 }}>
                 {leftIcon}
                 <textarea
@@ -125,7 +125,7 @@ class TextField extends React.Component<Props & ThemedProps> {
                     onBlur={this.props.onBlur}
                     defaultValue={defaultValue}
                     style={{
-                        color: this.props.theme.textColor
+                        color: style.textColor
                     }}
                     value={value}
                     onChange={(event) => this.onChange(event.currentTarget.value)}
@@ -141,24 +141,17 @@ class TextField extends React.Component<Props & ThemedProps> {
         )
 
         return (
-            <div className={classes} style={style}>
-                {label && <div style={{ color: theme.labelColor }} className='ui-textfield-label'>{label}</div>}
-                {multiline ? TextAreaTSX : InputTSX}
-            </div>
+            <Theme>
+                {styles => (
+                    <div className={classes} style={style}>
+                        {label && <div style={{ color: styles.textField.labelColor }} className='ui-textfield-label'>{label}</div>}
+                        {multiline ? TextAreaTSX(styles.textField) : InputTSX(styles.textField)}
+                    </div>
+                )}
+            </Theme>
+
         )
     }
 }
 
-export default (props: Props) => (
-    <Theme>
-        {theme => (
-            <TextField {...props} theme={{
-                textColor: theme.text.rgb,
-                backgroundColor: theme.interface.rgb,
-                borderColor: theme.pale.rgb,
-                labelColor: theme.lowlight.rgb,
-                iconColor: theme.lowlight.rgb,
-            }} />
-        )}
-    </Theme>
-);
+export default TextField;

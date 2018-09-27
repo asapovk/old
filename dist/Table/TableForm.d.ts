@@ -7,8 +7,5 @@ export interface TableFormProps {
     columns: any;
     formData: any;
 }
-export interface ThemedProps {
-    theme: any;
-}
 declare const _default: (Form: any, columns: any, row: any) => JSX.Element;
 export default _default;

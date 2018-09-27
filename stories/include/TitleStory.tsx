@@ -21,7 +21,6 @@ class TitleStory extends React.Component {
                 </Flexbox>
             </Fragment>
         )
-
     }
 }
 

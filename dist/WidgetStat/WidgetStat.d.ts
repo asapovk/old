@@ -1,3 +1,4 @@
+import { Component } from 'react';
 interface Props {
     loading?: boolean | string;
     className?: string;
@@ -11,8 +12,7 @@ interface Props {
     value1: string;
     value2: string;
 }
-export interface ThemedProps {
-    theme: any;
+declare class WidgetStat extends Component<Props> {
+    render(): JSX.Element;
 }
-declare const _default: (props: Props) => JSX.Element;
-export default _default;
+export default WidgetStat;

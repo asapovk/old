@@ -5,10 +5,8 @@ interface Props {
     style?: CSSProperties,
     children?: any
 }
-export interface ThemedProps {
-    theme
-}
-class Spin extends Component<Props & ThemedProps> {
+
+class Spin extends Component<Props> {
     render() {
         let className = "ui-spin";
 
@@ -18,12 +16,4 @@ class Spin extends Component<Props & ThemedProps> {
     }
 }
 
-export default (props: Props) => (
-    <Theme>
-        {theme => (
-            <Spin {...props} theme={{
-
-            }} />
-        )}
-    </Theme>
-);
+export default Spin;

@@ -7,10 +7,8 @@ interface Props {
     scope?
     children?: any
 }
-export interface ThemedProps {
-    theme
-}
-class TableColumns extends React.Component<Props & ThemedProps> {
+
+class TableColumns extends React.Component<Props> {
 
     render() {
         const { row, columns, scope } = this.props;
@@ -33,12 +31,4 @@ class TableColumns extends React.Component<Props & ThemedProps> {
     }
 }
 
-export default (props: Props) => (
-    <Theme>
-        {theme => (
-            <TableColumns {...props} theme={{
-
-            }} />
-        )}
-    </Theme>
-);
+export default TableColumns;

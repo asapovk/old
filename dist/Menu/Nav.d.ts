@@ -1,10 +1,10 @@
+import { Component } from 'react';
 interface Props {
     active?: boolean;
     onClick?: () => void;
     children?: any;
 }
-export interface ThemedProps {
-    theme: any;
+declare class MenuNav extends Component<Props> {
+    render(): JSX.Element;
 }
-declare const _default: (props: Props) => JSX.Element;
-export default _default;
+export default MenuNav;

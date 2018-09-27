@@ -1,4 +1,4 @@
-import { CSSProperties } from 'react';
+import React, { CSSProperties } from 'react';
 interface Props {
     loading?: boolean;
     center?: boolean;
@@ -7,8 +7,7 @@ interface Props {
     subtitle?: string;
     wrapperReference?: any;
 }
-export interface ThemedProps {
-    theme: any;
+declare class ModalView extends React.Component<Props> {
+    render(): JSX.Element;
 }
-declare const _default: (props: Props) => JSX.Element;
-export default _default;
+export default ModalView;

@@ -15,10 +15,7 @@ interface Props {
     onChange?: (date: Moment | string) => void
 }
 
-export interface ThemedProps {
-    theme
-}
-class DatePicker extends React.Component<Props & ThemedProps> {
+class DatePicker extends React.Component<Props> {
 
     state = {
         active: false,
@@ -48,53 +45,49 @@ class DatePicker extends React.Component<Props & ThemedProps> {
     }
     render() {
         return (
-            <Flexbox column style={{ lineHeight: 1 }}>
-                <div style={{
-                    color: this.props.theme.labelColor, fontSize: 12,
-                    marginBottom: 5,
-                    textTransform: 'uppercase',
-                }}>
-                    {this.props.label}
-                </div>
-                <TextField
-                    value={this.state.value.format(this.state.format || "DD • MMMM • YYYY")}
-                    onClick={() => this.setState({ active: !this.state.active })}
-                    // onChange={value => {
-                    //     if (moment(value).isValid()) {
-                    //         this.setState({ value });
-                    //     }
-                    // }}
-                    rightIcon="calendar"
-                />
-                {this.state.active &&
-                    <MonthGrid
-                        active={this.state.active}
-                        value={this.state.value}
-                        minValue={this.props.minValue}
-                        maxValue={this.props.maxValue}
-                        onChange={value => {
-                            this.setState({ value, active: false });
-                            if (this.props.onChange) {
-                                if (this.state.format) {
-                                    this.props.onChange(value.format(this.state.format));
-                                } else {
-                                    this.props.onChange(value);
-                                }
-                            }
-                        }}
-                    />
-                }
-            </Flexbox>
+            <Theme>
+                {styles => (
+                    <Flexbox column style={{ lineHeight: 1 }}>
+                        <div style={{
+                            color: styles.datePicker.main.labelColor, fontSize: 12,
+                            marginBottom: 5,
+                            textTransform: 'uppercase',
+                        }}>
+                            {this.props.label}
+                        </div>
+                        <TextField
+                            value={this.state.value.format(this.state.format || "DD • MMMM • YYYY")}
+                            onClick={() => this.setState({ active: !this.state.active })}
+                            // onChange={value => {
+                            //     if (moment(value).isValid()) {
+                            //         this.setState({ value });
+                            //     }
+                            // }}
+                            rightIcon="calendar"
+                        />
+                        {this.state.active &&
+                            <MonthGrid
+                                active={this.state.active}
+                                value={this.state.value}
+                                minValue={this.props.minValue}
+                                maxValue={this.props.maxValue}
+                                onChange={value => {
+                                    this.setState({ value, active: false });
+                                    if (this.props.onChange) {
+                                        if (this.state.format) {
+                                            this.props.onChange(value.format(this.state.format));
+                                        } else {
+                                            this.props.onChange(value);
+                                        }
+                                    }
+                                }}
+                            />
+                        }
+                    </Flexbox>
+                )}
+            </Theme>
         )
     }
 }
 
-export default (props: Props) => (
-    <Theme>
-        {theme => (
-            <DatePicker {...props} theme={{
-                labelColor: theme.lowlight.rgb
-            }} />
-        )}
-    </Theme>
-);
+export default DatePicker;

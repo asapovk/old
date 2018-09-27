@@ -3,8 +3,5 @@ export interface Props {
     data: any;
     children?: any;
 }
-export interface ThemedProps {
-    theme: any;
-}
-declare const _default: (props: Props) => JSX.Element;
-export default _default;
+declare const TableActions: (props: any) => JSX.Element;
+export default TableActions;

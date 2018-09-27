@@ -1,11 +1,13 @@
+import React from 'react';
 interface Props {
     placeholder?: string;
     clearable?: boolean;
     onChange: (value: any, level: any) => void;
     level: number;
 }
-export interface ThemedProps {
-    theme: any;
+declare class FinderFilter extends React.Component<Props> {
+    input: HTMLInputElement;
+    onChange(event: any): void;
+    render(): JSX.Element;
 }
-declare const _default: (props: Props) => JSX.Element;
-export default _default;
+export default FinderFilter;

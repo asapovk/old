@@ -1,25 +1,22 @@
-
-import { ThemeContext, themes, themeNames } from '../Themes';
+import { ThemeContext, createStyles, themeName } from '../Themes';
 import React, { Component, Fragment } from 'react';
 
-interface ViewportProps extends themeNames {
+interface ViewportProps {
     children?: any
     style?: any
-    theme?
+    theme?: themeName
 }
+
 interface State {
     mountedActions: any[]
 }
+
 class Viewport extends Component<ViewportProps> {
 
     state: State = {
         mountedActions: []
     }
 
-    componentDidMount() {
-        //@ts-ignore
-        document.__uiviewport = this;
-    }
     /**
      * Добавляет компонент в viewport
      * возвращает индекс
@@ -31,6 +28,7 @@ class Viewport extends Component<ViewportProps> {
         });
         return index;
     }
+
     /**
      * Удаляет компонент из viewport
      * по индексу
@@ -42,6 +40,7 @@ class Viewport extends Component<ViewportProps> {
             });
         }
     }
+
     /**
      * Удаляет компонент из viewport
      * по индексу
@@ -50,14 +49,12 @@ class Viewport extends Component<ViewportProps> {
         return this.state.mountedActions.find(action => action.id === id) || null;
     }
 
-    public get theme() {
-        return themes[this.props.theme ? this.props.theme : 'blackCurrant']
-    }
-
     render() {
+        const uiStyles = createStyles(this.props.theme);
+        console.log(uiStyles);
         return (
-            <ThemeContext.Provider value={this.theme}>
-                <div data-viewport className='ui-view' id='0cd82567-7684-4147-ab02-dd3c56332364' style={{ ...this.props.style, ...{ background: this.theme.background.rgb, color: this.theme.text.rgb } }}>
+            <ThemeContext.Provider value={uiStyles}>
+                <div data-viewport className='ui-view' id='0cd82567-7684-4147-ab02-dd3c56332364' style={{ ...this.props.style, ...uiStyles.viewport.main }}>
                     {this.props.children}
                     {this.state.mountedActions.map((action, index) => {
                         return <Fragment key={index}>{action.component}</Fragment>

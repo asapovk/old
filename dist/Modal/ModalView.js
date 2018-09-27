@@ -36,19 +36,14 @@ var ModalView = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     ModalView.prototype.render = function () {
-        return (react_1.default.createElement(Flexbox_1.Flexbox, { flexDirection: "column", alignItems: "center", justifyContent: "center", style: { height: this.props.center ? "100%" : "auto" } },
-            react_1.default.createElement("div", { className: this.props.loading ? "loading" : "", style: __assign({ color: this.props.theme.textColor, background: this.props.theme.background, borderColor: this.props.theme.borderColor }, this.props.style), ref: this.props.wrapperReference },
-                this.props.title ? (react_1.default.createElement("div", { className: "ui-modal-title", style: { color: this.props.theme.titleColor } },
-                    this.props.title,
-                    this.props.subtitle ? react_1.default.createElement("span", { style: { color: this.props.theme.subtitleColor } }, this.props.subtitle) : null)) : null,
-                this.props.children)));
+        var _this = this;
+        return (react_1.default.createElement(Themes_1.default, null, function (styles) { return (react_1.default.createElement(Flexbox_1.Flexbox, { flexDirection: "column", alignItems: "center", justifyContent: "center", style: { height: _this.props.center ? "100%" : "auto" } },
+            react_1.default.createElement("div", { className: _this.props.loading ? "loading" : "", style: __assign({ color: styles.modal.view.textColor, background: styles.modal.view.background, borderColor: styles.modal.view.borderColor }, _this.props.style), ref: _this.props.wrapperReference },
+                _this.props.title ? (react_1.default.createElement("div", { className: "ui-modal-title", style: { color: styles.modal.view.titleColor } },
+                    _this.props.title,
+                    _this.props.subtitle ? react_1.default.createElement("span", { style: { color: styles.modal.view.subtitleColor } }, _this.props.subtitle) : null)) : null,
+                _this.props.children))); }));
     };
     return ModalView;
 }(react_1.default.Component));
-exports.default = (function (props) { return (react_1.default.createElement(Themes_1.default, null, function (theme) { return (react_1.default.createElement(ModalView, __assign({}, props, { theme: {
-        textColor: theme.text.rgb,
-        titleColor: theme.text.rgb,
-        subtitleColor: theme.lowlight.rgb,
-        borderColor: theme.pale.rgb,
-        background: theme.interface.rgb
-    } }))); })); });
+exports.default = ModalView;

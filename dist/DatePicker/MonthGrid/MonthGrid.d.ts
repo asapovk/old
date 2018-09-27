@@ -1,5 +1,5 @@
-import { CSSProperties } from 'react';
-import { Moment } from 'moment';
+import React, { CSSProperties } from 'react';
+import moment, { Moment } from 'moment';
 interface Props {
     value: Moment;
     minValue?: Moment;
@@ -8,8 +8,19 @@ interface Props {
     active?: boolean;
     onChange?: (date: Moment) => void;
 }
-export interface ThemedProps {
-    theme: any;
+interface MonthGrid {
+    state: {
+        date: Moment;
+        active: Moment;
+    };
 }
-declare const _default: (props: Props) => JSX.Element;
-export default _default;
+declare class MonthGrid extends React.Component<Props> {
+    state: {
+        date: moment.Moment;
+        active: moment.Moment;
+    };
+    componentWillMount(): void;
+    getMonthGrid(): moment.Moment[][];
+    render(): JSX.Element;
+}
+export default MonthGrid;

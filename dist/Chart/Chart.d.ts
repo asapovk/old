@@ -1,3 +1,4 @@
+import React from 'react';
 interface DataSet {
     title: string;
     values: number[];
@@ -22,8 +23,7 @@ export interface Props {
     onAnimationProgress?: () => void;
     type?: "default" | "miniProc";
 }
-export interface ThemedProps {
-    theme: any;
+declare class Chart extends React.Component<Props> {
+    render(): JSX.Element;
 }
-declare const _default: (props: Props) => JSX.Element;
-export default _default;
+export default Chart;

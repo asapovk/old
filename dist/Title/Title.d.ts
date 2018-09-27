@@ -1,3 +1,4 @@
+import { Component } from 'react';
 interface Props {
     style?: any;
     children?: any;
@@ -7,8 +8,12 @@ interface Props {
     offLabel?: string;
     onChange?: (state: boolean) => void;
 }
-export interface ThemedProps {
-    theme: any;
+declare class Title extends Component<Props> {
+    state: {
+        on: boolean;
+    };
+    onChange(on: any): void;
+    componentWillMount(): void;
+    render(): JSX.Element;
 }
-declare const _default: (props: Props) => JSX.Element;
-export default _default;
+export default Title;
