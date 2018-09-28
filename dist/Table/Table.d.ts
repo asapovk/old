@@ -24,7 +24,7 @@ export interface Props {
     pagination?: PaginationProps;
     noDataLabel?: string;
     children?: any;
-    onRowClick?: (row: any) => void;
+    onRowClick?: (row: any) => any;
 }
 declare class Table extends React.Component<Props> {
     state: {

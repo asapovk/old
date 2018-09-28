@@ -77,7 +77,7 @@ var Table = /** @class */ (function (_super) {
     };
     Table.defaultProps = {
         noDataLabel: 'Нет данных',
-        onRowClick: function () { console.log(2); }
+        onRowClick: function () { }
     };
     return Table;
 }(react_1.default.Component));

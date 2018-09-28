@@ -15,7 +15,7 @@ interface Props {
     onRowClick?: any;
 }
 declare class TableRow extends React.Component<Props> {
-    onClick(event: any): void;
+    onClick(e: any, row: any): void;
     render(): JSX.Element;
 }
 export default TableRow;
