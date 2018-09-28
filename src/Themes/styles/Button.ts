@@ -29,7 +29,7 @@ export default (theme) => {
                 background: background,
                 boxShadow: '0px 2px 4px 0px ' + theme.shadow.rgb,
                 borderRadius: theme.corner,
-                color: theme.text.rgb,
+                color: decoration ? theme.textOnAccent.rgb : theme.text.rgb,
                 border: !decoration && '0.5px solid ' + theme.pale.rgb,
             }
         }

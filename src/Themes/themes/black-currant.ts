@@ -14,6 +14,7 @@ export default {
     pale: getColors(80, 60, 70),
     lowlight: getColors(175, 162, 182),
     text: getColors(233, 233, 233),
+    textOnAccent: getColors(233, 233, 233),
     highlight: getColors(216, 15, 105),
     accents: accentColors,
     shadow: getColors(19, 20, 25),

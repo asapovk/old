@@ -13,6 +13,7 @@ exports.default = {
     pale: utilities_1.getColors(80, 60, 70),
     lowlight: utilities_1.getColors(175, 162, 182),
     text: utilities_1.getColors(233, 233, 233),
+    textOnAccent: utilities_1.getColors(233, 233, 233),
     highlight: utilities_1.getColors(216, 15, 105),
     accents: accentColors,
     shadow: utilities_1.getColors(19, 20, 25),
