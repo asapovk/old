@@ -29,7 +29,7 @@ export interface Props {
     pagination?: PaginationProps
     noDataLabel?: string;
     children?: any
-    onRowClick?: (row) => void
+    onRowClick?: (row) => any
 }
 
 class Table extends React.Component<Props> {
@@ -45,7 +45,7 @@ class Table extends React.Component<Props> {
 
     static defaultProps = {
         noDataLabel: 'Нет данных',
-        onRowClick: () => { console.log(2) }
+        onRowClick: () => { }
     }
 
     render() {
