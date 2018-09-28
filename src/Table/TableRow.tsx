@@ -17,12 +17,14 @@ interface Props {
     scope?
     form?
     children?: any
+    onRowClick?: any
 }
 
 class TableRow extends React.Component<Props> {
 
-    onClick() {
-
+    onClick(event) {
+        event.stopPropagation();
+        this.props.onRowClick();
     }
 
     render() {
@@ -40,7 +42,7 @@ class TableRow extends React.Component<Props> {
                         style={{
                             borderColor: styles.table.row.borderColor
                         }}
-                        onClick={(event) => this.onClick()}>
+                        onClick={(event) => this.onClick(event)}>
                         {/* {this.state.onSelect && (
                 <TableCheckbox active={this.props.isSelected} />
                 )} */}
