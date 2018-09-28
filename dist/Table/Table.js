@@ -35,7 +35,7 @@ var Table = /** @class */ (function (_super) {
     }
     Table.prototype.render = function () {
         var _this = this;
-        var _a = this.props, columns = _a.columns, actions = _a.actions, border = _a.border, indexKey = _a.indexKey, scope = _a.scope, form = _a.form, style = _a.style, pagination = _a.pagination, noDataLabel = _a.noDataLabel;
+        var _a = this.props, columns = _a.columns, actions = _a.actions, border = _a.border, indexKey = _a.indexKey, scope = _a.scope, form = _a.form, style = _a.style, pagination = _a.pagination, noDataLabel = _a.noDataLabel, onRowClick = _a.onRowClick;
         var data = this.props.data;
         var isData = (data && Array.isArray(data) && data.length > 0);
         var noDataLabelTSX = (react_1.default.createElement(Flexbox_1.Flexbox, { alignItems: 'center', justifyContent: 'center' }, noDataLabel));
@@ -59,7 +59,7 @@ var Table = /** @class */ (function (_super) {
         };
         var RowsTSX = isData && data.map(function (row, index) {
             var key = indexKey && row[indexKey] || index.toString();
-            return (react_1.default.createElement(TableRow_1.default, { key: key, row: row, columns: columns, actions: actions, border: border, form: (form && form.key && key == form.key) && form.render, isSelected: (_this.state.selectedItems.some(function (item) { return item === key; })), isExpanding: (_this.state.expandedItems.some(function (item) { return item === key; })), isBlur: ((form && form.key && key != form.key) || isAddForm), scope: scope }));
+            return (react_1.default.createElement(TableRow_1.default, { key: key, row: row, columns: columns, actions: actions, border: border, form: (form && form.key && key == form.key) && form.render, isSelected: (_this.state.selectedItems.some(function (item) { return item === key; })), isExpanding: (_this.state.expandedItems.some(function (item) { return item === key; })), isBlur: ((form && form.key && key != form.key) || isAddForm), scope: scope, onRowClick: onRowClick }));
         });
         var addFormTSX = typeof form != 'undefined' && typeof form.key === 'undefined' && TableForm_1.default(form.render, columns, {});
         return (react_1.default.createElement(Themes_1.default, null, function (styles) { return (react_1.default.createElement("div", { className: 'ui-table', ref: function (ref) { return _this.table = ref; }, style: style },
@@ -76,7 +76,8 @@ var Table = /** @class */ (function (_super) {
             pagination && data && (react_1.default.createElement(TablePagination_1.default, { pagination: pagination, page: _this.state.page, data: _this.props.data, onChange: function (page) { return _this.setState({ page: page }); } })))); }));
     };
     Table.defaultProps = {
-        noDataLabel: 'Нет данных'
+        noDataLabel: 'Нет данных',
+        onRowClick: function () { console.log(2); }
     };
     return Table;
 }(react_1.default.Component));

@@ -12,9 +12,10 @@ interface Props {
     scope?: any;
     form?: any;
     children?: any;
+    onRowClick?: any;
 }
 declare class TableRow extends React.Component<Props> {
-    onClick(): void;
+    onClick(event: any): void;
     render(): JSX.Element;
 }
 export default TableRow;
