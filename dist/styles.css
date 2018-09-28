@@ -355,7 +355,7 @@ table {
   line-height: 20px;
 }
 .ui-button:active {
-  box-shadow: none;
+  box-shadow: none !important;
 }
 .ui-button.loading > span:first-child {
   filter: blur(1px);

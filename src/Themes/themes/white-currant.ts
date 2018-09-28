@@ -17,6 +17,6 @@ export default {
     textOnAccent: getColors(233, 233, 233),
     highlight: getColors(127, 8, 191),
     accents: accentColors,
-    shadow: getColors(180, 180, 180),
-    corner: '2px',
+    shadow: getColors(200, 200, 200),
+    corner: '4px',
 } as ThemeInterface

@@ -18,5 +18,5 @@ export default {
     highlight: getColors(216, 15, 105),
     accents: accentColors,
     shadow: getColors(19, 20, 25),
-    corner: '2px',
+    corner: '4px',
 } as ThemeInterface

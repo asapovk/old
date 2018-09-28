@@ -7,34 +7,34 @@ export default class Story extends React.Component {
             <Flexbox justifyContent="space-between" p={40} mt={-40}>
                 <Flexbox flexDirection='column'>
                     <Title>Normal</Title>
-                    <Flexbox pb={10} pt={20}>
+                    <Flexbox pb={20} pt={20}>
                         <Button>Simple button</Button>
                     </Flexbox>
-                    <Flexbox pb={10}>
+                    <Flexbox pb={20}>
                         <Button decoration='highlight'>Highligt button</Button>
                     </Flexbox>
                 </Flexbox>
                 <Flexbox flexDirection='column'>
                     <Title>Accents</Title>
-                    <Flexbox pb={10} pt={20}>
+                    <Flexbox pb={20} pt={20}>
                         <Button decoration='red'>Accent red button</Button>
                     </Flexbox>
-                    <Flexbox pb={10}>
+                    <Flexbox pb={20}>
                         <Button decoration='green'>Accent green button</Button>
                     </Flexbox>
-                    <Flexbox pb={10}>
+                    <Flexbox pb={20}>
                         <Button decoration='blue'>Accent blue button</Button>
                     </Flexbox>
-                    <Flexbox pb={10}>
+                    <Flexbox pb={20}>
                         <Button decoration='orange'>Accent orange button</Button>
                     </Flexbox>
                 </Flexbox>
                 <Flexbox flexDirection='column'>
                     <Title>Modified</Title>
-                    <Flexbox pb={10} pt={20}>
+                    <Flexbox pb={20} pt={20}>
                         <Button decoration="none">Without decoration button</Button>
                     </Flexbox>
-                    <Flexbox pb={10}>
+                    <Flexbox pb={20}>
                         <Button loading>Loading button</Button>
                     </Flexbox>
                 </Flexbox>

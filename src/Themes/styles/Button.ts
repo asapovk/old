@@ -27,7 +27,7 @@ export default (theme) => {
                 }
             else return {
                 background: background,
-                boxShadow: '0px 2px 4px 0px ' + theme.shadow.rgb,
+                boxShadow: '0px 2px 6px 0px ' + theme.shadow.rgb,
                 borderRadius: theme.corner,
                 color: decoration ? theme.textOnAccent.rgb : theme.text.rgb,
                 border: !decoration && '0.5px solid ' + theme.pale.rgb,

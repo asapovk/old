@@ -16,6 +16,6 @@ exports.default = {
     textOnAccent: utilities_1.getColors(233, 233, 233),
     highlight: utilities_1.getColors(127, 8, 191),
     accents: accentColors,
-    shadow: utilities_1.getColors(180, 180, 180),
-    corner: '2px',
+    shadow: utilities_1.getColors(200, 200, 200),
+    corner: '4px',
 };
