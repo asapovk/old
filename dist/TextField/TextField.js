@@ -107,7 +107,7 @@ var TextField = /** @class */ (function (_super) {
         return (react_1.default.createElement(Themes_1.default, null, function (styles) { return (react_1.default.createElement("div", { className: classes, style: style },
             label && react_1.default.createElement("div", { style: { color: styles.textField.labelColor }, className: 'ui-textfield-label' }, label),
             multiline ? TextAreaTSX(styles.textField) : InputTSX(styles.textField),
-            hint && (react_1.default.createElement(__1.Flexbox, { flex: 1, alignItems: 'center', style: { color: styles.textField.labelColor }, className: 'ui-textfield-hint' },
+            hint && (react_1.default.createElement(__1.Flexbox, { alignItems: 'center', style: { color: styles.textField.labelColor }, className: 'ui-textfield-hint' },
                 hintIcon && hintIcon(styles),
                 react_1.default.createElement("div", null, hint))))); }));
     };
