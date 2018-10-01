@@ -24,7 +24,8 @@ interface Props {
     onClick?: (event: any) => void;
     onFocus?: (event: any) => void;
     onBlur?: (event: any) => void;
-    children?: any;
+    hintIcon?: IconType;
+    hint?: string;
 }
 declare class TextField extends React.Component<Props> {
     validate(value: string): boolean;
