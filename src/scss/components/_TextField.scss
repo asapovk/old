@@ -9,19 +9,22 @@
         text-transform: uppercase;
     }
     &-hint {
-        font-size: 12px;
+        @extend %label;
         text-transform: none;
-        margin-top: 5px;
+        margin-top: 8px;
+        > svg {
+            font-size: 16px;
+            line-height: 16px;
+            padding-right: 4px;
+        }
     }
-    &-input {
+    &-input, &-textarea {
         border: 0.5px solid;
-    }
-    &-textarea {
-        height: 100%;
-        border: 0.5px solid;
+        padding-bottom: 1px;
     }
     > div > input, 
     > div > textarea {
+        @extend %text;
         appearance: none;
         box-sizing: border-box;
         resize: none;
@@ -31,7 +34,8 @@
         outline: none;
         position: relative;
         color: inherit;
-        font-size: inherit;
         width: 100%;
+        font-family: inherit;
+        font-size: inherit;
     }
 }

@@ -1,34 +1,43 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import Theme from '../Themes';
 import { Flexbox } from '../';
 import { default as Icon, IconType } from '../Icon/Icon';
+import Input from './Input';
+import TextArea from './TextArea';
 
 interface ValidateObject {
     error?: string
     regex: RegExp
     isMatch?: boolean
 }
-interface Props {
-    label?: string
-    validate?: Array<ValidateObject>
-    defaultValue?: string
-    value?: string
-    style?: React.CSSProperties
-    className?: any
-    multiline?: boolean
-    singlerow?: boolean
+
+export interface InputProps {
     decoration?: 'none'
     disabled?: boolean
     type?: 'password' | 'number'
-    rightIcon?: IconType
-    leftIcon?: IconType
     onError?: (error: string[] | null) => void
     onChange?: (value: string) => void
     onClick?: (event: any) => void
     onFocus?: (event: any) => void
     onBlur?: (event: any) => void
+    defaultValue?: string
+    value?: string
+    placeholder?: string;
+}
+
+export interface TextAreaProps extends InputProps {
+    singlerow?: boolean
+}
+
+interface Props extends TextAreaProps {
+    label?: string
+    validate?: Array<ValidateObject>
+    multiline?: boolean
     hintIcon?: IconType
     hint?: string
+    style?: React.CSSProperties
+    rightIcon?: IconType
+    leftIcon?: IconType
 }
 
 class TextField extends React.Component<Props> {
@@ -54,7 +63,7 @@ class TextField extends React.Component<Props> {
         return (errors.length === 0);
     }
 
-    public onChange(value: string) {
+    public onChange = (value: string) => {
         if (typeof this.props.validate != 'undefined') {
             if (this.validate(value)) {
                 this.props.onChange && this.props.onChange(value);
@@ -63,91 +72,21 @@ class TextField extends React.Component<Props> {
     }
 
     render() {
-        const { label, value, defaultValue, style, className, multiline, singlerow, disabled, type, hint } = this.props;
+        const { label, value, defaultValue, style, multiline, singlerow, disabled, type, hint, onClick, onFocus, onBlur, placeholder, leftIcon, rightIcon, hintIcon } = this.props;
 
         let classes = 'ui-textfield ';
-        if (className) classes += className;
         if (disabled) classes += 'disabled';
 
-        const hintIcon = (style) => {
-            if (!this.props.hintIcon) return null;
-
-            return (
-                <Flexbox style={{ width: 24, height: 34, fontSize: 34, paddingRight: 5, color: style.iconColor }}>
-                    <Icon type={this.props.hintIcon} />
-                </Flexbox>
-            );
-        }
-
-        const rightIcon = (style) => {
-            if (!this.props.rightIcon) return null;
-
-            return (
-                <Flexbox style={{ width: 24, height: 34, fontSize: 34, paddingRight: 5, color: style.iconColor }}>
-                    <Icon type={this.props.rightIcon} />
-                </Flexbox>
-            );
-        }
-
-        const leftIcon = (style) => {
-            if (!this.props.leftIcon) return null;
-
-            return (
-                <Flexbox style={{ width: 24, height: 34, fontSize: 34, paddingLeft: 5, color: style.iconColor }}>
-                    <Icon type={this.props.leftIcon} />
-                </Flexbox>
-            )
-        }
-
-        const InputTSX = (style) => (
+        const IconTSX = (type: IconType, position: 'left' | 'right', color) => (
             <Flexbox
-                onClick={this.props.onClick}
-                className={(this.props.decoration == 'none' ? '' : ' ui-textfield-input')} style={{
-                    borderColor: style.borderColor,
-                    backgroundColor: style.backgroundColor
-                }}>
-                {leftIcon(style)}
-                <input
-                    onFocus={this.props.onFocus}
-                    onBlur={this.props.onBlur}
-                    defaultValue={defaultValue}
-                    style={{
-                        color: style.textColor
-                    }}
-                    value={value}
-                    onChange={(event) => this.onChange(event.currentTarget.value)}
-                    disabled={disabled}
-                    type={type}
-                />
-                {rightIcon(style)}
-            </Flexbox>
-        )
-
-        const TextAreaTSX = (style) => (
-            <Flexbox
-                onClick={this.props.onClick}
-                className={(this.props.decoration == 'none' ? '' : ' ui-textfield-textarea')} style={{
-                    borderColor: style.borderColor,
-                    backgroundColor: style.backgroundColor
-                }}>
-                {leftIcon}
-                <textarea
-                    onFocus={this.props.onFocus}
-                    onBlur={this.props.onBlur}
-                    defaultValue={defaultValue}
-                    style={{
-                        color: style.textColor
-                    }}
-                    value={value}
-                    onChange={(event) => this.onChange(event.currentTarget.value)}
-                    onKeyDown={(event) => {
-                        if (singlerow && event.keyCode === 13) {
-                            event.preventDefault();
-                        }
-                    }}
-                    disabled={disabled}
-                />
-                {rightIcon}
+                alignItems='center'
+                style={{
+                    fontSize: 20,
+                    padding: position === 'right' ? '0px 8px 0px 0px' : '0px 0px 0px 8px',
+                    color: color
+                }}
+            >
+                <Icon type={type} />
             </Flexbox>
         )
 
@@ -155,12 +94,51 @@ class TextField extends React.Component<Props> {
             <Theme>
                 {styles => (
                     <div className={classes} style={style}>
-                        {label && <div style={{ color: styles.textField.labelColor }} className='ui-textfield-label'>{label}</div>}
-                        {multiline ? TextAreaTSX(styles.textField) : InputTSX(styles.textField)}
+                        {label && (
+                            <div
+                                style={styles.textField.label}
+                                className='ui-textfield-label'
+                                children={label}
+                            />
+                        )}
+
+                        {multiline
+                            ? (
+                                <TextArea
+                                    onChange={this.onChange}
+                                    onClick={onClick}
+                                    onFocus={onFocus}
+                                    onBlur={onBlur}
+                                    style={styles.textField.singleline}
+                                    value={value}
+                                    defaultValue={defaultValue}
+                                    placeholder={placeholder}
+                                    singlerow={singlerow}
+                                />
+                            )
+                            : (
+                                <Input
+                                    onChange={this.onChange}
+                                    onClick={onClick}
+                                    onFocus={onFocus}
+                                    onBlur={onBlur}
+                                    style={styles.textField.singleline}
+                                    value={value}
+                                    defaultValue={defaultValue}
+                                    type={type}
+                                    placeholder={placeholder}
+                                    leftIcon={leftIcon && IconTSX(leftIcon, 'left', styles.theme.lowlight.rgb)}
+                                    rightIcon={rightIcon && IconTSX(rightIcon, 'right', styles.theme.lowlight.rgb)}
+                                />
+                            )
+                        }
+
                         {hint && (
-                            <Flexbox alignItems='center' style={{ color: styles.textField.labelColor }} className='ui-textfield-hint'>
-                                {hintIcon && hintIcon(styles)}
-                                {hint}
+                            <Flexbox alignItems='flex-start' style={styles.textField.hint} className='ui-textfield-hint'>
+                                {hintIcon && (
+                                    <Icon type={hintIcon} />
+                                )}
+                                <span>{hint}</span>
                             </Flexbox>
                         )}
                     </div>
