@@ -8,6 +8,11 @@
         margin-bottom: 4px;
         text-transform: uppercase;
     }
+    &-hint {
+        font-size: 12px;
+        text-transform: none;
+        margin-top: 5px;
+    }
     &-input {
         border: 0.5px solid;
     }

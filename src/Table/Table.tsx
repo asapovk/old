@@ -29,6 +29,7 @@ export interface Props {
     pagination?: PaginationProps
     noDataLabel?: string;
     children?: any
+    onRowClick?: (row) => any
 }
 
 class Table extends React.Component<Props> {
@@ -43,12 +44,13 @@ class Table extends React.Component<Props> {
     table: HTMLDivElement | null
 
     static defaultProps = {
-        noDataLabel: 'Нет данных'
+        noDataLabel: 'Нет данных',
+        onRowClick: () => { }
     }
 
     render() {
 
-        const { columns, actions, border, indexKey, scope, form, style, pagination, noDataLabel } = this.props;
+        const { columns, actions, border, indexKey, scope, form, style, pagination, noDataLabel, onRowClick } = this.props;
 
         let { data } = this.props;
 
@@ -93,6 +95,7 @@ class Table extends React.Component<Props> {
                     isExpanding={(this.state.expandedItems.some(item => item === key))}
                     isBlur={((form && form.key && key != form.key) || isAddForm)}
                     scope={scope}
+                    onRowClick={onRowClick}
                 />
             )
         })

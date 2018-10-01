@@ -101,7 +101,7 @@ class Chart extends React.Component<Props> {
                                 <Spin>
                                     <Icon type="sync" />
                                 </Spin>
-                                {typeof loading === "string" && <div className="ui-chart-loadingtext">{loading}</div>}
+                                {typeof loading === "string" && <div className="ui-chart-loadingtext" style={{ color: styles.widget.lowlight }}>{loading}</div>}
                             </Flexbox>
                         ) :
                             <Line data={chartData(styles.chart)} options={{

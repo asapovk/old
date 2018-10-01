@@ -37,7 +37,8 @@ var TableRow = /** @class */ (function (_super) {
     function TableRow() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
-    TableRow.prototype.onClick = function () {
+    TableRow.prototype.onClick = function (e, row) {
+        this.props.onRowClick(row);
     };
     TableRow.prototype.render = function () {
         var _this = this;
@@ -47,7 +48,7 @@ var TableRow = /** @class */ (function (_super) {
         }
         return (react_1.default.createElement(Themes_1.default, null, function (styles) { return (react_1.default.createElement("div", { className: "ui-table-content-body-row " + (isBlur ? 'blur' : 'hover'), style: {
                 borderColor: styles.table.row.borderColor
-            }, onClick: function (event) { return _this.onClick(); } },
+            }, onClick: function (event) { return _this.onClick(event, row); } },
             react_1.default.createElement(TableColumns_1.default, __assign({}, _this.props)),
             actions && react_1.default.createElement(TableActions_1.default, { actions: actions, data: row }))); }));
     };

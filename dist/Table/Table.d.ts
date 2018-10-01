@@ -24,6 +24,7 @@ export interface Props {
     pagination?: PaginationProps;
     noDataLabel?: string;
     children?: any;
+    onRowClick?: (row: any) => any;
 }
 declare class Table extends React.Component<Props> {
     state: {
@@ -35,6 +36,7 @@ declare class Table extends React.Component<Props> {
     table: HTMLDivElement | null;
     static defaultProps: {
         noDataLabel: string;
+        onRowClick: () => void;
     };
     render(): JSX.Element;
 }

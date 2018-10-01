@@ -54,12 +54,18 @@ var TextField = /** @class */ (function (_super) {
     };
     TextField.prototype.render = function () {
         var _this = this;
-        var _a = this.props, label = _a.label, value = _a.value, defaultValue = _a.defaultValue, style = _a.style, className = _a.className, multiline = _a.multiline, singlerow = _a.singlerow, disabled = _a.disabled, type = _a.type;
+        var _a = this.props, label = _a.label, value = _a.value, defaultValue = _a.defaultValue, style = _a.style, className = _a.className, multiline = _a.multiline, singlerow = _a.singlerow, disabled = _a.disabled, type = _a.type, hint = _a.hint;
         var classes = 'ui-textfield ';
         if (className)
             classes += className;
         if (disabled)
             classes += 'disabled';
+        var hintIcon = function (style) {
+            if (!_this.props.hintIcon)
+                return null;
+            return (react_1.default.createElement(__1.Flexbox, { style: { width: 24, height: 34, fontSize: 34, paddingRight: 5, color: style.iconColor } },
+                react_1.default.createElement(Icon_1.default, { type: _this.props.hintIcon })));
+        };
         var rightIcon = function (style) {
             if (_this.props.rightIcon) {
                 return (react_1.default.createElement(__1.Flexbox, { style: { width: 24, height: 34, fontSize: 34, paddingRight: 5, color: style.iconColor } },
@@ -100,7 +106,10 @@ var TextField = /** @class */ (function (_super) {
             rightIcon)); };
         return (react_1.default.createElement(Themes_1.default, null, function (styles) { return (react_1.default.createElement("div", { className: classes, style: style },
             label && react_1.default.createElement("div", { style: { color: styles.textField.labelColor }, className: 'ui-textfield-label' }, label),
-            multiline ? TextAreaTSX(styles.textField) : InputTSX(styles.textField))); }));
+            multiline ? TextAreaTSX(styles.textField) : InputTSX(styles.textField),
+            hint && (react_1.default.createElement(__1.Flexbox, { alignItems: 'center', style: { color: styles.textField.labelColor }, className: 'ui-textfield-hint' },
+                hintIcon && hintIcon(styles),
+                react_1.default.createElement("div", null, hint))))); }));
     };
     return TextField;
 }(react_1.default.Component));

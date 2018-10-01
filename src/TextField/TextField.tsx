@@ -27,7 +27,8 @@ interface Props {
     onClick?: (event: any) => void
     onFocus?: (event: any) => void
     onBlur?: (event: any) => void
-    children?: any
+    hintIcon?: IconType
+    hint?: string
 }
 
 class TextField extends React.Component<Props> {
@@ -62,30 +63,40 @@ class TextField extends React.Component<Props> {
     }
 
     render() {
-        const { label, value, defaultValue, style, className, multiline, singlerow, disabled, type } = this.props;
+        const { label, value, defaultValue, style, className, multiline, singlerow, disabled, type, hint } = this.props;
 
         let classes = 'ui-textfield ';
         if (className) classes += className;
         if (disabled) classes += 'disabled';
 
+        const hintIcon = (style) => {
+            if (!this.props.hintIcon) return null;
+
+            return (
+                <Flexbox style={{ width: 24, height: 34, fontSize: 34, paddingRight: 5, color: style.iconColor }}>
+                    <Icon type={this.props.hintIcon} />
+                </Flexbox>
+            );
+        }
+
         const rightIcon = (style) => {
-            if (this.props.rightIcon) {
-                return (
-                    <Flexbox style={{ width: 24, height: 34, fontSize: 34, paddingRight: 5, color: style.iconColor }}>
-                        <Icon type={this.props.rightIcon} />
-                    </Flexbox>
-                )
-            } else return null
+            if (!this.props.rightIcon) return null;
+
+            return (
+                <Flexbox style={{ width: 24, height: 34, fontSize: 34, paddingRight: 5, color: style.iconColor }}>
+                    <Icon type={this.props.rightIcon} />
+                </Flexbox>
+            );
         }
 
         const leftIcon = (style) => {
-            if (this.props.leftIcon) {
-                return (
-                    <Flexbox style={{ width: 24, height: 34, fontSize: 34, paddingLeft: 5, color: style.iconColor }}>
-                        <Icon type={this.props.leftIcon} />
-                    </Flexbox>
-                )
-            } else return null
+            if (!this.props.leftIcon) return null;
+
+            return (
+                <Flexbox style={{ width: 24, height: 34, fontSize: 34, paddingLeft: 5, color: style.iconColor }}>
+                    <Icon type={this.props.leftIcon} />
+                </Flexbox>
+            )
         }
 
         const InputTSX = (style) => (
@@ -146,6 +157,12 @@ class TextField extends React.Component<Props> {
                     <div className={classes} style={style}>
                         {label && <div style={{ color: styles.textField.labelColor }} className='ui-textfield-label'>{label}</div>}
                         {multiline ? TextAreaTSX(styles.textField) : InputTSX(styles.textField)}
+                        {hint && (
+                            <Flexbox alignItems='center' style={{ color: styles.textField.labelColor }} className='ui-textfield-hint'>
+                                {hintIcon && hintIcon(styles)}
+                                {hint}
+                            </Flexbox>
+                        )}
                     </div>
                 )}
             </Theme>

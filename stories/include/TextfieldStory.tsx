@@ -7,7 +7,8 @@ export default class Story extends React.Component {
             <Flexbox column justifyContent="center" alignContent="center" p={40}>
                 <TextField label='Just input' style={{ flexBasis: '90px' }} type='password' />
                 <TextField multiline={true} label='Textarea' style={{ paddingBottom: '40px' }} />
-                <TextField multiline={true} singlerow={true} label='Singlerow textarea' />
+                <TextField multiline={true} singlerow={true} label='Singlerow textarea' style={{ paddingBottom: '40px' }} />
+                <TextField label='Textfield with hint' hint='Blah-blah-blah' hintIcon="add" />
             </Flexbox>
         )
     }
