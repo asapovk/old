@@ -1047,6 +1047,10 @@ table {
   font-size: 16px;
   padding-top: 10px;
 }
+.ui-widget-title {
+  font-size: 18px;
+  text-transform: uppercase;
+}
 
 .ui-widgetstat-title {
   font-size: 18px;

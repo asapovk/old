@@ -94,7 +94,7 @@ var Chart = /** @class */ (function (_super) {
         return (react_1.default.createElement(Themes_1.default, null, function (styles) { return (react_1.default.createElement(index_1.Flexbox, { column: true, flex: 1, justifyContent: "center", className: "ui-chart", style: style }, loading ? (react_1.default.createElement(index_1.Flexbox, { column: true, className: "ui-chart-loading", alignItems: "center", alignSelf: "center", justifyContent: "center" },
             react_1.default.createElement(index_1.Spin, null,
                 react_1.default.createElement(index_1.Icon, { type: "sync" })),
-            typeof loading === "string" && react_1.default.createElement("div", { className: "ui-chart-loadingtext" }, loading))) :
+            typeof loading === "string" && react_1.default.createElement("div", { className: "ui-chart-loadingtext", style: { color: styles.widget.lowlight } }, loading))) :
             react_1.default.createElement(react_chartjs_2_1.Line, { data: chartData(styles.chart), options: {
                     responsive: responsive !== undefined ? responsive : true,
                     animation: _this.props.noAnimation ? false : {
