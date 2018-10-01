@@ -29,7 +29,7 @@ class Widget extends Component<Props> {
                         borderColor: styles.widget.borderColor
                     }}>
                         {title ? (
-                            <div className="ui-widget-title">{title}</div>
+                            <Flexbox pr={10} flex={1} className="ui-widget-title">{title}</Flexbox>
                         ) : ""}
                         {loading ? (
                             <Flexbox column className="ui-widget-loading" alignItems="center" alignSelf="center" justifyContent="center">
