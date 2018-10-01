@@ -20,7 +20,6 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
   padding: 0;
   border: 0;
   font-size: 100%;
-  font: inherit;
   vertical-align: baseline;
 }
 
@@ -83,6 +82,17 @@ table {
   opacity: 0.5;
 }
 
+.ui-textfield > div > input,
+.ui-textfield > div > textarea {
+  font-size: 15px;
+  line-height: 20px;
+}
+
+.ui-textfield-hint, .ui-textfield-label {
+  font-size: 12px;
+  line-height: 16px;
+}
+
 .ui-view {
   position: absolute;
   top: 0;
@@ -99,26 +109,23 @@ table {
   display: flex;
   flex: 1;
   flex-direction: column;
-  line-height: 1;
 }
 .ui-textfield-label {
-  font-size: 12px;
-  margin-bottom: 5px;
+  margin-bottom: 4px;
   text-transform: uppercase;
 }
 .ui-textfield-hint {
-  font-size: 12px;
   text-transform: none;
-  margin-top: 5px;
+  margin-top: 8px;
 }
-.ui-textfield-input {
-  border: 1px solid;
-  border-radius: 2px;
+.ui-textfield-hint > svg {
+  font-size: 16px;
+  line-height: 16px;
+  padding-right: 4px;
 }
-.ui-textfield-textarea {
-  height: 100%;
-  border: 1px solid;
-  border-radius: 2px;
+.ui-textfield-input, .ui-textfield-textarea {
+  border: 0.5px solid;
+  padding-bottom: 1px;
 }
 .ui-textfield > div > input,
 .ui-textfield > div > textarea {
@@ -131,8 +138,9 @@ table {
   outline: none;
   position: relative;
   color: inherit;
-  font-size: inherit;
   width: 100%;
+  font-family: inherit;
+  font-size: inherit;
 }
 
 .ui-datepicker {

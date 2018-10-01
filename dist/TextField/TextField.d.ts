@@ -5,31 +5,35 @@ interface ValidateObject {
     regex: RegExp;
     isMatch?: boolean;
 }
-interface Props {
-    label?: string;
-    validate?: Array<ValidateObject>;
-    defaultValue?: string;
-    value?: string;
-    style?: React.CSSProperties;
-    className?: any;
-    multiline?: boolean;
-    singlerow?: boolean;
+export interface InputProps {
     decoration?: 'none';
     disabled?: boolean;
     type?: 'password' | 'number';
-    rightIcon?: IconType;
-    leftIcon?: IconType;
     onError?: (error: string[] | null) => void;
     onChange?: (value: string) => void;
     onClick?: (event: any) => void;
     onFocus?: (event: any) => void;
     onBlur?: (event: any) => void;
+    defaultValue?: string;
+    value?: string;
+    placeholder?: string;
+}
+export interface TextAreaProps extends InputProps {
+    singlerow?: boolean;
+}
+interface Props extends TextAreaProps {
+    label?: string;
+    validate?: Array<ValidateObject>;
+    multiline?: boolean;
     hintIcon?: IconType;
     hint?: string;
+    style?: React.CSSProperties;
+    rightIcon?: IconType;
+    leftIcon?: IconType;
 }
 declare class TextField extends React.Component<Props> {
     validate(value: string): boolean;
-    onChange(value: string): void;
+    onChange: (value: string) => void;
     render(): JSX.Element;
 }
 export default TextField;

@@ -204,8 +204,24 @@ export declare const createStyles: (themeName?: "blackCurrant" | "whiteCurrant" 
         textColor: any;
         backgroundColor: any;
         borderColor: any;
-        labelColor: any;
         iconColor: any;
+        label: {
+            color: any;
+        };
+        singleline: {
+            field: {
+                borderColor: any;
+                backgroundColor: any;
+                borderRadius: any;
+            };
+            input: {
+                color: any;
+                placeholder: any;
+            };
+        };
+        hint: {
+            color: any;
+        };
     };
     title: {
         active: {
@@ -422,8 +438,24 @@ export declare const ThemeContext: React.Context<{
         textColor: any;
         backgroundColor: any;
         borderColor: any;
-        labelColor: any;
         iconColor: any;
+        label: {
+            color: any;
+        };
+        singleline: {
+            field: {
+                borderColor: any;
+                backgroundColor: any;
+                borderRadius: any;
+            };
+            input: {
+                color: any;
+                placeholder: any;
+            };
+        };
+        hint: {
+            color: any;
+        };
     };
     title: {
         active: {
@@ -640,8 +672,24 @@ declare const _default: React.ComponentType<React.ConsumerProps<{
         textColor: any;
         backgroundColor: any;
         borderColor: any;
-        labelColor: any;
         iconColor: any;
+        label: {
+            color: any;
+        };
+        singleline: {
+            field: {
+                borderColor: any;
+                backgroundColor: any;
+                borderRadius: any;
+            };
+            input: {
+                color: any;
+                placeholder: any;
+            };
+        };
+        hint: {
+            color: any;
+        };
     };
     title: {
         active: {
