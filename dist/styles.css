@@ -82,7 +82,7 @@ table {
   opacity: 0.5;
 }
 
-.ui-textfield > div > input,
+.ui-button, .ui-textfield > div > input,
 .ui-textfield > div > textarea {
   font-size: 15px;
   line-height: 20px;
@@ -124,8 +124,7 @@ table {
   padding-right: 4px;
 }
 .ui-textfield-input, .ui-textfield-textarea {
-  border: 0.5px solid;
-  padding-bottom: 1px;
+  border: 1px solid;
 }
 .ui-textfield > div > input,
 .ui-textfield > div > textarea {
@@ -359,13 +358,10 @@ table {
 .ui-button {
   position: relative;
   border: none;
-  font: inherit;
   outline: none;
-  padding: 8px 16px;
-  width: fit-content;
   cursor: pointer;
-  font-size: 16px;
-  line-height: 20px;
+  padding: 8px 16px;
+  border: 1px solid;
 }
 .ui-button:active {
   box-shadow: none !important;

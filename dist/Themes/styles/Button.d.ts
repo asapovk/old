@@ -3,16 +3,18 @@ declare const _default: (theme: any) => {
         background: string;
         padding: number;
         color: any;
+        border: string;
         boxShadow?: undefined;
         borderRadius?: undefined;
-        border?: undefined;
+        borderColor?: undefined;
     } | {
         background: any;
         boxShadow: string;
         borderRadius: any;
         color: any;
-        border: string | boolean;
+        borderColor: any;
         padding?: undefined;
+        border?: undefined;
     };
 };
 export default _default;

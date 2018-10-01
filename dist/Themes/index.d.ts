@@ -28,16 +28,18 @@ export declare const createStyles: (themeName?: "blackCurrant" | "whiteCurrant" 
             background: string;
             padding: number;
             color: any;
+            border: string;
             boxShadow?: undefined;
             borderRadius?: undefined;
-            border?: undefined;
+            borderColor?: undefined;
         } | {
             background: any;
             boxShadow: string;
             borderRadius: any;
             color: any;
-            border: string | boolean;
+            borderColor: any;
             padding?: undefined;
+            border?: undefined;
         };
     };
     chart: {
@@ -262,16 +264,18 @@ export declare const ThemeContext: React.Context<{
             background: string;
             padding: number;
             color: any;
+            border: string;
             boxShadow?: undefined;
             borderRadius?: undefined;
-            border?: undefined;
+            borderColor?: undefined;
         } | {
             background: any;
             boxShadow: string;
             borderRadius: any;
             color: any;
-            border: string | boolean;
+            borderColor: any;
             padding?: undefined;
+            border?: undefined;
         };
     };
     chart: {
@@ -496,16 +500,18 @@ declare const _default: React.ComponentType<React.ConsumerProps<{
             background: string;
             padding: number;
             color: any;
+            border: string;
             boxShadow?: undefined;
             borderRadius?: undefined;
-            border?: undefined;
+            borderColor?: undefined;
         } | {
             background: any;
             boxShadow: string;
             borderRadius: any;
             color: any;
-            border: string | boolean;
+            borderColor: any;
             padding?: undefined;
+            border?: undefined;
         };
     };
     chart: {

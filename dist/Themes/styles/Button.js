@@ -25,7 +25,8 @@ exports.default = (function (theme) {
                 return {
                     background: 'none',
                     padding: 0,
-                    color: theme.text.rgb
+                    color: theme.text.rgb,
+                    border: 'none'
                 };
             else
                 return {
@@ -33,7 +34,7 @@ exports.default = (function (theme) {
                     boxShadow: '0px 2px 6px 0px ' + theme.shadow.rgb,
                     borderRadius: theme.corner,
                     color: decoration ? theme.textOnAccent.rgb : theme.text.rgb,
-                    border: !decoration && '0.5px solid ' + theme.pale.rgb,
+                    borderColor: decoration ? theme.pale.rgba(0) : theme.pale.rgb
                 };
         }
     };

@@ -1,13 +1,11 @@
 .ui-button {
     position: relative;
     border: none;
-    font: inherit;
     outline: none;
-    padding: 8px 16px;
-    width: fit-content;
     cursor: pointer;
-    font-size: 16px;
-    line-height: 20px;
+    padding: 8px 16px;
+    @extend %text;
+    border: 1px solid;
     &:active {
         box-shadow: none !important;
     }

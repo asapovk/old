@@ -28,7 +28,7 @@ class Button extends Component<Props> {
             <Theme>
                 {styles => (
                     <button className={classes} onClick={onClick} style={{ ...styles.button.main(decoration), ...style }}>
-                        <span>{label || children}</span>
+                        <span className='ui-button-label'>{label || children}</span>
                         {loading && (
                             <Spin>
                                 <Icon type="sync" />
