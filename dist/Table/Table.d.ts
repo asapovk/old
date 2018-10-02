@@ -9,7 +9,7 @@ export interface Props {
         render?: (row: any, value: any) => any;
     }[];
     form?: {
-        key: string;
+        key: string | number;
         render: any;
     };
     actions?: {
