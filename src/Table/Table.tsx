@@ -14,7 +14,7 @@ export interface Props {
         render?: (row, value) => any
     }[]
     form?: {
-        key: string
+        key: string | number
         render: any
     }
     actions?: {
