@@ -10,6 +10,7 @@ interface State {
 }
 declare class Viewport extends Component<ViewportProps> {
     state: State;
+    componentDidMount(): void;
     /**
      * Добавляет компонент в viewport
      * возвращает индекс

@@ -42,6 +42,10 @@ var Viewport = /** @class */ (function (_super) {
         };
         return _this;
     }
+    Viewport.prototype.componentDidMount = function () {
+        //@ts-ignore
+        document.__uiviewport = this;
+    };
     /**
      * Добавляет компонент в viewport
      * возвращает индекс
