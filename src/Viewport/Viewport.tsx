@@ -17,6 +17,11 @@ class Viewport extends Component<ViewportProps> {
         mountedActions: []
     }
 
+    componentDidMount() {
+        //@ts-ignore
+        document.__uiviewport = this;
+    }
+
     /**
      * Добавляет компонент в viewport
      * возвращает индекс
