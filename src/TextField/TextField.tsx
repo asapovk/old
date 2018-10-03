@@ -38,6 +38,8 @@ interface Props extends TextAreaProps {
     style?: React.CSSProperties
     rightIcon?: IconType
     leftIcon?: IconType
+    errorTimeout?: number
+    loading?: boolean
 }
 
 class TextField extends React.Component<Props> {
@@ -114,6 +116,7 @@ class TextField extends React.Component<Props> {
                                     defaultValue={defaultValue}
                                     placeholder={placeholder}
                                     singlerow={singlerow}
+                                    disabled={disabled}
                                 />
                             )
                             : (
@@ -121,6 +124,7 @@ class TextField extends React.Component<Props> {
                                     onChange={this.onChange}
                                     onClick={onClick}
                                     onFocus={onFocus}
+                                    disabled={disabled}
                                     onBlur={onBlur}
                                     style={styles.textField.singleline}
                                     value={value}

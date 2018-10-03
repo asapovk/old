@@ -70,8 +70,8 @@ var TextField = /** @class */ (function (_super) {
         return (react_1.default.createElement(Themes_1.default, null, function (styles) { return (react_1.default.createElement("div", { className: classes, style: style },
             label && (react_1.default.createElement("div", { style: styles.textField.label, className: 'ui-textfield-label', children: label })),
             multiline
-                ? (react_1.default.createElement(TextArea_1.default, { onChange: _this.onChange, onClick: onClick, onFocus: onFocus, onBlur: onBlur, style: styles.textField.singleline, value: value, defaultValue: defaultValue, placeholder: placeholder, singlerow: singlerow }))
-                : (react_1.default.createElement(Input_1.default, { onChange: _this.onChange, onClick: onClick, onFocus: onFocus, onBlur: onBlur, style: styles.textField.singleline, value: value, defaultValue: defaultValue, type: type, placeholder: placeholder, leftIcon: leftIcon && IconTSX(leftIcon, 'left', styles.theme.lowlight.rgb), rightIcon: rightIcon && IconTSX(rightIcon, 'right', styles.theme.lowlight.rgb) })),
+                ? (react_1.default.createElement(TextArea_1.default, { onChange: _this.onChange, onClick: onClick, onFocus: onFocus, onBlur: onBlur, style: styles.textField.singleline, value: value, defaultValue: defaultValue, placeholder: placeholder, singlerow: singlerow, disabled: disabled }))
+                : (react_1.default.createElement(Input_1.default, { onChange: _this.onChange, onClick: onClick, onFocus: onFocus, disabled: disabled, onBlur: onBlur, style: styles.textField.singleline, value: value, defaultValue: defaultValue, type: type, placeholder: placeholder, leftIcon: leftIcon && IconTSX(leftIcon, 'left', styles.theme.lowlight.rgb), rightIcon: rightIcon && IconTSX(rightIcon, 'right', styles.theme.lowlight.rgb) })),
             hint && (react_1.default.createElement(__1.Flexbox, { alignItems: 'flex-start', style: styles.textField.hint, className: 'ui-textfield-hint' },
                 hintIcon && (react_1.default.createElement(Icon_1.default, { type: hintIcon })),
                 react_1.default.createElement("span", null, hint))))); }));

@@ -30,6 +30,8 @@ interface Props extends TextAreaProps {
     style?: React.CSSProperties;
     rightIcon?: IconType;
     leftIcon?: IconType;
+    errorTimeout?: number;
+    loading?: boolean;
 }
 declare class TextField extends React.Component<Props> {
     validate(value: string): boolean;
