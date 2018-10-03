@@ -60,8 +60,10 @@ class Select extends Component<Props> {
     toggleMenu() {
         if (this.props.disabled) return;
         this.setState({
-            menuVisible: this.state.menuVisible ?
-                this.props.dontClose ? true : false
+            menuVisible: this.state.menuVisible
+                ? this.props.dontClose
+                    ? true
+                    : false
                 : true
         });
     }
@@ -165,7 +167,7 @@ class Select extends Component<Props> {
                 <div className='ui-select-holder-value-option' key={option.text} style={{
                     background: style.background,
                     borderColor: style.borderColor,
-                    color: style.textColor,
+                    color: style.textColor
                 }}>
                     <div
                         className='ui-select-holder-value-option-close'
@@ -198,8 +200,10 @@ class Select extends Component<Props> {
         )
 
         const HolderTSX = (style) => (
-            somethingSelected ?
-                multiselect ? MultiSelectItemsTSX(style) : !isFilterActive && <div className='ui-select-holder-value-text'>{selectedItems[0].text}</div>
+            somethingSelected
+                ? multiselect
+                    ? MultiSelectItemsTSX(style)
+                    : !isFilterActive && <div className='ui-select-holder-value-text'>{selectedItems[0].text}</div>
                 : (!search && placeholder) && <div className='ui-select-holder-value-placeholder'>{placeholder}</div>
         )
 
@@ -235,10 +239,13 @@ class Select extends Component<Props> {
                             style={{
                                 background: styles.select.background,
                                 borderColor: styles.select.borderColor,
-                            }}>
+                                borderRadius: styles.theme.corner
+                            }}
+                            key={'search'}
+                        >
                             <div className='ui-select-holder-value' style={{ color: styles.select.textColor }}>
                                 {HolderTSX(styles.select)}
-                                {search && <SearchTSX style={styles.select} />}
+                                {search && SearchTSX(styles.select)}
                             </div>
                             {(clearable && somethingSelected) && <ClearButtonTSX style={styles.select} />}
                             <span className='ui-select-holder-down' style={{ color: styles.select.labelColor }}>

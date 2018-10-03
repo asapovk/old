@@ -73,8 +73,10 @@ var Select = /** @class */ (function (_super) {
         if (this.props.disabled)
             return;
         this.setState({
-            menuVisible: this.state.menuVisible ?
-                this.props.dontClose ? true : false
+            menuVisible: this.state.menuVisible
+                ? this.props.dontClose
+                    ? true
+                    : false
                 : true
         });
     };
@@ -153,7 +155,7 @@ var Select = /** @class */ (function (_super) {
         var MultiSelectItemsTSX = function (style) { return (selectedItems.map(function (option) { return (react_1.default.createElement("div", { className: 'ui-select-holder-value-option', key: option.text, style: {
                 background: style.background,
                 borderColor: style.borderColor,
-                color: style.textColor,
+                color: style.textColor
             } },
             react_1.default.createElement("div", { className: 'ui-select-holder-value-option-close', style: {
                     borderColor: style.borderColor,
@@ -167,8 +169,10 @@ var Select = /** @class */ (function (_super) {
                 react_1.default.createElement(__1.Icon, { type: 'close' })),
             react_1.default.createElement("span", null, option.text))); })); };
         var SearchTSX = function (style) { return (react_1.default.createElement("input", { disabled: disabled, className: 'ui-select-holder-value-input', placeholder: !somethingSelected ? placeholder : undefined, onChange: function (event) { return _this.filterOptions(event.target.value); }, onKeyDown: _this.searchKeyDown.bind(_this), ref: function (ref) { return _this.searchRef = ref; }, style: { position: !multiselect ? 'absolute' : "relative", color: style.textColor, } })); };
-        var HolderTSX = function (style) { return (somethingSelected ?
-            multiselect ? MultiSelectItemsTSX(style) : !isFilterActive && react_1.default.createElement("div", { className: 'ui-select-holder-value-text' }, selectedItems[0].text)
+        var HolderTSX = function (style) { return (somethingSelected
+            ? multiselect
+                ? MultiSelectItemsTSX(style)
+                : !isFilterActive && react_1.default.createElement("div", { className: 'ui-select-holder-value-text' }, selectedItems[0].text)
             : (!search && placeholder) && react_1.default.createElement("div", { className: 'ui-select-holder-value-placeholder' }, placeholder)); };
         var ClearButtonTSX = function (style) { return (react_1.default.createElement("span", { style: { color: style.labelColor }, className: 'ui-select-holder-clear', onClick: function (event) {
                 if (disabled) {
@@ -184,10 +188,11 @@ var Select = /** @class */ (function (_super) {
             react_1.default.createElement("div", { className: 'ui-select-holder' + (menuVisible ? ' active' : ''), onClick: function () { return _this.toggleMenu(); }, ref: function (ref) { return _this.holderRef = ref; }, style: {
                     background: styles.select.background,
                     borderColor: styles.select.borderColor,
-                } },
+                    borderRadius: styles.theme.corner
+                }, key: 'search' },
                 react_1.default.createElement("div", { className: 'ui-select-holder-value', style: { color: styles.select.textColor } },
                     HolderTSX(styles.select),
-                    search && react_1.default.createElement(SearchTSX, { style: styles.select })),
+                    search && SearchTSX(styles.select)),
                 (clearable && somethingSelected) && react_1.default.createElement(ClearButtonTSX, { style: styles.select }),
                 react_1.default.createElement("span", { className: 'ui-select-holder-down', style: { color: styles.select.labelColor } },
                     react_1.default.createElement(__1.Icon, { type: menuVisible ? 'up' : 'down' })),
