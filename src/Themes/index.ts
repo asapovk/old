@@ -23,6 +23,7 @@ import titleStyles from './styles/Title'
 import viewportStyles from './styles/Viewport'
 import widgetStyles from './styles/Widget'
 import widgetStatStyles from './styles/WidgetStat'
+import notificationsStyles from './styles/Notifications'
 
 export const themes = {
     blackCurrant, whiteCurrant
@@ -70,7 +71,8 @@ export const createStyles = (themeName?: themeName) => {
         title: titleStyles(theme),
         viewport: viewportStyles(theme),
         widget: widgetStyles(theme),
-        widgetStat: widgetStatStyles(theme)
+        widgetStat: widgetStatStyles(theme),
+        notifications: widgetStatStyles(theme)
     }
 };
 

@@ -1,45 +1,8 @@
 import React, { Fragment } from 'react';
-import { Modal, Button, Flexbox, Portal, Viewport, Theme, utils } from '../';
+import { Viewport } from '../';
+import Notifications from '../Notifications/Notifications';
+import { NotificationOptions } from '../Notifications/Notifications';
 
-export interface NotificationOptions {
-    title: string
-    text: string
-}
-
-class Notifications extends React.Component {
-    state: any = {
-        notifications: []
-    }
-    pushNotification(options: NotificationOptions) {
-        this.setState({
-            notifications: this.state.notifications.concat(
-                <Theme>
-                    {styles => (
-                        <div style={{
-                            color: styles.theme.text.hex
-                        }}>
-                            <div>{options.title}</div>
-                            <div>{options.text}</div>
-                        </div>
-                    )}
-                </Theme>
-            )
-        })
-    }
-    render() {
-        return (
-            <Portal>
-                <Flexbox inline column className="ui-notifications">{
-                    this.state.notifications.map((notification, index) => {
-                        return (
-                            <Flexbox className={"ui-notifications-item"} key={index}>{notification}</Flexbox>
-                        )
-                    })
-                }</Flexbox>
-            </Portal>
-        )
-    }
-}
 export default (options: NotificationOptions) => {
     //@ts-ignore
     const viewport = document.__uiviewport as Viewport;
