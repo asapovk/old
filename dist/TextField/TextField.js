@@ -28,7 +28,9 @@ var TextField = /** @class */ (function (_super) {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.onChange = function (value) {
             if (typeof _this.props.validate != 'undefined') {
-                if (_this.validate(value)) {
+                var validateResult_1;
+                setTimeout(function () { return validateResult_1 = _this.validate(value); }, _this.props.validateTimeout ? _this.props.validateTimeout : 0);
+                if (validateResult_1) {
                     _this.props.onChange && _this.props.onChange(value);
                 }
             }

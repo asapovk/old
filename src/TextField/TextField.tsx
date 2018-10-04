@@ -38,7 +38,7 @@ interface Props extends TextAreaProps {
     style?: React.CSSProperties
     rightIcon?: IconType
     leftIcon?: IconType
-    errorTimeout?: number
+    validateTimeout?: number
     loading?: boolean
 }
 
@@ -67,7 +67,9 @@ class TextField extends React.Component<Props> {
 
     public onChange = (value: string) => {
         if (typeof this.props.validate != 'undefined') {
-            if (this.validate(value)) {
+            let validateResult;
+            setTimeout(() => validateResult = this.validate(value), this.props.validateTimeout ? this.props.validateTimeout : 0);
+            if (validateResult) {
                 this.props.onChange && this.props.onChange(value);
             }
         } else this.props.onChange && this.props.onChange(value)
