@@ -257,17 +257,24 @@ export declare const createStyles: (themeName?: "blackCurrant" | "whiteCurrant" 
         };
     };
     notifications: {
-        titleStyle: {
+        main: (decoration?: string | undefined) => {
+            background: string;
+            padding: number;
             color: any;
-        };
-        valueStyle: {
+            border: string;
+            boxShadow?: undefined;
+            borderRadius?: undefined;
+            borderColor?: undefined;
+            borderLeft?: undefined;
+        } | {
+            background: any;
+            boxShadow: string;
+            borderRadius: any;
             color: any;
-        };
-        subtitleStyle: {
-            color: any;
-        };
-        extraStyle: {
             borderColor: any;
+            borderLeft: string;
+            padding?: undefined;
+            border?: undefined;
         };
     };
 };
@@ -507,17 +514,24 @@ export declare const ThemeContext: React.Context<{
         };
     };
     notifications: {
-        titleStyle: {
+        main: (decoration?: string | undefined) => {
+            background: string;
+            padding: number;
             color: any;
-        };
-        valueStyle: {
+            border: string;
+            boxShadow?: undefined;
+            borderRadius?: undefined;
+            borderColor?: undefined;
+            borderLeft?: undefined;
+        } | {
+            background: any;
+            boxShadow: string;
+            borderRadius: any;
             color: any;
-        };
-        subtitleStyle: {
-            color: any;
-        };
-        extraStyle: {
             borderColor: any;
+            borderLeft: string;
+            padding?: undefined;
+            border?: undefined;
         };
     };
 }>;
@@ -757,17 +771,24 @@ declare const _default: React.ComponentType<React.ConsumerProps<{
         };
     };
     notifications: {
-        titleStyle: {
+        main: (decoration?: string | undefined) => {
+            background: string;
+            padding: number;
             color: any;
-        };
-        valueStyle: {
+            border: string;
+            boxShadow?: undefined;
+            borderRadius?: undefined;
+            borderColor?: undefined;
+            borderLeft?: undefined;
+        } | {
+            background: any;
+            boxShadow: string;
+            borderRadius: any;
             color: any;
-        };
-        subtitleStyle: {
-            color: any;
-        };
-        extraStyle: {
             borderColor: any;
+            borderLeft: string;
+            padding?: undefined;
+            border?: undefined;
         };
     };
 }>>;

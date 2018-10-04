@@ -7,12 +7,14 @@ declare const _default: (theme: any) => {
         boxShadow?: undefined;
         borderRadius?: undefined;
         borderColor?: undefined;
+        borderLeft?: undefined;
     } | {
         background: any;
         boxShadow: string;
         borderRadius: any;
         color: any;
         borderColor: any;
+        borderLeft: string;
         padding?: undefined;
         border?: undefined;
     };

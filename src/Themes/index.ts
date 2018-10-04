@@ -72,7 +72,7 @@ export const createStyles = (themeName?: themeName) => {
         viewport: viewportStyles(theme),
         widget: widgetStyles(theme),
         widgetStat: widgetStatStyles(theme),
-        notifications: widgetStatStyles(theme)
+        notifications: notificationsStyles(theme)
     }
 };
 

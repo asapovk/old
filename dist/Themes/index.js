@@ -24,6 +24,7 @@ var Title_1 = __importDefault(require("./styles/Title"));
 var Viewport_1 = __importDefault(require("./styles/Viewport"));
 var Widget_1 = __importDefault(require("./styles/Widget"));
 var WidgetStat_1 = __importDefault(require("./styles/WidgetStat"));
+var Notifications_1 = __importDefault(require("./styles/Notifications"));
 exports.themes = {
     blackCurrant: black_currant_1.default, whiteCurrant: white_currant_1.default
 };
@@ -49,7 +50,7 @@ exports.createStyles = function (themeName) {
         viewport: Viewport_1.default(theme),
         widget: Widget_1.default(theme),
         widgetStat: WidgetStat_1.default(theme),
-        notifications: WidgetStat_1.default(theme)
+        notifications: Notifications_1.default(theme)
     };
 };
 exports.ThemeContext = react_1.default.createContext(exports.createStyles('blackCurrant'));

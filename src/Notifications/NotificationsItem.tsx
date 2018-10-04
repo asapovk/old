@@ -11,7 +11,7 @@ class NotificationsItem extends React.Component<Props> {
         return (
             <Theme>
                 {styles => (
-                    <div className="ui-notifications-item" style={styles.button.main(options.decoration)}>
+                    <div className="ui-notifications-item" style={styles.notifications.main(options.decoration)}>
                         <Flexbox>
                             <Flexbox column flex={1} alignContent="flex-start" alignItems="flex-start" justifyContent="flex-start">
                                 <div className="ui-notifications-item-title">{options.title}</div>

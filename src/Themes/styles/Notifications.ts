@@ -1,22 +1,19 @@
 export default (theme) => {
     return {
         main: (decoration?: string) => {
-            let background = theme.interface.rgb;
+            let decorationColor = theme.highlight.rgb;
             switch (decoration) {
-                case 'highlight':
-                    background = theme.highlight.rgb
-                    break;
                 case 'red':
-                    background = theme.accents.red.rgb
+                    decorationColor = theme.accents.red.rgb
                     break;
                 case 'green':
-                    background = theme.accents.green.rgb
+                    decorationColor = theme.accents.green.rgb
                     break;
                 case 'orange':
-                    background = theme.accents.orange.rgb
+                    decorationColor = theme.accents.orange.rgb
                     break;
                 case 'blue':
-                    background = theme.accents.blue.rgb
+                    decorationColor = theme.accents.blue.rgb
                     break;
             }
             if (decoration === 'none')
@@ -27,11 +24,12 @@ export default (theme) => {
                     border: 'none'
                 }
             else return {
-                background: background,
+                background: theme.interface.rgb,
                 boxShadow: '0px 2px 6px 0px ' + theme.shadow.rgb,
                 borderRadius: theme.corner,
                 color: decoration ? theme.textOnAccent.rgb : theme.text.rgb,
-                borderColor: decoration ? theme.pale.rgba(0) : theme.pale.rgb
+                borderColor: decoration ? theme.pale.rgba(0) : theme.pale.rgb,
+                borderLeft: `4px solid ${decorationColor}`
             }
         }
     }

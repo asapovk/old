@@ -26,7 +26,7 @@ var NotificationsItem = /** @class */ (function (_super) {
     NotificationsItem.prototype.render = function () {
         var _this = this;
         var _a = this.props, options = _a.options, onClose = _a.onClose;
-        return (react_1.default.createElement(__1.Theme, null, function (styles) { return (react_1.default.createElement("div", { className: "ui-notifications-item", style: styles.button.main(options.decoration) },
+        return (react_1.default.createElement(__1.Theme, null, function (styles) { return (react_1.default.createElement("div", { className: "ui-notifications-item", style: styles.notifications.main(options.decoration) },
             react_1.default.createElement(__1.Flexbox, null,
                 react_1.default.createElement(__1.Flexbox, { column: true, flex: 1, alignContent: "flex-start", alignItems: "flex-start", justifyContent: "flex-start" },
                     react_1.default.createElement("div", { className: "ui-notifications-item-title" }, options.title),
