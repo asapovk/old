@@ -48,7 +48,8 @@ exports.createStyles = function (themeName) {
         title: Title_1.default(theme),
         viewport: Viewport_1.default(theme),
         widget: Widget_1.default(theme),
-        widgetStat: WidgetStat_1.default(theme)
+        widgetStat: WidgetStat_1.default(theme),
+        notifications: WidgetStat_1.default(theme)
     };
 };
 exports.ThemeContext = react_1.default.createContext(exports.createStyles('blackCurrant'));
