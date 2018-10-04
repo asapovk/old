@@ -258,23 +258,12 @@ export declare const createStyles: (themeName?: "blackCurrant" | "whiteCurrant" 
     };
     notifications: {
         main: (decoration?: string | undefined) => {
-            background: string;
-            padding: number;
-            color: any;
-            border: string;
-            boxShadow?: undefined;
-            borderRadius?: undefined;
-            borderColor?: undefined;
-            borderLeft?: undefined;
-        } | {
             background: any;
             boxShadow: string;
             borderRadius: any;
             color: any;
             borderColor: any;
             borderLeft: string;
-            padding?: undefined;
-            border?: undefined;
         };
     };
 };
@@ -515,23 +504,12 @@ export declare const ThemeContext: React.Context<{
     };
     notifications: {
         main: (decoration?: string | undefined) => {
-            background: string;
-            padding: number;
-            color: any;
-            border: string;
-            boxShadow?: undefined;
-            borderRadius?: undefined;
-            borderColor?: undefined;
-            borderLeft?: undefined;
-        } | {
             background: any;
             boxShadow: string;
             borderRadius: any;
             color: any;
             borderColor: any;
             borderLeft: string;
-            padding?: undefined;
-            border?: undefined;
         };
     };
 }>;
@@ -772,23 +750,12 @@ declare const _default: React.ComponentType<React.ConsumerProps<{
     };
     notifications: {
         main: (decoration?: string | undefined) => {
-            background: string;
-            padding: number;
-            color: any;
-            border: string;
-            boxShadow?: undefined;
-            borderRadius?: undefined;
-            borderColor?: undefined;
-            borderLeft?: undefined;
-        } | {
             background: any;
             boxShadow: string;
             borderRadius: any;
             color: any;
             borderColor: any;
             borderLeft: string;
-            padding?: undefined;
-            border?: undefined;
         };
     };
 }>>;

@@ -19,7 +19,8 @@ export default class Story extends React.Component {
                         <Button
                             onClick={() => utils.notification({
                                 title: `Counter ${++counter}`,
-                                text: `This is counter number ${counter} if we'll multiply it by 4 we'll get ${counter * 4}`
+                                text: `This is counter number ${counter} if we'll multiply it by 4 we'll get ${counter * 4}`,
+                                timeout: 30
                             })}
                             children="Test" />
                     </Flexbox>
