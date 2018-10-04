@@ -1,6 +1,6 @@
 import React from 'react';
 import Theme from '../Themes';
-import { Flexbox } from '../';
+import { Flexbox, Spin } from '../';
 import { default as Icon, IconType } from '../Icon/Icon';
 import Input from './Input';
 import TextArea from './TextArea';
@@ -26,7 +26,8 @@ export interface InputProps {
 }
 
 export interface TextAreaProps extends InputProps {
-    singlerow?: boolean
+    singlerow?: true | undefined
+    resize?: true | undefined
 }
 
 interface Props extends TextAreaProps {
@@ -39,7 +40,7 @@ interface Props extends TextAreaProps {
     rightIcon?: IconType
     leftIcon?: IconType
     validateTimeout?: number
-    loading?: boolean
+    loading?: true | undefined
 }
 
 class TextField extends React.Component<Props> {
@@ -76,7 +77,7 @@ class TextField extends React.Component<Props> {
     }
 
     render() {
-        const { label, value, defaultValue, style, multiline, singlerow, disabled, type, hint, onClick, onFocus, onBlur, placeholder, leftIcon, rightIcon, hintIcon } = this.props;
+        const { label, value, defaultValue, style, multiline, singlerow, disabled, type, hint, onClick, onFocus, onBlur, placeholder, leftIcon, rightIcon, hintIcon, loading, resize } = this.props;
 
         let classes = 'ui-textfield ';
         if (disabled) classes += 'disabled';
@@ -91,6 +92,12 @@ class TextField extends React.Component<Props> {
                 }}
             >
                 <Icon type={type} />
+            </Flexbox>
+        )
+
+        const LoadingTSX = (color) => (
+            <Flexbox alignItems='center' pr={8} style={{ fontSize: 20, color: color }}>
+                <Spin><Icon type='spin' /></Spin>
             </Flexbox>
         )
 
@@ -119,6 +126,8 @@ class TextField extends React.Component<Props> {
                                     placeholder={placeholder}
                                     singlerow={singlerow}
                                     disabled={disabled}
+                                    loading={LoadingTSX(styles.theme.lowlight.rgb)}
+                                    resize={resize}
                                 />
                             )
                             : (
@@ -135,6 +144,7 @@ class TextField extends React.Component<Props> {
                                     placeholder={placeholder}
                                     leftIcon={leftIcon && IconTSX(leftIcon, 'left', styles.theme.lowlight.rgb)}
                                     rightIcon={rightIcon && IconTSX(rightIcon, 'right', styles.theme.lowlight.rgb)}
+                                    loading={loading && LoadingTSX(styles.theme.lowlight.rgb)}
                                 />
                             )
                         }

@@ -19,7 +19,8 @@ export interface InputProps {
     placeholder?: string;
 }
 export interface TextAreaProps extends InputProps {
-    singlerow?: boolean;
+    singlerow?: true | undefined;
+    resize?: true | undefined;
 }
 interface Props extends TextAreaProps {
     label?: string;
@@ -31,7 +32,7 @@ interface Props extends TextAreaProps {
     rightIcon?: IconType;
     leftIcon?: IconType;
     validateTimeout?: number;
-    loading?: boolean;
+    loading?: true | undefined;
 }
 declare class TextField extends React.Component<Props> {
     validate(value: string): boolean;

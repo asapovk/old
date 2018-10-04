@@ -24,11 +24,11 @@ var Input = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     Input.prototype.render = function () {
-        var _a = this.props, value = _a.value, defaultValue = _a.defaultValue, type = _a.type, leftIcon = _a.leftIcon, rightIcon = _a.rightIcon, disabled = _a.disabled, style = _a.style, decoration = _a.decoration, onChange = _a.onChange, onClick = _a.onClick, onFocus = _a.onFocus, onBlur = _a.onBlur;
+        var _a = this.props, value = _a.value, defaultValue = _a.defaultValue, type = _a.type, leftIcon = _a.leftIcon, rightIcon = _a.rightIcon, disabled = _a.disabled, style = _a.style, decoration = _a.decoration, onChange = _a.onChange, onClick = _a.onClick, onFocus = _a.onFocus, onBlur = _a.onBlur, loading = _a.loading;
         return (react_1.default.createElement(__1.Flexbox, { onClick: onClick, className: (decoration == 'none' ? '' : ' ui-textfield-input'), style: style.field },
             leftIcon,
             react_1.default.createElement("input", { onFocus: onFocus, onBlur: onFocus, defaultValue: defaultValue, style: style.input, value: value, onChange: function (event) { return onChange && onChange(event.currentTarget.value); }, disabled: disabled, type: type }),
-            rightIcon));
+            loading ? loading : rightIcon));
     };
     return Input;
 }(react_1.default.Component));

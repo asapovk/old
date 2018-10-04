@@ -59,7 +59,7 @@ var TextField = /** @class */ (function (_super) {
     };
     TextField.prototype.render = function () {
         var _this = this;
-        var _a = this.props, label = _a.label, value = _a.value, defaultValue = _a.defaultValue, style = _a.style, multiline = _a.multiline, singlerow = _a.singlerow, disabled = _a.disabled, type = _a.type, hint = _a.hint, onClick = _a.onClick, onFocus = _a.onFocus, onBlur = _a.onBlur, placeholder = _a.placeholder, leftIcon = _a.leftIcon, rightIcon = _a.rightIcon, hintIcon = _a.hintIcon;
+        var _a = this.props, label = _a.label, value = _a.value, defaultValue = _a.defaultValue, style = _a.style, multiline = _a.multiline, singlerow = _a.singlerow, disabled = _a.disabled, type = _a.type, hint = _a.hint, onClick = _a.onClick, onFocus = _a.onFocus, onBlur = _a.onBlur, placeholder = _a.placeholder, leftIcon = _a.leftIcon, rightIcon = _a.rightIcon, hintIcon = _a.hintIcon, loading = _a.loading, resize = _a.resize;
         var classes = 'ui-textfield ';
         if (disabled)
             classes += 'disabled';
@@ -69,11 +69,14 @@ var TextField = /** @class */ (function (_super) {
                 color: color
             } },
             react_1.default.createElement(Icon_1.default, { type: type }))); };
+        var LoadingTSX = function (color) { return (react_1.default.createElement(__1.Flexbox, { alignItems: 'center', pr: 8, style: { fontSize: 20, color: color } },
+            react_1.default.createElement(__1.Spin, null,
+                react_1.default.createElement(Icon_1.default, { type: 'spin' })))); };
         return (react_1.default.createElement(Themes_1.default, null, function (styles) { return (react_1.default.createElement("div", { className: classes, style: style },
             label && (react_1.default.createElement("div", { style: styles.textField.label, className: 'ui-textfield-label', children: label })),
             multiline
-                ? (react_1.default.createElement(TextArea_1.default, { onChange: _this.onChange, onClick: onClick, onFocus: onFocus, onBlur: onBlur, style: styles.textField.singleline, value: value, defaultValue: defaultValue, placeholder: placeholder, singlerow: singlerow, disabled: disabled }))
-                : (react_1.default.createElement(Input_1.default, { onChange: _this.onChange, onClick: onClick, onFocus: onFocus, disabled: disabled, onBlur: onBlur, style: styles.textField.singleline, value: value, defaultValue: defaultValue, type: type, placeholder: placeholder, leftIcon: leftIcon && IconTSX(leftIcon, 'left', styles.theme.lowlight.rgb), rightIcon: rightIcon && IconTSX(rightIcon, 'right', styles.theme.lowlight.rgb) })),
+                ? (react_1.default.createElement(TextArea_1.default, { onChange: _this.onChange, onClick: onClick, onFocus: onFocus, onBlur: onBlur, style: styles.textField.singleline, value: value, defaultValue: defaultValue, placeholder: placeholder, singlerow: singlerow, disabled: disabled, loading: LoadingTSX(styles.theme.lowlight.rgb), resize: resize }))
+                : (react_1.default.createElement(Input_1.default, { onChange: _this.onChange, onClick: onClick, onFocus: onFocus, disabled: disabled, onBlur: onBlur, style: styles.textField.singleline, value: value, defaultValue: defaultValue, type: type, placeholder: placeholder, leftIcon: leftIcon && IconTSX(leftIcon, 'left', styles.theme.lowlight.rgb), rightIcon: rightIcon && IconTSX(rightIcon, 'right', styles.theme.lowlight.rgb), loading: loading && LoadingTSX(styles.theme.lowlight.rgb) })),
             hint && (react_1.default.createElement(__1.Flexbox, { alignItems: 'flex-start', style: styles.textField.hint, className: 'ui-textfield-hint' },
                 hintIcon && (react_1.default.createElement(Icon_1.default, { type: hintIcon })),
                 react_1.default.createElement("span", null, hint))))); }));

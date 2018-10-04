@@ -1,16 +1,17 @@
 import React, { ReactElement } from 'react';
-import { Flexbox, Icon } from '../';
+import { Flexbox } from '../';
 import { TextAreaProps } from './TextField';
 
 interface Props {
     style: any
+    loading?: ReactElement<Flexbox>
 }
 
 class TextArea extends React.Component<Props & TextAreaProps> {
 
     render() {
 
-        const { value, defaultValue, disabled, singlerow, style, decoration, onChange, onClick, onFocus, onBlur } = this.props;
+        const { value, defaultValue, disabled, singlerow, style, decoration, onChange, onClick, onFocus, onBlur, resize } = this.props;
 
         return (
             <Flexbox
@@ -20,7 +21,7 @@ class TextArea extends React.Component<Props & TextAreaProps> {
                     onFocus={onFocus}
                     onBlur={onFocus}
                     defaultValue={defaultValue}
-                    style={style.input}
+                    style={{ ...style.input, ...{ resize: resize ? 'both' : 'none' } }}
                     value={value}
                     onChange={(event) => onChange && onChange(event.currentTarget.value)}
                     disabled={disabled}

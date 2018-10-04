@@ -1,18 +1,19 @@
 import React, { ReactElement } from 'react';
-import { Flexbox, Icon } from '../';
+import { Flexbox, Spinner } from '../';
 import { InputProps } from './TextField';
 
 interface Props {
     style: any
-    leftIcon?: ReactElement<any>
-    rightIcon?: ReactElement<any>
+    leftIcon?: ReactElement<Flexbox>
+    rightIcon?: ReactElement<Flexbox>
+    loading?: ReactElement<Flexbox>
 }
 
 class Input extends React.Component<Props & InputProps> {
 
     render() {
 
-        const { value, defaultValue, type, leftIcon, rightIcon, disabled, style, decoration, onChange, onClick, onFocus, onBlur } = this.props;
+        const { value, defaultValue, type, leftIcon, rightIcon, disabled, style, decoration, onChange, onClick, onFocus, onBlur, loading } = this.props;
 
         return (
             <Flexbox
@@ -29,7 +30,7 @@ class Input extends React.Component<Props & InputProps> {
                     disabled={disabled}
                     type={type}
                 />
-                {rightIcon}
+                {loading ? loading : rightIcon}
             </Flexbox>
         )
     }
