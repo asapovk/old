@@ -5,6 +5,19 @@
     z-index: 100;
     float: right;
     &-item {
-        margin: 10,
+        width: 300px;
+        margin: 10px;
+        margin-bottom: 0;
+        padding: 10px;
+        border: 0.5px solid;
+
+        &-title {
+            font-weight: 500;
+            font-size: 18px;
+            padding-bottom: 4px;
+        }
+        &-text {
+            font-size: 14px;
+        }
     }
 }

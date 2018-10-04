@@ -256,6 +256,20 @@ export declare const createStyles: (themeName?: "blackCurrant" | "whiteCurrant" 
             borderColor: any;
         };
     };
+    notifications: {
+        titleStyle: {
+            color: any;
+        };
+        valueStyle: {
+            color: any;
+        };
+        subtitleStyle: {
+            color: any;
+        };
+        extraStyle: {
+            borderColor: any;
+        };
+    };
 };
 export declare const ThemeContext: React.Context<{
     theme: ThemeInterface;
@@ -492,6 +506,20 @@ export declare const ThemeContext: React.Context<{
             borderColor: any;
         };
     };
+    notifications: {
+        titleStyle: {
+            color: any;
+        };
+        valueStyle: {
+            color: any;
+        };
+        subtitleStyle: {
+            color: any;
+        };
+        extraStyle: {
+            borderColor: any;
+        };
+    };
 }>;
 declare const _default: React.ComponentType<React.ConsumerProps<{
     theme: ThemeInterface;
@@ -715,6 +743,20 @@ declare const _default: React.ComponentType<React.ConsumerProps<{
         highlight: any;
     };
     widgetStat: {
+        titleStyle: {
+            color: any;
+        };
+        valueStyle: {
+            color: any;
+        };
+        subtitleStyle: {
+            color: any;
+        };
+        extraStyle: {
+            borderColor: any;
+        };
+    };
+    notifications: {
         titleStyle: {
             color: any;
         };
