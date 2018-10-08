@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,700,900&subset=cyrillic');
 @import url('https://fonts.googleapis.com/css?family=Lora');
 
-
 /* 
 * ———————————————————————
 * SETTINGS
@@ -12,18 +11,12 @@ $font-primary: 'Source Sans Pro', sans-serif;
 $font-secondary: 'Lora', serif;
 $base-font-size: 16px;
 
-$p-line-height: 1.5rem;
-$double-line: 3rem;
-$quarter-line: 0.375rem;
-$half-line: 0.75rem;
-$three-quarter-line: 1.125rem;
-
-
 //——————————————————————— 
+
 
 :root {
     font-size: $base-font-size;
-    line-height: $p-line-height;
+    line-height: 1.5rem;
     font-family: $font-primary;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
