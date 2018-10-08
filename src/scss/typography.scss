@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,700,900&subset=cyrillic');
-@import url('https://fonts.googleapis.com/css?family=Lora');
+@import url('https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i&subset=cyrillic');
+
 
 /* 
 * ———————————————————————
@@ -67,17 +68,17 @@ $base-font-size: 16px;
 
 %с2, .c2 {
     font-size: 0.875rem;
-    font-size: 0.875rem;
+    line-height: 0.875rem;
 }
 
 %с3, .c3 {
     font-size: 0.75rem;
-    font-size: 0.75rem;
+    line-height: 0.75rem;
 }
 
 %с4, .c4 {
     font-size: 0.625rem;
-    font-size: 0.625rem;
+    line-height: 0.625rem;
 }
 
 %blockqoute, blockquote {
