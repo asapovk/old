@@ -4,7 +4,8 @@
     outline: none;
     cursor: pointer;
     padding: 8px 16px;
-    @extend %text;
+    @extend %с2;
+    font-weight: 500;
     border: 1px solid;
     &:active {
         box-shadow: none !important;

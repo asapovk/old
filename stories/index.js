@@ -4,6 +4,7 @@ import '../src/scss/main.scss';
 
 storiesOf('Основные компоненты')
     .add('Viewport', $('ViewportStory'))
+    .add('Typography', $('TypographyStory'))
     .add('Button', $('ButtonStory'))
     .add('TextField', $('TextfieldStory'))
     .add('Select', $('SelectStory'))

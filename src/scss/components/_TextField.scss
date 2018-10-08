@@ -4,12 +4,12 @@
     flex: 1;
     flex-direction: column;
     &-label {
-        @extend %label;
+        @extend %с3;
         margin-bottom: 4px;
         text-transform: uppercase;
     }
     &-hint {
-        @extend %label;
+        @extend %с3;
         text-transform: none;
         margin-top: 8px;
         > svg {
@@ -23,7 +23,7 @@
     }
     > div > input, 
     > div > textarea {
-        @extend %text;
+        @extend %с1;
         appearance: none;
         box-sizing: border-box;
         resize: none;
@@ -35,6 +35,5 @@
         color: inherit;
         width: 100%;
         font-family: inherit;
-        font-size: inherit;
     }
 }
