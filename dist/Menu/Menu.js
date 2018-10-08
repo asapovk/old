@@ -28,8 +28,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importDefault(require("react"));
-var Icon_1 = require("../Icon");
-var Themes_1 = __importDefault(require("../Themes"));
+var __1 = require("../");
 var Menu = /** @class */ (function (_super) {
     __extends(Menu, _super);
     function Menu() {
@@ -50,9 +49,9 @@ var Menu = /** @class */ (function (_super) {
                         onSearch && onSearch(event.target.value);
                     } }),
                 react_1.default.createElement("span", { className: 'ui-menu-interactions-toolsbar-search-icon', onClick: function () { return _this.props.onSearchSubmit && _this.props.onSearchSubmit(_this.state.searchField); } },
-                    react_1.default.createElement(Icon_1.Icon, { type: 'search' }))),
+                    react_1.default.createElement(__1.Icon, { type: 'search' }))),
             ToolBarTSX)); };
-        return (react_1.default.createElement(Themes_1.default, null, function (styles) { return (react_1.default.createElement("div", { className: 'ui-menu', style: __assign({}, styles.menu.main.menu, style) },
+        return (react_1.default.createElement(__1.Styles, null, function (styles) { return (react_1.default.createElement("div", { className: 'ui-menu', style: __assign({}, styles.menu.main.menu, style) },
             header && react_1.default.createElement("div", { className: 'ui-menu-header' + (search ? ' header-max' : '') }, !header.label ? header : react_1.default.createElement("div", { className: 'ui-menu-header-title', onClick: header.onAction }, header.label)),
             react_1.default.createElement("div", { className: 'ui-menu-interactions' },
                 search && SearchBarTSX(styles.menu.main),

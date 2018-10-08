@@ -1,6 +1,5 @@
 import React from 'react';
-import { Popup } from '../Popup';
-import Theme from '../Themes';
+import { Popup, Styles } from '../';
 
 interface Props {
     name: any
@@ -44,13 +43,13 @@ class Login extends React.Component<Props> {
         )
 
         return (
-            <Theme>
+            <Styles>
                 {styles => (
                     <Popup trigger={LoginTSX(styles.login)}>
                         {MenuTSX(styles.login)}
                     </Popup>
                 )}
-            </Theme>
+            </Styles>
         )
     }
 }

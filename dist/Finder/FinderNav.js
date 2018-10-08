@@ -18,7 +18,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importDefault(require("react"));
 var __1 = require("../");
-var Themes_1 = __importDefault(require("../Themes"));
 var FinderNav = /** @class */ (function (_super) {
     __extends(FinderNav, _super);
     function FinderNav() {
@@ -32,7 +31,7 @@ var FinderNav = /** @class */ (function (_super) {
     FinderNav.prototype.render = function () {
         var _this = this;
         var _a = this.props, label = _a.label, badge = _a.badge, active = _a.active;
-        return (react_1.default.createElement(Themes_1.default, null, function (styles) { return (react_1.default.createElement(__1.Flexbox, { alignItems: "center", className: "ui-finder-nav" + (active ? " ui-finder-nav-active" : ""), onClick: function () { return _this.expand(); } },
+        return (react_1.default.createElement(__1.Styles, null, function (styles) { return (react_1.default.createElement(__1.Flexbox, { alignItems: "center", className: "ui-finder-nav" + (active ? " ui-finder-nav-active" : ""), onClick: function () { return _this.expand(); } },
             react_1.default.createElement(__1.Flexbox, { className: 'ui-finder-nav-label', flex: 1, children: label }),
             badge ? react_1.default.createElement(__1.Flexbox, { className: "ui-finder-nav-badge", style: { color: styles.finder.nav.badgeColor } }, badge) : null,
             react_1.default.createElement(__1.Flexbox, { className: 'ui-finder-nav-icon' },

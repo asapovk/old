@@ -1,6 +1,5 @@
 import React, { Component, Fragment } from 'react';
-import { Spin, Icon, Flexbox } from '../index';
-import Theme from '../Themes';
+import { Spin, Icon, Flexbox, Styles } from '../index';
 
 interface Props {
     label?: string
@@ -21,7 +20,7 @@ class Widget extends Component<Props> {
             classes += " ui-widget-clickable"
         }
         return (
-            <Theme>
+            <Styles>
                 {styles => (
                     <Flexbox column flex={1} justifyContent="center" className={classes} onClick={onClick} style={{
                         ...style,
@@ -41,7 +40,7 @@ class Widget extends Component<Props> {
                         ) : children}
                     </Flexbox>
                 )}
-            </Theme>
+            </Styles>
 
         );
     }

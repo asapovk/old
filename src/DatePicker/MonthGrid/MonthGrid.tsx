@@ -1,5 +1,5 @@
 import React, { CSSProperties } from 'react';
-import { Icon, Flexbox, Theme } from '../../';
+import { Icon, Flexbox, Styles } from '../../';
 import moment, { Moment } from 'moment';
 import Title from './Title';
 import Day from './Day';
@@ -47,7 +47,7 @@ class MonthGrid extends React.Component<Props> {
     render() {
         const grid = this.getMonthGrid();
         return (
-            <Theme>
+            <Styles>
                 {styles => (
                     <div className={`ui-datepicker ${this.props.active ? "ui-datepicker-active" : ""}`} style={{
                         ...styles.datePicker.monthGrid.style,
@@ -83,7 +83,7 @@ class MonthGrid extends React.Component<Props> {
                         </Flexbox>
                     </div>
                 )}
-            </Theme>
+            </Styles>
 
         )
     }

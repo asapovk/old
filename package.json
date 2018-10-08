@@ -40,7 +40,7 @@
     "start": "start-storybook -p 9001",
     "build": "yarn build-sass && yarn build-ts",
     "build-ts": "npx tsc",
-    "build-sass": "npx sass src/scss/main.scss dist/styles.css"
+    "build-sass": "npx sass src/Styles/scss/main.scss dist/styles.css"
   },
   "dependencies": {
     "@types/chart.js": "^2.7.34",

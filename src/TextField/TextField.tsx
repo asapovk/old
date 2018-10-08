@@ -1,6 +1,5 @@
 import React from 'react';
-import Theme from '../Themes';
-import { Flexbox, Spin } from '../';
+import { Flexbox, Spin, Styles } from '../';
 import { default as Icon, IconType } from '../Icon/Icon';
 import Input from './Input';
 import TextArea from './TextArea';
@@ -102,7 +101,7 @@ class TextField extends React.Component<Props> {
         )
 
         return (
-            <Theme>
+            <Styles>
                 {styles => (
                     <div className={classes} style={style}>
                         {label && (
@@ -159,7 +158,7 @@ class TextField extends React.Component<Props> {
                         )}
                     </div>
                 )}
-            </Theme>
+            </Styles>
 
         )
     }

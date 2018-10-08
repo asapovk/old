@@ -30,7 +30,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = require("react");
 var react_dom_1 = __importDefault(require("react-dom"));
 var react_2 = __importDefault(require("react"));
-var Themes_1 = __importDefault(require("../Themes"));
+var __1 = require("../");
 var Popup = /** @class */ (function (_super) {
     __extends(Popup, _super);
     function Popup() {
@@ -176,7 +176,7 @@ var Popup = /** @class */ (function (_super) {
         var PopupTSX = function (style) { return (react_2.default.createElement("div", { ref: function (ref) { return _this.popupRef = ref; }, className: classes, style: __assign({ background: style.background, color: style.color, boxShadow: "0px 2px 4px 0px " + style.shadowColor, borderColor: style.borderColor }, _this.state.popupStyle), children: children })); };
         var ViewportHTML = document.getElementById('0cd82567-7684-4147-ab02-dd3c56332364');
         var Portal = function (style) { return react_dom_1.default.createPortal(PopupTSX(style), ViewportHTML ? ViewportHTML : document.body); };
-        return (react_2.default.createElement(Themes_1.default, null, function (styles) { return (react_2.default.createElement(react_1.Fragment, null,
+        return (react_2.default.createElement(__1.Styles, null, function (styles) { return (react_2.default.createElement(react_1.Fragment, null,
             TriggerTSX,
             _this.state.show ? Portal(styles.popup) : null)); }));
     };

@@ -1,6 +1,5 @@
 import React, { CSSProperties } from 'react';
-import { Icon, Flexbox } from '../';
-import Theme from '../Themes';
+import { Icon, Flexbox, Styles } from '../';
 
 interface Props {
     label: string
@@ -32,7 +31,7 @@ class FinderNav extends React.Component<Props> {
         const { label, badge, active } = this.props;
 
         return (
-            <Theme>
+            <Styles>
                 {styles => (
                     <Flexbox alignItems="center" className={`ui-finder-nav${active ? " ui-finder-nav-active" : ""}`} onClick={() => this.expand()}>
                         <Flexbox className='ui-finder-nav-label' flex={1} children={label} />
@@ -42,7 +41,7 @@ class FinderNav extends React.Component<Props> {
                         </Flexbox>
                     </Flexbox>
                 )}
-            </Theme>
+            </Styles>
         )
     }
 }

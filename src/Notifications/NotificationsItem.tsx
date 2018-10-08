@@ -1,5 +1,5 @@
 import React, { CSSProperties } from 'react';
-import { Flexbox, Theme, Icon } from '../';
+import { Flexbox, Styles, Icon } from '../';
 import { NotificationOptions } from './Notifications';
 interface Props {
     options: NotificationOptions
@@ -9,7 +9,7 @@ class NotificationsItem extends React.Component<Props> {
     render() {
         const { options, onClose } = this.props;
         return (
-            <Theme>
+            <Styles>
                 {styles => (
                     <div className="ui-notifications-item" style={styles.notifications.main(options.decoration)}>
                         <Flexbox>
@@ -25,7 +25,7 @@ class NotificationsItem extends React.Component<Props> {
                         </Flexbox>
                     </div>
                 )}
-            </Theme>
+            </Styles>
         )
     }
 }

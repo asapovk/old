@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Button } from '../Button';
-import Theme from '../Themes';
+import { Styles } from '../';
 
 export interface TableFormProps {
     Column
@@ -91,7 +91,7 @@ class TableFormHOC extends React.Component<Props> {
         const { Form, data, columns } = this.props;
 
         return (
-            <Theme>
+            <Styles>
                 {styles => (
                     <div className='ui-table-content-body-row edited' style={{
                         backgroundColor: styles.table.form.backgroundColor,
@@ -100,7 +100,7 @@ class TableFormHOC extends React.Component<Props> {
                         <Form data={data} columns={columns} formData={this.formData} setData={this.setData} setValid={this.setValid} Column={this.Column} Subrow={this.Subrow} Actions={this.Actions} />
                     </div>
                 )}
-            </Theme>
+            </Styles>
         )
     }
 }

@@ -17,7 +17,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importDefault(require("react"));
-var Themes_1 = __importDefault(require("../Themes"));
+var __1 = require("../");
 var TableFormHOC = /** @class */ (function (_super) {
     __extends(TableFormHOC, _super);
     function TableFormHOC(props) {
@@ -54,7 +54,7 @@ var TableFormHOC = /** @class */ (function (_super) {
     TableFormHOC.prototype.render = function () {
         var _this = this;
         var _a = this.props, Form = _a.Form, data = _a.data, columns = _a.columns;
-        return (react_1.default.createElement(Themes_1.default, null, function (styles) { return (react_1.default.createElement("div", { className: 'ui-table-content-body-row edited', style: {
+        return (react_1.default.createElement(__1.Styles, null, function (styles) { return (react_1.default.createElement("div", { className: 'ui-table-content-body-row edited', style: {
                 backgroundColor: styles.table.form.backgroundColor,
                 borderColor: styles.table.form.borderColor,
             } },

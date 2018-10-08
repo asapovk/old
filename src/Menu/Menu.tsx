@@ -1,6 +1,5 @@
 import React from 'react';
-import { Icon } from '../Icon';
-import Theme from '../Themes';
+import { Icon, Styles } from '../';
 
 interface Props {
     header?: any
@@ -54,7 +53,7 @@ class Menu extends React.Component<Props> {
         )
 
         return (
-            <Theme>
+            <Styles>
                 {styles => (
                     <div className='ui-menu' style={{ ...styles.menu.main.menu, ...style }}>
                         {header && <div className={'ui-menu-header' + (search ? ' header-max' : '')}>
@@ -70,7 +69,7 @@ class Menu extends React.Component<Props> {
                         {toolsRight && <div className={'ui-menu-toolsbar' + (search ? ' bar-max' : '')}><div className='ui-menu-toolsbar-tools'>{toolsRight.map((tool, index) => React.cloneElement(tool, { key: index }))}</div></div>}
                     </div>
                 )}
-            </Theme>
+            </Styles>
 
         )
     }

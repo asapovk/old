@@ -30,7 +30,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importDefault(require("react"));
 var FinderFilter_1 = __importDefault(require("./FinderFilter"));
 var __1 = require("../");
-var Themes_1 = __importDefault(require("../Themes"));
 var Finder = /** @class */ (function (_super) {
     __extends(Finder, _super);
     function Finder(props) {
@@ -102,7 +101,7 @@ var Finder = /** @class */ (function (_super) {
             } },
             menu.filter && react_1.default.createElement(FinderFilter_1.default, { level: index, onChange: _this.onFilterChange, placeholder: menu.filterPlaceholder }),
             react_1.default.createElement(__1.Flexbox, { column: true, className: 'ui-finder-menu-items' }, _this.getCurrentChildren(children, menu.filterValue, index)))); })); };
-        return (react_1.default.createElement(Themes_1.default, null, function (styles) { return (react_1.default.createElement(__1.Flexbox, { style: __assign({ color: styles.finder.main.textColor, backgroundColor: styles.finder.main.backgroundColor, borderColor: styles.finder.main.borderColor }, style), inline: true, className: 'ui-finder' }, MenuesTSX(styles.finder.main))); }));
+        return (react_1.default.createElement(__1.Styles, null, function (styles) { return (react_1.default.createElement(__1.Flexbox, { style: __assign({ color: styles.finder.main.textColor, backgroundColor: styles.finder.main.backgroundColor, borderColor: styles.finder.main.borderColor }, style), inline: true, className: 'ui-finder' }, MenuesTSX(styles.finder.main))); }));
     };
     return Finder;
 }(react_1.default.Component));

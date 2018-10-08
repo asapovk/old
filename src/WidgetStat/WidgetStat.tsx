@@ -1,6 +1,5 @@
 import React, { Component, Fragment, Children } from 'react';
-import { Widget, Icon, Button, Flexbox } from '../index';
-import Theme from '../Themes';
+import { Widget, Icon, Button, Flexbox, Styles } from '../';
 
 interface Props {
     loading?: boolean | string
@@ -24,7 +23,7 @@ class WidgetStat extends Component<Props> {
         let classes = 'ui-widgetstat';
 
         return (
-            <Theme>
+            <Styles>
                 {styles => (
                     <Widget loading={loading} style={style}>
                         <Flexbox column className={classes} flex={1}>
@@ -49,7 +48,7 @@ class WidgetStat extends Component<Props> {
                         ) : null}
                     </Widget>
                 )}
-            </Theme>
+            </Styles>
 
         );
     }

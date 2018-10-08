@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Flexbox, Theme } from '../index';
+import { Flexbox, Styles } from '../index';
 
 interface Props {
     style?: any
@@ -32,7 +32,7 @@ class Title extends Component<Props> {
         const state = (typeof value !== "undefined") ? value : this.state.on;
 
         return (
-            <Theme>
+            <Styles>
                 {styles => (
                     <Flexbox className={classes} style={style}>
                         {children}
@@ -58,7 +58,7 @@ class Title extends Component<Props> {
                         ) : null}
                     </Flexbox>
                 )}
-            </Theme>
+            </Styles>
         );
     }
 }

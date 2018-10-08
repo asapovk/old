@@ -6,8 +6,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importDefault(require("react"));
 var Button_1 = require("../Button");
 var Icon_1 = require("../Icon");
-var Themes_1 = __importDefault(require("../Themes"));
-var TableActions = function (props) { return (react_1.default.createElement(Themes_1.default, null, function (styles) { return (react_1.default.createElement("div", { className: 'ui-table-content-body-row-actions' },
+var __1 = require("../");
+var TableActions = function (props) { return (react_1.default.createElement(__1.Styles, null, function (styles) { return (react_1.default.createElement("div", { className: 'ui-table-content-body-row-actions' },
     react_1.default.createElement(Icon_1.Icon, { type: 'more', style: { color: styles.table.actions.actionColor } }),
     react_1.default.createElement("div", { className: 'ui-table-content-body-row-actions-buttons', style: {
             // TODO: gradient opacity

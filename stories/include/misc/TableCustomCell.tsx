@@ -1,5 +1,5 @@
 import React from 'react';
-import { Popup, Theme } from '../../../src';
+import { Popup, Styles } from '../../../src';
 
 interface TableCustomCellProps {
     value
@@ -12,7 +12,7 @@ class TableCustomCell extends React.Component<TableCustomCellProps> {
 
     render() {
         const PopupTriggerTSX = (
-            <Theme>
+            <Styles>
                 {styles => (
                     <div
                         style={{
@@ -24,7 +24,7 @@ class TableCustomCell extends React.Component<TableCustomCellProps> {
                         children={this.props.row}
                     />
                 )}
-            </Theme>
+            </Styles>
         )
         return (
             <div>

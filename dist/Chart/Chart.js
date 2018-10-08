@@ -29,7 +29,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importDefault(require("react"));
 var index_1 = require("../index");
-var Themes_1 = __importDefault(require("../Themes"));
 var chart_js_1 = require("chart.js");
 var react_chartjs_2_1 = require("react-chartjs-2");
 var chartTypes = {
@@ -91,7 +90,7 @@ var Chart = /** @class */ (function (_super) {
                 })
             };
         };
-        return (react_1.default.createElement(Themes_1.default, null, function (styles) { return (react_1.default.createElement(index_1.Flexbox, { column: true, flex: 1, justifyContent: "center", className: "ui-chart", style: style }, loading ? (react_1.default.createElement(index_1.Flexbox, { column: true, className: "ui-chart-loading", alignItems: "center", alignSelf: "center", justifyContent: "center" },
+        return (react_1.default.createElement(index_1.Styles, null, function (styles) { return (react_1.default.createElement(index_1.Flexbox, { column: true, flex: 1, justifyContent: "center", className: "ui-chart", style: style }, loading ? (react_1.default.createElement(index_1.Flexbox, { column: true, className: "ui-chart-loading", alignItems: "center", alignSelf: "center", justifyContent: "center" },
             react_1.default.createElement(index_1.Spin, null,
                 react_1.default.createElement(index_1.Icon, { type: "sync" })),
             typeof loading === "string" && react_1.default.createElement("div", { className: "ui-chart-loadingtext", style: { color: styles.widget.lowlight } }, loading))) :

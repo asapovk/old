@@ -31,7 +31,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var Themes_1 = require("../Themes");
+var Styles_1 = require("../Styles");
 var react_1 = __importStar(require("react"));
 var Viewport = /** @class */ (function (_super) {
     __extends(Viewport, _super);
@@ -76,8 +76,8 @@ var Viewport = /** @class */ (function (_super) {
         return this.state.mountedActions.find(function (action) { return action.id === id; }) || null;
     };
     Viewport.prototype.render = function () {
-        var uiStyles = Themes_1.createStyles(this.props.theme);
-        return (react_1.default.createElement(Themes_1.ThemeContext.Provider, { value: uiStyles },
+        var uiStyles = Styles_1.createStyles(this.props.theme);
+        return (react_1.default.createElement(Styles_1.StylesContext.Provider, { value: uiStyles },
             react_1.default.createElement("div", { "data-viewport": true, className: 'ui-view', id: '0cd82567-7684-4147-ab02-dd3c56332364', style: __assign({}, this.props.style, uiStyles.viewport.main) },
                 this.props.children,
                 this.state.mountedActions.map(function (action, index) {

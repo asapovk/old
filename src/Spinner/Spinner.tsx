@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Theme from '../Themes';
 
 interface Props {
     spinning?: boolean,

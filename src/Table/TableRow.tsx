@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import TableColumns from './TableColumns';
 import TableForm from './TableForm';
 import TableActions from './TableActions';
-import Theme from '../Themes';
+import { Styles } from '../';
 
 interface Props {
     row: {
@@ -34,7 +34,7 @@ class TableRow extends React.Component<Props> {
         }
 
         return (
-            <Theme>
+            <Styles>
                 {styles => (
                     <div
                         className={`ui-table-content-body-row ${isBlur ? 'blur' : 'hover'}`}
@@ -49,7 +49,7 @@ class TableRow extends React.Component<Props> {
                         {actions && <TableActions actions={actions} data={row} />}
                     </div>
                 )}
-            </Theme>
+            </Styles>
 
         )
     }

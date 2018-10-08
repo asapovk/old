@@ -5,25 +5,25 @@ import { objectColor } from './utilities';
 import blackCurrant from './themes/black-currant'
 import whiteCurrant from './themes/white-currant'
 
-import buttonStyles from './styles/Button'
-import chartStyles from './styles/Chart'
-import checkboxStyles from './styles/Checkbox'
-import datePickerStyles from './styles/DatePicker'
-import finderStyles from './styles/Finder'
-import loginStyles from './styles/Login'
-import menuStyles from './styles/Menu'
-import modalStyles from './styles/Modal'
-import popupStyles from './styles/Popup'
-import selectStyles from './styles/Select'
-import spinStyles from './styles/Spin'
-import spinnerStyles from './styles/Spinner'
-import tableStyles from './styles/Table'
-import textFieldStyles from './styles/TextField'
-import titleStyles from './styles/Title'
-import viewportStyles from './styles/Viewport'
-import widgetStyles from './styles/Widget'
-import widgetStatStyles from './styles/WidgetStat'
-import notificationsStyles from './styles/Notifications'
+import buttonStyles from './jss/Button'
+import chartStyles from './jss/Chart'
+import checkboxStyles from './jss/Checkbox'
+import datePickerStyles from './jss/DatePicker'
+import finderStyles from './jss/Finder'
+import loginStyles from './jss/Login'
+import menuStyles from './jss/Menu'
+import modalStyles from './jss/Modal'
+import popupStyles from './jss/Popup'
+import selectStyles from './jss/Select'
+import spinStyles from './jss/Spin'
+import spinnerStyles from './jss/Spinner'
+import tableStyles from './jss/Table'
+import textFieldStyles from './jss/TextField'
+import titleStyles from './jss/Title'
+import viewportStyles from './jss/Viewport'
+import widgetStyles from './jss/Widget'
+import widgetStatStyles from './jss/WidgetStat'
+import notificationsStyles from './jss/Notifications'
 
 export const themes = {
     blackCurrant, whiteCurrant
@@ -76,8 +76,8 @@ export const createStyles = (themeName?: themeName) => {
     }
 };
 
-export const ThemeContext = React.createContext(
+export const StylesContext = React.createContext(
     createStyles('blackCurrant')
 );
 
-export default ThemeContext.Consumer;
+export default StylesContext.Consumer;

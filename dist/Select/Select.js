@@ -183,7 +183,7 @@ var Select = /** @class */ (function (_super) {
                 onChange && onChange(multiselect ? [] : null);
             } },
             react_1.default.createElement(__1.Icon, { type: 'close' }))); };
-        return (react_1.default.createElement(__1.Theme, null, function (styles) { return (react_1.default.createElement("div", { className: 'ui-select' + (disabled ? ' disabled' : ''), style: __assign({}, style) },
+        return (react_1.default.createElement(__1.Styles, null, function (styles) { return (react_1.default.createElement("div", { className: 'ui-select' + (disabled ? ' disabled' : ''), style: __assign({}, style) },
             react_1.default.createElement("div", { className: 'ui-select-label', style: { color: styles.select.labelColor } }, label),
             react_1.default.createElement("div", { className: 'ui-select-holder' + (menuVisible ? ' active' : ''), onClick: function () { return _this.toggleMenu(); }, ref: function (ref) { return _this.holderRef = ref; }, style: {
                     background: styles.select.background,

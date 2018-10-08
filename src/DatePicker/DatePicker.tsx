@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import { Icon, Flexbox, TextField, Theme } from '../';
+import { Icon, Flexbox, TextField, Styles } from '../';
 import moment, { Moment } from 'moment';
 import { MonthGrid } from './MonthGrid';
 
@@ -45,7 +45,7 @@ class DatePicker extends React.Component<Props> {
     }
     render() {
         return (
-            <Theme>
+            <Styles>
                 {styles => (
                     <Flexbox column style={{ lineHeight: 1 }}>
                         <div style={{
@@ -85,7 +85,7 @@ class DatePicker extends React.Component<Props> {
                         }
                     </Flexbox>
                 )}
-            </Theme>
+            </Styles>
         )
     }
 }

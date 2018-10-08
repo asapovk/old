@@ -17,7 +17,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importDefault(require("react"));
-var Themes_1 = __importDefault(require("../Themes"));
+var __1 = require("../");
 var TablePagination = /** @class */ (function (_super) {
     __extends(TablePagination, _super);
     function TablePagination() {
@@ -33,7 +33,7 @@ var TablePagination = /** @class */ (function (_super) {
         }
         var buttonsComponents = [];
         var _loop_1 = function (i) {
-            buttonsComponents.push(react_1.default.createElement(Themes_1.default, { key: i }, function (styles) { return (react_1.default.createElement("div", { onClick: function () { return _this.props.onChange(i + 1); }, className: "ui-table-paggination-button", style: {
+            buttonsComponents.push(react_1.default.createElement(__1.Styles, { key: i }, function (styles) { return (react_1.default.createElement("div", { onClick: function () { return _this.props.onChange(i + 1); }, className: "ui-table-paggination-button", style: {
                     color: styles.table.pagination.textColor,
                     backgroundColor: styles.table.pagination.backgroundColor,
                     opacity: page === i + 1 ? 1 : 0.5

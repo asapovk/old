@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Theme from '../Themes';
+import { Styles } from '../'
 
 export interface PaginationProps {
     pageSize: number
@@ -28,7 +28,7 @@ class TablePagination extends React.Component<Props> {
 
         for (let i = 0; i < buttons; i++) {
             buttonsComponents.push(
-                <Theme key={i}>
+                <Styles key={i}>
                     {styles => (
                         <div
                             onClick={() => this.props.onChange(i + 1)}
@@ -41,7 +41,7 @@ class TablePagination extends React.Component<Props> {
                             children={`${i * pageSize}–${i * pageSize + pageSize}`}
                         />
                     )}
-                </Theme>
+                </Styles>
             )
         }
 

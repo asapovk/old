@@ -59,7 +59,7 @@ var MonthGridDay = /** @class */ (function (_super) {
             }
             return style;
         };
-        return (react_1.default.createElement(__1.Theme, null, function (styles) { return (react_1.default.createElement(__1.Flexbox, { justifyContent: "center", alignItems: "center", className: "ui-datepicker-monthgrid-day", onClick: function () {
+        return (react_1.default.createElement(__1.Styles, null, function (styles) { return (react_1.default.createElement(__1.Flexbox, { justifyContent: "center", alignItems: "center", className: "ui-datepicker-monthgrid-day", onClick: function () {
                 if (!disabled)
                     onClick && onClick();
             }, children: day.date(), style: setStyles(styles.datePicker.day) })); }));

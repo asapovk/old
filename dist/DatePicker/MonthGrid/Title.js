@@ -35,7 +35,7 @@ var MonthGridTitle = /** @class */ (function (_super) {
         var _a = this.props, date = _a.date, disaplayWeeks = _a.disaplayWeeks, onChange = _a.onChange;
         var Next = function (props) { return (react_1.default.createElement(__1.Flexbox, { flexBasis: 20, alignItems: "center", onClick: function () { return onChange && onChange(date.clone().add(props.previous ? -1 : 1, "month")); }, children: react_1.default.createElement(__1.Icon, { type: props.previous ? "left" : "right" }) })); };
         var Back = function () { return react_1.default.createElement(Next, { previous: true }); };
-        return (react_1.default.createElement(__1.Theme, null, function (styles) { return (react_1.default.createElement(react_1.Fragment, null,
+        return (react_1.default.createElement(__1.Styles, null, function (styles) { return (react_1.default.createElement(react_1.Fragment, null,
             react_1.default.createElement(__1.Flexbox, { className: "ui-datepicker-monthgrid-title", style: styles.datePicker.title.style },
                 react_1.default.createElement(Back, null),
                 react_1.default.createElement(__1.Flexbox, { column: true, flex: 1, alignItems: "center", justifyContent: "center" },

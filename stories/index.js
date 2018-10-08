@@ -1,6 +1,6 @@
 import $ from './StoryRender';
 import { storiesOf } from '@storybook/react';
-import '../src/scss/main.scss';
+import '../src/Styles/scss/main.scss';
 
 storiesOf('Основные компоненты')
     .add('Viewport', $('ViewportStory'))

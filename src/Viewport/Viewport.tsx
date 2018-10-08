@@ -1,4 +1,4 @@
-import { ThemeContext, createStyles, themeName } from '../Themes';
+import { StylesContext, createStyles, themeName } from '../Styles';
 import React, { Component, Fragment } from 'react';
 
 interface ViewportProps {
@@ -57,14 +57,14 @@ class Viewport extends Component<ViewportProps> {
     render() {
         const uiStyles = createStyles(this.props.theme);
         return (
-            <ThemeContext.Provider value={uiStyles}>
+            <StylesContext.Provider value={uiStyles}>
                 <div data-viewport className='ui-view' id='0cd82567-7684-4147-ab02-dd3c56332364' style={{ ...this.props.style, ...uiStyles.viewport.main }}>
                     {this.props.children}
                     {this.state.mountedActions.map((action, index) => {
                         return <Fragment key={index}>{action.component}</Fragment>
                     })}
                 </div>
-            </ThemeContext.Provider>
+            </StylesContext.Provider>
         )
     }
 }

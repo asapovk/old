@@ -1,7 +1,6 @@
 import React, { CSSProperties } from 'react';
 import FinderFilter from './FinderFilter';
-import { Flexbox } from '../';
-import Theme from '../Themes';
+import { Flexbox, Styles } from '../';
 
 interface Props {
     filter?: boolean
@@ -101,7 +100,7 @@ class Finder extends React.Component<Props> {
         );
 
         return (
-            <Theme>
+            <Styles>
                 {styles => (
                     <Flexbox style={{
                         color: styles.finder.main.textColor,
@@ -112,7 +111,7 @@ class Finder extends React.Component<Props> {
                         {MenuesTSX(styles.finder.main)}
                     </Flexbox>
                 )}
-            </Theme>
+            </Styles>
         )
     }
 }

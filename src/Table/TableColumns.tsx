@@ -1,5 +1,4 @@
 import React from 'react';
-import Theme from '../Themes';
 
 interface Props {
     row

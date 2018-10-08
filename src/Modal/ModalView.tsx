@@ -1,6 +1,5 @@
 import React, { CSSProperties } from 'react';
-import Theme from '../Themes';
-import { Flexbox } from '../Flexbox';
+import { Flexbox, Styles } from '../';
 
 interface Props {
     loading?: boolean
@@ -14,7 +13,7 @@ interface Props {
 class ModalView extends React.Component<Props> {
     render() {
         return (
-            <Theme>
+            <Styles>
                 {styles => (
                     <Flexbox flexDirection="column" alignItems="center" justifyContent="center" style={{ height: this.props.center ? "100%" : "auto" }}>
                         <div className={this.props.loading ? "loading" : ""} style={{
@@ -33,7 +32,7 @@ class ModalView extends React.Component<Props> {
                         </div>
                     </Flexbox>
                 )}
-            </Theme>
+            </Styles>
 
         )
     }

@@ -59,7 +59,7 @@ var MonthGrid = /** @class */ (function (_super) {
     MonthGrid.prototype.render = function () {
         var _this = this;
         var grid = this.getMonthGrid();
-        return (react_1.default.createElement(__1.Theme, null, function (styles) { return (react_1.default.createElement("div", { className: "ui-datepicker " + (_this.props.active ? "ui-datepicker-active" : ""), style: __assign({}, styles.datePicker.monthGrid.style, _this.props.style) },
+        return (react_1.default.createElement(__1.Styles, null, function (styles) { return (react_1.default.createElement("div", { className: "ui-datepicker " + (_this.props.active ? "ui-datepicker-active" : ""), style: __assign({}, styles.datePicker.monthGrid.style, _this.props.style) },
             react_1.default.createElement(__1.Flexbox, { column: true, className: "ui-datepicker-monthgrid" },
                 react_1.default.createElement(Title_1.default, { date: _this.state.date, onChange: function (date) {
                         _this.setState({ date: date });

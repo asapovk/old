@@ -17,8 +17,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importDefault(require("react"));
-var Popup_1 = require("../Popup");
-var Themes_1 = __importDefault(require("../Themes"));
+var __1 = require("../");
 var Login = /** @class */ (function (_super) {
     __extends(Login, _super);
     function Login() {
@@ -38,7 +37,7 @@ var Login = /** @class */ (function (_super) {
         var LoginTSX = function (style) { return (react_1.default.createElement("div", { className: 'ui-login' },
             AvatarTSX(style),
             name)); };
-        return (react_1.default.createElement(Themes_1.default, null, function (styles) { return (react_1.default.createElement(Popup_1.Popup, { trigger: LoginTSX(styles.login) }, MenuTSX(styles.login))); }));
+        return (react_1.default.createElement(__1.Styles, null, function (styles) { return (react_1.default.createElement(__1.Popup, { trigger: LoginTSX(styles.login) }, MenuTSX(styles.login))); }));
     };
     return Login;
 }(react_1.default.Component));

@@ -47,7 +47,7 @@ var Title = /** @class */ (function (_super) {
         var _a = this.props, children = _a.children, style = _a.style, onChange = _a.onChange, value = _a.value, onLabel = _a.onLabel, offLabel = _a.offLabel;
         var classes = 'ui-title';
         var state = (typeof value !== "undefined") ? value : this.state.on;
-        return (react_1.default.createElement(index_1.Theme, null, function (styles) { return (react_1.default.createElement(index_1.Flexbox, { className: classes, style: style },
+        return (react_1.default.createElement(index_1.Styles, null, function (styles) { return (react_1.default.createElement(index_1.Flexbox, { className: classes, style: style },
             children,
             (typeof onChange === "function") ? (react_1.default.createElement(index_1.Flexbox, null,
                 react_1.default.createElement("div", { onClick: function () { return _this.onChange(true); }, style: styles.title.active, className: "ui-title-action" + (state ? " ui-title-action-active" : "") }, onLabel || "ВКЛ"),

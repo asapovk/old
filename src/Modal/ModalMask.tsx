@@ -1,5 +1,5 @@
 import React from 'react';
-import Theme from '../Themes';
+import { Styles } from '../';
 
 interface Props {
     visible: boolean
@@ -8,11 +8,11 @@ interface Props {
 class ModalMask extends React.Component<Props> {
     render() {
         return (
-            <Theme>
+            <Styles>
                 {styles => (
                     <div className={`ui-modal-mask${this.props.visible ? " ui-modal-mask-visible" : ""}`} style={styles.modal.main} />
                 )}
-            </Theme>
+            </Styles>
         )
     }
 }

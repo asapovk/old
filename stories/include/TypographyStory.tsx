@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import { Button, Flexbox, Title, Theme } from '../../src';
+import { Button, Flexbox, Title, Styles } from '../../src';
 
 export default class Story extends React.Component {
     render() {
@@ -11,7 +11,7 @@ export default class Story extends React.Component {
             return lines;
         }
         return (
-            <Theme>
+            <Styles>
                 {styles => (
                     <Flexbox p={40} mt={-40} alignItems='flex-start' justifyContent='center' style={{ position: 'relative', overflow: 'hidden' }}>
                         <article style={{ zIndex: 9999 }}>
@@ -90,7 +90,7 @@ export default class Story extends React.Component {
                         />
                     </Flexbox>
                 )}
-            </Theme>
+            </Styles>
         )
     }
 }

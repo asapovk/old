@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import { Flexbox, Theme, Icon } from '../../';
+import { Flexbox, Styles, Icon } from '../../';
 import moment, { Moment } from 'moment';
 
 interface Props {
@@ -21,7 +21,7 @@ class MonthGridTitle extends React.Component<Props> {
         const Back = () => <Next previous />;
 
         return (
-            <Theme>
+            <Styles>
                 {styles => (
                     <Fragment>
                         <Flexbox className="ui-datepicker-monthgrid-title" style={styles.datePicker.title.style}>
@@ -48,7 +48,7 @@ class MonthGridTitle extends React.Component<Props> {
                         )}
                     </Fragment>
                 )}
-            </Theme>
+            </Styles>
 
         )
     }

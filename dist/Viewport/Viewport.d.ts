@@ -1,4 +1,4 @@
-import { themeName } from '../Themes';
+import { themeName } from '../Styles';
 import { Component } from 'react';
 interface ViewportProps {
     children?: any;

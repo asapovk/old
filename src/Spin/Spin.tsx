@@ -1,5 +1,4 @@
 import React, { Component, CSSProperties } from 'react';
-import Theme from '../Themes';
 
 interface Props {
     style?: CSSProperties,

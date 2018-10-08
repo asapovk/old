@@ -1,6 +1,5 @@
 import React from 'react';
-import { Spin, Icon, Flexbox } from '../index';
-import Theme from '../Themes';
+import { Spin, Icon, Flexbox, Styles } from '../index';
 import { defaults } from 'chart.js';
 import { Line } from 'react-chartjs-2';
 
@@ -93,7 +92,7 @@ class Chart extends React.Component<Props> {
         };
 
         return (
-            <Theme>
+            <Styles>
                 {styles => (
                     <Flexbox column flex={1} justifyContent="center" className="ui-chart" style={style}>
                         {loading ? (
@@ -147,7 +146,7 @@ class Chart extends React.Component<Props> {
                         }
                     </Flexbox>
                 )}
-            </Theme>
+            </Styles>
         );
     }
 }

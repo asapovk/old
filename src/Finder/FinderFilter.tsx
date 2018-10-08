@@ -1,6 +1,5 @@
 import React from 'react';
-import { Icon, Flexbox } from '../';
-import Theme from '../Themes';
+import { Icon, Flexbox, Styles } from '../';
 
 interface Props {
     placeholder?: string
@@ -28,7 +27,7 @@ class FinderFilter extends React.Component<Props> {
         const { placeholder, clearable } = this.props;
 
         return (
-            <Theme>
+            <Styles>
                 {styles => (
                     <div className={`ui-finder-filter`} style={{
                         borderColor: styles.finder.filter.borderColor,
@@ -47,7 +46,7 @@ class FinderFilter extends React.Component<Props> {
                         </Flexbox>
                     </div>
                 )}
-            </Theme>
+            </Styles>
         )
     }
 }

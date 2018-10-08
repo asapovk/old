@@ -18,7 +18,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importDefault(require("react"));
 var __1 = require("../");
-var Themes_1 = __importDefault(require("../Themes"));
 var FinderFilter = /** @class */ (function (_super) {
     __extends(FinderFilter, _super);
     function FinderFilter() {
@@ -35,7 +34,7 @@ var FinderFilter = /** @class */ (function (_super) {
     FinderFilter.prototype.render = function () {
         var _this = this;
         var _a = this.props, placeholder = _a.placeholder, clearable = _a.clearable;
-        return (react_1.default.createElement(Themes_1.default, null, function (styles) { return (react_1.default.createElement("div", { className: "ui-finder-filter", style: {
+        return (react_1.default.createElement(__1.Styles, null, function (styles) { return (react_1.default.createElement("div", { className: "ui-finder-filter", style: {
                 borderColor: styles.finder.filter.borderColor,
             } },
             react_1.default.createElement(__1.Flexbox, { alignItems: "center", className: "ui-finder-filter-input", style: {

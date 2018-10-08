@@ -1,7 +1,7 @@
 import { Fragment } from 'react';
 import ReactDOM from 'react-dom';
 import React from 'react';
-import Theme from '../Themes';
+import { Styles } from '../';
 
 interface TargetCoordinates {
     top: number
@@ -207,14 +207,14 @@ class Popup extends React.Component<Props> {
         const Portal = (style) => ReactDOM.createPortal(PopupTSX(style), ViewportHTML ? ViewportHTML : document.body);
 
         return (
-            <Theme>
+            <Styles>
                 {styles => (
                     <Fragment>
                         {TriggerTSX}
                         {this.state.show ? Portal(styles.popup) : null}
                     </Fragment>
                 )}
-            </Theme>
+            </Styles>
         )
     }
 }

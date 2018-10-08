@@ -28,8 +28,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importDefault(require("react"));
-var Themes_1 = __importDefault(require("../Themes"));
-var Flexbox_1 = require("../Flexbox");
+var __1 = require("../");
 var ModalView = /** @class */ (function (_super) {
     __extends(ModalView, _super);
     function ModalView() {
@@ -37,7 +36,7 @@ var ModalView = /** @class */ (function (_super) {
     }
     ModalView.prototype.render = function () {
         var _this = this;
-        return (react_1.default.createElement(Themes_1.default, null, function (styles) { return (react_1.default.createElement(Flexbox_1.Flexbox, { flexDirection: "column", alignItems: "center", justifyContent: "center", style: { height: _this.props.center ? "100%" : "auto" } },
+        return (react_1.default.createElement(__1.Styles, null, function (styles) { return (react_1.default.createElement(__1.Flexbox, { flexDirection: "column", alignItems: "center", justifyContent: "center", style: { height: _this.props.center ? "100%" : "auto" } },
             react_1.default.createElement("div", { className: _this.props.loading ? "loading" : "", style: __assign({ color: styles.modal.view.textColor, background: styles.modal.view.background, borderColor: styles.modal.view.borderColor }, _this.props.style), ref: _this.props.wrapperReference },
                 _this.props.title ? (react_1.default.createElement("div", { className: "ui-modal-title", style: { color: styles.modal.view.titleColor } },
                     _this.props.title,

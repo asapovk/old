@@ -1,5 +1,5 @@
 import React, { Component, CSSProperties } from 'react';
-import { Theme, Icon } from '..';
+import { Styles, Icon } from '..';
 import SelectMenuItem from './SelectMenuItem'
 
 interface SelectOption {
@@ -224,7 +224,7 @@ class Select extends Component<Props> {
         );
 
         return (
-            <Theme>
+            <Styles>
                 {styles => (
                     <div className={'ui-select' + (disabled ? ' disabled' : '')} style={{
                         ...style
@@ -255,7 +255,7 @@ class Select extends Component<Props> {
                         </div>
                     </div>
                 )}
-            </Theme>
+            </Styles>
 
         )
     }

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Spin, Icon, Theme } from '../index';
+import { Spin, Icon, Styles } from '../index';
 
 export interface Props {
     label?: string
@@ -25,7 +25,7 @@ class Button extends Component<Props> {
         if (loading) classes += ' loading';
 
         return (
-            <Theme>
+            <Styles>
                 {styles => (
                     <button className={classes} onClick={onClick} style={{ ...styles.button.main(decoration), ...style }}>
                         <span className='ui-button-label'>{label || children}</span>
@@ -36,7 +36,7 @@ class Button extends Component<Props> {
                         )}
                     </button>
                 )}
-            </Theme>
+            </Styles>
         );
     }
 }

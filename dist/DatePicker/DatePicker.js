@@ -56,7 +56,7 @@ var DatePicker = /** @class */ (function (_super) {
     };
     DatePicker.prototype.render = function () {
         var _this = this;
-        return (react_1.default.createElement(__1.Theme, null, function (styles) { return (react_1.default.createElement(__1.Flexbox, { column: true, style: { lineHeight: 1 } },
+        return (react_1.default.createElement(__1.Styles, null, function (styles) { return (react_1.default.createElement(__1.Flexbox, { column: true, style: { lineHeight: 1 } },
             react_1.default.createElement("div", { style: {
                     color: styles.datePicker.main.labelColor, fontSize: 12,
                     marginBottom: 5,

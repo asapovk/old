@@ -30,13 +30,9 @@ var __importStar = (this && this.__importStar) || function (mod) {
     result["default"] = mod;
     return result;
 };
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importStar(require("react"));
 var index_1 = require("../index");
-var Themes_1 = __importDefault(require("../Themes"));
 var Widget = /** @class */ (function (_super) {
     __extends(Widget, _super);
     function Widget() {
@@ -48,7 +44,7 @@ var Widget = /** @class */ (function (_super) {
         if (onClick) {
             classes += " ui-widget-clickable";
         }
-        return (react_1.default.createElement(Themes_1.default, null, function (styles) { return (react_1.default.createElement(index_1.Flexbox, { column: true, flex: 1, justifyContent: "center", className: classes, onClick: onClick, style: __assign({}, style, { background: styles.widget.background, borderColor: styles.widget.borderColor }) },
+        return (react_1.default.createElement(index_1.Styles, null, function (styles) { return (react_1.default.createElement(index_1.Flexbox, { column: true, flex: 1, justifyContent: "center", className: classes, onClick: onClick, style: __assign({}, style, { background: styles.widget.background, borderColor: styles.widget.borderColor }) },
             title ? (react_1.default.createElement(index_1.Flexbox, { pr: 10, flex: 1, className: "ui-widget-title" }, title)) : "",
             loading ? (react_1.default.createElement(index_1.Flexbox, { column: true, className: "ui-widget-loading", alignItems: "center", alignSelf: "center", justifyContent: "center" },
                 react_1.default.createElement(index_1.Spin, null,

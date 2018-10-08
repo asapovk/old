@@ -19,12 +19,9 @@ var __importStar = (this && this.__importStar) || function (mod) {
     result["default"] = mod;
     return result;
 };
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importStar(require("react"));
-var Themes_1 = __importDefault(require("../Themes"));
+var __1 = require("../");
 var MenuNav = /** @class */ (function (_super) {
     __extends(MenuNav, _super);
     function MenuNav() {
@@ -33,7 +30,7 @@ var MenuNav = /** @class */ (function (_super) {
     MenuNav.prototype.render = function () {
         var _this = this;
         var _a = this.props, active = _a.active, onClick = _a.onClick;
-        return (react_1.default.createElement(Themes_1.default, null, function (styles) { return (react_1.default.createElement("div", { className: "ui-menu-nav", onClick: onClick, style: {
+        return (react_1.default.createElement(__1.Styles, null, function (styles) { return (react_1.default.createElement("div", { className: "ui-menu-nav", onClick: onClick, style: {
                 color: active ? styles.menu.nav.textColorActive : styles.menu.nav.textColor
             } },
             _this.props.children,

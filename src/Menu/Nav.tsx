@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Theme from '../Themes';
+import { Styles } from '../';
 
 interface Props {
     active?: boolean
@@ -12,7 +12,7 @@ class MenuNav extends Component<Props> {
     render() {
         const { active, onClick } = this.props;
         return (
-            <Theme>
+            <Styles>
                 {styles => (
                     <div
                         className="ui-menu-nav"
@@ -22,7 +22,7 @@ class MenuNav extends Component<Props> {
                         }}
                     >{this.props.children}{active && <span style={{ backgroundColor: styles.menu.nav.textColorActive }} />}</div>
                 )}
-            </Theme>
+            </Styles>
         )
     }
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Flexbox, Theme } from '../../';
+import { Flexbox, Styles } from '../../';
 import moment, { Moment } from 'moment';
 
 interface Props {
@@ -40,7 +40,7 @@ class MonthGridDay extends React.Component<Props> {
 
 
         return (
-            <Theme>
+            <Styles>
                 {styles => (
                     <Flexbox
                         justifyContent="center"
@@ -53,7 +53,7 @@ class MonthGridDay extends React.Component<Props> {
                         style={setStyles(styles.datePicker.day)}
                     />
                 )}
-            </Theme>
+            </Styles>
 
         )
     }

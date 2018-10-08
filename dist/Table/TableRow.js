@@ -31,7 +31,7 @@ var react_1 = __importDefault(require("react"));
 var TableColumns_1 = __importDefault(require("./TableColumns"));
 var TableForm_1 = __importDefault(require("./TableForm"));
 var TableActions_1 = __importDefault(require("./TableActions"));
-var Themes_1 = __importDefault(require("../Themes"));
+var __1 = require("../");
 var TableRow = /** @class */ (function (_super) {
     __extends(TableRow, _super);
     function TableRow() {
@@ -46,7 +46,7 @@ var TableRow = /** @class */ (function (_super) {
         if (form) {
             return TableForm_1.default(form, columns, row);
         }
-        return (react_1.default.createElement(Themes_1.default, null, function (styles) { return (react_1.default.createElement("div", { className: "ui-table-content-body-row " + (isBlur ? 'blur' : 'hover'), style: {
+        return (react_1.default.createElement(__1.Styles, null, function (styles) { return (react_1.default.createElement("div", { className: "ui-table-content-body-row " + (isBlur ? 'blur' : 'hover'), style: {
                 borderColor: styles.table.row.borderColor
             }, onClick: function (event) { return _this.onClick(event, row); } },
             react_1.default.createElement(TableColumns_1.default, __assign({}, _this.props)),

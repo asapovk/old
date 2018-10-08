@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button } from '../Button';
 import { Icon } from '../Icon';
-import Theme from '../Themes';
+import { Styles } from '../';
 
 
 export interface Props {
@@ -11,7 +11,7 @@ export interface Props {
 }
 
 const TableActions = props => (
-    <Theme>
+    <Styles>
         {styles => (
             <div className='ui-table-content-body-row-actions'>
                 <Icon type='more' style={{ color: styles.table.actions.actionColor }} />
@@ -28,7 +28,7 @@ const TableActions = props => (
                     }</div>
             </div>
         )}
-    </Theme>
+    </Styles>
 )
 
 export default TableActions;

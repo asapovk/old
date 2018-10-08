@@ -28,8 +28,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importDefault(require("react"));
-var Icon_1 = require("../Icon");
-var Themes_1 = __importDefault(require("../Themes"));
+var __1 = require("..");
 var Checkbox = /** @class */ (function (_super) {
     __extends(Checkbox, _super);
     function Checkbox() {
@@ -62,8 +61,8 @@ var Checkbox = /** @class */ (function (_super) {
     Checkbox.prototype.render = function () {
         var _this = this;
         var _a = this.props, label = _a.label, radio = _a.radio, style = _a.style, uppercase = _a.uppercase;
-        var InputTSX = function (style) { return (react_1.default.createElement("div", { className: 'ui-checkbox-input', style: _this.state.checked ? __assign({}, style.inputActive(radio)) : __assign({}, style.input(radio)) }, _this.state.checked ? (radio ? react_1.default.createElement("span", { className: 'ui-checkbox-circle', style: style.circle }) : react_1.default.createElement(Icon_1.Icon, { type: 'check' })) : null)); };
-        return (react_1.default.createElement(Themes_1.default, null, function (styles) { return (react_1.default.createElement("div", { className: 'ui-checkbox', onClick: function () { return _this.onChange(); }, style: __assign({}, style, styles.checkbox.main) },
+        var InputTSX = function (style) { return (react_1.default.createElement("div", { className: 'ui-checkbox-input', style: _this.state.checked ? __assign({}, style.inputActive(radio)) : __assign({}, style.input(radio)) }, _this.state.checked ? (radio ? react_1.default.createElement("span", { className: 'ui-checkbox-circle', style: style.circle }) : react_1.default.createElement(__1.Icon, { type: 'check' })) : null)); };
+        return (react_1.default.createElement(__1.Styles, null, function (styles) { return (react_1.default.createElement("div", { className: 'ui-checkbox', onClick: function () { return _this.onChange(); }, style: __assign({}, style, styles.checkbox.main) },
             InputTSX(styles.checkbox),
             react_1.default.createElement("div", { className: 'ui-checkbox-label noselect' + (uppercase ? ' uppercase' : '') }, label))); }));
     };

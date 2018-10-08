@@ -2,8 +2,7 @@ import React from 'react';
 import TableRow from './TableRow';
 import TableForm from './TableForm';
 import TablePagination, { PaginationProps } from './TablePagination';
-import { Flexbox } from '../Flexbox';
-import Theme from '../Themes';
+import { Flexbox, Styles } from '../';
 
 export interface Props {
     data: any[]
@@ -103,7 +102,7 @@ class Table extends React.Component<Props> {
         const addFormTSX = typeof form != 'undefined' && typeof form.key === 'undefined' && TableForm(form.render, columns, {});
 
         return (
-            <Theme>
+            <Styles>
                 {styles => (
                     <div className='ui-table' ref={ref => this.table = ref} style={style}>
                         <div className='ui-table-content'>
@@ -128,7 +127,7 @@ class Table extends React.Component<Props> {
                         )}
                     </div>
                 )}
-            </Theme>
+            </Styles>
         )
     }
 }

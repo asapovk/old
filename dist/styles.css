@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* -------------------------------------------------------------
   Sass CSS3 Mixins! The Cross-Browser CSS3 Sass Library
   By: Matthieu Aussaguel, http://www.mynameismatthieu.com, @matthieu_tweets
@@ -15,24 +16,18 @@
    v2.0 | 20110126
    License: none (public domain)
 */
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,700,900&subset=cyrillic");
+@import url("https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i&subset=cyrillic");
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
   margin: 0;
   padding: 0;
   border: 0;
-  font-size: 100%;
   vertical-align: baseline;
 }
 
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
   display: block;
-}
-
-body {
-  line-height: 1;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
 ol, ul {
@@ -82,15 +77,81 @@ table {
   opacity: 0.5;
 }
 
-.ui-button, .ui-textfield > div > input,
-.ui-textfield > div > textarea {
-  font-size: 15px;
-  line-height: 20px;
+/* 
+* ———————————————————————
+* SETTINGS
+* ———————————————————————
+*/
+:root {
+  font-size: 16px;
+  line-height: 1.5rem;
+  font-family: "Source Sans Pro", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-.ui-textfield-hint, .ui-textfield-label {
-  font-size: 12px;
-  line-height: 16px;
+article {
+  max-width: 640px;
+}
+
+p {
+  font-size: 1rem;
+  line-height: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+h1 {
+  font-size: 2rem;
+  line-height: 3rem;
+  margin-top: 3rem;
+  margin-bottom: 1.5rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+  line-height: 2rem;
+  margin-top: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+h3 {
+  font-size: 1.25rem;
+  line-height: 1.5rem;
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+h4 {
+  font-size: 1rem;
+  line-height: 1.5rem;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.ui-textfield > div > input,
+.ui-textfield > div > textarea, .c1 {
+  font-size: 1rem;
+  line-height: 1rem;
+}
+
+.ui-button, .c2 {
+  font-size: 0.875rem;
+  line-height: 0.875rem;
+}
+
+.ui-textfield-hint, .ui-textfield-label, .c3 {
+  font-size: 0.75rem;
+  line-height: 0.75rem;
+}
+
+.c4 {
+  font-size: 0.625rem;
+  line-height: 0.625rem;
+}
+
+blockquote {
+  font-family: "Lora", serif;
+  font-style: italic;
 }
 
 .ui-view {
@@ -100,8 +161,6 @@ table {
   bottom: 0;
   right: 0;
   overflow: auto;
-  font-size: 16px;
-  line-height: 24px;
 }
 
 .ui-textfield {
@@ -139,7 +198,6 @@ table {
   color: inherit;
   width: 100%;
   font-family: inherit;
-  font-size: inherit;
 }
 
 .ui-datepicker {
@@ -373,6 +431,7 @@ table {
   outline: none;
   cursor: pointer;
   padding: 8px 16px;
+  font-weight: 500;
   border: 1px solid;
 }
 .ui-button:active {

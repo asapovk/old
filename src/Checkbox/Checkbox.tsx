@@ -1,6 +1,5 @@
 import React from 'react';
-import { Icon } from '../Icon';
-import Theme from '../Themes';
+import { Icon, Styles } from '..';
 
 interface Props {
     label?: string
@@ -59,14 +58,14 @@ class Checkbox extends React.Component<Props> {
         )
 
         return (
-            <Theme>
+            <Styles>
                 {styles => (
                     <div className='ui-checkbox' onClick={() => this.onChange()} style={{ ...style, ...styles.checkbox.main }}>
                         {InputTSX(styles.checkbox)}
                         <div className={'ui-checkbox-label noselect' + (uppercase ? ' uppercase' : '')}>{label}</div>
                     </div>
                 )}
-            </Theme>
+            </Styles>
         )
     }
 }

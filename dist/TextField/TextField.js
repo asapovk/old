@@ -17,7 +17,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importDefault(require("react"));
-var Themes_1 = __importDefault(require("../Themes"));
 var __1 = require("../");
 var Icon_1 = __importDefault(require("../Icon/Icon"));
 var Input_1 = __importDefault(require("./Input"));
@@ -72,7 +71,7 @@ var TextField = /** @class */ (function (_super) {
         var LoadingTSX = function (color) { return (react_1.default.createElement(__1.Flexbox, { alignItems: 'center', pr: 8, style: { fontSize: 20, color: color } },
             react_1.default.createElement(__1.Spin, null,
                 react_1.default.createElement(Icon_1.default, { type: 'spin' })))); };
-        return (react_1.default.createElement(Themes_1.default, null, function (styles) { return (react_1.default.createElement("div", { className: classes, style: style },
+        return (react_1.default.createElement(__1.Styles, null, function (styles) { return (react_1.default.createElement("div", { className: classes, style: style },
             label && (react_1.default.createElement("div", { style: styles.textField.label, className: 'ui-textfield-label', children: label })),
             multiline
                 ? (react_1.default.createElement(TextArea_1.default, { onChange: _this.onChange, onClick: onClick, onFocus: onFocus, onBlur: onBlur, style: styles.textField.singleline, value: value, defaultValue: defaultValue, placeholder: placeholder, singlerow: singlerow, disabled: disabled, loading: LoadingTSX(styles.theme.lowlight.rgb), resize: resize }))
