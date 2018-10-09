@@ -8,6 +8,7 @@ declare const _default: (theme: any) => {
         backgroundColor: any;
         inputBackground: any;
         borderColor: any;
+        color: any;
     };
     nav: {
         badgeColor: any;

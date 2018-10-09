@@ -1236,6 +1236,7 @@ blockquote {
   outline: none;
   font-size: 14px;
   width: 100%;
+  color: inherit;
 }
 .ui-finder-filter-search-icon {
   padding: 0 0px 0 4px;

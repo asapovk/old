@@ -40,6 +40,7 @@ var FinderFilter = /** @class */ (function (_super) {
             react_1.default.createElement(__1.Flexbox, { alignItems: "center", className: "ui-finder-filter-input", style: {
                     background: styles.finder.filter.inputBackground,
                     borderColor: styles.finder.filter.borderColor,
+                    color: styles.finder.filter.color
                 } },
                 react_1.default.createElement(__1.Icon, { className: "ui-finder-filter-search-icon", type: "search" }),
                 react_1.default.createElement("input", { ref: function (ref) { return _this.input = ref; }, placeholder: placeholder, onChange: _this.onChange.bind(_this) }),

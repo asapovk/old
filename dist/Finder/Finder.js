@@ -63,7 +63,7 @@ var Finder = /** @class */ (function (_super) {
     };
     ;
     Finder.prototype.filterChildren = function (children, filterValue) {
-        if (children) {
+        if (children && filterValue) {
             return children.filter(function (child) { return child.props.label && child.props.label.toUpperCase().includes(filterValue.toUpperCase()); });
         }
         return children;

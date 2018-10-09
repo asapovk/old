@@ -35,6 +35,7 @@ class FinderFilter extends React.Component<Props> {
                         <Flexbox alignItems="center" className={`ui-finder-filter-input`} style={{
                             background: styles.finder.filter.inputBackground,
                             borderColor: styles.finder.filter.borderColor,
+                            color: styles.finder.filter.color
                         }}>
                             <Icon className={`ui-finder-filter-search-icon`} type="search" />
                             <input ref={(ref: HTMLInputElement) => this.input = ref} placeholder={placeholder} onChange={this.onChange.bind(this)} />

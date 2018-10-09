@@ -8,7 +8,8 @@ export default (theme) => {
         filter: {
             backgroundColor: theme.background.rgb,
             inputBackground: theme.interface.rgb,
-            borderColor: theme.pale.rgb
+            borderColor: theme.pale.rgb,
+            color: theme.text.rgb
         },
         nav: {
             badgeColor: theme.highlight.rgb

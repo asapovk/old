@@ -21,7 +21,17 @@ declare class Finder extends React.Component<Props> {
     setMenues(level: any, index: any, filter: any, filterPlaceholder: any): void;
     onFilterChange(value: any, level: any): void;
     filterChildren(children: any, filterValue: any): any;
-    passProps(children: any, level: any): React.ReactElement<any>[];
+    passProps(children: any, level: any): React.SFCElement<{
+        setFinderMenu: (level: any, index: any, filter: any, filterPlaceholder: any) => void;
+        finderLevel: any;
+        finderIndex: string;
+        active: {
+            index: string;
+            filter: boolean;
+            filterValue: string;
+            filterPlaceholder: string;
+        };
+    }>[];
     getCurrentChildren(children: any, filterValue: any, level: any): any;
     render(): JSX.Element;
 }

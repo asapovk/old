@@ -51,7 +51,7 @@ class Finder extends React.Component<Props> {
     };
 
     filterChildren(children, filterValue) {
-        if (children) {
+        if (children && filterValue) {
             return children.filter(child => child.props.label && child.props.label.toUpperCase().includes(filterValue.toUpperCase()))
         }
         return children
@@ -62,7 +62,7 @@ class Finder extends React.Component<Props> {
         return React.Children.map(children, (child: any) => {
             let index = level + '.' + counter;
             let active = (this.state.menues.find(menu => menu.index == index));
-            return React.cloneElement(child as React.ReactElement<any>, { setFinderMenu: this.setMenues, finderLevel: level, finderIndex: level + '.' + counter++, active: active })
+            return React.cloneElement(child as any, { setFinderMenu: this.setMenues, finderLevel: level, finderIndex: level + '.' + counter++, active: active })
         });
     }
 

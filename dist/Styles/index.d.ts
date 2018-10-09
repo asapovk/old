@@ -120,6 +120,7 @@ export declare const createStyles: (themeName?: "blackCurrant" | "whiteCurrant" 
             backgroundColor: any;
             inputBackground: any;
             borderColor: any;
+            color: any;
         };
         nav: {
             badgeColor: any;
@@ -366,6 +367,7 @@ export declare const StylesContext: React.Context<{
             backgroundColor: any;
             inputBackground: any;
             borderColor: any;
+            color: any;
         };
         nav: {
             badgeColor: any;
@@ -612,6 +614,7 @@ declare const _default: React.ComponentType<React.ConsumerProps<{
             backgroundColor: any;
             inputBackground: any;
             borderColor: any;
+            color: any;
         };
         nav: {
             badgeColor: any;
