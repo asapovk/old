@@ -386,9 +386,8 @@ blockquote {
 }
 
 .ui-title {
-  text-transform: uppercase;
-  font-weight: 800;
-  font-size: 32px;
+  font-weight: 900;
+  font-size: 2rem;
   user-select: none;
   position: relative;
   line-height: 1;
@@ -430,8 +429,9 @@ blockquote {
   border: none;
   outline: none;
   cursor: pointer;
-  padding: 8px 16px;
+  padding: calc(0.5rem - 1px) calc(0.75rem - 1px);
   font-weight: 500;
+  line-height: 1rem;
   border: 1px solid;
 }
 .ui-button:active {
@@ -444,10 +444,10 @@ blockquote {
 .ui-button.loading > span:last-child {
   position: absolute;
   left: 50%;
-  margin-left: -8px;
+  margin-left: -0.5rem;
 }
 .ui-button.loading > span:last-child > svg {
-  font-size: 18px;
+  font-size: 1rem;
 }
 
 .ui-menu {

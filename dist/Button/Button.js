@@ -39,7 +39,7 @@ var Button = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     Button.prototype.render = function () {
-        var _a = this.props, labelCase = _a.labelCase, onClick = _a.onClick, label = _a.label, children = _a.children, className = _a.className, style = _a.style, loading = _a.loading, decoration = _a.decoration;
+        var _a = this.props, labelCase = _a.labelCase, onClick = _a.onClick, label = _a.label, children = _a.children, style = _a.style, loading = _a.loading, decoration = _a.decoration;
         var classes = 'ui-button';
         if (labelCase == 'upper')
             classes += ' uppercase';

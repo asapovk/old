@@ -1,15 +1,14 @@
-import { Component } from 'react';
+import { Component, CSSProperties } from 'react';
 export interface Props {
     label?: string;
-    outline?: boolean;
+    outline?: true | undefined;
     decoration?: 'none' | 'highlight' | 'red' | 'green' | 'orange' | 'blue';
     loading?: boolean;
     icon?: Component;
     labelCase?: 'upper' | 'lower' | 'capitalize' | 'sentence';
-    onClick?: (MouseEvent?: any) => any;
+    onClick?: (MouseEvent?: any) => void;
     className?: string;
-    style?: any;
-    children?: any;
+    style?: CSSProperties;
 }
 declare class Button extends Component<Props> {
     render(): JSX.Element;
