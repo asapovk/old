@@ -3,9 +3,10 @@
     border: none;
     outline: none;
     cursor: pointer;
-    padding: 8px 16px;
+    padding: calc(0.5rem - 1px) calc(0.75rem - 1px);
     @extend %с2;
     font-weight: 500;
+    line-height: 1rem;
     border: 1px solid;
     &:active {
         box-shadow: none !important;
@@ -18,9 +19,9 @@
         > span:last-child{
             position: absolute;
             left: 50%;
-            margin-left: -8px;
+            margin-left: -0.5rem;
             > svg {
-                font-size: 18px;
+                font-size: 1rem;
             }
         }
     }

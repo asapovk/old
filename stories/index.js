@@ -16,18 +16,18 @@ storiesOf('Основные компоненты')
     .add('Popup', $('PopupStory'))
     .add('Title', $('TitleStory'))
     .add('Checkbox', $('CheckboxStory'))
-    .add('Icon', $('IconStory'))
-    .add('Spinner', $('SpinnerStory'))
-    .add('Spin', $('SpinStory'))
     .add('Widget', $('WidgetStory'))
     .add('WidgetStat', $('WidgetStatStory'))
     .add('Modal', $('ModalStory'))
+
+storiesOf('Вспопомогательные компоненты')
+    .add('Login', $('LoginStory'))
+    .add('Icon', $('IconStory'))
+    .add('Spinner', $('SpinnerStory'))
+    .add('Spin', $('SpinStory'))
     .add('Flexbox', $('FlexboxStory'));
 
-storiesOf('Другое')
-    .add('Login', $('LoginStory'));
-
-storiesOf("utils")
+storiesOf("Утилиты")
     .add('alert', $('UtilsAlertStory'))
     .add('notification', $('UtilsNotificationStory'))
     .add('getTheme', $('UtilsGetThemeStory'))

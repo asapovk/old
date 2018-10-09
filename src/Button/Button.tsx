@@ -1,23 +1,22 @@
-import React, { Component } from 'react';
+import React, { Component, CSSProperties } from 'react';
 import { Spin, Icon, Styles } from '../index';
 
 export interface Props {
     label?: string
-    outline?: boolean
+    outline?: true | undefined
     decoration?: 'none' | 'highlight' | 'red' | 'green' | 'orange' | 'blue'
     loading?: boolean
     icon?: Component
     labelCase?: 'upper' | 'lower' | 'capitalize' | 'sentence'
-    onClick?: (MouseEvent?) => any
+    onClick?: (MouseEvent?) => void
     className?: string
-    style?: any
-    children?: any
+    style?: CSSProperties
 }
 
 class Button extends Component<Props> {
     render() {
 
-        const { labelCase, onClick, label, children, className, style, loading, decoration } = this.props;
+        const { labelCase, onClick, label, children, style, loading, decoration } = this.props;
 
         let classes = 'ui-button';
 
