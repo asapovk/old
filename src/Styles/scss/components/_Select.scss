@@ -4,9 +4,9 @@
     line-height: 1;
     font-size: 16px;
     &-label {
-        font-size: 12px;
-        margin-bottom: 5px;
+        @extend %с3;
         text-transform: uppercase;
+        padding-bottom: 0.25rem;
     }
     &-holder {
         border: 1px solid;

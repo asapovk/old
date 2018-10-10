@@ -120,7 +120,7 @@ blockquote {
   line-height: 0.875rem;
 }
 
-.ui-textfield-hint, .ui-textfield-label, .c3 {
+.ui-select-label, .ui-textfield-hint, .ui-textfield-label, .c3 {
   font-size: 0.75rem;
   line-height: 0.75rem;
 }
@@ -184,7 +184,6 @@ blockquote {
 }
 
 .ui-textfield {
-  position: relative;
   display: flex;
   flex: 1;
   flex-direction: column;
@@ -192,10 +191,7 @@ blockquote {
 }
 .ui-textfield-label {
   text-transform: uppercase;
-  position: absolute;
-  top: -1rem;
-  left: 0;
-  padding: inherit;
+  padding-bottom: 0.25rem;
 }
 .ui-textfield-hint {
   text-transform: none;
@@ -790,9 +786,8 @@ blockquote {
   font-size: 16px;
 }
 .ui-select-label {
-  font-size: 12px;
-  margin-bottom: 5px;
   text-transform: uppercase;
+  padding-bottom: 0.25rem;
 }
 .ui-select-holder {
   border: 1px solid;
