@@ -61,6 +61,13 @@ $base-font-size: 16px;
     margin-bottom: 0.5rem;
 }
 
+%blockqoute, blockquote {
+    font-family: $font-secondary;
+    font-style: italic;
+}
+
+// C — Caption. Use it for bages and simmilar 
+
 %с1, .c1 {
     font-size: 1rem;
     line-height: 1rem;
@@ -81,7 +88,24 @@ $base-font-size: 16px;
     line-height: 0.625rem;
 }
 
-%blockqoute, blockquote {
-    font-family: $font-secondary;
-    font-style: italic;
+// T — Text. Use it for labels and simmilar 
+
+%t1, .t1 {
+    font-size: 1rem;
+    line-height: 1.5rem;
+}
+
+%t2, .t2 {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+}
+
+%t3, .t3 {
+    font-size: 0.75rem;
+    line-height: 1rem;
+}
+
+%t4, .t4 {
+    font-size: 0.625rem;
+    line-height: 0.75rem;
 }

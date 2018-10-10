@@ -9,7 +9,7 @@ class View extends Component {
     render() {
         return (
             <Viewport theme={this.state.theme}>
-                <Flexbox p={40}>
+                <Flexbox p={40} style={{ zIndex: '99999' }}>
                     <Select
                         label={"Тема оформления"}
                         options={[
