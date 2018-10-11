@@ -2,10 +2,13 @@ import React from 'react';
 import TableRow from './TableRow';
 import TableForm from './TableForm';
 import TablePagination, { PaginationProps } from './TablePagination';
-import { Flexbox, Styles } from '../';
+import { Flexbox, Styles, Icon } from '../';
+
+// TODO
+// Without title props
 
 export interface Props {
-    data: any[]
+    data: Object[]
     columns: {
         title?: string
         dataIndex: string
@@ -29,6 +32,8 @@ export interface Props {
     noDataLabel?: string;
     children?: any
     onRowClick?: (row) => any
+    search?: boolean
+    onSearch?: (value) => void
 }
 
 class Table extends React.Component<Props> {
@@ -37,6 +42,8 @@ class Table extends React.Component<Props> {
         selectedItems: [] as string[],
         expandedItems: [] as string[],
         page: 1,
+        searchBar: false as boolean,
+        searchValue: '' as string
     }
 
     mainview?: HTMLDivElement;
@@ -49,14 +56,25 @@ class Table extends React.Component<Props> {
 
     render() {
 
-        const { columns, actions, border, indexKey, scope, form, style, pagination, noDataLabel, onRowClick } = this.props;
+        const { columns, actions, border, indexKey, scope, form, style, pagination, noDataLabel, onRowClick, search } = this.props;
 
         let { data } = this.props;
+        let pageData = [] as Object[]
 
         const isData = (data && Array.isArray(data) && data.length > 0);
+
         const noDataLabelTSX = (
             <Flexbox alignItems='center' justifyContent='center' >{noDataLabel}</Flexbox>
         );
+
+        if (this.state.searchValue.length > 0) {
+            data = data.filter((row) =>
+                Object.values(row).find(item => {
+                    let searchbleItem = item.toString();
+                    return typeof searchbleItem === 'string' && searchbleItem.toUpperCase().includes(this.state.searchValue.toUpperCase())
+                })
+            );
+        }
 
         if (pagination && isData) {
             const { pageSize } = pagination;
@@ -64,10 +82,24 @@ class Table extends React.Component<Props> {
              * Отрезаем записи в таблице если есть
              * параметры пагинации
              */
-            data = data.filter((item, i) => pageSize * this.state.page >= (i + 1) && (i + 1) >= pageSize * this.state.page - pageSize);
+            pageData = data.filter((item, i) => pageSize * this.state.page >= (i + 1) && (i + 1) >= pageSize * this.state.page - pageSize);
         }
 
         const isAddForm = (typeof form != 'undefined' && typeof form.key === 'undefined');
+
+
+        const SearchBarTSX = (styles) => {
+            if (this.state.searchBar || this.state.searchValue) return (
+                <div className='ui-table-content-body-search' style={{ borderColor: styles.theme.pale.rgb }}>
+                    <Icon type='search' />
+                    <input
+                        onChange={(event) => this.props.onSearch ? this.props.onSearch(event.target.value) : this.setState({ searchValue: event.target.value })}
+                        placeholder='Найти'
+                    />
+                    <div onClick={() => this.setState({ searchValue: '', searchBar: false, page: 1 })}><Icon type='close' /></div>
+                </div>
+            ); else return null
+        }
 
         const ColumnsTSX = (style) => {
             if (isData && !isAddForm) {
@@ -80,7 +112,7 @@ class Table extends React.Component<Props> {
             else return null
         }
 
-        const RowsTSX = isData && data.map((row, index) => {
+        const RowsTSX = isData && pageData.map((row, index) => {
             const key = indexKey && row[indexKey] || index.toString()
             return (
                 <TableRow
@@ -113,16 +145,20 @@ class Table extends React.Component<Props> {
                                 borderRadius: styles.table.main.borderRadius,
                                 background: styles.table.main.backgroundColor
                             }}>
+                                {SearchBarTSX(styles)}
                                 {addFormTSX}
                                 {RowsTSX}
+                                {(search && data.length === 0) && <div className='ui-table-content-body-nofound'>Ничего не найдено</div>}
                             </div>
                         </div>
                         {pagination && data && (
                             <TablePagination
                                 pagination={pagination}
                                 page={this.state.page}
-                                data={this.props.data}
-                                onChange={page => this.setState({ page })}
+                                searchActive={this.state.searchBar || this.state.searchValue.length > 0}
+                                search={this.props.search}
+                                data={data}
+                                onChange={(page, searchBar) => this.setState({ page, searchBar })}
                             />
                         )}
                     </div>

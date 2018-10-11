@@ -2,7 +2,7 @@
     @include box-sizing(border-box);
     flex: 1;
     line-height: 1;
-    font-size: 16px;
+    @extend %t1;
     &-label {
         @extend %с3;
         text-transform: uppercase;

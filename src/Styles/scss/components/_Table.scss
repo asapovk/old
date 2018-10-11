@@ -22,12 +22,41 @@
             > :not(:last-child) {
                 border-bottom: solid 0.5px;
             }
+            &-search {
+                padding: 20px;
+                font-family: $font-secondary;
+                display: flex;
+                align-items: center;
+                > svg {
+                    font-size: 1rem;
+                }
+                > input {
+                    font-size: 1rem;
+                    line-height: 1.5rem;
+                    font-style: italic;
+                    appearance: none;
+                    box-sizing: border-box;
+                    resize: none;
+                    border: none;
+                    background: none;
+                    outline: none;
+                    position: relative;
+                    color: inherit;
+                    width: 100%;
+                    font-family: inherit;
+                    margin: 0;
+                    padding: 0 10px;
+                    flex: 1;
+                }
+            }
+            &-nofound {
+                padding: 20px;
+            }
             &-row {
                 display: flex;
                 flex-direction: row;
                 align-items: stretch;
                 padding: 20px;
-                
                 position: relative;
                 &-column {
                     margin-right: 20px;

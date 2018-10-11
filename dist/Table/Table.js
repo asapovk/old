@@ -29,24 +29,45 @@ var Table = /** @class */ (function (_super) {
             selectedItems: [],
             expandedItems: [],
             page: 1,
+            searchBar: false,
+            searchValue: ''
         };
         return _this;
     }
     Table.prototype.render = function () {
         var _this = this;
-        var _a = this.props, columns = _a.columns, actions = _a.actions, border = _a.border, indexKey = _a.indexKey, scope = _a.scope, form = _a.form, style = _a.style, pagination = _a.pagination, noDataLabel = _a.noDataLabel, onRowClick = _a.onRowClick;
+        var _a = this.props, columns = _a.columns, actions = _a.actions, border = _a.border, indexKey = _a.indexKey, scope = _a.scope, form = _a.form, style = _a.style, pagination = _a.pagination, noDataLabel = _a.noDataLabel, onRowClick = _a.onRowClick, search = _a.search;
         var data = this.props.data;
+        var pageData = [];
         var isData = (data && Array.isArray(data) && data.length > 0);
         var noDataLabelTSX = (react_1.default.createElement(__1.Flexbox, { alignItems: 'center', justifyContent: 'center' }, noDataLabel));
+        if (this.state.searchValue.length > 0) {
+            data = data.filter(function (row) {
+                return Object.values(row).find(function (item) {
+                    var searchbleItem = item.toString();
+                    return typeof searchbleItem === 'string' && searchbleItem.toUpperCase().includes(_this.state.searchValue.toUpperCase());
+                });
+            });
+        }
         if (pagination && isData) {
             var pageSize_1 = pagination.pageSize;
             /**
              * Отрезаем записи в таблице если есть
              * параметры пагинации
              */
-            data = data.filter(function (item, i) { return pageSize_1 * _this.state.page >= (i + 1) && (i + 1) >= pageSize_1 * _this.state.page - pageSize_1; });
+            pageData = data.filter(function (item, i) { return pageSize_1 * _this.state.page >= (i + 1) && (i + 1) >= pageSize_1 * _this.state.page - pageSize_1; });
         }
         var isAddForm = (typeof form != 'undefined' && typeof form.key === 'undefined');
+        var SearchBarTSX = function (styles) {
+            if (_this.state.searchBar || _this.state.searchValue)
+                return (react_1.default.createElement("div", { className: 'ui-table-content-body-search', style: { borderColor: styles.theme.pale.rgb } },
+                    react_1.default.createElement(__1.Icon, { type: 'search' }),
+                    react_1.default.createElement("input", { onChange: function (event) { return _this.props.onSearch ? _this.props.onSearch(event.target.value) : _this.setState({ searchValue: event.target.value }); }, placeholder: '\u041D\u0430\u0439\u0442\u0438' }),
+                    react_1.default.createElement("div", { onClick: function () { return _this.setState({ searchValue: '', searchBar: false, page: 1 }); } },
+                        react_1.default.createElement(__1.Icon, { type: 'close' }))));
+            else
+                return null;
+        };
         var ColumnsTSX = function (style) {
             if (isData && !isAddForm) {
                 return columns.map(function (column) { return (react_1.default.createElement("div", { className: 'ui-table-content-head-row-column ' + column.dataIndex, key: column.dataIndex, style: column.width ? { flexBasis: column.width, color: style.titleColor } : { flex: 1, color: style.titleColor } }, column.title)); });
@@ -56,7 +77,7 @@ var Table = /** @class */ (function (_super) {
             else
                 return null;
         };
-        var RowsTSX = isData && data.map(function (row, index) {
+        var RowsTSX = isData && pageData.map(function (row, index) {
             var key = indexKey && row[indexKey] || index.toString();
             return (react_1.default.createElement(TableRow_1.default, { key: key, row: row, columns: columns, actions: actions, border: border, form: (form && form.key && key == form.key) && form.render, isSelected: (_this.state.selectedItems.some(function (item) { return item === key; })), isExpanding: (_this.state.expandedItems.some(function (item) { return item === key; })), isBlur: ((form && form.key && key != form.key) || isAddForm), scope: scope, onRowClick: onRowClick }));
         });
@@ -70,9 +91,11 @@ var Table = /** @class */ (function (_super) {
                         borderRadius: styles.table.main.borderRadius,
                         background: styles.table.main.backgroundColor
                     } },
+                    SearchBarTSX(styles),
                     addFormTSX,
-                    RowsTSX)),
-            pagination && data && (react_1.default.createElement(TablePagination_1.default, { pagination: pagination, page: _this.state.page, data: _this.props.data, onChange: function (page) { return _this.setState({ page: page }); } })))); }));
+                    RowsTSX,
+                    (search && data.length === 0) && react_1.default.createElement("div", { className: 'ui-table-content-body-nofound' }, "\u041D\u0438\u0447\u0435\u0433\u043E \u043D\u0435 \u043D\u0430\u0439\u0434\u0435\u043D\u043E"))),
+            pagination && data && (react_1.default.createElement(TablePagination_1.default, { pagination: pagination, page: _this.state.page, searchActive: _this.state.searchBar || _this.state.searchValue.length > 0, search: _this.props.search, data: data, onChange: function (page, searchBar) { return _this.setState({ page: page, searchBar: searchBar }); } })))); }));
     };
     Table.defaultProps = {
         noDataLabel: 'Нет данных',

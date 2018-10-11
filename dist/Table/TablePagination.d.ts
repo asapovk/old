@@ -5,8 +5,10 @@ export interface PaginationProps {
 interface Props {
     pagination: PaginationProps;
     page: number;
+    searchActive: boolean;
+    search?: boolean;
     data: any[];
-    onChange: (page: number) => void;
+    onChange: (page: number, searchBar: boolean) => void;
     children?: any;
 }
 declare class TablePagination extends React.Component<Props> {

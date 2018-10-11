@@ -130,7 +130,7 @@ blockquote {
   line-height: 0.625rem;
 }
 
-.t1 {
+.ui-select, .t1 {
   font-size: 1rem;
   line-height: 1.5rem;
 }
@@ -331,6 +331,36 @@ blockquote {
 }
 .ui-table-content-body > :not(:last-child) {
   border-bottom: solid 0.5px;
+}
+.ui-table-content-body-search {
+  padding: 20px;
+  font-family: "Lora", serif;
+  display: flex;
+  align-items: center;
+}
+.ui-table-content-body-search > svg {
+  font-size: 1rem;
+}
+.ui-table-content-body-search > input {
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-style: italic;
+  appearance: none;
+  box-sizing: border-box;
+  resize: none;
+  border: none;
+  background: none;
+  outline: none;
+  position: relative;
+  color: inherit;
+  width: 100%;
+  font-family: inherit;
+  margin: 0;
+  padding: 0 10px;
+  flex: 1;
+}
+.ui-table-content-body-nofound {
+  padding: 20px;
 }
 .ui-table-content-body-row {
   display: flex;
@@ -783,7 +813,6 @@ blockquote {
   box-sizing: border-box;
   flex: 1;
   line-height: 1;
-  font-size: 16px;
 }
 .ui-select-label {
   text-transform: uppercase;

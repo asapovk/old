@@ -1,7 +1,7 @@
 import React from 'react';
 import { PaginationProps } from './TablePagination';
 export interface Props {
-    data: any[];
+    data: Object[];
     columns: {
         title?: string;
         dataIndex: string;
@@ -25,12 +25,16 @@ export interface Props {
     noDataLabel?: string;
     children?: any;
     onRowClick?: (row: any) => any;
+    search?: boolean;
+    onSearch?: (value: any) => void;
 }
 declare class Table extends React.Component<Props> {
     state: {
         selectedItems: string[];
         expandedItems: string[];
         page: number;
+        searchBar: boolean;
+        searchValue: string;
     };
     mainview?: HTMLDivElement;
     table: HTMLDivElement | null;

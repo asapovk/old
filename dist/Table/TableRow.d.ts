@@ -1,8 +1,6 @@
 import React from 'react';
 interface Props {
-    row: {
-        [dataIndex: string]: string;
-    };
+    row: {};
     columns: any;
     isSelected?: boolean;
     isExpanding?: boolean;

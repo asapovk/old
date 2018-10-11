@@ -44,6 +44,7 @@ class TableStory extends React.Component {
                         }
                     ]}
                     noDataLabel='Данных то нету...'
+                    search
                 />
             </Flexbox>
         )

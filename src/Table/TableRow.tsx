@@ -5,9 +5,7 @@ import TableActions from './TableActions';
 import { Styles } from '../';
 
 interface Props {
-    row: {
-        [dataIndex: string]: string
-    }
+    row: {}
     columns
     isSelected?: boolean
     isExpanding?: boolean
