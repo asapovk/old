@@ -2,9 +2,12 @@ import $ from './StoryRender';
 import { storiesOf } from '@storybook/react';
 import '../src/Styles/scss/main.scss';
 
+storiesOf('Базовые элементы')
+    .add('Цвета', $('ColorStory'))
+    .add('Типографика', $('TypographyStory'))
+
 storiesOf('Основные компоненты')
     .add('Viewport', $('ViewportStory'))
-    .add('Typography', $('TypographyStory'))
     .add('Button', $('ButtonStory'))
     .add('TextField', $('TextfieldStory'))
     .add('Select', $('SelectStory'))

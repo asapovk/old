@@ -11,6 +11,7 @@ export interface ThemeInterface {
     pale: objectColor;
     lowlight: objectColor;
     text: objectColor;
+    textOnAccent: objectColor;
     highlight: objectColor;
     accents: {
         red: objectColor;
