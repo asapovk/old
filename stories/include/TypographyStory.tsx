@@ -3,19 +3,12 @@ import { Button, Flexbox, Title, Styles } from '../../src';
 
 export default class Story extends React.Component {
     render() {
-        const linesTSX = (color) => {
-            let lines = [] as JSX.Element[];
-            for (let i = 0; i < 180; i++) {
-                lines.push(<p style={{ background: color, marginTop: i === 0 ? 0 : '1rem' }}>&nbsp;</p>)
-            }
-            return lines;
-        }
         return (
             <Styles>
                 {styles => (
-                    <Flexbox p={40} mt={-40} alignItems='flex-start' justifyContent='center' style={{ position: 'relative', overflow: 'hidden' }}>
-                        <article style={{ zIndex: 9999 }}>
-                            <h1>Типографика пользовательского интерфейса</h1>
+                    <Flexbox p={'3rem'} mt={'-3rem'} justifyContent='center'>
+                        <article>
+                            <h1 style={{ marginTop: 0 }}>Типографика пользовательского интерфейса</h1>
                             <p>Масштабируемая типографическая система для веб-разработки c вертикальной рифмовкой</p>
                             <h2>И десятеричное</h2>
                             <p>Всю ночь Бенедикт ловил мышей. Легко сказать: ловил. Дело это не простое, и, как и всякое дело, разумения требует. Оно только кажется, что вот, мол, – ты, и вот – мышь, так хватай ее. Не-е-е-е-ет.</p>
@@ -84,10 +77,6 @@ export default class Story extends React.Component {
                                 <li>Unordered list element three</li>
                             </ul> */}
                         </article>
-                        <div
-                            style={{ position: 'absolute', width: '100%' }}
-                            children={linesTSX(styles.theme.pale.rgba(0.2))}
-                        />
                     </Flexbox>
                 )}
             </Styles>
