@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
-import { Viewport, Select, Flexbox, Styles } from '../src';
+import { Viewport, Select, Flexbox, Checkbox, Styles } from '../src';
 
 class View extends Component {
     constructor(props) {
         super(props);
-        this.state = { theme: "blackCurrant" }
+        this.state = {
+            theme: "blackCurrant",
+            row: false
+        }
     }
     render() {
         const linesTSX = (color) => {
@@ -25,15 +28,22 @@ class View extends Component {
                         ]}
                         defaultValue={this.state.theme}
                         onChange={theme => this.setState({ theme })}
+                        style={{ marginRight: '2rem' }}
+                    />
+                    <Checkbox
+                        label='Строки'
+                        onChange={(value) => this.setState({ row: value })}
                     />
                 </Flexbox>
                 {this.props.children}
                 <Styles>
                     {styles =>
-                        <div
-                            style={{ position: 'absolute', top: 0, bottom: 0, left: 0, right: 0, zIndex: -1 }}
-                            children={linesTSX(styles.theme.pale.rgba(0.2))}
-                        />
+                        this.state.row
+                            ? <div
+                                style={{ position: 'absolute', top: 0, bottom: 0, left: 0, right: 0, zIndex: -1 }}
+                                children={linesTSX(styles.theme.pale.rgba(0.2))}
+                            />
+                            : null
                     }
                 </Styles>
             </Viewport>
