@@ -61,7 +61,7 @@ class Table extends React.Component<Props> {
         let { data } = this.props;
         let pageData = [] as Object[]
 
-        const isData = (data && Array.isArray(data) && data.length > 0);
+        const isData = (this.props.data && Array.isArray(this.props.data) && this.props.data.length > 0);
 
         const noDataLabelTSX = (
             <Flexbox alignItems='center' justifyContent='center' >{noDataLabel}</Flexbox>
@@ -140,18 +140,21 @@ class Table extends React.Component<Props> {
                         <div className='ui-table-content'>
                             {!isData && noDataLabelTSX}
                             <div className='ui-table-content-head-row' children={ColumnsTSX(styles.table.main)} style={actions && { marginRight: '32px' }} />
-                            <div className='ui-table-content-body' style={{
-                                borderColor: styles.table.main.borderColor,
-                                borderRadius: styles.table.main.borderRadius,
-                                background: styles.table.main.backgroundColor
-                            }}>
-                                {SearchBarTSX(styles)}
-                                {addFormTSX}
-                                {RowsTSX}
-                                {(search && data.length === 0) && <div className='ui-table-content-body-nofound'>Ничего не найдено</div>}
-                            </div>
+                            {
+                                isData &&
+                                <div className='ui-table-content-body' style={{
+                                    borderColor: styles.table.main.borderColor,
+                                    borderRadius: styles.table.main.borderRadius,
+                                    background: styles.table.main.backgroundColor
+                                }}>
+                                    {SearchBarTSX(styles)}
+                                    {addFormTSX}
+                                    {RowsTSX}
+                                    {(search && data.length === 0) && <div className='ui-table-content-body-nofound'>Ничего не найдено</div>}
+                                </div>
+                            }
                         </div>
-                        {pagination && data && (
+                        {pagination && isData && data && (
                             <TablePagination
                                 pagination={pagination}
                                 page={this.state.page}

@@ -32,7 +32,7 @@ class TableStory extends React.Component {
 
             <Flexbox p={40} column flex={1}>
                 <Table
-                    data={tableData}
+                    data={[]}
                     pagination={{
                         pageSize: 10
                     }}

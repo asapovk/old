@@ -39,7 +39,7 @@ var Table = /** @class */ (function (_super) {
         var _a = this.props, columns = _a.columns, actions = _a.actions, border = _a.border, indexKey = _a.indexKey, scope = _a.scope, form = _a.form, style = _a.style, pagination = _a.pagination, noDataLabel = _a.noDataLabel, onRowClick = _a.onRowClick, search = _a.search;
         var data = this.props.data;
         var pageData = [];
-        var isData = (data && Array.isArray(data) && data.length > 0);
+        var isData = (this.props.data && Array.isArray(this.props.data) && this.props.data.length > 0);
         var noDataLabelTSX = (react_1.default.createElement(__1.Flexbox, { alignItems: 'center', justifyContent: 'center' }, noDataLabel));
         if (this.state.searchValue.length > 0) {
             data = data.filter(function (row) {
@@ -86,16 +86,17 @@ var Table = /** @class */ (function (_super) {
             react_1.default.createElement("div", { className: 'ui-table-content' },
                 !isData && noDataLabelTSX,
                 react_1.default.createElement("div", { className: 'ui-table-content-head-row', children: ColumnsTSX(styles.table.main), style: actions && { marginRight: '32px' } }),
-                react_1.default.createElement("div", { className: 'ui-table-content-body', style: {
-                        borderColor: styles.table.main.borderColor,
-                        borderRadius: styles.table.main.borderRadius,
-                        background: styles.table.main.backgroundColor
-                    } },
-                    SearchBarTSX(styles),
-                    addFormTSX,
-                    RowsTSX,
-                    (search && data.length === 0) && react_1.default.createElement("div", { className: 'ui-table-content-body-nofound' }, "\u041D\u0438\u0447\u0435\u0433\u043E \u043D\u0435 \u043D\u0430\u0439\u0434\u0435\u043D\u043E"))),
-            pagination && data && (react_1.default.createElement(TablePagination_1.default, { pagination: pagination, page: _this.state.page, searchActive: _this.state.searchBar || _this.state.searchValue.length > 0, search: _this.props.search, data: data, onChange: function (page, searchBar) { return _this.setState({ page: page, searchBar: searchBar }); } })))); }));
+                isData &&
+                    react_1.default.createElement("div", { className: 'ui-table-content-body', style: {
+                            borderColor: styles.table.main.borderColor,
+                            borderRadius: styles.table.main.borderRadius,
+                            background: styles.table.main.backgroundColor
+                        } },
+                        SearchBarTSX(styles),
+                        addFormTSX,
+                        RowsTSX,
+                        (search && data.length === 0) && react_1.default.createElement("div", { className: 'ui-table-content-body-nofound' }, "\u041D\u0438\u0447\u0435\u0433\u043E \u043D\u0435 \u043D\u0430\u0439\u0434\u0435\u043D\u043E"))),
+            pagination && isData && data && (react_1.default.createElement(TablePagination_1.default, { pagination: pagination, page: _this.state.page, searchActive: _this.state.searchBar || _this.state.searchValue.length > 0, search: _this.props.search, data: data, onChange: function (page, searchBar) { return _this.setState({ page: page, searchBar: searchBar }); } })))); }));
     };
     Table.defaultProps = {
         noDataLabel: 'Нет данных',
