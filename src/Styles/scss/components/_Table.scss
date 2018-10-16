@@ -24,7 +24,6 @@
             }
             &-search {
                 padding: 20px;
-                font-family: $font-secondary;
                 display: flex;
                 align-items: center;
                 > svg {
@@ -33,7 +32,6 @@
                 > input {
                     font-size: 1rem;
                     line-height: 1.5rem;
-                    font-style: italic;
                     appearance: none;
                     box-sizing: border-box;
                     resize: none;

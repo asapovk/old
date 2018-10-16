@@ -16,8 +16,6 @@
    v2.0 | 20110126
    License: none (public domain)
 */
-@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,700,900&subset=cyrillic");
-@import url("https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i&subset=cyrillic");
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
   margin: 0;
   padding: 0;
@@ -61,7 +59,7 @@ table {
 :root {
   font-size: 16px;
   line-height: 1.5rem;
-  font-family: "Source Sans Pro", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -105,7 +103,7 @@ h4 {
 }
 
 blockquote {
-  font-family: "Lora", serif;
+  font-family: Georgia, Times, Times New Roman, serif;
   font-style: italic;
 }
 
@@ -334,7 +332,6 @@ blockquote {
 }
 .ui-table-content-body-search {
   padding: 20px;
-  font-family: "Lora", serif;
   display: flex;
   align-items: center;
 }
@@ -344,7 +341,6 @@ blockquote {
 .ui-table-content-body-search > input {
   font-size: 1rem;
   line-height: 1.5rem;
-  font-style: italic;
   appearance: none;
   box-sizing: border-box;
   resize: none;
