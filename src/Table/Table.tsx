@@ -70,8 +70,8 @@ class Table extends React.Component<Props> {
         if (this.state.searchValue.length > 0) {
             data = data.filter((row) =>
                 Object.values(row).find(item => {
-                    let searchbleItem = item.toString();
-                    return typeof searchbleItem === 'string' && searchbleItem.toUpperCase().includes(this.state.searchValue.toUpperCase())
+                    let searchbleItem = item && item.toString ? item.toString() : null;
+                    return searchbleItem && searchbleItem.toUpperCase().includes(this.state.searchValue.toUpperCase())
                 })
             );
         }

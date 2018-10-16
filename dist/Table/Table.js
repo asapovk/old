@@ -44,8 +44,8 @@ var Table = /** @class */ (function (_super) {
         if (this.state.searchValue.length > 0) {
             data = data.filter(function (row) {
                 return Object.values(row).find(function (item) {
-                    var searchbleItem = item.toString();
-                    return typeof searchbleItem === 'string' && searchbleItem.toUpperCase().includes(_this.state.searchValue.toUpperCase());
+                    var searchbleItem = item && item.toString ? item.toString() : null;
+                    return searchbleItem && searchbleItem.toUpperCase().includes(_this.state.searchValue.toUpperCase());
                 });
             });
         }
