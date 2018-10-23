@@ -2,10 +2,10 @@ import { getColors } from '../utilities';
 import { ThemeInterface } from '../';
 
 const accentColors = {
-    red: getColors(255, 25, 25),
-    green: getColors(8, 191, 52),
+    red: getColors(240, 45, 35),
+    green: getColors(28, 151, 82),
     blue: getColors(0, 58, 93),
-    orange: getColors(255, 149, 0),
+    orange: getColors(245, 169, 0),
 }
 
 export default {
@@ -19,8 +19,8 @@ export default {
     accents: accentColors,
     shadow: getColors(220, 220, 220),
     radius: {
-        default: '4px',
+        default: '2px',
         window: '15px',
-        button: '15px',
+        button: '20px',
     }
 } as ThemeInterface
