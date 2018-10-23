@@ -18,6 +18,9 @@ export default {
     highlight: getColors(127, 8, 191),
     accents: accentColors,
     shadow: getColors(220, 220, 220),
-    defaultRadius: '4px',
-    buttonRadius: '4px',
+    radius: {
+        default: '4px',
+        window: '4px',
+        button: '4px',
+    }
 } as ThemeInterface

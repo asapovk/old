@@ -11,7 +11,7 @@ export default (theme) => {
             field: {
                 borderColor: theme.pale.rgb,
                 backgroundColor: theme.interface.rgb,
-                borderRadius: theme.defaultRadius
+                borderRadius: theme.radius.default
             },
             input: {
                 color: theme.text.rgb,

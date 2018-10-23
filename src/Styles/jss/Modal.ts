@@ -8,7 +8,8 @@ export default (theme) => {
             titleColor: theme.text.rgb,
             subtitleColor: theme.lowlight.rgb,
             borderColor: theme.pale.rgb,
-            background: theme.interface.rgb
+            background: theme.interface.rgb,
+            borderRadius: theme.radius.window
         }
     }
 }

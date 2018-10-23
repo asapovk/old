@@ -32,7 +32,7 @@ exports.default = (function (theme) {
                 return {
                     background: background,
                     boxShadow: '0px 2px 6px 0px ' + theme.shadow.rgb,
-                    borderRadius: theme.defaultRadius,
+                    borderRadius: theme.radius.default,
                     color: decoration ? theme.textOnAccent.rgb : theme.text.rgb,
                     borderColor: decoration ? theme.pale.rgba(0) : theme.pale.rgb
                 };

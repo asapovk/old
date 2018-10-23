@@ -9,7 +9,7 @@ exports.default = (function (theme) {
             textColor: theme.text.rgb,
             titleColor: theme.text.rgb,
             subtitleColor: theme.lowlight.rgb,
-            borderColor: theme.pale.rgb,
+            borderColor: theme.radius.window,
             background: theme.interface.rgb
         }
     };

@@ -36,22 +36,25 @@ export type themeName =
     'abrTheme'
 
 export interface ThemeInterface {
-    background: objectColor,
-    interface: objectColor,
-    pale: objectColor,
-    lowlight: objectColor,
-    text: objectColor,
-    textOnAccent: objectColor,
-    highlight: objectColor,
+    background: objectColor
+    interface: objectColor
+    pale: objectColor
+    lowlight: objectColor
+    text: objectColor
+    textOnAccent: objectColor
+    highlight: objectColor
     accents: {
-        red: objectColor,
-        green: objectColor,
-        blue: objectColor,
-        orange: objectColor,
+        red: objectColor
+        green: objectColor
+        blue: objectColor
+        orange: objectColor
     },
-    shadow: objectColor,
-    defaultRadius: string,
-    buttonRadius: string,
+    shadow: objectColor
+    radius: {
+        default: string,
+        window: string,
+        button: string,
+    }
 }
 
 export const createStyles = (themeName?: themeName) => {

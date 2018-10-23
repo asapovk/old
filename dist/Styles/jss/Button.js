@@ -6,7 +6,7 @@ exports.default = (function (theme) {
             var style = {
                 background: theme.interface.rgb,
                 boxShadow: '0px 2px 6px 0px ' + theme.shadow.rgb,
-                borderRadius: theme.buttonRadius,
+                borderRadius: theme.radius.button,
                 color: decoration ? theme.textOnAccent.rgb : theme.text.rgb,
                 fontWeight: 500,
                 borderColor: theme.pale.rgba(0)

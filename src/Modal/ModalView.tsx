@@ -18,6 +18,7 @@ class ModalView extends React.Component<Props> {
                     <Flexbox flexDirection="column" alignItems="center" justifyContent="center" style={{ height: this.props.center ? "100%" : "auto" }}>
                         <div className={this.props.loading ? "loading" : ""} style={{
                             color: styles.modal.view.textColor,
+                            borderRadius: styles.modal.view.borderRadius,
                             background: styles.modal.view.background,
                             borderColor: styles.modal.view.borderColor,
                             ...this.props.style

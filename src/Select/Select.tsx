@@ -239,7 +239,7 @@ class Select extends Component<Props> {
                             style={{
                                 background: styles.select.background,
                                 borderColor: styles.select.borderColor,
-                                borderRadius: styles.theme.defaultRadius
+                                borderRadius: styles.theme.radius.default
                             }}
                             key={'search'}
                         >
