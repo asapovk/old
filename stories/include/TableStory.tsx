@@ -29,13 +29,9 @@ class TableStory extends React.Component {
         ]
 
         return (
-
-            <Flexbox p={40} column flex={1}>
+            <Flexbox pr={35} pl={50} pt={0} column flex={1}>
                 <Table
-                    data={[]}
-                    pagination={{
-                        pageSize: 10
-                    }}
+                    data={tableData}
                     columns={tableColumns}
                     actions={[
                         {

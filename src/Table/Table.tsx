@@ -55,10 +55,9 @@ class Table extends React.Component<Props> {
     }
 
     render() {
+        const { columns, actions, border, indexKey, scope, form, style, noDataLabel, onRowClick, search } = this.props;
 
-        const { columns, actions, border, indexKey, scope, form, style, pagination, noDataLabel, onRowClick, search } = this.props;
-
-        let { data } = this.props;
+        let { data, pagination } = this.props;
         let pageData = [] as Object[]
 
         const isData = (this.props.data && Array.isArray(this.props.data) && this.props.data.length > 0);
@@ -66,6 +65,12 @@ class Table extends React.Component<Props> {
         const noDataLabelTSX = (
             <Flexbox alignItems='center' justifyContent='center' >{noDataLabel}</Flexbox>
         );
+
+        if (!pagination) {
+            pagination = {
+                pageSize: 20
+            }
+        }
 
         if (this.state.searchValue.length > 0) {
             data = data.filter((row) =>
@@ -76,7 +81,7 @@ class Table extends React.Component<Props> {
             );
         }
 
-        if (pagination && isData) {
+        if (isData) {
             const { pageSize } = pagination;
             /**
              * Отрезаем записи в таблице если есть
@@ -154,9 +159,9 @@ class Table extends React.Component<Props> {
                                 </div>
                             }
                         </div>
-                        {pagination && isData && data && (
+                        {isData && data && (
                             <TablePagination
-                                pagination={pagination}
+                                pagination={pagination!}
                                 page={this.state.page}
                                 searchActive={this.state.searchBar || this.state.searchValue.length > 0}
                                 search={this.props.search}
