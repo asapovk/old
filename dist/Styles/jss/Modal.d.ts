@@ -8,6 +8,7 @@ declare const _default: (theme: any) => {
         subtitleColor: any;
         borderColor: any;
         background: any;
+        borderRadius: any;
     };
 };
 export default _default;

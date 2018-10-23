@@ -21,8 +21,11 @@ export interface ThemeInterface {
         orange: objectColor;
     };
     shadow: objectColor;
-    defaultRadius: string;
-    buttonRadius: string;
+    radius: {
+        default: string;
+        window: string;
+        button: string;
+    };
 }
 export declare const createStyles: (themeName?: "blackCurrant" | "whiteCurrant" | "abrTheme" | undefined) => {
     theme: ThemeInterface;
@@ -40,11 +43,15 @@ export declare const createStyles: (themeName?: "blackCurrant" | "whiteCurrant" 
             color: any;
         };
         input: (isRadio: any) => {
+            color: any;
             borderColor: any;
+            backgroundColor: any;
             borderRadius: any;
         };
         inputActive: (isRadio: any) => {
+            color: any;
             borderColor: any;
+            backgroundColor: any;
             borderRadius: any;
         };
         circle: {
@@ -145,6 +152,7 @@ export declare const createStyles: (themeName?: "blackCurrant" | "whiteCurrant" 
             subtitleColor: any;
             borderColor: any;
             background: any;
+            borderRadius: any;
         };
     };
     popup: {
@@ -271,11 +279,15 @@ export declare const StylesContext: React.Context<{
             color: any;
         };
         input: (isRadio: any) => {
+            color: any;
             borderColor: any;
+            backgroundColor: any;
             borderRadius: any;
         };
         inputActive: (isRadio: any) => {
+            color: any;
             borderColor: any;
+            backgroundColor: any;
             borderRadius: any;
         };
         circle: {
@@ -376,6 +388,7 @@ export declare const StylesContext: React.Context<{
             subtitleColor: any;
             borderColor: any;
             background: any;
+            borderRadius: any;
         };
     };
     popup: {
@@ -502,11 +515,15 @@ declare const _default: React.ComponentType<React.ConsumerProps<{
             color: any;
         };
         input: (isRadio: any) => {
+            color: any;
             borderColor: any;
+            backgroundColor: any;
             borderRadius: any;
         };
         inputActive: (isRadio: any) => {
+            color: any;
             borderColor: any;
+            backgroundColor: any;
             borderRadius: any;
         };
         circle: {
@@ -607,6 +624,7 @@ declare const _default: React.ComponentType<React.ConsumerProps<{
             subtitleColor: any;
             borderColor: any;
             background: any;
+            borderRadius: any;
         };
     };
     popup: {
