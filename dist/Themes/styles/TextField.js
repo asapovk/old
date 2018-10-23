@@ -13,7 +13,7 @@ exports.default = (function (theme) {
             field: {
                 borderColor: theme.pale.rgb,
                 backgroundColor: theme.interface.rgb,
-                borderRadius: theme.corner
+                borderRadius: theme.defaultRadius
             },
             input: {
                 color: theme.text.rgb,

@@ -6,6 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importDefault(require("react"));
 var black_currant_1 = __importDefault(require("./themes/black-currant"));
 var white_currant_1 = __importDefault(require("./themes/white-currant"));
+var abrTheme_1 = __importDefault(require("./themes/abrTheme"));
 var Button_1 = __importDefault(require("./jss/Button"));
 var Chart_1 = __importDefault(require("./jss/Chart"));
 var Checkbox_1 = __importDefault(require("./jss/Checkbox"));
@@ -26,7 +27,7 @@ var Widget_1 = __importDefault(require("./jss/Widget"));
 var WidgetStat_1 = __importDefault(require("./jss/WidgetStat"));
 var Notifications_1 = __importDefault(require("./jss/Notifications"));
 exports.themes = {
-    blackCurrant: black_currant_1.default, whiteCurrant: white_currant_1.default
+    blackCurrant: black_currant_1.default, whiteCurrant: white_currant_1.default, abrTheme: abrTheme_1.default
 };
 exports.createStyles = function (themeName) {
     var theme = themeName ? exports.themes[themeName] : exports.themes['blackCurrant'];

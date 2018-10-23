@@ -3,8 +3,9 @@ import { objectColor } from './utilities';
 export declare const themes: {
     blackCurrant: ThemeInterface;
     whiteCurrant: ThemeInterface;
+    abrTheme: ThemeInterface;
 };
-export declare type themeName = 'blackCurrant' | 'whiteCurrant';
+export declare type themeName = 'blackCurrant' | 'whiteCurrant' | 'abrTheme';
 export interface ThemeInterface {
     background: objectColor;
     interface: objectColor;
@@ -20,28 +21,13 @@ export interface ThemeInterface {
         orange: objectColor;
     };
     shadow: objectColor;
-    corner: string;
+    defaultRadius: string;
+    buttonRadius: string;
 }
-export declare const createStyles: (themeName?: "blackCurrant" | "whiteCurrant" | undefined) => {
+export declare const createStyles: (themeName?: "blackCurrant" | "whiteCurrant" | "abrTheme" | undefined) => {
     theme: ThemeInterface;
     button: {
-        main: (decoration?: string | undefined) => {
-            background: string;
-            padding: number;
-            color: any;
-            border: string;
-            boxShadow?: undefined;
-            borderRadius?: undefined;
-            borderColor?: undefined;
-        } | {
-            background: any;
-            boxShadow: string;
-            borderRadius: any;
-            color: any;
-            borderColor: any;
-            padding?: undefined;
-            border?: undefined;
-        };
+        main: (decoration?: string | undefined) => React.CSSProperties;
     };
     chart: {
         text: any;
@@ -272,23 +258,7 @@ export declare const createStyles: (themeName?: "blackCurrant" | "whiteCurrant" 
 export declare const StylesContext: React.Context<{
     theme: ThemeInterface;
     button: {
-        main: (decoration?: string | undefined) => {
-            background: string;
-            padding: number;
-            color: any;
-            border: string;
-            boxShadow?: undefined;
-            borderRadius?: undefined;
-            borderColor?: undefined;
-        } | {
-            background: any;
-            boxShadow: string;
-            borderRadius: any;
-            color: any;
-            borderColor: any;
-            padding?: undefined;
-            border?: undefined;
-        };
+        main: (decoration?: string | undefined) => React.CSSProperties;
     };
     chart: {
         text: any;
@@ -519,23 +489,7 @@ export declare const StylesContext: React.Context<{
 declare const _default: React.ComponentType<React.ConsumerProps<{
     theme: ThemeInterface;
     button: {
-        main: (decoration?: string | undefined) => {
-            background: string;
-            padding: number;
-            color: any;
-            border: string;
-            boxShadow?: undefined;
-            borderRadius?: undefined;
-            borderColor?: undefined;
-        } | {
-            background: any;
-            boxShadow: string;
-            borderRadius: any;
-            color: any;
-            borderColor: any;
-            padding?: undefined;
-            border?: undefined;
-        };
+        main: (decoration?: string | undefined) => React.CSSProperties;
     };
     chart: {
         text: any;

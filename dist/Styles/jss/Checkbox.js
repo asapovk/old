@@ -8,13 +8,13 @@ exports.default = (function (theme) {
         input: function (isRadio) {
             return {
                 borderColor: theme.text.rgb,
-                borderRadius: isRadio ? '15px' : theme.corner
+                borderRadius: isRadio ? '15px' : theme.defaultRadius
             };
         },
         inputActive: function (isRadio) {
             return {
                 borderColor: theme.highlight.rgb,
-                borderRadius: isRadio ? '15px' : theme.corner
+                borderRadius: isRadio ? '15px' : theme.defaultRadius
             };
         },
         circle: {

@@ -188,7 +188,7 @@ var Select = /** @class */ (function (_super) {
             react_1.default.createElement("div", { className: 'ui-select-holder' + (menuVisible ? ' active' : ''), onClick: function () { return _this.toggleMenu(); }, ref: function (ref) { return _this.holderRef = ref; }, style: {
                     background: styles.select.background,
                     borderColor: styles.select.borderColor,
-                    borderRadius: styles.theme.corner
+                    borderRadius: styles.theme.defaultRadius
                 }, key: 'search' },
                 react_1.default.createElement("div", { className: 'ui-select-holder-value', style: { color: styles.select.textColor } },
                     HolderTSX(styles.select),

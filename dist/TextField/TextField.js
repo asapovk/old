@@ -62,13 +62,12 @@ var TextField = /** @class */ (function (_super) {
         var classes = 'ui-textfield ';
         if (disabled)
             classes += 'disabled';
-        var IconTSX = function (type, position, color) { return (react_1.default.createElement(__1.Flexbox, { alignItems: 'center', style: {
+        var IconTSX = function (type, position, color) { return (react_1.default.createElement(__1.Flexbox, { alignItems: 'center', pr: position === 'left' ? 8 : 0, pl: position === 'right' ? 8 : 0, style: {
                 fontSize: 20,
-                padding: position === 'right' ? '0px 8px 0px 0px' : '0px 0px 0px 8px',
                 color: color
             } },
             react_1.default.createElement(Icon_1.default, { type: type }))); };
-        var LoadingTSX = function (color) { return (react_1.default.createElement(__1.Flexbox, { alignItems: 'center', pr: 8, style: { fontSize: 20, color: color } },
+        var LoadingTSX = function (color) { return (react_1.default.createElement(__1.Flexbox, { alignItems: 'center', pl: 8, style: { fontSize: 20, color: color } },
             react_1.default.createElement(__1.Spin, null,
                 react_1.default.createElement(Icon_1.default, { type: 'spin' })))); };
         return (react_1.default.createElement(__1.Styles, null, function (styles) { return (react_1.default.createElement("div", { className: classes, style: style },
