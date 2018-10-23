@@ -84,9 +84,10 @@ class TextField extends React.Component<Props> {
         const IconTSX = (type: IconType, position: 'left' | 'right', color) => (
             <Flexbox
                 alignItems='center'
+                pr={position === 'left' ? 8 : 0}
+                pl={position === 'right' ? 8 : 0}
                 style={{
                     fontSize: 20,
-                    padding: position === 'right' ? '0px 8px 0px 0px' : '0px 0px 0px 8px',
                     color: color
                 }}
             >
@@ -95,7 +96,7 @@ class TextField extends React.Component<Props> {
         )
 
         const LoadingTSX = (color) => (
-            <Flexbox alignItems='center' pr={8} style={{ fontSize: 20, color: color }}>
+            <Flexbox alignItems='center' pl={8} style={{ fontSize: 20, color: color }}>
                 <Spin><Icon type='spin' /></Spin>
             </Flexbox>
         )
