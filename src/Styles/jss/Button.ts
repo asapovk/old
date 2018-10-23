@@ -1,11 +1,14 @@
+import { CSSProperties } from "react";
+
 export default (theme) => {
     return {
         main: (decoration?: string) => {
-            const style: any = {
+            const style: CSSProperties = {
                 background: theme.interface.rgb,
                 boxShadow: '0px 2px 6px 0px ' + theme.shadow.rgb,
                 borderRadius: theme.buttonRadius,
                 color: decoration ? theme.textOnAccent.rgb : theme.text.rgb,
+                fontWeight: 500,
                 borderColor: theme.pale.rgba(0)
             };
             switch (decoration) {
