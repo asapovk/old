@@ -19,7 +19,7 @@ export default {
     accents: accentColors,
     shadow: getColors(19, 20, 25),
     radius: {
-        default: '4px',
+        default: '2px',
         window: '4px',
         button: '4px',
     }

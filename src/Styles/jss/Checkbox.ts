@@ -5,13 +5,15 @@ export default (theme) => {
         },
         input: (isRadio) => {
             return {
-                borderColor: theme.text.rgb,
+                borderColor: theme.pale.hex,
+                backgroundColor: theme.interface.hex,
                 borderRadius: isRadio ? '15px' : theme.radius.default
             }
         },
         inputActive: (isRadio) => {
             return {
-                borderColor: theme.highlight.rgb,
+                borderColor: theme.highlight.hex,
+                backgroundColor: theme.interface.hex,
                 borderRadius: isRadio ? '15px' : theme.radius.default
             }
         },
