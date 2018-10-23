@@ -5,7 +5,7 @@ class View extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            theme: "blackCurrant",
+            theme: "abrTheme",
             row: false
         }
     }
@@ -19,12 +19,13 @@ class View extends Component {
         }
         return (
             <Viewport theme={this.state.theme} style={{ zIndex: -2 }}>
-                <Flexbox p={'3rem'} style={{ zIndex: '99999' }}>
+                <Flexbox p={'3rem'} style={{ zIndex: '99999' }} alignItems="center">
                     <Select
                         label={"Тема оформления"}
                         options={[
                             { text: "Черная смородина", value: "blackCurrant" },
-                            { text: "Белая смородина", value: "whiteCurrant" }
+                            { text: "Белая смородина", value: "whiteCurrant" },
+                            { text: "АБ Россия", value: "abrTheme" }
                         ]}
                         defaultValue={this.state.theme}
                         onChange={theme => this.setState({ theme })}
@@ -33,6 +34,7 @@ class View extends Component {
                     <Checkbox
                         label='Строки'
                         onChange={(value) => this.setState({ row: value })}
+                        style={{ paddingTop: 12 }}
                     />
                 </Flexbox>
                 {this.props.children}

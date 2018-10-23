@@ -5,7 +5,7 @@ export default (theme) => {
             titleColor: theme.lowlight.rgb,
             shadowColor: theme.shadow.rgb,
             borderColor: theme.pale.rgb,
-            borderRadius: theme.corner
+            borderRadius: theme.defaultRadius
         },
         row: {
             backgroundColor: theme.interface.rgb,

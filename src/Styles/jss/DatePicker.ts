@@ -6,7 +6,7 @@ export default (theme) => {
         day: {
             default: {
                 fontSize: 14,
-                borderRadius: theme.corner,
+                borderRadius: theme.defaultRadius,
                 background: theme.interface.hex,
                 borderColor: theme.background.hex,
                 color: theme.text.hex,
@@ -29,7 +29,7 @@ export default (theme) => {
             style: {
                 border: "1px solid " + theme.pale.hex,
                 borderTop: 0,
-                top: "-" + theme.corner
+                top: "-" + theme.defaultRadius
             }
         },
         title: {

@@ -6,13 +6,13 @@ export default (theme) => {
         input: (isRadio) => {
             return {
                 borderColor: theme.text.rgb,
-                borderRadius: isRadio ? '15px' : theme.corner
+                borderRadius: isRadio ? '15px' : theme.defaultRadius
             }
         },
         inputActive: (isRadio) => {
             return {
                 borderColor: theme.highlight.rgb,
-                borderRadius: isRadio ? '15px' : theme.corner
+                borderRadius: isRadio ? '15px' : theme.defaultRadius
             }
         },
         circle: {

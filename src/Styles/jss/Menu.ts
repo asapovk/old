@@ -9,7 +9,7 @@ export default (theme) => {
                 background: theme.interface.rgb,
                 borderColor: theme.pale.rgb,
                 boxShadow: `0px 2px 4px 0px ${theme.shadow.rgb}`,
-                borderRadius: theme.corner
+                borderRadius: theme.defaultRadius
             }
         },
         nav: {

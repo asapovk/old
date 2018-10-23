@@ -19,7 +19,7 @@ export default (theme) => {
             return {
                 background: theme.interface.rgb,
                 boxShadow: '0px 2px 6px 0px ' + theme.shadow.rgb,
-                borderRadius: theme.corner,
+                borderRadius: theme.defaultRadius,
                 color: decoration ? theme.textOnAccent.rgb : theme.text.rgb,
                 borderColor: theme.pale.rgb,
                 borderLeft: `4px solid ${decorationColor}`

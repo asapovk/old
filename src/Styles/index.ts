@@ -4,6 +4,7 @@ import { objectColor } from './utilities';
 
 import blackCurrant from './themes/black-currant'
 import whiteCurrant from './themes/white-currant'
+import abrTheme from './themes/abrTheme'
 
 import buttonStyles from './jss/Button'
 import chartStyles from './jss/Chart'
@@ -26,12 +27,13 @@ import widgetStatStyles from './jss/WidgetStat'
 import notificationsStyles from './jss/Notifications'
 
 export const themes = {
-    blackCurrant, whiteCurrant
+    blackCurrant, whiteCurrant, abrTheme
 }
 
 export type themeName =
     'blackCurrant' |
-    'whiteCurrant'
+    'whiteCurrant' |
+    'abrTheme'
 
 export interface ThemeInterface {
     background: objectColor,
@@ -48,7 +50,8 @@ export interface ThemeInterface {
         orange: objectColor,
     },
     shadow: objectColor,
-    corner: string,
+    defaultRadius: string,
+    buttonRadius: string,
 }
 
 export const createStyles = (themeName?: themeName) => {
