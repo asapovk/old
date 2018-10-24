@@ -22,5 +22,11 @@ export default {
         default: '2px',
         window: '4px',
         button: '4px',
+    },
+    gradient: {
+        buddy: [
+            getColors(36, 33, 38).hex,
+            getColors(216, 15, 105).hex
+        ]
     }
 } as ThemeInterface

@@ -28,7 +28,9 @@ storiesOf('Вспопомогательные компоненты')
     .add('Icon', $('IconStory'))
     .add('Spinner', $('SpinnerStory'))
     .add('Spin', $('SpinStory'))
-    .add('Flexbox', $('FlexboxStory'));
+    .add('WidgetStat', $('WidgetStatStory'))
+    .add('Flexbox', $('FlexboxStory'))
+    .add('Buddy', $('BuddyStory'));
 
 storiesOf("Утилиты")
     .add('alert', $('UtilsAlertStory'))

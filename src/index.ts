@@ -24,5 +24,6 @@ export { WidgetStat as WidgetStat } from './WidgetStat'
 export { default as Styles } from './Styles'
 
 export { Portal as Portal } from 'react-portal';
+export { Buddy as Buddy } from './Buddy'
 
 export { default as utils } from './utils'

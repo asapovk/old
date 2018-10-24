@@ -5,6 +5,7 @@ import { objectColor } from './utilities';
 import blackCurrant from './themes/black-currant'
 import whiteCurrant from './themes/white-currant'
 import abrTheme from './themes/abrTheme'
+import gazpromTheme from './themes/gazpromTheme'
 
 import buttonStyles from './jss/Button'
 import chartStyles from './jss/Chart'
@@ -27,13 +28,14 @@ import widgetStatStyles from './jss/WidgetStat'
 import notificationsStyles from './jss/Notifications'
 
 export const themes = {
-    blackCurrant, whiteCurrant, abrTheme
+    blackCurrant, whiteCurrant, abrTheme, gazpromTheme
 }
 
 export type themeName =
     'blackCurrant' |
     'whiteCurrant' |
-    'abrTheme'
+    'abrTheme' |
+    'gazpromTheme'
 
 export interface ThemeInterface {
     background: objectColor
@@ -51,9 +53,12 @@ export interface ThemeInterface {
     },
     shadow: objectColor
     radius: {
-        default: string,
-        window: string,
-        button: string,
+        default: string
+        window: string
+        button: string
+    }
+    gradient: {
+        buddy: string[]
     }
 }
 

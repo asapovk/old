@@ -25,7 +25,8 @@ class View extends Component {
                         options={[
                             { text: "Черная смородина", value: "blackCurrant" },
                             { text: "Белая смородина", value: "whiteCurrant" },
-                            { text: "АБ Россия", value: "abrTheme" }
+                            { text: "АБ Россия", value: "abrTheme" },
+                            { text: "Газпром", value: "gazpromTheme" }
                         ]}
                         defaultValue={this.state.theme}
                         onChange={theme => this.setState({ theme })}
