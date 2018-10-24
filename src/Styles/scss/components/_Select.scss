@@ -89,13 +89,12 @@
             }
         }
     }
-}
+    .visible {
+        display: block !important;
+    }
 
-.visible {
-    display: block !important;
-}
-
-.active {
-    border-bottom-left-radius: 0!important;
-    border-bottom-right-radius: 0!important;
+    .active {
+        border-bottom-left-radius: 0!important;
+        border-bottom-right-radius: 0!important;
+    }
 }

@@ -24,6 +24,10 @@ export default {
         button: '4px',
     },
     gradient: {
+        default: [
+            getColors(216, 15, 105).rgba(1.0),
+            getColors(216, 15, 105).rgba(0.8)
+        ],
         buddy: [
             getColors(36, 33, 38).hex,
             getColors(216, 15, 105).hex

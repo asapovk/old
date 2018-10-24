@@ -4,8 +4,9 @@ export declare const themes: {
     blackCurrant: ThemeInterface;
     whiteCurrant: ThemeInterface;
     abrTheme: ThemeInterface;
+    gazpromTheme: ThemeInterface;
 };
-export declare type themeName = 'blackCurrant' | 'whiteCurrant' | 'abrTheme';
+export declare type themeName = 'blackCurrant' | 'whiteCurrant' | 'abrTheme' | 'gazpromTheme';
 export interface ThemeInterface {
     background: objectColor;
     interface: objectColor;
@@ -26,8 +27,12 @@ export interface ThemeInterface {
         window: string;
         button: string;
     };
+    gradient: {
+        default: string[];
+        buddy: string[];
+    };
 }
-export declare const createStyles: (themeName?: "blackCurrant" | "whiteCurrant" | "abrTheme" | undefined) => {
+export declare const createStyles: (themeName?: "blackCurrant" | "whiteCurrant" | "abrTheme" | "gazpromTheme" | undefined) => {
     theme: ThemeInterface;
     button: {
         main: (decoration?: string | undefined) => React.CSSProperties;
@@ -196,6 +201,30 @@ export declare const createStyles: (themeName?: "blackCurrant" | "whiteCurrant" 
         pagination: {
             textColor: any;
             backgroundColor: any;
+        };
+    };
+    tabs: {
+        tab: {
+            borderRadius: string;
+            color: string;
+        };
+        tabActive: {
+            borderRadius: string;
+            color: string;
+        };
+        toolbar: {
+            borderRadius: string;
+            background: string;
+        };
+        container: {
+            borderColor: string;
+            background: string;
+            borderRadius: string;
+        };
+        hl: {
+            borderRadius: string;
+            borderColor: string;
+            background: string;
         };
     };
     textField: {
@@ -434,6 +463,30 @@ export declare const StylesContext: React.Context<{
             backgroundColor: any;
         };
     };
+    tabs: {
+        tab: {
+            borderRadius: string;
+            color: string;
+        };
+        tabActive: {
+            borderRadius: string;
+            color: string;
+        };
+        toolbar: {
+            borderRadius: string;
+            background: string;
+        };
+        container: {
+            borderColor: string;
+            background: string;
+            borderRadius: string;
+        };
+        hl: {
+            borderRadius: string;
+            borderColor: string;
+            background: string;
+        };
+    };
     textField: {
         textColor: any;
         backgroundColor: any;
@@ -668,6 +721,30 @@ declare const _default: React.ComponentType<React.ConsumerProps<{
         pagination: {
             textColor: any;
             backgroundColor: any;
+        };
+    };
+    tabs: {
+        tab: {
+            borderRadius: string;
+            color: string;
+        };
+        tabActive: {
+            borderRadius: string;
+            color: string;
+        };
+        toolbar: {
+            borderRadius: string;
+            background: string;
+        };
+        container: {
+            borderColor: string;
+            background: string;
+            borderRadius: string;
+        };
+        hl: {
+            borderRadius: string;
+            borderColor: string;
+            background: string;
         };
     };
     textField: {

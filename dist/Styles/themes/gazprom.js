@@ -8,28 +8,28 @@ var accentColors = {
     orange: utilities_1.getColors(255, 149, 0),
 };
 exports.default = {
-    background: utilities_1.getColors(243, 240, 245),
+    background: utilities_1.getColors(247, 247, 247),
     interface: utilities_1.getColors(250, 250, 250),
     pale: utilities_1.getColors(217, 217, 217),
     lowlight: utilities_1.getColors(146, 143, 148),
     text: utilities_1.getColors(38, 36, 38),
     textOnAccent: utilities_1.getColors(233, 233, 233),
-    highlight: utilities_1.getColors(127, 8, 191),
+    highlight: utilities_1.getColors(0, 121, 194),
     accents: accentColors,
     shadow: utilities_1.getColors(220, 220, 220),
     radius: {
-        default: '2px',
-        window: '4px',
-        button: '4px',
+        default: '4px',
+        window: '15px',
+        button: '20px',
     },
     gradient: {
         default: [
-            utilities_1.getColors(127, 8, 191).rgba(1.0),
-            utilities_1.getColors(127, 8, 191).rgba(0.8)
+            "#28a4d9",
+            utilities_1.getColors(0, 121, 194).hex
         ],
         buddy: [
             "#FFFFFF",
-            utilities_1.getColors(127, 8, 191).hex,
-        ]
+            "#007BBC"
+        ],
     }
 };

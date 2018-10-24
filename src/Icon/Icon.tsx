@@ -27,16 +27,17 @@ interface Props {
     style?: CSSProperties
     className?: string
     type: IconType
+    size?: number
 }
 class Icon extends React.Component<Props> {
     render() {
-        const { className, style, type } = this.props;
+        const { className, style, type, size } = this.props;
         return (
             <svg
                 className={`ui-icon${className ? " " + className : ""}`}
                 fill="currentColor"
-                height="1em"
-                width="1em"
+                height={(size || 1) + "rem"}
+                width={(size || 1) + "rem"}
                 viewBox="0 0 128 128"
                 style={style}
                 children={<g><path d={svgIconPath[type]}></path></g>}

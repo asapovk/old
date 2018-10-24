@@ -24,9 +24,13 @@ export default {
         button: '20px',
     },
     gradient: {
+        default: [
+            getColors(196, 13, 60).rgba(1.0),
+            getColors(196, 13, 60).rgba(0.8)
+        ],
         buddy: [
             "#FFFFFF",
-            "#007BBC"
+            getColors(196, 13, 60).hex
         ]
     }
 } as ThemeInterface

@@ -4,8 +4,8 @@ import { objectColor } from './utilities';
 
 import blackCurrant from './themes/black-currant'
 import whiteCurrant from './themes/white-currant'
-import abrTheme from './themes/abrTheme'
-import gazpromTheme from './themes/gazpromTheme'
+import abrTheme from './themes/abr'
+import gazpromTheme from './themes/gazprom'
 
 import buttonStyles from './jss/Button'
 import chartStyles from './jss/Chart'
@@ -20,6 +20,7 @@ import selectStyles from './jss/Select'
 import spinStyles from './jss/Spin'
 import spinnerStyles from './jss/Spinner'
 import tableStyles from './jss/Table'
+import tabsStyles from './jss/Tabs'
 import textFieldStyles from './jss/TextField'
 import titleStyles from './jss/Title'
 import viewportStyles from './jss/Viewport'
@@ -58,6 +59,7 @@ export interface ThemeInterface {
         button: string
     }
     gradient: {
+        default: string[]
         buddy: string[]
     }
 }
@@ -79,6 +81,7 @@ export const createStyles = (themeName?: themeName) => {
         spin: spinStyles(theme),
         spinner: spinnerStyles(theme),
         table: tableStyles(theme),
+        tabs: tabsStyles(theme),
         textField: textFieldStyles(theme),
         title: titleStyles(theme),
         viewport: viewportStyles(theme),

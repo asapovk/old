@@ -43,8 +43,8 @@ var Icon = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     Icon.prototype.render = function () {
-        var _a = this.props, className = _a.className, style = _a.style, type = _a.type;
-        return (react_1.default.createElement("svg", { className: "ui-icon" + (className ? " " + className : ""), fill: "currentColor", height: "1em", width: "1em", viewBox: "0 0 128 128", style: style, children: react_1.default.createElement("g", null,
+        var _a = this.props, className = _a.className, style = _a.style, type = _a.type, size = _a.size;
+        return (react_1.default.createElement("svg", { className: "ui-icon" + (className ? " " + className : ""), fill: "currentColor", height: (size || 1) + "rem", width: (size || 1) + "rem", viewBox: "0 0 128 128", style: style, children: react_1.default.createElement("g", null,
                 react_1.default.createElement("path", { d: exports.svgIconPath[type] })) }));
     };
     return Icon;
