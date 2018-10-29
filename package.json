@@ -38,8 +38,9 @@
   },
   "scripts": {
     "start": "start-storybook -p 9001",
-    "build": "yarn build-sass && yarn build-ts",
+    "build": "yarn build-sass && yarn build-ts && yarn build-copylib",
     "build-ts": "npx tsc",
+    "build-copylib": "cp -R src/Buddy/lib dist/Buddy/lib",
     "build-sass": "npx sass src/Styles/scss/main.scss dist/styles.css"
   },
   "dependencies": {

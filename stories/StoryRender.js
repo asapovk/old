@@ -23,10 +23,10 @@ class View extends Component {
                     <Select
                         label={"Тема оформления"}
                         options={[
-                            { text: "Черная смородина", value: "blackCurrant" },
-                            { text: "Белая смородина", value: "whiteCurrant" },
-                            { text: "АБ Россия", value: "abrTheme" },
-                            { text: "Газпром", value: "gazpromTheme" }
+                            { text: "Черная смородина (blackCurrant)", value: "blackCurrant" },
+                            { text: "Белая смородина (blackCurrant)", value: "whiteCurrant" },
+                            { text: "АБР (abrTheme)", value: "abrTheme" },
+                            { text: "Газпром (gazpromTheme)", value: "gazpromTheme" }
                         ]}
                         defaultValue={this.state.theme}
                         onChange={theme => this.setState({ theme })}

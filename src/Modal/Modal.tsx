@@ -23,7 +23,6 @@ interface Modal {
     view: any
     modal: any
 }
-
 class Modal extends React.Component<Props> {
 
     static defaultProps = {
@@ -39,7 +38,6 @@ class Modal extends React.Component<Props> {
         hidding: false,
         center: true,
         loading: false,
-        style: null,
     }
     constructor(props) {
         super(props);
