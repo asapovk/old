@@ -25,6 +25,7 @@ storiesOf('Основные компоненты')
     .add('Modal', $('ModalStory'))
 
 storiesOf('Вспопомогательные компоненты')
+    .add('Constructor', $('ConstructorStory'))
     .add('Login', $('LoginStory'))
     .add('Icon', $('IconStory'))
     .add('Spinner', $('SpinnerStory'))

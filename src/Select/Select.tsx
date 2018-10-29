@@ -4,10 +4,10 @@ import SelectMenuItem from './SelectMenuItem'
 
 interface SelectOption {
     text: string
-    value: string
+    value: any
 }
 
-interface Props {
+export interface SelectProps {
     search?: boolean
     style?: CSSProperties
     label?: string
@@ -16,20 +16,20 @@ interface Props {
     options?: SelectOption[]
     clearable?: boolean
     multiselect?: boolean
-    defaultValue?: string | string[]
+    defaultValue?: any
     dontClose?: boolean
-    onChange?: (value: string | string[] | null) => void
+    onChange?: (value: any) => void
     children?: any
 }
-class Select extends Component<Props> {
+class Select extends Component<SelectProps> {
 
     private
     holderRef = null as HTMLDivElement | null
     searchRef = null as HTMLInputElement | null
     state = {
-        selectedValues: [] as string[],
+        selectedValues: [] as any[],
         menuVisible: false as boolean,
-        filteredValues: [] as string[],
+        filteredValues: [] as any[],
         isFilterActive: false as boolean
     }
 

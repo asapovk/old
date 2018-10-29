@@ -1,0 +1,49 @@
+import { CSSProperties, Children } from 'react';
+
+export { default as Constructor } from './Constructor';
+import { FlexboxProps } from '../Flexbox/Flexbox';
+import { ButtonProps } from '../Button/Button';
+import { TextFieldProps } from '../TextField/TextField';
+import { SelectProps } from '../Select/Select';
+import { CheckboxProps } from '../Checkbox/Checkbox';
+
+export type UIElement =
+    (DefaultConstructorElement & Flexbox & FlexboxProps)
+    | (DefaultConstructorElement & TextField & TextFieldProps)
+    | (DefaultConstructorElement & Checkbox & CheckboxProps)
+    | (DefaultConstructorElement & Select & SelectProps)
+    | (DefaultConstructorElement & Button & ButtonProps)
+    | (DefaultConstructorElement & Spoiler)
+    | (DefaultConstructorElement & Divider)
+    | (DefaultConstructorElement & Title)
+    | (DefaultConstructorElement & Any)
+
+export type UIElements = UIElement[]
+
+interface Flexbox { $: "flex" | "flexbox", $children?: UIElement | UIElements }
+interface TextField { $: "textfield" }
+interface Checkbox { $: "checkbox" }
+interface Select { $: "selectfield" | "select" }
+interface Button { $: "button" }
+interface Spoiler { $: "spoiler", label: string, invertVisible?: boolean, $children: UIElement | UIElements }
+interface Divider { $: "divider" }
+interface Title { $: "title", text: string }
+interface Any { $: "any", children?: any }
+
+interface ConditionsKeyValue {
+    [key: string]: any
+}
+
+interface DefaultConstructorElement {
+    $id?: string
+    style?: CSSProperties
+    required?: boolean
+    payload?: any
+    $connect?: string[]
+    $conditions?: {
+        visible?: {
+            if?: ConditionsKeyValue[],
+            ifnot?: ConditionsKeyValue[]
+        }
+    },
+}

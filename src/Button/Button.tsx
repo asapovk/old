@@ -1,7 +1,7 @@
 import React, { Component, CSSProperties } from 'react';
 import { Spin, Icon, Styles } from '../index';
 
-export interface Props {
+export interface ButtonProps {
     label?: string
     outline?: true | undefined
     decoration?: 'none' | 'highlight' | 'red' | 'green' | 'orange' | 'blue'
@@ -13,7 +13,7 @@ export interface Props {
     style?: CSSProperties
 }
 
-class Button extends Component<Props> {
+class Button extends Component<ButtonProps> {
     render() {
 
         const { labelCase, onClick, label, children, style, loading, decoration } = this.props;
