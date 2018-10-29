@@ -255,6 +255,10 @@ export declare const createStyles: (themeName?: "blackCurrant" | "whiteCurrant" 
             color: any;
         };
     };
+    badge: {
+        container: React.CSSProperties;
+        main: (color?: string | undefined, top?: string | number, right?: string | number, left?: string | number) => React.CSSProperties;
+    };
     viewport: {
         main: {
             background: any;
@@ -515,6 +519,10 @@ export declare const StylesContext: React.Context<{
             color: any;
         };
     };
+    badge: {
+        container: React.CSSProperties;
+        main: (color?: string | undefined, top?: string | number, right?: string | number, left?: string | number) => React.CSSProperties;
+    };
     viewport: {
         main: {
             background: any;
@@ -774,6 +782,10 @@ declare const _default: React.ComponentType<React.ConsumerProps<{
         active: {
             color: any;
         };
+    };
+    badge: {
+        container: React.CSSProperties;
+        main: (color?: string | undefined, top?: string | number, right?: string | number, left?: string | number) => React.CSSProperties;
     };
     viewport: {
         main: {

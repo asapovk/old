@@ -1,5 +1,5 @@
 import { Component, CSSProperties } from 'react';
-export interface Props {
+export interface ButtonProps {
     label?: string;
     outline?: true | undefined;
     decoration?: 'none' | 'highlight' | 'red' | 'green' | 'orange' | 'blue';
@@ -10,7 +10,7 @@ export interface Props {
     className?: string;
     style?: CSSProperties;
 }
-declare class Button extends Component<Props> {
+declare class Button extends Component<ButtonProps> {
     render(): JSX.Element;
 }
 export default Button;

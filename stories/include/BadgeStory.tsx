@@ -32,7 +32,7 @@ export default class Story extends React.Component {
                 </div>
                 <div style={{ paddingLeft: 20 }}>
                     <Badge value={42} color="orange">
-                        <Button label="Апельсин" />
+                        <Button label="Апельсины" />
                     </Badge>
                 </div>
                 <div style={{ paddingLeft: 20 }}>

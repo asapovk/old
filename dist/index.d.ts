@@ -1,9 +1,11 @@
 export { Table as Table } from './Table';
 export { Flexbox as Flexbox } from './Flexbox';
 export { DatePicker as DatePicker } from './DatePicker';
+export { Constructor as Constructor } from './Constructor';
 export { TextField as TextField } from './TextField';
 export { Viewport as Viewport } from './Viewport';
 export { Button as Button } from './Button';
+export { Badge as Badge } from './Badge';
 export { Menu as Menu } from './Menu';
 export { Nav as Nav } from './Menu';
 export { Popup as Popup } from './Popup';

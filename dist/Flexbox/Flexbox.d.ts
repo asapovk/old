@@ -1,5 +1,5 @@
 import React, { CSSProperties } from 'react';
-interface Props {
+export interface FlexboxProps {
     onClick?: (event: any) => void;
     onFocus?: (event: any) => void;
     onBlur?: (event: any) => void;
@@ -33,7 +33,7 @@ interface Props {
     flexFlow?: "flex-direction" | "flex-wrap";
     children?: any;
 }
-declare class Flexbox extends React.Component<Props> {
+declare class Flexbox extends React.Component<FlexboxProps> {
     render(): React.DetailedReactHTMLElement<any, HTMLElement>;
 }
 export default Flexbox;
