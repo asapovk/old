@@ -97,6 +97,37 @@ const template: UIElement = {
             format: "MMMM YYYY"
         },
         {
+            $: "divider"
+        },
+        {
+            $: "flex",
+            $children: [
+                {
+                    $: "flex",
+                    flex: 1,
+                    $children: {
+                        $: "any",
+                        $children: (
+                            <div>
+                                The Morrison Co.'s freighter in Darling Harbour, having in tow the battled, W. Longitude 152° 17', with one living and one dead man aboard.
+                            </div>
+                        )
+                    }
+                },
+                {
+                    $: "flex",
+                    flex: 0,
+                    pl: 20,
+                    $children: {
+                        $: "attachment",
+                    },
+                }
+            ]
+        },
+        {
+            $: "divider"
+        },
+        {
             $: "flex",
             pt: 100
         },

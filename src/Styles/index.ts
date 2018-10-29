@@ -8,6 +8,7 @@ import abrTheme from './themes/abr'
 import gazpromTheme from './themes/gazprom'
 
 import buttonStyles from './jss/Button'
+import badgeStyles from './jss/Badge'
 import chartStyles from './jss/Chart'
 import checkboxStyles from './jss/Checkbox'
 import datePickerStyles from './jss/DatePicker'
@@ -84,6 +85,7 @@ export const createStyles = (themeName?: themeName) => {
         tabs: tabsStyles(theme),
         textField: textFieldStyles(theme),
         title: titleStyles(theme),
+        badge: badgeStyles(theme),
         viewport: viewportStyles(theme),
         widget: widgetStyles(theme),
         widgetStat: widgetStatStyles(theme),

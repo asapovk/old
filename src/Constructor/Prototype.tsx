@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { CSSProperties } from 'react';
 
 interface Prototype {
     isMouted: any
@@ -10,6 +10,7 @@ interface Prototype {
 }
 
 interface Props {
+    styles?: CSSProperties
     object: any
     getConstructor: any
     async?: any
@@ -95,7 +96,7 @@ class Prototype extends React.Component<Props> {
     /**
      * Устанавлием значение филда
      */
-    setValue(value: string) {
+    setValue(value: any) {
         this.value = value;
         if (this.state.error) {
             this.setError("");

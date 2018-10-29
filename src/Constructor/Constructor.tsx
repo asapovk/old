@@ -11,7 +11,7 @@ import CText from './CText';
 import CButton from './CButton';
 import CTitle from './CTitle';
 import CDivider from './CDivider';
-// import CAttachment from './CAttachment';
+import CAttachment from './CAttachment';
 
 //Для ЛКА Газ
 // import CGasEquipmentAdd from './CGasEquipmentAdd';
@@ -183,16 +183,16 @@ class Constructor extends React.Component<Props> {
                             onAction={this.props.onAction}
                         />
                     );
-                // case "attachment":
-                //     return (
-                //         <CAttachment
-                //             getConstructor={_ => this}
-                //             object={object}
-                //             key={object.$id}
-                //             ref={addRef}
-                //             onValueChange={this.onChange.bind(this)}
-                //         />
-                //     );
+                case "attachment":
+                    return (
+                        <CAttachment
+                            getConstructor={_ => this}
+                            object={object}
+                            key={object.$id}
+                            ref={addRef}
+                            onValueChange={this.onChange.bind(this)}
+                        />
+                    );
 
                 // case "gas_equipment_add":
                 //     return (

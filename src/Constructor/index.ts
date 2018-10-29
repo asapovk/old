@@ -15,6 +15,7 @@ export type UIElement =
     | (DefaultConstructorElement & Select & SelectProps)
     | (DefaultConstructorElement & Button & ButtonProps)
     | (DefaultConstructorElement & DatePicker & DatePickerProps)
+    | (DefaultConstructorElement & Attachment)
     | (DefaultConstructorElement & Spoiler)
     | (DefaultConstructorElement & Divider)
     | (DefaultConstructorElement & Title)
@@ -28,6 +29,7 @@ interface Checkbox { $: "checkbox" }
 interface Select { $: "selectfield" | "select" }
 interface Button { $: "button" }
 interface DatePicker { $: "datepicker" }
+interface Attachment { $: "attachment", maxSize?: number }
 interface Spoiler { $: "spoiler", label: string, invertVisible?: boolean, $children: UIElement | UIElements }
 interface Divider { $: "divider" }
 interface Title { $: "title", text: string }
