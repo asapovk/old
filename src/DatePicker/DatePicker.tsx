@@ -5,7 +5,7 @@ import { MonthGrid } from './MonthGrid';
 
 moment.locale("ru_RU");
 
-interface Props {
+export interface DatePickerProps {
     format?: string
     value?: Moment | string
     minValue?: Moment
@@ -15,7 +15,7 @@ interface Props {
     onChange?: (date: Moment | string) => void
 }
 
-class DatePicker extends React.Component<Props> {
+class DatePicker extends React.Component<DatePickerProps> {
 
     state = {
         active: false,

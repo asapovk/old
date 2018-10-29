@@ -90,6 +90,13 @@ const template: UIElement = {
             }
         },
         {
+            $: "divider"
+        },
+        {
+            $: "datepicker",
+            format: "MMMM YYYY"
+        },
+        {
             $: "flex",
             pt: 100
         },

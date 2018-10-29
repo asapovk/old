@@ -5,7 +5,7 @@ import CFlex from './CFlex';
 import CTextField from './CTextField';
 import CSpoiler from './CSpoiler';
 import CSelectField from './CSelectField';
-// import CDatePicker from './CDatePicker';
+import CDatePicker from './CDatePicker';
 import CCheckBox from './CCheckBox';
 import CText from './CText';
 import CButton from './CButton';
@@ -153,16 +153,16 @@ class Constructor extends React.Component<Props> {
                             children={<Component object={object.$children} />}
                         />
                     );
-                // case "datepicker":
-                //     return (
-                //         <CDatePicker
-                //             getConstructor={_ => this}
-                //             object={object}
-                //             key={object.$id}
-                //             ref={addRef}
-                //             onValueChange={this.onChange.bind(this)}
-                //         />
-                //     );
+                case "datepicker":
+                    return (
+                        <CDatePicker
+                            getConstructor={_ => this}
+                            object={object}
+                            key={object.$id}
+                            ref={addRef}
+                            onValueChange={this.onChange.bind(this)}
+                        />
+                    );
                 case "checkbox":
                     return (
                         <CCheckBox

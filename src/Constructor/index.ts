@@ -6,6 +6,7 @@ import { ButtonProps } from '../Button/Button';
 import { TextFieldProps } from '../TextField/TextField';
 import { SelectProps } from '../Select/Select';
 import { CheckboxProps } from '../Checkbox/Checkbox';
+import { DatePickerProps } from '../DatePicker/DatePicker';
 
 export type UIElement =
     (DefaultConstructorElement & Flexbox & FlexboxProps)
@@ -13,6 +14,7 @@ export type UIElement =
     | (DefaultConstructorElement & Checkbox & CheckboxProps)
     | (DefaultConstructorElement & Select & SelectProps)
     | (DefaultConstructorElement & Button & ButtonProps)
+    | (DefaultConstructorElement & DatePicker & DatePickerProps)
     | (DefaultConstructorElement & Spoiler)
     | (DefaultConstructorElement & Divider)
     | (DefaultConstructorElement & Title)
@@ -25,6 +27,7 @@ interface TextField { $: "textfield" }
 interface Checkbox { $: "checkbox" }
 interface Select { $: "selectfield" | "select" }
 interface Button { $: "button" }
+interface DatePicker { $: "datepicker" }
 interface Spoiler { $: "spoiler", label: string, invertVisible?: boolean, $children: UIElement | UIElements }
 interface Divider { $: "divider" }
 interface Title { $: "title", text: string }
