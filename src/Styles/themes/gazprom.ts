@@ -2,10 +2,10 @@ import { getColors } from '../utilities';
 import { ThemeInterface } from '../';
 
 const accentColors = {
-    red: getColors(240, 45, 35),
-    green: getColors(28, 151, 82),
-    blue: getColors(0, 58, 93),
-    orange: getColors(245, 169, 0),
+    red: getColors(255, 25, 25),
+    green: getColors(8, 191, 52),
+    blue: getColors(0, 122, 255),
+    orange: getColors(255, 149, 0),
 }
 
 export default {
@@ -15,12 +15,22 @@ export default {
     lowlight: getColors(146, 143, 148),
     text: getColors(38, 36, 38),
     textOnAccent: getColors(233, 233, 233),
-    highlight: getColors(196, 13, 60),
+    highlight: getColors(0, 121, 194),
     accents: accentColors,
     shadow: getColors(220, 220, 220),
     radius: {
-        default: '2px',
+        default: '4px',
         window: '15px',
         button: '20px',
+    },
+    gradient: {
+        default: [
+            "#28a4d9",
+            getColors(0, 121, 194).hex
+        ],
+        buddy: [
+            "#FFFFFF",
+            "#007BBC"
+        ],
     }
 } as ThemeInterface

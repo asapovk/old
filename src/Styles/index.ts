@@ -4,9 +4,11 @@ import { objectColor } from './utilities';
 
 import blackCurrant from './themes/black-currant'
 import whiteCurrant from './themes/white-currant'
-import abrTheme from './themes/abrTheme'
+import abrTheme from './themes/abr'
+import gazpromTheme from './themes/gazprom'
 
 import buttonStyles from './jss/Button'
+import badgeStyles from './jss/Badge'
 import chartStyles from './jss/Chart'
 import checkboxStyles from './jss/Checkbox'
 import datePickerStyles from './jss/DatePicker'
@@ -19,6 +21,7 @@ import selectStyles from './jss/Select'
 import spinStyles from './jss/Spin'
 import spinnerStyles from './jss/Spinner'
 import tableStyles from './jss/Table'
+import tabsStyles from './jss/Tabs'
 import textFieldStyles from './jss/TextField'
 import titleStyles from './jss/Title'
 import viewportStyles from './jss/Viewport'
@@ -27,13 +30,14 @@ import widgetStatStyles from './jss/WidgetStat'
 import notificationsStyles from './jss/Notifications'
 
 export const themes = {
-    blackCurrant, whiteCurrant, abrTheme
+    blackCurrant, whiteCurrant, abrTheme, gazpromTheme
 }
 
 export type themeName =
     'blackCurrant' |
     'whiteCurrant' |
-    'abrTheme'
+    'abrTheme' |
+    'gazpromTheme'
 
 export interface ThemeInterface {
     background: objectColor
@@ -51,9 +55,13 @@ export interface ThemeInterface {
     },
     shadow: objectColor
     radius: {
-        default: string,
-        window: string,
-        button: string,
+        default: string
+        window: string
+        button: string
+    }
+    gradient: {
+        default: string[]
+        buddy: string[]
     }
 }
 
@@ -74,8 +82,10 @@ export const createStyles = (themeName?: themeName) => {
         spin: spinStyles(theme),
         spinner: spinnerStyles(theme),
         table: tableStyles(theme),
+        tabs: tabsStyles(theme),
         textField: textFieldStyles(theme),
         title: titleStyles(theme),
+        badge: badgeStyles(theme),
         viewport: viewportStyles(theme),
         widget: widgetStyles(theme),
         widgetStat: widgetStatStyles(theme),

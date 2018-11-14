@@ -43,7 +43,6 @@ var Modal = /** @class */ (function (_super) {
             hidding: false,
             center: true,
             loading: false,
-            style: null,
         };
         _this.setVetricalCenter = _this.setVetricalCenter.bind(_this);
         return _this;

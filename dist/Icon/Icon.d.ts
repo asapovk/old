@@ -5,6 +5,7 @@ interface Props {
     style?: CSSProperties;
     className?: string;
     type: IconType;
+    size?: number;
 }
 declare class Icon extends React.Component<Props> {
     render(): JSX.Element;

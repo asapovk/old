@@ -21,5 +21,15 @@ exports.default = {
         default: '2px',
         window: '4px',
         button: '4px',
+    },
+    gradient: {
+        default: [
+            utilities_1.getColors(127, 8, 191).rgba(1.0),
+            utilities_1.getColors(127, 8, 191).rgba(0.8)
+        ],
+        buddy: [
+            "#FFFFFF",
+            utilities_1.getColors(127, 8, 191).hex,
+        ]
     }
 };

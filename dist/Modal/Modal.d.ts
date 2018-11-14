@@ -29,7 +29,6 @@ declare class Modal extends React.Component<Props> {
         hidding: boolean;
         center: boolean;
         loading: boolean;
-        style: null;
     };
     constructor(props: any);
     private setActive;

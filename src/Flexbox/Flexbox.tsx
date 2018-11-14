@@ -1,6 +1,6 @@
 import React, { CSSProperties } from 'react';
 
-interface Props {
+export interface FlexboxProps {
     onClick?: (event: any) => void
     onFocus?: (event: any) => void
     onBlur?: (event: any) => void
@@ -36,7 +36,7 @@ interface Props {
 }
 
 
-class Flexbox extends React.Component<Props> {
+class Flexbox extends React.Component<FlexboxProps> {
     render() {
         const { className, elementRef, onClick, w, h, pr, pl, pt, pb, p, m, mr, ml, mt, mb, flex, inline, flexBasis, alignContent, alignSelf, alignItems, justifyContent, flexDirection, flexFlow, column } = this.props;
         const props: any = {

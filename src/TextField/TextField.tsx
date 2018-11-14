@@ -29,7 +29,7 @@ export interface TextAreaProps extends InputProps {
     resize?: true | undefined
 }
 
-interface Props extends TextAreaProps {
+export interface TextFieldProps extends TextAreaProps {
     label?: string
     validate?: Array<ValidateObject>
     multiline?: boolean
@@ -42,7 +42,7 @@ interface Props extends TextAreaProps {
     loading?: true | undefined
 }
 
-class TextField extends React.Component<Props> {
+class TextField extends React.Component<TextFieldProps> {
 
     public validate(value: string): boolean {
         const errors: string[] = [];

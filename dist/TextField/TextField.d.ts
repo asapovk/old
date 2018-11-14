@@ -22,7 +22,7 @@ export interface TextAreaProps extends InputProps {
     singlerow?: true | undefined;
     resize?: true | undefined;
 }
-interface Props extends TextAreaProps {
+export interface TextFieldProps extends TextAreaProps {
     label?: string;
     validate?: Array<ValidateObject>;
     multiline?: boolean;
@@ -34,7 +34,7 @@ interface Props extends TextAreaProps {
     validateTimeout?: number;
     loading?: true | undefined;
 }
-declare class TextField extends React.Component<Props> {
+declare class TextField extends React.Component<TextFieldProps> {
     validate(value: string): boolean;
     onChange: (value: string) => void;
     render(): JSX.Element;

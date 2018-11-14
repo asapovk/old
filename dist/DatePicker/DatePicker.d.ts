@@ -1,6 +1,6 @@
 import React from 'react';
 import moment, { Moment } from 'moment';
-interface Props {
+export interface DatePickerProps {
     format?: string;
     value?: Moment | string;
     minValue?: Moment;
@@ -8,7 +8,7 @@ interface Props {
     label?: string;
     onChange?: (date: Moment | string) => void;
 }
-declare class DatePicker extends React.Component<Props> {
+declare class DatePicker extends React.Component<DatePickerProps> {
     state: {
         active: boolean;
         value: moment.Moment;
