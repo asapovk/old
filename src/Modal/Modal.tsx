@@ -98,7 +98,7 @@ class Modal extends React.Component<Props> {
         }, 50);
     }
 
-    close(_cb) {
+    close(_cb?) {
         this.props.onClose && this.props.onClose()
 
         window.removeEventListener('resize', this.setVetricalCenter);

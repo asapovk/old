@@ -37,7 +37,7 @@ declare class Modal extends React.Component<Props> {
     private setVetricalCenter;
     updateLayout(): void;
     open(): void;
-    close(_cb: any): void;
+    close(_cb?: any): void;
     componentWillUnmount(): void;
     render(): JSX.Element | null;
 }
