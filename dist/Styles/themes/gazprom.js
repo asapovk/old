@@ -17,6 +17,9 @@ exports.default = {
     highlight: utilities_1.getColors(0, 121, 194),
     accents: accentColors,
     shadow: utilities_1.getColors(220, 220, 220),
+    shadows: {
+        button: 'none'
+    },
     radius: {
         default: '2px',
         window: '4px',
