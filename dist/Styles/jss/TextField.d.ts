@@ -14,7 +14,9 @@ declare const _default: (theme: any) => {
         };
         input: {
             color: any;
-            placeholder: any;
+        };
+        placeholder: {
+            color: any;
         };
     };
     hint: {

@@ -72,7 +72,9 @@ class TextField extends React.Component<TextFieldProps> {
             if (validateResult) {
                 this.props.onChange && this.props.onChange(value);
             }
-        } else this.props.onChange && this.props.onChange(value)
+            return;
+        }
+        this.props.onChange && this.props.onChange(value)
     }
 
     render() {

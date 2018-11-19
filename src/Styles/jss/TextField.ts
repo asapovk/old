@@ -14,8 +14,10 @@ export default (theme) => {
                 borderRadius: theme.radius.default
             },
             input: {
-                color: theme.text.rgb,
-                placeholder: theme.lowlight.rgb
+                color: theme.text.rgb
+            },
+            placeholder: {
+                color: theme.lowlight.rgb
             }
         },
         hint: {

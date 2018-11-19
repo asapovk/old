@@ -243,7 +243,9 @@ export declare const createStyles: (themeName?: "blackCurrant" | "whiteCurrant" 
             };
             input: {
                 color: any;
-                placeholder: any;
+            };
+            placeholder: {
+                color: any;
             };
         };
         hint: {
@@ -507,7 +509,9 @@ export declare const StylesContext: React.Context<{
             };
             input: {
                 color: any;
-                placeholder: any;
+            };
+            placeholder: {
+                color: any;
             };
         };
         hint: {
@@ -771,7 +775,9 @@ declare const _default: React.ComponentType<React.ConsumerProps<{
             };
             input: {
                 color: any;
-                placeholder: any;
+            };
+            placeholder: {
+                color: any;
             };
         };
         hint: {

@@ -32,9 +32,9 @@ var TextField = /** @class */ (function (_super) {
                 if (validateResult_1) {
                     _this.props.onChange && _this.props.onChange(value);
                 }
+                return;
             }
-            else
-                _this.props.onChange && _this.props.onChange(value);
+            _this.props.onChange && _this.props.onChange(value);
         };
         return _this;
     }
