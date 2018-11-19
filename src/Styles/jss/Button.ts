@@ -5,7 +5,7 @@ export default (theme) => {
         main: (decoration?: string) => {
             const style: CSSProperties = {
                 background: theme.interface.rgb,
-                boxShadow: '0px 2px 6px 0px ' + theme.shadow.rgb,
+                boxShadow: theme.shadows.button,
                 borderRadius: theme.radius.button,
                 color: decoration ? theme.textOnAccent.rgb : theme.text.rgb,
                 fontWeight: 500,
