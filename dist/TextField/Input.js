@@ -32,9 +32,7 @@ var Input = /** @class */ (function (_super) {
         this.props.onChange && this.props.onChange(value);
     };
     Input.prototype.componentWillMount = function () {
-        if (this.props.value) {
-            this.setState({ value: this.props.value });
-        }
+        this.setState({ value: this.props.value || this.props.defaultValue || "" });
     };
     Input.prototype.render = function () {
         var _this = this;

@@ -22,9 +22,7 @@ class Input extends React.Component<Props & InputProps> {
     }
 
     componentWillMount() {
-        if (this.props.value) {
-            this.setState({ value: this.props.value });
-        }
+        this.setState({ value: this.props.value || this.props.defaultValue || "" });
     }
 
     render() {
