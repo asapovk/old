@@ -13,6 +13,7 @@ declare class Input extends React.Component<Props & InputProps> {
         value: string;
     };
     onChange(value: string): void;
+    componentWillMount(): void;
     render(): JSX.Element;
 }
 export default Input;
