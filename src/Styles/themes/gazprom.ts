@@ -19,9 +19,9 @@ export default {
     accents: accentColors,
     shadow: getColors(220, 220, 220),
     radius: {
-        default: '4px',
-        window: '15px',
-        button: '20px',
+        default: '2px',
+        window: '4px',
+        button: '4px',
     },
     gradient: {
         default: [
