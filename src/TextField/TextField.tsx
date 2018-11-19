@@ -4,6 +4,8 @@ import { default as Icon, IconType } from '../Icon/Icon';
 import Input from './Input';
 import TextArea from './TextArea';
 
+export type TextFieldType = 'password' | 'number';
+
 interface ValidateObject {
     error?: string
     regex: RegExp
@@ -13,7 +15,7 @@ interface ValidateObject {
 export interface InputProps {
     decoration?: 'none'
     disabled?: boolean
-    type?: 'password' | 'number'
+    type?: TextFieldType
     onError?: (error: string[] | null) => void
     onChange?: (value: string) => void
     onClick?: (event: any) => void
