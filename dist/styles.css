@@ -688,6 +688,9 @@ blockquote {
 .ui-button.loading > span:last-child > svg {
   font-size: 1rem;
 }
+.ui-button.disabled {
+  opacity: 0.5;
+}
 
 .ui-menu {
   display: flex;

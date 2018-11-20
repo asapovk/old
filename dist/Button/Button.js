@@ -38,14 +38,22 @@ var Button = /** @class */ (function (_super) {
     function Button() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
+    Button.prototype.onClick = function () {
+        if (!this.props.disabled && !this.props.loading) {
+            this.props.onClick && this.props.onClick();
+        }
+    };
     Button.prototype.render = function () {
-        var _a = this.props, labelCase = _a.labelCase, onClick = _a.onClick, label = _a.label, children = _a.children, style = _a.style, loading = _a.loading, decoration = _a.decoration;
+        var _this = this;
+        var _a = this.props, labelCase = _a.labelCase, label = _a.label, children = _a.children, style = _a.style, loading = _a.loading, decoration = _a.decoration, disabled = _a.disabled;
         var classes = 'ui-button';
         if (labelCase == 'upper')
             classes += ' uppercase';
         if (loading)
             classes += ' loading';
-        return (react_1.default.createElement(index_1.Styles, null, function (styles) { return (react_1.default.createElement("button", { className: classes, onClick: onClick, style: __assign({}, styles.button.main(decoration), style) },
+        if (disabled)
+            classes += ' disabled';
+        return (react_1.default.createElement(index_1.Styles, null, function (styles) { return (react_1.default.createElement("button", { className: classes, onClick: function () { return _this.onClick(); }, style: __assign({}, styles.button.main(decoration), style) },
             react_1.default.createElement("span", { className: 'ui-button-label' }, label || children),
             loading && (react_1.default.createElement(index_1.Spin, null,
                 react_1.default.createElement(index_1.Icon, { type: "sync" }))))); }));

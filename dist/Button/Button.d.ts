@@ -9,8 +9,10 @@ export interface ButtonProps {
     onClick?: (MouseEvent?: any) => void;
     className?: string;
     style?: CSSProperties;
+    disabled?: boolean;
 }
 declare class Button extends Component<ButtonProps> {
+    onClick(): void;
     render(): JSX.Element;
 }
 export default Button;
