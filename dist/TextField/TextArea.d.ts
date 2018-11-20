@@ -6,6 +6,11 @@ interface Props {
     loading?: ReactElement<Flexbox>;
 }
 declare class TextArea extends React.Component<Props & TextAreaProps> {
+    state: {
+        value: string;
+    };
+    onChange(value: string): void;
+    componentWillMount(): void;
     render(): JSX.Element;
 }
 export default TextArea;

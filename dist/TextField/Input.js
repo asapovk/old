@@ -39,8 +39,9 @@ var Input = /** @class */ (function (_super) {
         var _a = this.props, value = _a.value, defaultValue = _a.defaultValue, type = _a.type, leftIcon = _a.leftIcon, rightIcon = _a.rightIcon, disabled = _a.disabled, style = _a.style, decoration = _a.decoration, onChange = _a.onChange, onClick = _a.onClick, onFocus = _a.onFocus, onBlur = _a.onBlur, loading = _a.loading, placeholder = _a.placeholder;
         return (react_1.default.createElement(__1.Flexbox, { onClick: onClick, className: (decoration == 'none' ? '' : ' ui-textfield-input'), style: style.field },
             leftIcon,
-            (placeholder && !this.state.value) && (react_1.default.createElement("div", { className: "ui-textfield-input-placeholder", style: style.placeholder }, this.props.placeholder)),
-            react_1.default.createElement("input", { onFocus: onFocus, onBlur: onBlur, defaultValue: defaultValue, style: style.input, value: value, onChange: function (event) { return _this.onChange(event.target.value); }, disabled: disabled, type: type }),
+            react_1.default.createElement(__1.Flexbox, { flex: 1 },
+                (placeholder && !this.state.value) && (react_1.default.createElement("div", { className: "ui-textfield-input-placeholder", style: style.placeholder }, this.props.placeholder)),
+                react_1.default.createElement("input", { onFocus: onFocus, onBlur: onBlur, defaultValue: defaultValue, style: style.input, value: value, onChange: function (event) { return _this.onChange(event.target.value); }, disabled: disabled, type: type })),
             loading ? loading : rightIcon));
     };
     return Input;

@@ -32,12 +32,25 @@ var __1 = require("../");
 var TextArea = /** @class */ (function (_super) {
     __extends(TextArea, _super);
     function TextArea() {
-        return _super !== null && _super.apply(this, arguments) || this;
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.state = {
+            value: ""
+        };
+        return _this;
     }
+    TextArea.prototype.onChange = function (value) {
+        this.setState({ value: value });
+        this.props.onChange && this.props.onChange(value);
+    };
+    TextArea.prototype.componentWillMount = function () {
+        this.setState({ value: this.props.value || this.props.defaultValue || "" });
+    };
     TextArea.prototype.render = function () {
-        var _a = this.props, value = _a.value, defaultValue = _a.defaultValue, disabled = _a.disabled, singlerow = _a.singlerow, style = _a.style, decoration = _a.decoration, onChange = _a.onChange, onClick = _a.onClick, onFocus = _a.onFocus, onBlur = _a.onBlur, resize = _a.resize;
+        var _this = this;
+        var _a = this.props, value = _a.value, defaultValue = _a.defaultValue, disabled = _a.disabled, singlerow = _a.singlerow, style = _a.style, decoration = _a.decoration, onChange = _a.onChange, onClick = _a.onClick, onFocus = _a.onFocus, onBlur = _a.onBlur, resize = _a.resize, placeholder = _a.placeholder;
         return (react_1.default.createElement(__1.Flexbox, { onClick: onClick, className: (decoration == 'none' ? '' : ' ui-textfield-textarea'), style: style.field },
-            react_1.default.createElement("textarea", { onFocus: onFocus, onBlur: onFocus, defaultValue: defaultValue, style: __assign({}, style.input, { resize: resize ? 'both' : 'none' }), value: value, onChange: function (event) { return onChange && onChange(event.currentTarget.value); }, disabled: disabled, onKeyDown: function (event) {
+            (placeholder && !this.state.value) && (react_1.default.createElement("div", { className: "ui-textfield-textarea-placeholder", style: style.placeholder }, this.props.placeholder)),
+            react_1.default.createElement("textarea", { onFocus: onFocus, onBlur: onBlur, defaultValue: defaultValue, style: __assign({}, style.input, { resize: resize ? 'both' : 'none' }), value: value, onChange: function (event) { return _this.onChange(event.target.value); }, disabled: disabled, onKeyDown: function (event) {
                     if (singlerow && event.keyCode === 13) {
                         event.preventDefault();
                     }

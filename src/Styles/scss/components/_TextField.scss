@@ -28,8 +28,13 @@
     }
     &-textarea {
         border: 1px solid;
+        padding: calc(0.375rem - 1px) calc(0.5rem - 1px);
+
+        &-placeholder {
+            position: absolute;
+        }
     }
-    > div > input, 
+    > div > div > input, 
     > div > textarea {
         @extend %с1;
         line-height: 1.5rem;
@@ -47,7 +52,10 @@
         padding: 0;
     }
     > div > textarea {
-        padding: calc(0.5rem - 1px) calc(0.5rem - 1px);
         height: 100%;
+    }
+
+    &.disabled {
+        opacity: .5;
     }
 }

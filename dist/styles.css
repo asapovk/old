@@ -107,7 +107,7 @@ blockquote {
   font-style: italic;
 }
 
-.ui-textfield > div > input,
+.ui-textfield > div > div > input,
 .ui-textfield > div > textarea, .c1 {
   font-size: 1rem;
   line-height: 1rem;
@@ -209,8 +209,12 @@ blockquote {
 }
 .ui-textfield-textarea {
   border: 1px solid;
+  padding: calc(0.375rem - 1px) calc(0.5rem - 1px);
 }
-.ui-textfield > div > input,
+.ui-textfield-textarea-placeholder {
+  position: absolute;
+}
+.ui-textfield > div > div > input,
 .ui-textfield > div > textarea {
   line-height: 1.5rem;
   appearance: none;
@@ -227,8 +231,10 @@ blockquote {
   padding: 0;
 }
 .ui-textfield > div > textarea {
-  padding: calc(0.5rem - 1px) calc(0.5rem - 1px);
   height: 100%;
+}
+.ui-textfield.disabled {
+  opacity: 0.5;
 }
 
 .ui-datepicker {
@@ -687,6 +693,9 @@ blockquote {
 }
 .ui-button.loading > span:last-child > svg {
   font-size: 1rem;
+}
+.ui-button.disabled {
+  opacity: 0.5;
 }
 
 .ui-menu {

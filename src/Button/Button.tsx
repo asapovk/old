@@ -11,28 +11,41 @@ export interface ButtonProps {
     onClick?: (MouseEvent?) => void
     className?: string
     style?: CSSProperties
+    disabled?: boolean
 }
 
 class Button extends Component<ButtonProps> {
-    render() {
+    onClick() {
+        if (!this.props.disabled && !this.props.loading) {
+            this.props.onClick && this.props.onClick();
+        }
+    }
 
-        const { labelCase, onClick, label, children, style, loading, decoration } = this.props;
+    render() {
+        const { labelCase, label, children, style, loading, decoration, disabled } = this.props;
 
         let classes = 'ui-button';
 
         if (labelCase == 'upper') classes += ' uppercase';
         if (loading) classes += ' loading';
+        if (disabled) classes += ' disabled';
 
         return (
             <Styles>
                 {styles => (
-                    <button className={classes} onClick={onClick} style={{ ...styles.button.main(decoration), ...style }}>
+                    <button
+                        className={classes}
+                        onClick={() => this.onClick()}
+                        style={{ ...styles.button.main(decoration), ...style }}
+                    >
                         <span className='ui-button-label'>{label || children}</span>
+
                         {loading && (
                             <Spin>
                                 <Icon type="sync" />
                             </Spin>
                         )}
+
                     </button>
                 )}
             </Styles>
