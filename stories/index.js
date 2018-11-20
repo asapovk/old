@@ -35,6 +35,9 @@ storiesOf('Advanced')
     .add('WidgetStat', $('WidgetStatStory'))
     .add('Buddy', $('BuddyStory'));
 
+storiesOf('Scenes')
+    .add('LKGuestScene', $('LKGuestSceneStory'))
+
 storiesOf("Utils")
     .add('alert', $('UtilsAlertStory'))
     .add('notification', $('UtilsNotificationStory'))

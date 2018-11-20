@@ -65,10 +65,10 @@ class Popup extends React.Component<Props> {
 
         this.setState({
             triggerCoord: coords ? {
-                top: coords.top + document.documentElement.scrollTop,
-                bottom: coords.bottom + document.documentElement.scrollTop,
-                left: coords.left + document.documentElement.scrollLeft,
-                right: coords.right + document.documentElement.scrollLeft,
+                top: coords.top + document.documentElement!.scrollTop,
+                bottom: coords.bottom + document.documentElement!.scrollTop,
+                left: coords.left + document.documentElement!.scrollLeft,
+                right: coords.right + document.documentElement!.scrollLeft,
             } : this.state.triggerCoord
         });
 
