@@ -11,7 +11,13 @@ export default class Story extends React.Component {
                         <Button>Simple button</Button>
                     </Flexbox>
                     <Flexbox pb={20}>
-                        <Button decoration='highlight'>Highligt button</Button>
+                        <Button decoration='highlight' onClick={() => console.log(1)}>Highlight button</Button>
+                    </Flexbox>
+                    <Flexbox pb={20}>
+                        <Button decoration='highlight' disabled onClick={() => console.log(2)}>Highlight button</Button>
+                    </Flexbox>
+                    <Flexbox pb={20}>
+                        <Button decoration='highlight' loading onClick={() => console.log(3)}>Highlight button</Button>
                     </Flexbox>
                 </Flexbox>
                 <Flexbox flexDirection='column'>
