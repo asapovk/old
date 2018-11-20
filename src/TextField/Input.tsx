@@ -34,19 +34,21 @@ class Input extends React.Component<Props & InputProps> {
                 onClick={onClick}
                 className={(decoration == 'none' ? '' : ' ui-textfield-input')} style={style.field}>
                 {leftIcon}
-                {(placeholder && !this.state.value) && (
-                    <div className="ui-textfield-input-placeholder" style={style.placeholder}>{this.props.placeholder}</div>
-                )}
-                <input
-                    onFocus={onFocus}
-                    onBlur={onBlur}
-                    defaultValue={defaultValue}
-                    style={style.input}
-                    value={value}
-                    onChange={(event) => this.onChange(event.target.value)}
-                    disabled={disabled}
-                    type={type}
-                />
+                <Flexbox flex={1}>
+                    {(placeholder && !this.state.value) && (
+                        <div className="ui-textfield-input-placeholder" style={style.placeholder}>{this.props.placeholder}</div>
+                    )}
+                    <input
+                        onFocus={onFocus}
+                        onBlur={onBlur}
+                        defaultValue={defaultValue}
+                        style={style.input}
+                        value={value}
+                        onChange={(event) => this.onChange(event.target.value)}
+                        disabled={disabled}
+                        type={type}
+                    />
+                </Flexbox>
                 {loading ? loading : rightIcon}
             </Flexbox>
         )
