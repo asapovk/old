@@ -31,6 +31,9 @@ var Input = /** @class */ (function (_super) {
         this.setState({ value: value });
         this.props.onChange && this.props.onChange(value);
     };
+    Input.prototype.componentWillMount = function () {
+        this.setState({ value: this.props.value || this.props.defaultValue || "" });
+    };
     Input.prototype.render = function () {
         var _this = this;
         var _a = this.props, value = _a.value, defaultValue = _a.defaultValue, type = _a.type, leftIcon = _a.leftIcon, rightIcon = _a.rightIcon, disabled = _a.disabled, style = _a.style, decoration = _a.decoration, onChange = _a.onChange, onClick = _a.onClick, onFocus = _a.onFocus, onBlur = _a.onBlur, loading = _a.loading, placeholder = _a.placeholder;

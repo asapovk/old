@@ -1,5 +1,6 @@
 import React from 'react';
 import { IconType } from '../Icon/Icon';
+export declare type TextFieldType = 'password' | 'number';
 interface ValidateObject {
     error?: string;
     regex: RegExp;
@@ -8,7 +9,7 @@ interface ValidateObject {
 export interface InputProps {
     decoration?: 'none';
     disabled?: boolean;
-    type?: 'password' | 'number';
+    type?: TextFieldType;
     onError?: (error: string[] | null) => void;
     onChange?: (value: string) => void;
     onClick?: (event: any) => void;

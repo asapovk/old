@@ -21,6 +21,10 @@ class Input extends React.Component<Props & InputProps> {
         this.props.onChange && this.props.onChange(value);
     }
 
+    componentWillMount() {
+        this.setState({ value: this.props.value || this.props.defaultValue || "" });
+    }
+
     render() {
 
         const { value, defaultValue, type, leftIcon, rightIcon, disabled, style, decoration, onChange, onClick, onFocus, onBlur, loading, placeholder } = this.props;
