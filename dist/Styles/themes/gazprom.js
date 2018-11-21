@@ -15,16 +15,19 @@ exports.default = {
     lowlight: utilities_1.getColors(146, 143, 148),
     text: utilities_1.getColors(38, 36, 38),
     textOnAccent: utilities_1.getColors(233, 233, 233),
-    highlight: utilities_1.getColors(0, 121, 194),
+    // highlight: getColors(0, 121, 194),
+    highlight: utilities_1.getColors(0, 106, 255),
     accents: accentColors,
     shadow: utilities_1.getColors(220, 220, 220),
     shadows: {
-        button: 'none'
+        button: 'none',
+        card: '0 1rem 1rem 0 ' + utilities_1.getColors(218, 228, 242).rgb
     },
     radius: {
-        default: '2px',
+        default: '4px',
         window: '4px',
         button: '4px',
+        widget: '8px'
     },
     gradient: {
         default: [

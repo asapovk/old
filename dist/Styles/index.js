@@ -9,6 +9,7 @@ var white_currant_1 = __importDefault(require("./themes/white-currant"));
 var abr_1 = __importDefault(require("./themes/abr"));
 var gazprom_1 = __importDefault(require("./themes/gazprom"));
 var Button_1 = __importDefault(require("./jss/Button"));
+var Card_1 = __importDefault(require("./jss/Card"));
 var Badge_1 = __importDefault(require("./jss/Badge"));
 var Chart_1 = __importDefault(require("./jss/Chart"));
 var Checkbox_1 = __importDefault(require("./jss/Checkbox"));
@@ -38,6 +39,7 @@ exports.createStyles = function (themeName) {
     return {
         theme: theme,
         button: Button_1.default(theme),
+        card: Card_1.default(theme),
         chart: Chart_1.default(theme),
         checkbox: Checkbox_1.default(theme),
         datePicker: DatePicker_1.default(theme),

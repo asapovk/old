@@ -26,6 +26,7 @@ export { Modal as Modal } from './Modal';
 export { Widget as Widget } from './Widget';
 export { WidgetStat as WidgetStat } from './WidgetStat';
 export { default as Styles } from './Styles';
+export { default as Card } from './Card';
 export { Portal as Portal } from 'react-portal';
 export { Buddy as Buddy } from './Buddy';
 export { default as utils } from './utils';

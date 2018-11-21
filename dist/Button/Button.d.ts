@@ -11,9 +11,10 @@ export interface ButtonProps {
     style?: CSSProperties;
     disabled?: boolean;
     size?: 'small' | 'large';
+    inversion?: boolean;
 }
 declare class Button extends Component<ButtonProps> {
-    onClick(): void;
+    onClick(event: any): void;
     render(): JSX.Element;
 }
 export default Button;

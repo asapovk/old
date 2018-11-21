@@ -20,11 +20,13 @@ exports.default = {
     shadow: utilities_1.getColors(220, 220, 220),
     shadows: {
         button: '0px 2px 6px 0px ' + utilities_1.getColors(220, 220, 220).hex,
+        card: '0px 1rem 1rem 0px ' + utilities_1.getColors(220, 220, 220).hex,
     },
     radius: {
         default: '2px',
         window: '4px',
         button: '4px',
+        widget: '8px'
     },
     gradient: {
         default: [

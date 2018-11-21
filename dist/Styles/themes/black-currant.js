@@ -20,6 +20,7 @@ exports.default = {
     shadow: utilities_1.getColors(19, 20, 25),
     shadows: {
         button: '0px 2px 6px 0px ' + utilities_1.getColors(19, 20, 25).hex,
+        card: '0px 1rem 1rem 0px ' + utilities_1.getColors(19, 20, 25).hex,
     },
     radius: {
         default: '2px',

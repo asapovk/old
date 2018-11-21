@@ -36,7 +36,13 @@ export interface ThemeInterface {
 export declare const createStyles: (themeName?: "blackCurrant" | "whiteCurrant" | "abrTheme" | "gazpromTheme" | undefined) => {
     theme: ThemeInterface;
     button: {
-        main: (decoration?: string | undefined) => React.CSSProperties;
+        main: (decoration?: string | undefined, inversion?: boolean | undefined) => React.CSSProperties;
+    };
+    card: {
+        main: (active?: boolean | undefined) => React.CSSProperties;
+        counter: (active?: boolean | undefined) => {
+            color: any;
+        };
     };
     chart: {
         text: any;
@@ -321,7 +327,13 @@ export declare const createStyles: (themeName?: "blackCurrant" | "whiteCurrant" 
 export declare const StylesContext: React.Context<{
     theme: ThemeInterface;
     button: {
-        main: (decoration?: string | undefined) => React.CSSProperties;
+        main: (decoration?: string | undefined, inversion?: boolean | undefined) => React.CSSProperties;
+    };
+    card: {
+        main: (active?: boolean | undefined) => React.CSSProperties;
+        counter: (active?: boolean | undefined) => {
+            color: any;
+        };
     };
     chart: {
         text: any;
@@ -606,7 +618,13 @@ export declare const StylesContext: React.Context<{
 declare const _default: React.ExoticComponent<React.ConsumerProps<{
     theme: ThemeInterface;
     button: {
-        main: (decoration?: string | undefined) => React.CSSProperties;
+        main: (decoration?: string | undefined, inversion?: boolean | undefined) => React.CSSProperties;
+    };
+    card: {
+        main: (active?: boolean | undefined) => React.CSSProperties;
+        counter: (active?: boolean | undefined) => {
+            color: any;
+        };
     };
     chart: {
         text: any;

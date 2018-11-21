@@ -1,7 +1,13 @@
 declare const _default: () => {
     theme: import("../Styles").ThemeInterface;
     button: {
-        main: (decoration?: string | undefined) => import("react").CSSProperties;
+        main: (decoration?: string | undefined, inversion?: boolean | undefined) => import("react").CSSProperties;
+    };
+    card: {
+        main: (active?: boolean | undefined) => import("react").CSSProperties;
+        counter: (active?: boolean | undefined) => {
+            color: any;
+        };
     };
     chart: {
         text: any;
