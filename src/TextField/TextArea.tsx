@@ -26,10 +26,12 @@ class TextArea extends React.Component<Props & TextAreaProps> {
 
         const { value, defaultValue, disabled, singlerow, style, decoration, onChange, onClick, onFocus, onBlur, resize, placeholder } = this.props;
 
+        let classes = 'ui-textfield-textarea';
+        if (disabled) classes += ' disabled';
         return (
             <Flexbox
                 onClick={onClick}
-                className={(decoration == 'none' ? '' : ' ui-textfield-textarea')} style={style.field}>
+                className={(decoration == 'none' ? '' : classes)} style={style.field}>
                 {(placeholder && !this.state.value) && (
                     <div className="ui-textfield-textarea-placeholder" style={style.placeholder}>{this.props.placeholder}</div>
                 )}

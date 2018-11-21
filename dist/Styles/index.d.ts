@@ -564,7 +564,7 @@ export declare const StylesContext: React.Context<{
         };
     };
 }>;
-declare const _default: React.ComponentType<React.ConsumerProps<{
+declare const _default: React.ExoticComponent<React.ConsumerProps<{
     theme: ThemeInterface;
     button: {
         main: (decoration?: string | undefined) => React.CSSProperties;

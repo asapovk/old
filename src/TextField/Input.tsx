@@ -27,12 +27,17 @@ class Input extends React.Component<Props & InputProps> {
 
     render() {
 
-        const { value, defaultValue, type, leftIcon, rightIcon, disabled, style, decoration, onChange, onClick, onFocus, onBlur, loading, placeholder } = this.props;
+        const { value, defaultValue, type, leftIcon, rightIcon, disabled, style, decoration, onClick, onFocus, onBlur, loading, placeholder } = this.props;
+
+        let classes = "ui-textfield-input";
+        if (disabled) classes += " disabled";
 
         return (
             <Flexbox
                 onClick={onClick}
-                className={(decoration == 'none' ? '' : ' ui-textfield-input')} style={style.field}>
+                style={style.field}
+                className={(decoration == 'none' ? '' : classes)}
+            >
                 {leftIcon}
                 <Flexbox flex={1}>
                     {(placeholder && !this.state.value) && (
