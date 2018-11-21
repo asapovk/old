@@ -11,7 +11,7 @@ export default class Story extends React.Component {
                         <Button>Simple button</Button>
                     </Flexbox>
                     <Flexbox pb={20}>
-                        <Button decoration='highlight' onClick={() => console.log(1)}>Highlight button</Button>
+                        <Button decoration='grayscale' onClick={() => console.log(1)}>Highlight button</Button>
                     </Flexbox>
                     <Flexbox pb={20}>
                         <Button decoration='highlight' disabled onClick={() => console.log(2)}>Highlight button</Button>

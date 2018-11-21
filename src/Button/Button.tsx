@@ -4,7 +4,7 @@ import { Spin, Icon, Styles } from '../index';
 export interface ButtonProps {
     label?: string
     outline?: true | undefined
-    decoration?: 'none' | 'highlight' | 'red' | 'green' | 'orange' | 'blue'
+    decoration?: 'none' | 'highlight' | 'red' | 'green' | 'orange' | 'blue' | 'grayscale'
     loading?: boolean
     icon?: Component
     labelCase?: 'upper' | 'lower' | 'capitalize' | 'sentence'

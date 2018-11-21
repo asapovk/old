@@ -27,6 +27,9 @@ export default (theme) => {
                 case 'blue':
                     style.background = theme.accents.blue.rgb
                     break;
+                case 'grayscale':
+                    style.background = theme.highlight.grayscale
+                    break;
                 case 'none':
                     style.background = 'none';
                     style.border = 'none';
