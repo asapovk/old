@@ -3,7 +3,6 @@ declare const _default: (key: string, defaultValue?: any, disable?: boolean | un
     setValue: (value: string) => void;
 } | null;
 /**
- * Сохраняет значение в LS
- * и сделит за ним через state
+ * Использователь хранение данных
  */
 export default _default;

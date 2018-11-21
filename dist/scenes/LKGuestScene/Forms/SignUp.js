@@ -26,7 +26,9 @@ var __1 = require("../../..");
 var useTextField_1 = __importDefault(require("../../../hooks/useTextField"));
 var useNumber_aseString_1 = __importDefault(require("../../../hooks/useNumber\u0421aseString"));
 var ErrorView_1 = __importDefault(require("./ErrorView"));
+var useStyles_1 = __importDefault(require("../../../hooks/useStyles"));
 exports.default = (function (props) {
+    var styles = useStyles_1.default();
     var login = useTextField_1.default({ id: "LOGIN" });
     var password = useTextField_1.default();
     var password2 = useTextField_1.default();
@@ -48,5 +50,5 @@ exports.default = (function (props) {
         react_1.default.createElement(ErrorView_1.default, { message: props.error }),
         react_1.default.createElement(__1.Flexbox, { justifyContent: "space-around", pt: '1rem' },
             react_1.default.createElement(__1.Flexbox, { flex: 1 },
-                react_1.default.createElement(__1.Button, { label: "\u0417\u0430\u0440\u0435\u0433\u0438\u0441\u0442\u0440\u0438\u0440\u043E\u0432\u0430\u0442\u044C\u0441\u044F", decoration: "highlight", style: { width: "100%" }, onClick: onSubmit })))));
+                react_1.default.createElement(__1.Button, { label: "\u0417\u0430\u0440\u0435\u0433\u0438\u0441\u0442\u0440\u0438\u0440\u043E\u0432\u0430\u0442\u044C\u0441\u044F", decoration: "highlight", onClick: onSubmit, style: styles.scanes.lkguest.submitButton })))));
 });

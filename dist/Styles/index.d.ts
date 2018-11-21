@@ -8,6 +8,7 @@ export declare const themes: {
 };
 export declare type themeName = 'blackCurrant' | 'whiteCurrant' | 'abrTheme' | 'gazpromTheme';
 export interface ThemeInterface {
+    name: string;
     background: objectColor;
     interface: objectColor;
     pale: objectColor;
@@ -297,6 +298,21 @@ export declare const createStyles: (themeName?: "blackCurrant" | "whiteCurrant" 
             borderLeft: string;
         };
     };
+    scanes: {
+        lkguest: {
+            main: {
+                backgroundColor: string;
+                titleColor: string;
+            };
+            submitButton: {
+                width: string;
+            };
+            secondaryButton: {
+                width: string;
+                background: string;
+            };
+        };
+    };
 };
 export declare const StylesContext: React.Context<{
     theme: ThemeInterface;
@@ -563,6 +579,21 @@ export declare const StylesContext: React.Context<{
             borderLeft: string;
         };
     };
+    scanes: {
+        lkguest: {
+            main: {
+                backgroundColor: string;
+                titleColor: string;
+            };
+            submitButton: {
+                width: string;
+            };
+            secondaryButton: {
+                width: string;
+                background: string;
+            };
+        };
+    };
 }>;
 declare const _default: React.ExoticComponent<React.ConsumerProps<{
     theme: ThemeInterface;
@@ -827,6 +858,21 @@ declare const _default: React.ExoticComponent<React.ConsumerProps<{
             color: any;
             borderColor: any;
             borderLeft: string;
+        };
+    };
+    scanes: {
+        lkguest: {
+            main: {
+                backgroundColor: string;
+                titleColor: string;
+            };
+            submitButton: {
+                width: string;
+            };
+            secondaryButton: {
+                width: string;
+                background: string;
+            };
         };
     };
 }>>;

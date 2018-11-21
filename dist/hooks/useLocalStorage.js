@@ -2,8 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = require("react");
 /**
- * Сохраняет значение в LS
- * и сделит за ним через state
+ * Использователь хранение данных
  */
 exports.default = (function (key, defaultValue, disable) {
     if (defaultValue === void 0) { defaultValue = null; }

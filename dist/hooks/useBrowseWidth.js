@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = require("react");
 /**
- * useBrowserWidth
+ * Использователь размеры браузера
  */
 exports.default = (function () {
     var _a = react_1.useState({

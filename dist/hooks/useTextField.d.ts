@@ -1,5 +1,11 @@
 export interface UseTextFieldInput {
     defaultValue?: string;
+    /**
+     * ID использутеься для сохранения
+     * - Должен быть уникальным в рамках экрана
+     * - Если используеться одинаковый id в разных экранах
+     * то значение будет одинаковое
+     */
     id?: string;
 }
 declare const _default: (opt?: UseTextFieldInput | undefined) => {
@@ -7,7 +13,6 @@ declare const _default: (opt?: UseTextFieldInput | undefined) => {
     onChange: (value: string) => void;
 };
 /**
- * Хук для текст филда
- * стейт + сохранение в LS
+ * Использоватеть тексовое поле
  */
 export default _default;

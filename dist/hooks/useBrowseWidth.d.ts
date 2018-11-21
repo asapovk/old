@@ -3,6 +3,6 @@ declare const _default: () => {
     width: number;
 };
 /**
- * useBrowserWidth
+ * Использователь размеры браузера
  */
 export default _default;

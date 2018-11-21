@@ -1,3 +1,4 @@
+import { IconType } from '../../Icon/Icon';
 interface GuestSceneConfig {
     title?: string;
     /**
@@ -37,7 +38,7 @@ interface OnLoginPromiseReturn {
 }
 interface GuestSceneFooterActions {
     title: string;
-    icon: string;
+    icon: IconType;
     onAction?: () => void;
 }
 export interface GuestSceneProps {
@@ -47,6 +48,20 @@ export interface GuestSceneProps {
     onRecovery?: (login: string, password: string) => Promise<OnLoginPromiseReturn>;
     onVeritfy?: (login: string, code: string) => Promise<OnLoginPromiseReturn>;
     footerActions?: GuestSceneFooterActions[];
+    /**
+     * Заголовок - слоган
+     */
+    title?: string;
+    components?: {
+        /**
+         * Логотип
+         */
+        logo?: any;
+        /**
+         * Правая область экрана
+         */
+        right?: any;
+    };
 }
 declare const _default: (props: GuestSceneProps) => JSX.Element;
 export default _default;

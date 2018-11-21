@@ -8,6 +8,7 @@ var accentColors = {
     orange: utilities_1.getColors(255, 149, 0),
 };
 exports.default = {
+    name: "black-currant",
     background: utilities_1.getColors(36, 33, 38),
     interface: utilities_1.getColors(51, 47, 54),
     pale: utilities_1.getColors(80, 60, 70),
@@ -34,5 +35,5 @@ exports.default = {
             utilities_1.getColors(36, 33, 38).hex,
             utilities_1.getColors(216, 15, 105).hex
         ]
-    }
+    },
 };

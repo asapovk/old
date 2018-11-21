@@ -29,6 +29,7 @@ var Viewport_1 = __importDefault(require("./jss/Viewport"));
 var Widget_1 = __importDefault(require("./jss/Widget"));
 var WidgetStat_1 = __importDefault(require("./jss/WidgetStat"));
 var Notifications_1 = __importDefault(require("./jss/Notifications"));
+var LKGuestScene_1 = __importDefault(require("./jss/LKGuestScene"));
 exports.themes = {
     blackCurrant: black_currant_1.default, whiteCurrant: white_currant_1.default, abrTheme: abr_1.default, gazpromTheme: gazprom_1.default
 };
@@ -56,7 +57,10 @@ exports.createStyles = function (themeName) {
         viewport: Viewport_1.default(theme),
         widget: Widget_1.default(theme),
         widgetStat: WidgetStat_1.default(theme),
-        notifications: Notifications_1.default(theme)
+        notifications: Notifications_1.default(theme),
+        scanes: {
+            lkguest: LKGuestScene_1.default(theme)
+        }
     };
 };
 exports.StylesContext = react_1.default.createContext(exports.createStyles('blackCurrant'));

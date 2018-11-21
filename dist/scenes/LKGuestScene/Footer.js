@@ -6,17 +6,24 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importDefault(require("react"));
 var __1 = require("../..");
 var useBrowseWidth_1 = __importDefault(require("../../hooks/useBrowseWidth"));
+var useStyles_1 = __importDefault(require("../../hooks/useStyles"));
 exports.default = (function (props) {
     var size = useBrowseWidth_1.default();
+    var styles = useStyles_1.default();
     var st = {
         root: {
             background: "#eee"
         }
     };
-    if (size.height < 600) {
+    if (size.height <= 600 || !props.footerActions) {
         return null;
     }
-    return (react_1.default.createElement(__1.Flexbox, { flex: 1, style: st.root },
-        react_1.default.createElement(__1.Flexbox, { flex: 1 }, "left"),
-        react_1.default.createElement(__1.Flexbox, { flex: 1 }, "right")));
+    return (react_1.default.createElement(__1.Flexbox, { flex: 1, style: st.root }, props.footerActions.map(function (action, index) {
+        return react_1.default.createElement(__1.Flexbox, { onClick: action.onAction, flex: 1, flexDirection: "column", justifyContent: "center", alignItems: "center" },
+            react_1.default.createElement(__1.Icon, { type: action.icon, size: 3, style: { marginBottom: "1rem" } }),
+            react_1.default.createElement("div", { style: { color: styles.theme.highlight.hex } },
+                action.title,
+                " ",
+                react_1.default.createElement(__1.Icon, { type: "right" })));
+    })));
 });

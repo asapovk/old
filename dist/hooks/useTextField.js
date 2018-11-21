@@ -6,8 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = require("react");
 var useLocalStorage_1 = __importDefault(require("./useLocalStorage"));
 /**
- * Хук для текст филда
- * стейт + сохранение в LS
+ * Использоватеть тексовое поле
  */
 exports.default = (function (opt) {
     var localstorage = useLocalStorage_1.default("TEXT_FIELD_VALUE_" + (opt && opt.id), "", !Boolean(opt && opt.id));

@@ -25,7 +25,9 @@ var react_1 = __importStar(require("react"));
 var __1 = require("../../..");
 var useTextField_1 = __importDefault(require("../../../hooks/useTextField"));
 var ErrorView_1 = __importDefault(require("./ErrorView"));
+var useStyles_1 = __importDefault(require("../../../hooks/useStyles"));
 exports.default = (function (props) {
+    var styles = useStyles_1.default();
     var login = useTextField_1.default({ id: "LOGIN" });
     var password = useTextField_1.default({});
     var onSubmit = function () { return props.onSubmit(login.value, password.value); };
@@ -37,11 +39,7 @@ exports.default = (function (props) {
         react_1.default.createElement(ErrorView_1.default, { message: props.error }),
         react_1.default.createElement(__1.Flexbox, { justifyContent: "space-around", pt: '1rem' },
             react_1.default.createElement(__1.Flexbox, { flex: 1, pr: '0.5rem' },
-                react_1.default.createElement(__1.Button, { label: "\u0412\u0445\u043E\u0434", decoration: "highlight", style: { width: "100%" }, loading: props.pending, onClick: onSubmit })),
+                react_1.default.createElement(__1.Button, { label: "\u0412\u0445\u043E\u0434", decoration: "highlight", loading: props.pending, onClick: onSubmit, style: styles.scanes.lkguest.submitButton })),
             props.allowSignUp && (react_1.default.createElement(__1.Flexbox, { flex: 1, pl: '0.5rem' },
-                react_1.default.createElement(__1.Button, { label: "\u0420\u0435\u0433\u0438\u0441\u0442\u0440\u0430\u0446\u0438\u044F", decoration: "blue", style: { width: "100%", opacity: !props.pending ? 1 : 0.5 }, onClick: function () {
-                        if (!props.pending) {
-                            props.onSignUp();
-                        }
-                    } }))))));
+                react_1.default.createElement(__1.Button, { label: "\u0420\u0435\u0433\u0438\u0441\u0442\u0440\u0430\u0446\u0438\u044F", decoration: "highlight", disabled: props.pending, onClick: props.onSignUp, style: styles.scanes.lkguest.secondaryButton }))))));
 });
