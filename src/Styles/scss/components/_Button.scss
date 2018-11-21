@@ -1,23 +1,25 @@
 .ui-button {
+    font-weight: bold;
     position: relative;
-    border: none;
     outline: none;
     cursor: pointer;
     @extend %с2;
     padding: 0 calc(1rem - 1px);
-    font-weight: 600;
     height: 2.25rem;
-    // line-height: 1rem;
-    border: 1px solid;
+    line-height: 1rem;
+    user-select: none;
 
     &.small {
-        @extend %с4;
-        height: 1.5rem;
-        padding: 0 calc(0.75rem - 1px);
+        @extend %с3;
+        line-height: 1.75rem;
+        height: 1.75rem;
+        padding: 0 calc(1rem - 1px);
+        letter-spacing: -0.29px;
     }
 
     &.large {
         @extend %с1;
+        line-height: 2.75rem;
         height: 2.75rem;
         padding: 0 calc(1.5rem - 1px);
     }

@@ -31,6 +31,9 @@ export default class Story extends React.Component {
                     <Flexbox pb={20}>
                         <Button size="small" decoration='highlight'>Small button</Button>
                     </Flexbox>
+                    <Flexbox pb={20}>
+                        <Button size="small" decoration='highlight' inversion>Small button</Button>
+                    </Flexbox>
                 </Flexbox>
                 <Flexbox flexDirection='column'>
                     <Title>Accents</Title>

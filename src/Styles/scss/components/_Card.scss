@@ -1,0 +1,41 @@
+.ui-card {
+    user-select: none;
+    padding: 1.25rem;
+    transition: all 0.3s ease 0s;
+    -moz-transition: all 0.3s ease 0s;
+    -webkit-transition: all 0.3s ease 0s;
+    -o-transition: all 0.3s ease 0s;
+    -ms-transition: all 0.3s ease 0s;
+    box-shadow: 0 1rem 1rem 0 #DAE4F2;
+    min-width: 280px;
+
+    &-title {
+        font-size: 1.125rem;	
+        font-weight: bold;	
+        line-height: 1.5rem;
+    }
+
+    &-subtitle {
+        opacity: 0.8;
+        font-size: 1rem;	
+        font-weight: normal;
+        line-height: 1.25rem;
+    }
+
+    &-counter {
+        &-value {
+            font-size: 1.125rem;
+            line-height: 1.5rem;
+            font-weight: 500;
+        }
+        &-description {
+            font-size: 0.75rem;
+            line-height: 0.875rem;
+            font-weight: normal;
+        }
+    }
+
+    &.active {
+        min-width: 300px;
+    }
+}

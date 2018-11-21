@@ -8,6 +8,7 @@ import abrTheme from './themes/abr'
 import gazpromTheme from './themes/gazprom'
 
 import buttonStyles from './jss/Button'
+import cardStyles from './jss/Card';
 import badgeStyles from './jss/Badge'
 import chartStyles from './jss/Chart'
 import checkboxStyles from './jss/Checkbox'
@@ -72,6 +73,7 @@ export const createStyles = (themeName?: themeName) => {
     return {
         theme: theme,
         button: buttonStyles(theme),
+        card: cardStyles(theme),
         chart: chartStyles(theme),
         checkbox: checkboxStyles(theme),
         datePicker: datePickerStyles(theme),

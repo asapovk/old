@@ -13,17 +13,19 @@ export interface ButtonProps {
     style?: CSSProperties
     disabled?: boolean
     size?: 'small' | 'large'
+    inversion?: boolean
 }
 
 class Button extends Component<ButtonProps> {
-    onClick() {
+    onClick(event) {
         if (!this.props.disabled && !this.props.loading) {
+            event.stopPropagation();
             this.props.onClick && this.props.onClick();
         }
     }
 
     render() {
-        const { labelCase, label, children, style, loading, decoration, disabled, size } = this.props;
+        const { labelCase, label, children, style, loading, decoration, disabled, size, inversion } = this.props;
 
         let classes = 'ui-button';
 
@@ -37,8 +39,8 @@ class Button extends Component<ButtonProps> {
                 {styles => (
                     <button
                         className={classes}
-                        onClick={() => this.onClick()}
-                        style={{ ...styles.button.main(decoration), ...style }}
+                        onClick={(event) => this.onClick(event)}
+                        style={{ ...styles.button.main(decoration, inversion), ...style }}
                     >
                         <span className='ui-button-label'>{label || children}</span>
 

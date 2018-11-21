@@ -2,14 +2,14 @@ import { CSSProperties } from "react";
 
 export default (theme) => {
     return {
-        main: (decoration?: string) => {
-            const style: CSSProperties = {
+        main: (decoration?: string, inversion?: boolean) => {
+            let style: CSSProperties = {
                 background: theme.interface.rgb,
                 boxShadow: theme.shadows.button,
                 borderRadius: theme.radius.button,
                 color: decoration ? theme.textOnAccent.rgb : theme.text.rgb,
-                fontWeight: 500,
-                borderColor: theme.pale.rgba(0)
+                border: "1px solid",
+                borderColor: theme.pale.rgb
             };
             switch (decoration) {
                 case 'highlight':
@@ -37,6 +37,14 @@ export default (theme) => {
                     style.padding = 0;
                     style.color = theme.text.rgb;
                     break;
+            }
+
+            if (inversion) {
+                style = {
+                    ...style,
+                    background: theme.interface.rgb,
+                    color: style.background
+                } as CSSProperties
             }
             return style;
         }
