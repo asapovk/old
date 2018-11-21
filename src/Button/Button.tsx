@@ -12,6 +12,7 @@ export interface ButtonProps {
     className?: string
     style?: CSSProperties
     disabled?: boolean
+    size?: 'small' | 'large'
 }
 
 class Button extends Component<ButtonProps> {
@@ -22,13 +23,14 @@ class Button extends Component<ButtonProps> {
     }
 
     render() {
-        const { labelCase, label, children, style, loading, decoration, disabled } = this.props;
+        const { labelCase, label, children, style, loading, decoration, disabled, size } = this.props;
 
         let classes = 'ui-button';
 
         if (labelCase == 'upper') classes += ' uppercase';
         if (loading) classes += ' loading';
         if (disabled) classes += ' disabled';
+        if (size) classes += ` ${size}`;
 
         return (
             <Styles>

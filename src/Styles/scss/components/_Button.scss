@@ -3,14 +3,29 @@
     border: none;
     outline: none;
     cursor: pointer;
-    padding: calc(0.625rem - 1px) calc(1rem - 1px);
     @extend %с2;
+    padding: 0 calc(1rem - 1px);
     font-weight: 600;
-    line-height: 1rem;
+    height: 2.25rem;
+    // line-height: 1rem;
     border: 1px solid;
+
+    &.small {
+        @extend %с4;
+        height: 1.5rem;
+        padding: 0 calc(0.75rem - 1px);
+    }
+
+    &.large {
+        @extend %с1;
+        height: 2.75rem;
+        padding: 0 calc(1.5rem - 1px);
+    }
+
     &:active {
         box-shadow: none !important;
     }
+
     &.loading {
         > span:first-child{
             filter: blur(1px);
@@ -25,6 +40,7 @@
             }
         }
     }
+
     &.disabled {
         opacity: .5;
         cursor: not-allowed;
