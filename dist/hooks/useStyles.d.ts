@@ -280,6 +280,10 @@ declare const _default: () => {
                 width: string;
                 background: string;
             };
+            backButton: import("react").CSSProperties;
+            backButtonIcon: {
+                color: string;
+            };
         };
     };
 };

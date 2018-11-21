@@ -24,7 +24,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importStar(require("react"));
 var __1 = require("../../..");
 var useTextField_1 = __importDefault(require("../../../hooks/useTextField"));
-var ErrorView_1 = __importDefault(require("./ErrorView"));
 var useStyles_1 = __importDefault(require("../../../hooks/useStyles"));
 exports.default = (function (props) {
     var styles = useStyles_1.default();
@@ -36,7 +35,6 @@ exports.default = (function (props) {
             react_1.default.createElement(__1.TextField, __assign({}, login, { placeholder: "\u0412\u0430\u0448 \u043B\u043E\u0433\u0438\u043D" }))),
         login.value && (react_1.default.createElement(__1.Flexbox, { pt: '1rem' },
             react_1.default.createElement(__1.TextField, __assign({}, password, { placeholder: "\u0412\u0432\u0435\u0434\u0438\u0442\u0435 \u043F\u0430\u0440\u043E\u043B\u044C", type: "password" })))),
-        react_1.default.createElement(ErrorView_1.default, { message: props.error }),
         react_1.default.createElement(__1.Flexbox, { justifyContent: "space-around", pt: '1rem' },
             react_1.default.createElement(__1.Flexbox, { flex: 1, pr: '0.5rem' },
                 react_1.default.createElement(__1.Button, { label: "\u0412\u0445\u043E\u0434", decoration: "highlight", loading: props.pending, onClick: onSubmit, style: styles.scanes.lkguest.submitButton })),

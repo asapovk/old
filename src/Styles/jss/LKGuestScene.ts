@@ -5,11 +5,13 @@ export default (theme: ThemeInterface) => {
     let backgroundColor = theme.background.hex;
     let titleColor = theme.text.hex;
     let backButtonColor = theme.text.hex;
+    let secondaryButtonBackground = theme.highlight.grayscale;
 
     if (theme.name === "gazprom") {
         titleColor = "#fff";
         backgroundColor = "#000";
         backButtonColor = "#fff";
+        secondaryButtonBackground = theme.background.rgba(0.2);
     }
 
     return {
@@ -24,7 +26,7 @@ export default (theme: ThemeInterface) => {
 
         secondaryButton: {
             width: "100%",
-            background: theme.pale.hex
+            background: secondaryButtonBackground
         },
 
         backButton: {

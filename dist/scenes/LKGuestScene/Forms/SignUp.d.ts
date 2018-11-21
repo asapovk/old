@@ -3,7 +3,6 @@ interface SignUpProps {
     onSubmit: (login: string, password: string, password2: string) => void;
     newPasswordsMinLength: number;
     pending: boolean;
-    error?: string;
 }
 declare const _default: (props: SignUpProps) => JSX.Element;
 export default _default;
