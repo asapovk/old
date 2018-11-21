@@ -28,6 +28,7 @@ import viewportStyles from './jss/Viewport'
 import widgetStyles from './jss/Widget'
 import widgetStatStyles from './jss/WidgetStat'
 import notificationsStyles from './jss/Notifications'
+import lkGuestSceneStyles from './jss/LKGuestScene'
 
 export const themes = {
     blackCurrant, whiteCurrant, abrTheme, gazpromTheme
@@ -40,6 +41,7 @@ export type themeName =
     'gazpromTheme'
 
 export interface ThemeInterface {
+    name: string
     background: objectColor
     interface: objectColor
     pale: objectColor
@@ -89,7 +91,10 @@ export const createStyles = (themeName?: themeName) => {
         viewport: viewportStyles(theme),
         widget: widgetStyles(theme),
         widgetStat: widgetStatStyles(theme),
-        notifications: notificationsStyles(theme)
+        notifications: notificationsStyles(theme),
+        scanes: {
+            lkguest: lkGuestSceneStyles(theme)
+        }
     }
 };
 

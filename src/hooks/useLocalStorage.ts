@@ -1,8 +1,7 @@
 import { useState } from 'react';
 
 /**
- * Сохраняет значение в LS
- * и сделит за ним через state
+ * Использователь хранение данных
  */
 export default (key: string, defaultValue: any = null, disable?: boolean) => {
     if (disable) {

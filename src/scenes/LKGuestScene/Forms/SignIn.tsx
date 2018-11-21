@@ -3,6 +3,7 @@ import { Flexbox, TextField, Button } from '../../..';
 
 import useTextField from '../../../hooks/useTextField';
 import ErrorView from './ErrorView';
+import useStyles from '../../../hooks/useStyles';
 
 interface SignInProps {
     allowSignUp: boolean
@@ -13,7 +14,7 @@ interface SignInProps {
 }
 
 export default (props: SignInProps) => {
-
+    const styles = useStyles();
     const login = useTextField({ id: "LOGIN" });
     const password = useTextField({});
 
@@ -43,22 +44,20 @@ export default (props: SignInProps) => {
                     <Button
                         label="Вход"
                         decoration="highlight"
-                        style={{ width: "100%" }}
                         loading={props.pending}
                         onClick={onSubmit}
+                        style={styles.scanes.lkguest.submitButton}
+
                     />
                 </Flexbox>
                 {props.allowSignUp && (
                     <Flexbox flex={1} pl={'0.5rem'}>
                         <Button
                             label="Регистрация"
-                            decoration="blue"
-                            style={{ width: "100%", opacity: !props.pending ? 1 : 0.5 }}
-                            onClick={() => {
-                                if (!props.pending) {
-                                    props.onSignUp();
-                                }
-                            }}
+                            decoration="highlight"
+                            disabled={props.pending}
+                            onClick={props.onSignUp}
+                            style={styles.scanes.lkguest.secondaryButton}
                         />
                     </Flexbox>
                 )}

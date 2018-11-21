@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
 /**
- * useBrowserWidth
+ * Использователь размеры браузера
  */
 export default () => {
     const [value, setValue] = useState({

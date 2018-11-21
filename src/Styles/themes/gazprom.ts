@@ -9,6 +9,7 @@ const accentColors = {
 }
 
 export default {
+    name: "gazprom",
     background: getColors(247, 247, 247),
     interface: getColors(250, 250, 250),
     pale: getColors(217, 217, 217),
@@ -35,5 +36,5 @@ export default {
             "#FFFFFF",
             "#007BBC"
         ],
-    }
+    },
 } as ThemeInterface

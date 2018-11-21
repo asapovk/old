@@ -5,9 +5,13 @@ class View extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            theme: "abrTheme",
+            theme: "blackCurrant",
             row: false
         }
+    }
+
+    componentWillReceiveProps() {
+        console.log(1);
     }
     render() {
         const linesTSX = (color) => {

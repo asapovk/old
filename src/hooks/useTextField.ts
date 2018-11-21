@@ -3,12 +3,17 @@ import useLocalStorage from './useLocalStorage';
 
 export interface UseTextFieldInput {
     defaultValue?: string
+    /**
+     * ID использутеься для сохранения
+     * - Должен быть уникальным в рамках экрана
+     * - Если используеться одинаковый id в разных экранах
+     * то значение будет одинаковое
+     */
     id?: string
 }
 
 /**
- * Хук для текст филда
- * стейт + сохранение в LS
+ * Использоватеть тексовое поле
  */
 export default (opt?: UseTextFieldInput) => {
     const localstorage = useLocalStorage("TEXT_FIELD_VALUE_" + (opt && opt.id), "", !Boolean(opt && opt.id));

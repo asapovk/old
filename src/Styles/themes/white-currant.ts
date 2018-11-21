@@ -9,6 +9,7 @@ const accentColors = {
 }
 
 export default {
+    name: "white-currant",
     background: getColors(243, 240, 245),
     interface: getColors(250, 250, 250),
     pale: getColors(217, 217, 217),
@@ -35,5 +36,5 @@ export default {
             "#FFFFFF",
             getColors(127, 8, 191).hex,
         ]
-    }
+    },
 } as ThemeInterface

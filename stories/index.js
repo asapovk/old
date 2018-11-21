@@ -1,6 +1,7 @@
 import $ from './StoryRender';
 import { storiesOf } from '@storybook/react';
-import '../src/Styles/scss/main.scss';
+
+require('../src/Styles/scss/main.scss');
 
 storiesOf('Base')
     .add('Цвета', $('ColorStory'))

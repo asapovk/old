@@ -1,7 +1,10 @@
-import React from 'react';
-import { Flexbox } from '../..';
+import React, { useContext } from 'react';
+import { Flexbox, Styles } from '../..';
+import { IconType } from '../../Icon/Icon';
+
 import Main from './Main';
 import Footer from './Footer';
+import useStyles from '../../hooks/useStyles';
 
 interface GuestSceneConfig {
     title?: string,
@@ -33,7 +36,7 @@ interface GuestSceneConfig {
          * Пароли не соответсвуют newPasswordsPattern
          */
         passwordsNotMatchPattern?: string
-    }
+    },
 }
 
 interface OnLoginPromiseReturn {
@@ -44,7 +47,7 @@ interface OnLoginPromiseReturn {
 
 interface GuestSceneFooterActions {
     title: string
-    icon: string
+    icon: IconType
     onAction?: () => void
 }
 
@@ -55,9 +58,26 @@ export interface GuestSceneProps {
     onRecovery?: (login: string, password: string) => Promise<OnLoginPromiseReturn>
     onVeritfy?: (login: string, code: string) => Promise<OnLoginPromiseReturn>
     footerActions?: GuestSceneFooterActions[]
+    /**
+     * Заголовок - слоган
+     */
+    title?: string
+    components?: {
+        /**
+         * Логотип
+         */
+        logo?: any
+        /**
+         * Правая область экрана
+         */
+        right?: any
+    }
 }
 
 export default (props: GuestSceneProps) => {
+
+    const styles = useStyles();
+
     return (
         <Flexbox style={{ height: "100%" }} flexDirection="column">
             <Main {...props} />

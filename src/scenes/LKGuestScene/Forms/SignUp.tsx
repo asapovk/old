@@ -3,6 +3,7 @@ import { Flexbox, TextField, Button } from '../../..';
 import useTextField from '../../../hooks/useTextField';
 import useNumberСaseString from '../../../hooks/useNumberСaseString';
 import ErrorView from './ErrorView';
+import useStyles from '../../../hooks/useStyles';
 
 interface SignUpProps {
     onBack: () => void
@@ -15,6 +16,7 @@ interface SignUpProps {
 
 export default (props: SignUpProps) => {
 
+    const styles = useStyles();
     const login = useTextField({ id: "LOGIN" });
     const password = useTextField();
     const password2 = useTextField();
@@ -67,8 +69,8 @@ export default (props: SignUpProps) => {
                     <Button
                         label="Зарегистрироваться"
                         decoration="highlight"
-                        style={{ width: "100%" }}
                         onClick={onSubmit}
+                        style={styles.scanes.lkguest.submitButton}
                     />
                 </Flexbox>
             </Flexbox>
