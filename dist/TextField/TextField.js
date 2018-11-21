@@ -60,8 +60,6 @@ var TextField = /** @class */ (function (_super) {
         var _this = this;
         var _a = this.props, label = _a.label, value = _a.value, defaultValue = _a.defaultValue, style = _a.style, multiline = _a.multiline, singlerow = _a.singlerow, disabled = _a.disabled, type = _a.type, hint = _a.hint, onClick = _a.onClick, onFocus = _a.onFocus, onBlur = _a.onBlur, placeholder = _a.placeholder, leftIcon = _a.leftIcon, rightIcon = _a.rightIcon, hintIcon = _a.hintIcon, loading = _a.loading, resize = _a.resize;
         var classes = 'ui-textfield ';
-        if (disabled)
-            classes += ' disabled';
         var IconTSX = function (type, position, color) { return (react_1.default.createElement(__1.Flexbox, { alignItems: 'center', pr: position === 'left' ? 8 : 0, pl: position === 'right' ? 8 : 0, style: {
                 fontSize: 20,
                 color: color

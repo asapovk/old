@@ -48,7 +48,10 @@ var TextArea = /** @class */ (function (_super) {
     TextArea.prototype.render = function () {
         var _this = this;
         var _a = this.props, value = _a.value, defaultValue = _a.defaultValue, disabled = _a.disabled, singlerow = _a.singlerow, style = _a.style, decoration = _a.decoration, onChange = _a.onChange, onClick = _a.onClick, onFocus = _a.onFocus, onBlur = _a.onBlur, resize = _a.resize, placeholder = _a.placeholder;
-        return (react_1.default.createElement(__1.Flexbox, { onClick: onClick, className: (decoration == 'none' ? '' : ' ui-textfield-textarea'), style: style.field },
+        var classes = 'ui-textfield-textarea';
+        if (disabled)
+            classes += ' disabled';
+        return (react_1.default.createElement(__1.Flexbox, { onClick: onClick, className: (decoration == 'none' ? '' : classes), style: style.field },
             (placeholder && !this.state.value) && (react_1.default.createElement("div", { className: "ui-textfield-textarea-placeholder", style: style.placeholder }, this.props.placeholder)),
             react_1.default.createElement("textarea", { onFocus: onFocus, onBlur: onBlur, defaultValue: defaultValue, style: __assign({}, style.input, { resize: resize ? 'both' : 'none' }), value: value, onChange: function (event) { return _this.onChange(event.target.value); }, disabled: disabled, onKeyDown: function (event) {
                     if (singlerow && event.keyCode === 13) {

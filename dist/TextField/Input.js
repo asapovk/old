@@ -36,8 +36,11 @@ var Input = /** @class */ (function (_super) {
     };
     Input.prototype.render = function () {
         var _this = this;
-        var _a = this.props, value = _a.value, defaultValue = _a.defaultValue, type = _a.type, leftIcon = _a.leftIcon, rightIcon = _a.rightIcon, disabled = _a.disabled, style = _a.style, decoration = _a.decoration, onChange = _a.onChange, onClick = _a.onClick, onFocus = _a.onFocus, onBlur = _a.onBlur, loading = _a.loading, placeholder = _a.placeholder;
-        return (react_1.default.createElement(__1.Flexbox, { onClick: onClick, className: (decoration == 'none' ? '' : ' ui-textfield-input'), style: style.field },
+        var _a = this.props, value = _a.value, defaultValue = _a.defaultValue, type = _a.type, leftIcon = _a.leftIcon, rightIcon = _a.rightIcon, disabled = _a.disabled, style = _a.style, decoration = _a.decoration, onClick = _a.onClick, onFocus = _a.onFocus, onBlur = _a.onBlur, loading = _a.loading, placeholder = _a.placeholder;
+        var classes = "ui-textfield-input";
+        if (disabled)
+            classes += " disabled";
+        return (react_1.default.createElement(__1.Flexbox, { onClick: onClick, style: style.field, className: (decoration == 'none' ? '' : classes) },
             leftIcon,
             react_1.default.createElement(__1.Flexbox, { flex: 1 },
                 (placeholder && !this.state.value) && (react_1.default.createElement("div", { className: "ui-textfield-input-placeholder", style: style.placeholder }, this.props.placeholder)),

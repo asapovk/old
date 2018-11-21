@@ -203,9 +203,15 @@ blockquote {
 .ui-textfield-input {
   border: 1px solid;
   padding: calc(0.375rem - 1px) calc(0.5rem - 1px);
+  z-index: 10;
 }
 .ui-textfield-input-placeholder {
   position: absolute;
+  user-select: none;
+}
+.ui-textfield-input.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 .ui-textfield-textarea {
   border: 1px solid;
@@ -213,6 +219,11 @@ blockquote {
 }
 .ui-textfield-textarea-placeholder {
   position: absolute;
+  user-select: none;
+}
+.ui-textfield-textarea.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 .ui-textfield > div > div > input,
 .ui-textfield > div > textarea {
@@ -230,11 +241,12 @@ blockquote {
   margin: 0;
   padding: 0;
 }
+.ui-textfield > div > div > input:disabled,
+.ui-textfield > div > textarea:disabled {
+  cursor: not-allowed;
+}
 .ui-textfield > div > textarea {
   height: 100%;
-}
-.ui-textfield.disabled {
-  opacity: 0.5;
 }
 
 .ui-datepicker {
@@ -696,6 +708,7 @@ blockquote {
 }
 .ui-button.disabled {
   opacity: 0.5;
+  cursor: not-allowed;
 }
 
 .ui-menu {
