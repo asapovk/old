@@ -311,6 +311,10 @@ export declare const createStyles: (themeName?: "blackCurrant" | "whiteCurrant" 
                 width: string;
                 background: string;
             };
+            backButton: React.CSSProperties;
+            backButtonIcon: {
+                color: string;
+            };
         };
     };
 };
@@ -592,6 +596,10 @@ export declare const StylesContext: React.Context<{
                 width: string;
                 background: string;
             };
+            backButton: React.CSSProperties;
+            backButtonIcon: {
+                color: string;
+            };
         };
     };
 }>;
@@ -872,6 +880,10 @@ declare const _default: React.ExoticComponent<React.ConsumerProps<{
             secondaryButton: {
                 width: string;
                 background: string;
+            };
+            backButton: React.CSSProperties;
+            backButtonIcon: {
+                color: string;
             };
         };
     };

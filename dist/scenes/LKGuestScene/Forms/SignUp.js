@@ -25,8 +25,8 @@ var react_1 = __importStar(require("react"));
 var __1 = require("../../..");
 var useTextField_1 = __importDefault(require("../../../hooks/useTextField"));
 var useNumber_aseString_1 = __importDefault(require("../../../hooks/useNumber\u0421aseString"));
-var ErrorView_1 = __importDefault(require("./ErrorView"));
 var useStyles_1 = __importDefault(require("../../../hooks/useStyles"));
+var Icon_1 = require("../../../Icon");
 exports.default = (function (props) {
     var styles = useStyles_1.default();
     var login = useTextField_1.default({ id: "LOGIN" });
@@ -36,18 +36,22 @@ exports.default = (function (props) {
     var onSubmit = function () { return props.onSubmit(login.value, password.value, password2.value); };
     return (react_1.default.createElement(react_1.Fragment, null,
         react_1.default.createElement(__1.Flexbox, { flex: 1 },
-            react_1.default.createElement(__1.Button, { decoration: "none", style: { width: "100%" }, label: "<", onClick: props.onBack })),
-        react_1.default.createElement(__1.Flexbox, null,
-            react_1.default.createElement(__1.TextField, __assign({}, login, { placeholder: "\u0422\u0435\u043B\u0435\u0444\u043E\u043D/\u041F\u043E\u0447\u0442\u0430" }))),
+            react_1.default.createElement("div", { onClick: props.onBack, style: styles.scanes.lkguest.backButton },
+                react_1.default.createElement(Icon_1.Icon, { type: "left", size: 1.5, style: styles.scanes.lkguest.backButtonIcon })),
+            react_1.default.createElement(__1.Flexbox, { flex: 1 },
+                react_1.default.createElement(__1.TextField, __assign({}, login, { placeholder: "\u0422\u0435\u043B\u0435\u0444\u043E\u043D/\u041F\u043E\u0447\u0442\u0430" })))),
         login.value && (react_1.default.createElement(__1.Flexbox, { pt: '1rem' },
-            react_1.default.createElement(__1.TextField, __assign({}, password, { placeholder: "\u041F\u0440\u0438\u0434\u0443\u043C\u0430\u0439\u0442\u0435 \u043F\u0430\u0440\u043E\u043B\u044C", type: "password" })))),
-        password.value.length > 0 && password.value.length < props.newPasswordsMinLength && (react_1.default.createElement("div", null,
-            "\u0412\u0432\u0435\u0434\u0438\u0442\u0435 \u0435\u0449\u0435 ",
-            charsLeft,
-            " ")),
-        password.value.length >= props.newPasswordsMinLength && (react_1.default.createElement(__1.Flexbox, { pt: '1rem' },
+            react_1.default.createElement(__1.TextField, __assign({}, password, { placeholder: "\u041F\u0440\u0438\u0434\u0443\u043C\u0430\u0439\u0442\u0435 \u043F\u0430\u0440\u043E\u043B\u044C", type: "password", hint: (function () {
+                    if (!login.value)
+                        return "";
+                    if (password.value.length <= 0)
+                        return "";
+                    if (password.value.length >= props.newPasswordsMinLength)
+                        return "";
+                    return "Введите еще " + charsLeft;
+                })() })))),
+        login.value && password.value.length >= props.newPasswordsMinLength && (react_1.default.createElement(__1.Flexbox, { pt: '1rem' },
             react_1.default.createElement(__1.TextField, __assign({}, password2, { placeholder: "\u041F\u043E\u0432\u0442\u043E\u0440\u0438\u0442\u0435 \u043F\u0430\u0440\u043E\u043B\u044C", type: "password" })))),
-        react_1.default.createElement(ErrorView_1.default, { message: props.error }),
         react_1.default.createElement(__1.Flexbox, { justifyContent: "space-around", pt: '1rem' },
             react_1.default.createElement(__1.Flexbox, { flex: 1 },
                 react_1.default.createElement(__1.Button, { label: "\u0417\u0430\u0440\u0435\u0433\u0438\u0441\u0442\u0440\u0438\u0440\u043E\u0432\u0430\u0442\u044C\u0441\u044F", decoration: "highlight", onClick: onSubmit, style: styles.scanes.lkguest.submitButton })))));

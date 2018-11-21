@@ -1,12 +1,17 @@
 import { ThemeInterface } from "..";
+import { CSSProperties } from "react";
 
 export default (theme: ThemeInterface) => {
     let backgroundColor = theme.background.hex;
     let titleColor = theme.text.hex;
+    let backButtonColor = theme.text.hex;
+    let secondaryButtonBackground = theme.highlight.grayscale;
 
     if (theme.name === "gazprom") {
         titleColor = "#fff";
         backgroundColor = "#000";
+        backButtonColor = "#fff";
+        secondaryButtonBackground = theme.background.rgba(0.2);
     }
 
     return {
@@ -14,12 +19,24 @@ export default (theme: ThemeInterface) => {
             backgroundColor,
             titleColor
         },
+
         submitButton: {
             width: "100%"
         },
+
         secondaryButton: {
             width: "100%",
-            background: theme.pale.hex
-        }
+            background: secondaryButtonBackground
+        },
+
+        backButton: {
+            position: "absolute",
+            left: "-2rem",
+            top: "0.4rem"
+        } as CSSProperties,
+
+        backButtonIcon: {
+            color: backButtonColor
+        },
     }
 }

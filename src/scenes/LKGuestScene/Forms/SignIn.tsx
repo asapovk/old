@@ -2,7 +2,6 @@ import React, { useState, useEffect, Fragment } from 'react';
 import { Flexbox, TextField, Button } from '../../..';
 
 import useTextField from '../../../hooks/useTextField';
-import ErrorView from './ErrorView';
 import useStyles from '../../../hooks/useStyles';
 
 interface SignInProps {
@@ -10,7 +9,6 @@ interface SignInProps {
     onSignUp: () => void
     onSubmit: (login: string, password: string) => void
     pending: boolean
-    error?: string
 }
 
 export default (props: SignInProps) => {
@@ -37,7 +35,6 @@ export default (props: SignInProps) => {
                     />
                 </Flexbox>
             )}
-            <ErrorView message={props.error} />
 
             <Flexbox justifyContent="space-around" pt={'1rem'}>
                 <Flexbox flex={1} pr={'0.5rem'}>

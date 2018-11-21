@@ -49,11 +49,11 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importStar(require("react"));
 var SignIn_1 = __importDefault(require("./SignIn"));
 var SignUp_1 = __importDefault(require("./SignUp"));
+var alert_1 = __importDefault(require("../../../utils/alert"));
 var useLocalStorage_1 = __importDefault(require("../../../hooks/useLocalStorage"));
 exports.default = (function (props) {
     var _a = useLocalStorage_1.default("LOGIN_PAGE_INDEX", "SIGNIN"), value = _a.value, setValue = _a.setValue;
-    var _b = react_1.useState(''), error = _b[0], setError = _b[1];
-    var _c = react_1.useState(false), pending = _c[0], setPending = _c[1];
+    var _b = react_1.useState(false), pending = _b[0], setPending = _b[1];
     var localeLoginOrPasswordIncorrent = "Не верная пара логин/пароль";
     var localePasswordsNotMatch = "Пароли не совпадают";
     var localePasswordsNotMatchPattern = "Пароль не соответвуют требованиям";
@@ -76,18 +76,19 @@ exports.default = (function (props) {
                 case 0:
                     _a.trys.push([0, 2, 3, 4]);
                     setPending(true);
-                    setError('');
                     return [4 /*yield*/, props.onLogin(login, password)];
                 case 1:
                     result = _a.sent();
                     if (!result.ok) {
                         throw new Error(result.message || localeLoginOrPasswordIncorrent);
                     }
-                    setError('');
                     return [3 /*break*/, 4];
                 case 2:
                     error_1 = _a.sent();
-                    setError(error_1.message);
+                    alert_1.default({
+                        title: "Ошибка входа",
+                        text: error_1.message,
+                    });
                     return [3 /*break*/, 4];
                 case 3:
                     setPending(false);
@@ -111,34 +112,32 @@ exports.default = (function (props) {
                 case 1:
                     _a.trys.push([1, 3, 4, 5]);
                     if (password !== password2) {
-                        setError(localePasswordsNotMatch);
-                        return [2 /*return*/];
+                        throw new Error(localePasswordsNotMatch);
                     }
                     if (props.config && props.config.newPasswordsMinLength) {
                         if (password.length < props.config.newPasswordsMinLength) {
-                            setError(localePasswordsNotMatchPattern);
-                            return [2 /*return*/];
+                            throw new Error(localePasswordsNotMatchPattern);
                         }
                     }
                     if (props.config && props.config.newPasswordsPattern) {
                         if (!props.config.newPasswordsPattern.test(password)) {
-                            setError(localePasswordsNotMatchPattern);
-                            return [2 /*return*/];
+                            throw new Error(localePasswordsNotMatchPattern);
                         }
                     }
                     setPending(true);
-                    setError('');
                     return [4 /*yield*/, props.onRegister(login, password)];
                 case 2:
                     result = _a.sent();
                     if (!result.ok) {
                         throw new Error(result.message || 'Ошибка авторизации');
                     }
-                    setError('');
                     return [3 /*break*/, 5];
                 case 3:
                     error_2 = _a.sent();
-                    setError(error_2.message);
+                    alert_1.default({
+                        title: "Ошибка входа",
+                        text: error_2.message,
+                    });
                     return [3 /*break*/, 5];
                 case 4:
                     setPending(false);
@@ -148,10 +147,10 @@ exports.default = (function (props) {
         });
     }); };
     if (value === "SIGNIN") {
-        return react_1.default.createElement(SignIn_1.default, { allowSignUp: typeof props.onRegister === "function", onSignUp: function () { return setValue("SIGNUP"); }, onSubmit: onLogin, pending: pending, error: error });
+        return react_1.default.createElement(SignIn_1.default, { allowSignUp: typeof props.onRegister === "function", onSignUp: function () { return setValue("SIGNUP"); }, onSubmit: onLogin, pending: pending });
     }
     if (value === "SIGNUP") {
-        return react_1.default.createElement(SignUp_1.default, { onBack: function () { return setValue("SIGNIN"); }, newPasswordsMinLength: props.config && props.config.newPasswordsMinLength || 6, onSubmit: onSignIn, pending: pending, error: error });
+        return react_1.default.createElement(SignUp_1.default, { onBack: function () { return setValue("SIGNIN"); }, newPasswordsMinLength: props.config && props.config.newPasswordsMinLength || 6, onSubmit: onSignIn, pending: pending });
     }
     return null;
 });

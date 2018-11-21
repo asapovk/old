@@ -1,4 +1,5 @@
 import { ThemeInterface } from "..";
+import { CSSProperties } from "react";
 declare const _default: (theme: ThemeInterface) => {
     main: {
         backgroundColor: string;
@@ -10,6 +11,10 @@ declare const _default: (theme: ThemeInterface) => {
     secondaryButton: {
         width: string;
         background: string;
+    };
+    backButton: CSSProperties;
+    backButtonIcon: {
+        color: string;
     };
 };
 export default _default;
