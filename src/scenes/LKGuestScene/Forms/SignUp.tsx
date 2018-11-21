@@ -2,15 +2,14 @@ import React, { Fragment } from 'react';
 import { Flexbox, TextField, Button } from '../../..';
 import useTextField from '../../../hooks/useTextField';
 import useNumberСaseString from '../../../hooks/useNumberСaseString';
-import ErrorView from './ErrorView';
 import useStyles from '../../../hooks/useStyles';
+import { Icon } from '../../../Icon';
 
 interface SignUpProps {
     onBack: () => void
     onSubmit: (login: string, password: string, password2: string) => void
     newPasswordsMinLength: number
     pending: boolean
-    error?: string
 }
 
 
@@ -28,18 +27,19 @@ export default (props: SignUpProps) => {
     return (
         <Fragment>
             <Flexbox flex={1}>
-                <Button
-                    decoration={"none"}
-                    style={{ width: "100%" }}
-                    label="<"
-                    onClick={props.onBack}
-                />
-            </Flexbox>
+                <div onClick={props.onBack} style={styles.scanes.lkguest.backButton}>
+                    <Icon
+                        type="left"
+                        size={1.5}
+                        style={styles.scanes.lkguest.backButtonIcon}
+                    />
+                </div>
 
-            <Flexbox>
-                <TextField {...login}
-                    placeholder="Телефон/Почта"
-                />
+                <Flexbox flex={1}>
+                    <TextField {...login}
+                        placeholder="Телефон/Почта"
+                    />
+                </Flexbox>
             </Flexbox>
 
             {login.value && (
@@ -47,13 +47,17 @@ export default (props: SignUpProps) => {
                     <TextField {...password}
                         placeholder="Придумайте пароль"
                         type="password"
+                        hint={(() => {
+                            if (!login.value) return "";
+                            if (password.value.length <= 0) return "";
+                            if (password.value.length >= props.newPasswordsMinLength) return "";
+
+                            return "Введите еще " + charsLeft;
+                        })()}
                     />
                 </Flexbox>
             )}
-            {password.value.length > 0 && password.value.length < props.newPasswordsMinLength && (
-                <div>Введите еще {charsLeft} </div>
-            )}
-            {password.value.length >= props.newPasswordsMinLength && (
+            {login.value && password.value.length >= props.newPasswordsMinLength && (
                 <Flexbox pt='1rem'>
                     <TextField {...password2}
                         placeholder="Повторите пароль"
@@ -61,8 +65,6 @@ export default (props: SignUpProps) => {
                     />
                 </Flexbox>
             )}
-
-            <ErrorView message={props.error} />
 
             <Flexbox justifyContent="space-around" pt={'1rem'}>
                 <Flexbox flex={1}>
