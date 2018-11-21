@@ -83,7 +83,6 @@ class TextField extends React.Component<TextFieldProps> {
         const { label, value, defaultValue, style, multiline, singlerow, disabled, type, hint, onClick, onFocus, onBlur, placeholder, leftIcon, rightIcon, hintIcon, loading, resize } = this.props;
 
         let classes = 'ui-textfield ';
-        if (disabled) classes += ' disabled';
 
         const IconTSX = (type: IconType, position: 'left' | 'right', color) => (
             <Flexbox

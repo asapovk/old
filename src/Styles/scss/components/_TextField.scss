@@ -21,9 +21,16 @@
     &-input {
         border: 1px solid;
         padding: calc(0.375rem - 1px) calc(0.5rem - 1px);
+        z-index: 10;
 
         &-placeholder {
             position: absolute;
+            user-select: none;
+        }
+
+        &.disabled {
+            opacity: .5;
+            cursor: not-allowed;
         }
     }
     &-textarea {
@@ -32,6 +39,12 @@
 
         &-placeholder {
             position: absolute;
+            user-select: none;
+        }
+
+        &.disabled {
+            opacity: .5;
+            cursor: not-allowed;
         }
     }
     > div > div > input, 
@@ -50,12 +63,12 @@
         font-family: inherit;
         margin: 0;
         padding: 0;
+
+        &:disabled {
+            cursor: not-allowed;
+        }
     }
     > div > textarea {
         height: 100%;
-    }
-
-    &.disabled {
-        opacity: .5;
     }
 }
