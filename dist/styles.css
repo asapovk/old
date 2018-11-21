@@ -107,7 +107,7 @@ blockquote {
   font-style: italic;
 }
 
-.ui-textfield > div > div > input,
+.ui-button.large, .ui-textfield > div > div > input,
 .ui-textfield > div > textarea, .c1 {
   font-size: 1rem;
   line-height: 1rem;
@@ -123,7 +123,7 @@ blockquote {
   line-height: 0.75rem;
 }
 
-.c4 {
+.ui-button.small, .c4 {
   font-size: 0.625rem;
   line-height: 0.625rem;
 }
@@ -685,10 +685,18 @@ blockquote {
   border: none;
   outline: none;
   cursor: pointer;
-  padding: calc(0.625rem - 1px) calc(1rem - 1px);
+  padding: 0 calc(1rem - 1px);
   font-weight: 600;
-  line-height: 1rem;
+  height: 2.25rem;
   border: 1px solid;
+}
+.ui-button.small {
+  height: 1.5rem;
+  padding: 0 calc(0.75rem - 1px);
+}
+.ui-button.large {
+  height: 2.75rem;
+  padding: 0 calc(1.5rem - 1px);
 }
 .ui-button:active {
   box-shadow: none !important;

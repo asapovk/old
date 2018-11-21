@@ -10,6 +10,7 @@ export interface ButtonProps {
     className?: string;
     style?: CSSProperties;
     disabled?: boolean;
+    size?: 'small' | 'large';
 }
 declare class Button extends Component<ButtonProps> {
     onClick(): void;

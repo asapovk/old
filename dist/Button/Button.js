@@ -45,7 +45,7 @@ var Button = /** @class */ (function (_super) {
     };
     Button.prototype.render = function () {
         var _this = this;
-        var _a = this.props, labelCase = _a.labelCase, label = _a.label, children = _a.children, style = _a.style, loading = _a.loading, decoration = _a.decoration, disabled = _a.disabled;
+        var _a = this.props, labelCase = _a.labelCase, label = _a.label, children = _a.children, style = _a.style, loading = _a.loading, decoration = _a.decoration, disabled = _a.disabled, size = _a.size;
         var classes = 'ui-button';
         if (labelCase == 'upper')
             classes += ' uppercase';
@@ -53,6 +53,8 @@ var Button = /** @class */ (function (_super) {
             classes += ' loading';
         if (disabled)
             classes += ' disabled';
+        if (size)
+            classes += " " + size;
         return (react_1.default.createElement(index_1.Styles, null, function (styles) { return (react_1.default.createElement("button", { className: classes, onClick: function () { return _this.onClick(); }, style: __assign({}, styles.button.main(decoration), style) },
             react_1.default.createElement("span", { className: 'ui-button-label' }, label || children),
             loading && (react_1.default.createElement(index_1.Spin, null,
