@@ -10,16 +10,17 @@
     min-width: 280px;
 
     &-title {
-        font-size: 1.125rem;	
+        font-size: 1.125rem;
         font-weight: bold;	
         line-height: 1.5rem;
     }
 
     &-subtitle {
         opacity: 0.8;
-        font-size: 1rem;	
+        font-size: 1rem;
         font-weight: normal;
         line-height: 1.25rem;
+        padding-top: 0.25rem;
     }
 
     &-counter {

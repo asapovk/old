@@ -60,7 +60,7 @@ export default (props: CardProps) => {
                     </Flexbox>
                 )}
                 {action && (
-                    <Flexbox alignItems='flex-end'>
+                    <Flexbox alignItems='flex-end' flexBasis={100}>
                         <Button
                             decoration='highlight'
                             label={action.label}
@@ -68,6 +68,7 @@ export default (props: CardProps) => {
                             onClick={action.onAction}
                             size='small'
                             labelCase='upper'
+                            style={{ width: '100%' }}
                         />
                     </Flexbox>
                 )}

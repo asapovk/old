@@ -39,6 +39,6 @@ exports.default = (function (props) {
             info && (react_1.default.createElement(__1.Flexbox, { className: 'ui-card-counter', flexDirection: 'column', flex: 1 },
                 react_1.default.createElement(__1.Flexbox, { className: 'ui-card-counter-value', style: __assign({}, styles.card.counter(active)) }, info.value),
                 react_1.default.createElement(__1.Flexbox, { className: 'ui-card-counter-description' }, info.description))),
-            action && (react_1.default.createElement(__1.Flexbox, { alignItems: 'flex-end' },
-                react_1.default.createElement(__1.Button, { decoration: 'highlight', label: action.label, inversion: active, onClick: action.onAction, size: 'small', labelCase: 'upper' }))))));
+            action && (react_1.default.createElement(__1.Flexbox, { alignItems: 'flex-end', flexBasis: 100 },
+                react_1.default.createElement(__1.Button, { decoration: 'highlight', label: action.label, inversion: active, onClick: action.onAction, size: 'small', labelCase: 'upper', style: { width: '100%' } }))))));
 });

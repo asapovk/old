@@ -1568,6 +1568,7 @@ blockquote {
   font-size: 1rem;
   font-weight: normal;
   line-height: 1.25rem;
+  padding-top: 0.25rem;
 }
 .ui-card-counter-value {
   font-size: 1.125rem;
