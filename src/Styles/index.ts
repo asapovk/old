@@ -94,7 +94,7 @@ export const createStyles = (themeName?: themeName) => {
         widget: widgetStyles(theme),
         widgetStat: widgetStatStyles(theme),
         notifications: notificationsStyles(theme),
-        scanes: {
+        scenes: {
             lkguest: lkGuestSceneStyles(theme)
         }
     }

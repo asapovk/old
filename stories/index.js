@@ -39,6 +39,7 @@ storiesOf('Advanced')
 
 storiesOf('Scenes')
     .add('LKGuestScene', $('LKGuestSceneStory'))
+    .add('LKMainScene', $('LKMainSceneStory'))
 
 storiesOf("Utils")
     .add('alert', $('UtilsAlertStory'))

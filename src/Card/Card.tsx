@@ -1,42 +1,44 @@
-import React, { useState, CSSProperties } from 'react';
+import React, { CSSProperties, ReactElement } from 'react';
 import { Flexbox, Button } from '../';
 import useStyles from '../hooks/useStyles';
 
-interface CardAction {
+interface ICardAction {
     label: string
     onAction: () => void
 }
 
-interface Info {
+interface IInfo {
     value: string
     description: string
 }
 
-interface CardProps {
-    active?: boolean
-    action?: CardAction
+export interface ICard {
     title: string
     subtitle?: string
-    info: Info
+    info?: IInfo
+    active?: boolean
+    action?: ICardAction
+    onClick?: () => void
     style?: CSSProperties
+    children?: ReactElement<any>
 }
 
-export default (props: CardProps) => {
+export default (props: ICard) => {
 
-    const [active, setActive] = useState(props.active || false);
     const styles = useStyles();
 
     let classes = 'ui-card';
-    if (active) classes += ' active';
+    if (props.active) classes += ' active';
 
     const { style, title, subtitle, action, info } = props;
 
     return (
         <Flexbox
             flexDirection='column'
-            onClick={() => setActive(true)}
+            onClick={() => props.onClick && props.onClick()}
             className={classes}
-            style={{ ...styles.card.main(active), ...style }}
+            style={{ ...styles.card.main(props.active), ...style }}
+            flex={1}
         >
             <Flexbox flexDirection='column'>
                 <Flexbox className='ui-card-title'>{title}</Flexbox>
@@ -52,7 +54,7 @@ export default (props: CardProps) => {
                     >
                         <Flexbox
                             className='ui-card-counter-value'
-                            style={{ ...styles.card.counter(active) }}
+                            style={{ ...styles.card.counter(props.active) }}
                         >
                             {info.value}
                         </Flexbox>
@@ -64,7 +66,7 @@ export default (props: CardProps) => {
                         <Button
                             decoration='highlight'
                             label={action.label}
-                            inversion={active}
+                            inversion={props.active}
                             onClick={action.onAction}
                             size='small'
                             labelCase='upper'

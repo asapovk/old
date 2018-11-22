@@ -43,7 +43,7 @@ export default (props: SignInProps) => {
                         decoration="highlight"
                         loading={props.pending}
                         onClick={onSubmit}
-                        style={styles.scanes.lkguest.submitButton}
+                        style={styles.scenes.lkguest.submitButton}
 
                     />
                 </Flexbox>
@@ -54,7 +54,7 @@ export default (props: SignInProps) => {
                             decoration="highlight"
                             disabled={props.pending}
                             onClick={props.onSignUp}
-                            style={styles.scanes.lkguest.secondaryButton}
+                            style={styles.scenes.lkguest.secondaryButton}
                         />
                     </Flexbox>
                 )}

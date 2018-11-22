@@ -1,10 +1,9 @@
-import React, { useContext } from 'react';
-import { Flexbox, Styles } from '../..';
+import React from 'react';
+import { Flexbox } from '../..';
 import { IconType } from '../../Icon/Icon';
 
 import Main from './Main';
 import Footer from './Footer';
-import useStyles from '../../hooks/useStyles';
 
 interface GuestSceneConfig {
     title?: string,
@@ -75,8 +74,6 @@ export interface GuestSceneProps {
 }
 
 export default (props: GuestSceneProps) => {
-
-    const styles = useStyles();
 
     return (
         <Flexbox style={{ height: "100%" }} flexDirection="column">

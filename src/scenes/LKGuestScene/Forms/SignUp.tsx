@@ -27,11 +27,11 @@ export default (props: SignUpProps) => {
     return (
         <Fragment>
             <Flexbox flex={1}>
-                <div onClick={props.onBack} style={styles.scanes.lkguest.backButton}>
+                <div onClick={props.onBack} style={styles.scenes.lkguest.backButton}>
                     <Icon
                         type="left"
                         size={1.5}
-                        style={styles.scanes.lkguest.backButtonIcon}
+                        style={styles.scenes.lkguest.backButtonIcon}
                     />
                 </div>
 
@@ -72,7 +72,7 @@ export default (props: SignUpProps) => {
                         label="Зарегистрироваться"
                         decoration="highlight"
                         onClick={onSubmit}
-                        style={styles.scanes.lkguest.submitButton}
+                        style={styles.scenes.lkguest.submitButton}
                     />
                 </Flexbox>
             </Flexbox>

@@ -14,10 +14,10 @@ export default (props: GuestSceneProps) => {
 
     const st = {
         root: {
-            background: styles.scanes.lkguest.main.backgroundColor,
+            background: styles.scenes.lkguest.main.backgroundColor,
         } as CSSProperties,
         title: {
-            color: styles.scanes.lkguest.main.titleColor,
+            color: styles.scenes.lkguest.main.titleColor,
             marginBottom: 20
         }
     }
