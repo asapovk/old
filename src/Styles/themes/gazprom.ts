@@ -20,6 +20,12 @@ export default {
     highlight: getColors(0, 106, 255),
     accents: accentColors,
     shadow: getColors(220, 220, 220),
+    borders: {
+        button: {
+            width: '1px',
+            style: 'solid'
+        }
+    },
     shadows: {
         button: 'none',
         card: '0 1rem 1rem 0 ' + getColors(218, 228, 242).rgb

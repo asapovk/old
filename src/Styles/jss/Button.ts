@@ -8,9 +8,9 @@ export default (theme) => {
                 boxShadow: theme.shadows.button,
                 borderRadius: theme.radius.button,
                 color: decoration ? theme.textOnAccent.rgb : theme.text.rgb,
-                border: "1px solid",
-                borderColor: theme.pale.rgb
+                border: 'none',
             };
+
             switch (decoration) {
                 case 'highlight':
                     style.background = theme.highlight.rgb
@@ -37,13 +37,17 @@ export default (theme) => {
                     style.padding = 0;
                     style.color = theme.text.rgb;
                     break;
+                default:
+                    style.borderWidth = theme.borders.button.width;
+                    style.borderStyle = theme.borders.button.style;
+                    style.borderColor = theme.pale.rgb;
             }
 
             if (inversion) {
                 style = {
                     ...style,
                     background: theme.interface.rgb,
-                    color: style.background
+                    color: style.background,
                 } as CSSProperties
             }
             return style;

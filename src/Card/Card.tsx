@@ -1,5 +1,5 @@
 import React, { useState, CSSProperties } from 'react';
-import { Flexbox, Button } from "../";
+import { Flexbox, Button } from '../';
 import useStyles from '../hooks/useStyles';
 
 interface CardAction {

@@ -23,6 +23,12 @@ export default {
         button: '0px 2px 6px 0px ' + getColors(19, 20, 25).hex,
         card: '0px 1rem 1rem 0px ' + getColors(19, 20, 25).hex,
     },
+    borders: {
+        button: {
+            width: '1px',
+            style: 'solid'
+        }
+    },
     radius: {
         default: '2px',
         window: '4px',
