@@ -12,7 +12,6 @@ interface IMenu {
     children?: any
 }
 
-let contentHeight;
 
 export default (props: IMenu) => {
 
@@ -20,17 +19,71 @@ export default (props: IMenu) => {
     const windowSize = useBrowseWidth();
 
     const [active, setActive] = useState(false);
-    const [menuHeigth, setMenuHeight] = useState(0);
+    const [menuHeight, setMenuHeight] = useState(0);
 
-    const hamburgerContent = React.createRef<HTMLDivElement>();
+    const menuRef = React.createRef<HTMLDivElement>();
 
     const { header, style, children, toolsRight, profile } = props;
 
     let hamburgerClasses = 'ui-menu-navbar-hamburger';
-    if (active) hamburgerClasses += ' active';
 
-    console.log(hamburgerContent);
+    // const animate = (from: number, to: number, onFrame: (value: number) => void, delay: number = 250, idAnimation?: string, fps: number = 60) => {
+    //     let value = from;
+    //     let total = from;
+    //     if (from < to) {
+    //         total = to;
+    //     }
+    //     if (!idAnimation) {
+    //         idAnimation = (Math.random() * 10000000).toString(16);
+    //     }
 
+    //     if (window['abrr_ui_animation_frames'] === undefined) {
+    //         window['abrr_ui_animation_frames'] = {};
+    //     }
+
+    //     const runAnimation = () => {
+    //         window['abrr_ui_animation_frames'][idAnimation] = requestAnimationFrame(loop);
+    //     }
+    //     const removeAnimation = (cancel: boolean = false) => {
+    //         if (cancel) {
+    //             cancelAnimationFrame(window['abrr_ui_animation_frames'][idAnimation]);
+    //         }
+    //         delete window['abrr_ui_animation_frames'][idAnimation];
+    //     }
+
+    //     const loop = () => {
+    //         if ((from < to && value < to) || (from > to && value > to)) {
+    //             if (from < to) {
+    //                 value += Math.round(total / (delay / fps));
+    //             } else {
+    //                 value -= Math.round(total / (delay / fps));
+    //             }
+    //             onFrame(value);
+    //             if (window['abrr_ui_animation_frames'][idAnimation]) {
+    //                 runAnimation();
+    //             }
+    //         } else {
+    //             removeAnimation(false);
+    //         }
+    //     };
+    //     if (window['abrr_ui_animation_frames'][idAnimation]) {
+    //         removeAnimation(true);
+    //     }
+    //     setTimeout(runAnimation, 1);
+    // }
+
+    useEffect(() => {
+        if (active) {
+            setMenuHeight((menuRef.current!.childNodes[0] as HTMLDivElement).offsetHeight)
+        } else {
+            setMenuHeight(0);
+        }
+    }, [active]);
+
+
+    if (active) {
+        hamburgerClasses += " active";
+    }
     return (
         <div>
             <Flexbox className='ui-menu' alignItems='center' justifyContent='space-between' style={{ ...styles.menu.main.menu, ...style }}>
@@ -74,10 +127,21 @@ export default (props: IMenu) => {
                 )}
 
             </Flexbox >
-            <div ref={hamburgerContent} className={`ui-menu-navbar-hamburger-content`}>
-                <div>123</div>
-                <div>123123</div>
-            </div>
+            {(children && windowSize.width < 768) && (
+                <div ref={menuRef} style={{ height: menuHeight }} className={`ui-menu-navbar-hamburger-content`}>
+                    <Flexbox alignItems="center" flexDirection="column" style={{ position: "relative", top: active ? 0 : 110, opacity: active ? 1 : 0 }}>
+                        <div>Основная информация</div>
+                        <div style={{
+                            background: styles.theme.highlight.hex,
+                            borderRadius: styles.theme.radius.button,
+                            color: styles.theme.textOnAccent.hex,
+                        }}>Всякая ерундистика</div>
+                        <div>Контакты</div>
+                        <div>О бобрах</div>
+                        <div>Связаться с зеленым кроликом</div>
+                    </Flexbox>
+                </div>
+            )}
         </div>
     )
 }
