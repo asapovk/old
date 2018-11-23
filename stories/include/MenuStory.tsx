@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import { Viewport, Menu, Nav, Button, Icon, Login } from '../../src';
+import { Menu, Nav, Login } from '../../src';
 
 export const loginUser = {
     id_user: 1,
@@ -18,32 +18,32 @@ export const loginUser = {
 export default class MenuStory extends React.Component {
 
     render() {
+
+        const Header = () => {
+            return (
+                <div>
+                    <span style={{ fontWeight: 700, paddingRight: '10px' }}>Connect</span>
+                    <span>Module</span>
+                </div>
+            )
+        }
+
         return (
             <Fragment>
                 <Menu
-                    header={<div><span style={{ fontWeight: 700, paddingRight: '10px' }}>Connect</span><span>Module</span></div>}
-                    //search={true}
-                    toolsLeft={[
-                        <Button decoration='none' style={{ fontSize: '24px' }}>
-                            <Icon type='add' />
-                        </Button>,
-                        <Button decoration='none' style={{ fontSize: '24px' }}>
-                            <Icon type='filter' />
-                        </Button>
-                    ]}
-                    toolsRight={[
-                        <Login
-                            name={loginUser.first_name}
-                            login={loginUser.login}
-                            fullname={loginUser.first_name + ' ' + loginUser.last_name}
-                            role={loginUser.desc_role}
-                        />
-                    ]}
+                    header={<Header />}
+                    profile={{
+                        name: loginUser.first_name,
+                        login: loginUser.login,
+                        fullname: loginUser.first_name + ' ' + loginUser.last_name,
+                        role: loginUser.desc_role
+                    }}
                 >
                     <Nav active={true}>Pineapple</Nav>
                     <Nav>Grape</Nav>
                     <Nav onClick={() => console.log('fly away')}>Peach</Nav>
                     <Nav>Strawberry</Nav>
+
                 </Menu>
             </Fragment>
         )

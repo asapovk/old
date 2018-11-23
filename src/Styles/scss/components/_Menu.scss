@@ -1,122 +1,88 @@
-$rowHeight: 60px;
-$rowHeightMin: 40px;
+$rowHeight: calc(4rem - 0.5px);
+$rowHeightMin: 2.5rem;
 
 .ui-menu {
-    display: flex;
-    flex-direction: row;
-    background: #000;
-    align-items: flex-start;
-    padding: 0px 40px;
+    height: $rowHeight;
+    padding: 0 2.5rem;
     border-bottom: 0.5px solid;
+    user-select: none;
+
     &-header {
-        display: flex;
-        font-size: 24px;
-        align-items: center;
         height: $rowHeight;
-        padding-right: 20px;
+        margin-right: 0.625rem;
+        font-size: 1.5rem;
         cursor: pointer;
-        &-title{
+        
+        &-title {
+            line-height: 1.25rem;
             font-weight: bold;
         }
     }
-    &-interactions {
-        display: flex;
-        flex-direction: column;
-        flex: 1 1 auto;
-        &-navbar, &-toolsbar {
-            display: flex;
-            flex-direction: row;
-            height: $rowHeight;
+    
+    &-navbar {
+        height: $rowHeight;
+
+        > * {
+            margin-right: 0.625rem;
         }
-        &-toolsbar {
-            line-height: 1;
-            align-items: flex-end;
-            &-search {
-                height: $rowHeightMin;
-                display: flex;
-                align-items: center;
-                flex: 1;
-                max-width: 632px; 
-                border: 0.5px solid;
-                &-icon {
-                    font-size: 18px;
-                    padding-right: 10px;
-                    cursor: pointer;
-                }
-                input {
-                    appearance: none;
-                    box-sizing: border-box;
-                    resize: none;
-                    border: none;
-                    background: none;
-                    padding: 8px;
-                    outline: none;
-                    position: relative;
-                    color: inherit;
-                    font-size: inherit;
-                    width: 100%;
-                }
+
+        &-hamburger {
+            width: 1.5rem;
+            height: 0.15rem * 3 + 0.225rem * 2;
+            cursor: pointer;
+            transition: transform 0.15s ease;
+            z-index: 4;
+
+            &-content {
+                background-color: rgba(0,0,0,.3);
+                padding: 0 2.5rem;
+                transition: .5 all 0.3s ease-in-out;
+                overflow: hidden;
             }
-            &-tools {
-                display: flex;
-                align-items: center;
-                padding-left: 32px;
-                > * {
-                    padding-left: 8px !important;
+        
+            &:hover {
+                opacity: 0.7;
+            }
+
+            &-top,
+            &-middle,
+            &-bottom {
+                width: 1.5rem;
+                height: 0.15rem;
+                border-radius: 0.5rem;
+                transition: transform 0.15s ease;
+            }
+
+            &.active {
+                transform: translate3d(0, 0px, 0) rotate(45deg);
+
+                .ui-menu-navbar-hamburger-top {
+                    opacity: 0;
+                }
+
+                .ui-menu-navbar-hamburger-bottom {
+                    transform: translate3d(0, -6px, 0) rotate(-90deg);
                 }
             }
         }
     }
+
     &-toolsbar {
-        display: flex;
         height: $rowHeight;
-        align-items: center;
-        padding-left: 60px;
-        &-tools {
-            display: flex;
-            align-items: center;
-            height: $rowHeightMin;
-            > * {
-                padding-left: 10px;
-            }
+        > * {
+            margin-right: 0.625rem;
         }
+    }
+
+    &-profile {
+        height: $rowHeight;
     }
 }
 
 .ui-menu-nav {
-    display: flex;
-    font-size: 15px;
-    padding: 0 20px;
-    align-items: center;
+    font-size: 1rem;
+    padding: 0.25rem 1rem;
     cursor: pointer;
-    position: relative;
-    font-weight: 600;
-    color: #999;
-    span {
-        position: absolute;
-        bottom: 0px;
-        height: 3px;
-        background: #fff;
-        left: 0;
-        right: 0;
-        z-index: 1;
-    }
-}
-
-.nav-min {
-    > * { 
-        font-size: 14px !important;
-        padding: 24px 16px 14px;
-    }
-}
-
-.header-max {
-    align-items: flex-end !important;
-        > * {
-            margin-bottom: 8px;
-        }
-}
-
-.bar-max {
-    align-items: flex-end !important;
+    font-weight: 500;
+    line-height: 1.25rem
 }

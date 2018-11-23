@@ -1,30 +1,31 @@
-import React, { Component } from 'react';
-import { Styles } from '../';
+import React from 'react';
+import useStyles from '../hooks/useStyles';
 
-interface Props {
+interface INav {
     active?: boolean
     onClick?: () => void
     children?: any
 }
 
-class MenuNav extends Component<Props> {
+export default (props: INav) => {
 
-    render() {
-        const { active, onClick } = this.props;
-        return (
-            <Styles>
-                {styles => (
-                    <div
-                        className="ui-menu-nav"
-                        onClick={onClick}
-                        style={{
-                            color: active ? styles.menu.nav.textColorActive : styles.menu.nav.textColor
-                        }}
-                    >{this.props.children}{active && <span style={{ backgroundColor: styles.menu.nav.textColorActive }} />}</div>
-                )}
-            </Styles>
-        )
-    }
+    const styles = useStyles();
+    const { active, onClick, children } = props;
+
+    let classes = 'ui-menu-nav';
+    if (active) classes += ' active';
+
+    return (
+        <div
+            className={classes}
+            onClick={onClick}
+            style={{
+                color: active ? styles.theme.textOnAccent.rgb : styles.menu.nav.textColor,
+                background: active ? styles.menu.nav.textColorActive : 'transparent',
+                borderRadius: styles.theme.radius.button
+            }}
+        >
+            {children}
+        </div>
+    )
 }
-
-export default MenuNav;
