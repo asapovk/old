@@ -17,10 +17,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importDefault(require("react"));
 var __1 = require("../..");
 var Forms_1 = __importDefault(require("./Forms"));
-var useBrowseWidth_1 = __importDefault(require("../../hooks/useBrowseWidth"));
+var useBrowser_1 = __importDefault(require("../../hooks/useBrowser"));
 var useStyles_1 = __importDefault(require("../../hooks/useStyles"));
 exports.default = (function (props) {
-    var size = useBrowseWidth_1.default();
+    var size = useBrowser_1.default();
     var styles = useStyles_1.default();
     var st = {
         root: {

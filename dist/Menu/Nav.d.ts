@@ -1,10 +1,10 @@
-import React, { Dispatch, SetStateAction } from 'react';
+import React from 'react';
 interface INav {
     active?: boolean;
-    onClick?: Dispatch<SetStateAction<number>>;
+    onClick?: (menuKey: number) => void;
     label: any;
     style?: React.CSSProperties;
-    itemKey: number;
+    menuKey: number;
 }
 declare const _default: (props: INav) => JSX.Element;
 export default _default;

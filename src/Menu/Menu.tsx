@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Flexbox, Login } from '..';
 import Nav from './Nav';
 import useStyles from '../hooks/useStyles';
-import useBrowseWidth from '../hooks/useBrowseWidth';
+import useBrowser from '../hooks/useBrowser';
 import { ColorCorrector } from '../Styles/utilities';
 
 interface IMenu {
@@ -19,7 +19,7 @@ interface IMenu {
 export default (props: IMenu) => {
 
     const styles = useStyles();
-    const windowSize = useBrowseWidth();
+    const windowSize = useBrowser();
 
     const [active, setActive] = useState(false);
     const [menuHeight, setMenuHeight] = useState(0);

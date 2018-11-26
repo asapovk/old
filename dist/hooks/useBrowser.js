@@ -6,7 +6,7 @@ var RES = {
     MOBILE: 320,
 };
 /**
- * Использователь размеры браузера
+ * Использователь браузер
  */
 exports.default = (function () {
     var calc = function () {
@@ -16,6 +16,13 @@ exports.default = (function () {
             isDesktop: window.innerWidth >= RES.TABLET,
             isTablet: window.innerWidth < RES.TABLET && window.innerWidth > RES.MOBILE,
             isMobile: window.innerWidth <= RES.MOBILE,
+            info: {
+                vendor: navigator.vendor,
+                name: navigator.appName,
+                version: navigator.appVersion,
+                language: navigator.language,
+                geolocation: navigator.geolocation,
+            }
         };
     };
     var _a = react_1.useState(calc()), value = _a[0], setValue = _a[1];

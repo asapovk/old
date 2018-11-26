@@ -3,13 +3,13 @@ import { Flexbox, TextField, Button } from '../..';
 import Form from './Forms';
 import { GuestSceneProps } from '.';
 
-import useBrowseWidth from '../../hooks/useBrowseWidth';
+import useBrowser from '../../hooks/useBrowser';
 import useStyles from '../../hooks/useStyles';
 
 
 export default (props: GuestSceneProps) => {
 
-    const size = useBrowseWidth();
+    const size = useBrowser();
     const styles = useStyles();
 
     const st = {

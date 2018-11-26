@@ -22,5 +22,5 @@ exports.default = (function (props) {
     var classes = 'ui-menu-nav';
     if (active)
         classes += ' active';
-    return (react_1.default.createElement("div", { className: classes, onClick: function () { return onClick && onClick(props.itemKey); }, style: __assign({}, props.style, { color: active ? styles.theme.textOnAccent.rgb : styles.menu.nav.textColor, background: active ? styles.menu.nav.textColorActive : 'transparent', borderRadius: styles.theme.radius.button }) }, label));
+    return (react_1.default.createElement("div", { className: classes, onClick: function () { return onClick && onClick(props.menuKey); }, style: __assign({}, props.style, { color: active ? styles.theme.textOnAccent.rgb : styles.menu.nav.textColor, background: active ? styles.menu.nav.textColorActive : 'transparent', borderRadius: styles.theme.radius.button }) }, label));
 });
