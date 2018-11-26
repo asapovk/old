@@ -1,5 +1,5 @@
 import React from 'react';
-import { Flexbox, Finder, FinderNav, FinderSection, Checkbox } from '../../src';
+import { Flexbox, Finder, FinderNav, FinderSection, Checkbox, DatePicker } from '../../src';
 
 import Fakerator from 'fakerator';
 
@@ -54,8 +54,8 @@ class FinderStory extends React.Component {
                             <FinderNav label='Bartlett'></FinderNav>
                         </FinderNav>
                     </FinderNav>
-                    <FinderNav label='Three'>
-                        <div>12345</div>
+                    <FinderNav label='Date'>
+                        <DatePicker />
                     </FinderNav>
                 </Finder>
             </Flexbox>

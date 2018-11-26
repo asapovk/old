@@ -1,8 +1,8 @@
 import React, { Fragment } from 'react';
 import { Flexbox } from '../../src/Flexbox';
-import SmorodinaLogo from '../../logos/smorodina';
-import MrgLogo from '../../logos/mrg';
-import AbrLogo from '../../logos/abr';
+import SmorodinaLogo from '../../src/logos/smorodina';
+import MrgLogo from '../../src/logos/mrg';
+import AbrLogo from '../../src/logos/abr';
 import Scene from '../../src/scenes/LKGuestScene';
 import useStyles from '../../src/hooks/useStyles';
 
