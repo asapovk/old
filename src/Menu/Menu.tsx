@@ -12,7 +12,6 @@ interface IMenu {
     children?: any
 }
 
-
 export default (props: IMenu) => {
 
     const styles = useStyles();
@@ -84,6 +83,7 @@ export default (props: IMenu) => {
     if (active) {
         hamburgerClasses += " active";
     }
+
     return (
         <div>
             <Flexbox className='ui-menu' alignItems='center' justifyContent='space-between' style={{ ...styles.menu.main.menu, ...style }}>
@@ -126,7 +126,8 @@ export default (props: IMenu) => {
                     </Flexbox>
                 )}
 
-            </Flexbox >
+            </Flexbox>
+
             {(children && windowSize.width < 768) && (
                 <div ref={menuRef} style={{ height: menuHeight }} className={`ui-menu-navbar-hamburger-content`}>
                     <Flexbox alignItems="center" flexDirection="column" style={{ position: "relative", top: active ? 0 : 110, opacity: active ? 1 : 0 }}>
