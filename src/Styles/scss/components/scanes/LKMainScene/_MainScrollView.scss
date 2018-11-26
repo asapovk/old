@@ -1,0 +1,10 @@
+.ui-lkcomponent { 
+    &-main-scroll-view {
+        height: 23rem;
+        padding: 0 2.75rem;
+        &-title {
+            border-bottom-width: 1px;
+            border-bottom-style: solid;
+        }
+    }
+} 

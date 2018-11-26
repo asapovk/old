@@ -47,6 +47,8 @@ export default (props: IProps) => {
         mainTop: {
             minWidth: browser.resolutionMobileMinimum,
             overflow: "scroll",
+            borderBottomLeftRadius: "100% 40px",
+            borderBottomRightRadius: "100% 40px"
         },
     }
 
@@ -70,12 +72,14 @@ export default (props: IProps) => {
             <Flexbox style={st.main} flex={1}>
                 {needDisplaySideBar && (
                     <Flexbox flex={1} flexDirection="column" style={st.side}>
-                        <div style={{
-                            position: "absolute",
-                            left: 0, right: 0, top: 0,
-                            height: browser.resolutionMobileMinimum,
-                            background: `linear-gradient(0deg, ${styles.theme.background.hex}, ${styles.theme.background2.hex} 20%)`
-                        }} />
+                        {props.components.mainTop && (
+                            <div style={{
+                                position: "absolute",
+                                left: 0, right: 0, top: 0,
+                                height: browser.resolutionMobileMinimum - 50,
+                                background: `linear-gradient(0deg, ${styles.theme.background.hex}, ${styles.theme.background2.hex} 20%)`
+                            }} />
+                        )}
                         <Flexbox
                             flex={1}
                             flexDirection="column"

@@ -3,7 +3,9 @@ import Scene from '../../src/scenes/LKMainScene';
 import { Card, Menu, Icon, Stories } from '../../src';
 import useStyles from '../../src/hooks/useStyles';
 import SmoLogo from '../../src/logos/smorodina';
-import AccountSelect from '../../src/LKComponents/AccountSelect';
+import AccountSelect from '../../src/scenes/LKMainScene/components/AccountSelect';
+import MainScrollView from '../../src/scenes/LKMainScene/components/MainScrollView';
+
 import TableStory from './TableStory';
 
 const Header = () => {
@@ -11,7 +13,7 @@ const Header = () => {
     const styles = useStyles();
     return (
         <Menu
-            header={<SmoLogo style={{ width: "8rem" }} />}
+            header={<SmoLogo style={{ width: "8rem" }} color={styles.theme.text.hex} />}
             items={{
                 active,
                 onClick,
@@ -75,17 +77,7 @@ const SideMenu = () => {
         </Fragment>
     )
 }
-const MainTop = () => {
-    const styles = useStyles();
 
-    return (
-        <div style={{
-            background: styles.theme.background2.hex,
-            height: 300,
-            whiteSpace: "nowrap"
-        }}>1000px scroll horizontal 1000px scroll horizontal 1000px scroll horizontal 1000px scroll horizontal 1000px scroll horizontal 1000px scroll horizontal 1000px scroll horizontal</div>
-    )
-}
 const Main = () => {
     return (
         <Fragment>
@@ -102,7 +94,7 @@ export default () => {
             components={{
                 header: <Header />,
                 side: <SideMenu />,
-                mainTop: <MainTop />,
+                mainTop: <MainScrollView />,
                 main: <Main />,
                 sideBottom: <Stories title="Рекомендации" stories={[{
                     label: "Кукушка пробила голову андрею",
