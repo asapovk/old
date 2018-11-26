@@ -1,12 +1,12 @@
-import React, { Dispatch, SetStateAction } from 'react';
+import React from 'react';
 import useStyles from '../hooks/useStyles';
 
 interface INav {
     active?: boolean
-    onClick?: Dispatch<SetStateAction<number>>
+    onClick?: (menuKey: number) => void
     label: any
     style?: React.CSSProperties
-    itemKey: number
+    menuKey: number
 }
 
 export default (props: INav) => {
@@ -20,7 +20,7 @@ export default (props: INav) => {
     return (
         <div
             className={classes}
-            onClick={() => onClick && onClick(props.itemKey)}
+            onClick={() => onClick && onClick(props.menuKey)}
             style={{
                 ...props.style,
                 color: active ? styles.theme.textOnAccent.rgb : styles.menu.nav.textColor,

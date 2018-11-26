@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, Dispatch, SetStateAction } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Flexbox, Login } from '..';
 import Nav from './Nav';
 import useStyles from '../hooks/useStyles';
@@ -9,7 +9,7 @@ interface IMenu {
     header?: any
     navigation: any[]
     activeMenu: number
-    onMenuClick: Dispatch<SetStateAction<number>>
+    onMenuClick: (key: number) => void
     toolsRight?: any[]
     pin?: boolean
     style?: any
@@ -114,12 +114,12 @@ export default (props: IMenu) => {
 
                 {(windowSize.width >= 768) && (
                     <Flexbox alignItems='center' justifyContent='center' className={'ui-menu-navbar'}>
-                        {navigation.map((navItem, index) => <Nav key={index} itemKey={index} label={navItem.label} active={index === activeMenu} onClick={onMenuClick} />)}
+                        {navigation.map((navItem, index) => <Nav key={index} menuKey={index} label={navItem.label} active={index === activeMenu} onClick={onMenuClick} />)}
                     </Flexbox>
                 )}
 
                 {toolsRight && (
-                    <Flexbox alignItems='center' flex={1} justifyContent='flex-end' className={'ui-menu-toolsbar'}>
+                    <Flexbox alignItems='center' justifyContent='flex-end' className={'ui-menu-toolsbar'}>
                         {toolsRight.map((tool, index) => React.cloneElement(tool, { key: index }))}
                     </Flexbox>
                 )}
@@ -135,7 +135,7 @@ export default (props: IMenu) => {
             {(windowSize.width < 768) && (
                 <div ref={menuRef} style={{ height: menuHeight, background: ColorCorrector.darker(styles.theme.background.hex, 3) }} className={`ui-menu-navbar-hamburger-content`}>
                     <Flexbox alignItems="center" flexDirection="column" style={{ position: "relative", top: active ? 0 : 110, opacity: active ? 1 : 0 }}>
-                        {navigation.map((navItem, index) => <Nav style={{ marginBottom: (index === navigation.length - 1) ? 0 : '1rem' }} key={index} itemKey={index} label={navItem.label} active={index === activeMenu} onClick={onMenuClick} />)}
+                        {navigation.map((navItem, index) => <Nav style={{ marginBottom: (index === navigation.length - 1) ? 0 : '1rem' }} key={index} menuKey={index} label={navItem.label} active={index === activeMenu} onClick={onMenuClick} />)}
                     </Flexbox>
                 </div>
             )}
