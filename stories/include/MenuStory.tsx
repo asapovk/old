@@ -18,7 +18,6 @@ export const loginUser = {
 export default () => {
 
     const [active, setActive] = useState(0);
-    console.log(active);
 
     const Header = () => {
         return (
@@ -33,9 +32,11 @@ export default () => {
         <Fragment>
             <Menu
                 header={<Header />}
-                navigation={[{ label: 'Pineapple' }, { label: 'Grape' }, { label: 'Peach' }, { label: 'Strawberry' }]}
-                activeMenu={active}
-                onMenuClick={setActive}
+                items={{
+                    list: [{ label: 'Pineapple' }, { label: 'Grape' }, { label: 'Peach' }, { label: 'Strawberry' }],
+                    active: active,
+                    onClick: setActive
+                }}
                 profile={{
                     name: loginUser.first_name,
                     login: loginUser.login,

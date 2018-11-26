@@ -3,13 +3,21 @@ import { Flexbox, Login } from '..';
 import Nav from './Nav';
 import useStyles from '../hooks/useStyles';
 import useBrowseWidth from '../hooks/useBrowseWidth';
-import { ColorCorrector } from '../Styles/utilities';
+import { MobileMenuItems, MobileMenu } from './Mobile';
+
+interface IListItem {
+    label: string
+}
+
+export interface IMenuItem {
+    list: IListItem[]
+    active: number
+    onClick: (menuItemKey: number) => void
+}
 
 interface IMenu {
     header?: any
-    navigation: any[]
-    activeMenu: number
-    onMenuClick: (key: number) => void
+    items: IMenuItem
     toolsRight?: any[]
     pin?: boolean
     style?: any
@@ -21,14 +29,9 @@ export default (props: IMenu) => {
     const styles = useStyles();
     const windowSize = useBrowseWidth();
 
-    const [active, setActive] = useState(false);
-    const [menuHeight, setMenuHeight] = useState(0);
+    const [mobileActive, setMobileActive] = useState(false);
 
-    const menuRef = useRef<HTMLDivElement>(null);
-
-    const { header, style, toolsRight, profile, navigation, activeMenu, onMenuClick } = props;
-
-    let hamburgerClasses = 'ui-menu-navbar-hamburger';
+    const { header, style, toolsRight, profile, items } = props;
 
     // const animate = (from: number, to: number, onFrame: (value: number) => void, delay: number = 250, idAnimation?: string, fps: number = 60) => {
     //     let value = from;
@@ -75,32 +78,11 @@ export default (props: IMenu) => {
     //     setTimeout(runAnimation, 1);
     // }
 
-    useEffect(() => {
-        if (active) {
-            setMenuHeight((menuRef.current!.childNodes[0] as HTMLDivElement).offsetHeight)
-        } else {
-            setMenuHeight(0);
-        }
-    }, [active]);
-
-
-    if (active) {
-        hamburgerClasses += " active";
-    }
-
     return (
         <div>
             <Flexbox className='ui-menu' alignItems='center' justifyContent='space-between' style={{ ...styles.menu.main.menu, ...style }}>
 
-                {(windowSize.width < 768) && (
-                    <Flexbox justifyContent='center' alignItems='center' className='ui-menu-navbar'>
-                        <Flexbox flexDirection='column' justifyContent='space-between' className={hamburgerClasses} onClick={() => setActive(!active)}>
-                            <div className='ui-menu-navbar-hamburger-top' style={{ backgroundColor: styles.theme.highlight.hex }} ></div>
-                            <div className='ui-menu-navbar-hamburger-middle' style={{ backgroundColor: styles.theme.highlight.hex }}></div>
-                            <div className='ui-menu-navbar-hamburger-bottom' style={{ backgroundColor: styles.theme.highlight.hex }}></div>
-                        </Flexbox>
-                    </Flexbox>
-                )}
+                {(windowSize.width < 768) && <MobileMenu active={mobileActive} setActive={setMobileActive} />}
 
                 {header && (
                     <Flexbox alignItems='center' flex={windowSize.width < 768 ? 1 : 0} justifyContent='flex-start' className={'ui-menu-header'}>
@@ -114,7 +96,15 @@ export default (props: IMenu) => {
 
                 {(windowSize.width >= 768) && (
                     <Flexbox alignItems='center' justifyContent='center' className={'ui-menu-navbar'}>
-                        {navigation.map((navItem, index) => <Nav key={index} menuKey={index} label={navItem.label} active={index === activeMenu} onClick={onMenuClick} />)}
+                        {items.list.map((navItem, index) => (
+                            <Nav
+                                key={index}
+                                menuKey={index}
+                                label={navItem.label}
+                                active={index === items.active}
+                                onClick={items.onClick}
+                            />
+                        ))}
                     </Flexbox>
                 )}
 
@@ -132,13 +122,7 @@ export default (props: IMenu) => {
 
             </Flexbox>
 
-            {(windowSize.width < 768) && (
-                <div ref={menuRef} style={{ height: menuHeight, background: ColorCorrector.darker(styles.theme.background.hex, 3) }} className={`ui-menu-navbar-hamburger-content`}>
-                    <Flexbox alignItems="center" flexDirection="column" style={{ position: "relative", top: active ? 0 : 110, opacity: active ? 1 : 0 }}>
-                        {navigation.map((navItem, index) => <Nav style={{ marginBottom: (index === navigation.length - 1) ? 0 : '1rem' }} key={index} menuKey={index} label={navItem.label} active={index === activeMenu} onClick={onMenuClick} />)}
-                    </Flexbox>
-                </div>
-            )}
+            {(windowSize.width < 768) && <MobileMenuItems active={mobileActive} items={props.items} />}
         </div>
     )
 }
