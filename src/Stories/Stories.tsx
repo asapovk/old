@@ -19,7 +19,6 @@ export default (props: IStories) => {
     if (!props.stories.length) return null;
 
     const styles = useStyles();
-    const [active, setActive] = useState<number | null>(null);
 
     return (
         <Flexbox className='ui-stories' flexDirection='column'>
@@ -34,7 +33,6 @@ export default (props: IStories) => {
                             borderColor: !story.read ? styles.theme.accents.blue.rgba(.7) : 'transparent'
                         }}
                         onClick={() => {
-                            setActive(index);
                             story.onClick && story.onClick();
                         }}
                         alignItems='flex-end'
