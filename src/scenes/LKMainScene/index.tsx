@@ -1,67 +1,105 @@
-import React, { ReactElement, useState, useContext, Dispatch, SetStateAction, useEffect } from 'react';
-import { Flexbox } from '../..';
-import { ICard } from '../../Card/Card';
+import React from 'react';
+import { Flexbox } from '../../';
+import useStyles from '../../hooks/useStyles';
+import useBrowser from '../../hooks/useBrowser';
 
-import MainView from './MainView';
-import HeaderMenu from './HeaderMenu';
-
-export interface ISubMenuItem {
-    key: string
-    card: ICard
-    component: ReactElement<any>
+interface IProps {
+    components: {
+        header?: React.Component | any
+        side?: React.Component | any
+        sideBottom?: React.Component | any
+        mainTop?: React.Component | any
+        main?: React.Component | any
+    },
+    /**
+     * Display side bar instead of 
+     * mains (only for mobile resolution)
+     */
+    displaySideBar?: boolean
 }
 
-export interface IMenuItem {
-    title: string
-    key: string
-    submenuItems: ISubMenuItem[]
-}
+export default (props: IProps) => {
+    const browser = useBrowser();
+    const styles = useStyles();
 
-export interface IMainScene {
-    menuItems: IMenuItem[]
-}
+    const st = {
+        root: {
+            height: browser.height,
+            overflow: "hidden"
+        },
+        main: {
+            overflow: "hidden"
+        },
+        side: {
+            overflow: "scroll",
+            background: styles.theme.interface.hex,
+            maxWidth: browser.resolutionMobileMinimum,
+            borderRight: "1px solid",
+            borderColor: styles.theme.pale.hex,
+        },
+        sideBottom: {
+            overflow: "scroll",
+        },
+        mainRight: {
+            overflow: "scroll",
+            minWidth: browser.resolutionMobileMinimum,
+        },
+        mainTop: {
+            minWidth: browser.resolutionMobileMinimum,
+            overflow: "scroll",
+        },
+    }
 
-interface IMainSceneContext {
-    menuItems: IMenuItem[]
-    currentMenuItem: IMenuItem
-    setCurrentMenu: Dispatch<SetStateAction<IMenuItem>>
-    currentSubMenuItem: ISubMenuItem
-    setCurrentSubMenu: Dispatch<SetStateAction<ISubMenuItem>>
-}
+    let needDisplaySideBar = Boolean(props.components.side);
+    let needDisplayMain = Boolean(props.components.mainTop || props.components.main);
 
-export const MainSceneContext = React.createContext({} as IMainSceneContext);
-
-export function useMainContext() {
-    return useContext(MainSceneContext);
-}
-
-export default (props: IMainScene) => {
-
-    const [currentMenuItem, setMenuItem] = useState(props.menuItems[0]);
-    const [currentSubMenuItem, setCurrentSubMenu] = useState(currentMenuItem.submenuItems[0]);
-
-    useEffect(() => {
-        setCurrentSubMenu(currentMenuItem.submenuItems[0]);
-    }, [currentMenuItem.key]);
-
-    const defaulContext = {
-        menuItems: props.menuItems,
-        currentMenuItem: currentMenuItem,
-        setCurrentMenu: setMenuItem,
-        currentSubMenuItem: currentSubMenuItem,
-        setCurrentSubMenu: setCurrentSubMenu
-    };
+    if (!props.displaySideBar && browser.isMobile) {
+        needDisplaySideBar = false;
+    }
+    if (props.displaySideBar && browser.isMobile) {
+        needDisplaySideBar = true;
+        needDisplayMain = false;
+        delete st.side.maxWidth;
+    }
 
     return (
-        <MainSceneContext.Provider value={defaulContext}>
-            <Flexbox style={{ height: '100%' }} flexDirection='column'>
-                <Flexbox style={{ height: 64 }}>
-                    <HeaderMenu />
-                </Flexbox>
-                <Flexbox flex={1}>
-                    <MainView />
-                </Flexbox>
+        <Flexbox style={st.root} flexDirection="column">
+            {props.components.header &&
+                props.components.header
+            }
+            <Flexbox style={st.main} flex={1}>
+                {needDisplaySideBar && (
+                    <Flexbox flex={1} flexDirection="column" style={st.side}>
+                        <Flexbox
+                            flex={1}
+                            flexDirection="column"
+                            justifyContent="space-between"
+                        >
+                            <div children={props.components.side} />
+                            {props.components.sideBottom && (
+                                <Flexbox
+                                    flexShrink={0}
+                                    flexDirection="column"
+                                    style={st.sideBottom}
+                                    children={props.components.sideBottom}
+                                />
+                            )}
+                        </Flexbox>
+                    </Flexbox>
+                )}
+                {needDisplayMain && (
+                    <Flexbox flex={1} flexDirection="column" style={st.mainRight}>
+                        {props.components.mainTop && (
+                            <Flexbox
+                                flexShrink={0}
+                                style={st.mainTop}
+                                children={props.components.mainTop}
+                            />
+                        )}
+                        {props.components.main}
+                    </Flexbox>
+                )}
             </Flexbox>
-        </MainSceneContext.Provider>
+        </Flexbox>
     );
 }
