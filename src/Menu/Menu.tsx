@@ -78,8 +78,6 @@ export default (props: IMenu) => {
     //     setTimeout(runAnimation, 1);
     // }
 
-    console.log(windowSize.isTablet);
-
     return (
         <div>
             <Flexbox className='ui-menu' alignItems='center' justifyContent='space-between' style={{ ...styles.menu.main.menu, ...style }}>
@@ -87,7 +85,7 @@ export default (props: IMenu) => {
                 {!windowSize.isDesktop && <MobileMenu active={mobileActive} setActive={setMobileActive} />}
 
                 {header && (
-                    <Flexbox alignItems='center' flex={!windowSize.isDesktop ? 1 : 0} justifyContent='flex-start' className={'ui-menu-header'}>
+                    <Flexbox alignItems='center' justifyContent='flex-start' className={'ui-menu-header'}>
                         {!header.label ? header : (
                             <div className='ui-menu-header-title' onClick={header.onAction}>
                                 {header.label}
