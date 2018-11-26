@@ -1,5 +1,4 @@
-import React from 'react';
-interface Props {
+export interface ILogin {
     name: any;
     fullname?: any;
     avatar?: any;
@@ -7,10 +6,5 @@ interface Props {
     role?: any;
     children?: any;
 }
-interface Login {
-    tooltip: any;
-}
-declare class Login extends React.Component<Props> {
-    render(): JSX.Element;
-}
-export default Login;
+declare const _default: (props: ILogin) => JSX.Element;
+export default _default;

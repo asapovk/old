@@ -273,7 +273,7 @@ declare const _default: () => {
             borderLeft: string;
         };
     };
-    scanes: {
+    scenes: {
         lkguest: {
             main: {
                 backgroundColor: string;
