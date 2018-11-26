@@ -23,7 +23,7 @@ export interface FlexboxProps {
     inline?: boolean
     flex?: number | string
     flexBasis?: number | string
-    flexFrow?: number | string
+    flexGrow?: number | string
     flexShrink?: number | string
     alignSelf?: "auto" | "center" | "flex-start" | "flex-end" | "baseline" | "stretch"
     alignItems?: "center" | "flex-start" | "flex-end" | "baseline" | "stretch"
@@ -38,7 +38,7 @@ export interface FlexboxProps {
 
 class Flexbox extends React.Component<FlexboxProps> {
     render() {
-        const { className, elementRef, onClick, w, h, pr, pl, pt, pb, p, m, mr, ml, mt, mb, flex, inline, flexBasis, alignContent, alignSelf, alignItems, justifyContent, flexDirection, flexFlow, column } = this.props;
+        const { className, elementRef, onClick, w, h, pr, pl, pt, pb, p, m, mr, ml, mt, mb, flex, inline, flexBasis, alignContent, alignSelf, alignItems, justifyContent, flexDirection, flexFlow, flexShrink, flexGrow, column } = this.props;
         const props: any = {
             className,
             ref: elementRef,
@@ -70,7 +70,9 @@ class Flexbox extends React.Component<FlexboxProps> {
         if (alignSelf) props.style.alignSelf = alignSelf;
         if (alignItems) props.style.alignItems = alignItems;
         if (justifyContent) props.style.justifyContent = justifyContent;
-        if (flexFlow) props.style.padding = flexFlow;
+        if (flexFlow !== undefined) props.style.flexFlow = flexFlow;
+        if (flexShrink !== undefined) props.style.flexShrink = flexShrink;
+        if (flexGrow !== undefined) props.style.flexGrow = flexGrow;
 
         return React.createElement('div', props, this.props.children);
     }

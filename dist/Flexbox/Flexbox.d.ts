@@ -22,7 +22,7 @@ export interface FlexboxProps {
     inline?: boolean;
     flex?: number | string;
     flexBasis?: number | string;
-    flexFrow?: number | string;
+    flexGrow?: number | string;
     flexShrink?: number | string;
     alignSelf?: "auto" | "center" | "flex-start" | "flex-end" | "baseline" | "stretch";
     alignItems?: "center" | "flex-start" | "flex-end" | "baseline" | "stretch";
