@@ -1,41 +1,61 @@
 "use strict";
-var __importStar = (this && this.__importStar) || function (mod) {
-    if (mod && mod.__esModule) return mod;
-    var result = {};
-    if (mod != null) for (var k in mod) if (Object.hasOwnProperty.call(mod, k)) result[k] = mod[k];
-    result["default"] = mod;
-    return result;
-};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var react_1 = __importStar(require("react"));
-var __1 = require("../..");
-var MainView_1 = __importDefault(require("./MainView"));
-var HeaderMenu_1 = __importDefault(require("./HeaderMenu"));
-exports.MainSceneContext = react_1.default.createContext({});
-function useMainContext() {
-    return react_1.useContext(exports.MainSceneContext);
-}
-exports.useMainContext = useMainContext;
+var react_1 = __importDefault(require("react"));
+var __1 = require("../../");
+var useStyles_1 = __importDefault(require("../../hooks/useStyles"));
+var useBrowser_1 = __importDefault(require("../../hooks/useBrowser"));
 exports.default = (function (props) {
-    var _a = react_1.useState(props.menuItems[0]), currentMenuItem = _a[0], setMenuItem = _a[1];
-    var _b = react_1.useState(currentMenuItem.submenuItems[0]), currentSubMenuItem = _b[0], setCurrentSubMenu = _b[1];
-    react_1.useEffect(function () {
-        setCurrentSubMenu(currentMenuItem.submenuItems[0]);
-    }, [currentMenuItem.key]);
-    var defaulContext = {
-        menuItems: props.menuItems,
-        currentMenuItem: currentMenuItem,
-        setCurrentMenu: setMenuItem,
-        currentSubMenuItem: currentSubMenuItem,
-        setCurrentSubMenu: setCurrentSubMenu
+    var browser = useBrowser_1.default();
+    var styles = useStyles_1.default();
+    var st = {
+        root: {
+            height: browser.height,
+            overflow: "hidden"
+        },
+        main: {
+            overflow: "hidden"
+        },
+        side: {
+            overflow: "scroll",
+            background: styles.theme.interface.hex,
+            maxWidth: browser.resolutionMobileMinimum,
+            borderRight: "1px solid",
+            borderColor: styles.theme.pale.hex,
+        },
+        sideBottom: {
+            overflow: "scroll",
+        },
+        mainRight: {
+            overflow: "scroll",
+            minWidth: browser.resolutionMobileMinimum,
+        },
+        mainTop: {
+            minWidth: browser.resolutionMobileMinimum,
+            overflow: "scroll",
+        },
     };
-    return (react_1.default.createElement(exports.MainSceneContext.Provider, { value: defaulContext },
-        react_1.default.createElement(__1.Flexbox, { style: { height: '100%' }, flexDirection: 'column' },
-            react_1.default.createElement(__1.Flexbox, { style: { height: 64 } },
-                react_1.default.createElement(HeaderMenu_1.default, null)),
-            react_1.default.createElement(__1.Flexbox, { flex: 1 },
-                react_1.default.createElement(MainView_1.default, null)))));
+    var needDisplaySideBar = Boolean(props.components.side);
+    var needDisplayMain = Boolean(props.components.mainTop || props.components.main);
+    if (!props.displaySideBar && browser.isMobile) {
+        needDisplaySideBar = false;
+    }
+    if (props.displaySideBar && browser.isMobile) {
+        needDisplaySideBar = true;
+        needDisplayMain = false;
+        delete st.side.maxWidth;
+    }
+    return (react_1.default.createElement(__1.Flexbox, { style: st.root, flexDirection: "column" },
+        props.components.header &&
+            props.components.header,
+        react_1.default.createElement(__1.Flexbox, { style: st.main, flex: 1 },
+            needDisplaySideBar && (react_1.default.createElement(__1.Flexbox, { flex: 1, flexDirection: "column", style: st.side },
+                react_1.default.createElement(__1.Flexbox, { flex: 1, flexDirection: "column", justifyContent: "space-between" },
+                    react_1.default.createElement("div", { children: props.components.side }),
+                    props.components.sideBottom && (react_1.default.createElement(__1.Flexbox, { flexShrink: 0, flexDirection: "column", style: st.sideBottom, children: props.components.sideBottom }))))),
+            needDisplayMain && (react_1.default.createElement(__1.Flexbox, { flex: 1, flexDirection: "column", style: st.mainRight },
+                props.components.mainTop && (react_1.default.createElement(__1.Flexbox, { flexShrink: 0, style: st.mainTop, children: props.components.mainTop })),
+                props.components.main)))));
 });

@@ -27,6 +27,7 @@ export { Widget as Widget } from './Widget'
 export { WidgetStat as WidgetStat } from './WidgetStat'
 export { default as Styles } from './Styles'
 export { Card as Card } from './Card';
+export { Stories as Stories } from './Stories';
 
 export { Portal as Portal } from 'react-portal';
 export { Buddy as Buddy } from './Buddy'

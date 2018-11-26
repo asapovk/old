@@ -96,7 +96,7 @@ h3 {
 }
 
 h4 {
-  font-size: 1rem;
+  font-size: 1.125rem;
   line-height: 1.5rem;
   margin-top: 1.5rem;
   margin-bottom: 0.5rem;
@@ -1519,6 +1519,7 @@ blockquote {
   /* Firefox, other Gecko */
   box-sizing: border-box;
   /* Opera/IE 8+ */
+  margin-bottom: 1.25rem;
 }
 .ui-card-title {
   font-size: 1.125rem;
@@ -1545,6 +1546,39 @@ blockquote {
 .ui-card.active {
   margin-left: -0.625rem;
   margin-right: -0.625rem;
+}
+
+.ui-stories {
+  box-sizing: border-box;
+}
+.ui-stories-title {
+  margin-bottom: 1rem;
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 24px;
+}
+.ui-stories-items {
+  overflow: scroll;
+}
+.ui-stories-items-item {
+  box-sizing: border-box;
+  background-size: contain;
+  overflow: hidden;
+  border-radius: 0.5rem;
+  border-width: 1px;
+  border-style: solid;
+  box-shadow: 0 1rem 1rem 0 rgba(0, 0, 0, 0.14);
+  display: inline-block;
+  width: 7.5rem;
+  height: 10rem;
+  margin-right: 1rem;
+  cursor: pointer;
+}
+.ui-stories-items-label {
+  font-size: 0.75rem;
+  font-weight: bold;
+  padding: 0.75rem;
+  line-height: 14px;
 }
 
 /*# sourceMappingURL=styles.css.map */

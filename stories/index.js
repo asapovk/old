@@ -29,6 +29,7 @@ storiesOf('General')
     .add('Viewport', $('ViewportStory'))
     .add('Widget', $('WidgetStory'))
     .add('WidgetStat', $('WidgetStatStory'))
+    .add('Stories', $('StoriesStory'))
 
 storiesOf('Advanced')
     .add('Constructor', $('ConstructorStory'))
