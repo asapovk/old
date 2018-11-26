@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState } from 'react';
 import { Menu, Nav, Login } from '../../src';
 
 export const loginUser = {
@@ -15,37 +15,34 @@ export const loginUser = {
     modules: "helloworld,sandbox",
 }
 
-export default class MenuStory extends React.Component {
+export default () => {
 
-    render() {
+    const [active, setActive] = useState(0);
+    console.log(active);
 
-        const Header = () => {
-            return (
-                <div>
-                    <span style={{ fontWeight: 700, paddingRight: '10px' }}>Connect</span>
-                    <span>Module</span>
-                </div>
-            )
-        }
-
+    const Header = () => {
         return (
-            <Fragment>
-                <Menu
-                    header={<Header />}
-                    profile={{
-                        name: loginUser.first_name,
-                        login: loginUser.login,
-                        fullname: loginUser.first_name + ' ' + loginUser.last_name,
-                        role: loginUser.desc_role
-                    }}
-                >
-                    <Nav active={true}>Pineapple</Nav>
-                    <Nav>Grape</Nav>
-                    <Nav onClick={() => console.log('fly away')}>Peach</Nav>
-                    <Nav>Strawberry</Nav>
-
-                </Menu>
-            </Fragment>
+            <div>
+                <span style={{ fontWeight: 700, paddingRight: '10px' }}>Connect</span>
+                <span>Module</span>
+            </div>
         )
     }
+
+    return (
+        <Fragment>
+            <Menu
+                header={<Header />}
+                navigation={[{ label: 'Pineapple' }, { label: 'Grape' }, { label: 'Peach' }, { label: 'Strawberry' }]}
+                activeMenu={active}
+                onMenuClick={setActive}
+                profile={{
+                    name: loginUser.first_name,
+                    login: loginUser.login,
+                    fullname: loginUser.first_name + ' ' + loginUser.last_name,
+                    role: loginUser.desc_role
+                }}
+            />
+        </Fragment>
+    )
 }

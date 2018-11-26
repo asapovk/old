@@ -1,16 +1,18 @@
-import React from 'react';
+import React, { Dispatch, SetStateAction } from 'react';
 import useStyles from '../hooks/useStyles';
 
 interface INav {
     active?: boolean
-    onClick?: () => void
-    children?: any
+    onClick?: Dispatch<SetStateAction<number>>
+    label: any
+    style?: React.CSSProperties
+    itemKey: number
 }
 
 export default (props: INav) => {
 
     const styles = useStyles();
-    const { active, onClick, children } = props;
+    const { active, onClick, label } = props;
 
     let classes = 'ui-menu-nav';
     if (active) classes += ' active';
@@ -18,14 +20,15 @@ export default (props: INav) => {
     return (
         <div
             className={classes}
-            onClick={onClick}
+            onClick={() => onClick && onClick(props.itemKey)}
             style={{
+                ...props.style,
                 color: active ? styles.theme.textOnAccent.rgb : styles.menu.nav.textColor,
                 background: active ? styles.menu.nav.textColorActive : 'transparent',
                 borderRadius: styles.theme.radius.button
             }}
         >
-            {children}
+            {label}
         </div>
     )
 }
