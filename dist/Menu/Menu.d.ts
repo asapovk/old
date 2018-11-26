@@ -1,8 +1,14 @@
+interface IMenuItem {
+    label: string;
+}
+export interface IMenuItems {
+    list: IMenuItem[];
+    active: number;
+    onClick: (menuItemKey: number) => void;
+}
 interface IMenu {
     header?: any;
-    navigation: any[];
-    activeMenu: number;
-    onMenuClick: (key: number) => void;
+    items: IMenuItems;
     toolsRight?: any[];
     pin?: boolean;
     style?: any;

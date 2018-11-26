@@ -26,15 +26,12 @@ var __1 = require("..");
 var Nav_1 = __importDefault(require("./Nav"));
 var useStyles_1 = __importDefault(require("../hooks/useStyles"));
 var useBrowser_1 = __importDefault(require("../hooks/useBrowser"));
-var utilities_1 = require("../Styles/utilities");
+var Mobile_1 = require("./Mobile");
 exports.default = (function (props) {
     var styles = useStyles_1.default();
     var windowSize = useBrowser_1.default();
-    var _a = react_1.useState(false), active = _a[0], setActive = _a[1];
-    var _b = react_1.useState(0), menuHeight = _b[0], setMenuHeight = _b[1];
-    var menuRef = react_1.useRef(null);
-    var header = props.header, style = props.style, toolsRight = props.toolsRight, profile = props.profile, navigation = props.navigation, activeMenu = props.activeMenu, onMenuClick = props.onMenuClick;
-    var hamburgerClasses = 'ui-menu-navbar-hamburger';
+    var _a = react_1.useState(false), mobileActive = _a[0], setMobileActive = _a[1];
+    var header = props.header, style = props.style, toolsRight = props.toolsRight, profile = props.profile, items = props.items;
     // const animate = (from: number, to: number, onFrame: (value: number) => void, delay: number = 250, idAnimation?: string, fps: number = 60) => {
     //     let value = from;
     //     let total = from;
@@ -76,29 +73,14 @@ exports.default = (function (props) {
     //     }
     //     setTimeout(runAnimation, 1);
     // }
-    react_1.useEffect(function () {
-        if (active) {
-            setMenuHeight(menuRef.current.childNodes[0].offsetHeight);
-        }
-        else {
-            setMenuHeight(0);
-        }
-    }, [active]);
-    if (active) {
-        hamburgerClasses += " active";
-    }
+    console.log(windowSize.isTablet);
     return (react_1.default.createElement("div", null,
         react_1.default.createElement(__1.Flexbox, { className: 'ui-menu', alignItems: 'center', justifyContent: 'space-between', style: __assign({}, styles.menu.main.menu, style) },
-            (windowSize.width < 768) && (react_1.default.createElement(__1.Flexbox, { justifyContent: 'center', alignItems: 'center', className: 'ui-menu-navbar' },
-                react_1.default.createElement(__1.Flexbox, { flexDirection: 'column', justifyContent: 'space-between', className: hamburgerClasses, onClick: function () { return setActive(!active); } },
-                    react_1.default.createElement("div", { className: 'ui-menu-navbar-hamburger-top', style: { backgroundColor: styles.theme.highlight.hex } }),
-                    react_1.default.createElement("div", { className: 'ui-menu-navbar-hamburger-middle', style: { backgroundColor: styles.theme.highlight.hex } }),
-                    react_1.default.createElement("div", { className: 'ui-menu-navbar-hamburger-bottom', style: { backgroundColor: styles.theme.highlight.hex } })))),
-            header && (react_1.default.createElement(__1.Flexbox, { alignItems: 'center', flex: windowSize.width < 768 ? 1 : 0, justifyContent: 'flex-start', className: 'ui-menu-header' }, !header.label ? header : (react_1.default.createElement("div", { className: 'ui-menu-header-title', onClick: header.onAction }, header.label)))),
-            (windowSize.width >= 768) && (react_1.default.createElement(__1.Flexbox, { alignItems: 'center', justifyContent: 'center', className: 'ui-menu-navbar' }, navigation.map(function (navItem, index) { return react_1.default.createElement(Nav_1.default, { key: index, menuKey: index, label: navItem.label, active: index === activeMenu, onClick: onMenuClick }); }))),
+            !windowSize.isDesktop && react_1.default.createElement(Mobile_1.MobileMenu, { active: mobileActive, setActive: setMobileActive }),
+            header && (react_1.default.createElement(__1.Flexbox, { alignItems: 'center', flex: !windowSize.isDesktop ? 1 : 0, justifyContent: 'flex-start', className: 'ui-menu-header' }, !header.label ? header : (react_1.default.createElement("div", { className: 'ui-menu-header-title', onClick: header.onAction }, header.label)))),
+            windowSize.isDesktop && (react_1.default.createElement(__1.Flexbox, { alignItems: 'center', justifyContent: 'center', className: 'ui-menu-navbar' }, items.list.map(function (navItem, index) { return (react_1.default.createElement(Nav_1.default, { key: index, menuKey: index, label: navItem.label, active: index === items.active, onClick: items.onClick })); }))),
             toolsRight && (react_1.default.createElement(__1.Flexbox, { alignItems: 'center', justifyContent: 'flex-end', className: 'ui-menu-toolsbar' }, toolsRight.map(function (tool, index) { return react_1.default.cloneElement(tool, { key: index }); }))),
             profile && (react_1.default.createElement(__1.Flexbox, { alignItems: 'center', justifyContent: 'flex-end', className: 'ui-menu-profile' },
                 react_1.default.createElement(__1.Login, __assign({}, profile))))),
-        (windowSize.width < 768) && (react_1.default.createElement("div", { ref: menuRef, style: { height: menuHeight, background: utilities_1.ColorCorrector.darker(styles.theme.background.hex, 3) }, className: "ui-menu-navbar-hamburger-content" },
-            react_1.default.createElement(__1.Flexbox, { alignItems: "center", flexDirection: "column", style: { position: "relative", top: active ? 0 : 110, opacity: active ? 1 : 0 } }, navigation.map(function (navItem, index) { return react_1.default.createElement(Nav_1.default, { style: { marginBottom: (index === navigation.length - 1) ? 0 : '1rem' }, key: index, menuKey: index, label: navItem.label, active: index === activeMenu, onClick: onMenuClick }); }))))));
+        !windowSize.isDesktop && react_1.default.createElement(Mobile_1.MobileMenuItems, { active: mobileActive, items: props.items })));
 });
