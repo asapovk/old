@@ -4,6 +4,10 @@ declare const _default: () => {
     isDesktop: boolean;
     isTablet: boolean;
     isMobile: boolean;
+    tableMinWidth: number;
+    resolutionMobileMinimum: number;
+    resolutionTabletMinimum: number;
+    resolutionDesktopMinimum: number;
     info: {
         vendor: string;
         name: string;
