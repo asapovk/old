@@ -32,7 +32,7 @@ export default (props: IProps) => {
         },
         side: {
             overflow: "scroll",
-            background: styles.theme.interface.hex,
+            background: styles.theme.background.hex,
             maxWidth: browser.resolutionMobileMinimum,
             borderRight: "1px solid",
             borderColor: styles.theme.pale.hex,
@@ -70,6 +70,12 @@ export default (props: IProps) => {
             <Flexbox style={st.main} flex={1}>
                 {needDisplaySideBar && (
                     <Flexbox flex={1} flexDirection="column" style={st.side}>
+                        <div style={{
+                            position: "absolute",
+                            left: 0, right: 0, top: 0,
+                            height: browser.resolutionMobileMinimum,
+                            background: `linear-gradient(0deg, ${styles.theme.background.hex}, ${styles.theme.background2.hex} 20%)`
+                        }} />
                         <Flexbox
                             flex={1}
                             flexDirection="column"

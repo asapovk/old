@@ -2,8 +2,8 @@ import React, { CSSProperties } from 'react';
 
 export interface FlexboxProps {
     onClick?: (event: any) => void
-    onFocus?: (event: any) => void
-    onBlur?: (event: any) => void
+    onMouseEnter?: (event: any) => void
+    onMouseLeave?: (event: any) => void
     elementRef?: any
     style?: CSSProperties
     className?: string
@@ -38,11 +38,13 @@ export interface FlexboxProps {
 
 class Flexbox extends React.Component<FlexboxProps> {
     render() {
-        const { className, elementRef, onClick, w, h, pr, pl, pt, pb, p, m, mr, ml, mt, mb, flex, inline, flexBasis, alignContent, alignSelf, alignItems, justifyContent, flexDirection, flexFlow, flexShrink, flexGrow, column } = this.props;
+        const { className, elementRef, onClick, onMouseEnter, onMouseLeave, w, h, pr, pl, pt, pb, p, m, mr, ml, mt, mb, flex, inline, flexBasis, alignContent, alignSelf, alignItems, justifyContent, flexDirection, flexFlow, flexShrink, flexGrow, column } = this.props;
         const props: any = {
             className,
             ref: elementRef,
             onClick,
+            onMouseEnter,
+            onMouseLeave,
             style: {
                 position: 'relative',
                 display: inline ? 'inline-flex' : 'flex',

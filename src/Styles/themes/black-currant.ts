@@ -11,6 +11,7 @@ const accentColors = {
 export default {
     name: "black-currant",
     background: getColors(36, 33, 38),
+    background2: getColors(29, 28, 30),
     interface: getColors(51, 47, 54),
     pale: getColors(80, 60, 70),
     lowlight: getColors(175, 162, 182),

@@ -44,6 +44,7 @@ export type themeName =
 export interface ThemeInterface {
     name: string
     background: objectColor
+    background2: objectColor
     interface: objectColor
     pale: objectColor
     lowlight: objectColor

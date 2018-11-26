@@ -11,6 +11,7 @@ const accentColors = {
 export default {
     name: "abr",
     background: getColors(247, 247, 247),
+    background2: getColors(240, 240, 240),
     interface: getColors(250, 250, 250),
     pale: getColors(217, 217, 217),
     lowlight: getColors(146, 143, 148),

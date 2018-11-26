@@ -31,7 +31,7 @@ export default (props: IStories) => {
                         className='ui-stories-items-item'
                         style={{
                             backgroundImage: `url(${story.image})`,
-                            borderColor: !story.read ? styles.theme.accents.blue.rgba(.7) : 'transparent'
+                            borderColor: !story.read ? styles.theme.highlight.rgba(.7) : 'transparent'
                         }}
                         onClick={() => {
                             setActive(index);

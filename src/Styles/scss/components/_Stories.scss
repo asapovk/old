@@ -1,7 +1,8 @@
 .ui-stories {
     box-sizing: border-box;
-
+    padding: 1.25rem 0;
     &-title {
+        margin-left: 1.25rem;
         margin-bottom: 1rem;
         font-size: 18px;
         font-weight: bold;
@@ -11,10 +12,12 @@
     &-items {
         // white-space: nowrap;
         overflow: scroll;
-
+        padding: 0 1.25rem;
         &-item {
             box-sizing: border-box;
-            background-size: contain;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
             overflow: hidden;
             border-radius: 0.5rem;
             border-width: 1px;
@@ -22,10 +25,10 @@
             box-shadow: 0 1rem 1rem 0 rgba(0,0,0,0.14);
             display: inline-block;
             width: 7.5rem;
+            min-width: 7.5rem;
             height: 10rem;
             margin-right: 1rem;
             cursor: pointer;
-
         }
 
         &-label {
