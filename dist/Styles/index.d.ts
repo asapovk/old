@@ -304,7 +304,7 @@ export declare const createStyles: (themeName?: "blackCurrant" | "whiteCurrant" 
             borderLeft: string;
         };
     };
-    scanes: {
+    scenes: {
         lkguest: {
             main: {
                 backgroundColor: string;
@@ -595,7 +595,7 @@ export declare const StylesContext: React.Context<{
             borderLeft: string;
         };
     };
-    scanes: {
+    scenes: {
         lkguest: {
             main: {
                 backgroundColor: string;
@@ -886,7 +886,7 @@ declare const _default: React.ExoticComponent<React.ConsumerProps<{
             borderLeft: string;
         };
     };
-    scanes: {
+    scenes: {
         lkguest: {
             main: {
                 backgroundColor: string;

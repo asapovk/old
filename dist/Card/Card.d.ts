@@ -1,19 +1,21 @@
-import { CSSProperties } from 'react';
-interface CardAction {
+import { CSSProperties, ReactElement } from 'react';
+interface ICardAction {
     label: string;
     onAction: () => void;
 }
-interface Info {
+interface IInfo {
     value: string;
     description: string;
 }
-interface CardProps {
-    active?: boolean;
-    action?: CardAction;
+export interface ICard {
     title: string;
     subtitle?: string;
-    info: Info;
+    info?: IInfo;
+    active?: boolean;
+    action?: ICardAction;
+    onClick?: () => void;
     style?: CSSProperties;
+    children?: ReactElement<any>;
 }
-declare const _default: (props: CardProps) => JSX.Element;
+declare const _default: (props: ICard) => JSX.Element;
 export default _default;

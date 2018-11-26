@@ -722,121 +722,84 @@ blockquote {
 }
 
 .ui-menu {
-  display: flex;
-  flex-direction: row;
-  background: #000;
-  align-items: flex-start;
-  padding: 0px 40px;
+  height: calc(4rem - 0.5px);
+  padding: 0 2.5rem;
   border-bottom: 0.5px solid;
+  user-select: none;
 }
 .ui-menu-header {
-  display: flex;
-  font-size: 24px;
-  align-items: center;
-  height: 60px;
-  padding-right: 20px;
+  height: calc(4rem - 0.5px);
+  margin-right: 0.625rem;
+  font-size: 1.5rem;
   cursor: pointer;
 }
 .ui-menu-header-title {
+  line-height: 1.25rem;
   font-weight: bold;
 }
-.ui-menu-interactions {
-  display: flex;
-  flex-direction: column;
-  flex: 1 1 auto;
+.ui-menu-navbar {
+  height: calc(4rem - 0.5px);
 }
-.ui-menu-interactions-navbar, .ui-menu-interactions-toolsbar {
-  display: flex;
-  flex-direction: row;
-  height: 60px;
+.ui-menu-navbar > * {
+  margin-right: 0.625rem;
 }
-.ui-menu-interactions-toolsbar {
-  line-height: 1;
-  align-items: flex-end;
-}
-.ui-menu-interactions-toolsbar-search {
-  height: 40px;
-  display: flex;
-  align-items: center;
-  flex: 1;
-  max-width: 632px;
-  border: 0.5px solid;
-}
-.ui-menu-interactions-toolsbar-search-icon {
-  font-size: 18px;
-  padding-right: 10px;
+.ui-menu-navbar-hamburger {
+  width: 1.5rem;
+  height: 0.9rem;
   cursor: pointer;
+  transition: transform 0.15s ease;
+  z-index: 4;
 }
-.ui-menu-interactions-toolsbar-search input {
-  appearance: none;
-  box-sizing: border-box;
-  resize: none;
-  border: none;
-  background: none;
-  padding: 8px;
-  outline: none;
-  position: relative;
-  color: inherit;
-  font-size: inherit;
-  width: 100%;
+.ui-menu-navbar-hamburger-content {
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 0 2.5rem;
+  overflow: hidden;
+  transition: all 0.35s ease;
 }
-.ui-menu-interactions-toolsbar-tools {
-  display: flex;
-  align-items: center;
-  padding-left: 32px;
+.ui-menu-navbar-hamburger-content > div {
+  transition: all 0.55s ease;
+  padding: 1rem;
 }
-.ui-menu-interactions-toolsbar-tools > * {
-  padding-left: 8px !important;
+.ui-menu-navbar-hamburger-content > div > div {
+  text-align: center;
+  padding: 0.5rem;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+.ui-menu-navbar-hamburger:hover {
+  opacity: 0.7;
+}
+.ui-menu-navbar-hamburger-top, .ui-menu-navbar-hamburger-middle, .ui-menu-navbar-hamburger-bottom {
+  width: 1.5rem;
+  height: 0.15rem;
+  border-radius: 0.5rem;
+  transition: transform 0.15s ease;
+}
+.ui-menu-navbar-hamburger.active {
+  transform: translate3d(0, 0px, 0) rotate(45deg);
+}
+.ui-menu-navbar-hamburger.active .ui-menu-navbar-hamburger-top {
+  opacity: 0;
+}
+.ui-menu-navbar-hamburger.active .ui-menu-navbar-hamburger-bottom {
+  transform: translate3d(0, -6px, 0) rotate(-90deg);
 }
 .ui-menu-toolsbar {
-  display: flex;
-  height: 60px;
-  align-items: center;
-  padding-left: 60px;
+  height: calc(4rem - 0.5px);
 }
-.ui-menu-toolsbar-tools {
-  display: flex;
-  align-items: center;
-  height: 40px;
+.ui-menu-toolsbar > * {
+  margin-right: 0.625rem;
 }
-.ui-menu-toolsbar-tools > * {
-  padding-left: 10px;
+.ui-menu-profile {
+  height: calc(4rem - 0.5px);
 }
 
 .ui-menu-nav {
-  display: flex;
-  font-size: 15px;
-  padding: 0 20px;
-  align-items: center;
+  font-size: 1rem;
+  padding: 0.25rem 1rem;
   cursor: pointer;
-  position: relative;
-  font-weight: 600;
-  color: #999;
-}
-.ui-menu-nav span {
-  position: absolute;
-  bottom: 0px;
-  height: 3px;
-  background: #fff;
-  left: 0;
-  right: 0;
-  z-index: 1;
-}
-
-.nav-min > * {
-  font-size: 14px !important;
-  padding: 24px 16px 14px;
-}
-
-.header-max {
-  align-items: flex-end !important;
-}
-.header-max > * {
-  margin-bottom: 8px;
-}
-
-.bar-max {
-  align-items: flex-end !important;
+  font-weight: 500;
+  line-height: 1.25rem;
 }
 
 .ui-modal {
@@ -1550,13 +1513,20 @@ blockquote {
 .ui-card {
   user-select: none;
   padding: 1.25rem;
+  height: 150px;
   transition: all 0.3s ease 0s;
   -moz-transition: all 0.3s ease 0s;
   -webkit-transition: all 0.3s ease 0s;
   -o-transition: all 0.3s ease 0s;
   -ms-transition: all 0.3s ease 0s;
   box-shadow: 0 1rem 1rem 0 #DAE4F2;
-  min-width: 280px;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+  /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;
+  /* Firefox, other Gecko */
+  box-sizing: border-box;
+  /* Opera/IE 8+ */
 }
 .ui-card-title {
   font-size: 1.125rem;
@@ -1581,7 +1551,8 @@ blockquote {
   font-weight: normal;
 }
 .ui-card.active {
-  min-width: 300px;
+  margin-left: -0.625rem;
+  margin-right: -0.625rem;
 }
 
 /*# sourceMappingURL=styles.css.map */

@@ -36,8 +36,8 @@ exports.default = (function (props) {
     var onSubmit = function () { return props.onSubmit(login.value, password.value, password2.value); };
     return (react_1.default.createElement(react_1.Fragment, null,
         react_1.default.createElement(__1.Flexbox, { flex: 1 },
-            react_1.default.createElement("div", { onClick: props.onBack, style: styles.scanes.lkguest.backButton },
-                react_1.default.createElement(Icon_1.Icon, { type: "left", size: 1.5, style: styles.scanes.lkguest.backButtonIcon })),
+            react_1.default.createElement("div", { onClick: props.onBack, style: styles.scenes.lkguest.backButton },
+                react_1.default.createElement(Icon_1.Icon, { type: "left", size: 1.5, style: styles.scenes.lkguest.backButtonIcon })),
             react_1.default.createElement(__1.Flexbox, { flex: 1 },
                 react_1.default.createElement(__1.TextField, __assign({}, login, { placeholder: "\u0422\u0435\u043B\u0435\u0444\u043E\u043D/\u041F\u043E\u0447\u0442\u0430" })))),
         login.value && (react_1.default.createElement(__1.Flexbox, { pt: '1rem' },
@@ -54,5 +54,5 @@ exports.default = (function (props) {
             react_1.default.createElement(__1.TextField, __assign({}, password2, { placeholder: "\u041F\u043E\u0432\u0442\u043E\u0440\u0438\u0442\u0435 \u043F\u0430\u0440\u043E\u043B\u044C", type: "password" })))),
         react_1.default.createElement(__1.Flexbox, { justifyContent: "space-around", pt: '1rem' },
             react_1.default.createElement(__1.Flexbox, { flex: 1 },
-                react_1.default.createElement(__1.Button, { label: "\u0417\u0430\u0440\u0435\u0433\u0438\u0441\u0442\u0440\u0438\u0440\u043E\u0432\u0430\u0442\u044C\u0441\u044F", decoration: "highlight", onClick: onSubmit, style: styles.scanes.lkguest.submitButton })))));
+                react_1.default.createElement(__1.Button, { label: "\u0417\u0430\u0440\u0435\u0433\u0438\u0441\u0442\u0440\u0438\u0440\u043E\u0432\u0430\u0442\u044C\u0441\u044F", decoration: "highlight", onClick: onSubmit, style: styles.scenes.lkguest.submitButton })))));
 });

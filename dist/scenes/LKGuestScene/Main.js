@@ -24,10 +24,10 @@ exports.default = (function (props) {
     var styles = useStyles_1.default();
     var st = {
         root: {
-            background: styles.scanes.lkguest.main.backgroundColor,
+            background: styles.scenes.lkguest.main.backgroundColor,
         },
         title: {
-            color: styles.scanes.lkguest.main.titleColor,
+            color: styles.scenes.lkguest.main.titleColor,
             marginBottom: 20
         }
     };

@@ -60,7 +60,7 @@ exports.createStyles = function (themeName) {
         widget: Widget_1.default(theme),
         widgetStat: WidgetStat_1.default(theme),
         notifications: Notifications_1.default(theme),
-        scanes: {
+        scenes: {
             lkguest: LKGuestScene_1.default(theme)
         }
     };

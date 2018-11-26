@@ -1,10 +1,7 @@
-import { Component } from 'react';
-interface Props {
+interface INav {
     active?: boolean;
     onClick?: () => void;
     children?: any;
 }
-declare class MenuNav extends Component<Props> {
-    render(): JSX.Element;
-}
-export default MenuNav;
+declare const _default: (props: INav) => JSX.Element;
+export default _default;
