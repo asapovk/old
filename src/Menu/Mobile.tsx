@@ -3,7 +3,7 @@ import { Flexbox } from '..';
 import useStyles from '../hooks/useStyles';
 import { ColorCorrector } from '../Styles/utilities';
 import Nav from './Nav';
-import { IMenuItem } from './Menu';
+import { IMenuItems } from './Menu';
 
 interface IMobileMenu {
     active: boolean
@@ -12,7 +12,7 @@ interface IMobileMenu {
 
 interface IMobileMenuItems {
     active: boolean
-    items: IMenuItem
+    items: IMenuItems
 }
 
 export function MobileMenu(props: IMobileMenu) {

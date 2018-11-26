@@ -1,13 +1,13 @@
 import React, { useEffect } from 'react';
 import { Flexbox } from '../../..';
 
-import useBrowseWidth from '../../../hooks/useBrowseWidth';
+import useBrowser from '../../../hooks/useBrowser';
 import SideMenu from './SideMenu';
 import { useMainContext } from '..';
 
 export default () => {
 
-    const windowSize = useBrowseWidth();
+    const windowSize = useBrowser();
     const ctx = useMainContext();
     const { currentSubMenuItem } = ctx;
 

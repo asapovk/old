@@ -5,11 +5,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importDefault(require("react"));
 var __1 = require("../../..");
-var useBrowseWidth_1 = __importDefault(require("../../../hooks/useBrowseWidth"));
+var useBrowser_1 = __importDefault(require("../../../hooks/useBrowser"));
 var SideMenu_1 = __importDefault(require("./SideMenu"));
 var __2 = require("..");
 exports.default = (function () {
-    var windowSize = useBrowseWidth_1.default();
+    var windowSize = useBrowser_1.default();
     var ctx = __2.useMainContext();
     var currentSubMenuItem = ctx.currentSubMenuItem;
     var st = {

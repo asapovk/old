@@ -1,23 +1,23 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState } from 'react';
 import { Flexbox, Login } from '..';
 import Nav from './Nav';
 import useStyles from '../hooks/useStyles';
-import useBrowseWidth from '../hooks/useBrowseWidth';
-import { MobileMenuItems, MobileMenu } from './Mobile';
+import useBrowser from '../hooks/useBrowser';
+import { MobileMenu, MobileMenuItems } from './Mobile';
 
-interface IListItem {
+interface IMenuItem {
     label: string
 }
 
-export interface IMenuItem {
-    list: IListItem[]
+export interface IMenuItems {
+    list: IMenuItem[]
     active: number
     onClick: (menuItemKey: number) => void
 }
 
 interface IMenu {
     header?: any
-    items: IMenuItem
+    items: IMenuItems
     toolsRight?: any[]
     pin?: boolean
     style?: any
@@ -27,7 +27,7 @@ interface IMenu {
 export default (props: IMenu) => {
 
     const styles = useStyles();
-    const windowSize = useBrowseWidth();
+    const windowSize = useBrowser();
 
     const [mobileActive, setMobileActive] = useState(false);
 
@@ -78,14 +78,16 @@ export default (props: IMenu) => {
     //     setTimeout(runAnimation, 1);
     // }
 
+    console.log(windowSize.isTablet);
+
     return (
         <div>
             <Flexbox className='ui-menu' alignItems='center' justifyContent='space-between' style={{ ...styles.menu.main.menu, ...style }}>
 
-                {(windowSize.width < 768) && <MobileMenu active={mobileActive} setActive={setMobileActive} />}
+                {!windowSize.isDesktop && <MobileMenu active={mobileActive} setActive={setMobileActive} />}
 
                 {header && (
-                    <Flexbox alignItems='center' flex={windowSize.width < 768 ? 1 : 0} justifyContent='flex-start' className={'ui-menu-header'}>
+                    <Flexbox alignItems='center' flex={!windowSize.isDesktop ? 1 : 0} justifyContent='flex-start' className={'ui-menu-header'}>
                         {!header.label ? header : (
                             <div className='ui-menu-header-title' onClick={header.onAction}>
                                 {header.label}
@@ -94,7 +96,7 @@ export default (props: IMenu) => {
                     </Flexbox>
                 )}
 
-                {(windowSize.width >= 768) && (
+                {windowSize.isDesktop && (
                     <Flexbox alignItems='center' justifyContent='center' className={'ui-menu-navbar'}>
                         {items.list.map((navItem, index) => (
                             <Nav
@@ -122,7 +124,7 @@ export default (props: IMenu) => {
 
             </Flexbox>
 
-            {(windowSize.width < 768) && <MobileMenuItems active={mobileActive} items={props.items} />}
+            {!windowSize.isDesktop && <MobileMenuItems active={mobileActive} items={props.items} />}
         </div>
     )
 }

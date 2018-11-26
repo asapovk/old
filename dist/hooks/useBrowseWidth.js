@@ -1,20 +1,27 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = require("react");
+var RES = {
+    TABLET: 640,
+    MOBILE: 320,
+};
 /**
  * Использователь размеры браузера
  */
 exports.default = (function () {
-    var _a = react_1.useState({
-        height: window.innerHeight,
-        width: window.innerWidth,
-    }), value = _a[0], setValue = _a[1];
+    var calc = function () {
+        return {
+            height: window.innerHeight,
+            width: window.innerWidth,
+            isDesktop: window.innerWidth >= RES.TABLET,
+            isTablet: window.innerWidth < RES.TABLET && window.innerWidth > RES.MOBILE,
+            isMobile: window.innerWidth <= RES.MOBILE,
+        };
+    };
+    var _a = react_1.useState(calc()), value = _a[0], setValue = _a[1];
     react_1.useEffect(function () {
         var resize = function () {
-            setValue({
-                height: window.innerHeight,
-                width: window.innerWidth,
-            });
+            setValue(calc());
         };
         window.addEventListener('resize', resize);
         return function () {

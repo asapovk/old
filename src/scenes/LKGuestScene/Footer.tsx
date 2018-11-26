@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Flexbox, Icon } from '../..';
-import useBrowseWidth from '../../hooks/useBrowseWidth';
+import useBrowser from '../../hooks/useBrowser';
 import { GuestSceneProps } from '.';
 import useStyles from '../../hooks/useStyles';
 
 export default (props: GuestSceneProps) => {
 
-    const size = useBrowseWidth();
+    const size = useBrowser();
     const styles = useStyles();
 
     const st = {

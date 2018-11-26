@@ -1,9 +1,8 @@
-import { Dispatch, SetStateAction } from 'react';
 interface IMenu {
     header?: any;
     navigation: any[];
     activeMenu: number;
-    onMenuClick: Dispatch<SetStateAction<number>>;
+    onMenuClick: (key: number) => void;
     toolsRight?: any[];
     pin?: boolean;
     style?: any;

@@ -34,7 +34,7 @@ var Flexbox = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     Flexbox.prototype.render = function () {
-        var _a = this.props, className = _a.className, elementRef = _a.elementRef, onClick = _a.onClick, w = _a.w, h = _a.h, pr = _a.pr, pl = _a.pl, pt = _a.pt, pb = _a.pb, p = _a.p, m = _a.m, mr = _a.mr, ml = _a.ml, mt = _a.mt, mb = _a.mb, flex = _a.flex, inline = _a.inline, flexBasis = _a.flexBasis, alignContent = _a.alignContent, alignSelf = _a.alignSelf, alignItems = _a.alignItems, justifyContent = _a.justifyContent, flexDirection = _a.flexDirection, flexFlow = _a.flexFlow, column = _a.column;
+        var _a = this.props, className = _a.className, elementRef = _a.elementRef, onClick = _a.onClick, w = _a.w, h = _a.h, pr = _a.pr, pl = _a.pl, pt = _a.pt, pb = _a.pb, p = _a.p, m = _a.m, mr = _a.mr, ml = _a.ml, mt = _a.mt, mb = _a.mb, flex = _a.flex, inline = _a.inline, flexBasis = _a.flexBasis, alignContent = _a.alignContent, alignSelf = _a.alignSelf, alignItems = _a.alignItems, justifyContent = _a.justifyContent, flexDirection = _a.flexDirection, flexFlow = _a.flexFlow, flexShrink = _a.flexShrink, flexGrow = _a.flexGrow, column = _a.column;
         var props = {
             className: className,
             ref: elementRef,
@@ -77,8 +77,12 @@ var Flexbox = /** @class */ (function (_super) {
             props.style.alignItems = alignItems;
         if (justifyContent)
             props.style.justifyContent = justifyContent;
-        if (flexFlow)
-            props.style.padding = flexFlow;
+        if (flexFlow !== undefined)
+            props.style.flexFlow = flexFlow;
+        if (flexShrink !== undefined)
+            props.style.flexShrink = flexShrink;
+        if (flexGrow !== undefined)
+            props.style.flexGrow = flexGrow;
         return react_1.default.createElement('div', props, this.props.children);
     };
     return Flexbox;
