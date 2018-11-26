@@ -32,19 +32,14 @@ class TableStory extends React.Component {
             <Flexbox pr={35} pl={50} pt={0} column flex={1}>
                 <Table
                     data={tableData}
-<<<<<<< HEAD
-=======
                     pagination={{
                         pageSize: 10
                     }}
->>>>>>> TableStory data back
                     columns={tableColumns}
-                    actions={[
-                        {
-                            label: "Action",
-                            onAction: (event) => console.log(event)
-                        }
-                    ]}
+                    actions={[{
+                        label: "Action",
+                        onAction: (event) => console.log(event)
+                    }]}
                     noDataLabel='Данных то нету...'
                     search
                 />
