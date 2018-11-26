@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 {"value":{"success":true,"data":{"latest":{"version":"4.0.0","info":{"plain":"- upgrade webpack & babel to latest\n- new addParameters and third argument to .add to pass data to addons\n- added the ability to theme storybook\n- improved ui for mobile devices\n- improved performance of addon-knobs"}}},"time":1543217291505},"type":"Object"}
+=======
+{"value":{"success":true,"data":{"latest":{"version":"4.0.0","info":{"plain":"- upgrade webpack & babel to latest\n- new addParameters and third argument to .add to pass data to addons\n- added the ability to theme storybook\n- improved ui for mobile devices\n- improved performance of addon-knobs"}}},"time":1543212864595},"type":"Object"}
+>>>>>>> 47fd951e899bf1b4da90ab018d39f8bcb4cc62fc
