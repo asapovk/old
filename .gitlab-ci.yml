@@ -7,7 +7,7 @@ stages:
 pull_test:
   stage: pull_test
   script:
-    - ssh $TEST 'cd /opt/node-apps/ui && pm2 git pull'
+    - ssh $TEST 'cd /opt/node-apps/ui && git pull'
   environment:
     name: Test
 
