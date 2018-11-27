@@ -12,6 +12,7 @@
     "index.js"
   ],
   "devDependencies": {
+    "@storybook/addons": "^4.0.9",
     "@storybook/react": "^4.0.7",
     "@types/react": "^16.7.6",
     "@types/react-dom": "^16.0.9",
