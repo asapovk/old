@@ -20,7 +20,7 @@ exports.default = (function (props) {
         },
         side: {
             overflow: "scroll",
-            background: styles.theme.interface.hex,
+            background: styles.theme.background.hex,
             maxWidth: browser.resolutionMobileMinimum,
             borderRight: "1px solid",
             borderColor: styles.theme.pale.hex,
@@ -35,6 +35,8 @@ exports.default = (function (props) {
         mainTop: {
             minWidth: browser.resolutionMobileMinimum,
             overflow: "scroll",
+            borderBottomLeftRadius: "100% 40px",
+            borderBottomRightRadius: "100% 40px"
         },
     };
     var needDisplaySideBar = Boolean(props.components.side);
@@ -52,6 +54,12 @@ exports.default = (function (props) {
             props.components.header,
         react_1.default.createElement(__1.Flexbox, { style: st.main, flex: 1 },
             needDisplaySideBar && (react_1.default.createElement(__1.Flexbox, { flex: 1, flexDirection: "column", style: st.side },
+                props.components.mainTop && (react_1.default.createElement("div", { style: {
+                        position: "absolute",
+                        left: 0, right: 0, top: 0,
+                        height: browser.resolutionMobileMinimum - 50,
+                        background: "linear-gradient(0deg, " + styles.theme.background.hex + ", " + styles.theme.background2.hex + " 20%)"
+                    } })),
                 react_1.default.createElement(__1.Flexbox, { flex: 1, flexDirection: "column", justifyContent: "space-between" },
                     react_1.default.createElement("div", { children: props.components.side }),
                     props.components.sideBottom && (react_1.default.createElement(__1.Flexbox, { flexShrink: 0, flexDirection: "column", style: st.sideBottom, children: props.components.sideBottom }))))),

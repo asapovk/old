@@ -10,6 +10,7 @@ var accentColors = {
 exports.default = {
     name: "black-currant",
     background: utilities_1.getColors(36, 33, 38),
+    background2: utilities_1.getColors(29, 28, 30),
     interface: utilities_1.getColors(51, 47, 54),
     pale: utilities_1.getColors(80, 60, 70),
     lowlight: utilities_1.getColors(175, 162, 182),

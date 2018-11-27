@@ -10,6 +10,7 @@ export declare type themeName = 'blackCurrant' | 'whiteCurrant' | 'abrTheme' | '
 export interface ThemeInterface {
     name: string;
     background: objectColor;
+    background2: objectColor;
     interface: objectColor;
     pale: objectColor;
     lowlight: objectColor;

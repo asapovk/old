@@ -1,8 +1,8 @@
 import React, { CSSProperties } from 'react';
 export interface FlexboxProps {
     onClick?: (event: any) => void;
-    onFocus?: (event: any) => void;
-    onBlur?: (event: any) => void;
+    onMouseEnter?: (event: any) => void;
+    onMouseLeave?: (event: any) => void;
     elementRef?: any;
     style?: CSSProperties;
     className?: string;
