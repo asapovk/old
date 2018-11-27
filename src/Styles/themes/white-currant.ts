@@ -22,6 +22,7 @@ export default {
     shadow: getColors(220, 220, 220),
     shadows: {
         button: '0px 2px 6px 0px ' + getColors(0, 0, 0).rgba(0.2),
+        table: 'none',
         card: '0px 1rem 1rem 0px ' + getColors(0, 0, 0).rgba(0.2),
     },
     borders: {
@@ -32,9 +33,9 @@ export default {
     },
     radius: {
         default: '2px',
-        window: '4px',
-        button: '4px',
-        widget: '8px'
+        window: '0.25rem',
+        button: '0.25rem',
+        card: '0.5rem',
     },
     gradient: {
         default: [

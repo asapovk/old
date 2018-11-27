@@ -1,6 +1,7 @@
 import { CSSProperties } from "react";
+import { ThemeInterface } from "..";
 
-export default (theme) => {
+export default (theme: ThemeInterface) => {
     return {
         main: (decoration?: string, inversion?: boolean) => {
             let style: CSSProperties = {
@@ -40,7 +41,7 @@ export default (theme) => {
                 default:
                     style.borderWidth = theme.borders.button.width;
                     style.borderStyle = theme.borders.button.style;
-                    style.borderColor = theme.pale.rgb;
+                    style.borderColor = theme.borders.button.color;
             }
 
             if (inversion) {

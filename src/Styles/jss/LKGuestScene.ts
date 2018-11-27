@@ -1,5 +1,5 @@
-import { ThemeInterface } from "..";
 import { CSSProperties } from "react";
+import { ThemeInterface } from "..";
 
 export default (theme: ThemeInterface) => {
     let backgroundColor = theme.background.hex;

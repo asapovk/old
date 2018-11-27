@@ -17,25 +17,31 @@ export default {
     lowlight: getColors(146, 143, 148),
     text: getColors(38, 36, 38),
     textOnAccent: getColors(233, 233, 233),
-    // highlight: getColors(0, 121, 194),
     highlight: getColors(0, 106, 255),
     accents: accentColors,
     shadow: getColors(220, 220, 220),
+    shadows: {
+        button: 'none',
+        table: '0 0 1rem 0px ' + getColors(0, 0, 200).rgba(0.1),
+        card: '0 1rem 1rem 0px ' + getColors(0, 0, 200).rgba(0.1),
+    },
     borders: {
         button: {
             width: '1px',
-            style: 'solid'
+            style: 'solid',
+            color: getColors(217, 217, 217).hex,
+        },
+        table: {
+            width: '1px',
+            style: 'solid',
+            color: getColors(217, 217, 217).hex,
         }
     },
-    shadows: {
-        button: 'none',
-        card: '0px 1rem 1rem 0px ' + getColors(0, 0, 0).rgba(0.2),
-    },
     radius: {
-        default: '4px',
-        window: '4px',
-        button: '4px',
-        widget: '8px'
+        default: '0.25rem',
+        window: '0.25rem',
+        button: '0.25rem',
+        card: '0.5rem',
     },
     gradient: {
         default: [

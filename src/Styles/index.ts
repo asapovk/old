@@ -59,10 +59,28 @@ export interface ThemeInterface {
         orange: objectColor
     },
     shadow: objectColor
+    shadows: {
+        button: string
+        table: string
+        card: string
+    }
+    borders: {
+        button: {
+            width: string
+            style: string
+            color: string
+        }
+        table: {
+            width: string
+            style: string
+            color: string
+        }
+    },
     radius: {
         default: string
         window: string
         button: string
+        card: string
     }
     gradient: {
         default: string[]
