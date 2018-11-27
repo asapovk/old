@@ -26,10 +26,20 @@ const Header = () => {
     )
 }
 const SideMenu = () => {
+    const accounts = [
+        { label: "1000001433", value: 1 },
+        { label: "1000001459", value: 2 },
+        { label: "95285-F", value: 3 }
+    ];
     const [card, setCard] = useState(0);
+    const [account, setAccount] = useState(2 as number | string);
     return (
         <Fragment>
-            <AccountSelect />
+            <AccountSelect
+                values={accounts}
+                value={account}
+                onChange={setAccount}
+            />
             <div style={{ margin: "1.25rem" }}>
                 <Card
                     title="Платежи"

@@ -5,46 +5,76 @@ import { Select } from '../../../Select';
 import useStyles from '../../../hooks/useStyles';
 import useClass from '../../../hooks/useClass';
 
-interface IProps {
-
+interface IAccount {
+    label: string,
+    value: string | number
 }
+interface IProps {
+    values: IAccount[]
+    value?: string | number
+    onChange?: (value: string | number) => void
+}
+
 export default (props: IProps) => {
     const styles = useStyles();
     const [accountSelectClassName, AccountSelectClassName] = useClass('ui-lkcomponent-account-select');
 
-    const [addHover, setAddHover] = useState(false);
-
-    const addMouseIn = () => setAddHover(true);
-    const addMouseOut = () => setAddHover(false);
+    const st = styles.scenes.lkmain.components.accountSelect;
 
     const onSelectToggle = () => {
-        AccountSelectClassName.toggleModifier('open');
+        AccountSelectClassName.toggleModifier('active');
     }
 
-    const st = styles.scenes.lkmain.components.accountSelect;
+    const accountSetHandler = (account: IAccount) => {
+        props.onChange && props.onChange(account.value);
+    }
+
+    let displayAccount = "";
+
+    props.values.forEach((item, index) => {
+        if (!index) {
+            displayAccount = item.label;
+        }
+        if (item.value === props.value) {
+            displayAccount = item.label;
+        }
+    });
 
     return (
         <div className={accountSelectClassName}>
             <h3>Лицевой счет</h3>
-            <Flexbox>
+            <Flexbox alignItems="center">
                 <Flexbox
                     flex={1}
                     children={(
                         <Flexbox
                             flex={1}
                             className="_field"
-                            style={st.field}
+                            style={{
+                                ...st.field,
+                                height: AccountSelectClassName.hasModifier("active") ? (props.values.length * 3 + 2.25) + "rem" : '2.25rem'
+                            }}
                             onClick={onSelectToggle}
                             children={(
                                 <Fragment>
                                     <Flexbox
                                         className="_text"
                                         flex={1}
-                                        alignItems="center"
                                         style={st.accountText}
-                                        children={"1234567890"}
+                                        children={displayAccount}
                                     />
                                     <Icon type="down" style={st.dropIcon} />
+                                    <div className="_list" style={{
+                                        height: (props.values.length * 3) + "rem"
+                                    }}>
+                                        {props.values.map(item => (
+                                            <div
+                                                key={item.value}
+                                                onClick={() => accountSetHandler(item)}
+                                                children={item.label}
+                                            />
+                                        ))}
+                                    </div>
                                 </Fragment>
                             )}
                         />
@@ -55,8 +85,6 @@ export default (props: IProps) => {
                     className="_add"
                     alignItems="center"
                     justifyContent="center"
-                    onMouseEnter={addMouseIn}
-                    onMouseLeave={addMouseOut}
                     children={(
                         <Icon type="add" style={st.addIcon} size={1.1} />
                     )}
