@@ -44,7 +44,7 @@
     "build-sass": "npx sass src/Styles/scss/main.scss dist/styles.css"
   },
   "dependencies": {
-    "@storybook/addon-options": "^4.0.7",
+    "@storybook/addon-options": "^4.0.8",
     "@storybook/components": "^4.0.7",
     "@types/chart.js": "^2.7.40",
     "@types/react-chartjs-2": "^2.5.7",
