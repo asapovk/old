@@ -31,6 +31,7 @@ var Widget_1 = __importDefault(require("./jss/Widget"));
 var WidgetStat_1 = __importDefault(require("./jss/WidgetStat"));
 var Notifications_1 = __importDefault(require("./jss/Notifications"));
 var LKGuestScene_1 = __importDefault(require("./jss/LKGuestScene"));
+var LKMainScene_1 = __importDefault(require("./jss/LKMainScene"));
 exports.themes = {
     blackCurrant: black_currant_1.default, whiteCurrant: white_currant_1.default, abrTheme: abr_1.default, gazpromTheme: gazprom_1.default
 };
@@ -61,7 +62,8 @@ exports.createStyles = function (themeName) {
         widgetStat: WidgetStat_1.default(theme),
         notifications: Notifications_1.default(theme),
         scenes: {
-            lkguest: LKGuestScene_1.default(theme)
+            lkguest: LKGuestScene_1.default(theme),
+            lkmain: LKMainScene_1.default(theme)
         }
     };
 };

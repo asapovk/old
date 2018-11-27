@@ -1,19 +1,20 @@
-declare const _default: (theme: any) => {
+import { ThemeInterface } from "..";
+declare const _default: (theme: ThemeInterface) => {
     main: {
         menu: {
-            backgroundColor: any;
-            borderColor: any;
+            backgroundColor: string;
+            borderColor: string;
         };
         searchBar: {
-            background: any;
-            borderColor: any;
+            background: string;
+            borderColor: string;
             boxShadow: string;
-            borderRadius: any;
+            borderRadius: string;
         };
     };
     nav: {
-        textColor: any;
-        textColorActive: any;
+        textColor: string;
+        textColorActive: string;
     };
 };
 export default _default;

@@ -1,14 +1,15 @@
-declare const _default: (theme: any) => {
+import { ThemeInterface } from "..";
+declare const _default: (theme: ThemeInterface) => {
     main: {
-        backgroundColor: any;
+        backgroundColor: string;
     };
     view: {
-        textColor: any;
-        titleColor: any;
-        subtitleColor: any;
-        borderColor: any;
-        background: any;
-        borderRadius: any;
+        textColor: string;
+        titleColor: string;
+        subtitleColor: string;
+        borderColor: string;
+        background: string;
+        borderRadius: string;
     };
 };
 export default _default;

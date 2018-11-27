@@ -110,7 +110,7 @@ blockquote {
 .ui-button.large, .ui-textfield > div > div > input,
 .ui-textfield > div > textarea, .c1 {
   font-size: 1rem;
-  line-height: 1rem;
+  line-height: 1.25rem;
 }
 
 .ui-button, .c2 {
@@ -1586,16 +1586,197 @@ blockquote {
   padding: 0.75rem;
   line-height: 14px;
 }
+.ui-stories-modal {
+  z-index: 500;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
+  visibility: hidden;
+  overflow-y: scroll;
+  padding: 20px;
+  margin: 0 -23px 0 -23px;
+  -webkit-transition: all 0.25s;
+  -khtml-transition: all 0.25s;
+  -moz-transition: all 0.25s;
+  -ms-transition: all 0.25s;
+  -o-transition: all 0.25s;
+  transition: all 0.25s;
+}
+.ui-stories-modal-mask {
+  z-index: 500;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: all 0.25s;
+  -khtml-transition: all 0.25s;
+  -moz-transition: all 0.25s;
+  -ms-transition: all 0.25s;
+  -o-transition: all 0.25s;
+  transition: all 0.25s;
+}
+.ui-stories-modal-mask-visible {
+  visibility: visible;
+  opacity: 0.7;
+}
+.ui-stories-modal-visible {
+  opacity: 1;
+  visibility: visible;
+}
+.ui-stories-modal-visible > div > div {
+  opacity: 1;
+  visibility: visible;
+  -webkit-transform: scale(1);
+  -khtml-transform: scale(1);
+  -moz-transform: scale(1);
+  -ms-transform: scale(1);
+  -o-transform: scale(1);
+  transform: scale(1);
+}
+.ui-stories-modal-hidding > div > div {
+  -webkit-transform: scale(1.8);
+  -khtml-transform: scale(1.8);
+  -moz-transform: scale(1.8);
+  -ms-transform: scale(1.8);
+  -o-transform: scale(1.8);
+  transform: scale(1.8);
+}
+.ui-stories-modal-nextstory {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 2.5rem;
+  height: 100%;
+  cursor: pointer;
+  z-index: 5;
+}
+.ui-stories-modal-nextstory:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+.ui-stories-modal-prevstory {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 2.5rem;
+  height: 100%;
+  cursor: pointer;
+  z-index: 5;
+}
+.ui-stories-modal-prevstory:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
 
+.ui-scenes-lkmain-side {
+  overflow: scroll;
+  border-right: 1px solid;
+  max-width: 320px;
+}
+.ui-scenes-lkmain-side-mask {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+}
+.ui-scenes-lkmain-main {
+  min-width: 320px;
+}
+.ui-scenes-lkmain-main-top {
+  overflow: scroll;
+  border-bottom-left-radius: 100% 40px;
+  border-bottom-right-radius: 100% 40px;
+}
+
+@media (max-width: 640px) {
+  .ui-scenes-lkmain-side {
+    max-width: initial;
+  }
+}
 .ui-lkcomponent-account-select {
-  height: 2.25rem;
   margin-bottom: 2.25rem;
 }
-.ui-lkcomponent-account-select-field {
+.ui-lkcomponent-account-select > h3 {
+  user-select: none;
+  transition: opacity 0.25s;
+  padding-left: 2.25rem;
+}
+.ui-lkcomponent-account-select > div > div {
+  overflow: hidden;
+}
+.ui-lkcomponent-account-select > div > div ._field {
+  transition: all 0.25s;
+  height: 2.25rem;
   border-width: 0.5px;
   border-style: solid;
   border-left: 0;
   border-radius: 0 2rem 2rem 0;
+}
+.ui-lkcomponent-account-select > div > div ._field > svg {
+  transition: all 0.25s;
+}
+.ui-lkcomponent-account-select > div > div ._field > ._text {
+  user-select: none;
+  padding-left: 2.25rem;
+  padding-top: 0.35rem;
+  font-weight: 600;
+}
+.ui-lkcomponent-account-select > div > div ._list {
+  position: absolute;
+  top: 2.25rem;
+  left: 0;
+  right: 0;
+  height: 10rem;
+  overflow: scroll;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.25;
+}
+.ui-lkcomponent-account-select > div > div ._list > div {
+  height: calc(3rem - 1px);
+  border-bottom: 1px solid;
+}
+.ui-lkcomponent-account-select > div > ._add {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.25s;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 2rem;
+  margin-left: 1rem;
+  margin-right: 2.25rem;
+}
+.ui-lkcomponent-account-select > div > ._add:hover {
+  transform: rotate(90deg) scale(1.1);
+}
+.ui-lkcomponent-account-select-active {
+  width: 100%;
+}
+.ui-lkcomponent-account-select-active > h3 {
+  opacity: 0.5;
+}
+.ui-lkcomponent-account-select-active > div > div ._field {
+  border-radius: 0;
+  margin-right: -1px;
+}
+.ui-lkcomponent-account-select-active > div > div ._field > svg {
+  transform: rotate(-180deg);
+}
+.ui-lkcomponent-account-select-active > div > div ._list {
+  opacity: 1;
+  visibility: visible;
+}
+.ui-lkcomponent-account-select-active > div > ._add {
+  width: 0;
+  height: 0;
+  margin-left: 0;
+  margin-right: 0;
+  opacity: 0;
 }
 
 .ui-lkcomponent-main-scroll-view {

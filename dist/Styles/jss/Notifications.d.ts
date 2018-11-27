@@ -1,10 +1,11 @@
-declare const _default: (theme: any) => {
+import { ThemeInterface } from "..";
+declare const _default: (theme: ThemeInterface) => {
     main: (decoration?: string | undefined) => {
-        background: any;
+        background: string;
         boxShadow: string;
-        borderRadius: any;
-        color: any;
-        borderColor: any;
+        borderRadius: string;
+        color: string;
+        borderColor: string;
         borderLeft: string;
     };
 };

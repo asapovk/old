@@ -5,9 +5,9 @@ exports.default = (function (theme) {
         main: {
             backgroundColor: theme.interface.rgb,
             titleColor: theme.lowlight.rgb,
-            shadowColor: theme.shadow.rgb,
             borderColor: theme.pale.rgb,
-            borderRadius: theme.radius.default
+            borderRadius: theme.radius.default,
+            boxShadow: theme.shadows.table
         },
         row: {
             backgroundColor: theme.interface.rgb,

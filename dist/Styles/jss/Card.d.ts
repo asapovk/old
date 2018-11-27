@@ -1,8 +1,9 @@
 import { CSSProperties } from "react";
-declare const _default: (theme: any) => {
+import { ThemeInterface } from "..";
+declare const _default: (theme: ThemeInterface) => {
     main: (active?: boolean | undefined) => CSSProperties;
     counter: (active?: boolean | undefined) => {
-        color: any;
+        color: string;
     };
 };
 export default _default;

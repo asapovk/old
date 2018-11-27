@@ -24,10 +24,28 @@ export interface ThemeInterface {
         orange: objectColor;
     };
     shadow: objectColor;
+    shadows: {
+        button: string;
+        table: string;
+        card: string;
+    };
+    borders: {
+        button: {
+            width: string;
+            style: string;
+            color: string;
+        };
+        table: {
+            width: string;
+            style: string;
+            color: string;
+        };
+    };
     radius: {
         default: string;
         window: string;
         button: string;
+        card: string;
     };
     gradient: {
         default: string[];
@@ -42,56 +60,56 @@ export declare const createStyles: (themeName?: "blackCurrant" | "whiteCurrant" 
     card: {
         main: (active?: boolean | undefined) => React.CSSProperties;
         counter: (active?: boolean | undefined) => {
-            color: any;
+            color: string;
         };
     };
     chart: {
-        text: any;
-        accent: any;
-        background: any;
+        text: string;
+        accent: string;
+        background: string;
         chartTextColor: string;
     };
     checkbox: {
         main: {
-            color: any;
+            color: string;
         };
         input: (isRadio: any) => {
-            color: any;
-            borderColor: any;
-            backgroundColor: any;
-            borderRadius: any;
+            color: string;
+            borderColor: string;
+            backgroundColor: string;
+            borderRadius: string;
         };
         inputActive: (isRadio: any) => {
-            color: any;
-            borderColor: any;
-            backgroundColor: any;
-            borderRadius: any;
+            color: string;
+            borderColor: string;
+            backgroundColor: string;
+            borderRadius: string;
         };
         circle: {
-            background: any;
+            background: string;
         };
     };
     datePicker: {
         main: {
-            labelColor: any;
+            labelColor: string;
         };
         day: {
             default: {
                 fontSize: number;
-                borderRadius: any;
-                background: any;
-                borderColor: any;
-                color: any;
+                borderRadius: string;
+                background: string;
+                borderColor: string;
+                color: string;
             };
             active: {
-                borderColor: any;
+                borderColor: string;
             };
             current: {
-                background: any;
+                background: string;
                 color: string;
             };
             anotherMonth: {
-                background: any;
+                background: string;
             };
             disabledDay: {
                 opacity: number;
@@ -106,109 +124,109 @@ export declare const createStyles: (themeName?: "blackCurrant" | "whiteCurrant" 
         };
         title: {
             style: {
-                color: any;
-                background: any;
-                borderColor: any;
+                color: string;
+                background: string;
+                borderColor: string;
             };
             weekDayStyle: {
-                color: any;
-                background: any;
-                borderColor: any;
+                color: string;
+                background: string;
+                borderColor: string;
             };
         };
     };
     finder: {
         main: {
-            textColor: any;
-            backgroundColor: any;
-            borderColor: any;
+            textColor: string;
+            backgroundColor: string;
+            borderColor: string;
         };
         filter: {
-            backgroundColor: any;
-            inputBackground: any;
-            borderColor: any;
-            color: any;
+            backgroundColor: string;
+            inputBackground: string;
+            borderColor: string;
+            color: string;
         };
         nav: {
-            badgeColor: any;
+            badgeColor: string;
         };
     };
     login: {
-        textColor: any;
+        textColor: string;
         textShadow: string;
     };
     menu: {
         main: {
             menu: {
-                backgroundColor: any;
-                borderColor: any;
+                backgroundColor: string;
+                borderColor: string;
             };
             searchBar: {
-                background: any;
-                borderColor: any;
+                background: string;
+                borderColor: string;
                 boxShadow: string;
-                borderRadius: any;
+                borderRadius: string;
             };
         };
         nav: {
-            textColor: any;
-            textColorActive: any;
+            textColor: string;
+            textColorActive: string;
         };
     };
     modal: {
         main: {
-            backgroundColor: any;
+            backgroundColor: string;
         };
         view: {
-            textColor: any;
-            titleColor: any;
-            subtitleColor: any;
-            borderColor: any;
-            background: any;
-            borderRadius: any;
+            textColor: string;
+            titleColor: string;
+            subtitleColor: string;
+            borderColor: string;
+            background: string;
+            borderRadius: string;
         };
     };
     popup: {
-        color: any;
-        shadowColor: any;
-        borderColor: any;
-        background: any;
+        color: string;
+        shadowColor: string;
+        borderColor: string;
+        background: string;
     };
     select: {
-        background: any;
-        labelColor: any;
-        textColor: any;
-        borderColor: any;
+        background: string;
+        labelColor: string;
+        textColor: string;
+        borderColor: string;
         SelectMenuItem: {
-            text: any;
-            background: any;
+            text: string;
+            background: string;
         };
     };
     spin: {};
     spinner: {};
     table: {
         main: {
-            backgroundColor: any;
-            titleColor: any;
-            shadowColor: any;
-            borderColor: any;
-            borderRadius: any;
+            backgroundColor: string;
+            titleColor: string;
+            borderColor: string;
+            borderRadius: string;
+            boxShadow: string;
         };
         row: {
-            backgroundColor: any;
-            borderColor: any;
+            backgroundColor: string;
+            borderColor: string;
         };
         actions: {
-            backgroundColor: any;
-            actionColor: any;
+            backgroundColor: string;
+            actionColor: string;
         };
         form: {
-            backgroundColor: any;
-            borderColor: any;
+            backgroundColor: string;
+            borderColor: string;
         };
         pagination: {
-            textColor: any;
-            backgroundColor: any;
+            textColor: string;
+            backgroundColor: string;
         };
     };
     tabs: {
@@ -236,33 +254,33 @@ export declare const createStyles: (themeName?: "blackCurrant" | "whiteCurrant" 
         };
     };
     textField: {
-        textColor: any;
-        backgroundColor: any;
-        borderColor: any;
-        iconColor: any;
+        textColor: string;
+        backgroundColor: string;
+        borderColor: string;
+        iconColor: string;
         label: {
-            color: any;
+            color: string;
         };
         singleline: {
             field: {
-                borderColor: any;
-                backgroundColor: any;
-                borderRadius: any;
+                borderColor: string;
+                backgroundColor: string;
+                borderRadius: string;
             };
             input: {
-                color: any;
+                color: string;
             };
             placeholder: {
-                color: any;
+                color: string;
             };
         };
         hint: {
-            color: any;
+            color: string;
         };
     };
     title: {
         active: {
-            color: any;
+            color: string;
         };
     };
     badge: {
@@ -271,37 +289,37 @@ export declare const createStyles: (themeName?: "blackCurrant" | "whiteCurrant" 
     };
     viewport: {
         main: {
-            background: any;
-            color: any;
+            background: string;
+            color: string;
         };
     };
     widget: {
-        background: any;
+        background: string;
         borderColor: string;
-        lowlight: any;
-        highlight: any;
+        lowlight: string;
+        highlight: string;
     };
     widgetStat: {
         titleStyle: {
-            color: any;
+            color: string;
         };
         valueStyle: {
-            color: any;
+            color: string;
         };
         subtitleStyle: {
-            color: any;
+            color: string;
         };
         extraStyle: {
-            borderColor: any;
+            borderColor: string;
         };
     };
     notifications: {
         main: (decoration?: string | undefined) => {
-            background: any;
+            background: string;
             boxShadow: string;
-            borderRadius: any;
-            color: any;
-            borderColor: any;
+            borderRadius: string;
+            color: string;
+            borderColor: string;
             borderLeft: string;
         };
     };
@@ -321,6 +339,49 @@ export declare const createStyles: (themeName?: "blackCurrant" | "whiteCurrant" 
             backButton: React.CSSProperties;
             backButtonIcon: {
                 color: string;
+            };
+        };
+        lkmain: {
+            root: {
+                overflow: string;
+            };
+            main: {
+                overflow: string;
+            };
+            side: {
+                background: string;
+                borderColor: string;
+            };
+            sideBottom: {
+                overflow: string;
+            };
+            mainRight: {
+                overflow: string;
+            };
+            sideMask: {
+                background: string;
+            };
+            components: {
+                accountSelect: {
+                    field: {
+                        borderColor: string;
+                        background: string;
+                    };
+                    add: {
+                        background: string;
+                    };
+                    addIcon: {
+                        fill: string;
+                    };
+                    accountText: {
+                        color: string;
+                    };
+                    dropIcon: {
+                        height: string;
+                        marginLeft: string;
+                        marginRight: string;
+                    };
+                };
             };
         };
     };
@@ -333,56 +394,56 @@ export declare const StylesContext: React.Context<{
     card: {
         main: (active?: boolean | undefined) => React.CSSProperties;
         counter: (active?: boolean | undefined) => {
-            color: any;
+            color: string;
         };
     };
     chart: {
-        text: any;
-        accent: any;
-        background: any;
+        text: string;
+        accent: string;
+        background: string;
         chartTextColor: string;
     };
     checkbox: {
         main: {
-            color: any;
+            color: string;
         };
         input: (isRadio: any) => {
-            color: any;
-            borderColor: any;
-            backgroundColor: any;
-            borderRadius: any;
+            color: string;
+            borderColor: string;
+            backgroundColor: string;
+            borderRadius: string;
         };
         inputActive: (isRadio: any) => {
-            color: any;
-            borderColor: any;
-            backgroundColor: any;
-            borderRadius: any;
+            color: string;
+            borderColor: string;
+            backgroundColor: string;
+            borderRadius: string;
         };
         circle: {
-            background: any;
+            background: string;
         };
     };
     datePicker: {
         main: {
-            labelColor: any;
+            labelColor: string;
         };
         day: {
             default: {
                 fontSize: number;
-                borderRadius: any;
-                background: any;
-                borderColor: any;
-                color: any;
+                borderRadius: string;
+                background: string;
+                borderColor: string;
+                color: string;
             };
             active: {
-                borderColor: any;
+                borderColor: string;
             };
             current: {
-                background: any;
+                background: string;
                 color: string;
             };
             anotherMonth: {
-                background: any;
+                background: string;
             };
             disabledDay: {
                 opacity: number;
@@ -397,109 +458,109 @@ export declare const StylesContext: React.Context<{
         };
         title: {
             style: {
-                color: any;
-                background: any;
-                borderColor: any;
+                color: string;
+                background: string;
+                borderColor: string;
             };
             weekDayStyle: {
-                color: any;
-                background: any;
-                borderColor: any;
+                color: string;
+                background: string;
+                borderColor: string;
             };
         };
     };
     finder: {
         main: {
-            textColor: any;
-            backgroundColor: any;
-            borderColor: any;
+            textColor: string;
+            backgroundColor: string;
+            borderColor: string;
         };
         filter: {
-            backgroundColor: any;
-            inputBackground: any;
-            borderColor: any;
-            color: any;
+            backgroundColor: string;
+            inputBackground: string;
+            borderColor: string;
+            color: string;
         };
         nav: {
-            badgeColor: any;
+            badgeColor: string;
         };
     };
     login: {
-        textColor: any;
+        textColor: string;
         textShadow: string;
     };
     menu: {
         main: {
             menu: {
-                backgroundColor: any;
-                borderColor: any;
+                backgroundColor: string;
+                borderColor: string;
             };
             searchBar: {
-                background: any;
-                borderColor: any;
+                background: string;
+                borderColor: string;
                 boxShadow: string;
-                borderRadius: any;
+                borderRadius: string;
             };
         };
         nav: {
-            textColor: any;
-            textColorActive: any;
+            textColor: string;
+            textColorActive: string;
         };
     };
     modal: {
         main: {
-            backgroundColor: any;
+            backgroundColor: string;
         };
         view: {
-            textColor: any;
-            titleColor: any;
-            subtitleColor: any;
-            borderColor: any;
-            background: any;
-            borderRadius: any;
+            textColor: string;
+            titleColor: string;
+            subtitleColor: string;
+            borderColor: string;
+            background: string;
+            borderRadius: string;
         };
     };
     popup: {
-        color: any;
-        shadowColor: any;
-        borderColor: any;
-        background: any;
+        color: string;
+        shadowColor: string;
+        borderColor: string;
+        background: string;
     };
     select: {
-        background: any;
-        labelColor: any;
-        textColor: any;
-        borderColor: any;
+        background: string;
+        labelColor: string;
+        textColor: string;
+        borderColor: string;
         SelectMenuItem: {
-            text: any;
-            background: any;
+            text: string;
+            background: string;
         };
     };
     spin: {};
     spinner: {};
     table: {
         main: {
-            backgroundColor: any;
-            titleColor: any;
-            shadowColor: any;
-            borderColor: any;
-            borderRadius: any;
+            backgroundColor: string;
+            titleColor: string;
+            borderColor: string;
+            borderRadius: string;
+            boxShadow: string;
         };
         row: {
-            backgroundColor: any;
-            borderColor: any;
+            backgroundColor: string;
+            borderColor: string;
         };
         actions: {
-            backgroundColor: any;
-            actionColor: any;
+            backgroundColor: string;
+            actionColor: string;
         };
         form: {
-            backgroundColor: any;
-            borderColor: any;
+            backgroundColor: string;
+            borderColor: string;
         };
         pagination: {
-            textColor: any;
-            backgroundColor: any;
+            textColor: string;
+            backgroundColor: string;
         };
     };
     tabs: {
@@ -527,33 +588,33 @@ export declare const StylesContext: React.Context<{
         };
     };
     textField: {
-        textColor: any;
-        backgroundColor: any;
-        borderColor: any;
-        iconColor: any;
+        textColor: string;
+        backgroundColor: string;
+        borderColor: string;
+        iconColor: string;
         label: {
-            color: any;
+            color: string;
         };
         singleline: {
             field: {
-                borderColor: any;
-                backgroundColor: any;
-                borderRadius: any;
+                borderColor: string;
+                backgroundColor: string;
+                borderRadius: string;
             };
             input: {
-                color: any;
+                color: string;
             };
             placeholder: {
-                color: any;
+                color: string;
             };
         };
         hint: {
-            color: any;
+            color: string;
         };
     };
     title: {
         active: {
-            color: any;
+            color: string;
         };
     };
     badge: {
@@ -562,37 +623,37 @@ export declare const StylesContext: React.Context<{
     };
     viewport: {
         main: {
-            background: any;
-            color: any;
+            background: string;
+            color: string;
         };
     };
     widget: {
-        background: any;
+        background: string;
         borderColor: string;
-        lowlight: any;
-        highlight: any;
+        lowlight: string;
+        highlight: string;
     };
     widgetStat: {
         titleStyle: {
-            color: any;
+            color: string;
         };
         valueStyle: {
-            color: any;
+            color: string;
         };
         subtitleStyle: {
-            color: any;
+            color: string;
         };
         extraStyle: {
-            borderColor: any;
+            borderColor: string;
         };
     };
     notifications: {
         main: (decoration?: string | undefined) => {
-            background: any;
+            background: string;
             boxShadow: string;
-            borderRadius: any;
-            color: any;
-            borderColor: any;
+            borderRadius: string;
+            color: string;
+            borderColor: string;
             borderLeft: string;
         };
     };
@@ -612,6 +673,49 @@ export declare const StylesContext: React.Context<{
             backButton: React.CSSProperties;
             backButtonIcon: {
                 color: string;
+            };
+        };
+        lkmain: {
+            root: {
+                overflow: string;
+            };
+            main: {
+                overflow: string;
+            };
+            side: {
+                background: string;
+                borderColor: string;
+            };
+            sideBottom: {
+                overflow: string;
+            };
+            mainRight: {
+                overflow: string;
+            };
+            sideMask: {
+                background: string;
+            };
+            components: {
+                accountSelect: {
+                    field: {
+                        borderColor: string;
+                        background: string;
+                    };
+                    add: {
+                        background: string;
+                    };
+                    addIcon: {
+                        fill: string;
+                    };
+                    accountText: {
+                        color: string;
+                    };
+                    dropIcon: {
+                        height: string;
+                        marginLeft: string;
+                        marginRight: string;
+                    };
+                };
             };
         };
     };
@@ -624,56 +728,56 @@ declare const _default: React.ExoticComponent<React.ConsumerProps<{
     card: {
         main: (active?: boolean | undefined) => React.CSSProperties;
         counter: (active?: boolean | undefined) => {
-            color: any;
+            color: string;
         };
     };
     chart: {
-        text: any;
-        accent: any;
-        background: any;
+        text: string;
+        accent: string;
+        background: string;
         chartTextColor: string;
     };
     checkbox: {
         main: {
-            color: any;
+            color: string;
         };
         input: (isRadio: any) => {
-            color: any;
-            borderColor: any;
-            backgroundColor: any;
-            borderRadius: any;
+            color: string;
+            borderColor: string;
+            backgroundColor: string;
+            borderRadius: string;
         };
         inputActive: (isRadio: any) => {
-            color: any;
-            borderColor: any;
-            backgroundColor: any;
-            borderRadius: any;
+            color: string;
+            borderColor: string;
+            backgroundColor: string;
+            borderRadius: string;
         };
         circle: {
-            background: any;
+            background: string;
         };
     };
     datePicker: {
         main: {
-            labelColor: any;
+            labelColor: string;
         };
         day: {
             default: {
                 fontSize: number;
-                borderRadius: any;
-                background: any;
-                borderColor: any;
-                color: any;
+                borderRadius: string;
+                background: string;
+                borderColor: string;
+                color: string;
             };
             active: {
-                borderColor: any;
+                borderColor: string;
             };
             current: {
-                background: any;
+                background: string;
                 color: string;
             };
             anotherMonth: {
-                background: any;
+                background: string;
             };
             disabledDay: {
                 opacity: number;
@@ -688,109 +792,109 @@ declare const _default: React.ExoticComponent<React.ConsumerProps<{
         };
         title: {
             style: {
-                color: any;
-                background: any;
-                borderColor: any;
+                color: string;
+                background: string;
+                borderColor: string;
             };
             weekDayStyle: {
-                color: any;
-                background: any;
-                borderColor: any;
+                color: string;
+                background: string;
+                borderColor: string;
             };
         };
     };
     finder: {
         main: {
-            textColor: any;
-            backgroundColor: any;
-            borderColor: any;
+            textColor: string;
+            backgroundColor: string;
+            borderColor: string;
         };
         filter: {
-            backgroundColor: any;
-            inputBackground: any;
-            borderColor: any;
-            color: any;
+            backgroundColor: string;
+            inputBackground: string;
+            borderColor: string;
+            color: string;
         };
         nav: {
-            badgeColor: any;
+            badgeColor: string;
         };
     };
     login: {
-        textColor: any;
+        textColor: string;
         textShadow: string;
     };
     menu: {
         main: {
             menu: {
-                backgroundColor: any;
-                borderColor: any;
+                backgroundColor: string;
+                borderColor: string;
             };
             searchBar: {
-                background: any;
-                borderColor: any;
+                background: string;
+                borderColor: string;
                 boxShadow: string;
-                borderRadius: any;
+                borderRadius: string;
             };
         };
         nav: {
-            textColor: any;
-            textColorActive: any;
+            textColor: string;
+            textColorActive: string;
         };
     };
     modal: {
         main: {
-            backgroundColor: any;
+            backgroundColor: string;
         };
         view: {
-            textColor: any;
-            titleColor: any;
-            subtitleColor: any;
-            borderColor: any;
-            background: any;
-            borderRadius: any;
+            textColor: string;
+            titleColor: string;
+            subtitleColor: string;
+            borderColor: string;
+            background: string;
+            borderRadius: string;
         };
     };
     popup: {
-        color: any;
-        shadowColor: any;
-        borderColor: any;
-        background: any;
+        color: string;
+        shadowColor: string;
+        borderColor: string;
+        background: string;
     };
     select: {
-        background: any;
-        labelColor: any;
-        textColor: any;
-        borderColor: any;
+        background: string;
+        labelColor: string;
+        textColor: string;
+        borderColor: string;
         SelectMenuItem: {
-            text: any;
-            background: any;
+            text: string;
+            background: string;
         };
     };
     spin: {};
     spinner: {};
     table: {
         main: {
-            backgroundColor: any;
-            titleColor: any;
-            shadowColor: any;
-            borderColor: any;
-            borderRadius: any;
+            backgroundColor: string;
+            titleColor: string;
+            borderColor: string;
+            borderRadius: string;
+            boxShadow: string;
         };
         row: {
-            backgroundColor: any;
-            borderColor: any;
+            backgroundColor: string;
+            borderColor: string;
         };
         actions: {
-            backgroundColor: any;
-            actionColor: any;
+            backgroundColor: string;
+            actionColor: string;
         };
         form: {
-            backgroundColor: any;
-            borderColor: any;
+            backgroundColor: string;
+            borderColor: string;
         };
         pagination: {
-            textColor: any;
-            backgroundColor: any;
+            textColor: string;
+            backgroundColor: string;
         };
     };
     tabs: {
@@ -818,33 +922,33 @@ declare const _default: React.ExoticComponent<React.ConsumerProps<{
         };
     };
     textField: {
-        textColor: any;
-        backgroundColor: any;
-        borderColor: any;
-        iconColor: any;
+        textColor: string;
+        backgroundColor: string;
+        borderColor: string;
+        iconColor: string;
         label: {
-            color: any;
+            color: string;
         };
         singleline: {
             field: {
-                borderColor: any;
-                backgroundColor: any;
-                borderRadius: any;
+                borderColor: string;
+                backgroundColor: string;
+                borderRadius: string;
             };
             input: {
-                color: any;
+                color: string;
             };
             placeholder: {
-                color: any;
+                color: string;
             };
         };
         hint: {
-            color: any;
+            color: string;
         };
     };
     title: {
         active: {
-            color: any;
+            color: string;
         };
     };
     badge: {
@@ -853,37 +957,37 @@ declare const _default: React.ExoticComponent<React.ConsumerProps<{
     };
     viewport: {
         main: {
-            background: any;
-            color: any;
+            background: string;
+            color: string;
         };
     };
     widget: {
-        background: any;
+        background: string;
         borderColor: string;
-        lowlight: any;
-        highlight: any;
+        lowlight: string;
+        highlight: string;
     };
     widgetStat: {
         titleStyle: {
-            color: any;
+            color: string;
         };
         valueStyle: {
-            color: any;
+            color: string;
         };
         subtitleStyle: {
-            color: any;
+            color: string;
         };
         extraStyle: {
-            borderColor: any;
+            borderColor: string;
         };
     };
     notifications: {
         main: (decoration?: string | undefined) => {
-            background: any;
+            background: string;
             boxShadow: string;
-            borderRadius: any;
-            color: any;
-            borderColor: any;
+            borderRadius: string;
+            color: string;
+            borderColor: string;
             borderLeft: string;
         };
     };
@@ -903,6 +1007,49 @@ declare const _default: React.ExoticComponent<React.ConsumerProps<{
             backButton: React.CSSProperties;
             backButtonIcon: {
                 color: string;
+            };
+        };
+        lkmain: {
+            root: {
+                overflow: string;
+            };
+            main: {
+                overflow: string;
+            };
+            side: {
+                background: string;
+                borderColor: string;
+            };
+            sideBottom: {
+                overflow: string;
+            };
+            mainRight: {
+                overflow: string;
+            };
+            sideMask: {
+                background: string;
+            };
+            components: {
+                accountSelect: {
+                    field: {
+                        borderColor: string;
+                        background: string;
+                    };
+                    add: {
+                        background: string;
+                    };
+                    addIcon: {
+                        fill: string;
+                    };
+                    accountText: {
+                        color: string;
+                    };
+                    dropIcon: {
+                        height: string;
+                        marginLeft: string;
+                        marginRight: string;
+                    };
+                };
             };
         };
     };

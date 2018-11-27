@@ -17,7 +17,7 @@ exports.default = (function (theme) {
             var style = {
                 background: theme.interface.rgb,
                 boxShadow: theme.shadows.card,
-                borderRadius: theme.radius.widget,
+                borderRadius: theme.radius.card,
                 color: theme.text.rgb,
                 border: "1px solid",
                 borderColor: theme.pale.rgba(1)

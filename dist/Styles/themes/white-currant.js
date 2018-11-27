@@ -20,8 +20,9 @@ exports.default = {
     accents: accentColors,
     shadow: utilities_1.getColors(220, 220, 220),
     shadows: {
-        button: '0px 2px 6px 0px ' + utilities_1.getColors(220, 220, 220).hex,
-        card: '0px 1rem 1rem 0px ' + utilities_1.getColors(220, 220, 220).hex,
+        button: '0px 2px 6px 0px ' + utilities_1.getColors(0, 0, 0).rgba(0.2),
+        table: 'none',
+        card: '0px 1rem 1rem 0px ' + utilities_1.getColors(0, 0, 0).rgba(0.2),
     },
     borders: {
         button: {
@@ -31,9 +32,9 @@ exports.default = {
     },
     radius: {
         default: '2px',
-        window: '4px',
-        button: '4px',
-        widget: '8px'
+        window: '0.25rem',
+        button: '0.25rem',
+        card: '0.5rem',
     },
     gradient: {
         default: [
