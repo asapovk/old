@@ -1,0 +1,13 @@
+variables:
+  TEST: "node@172.16.200.193"
+
+stages:
+    - pull_test
+
+pull_test:
+  stage: pull_test
+  script:
+    - ssh $TEST 'cd /opt/node-apps/ui && git pull'
+  environment:
+    name: Test
+

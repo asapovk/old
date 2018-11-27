@@ -1,6 +1,7 @@
 import { CSSProperties } from "react";
+import { ThemeInterface } from "..";
 
-export default (theme) => {
+export default (theme: ThemeInterface) => {
     return {
 
         container: {

@@ -22,6 +22,7 @@ export default {
     shadow: getColors(19, 20, 25),
     shadows: {
         button: '0px 2px 6px 0px ' + getColors(19, 20, 25).hex,
+        table: 'none',
         card: '0px 1rem 1rem 0px ' + getColors(19, 20, 25).hex,
     },
     borders: {
@@ -32,8 +33,9 @@ export default {
     },
     radius: {
         default: '2px',
-        window: '4px',
-        button: '4px',
+        window: '0.25rem',
+        button: '0.25rem',
+        card: '0.5rem',
     },
     gradient: {
         default: [

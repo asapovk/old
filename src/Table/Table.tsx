@@ -63,7 +63,7 @@ class Table extends React.Component<Props> {
         const isData = (this.props.data && Array.isArray(this.props.data) && this.props.data.length > 0);
 
         const noDataLabelTSX = (
-            <Flexbox alignItems='center' justifyContent='center' >{noDataLabel}</Flexbox>
+            <Flexbox alignItems='center' justifyContent='center'>{noDataLabel}</Flexbox>
         );
 
         if (!pagination) {
@@ -150,7 +150,8 @@ class Table extends React.Component<Props> {
                                 <div className='ui-table-content-body' style={{
                                     borderColor: styles.table.main.borderColor,
                                     borderRadius: styles.table.main.borderRadius,
-                                    background: styles.table.main.backgroundColor
+                                    background: styles.table.main.backgroundColor,
+                                    boxShadow: styles.table.main.boxShadow,
                                 }}>
                                     {SearchBarTSX(styles)}
                                     {addFormTSX}

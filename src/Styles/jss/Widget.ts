@@ -1,4 +1,7 @@
-export default (theme) => {
+import { CSSProperties } from "react";
+import { ThemeInterface } from "..";
+
+export default (theme: ThemeInterface) => {
     return {
         background: theme.interface.rgb,
         borderColor: `rgba(${theme.pale.rgb}, 1)`,

@@ -30,6 +30,7 @@ import widgetStyles from './jss/Widget'
 import widgetStatStyles from './jss/WidgetStat'
 import notificationsStyles from './jss/Notifications'
 import lkGuestSceneStyles from './jss/LKGuestScene'
+import lkMainSceneStyles from './jss/LKMainScene'
 
 export const themes = {
     blackCurrant, whiteCurrant, abrTheme, gazpromTheme
@@ -58,10 +59,28 @@ export interface ThemeInterface {
         orange: objectColor
     },
     shadow: objectColor
+    shadows: {
+        button: string
+        table: string
+        card: string
+    }
+    borders: {
+        button: {
+            width: string
+            style: string
+            color: string
+        }
+        table: {
+            width: string
+            style: string
+            color: string
+        }
+    },
     radius: {
         default: string
         window: string
         button: string
+        card: string
     }
     gradient: {
         default: string[]
@@ -96,7 +115,8 @@ export const createStyles = (themeName?: themeName) => {
         widgetStat: widgetStatStyles(theme),
         notifications: notificationsStyles(theme),
         scenes: {
-            lkguest: lkGuestSceneStyles(theme)
+            lkguest: lkGuestSceneStyles(theme),
+            lkmain: lkMainSceneStyles(theme)
         }
     }
 };

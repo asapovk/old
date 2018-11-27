@@ -1,12 +1,13 @@
 import { CSSProperties } from "react";
+import { ThemeInterface } from "..";
 
-export default (theme) => {
+export default (theme: ThemeInterface) => {
     return {
         main: (active?: boolean) => {
             let style: CSSProperties = {
                 background: theme.interface.rgb,
                 boxShadow: theme.shadows.card,
-                borderRadius: theme.radius.widget,
+                borderRadius: theme.radius.card,
                 color: theme.text.rgb,
                 border: "1px solid",
                 borderColor: theme.pale.rgba(1)
