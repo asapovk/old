@@ -29,7 +29,7 @@ export default {
     },
     shadows: {
         button: 'none',
-        card: '0 1rem 1rem 0 ' + getColors(218, 228, 242).rgb
+        card: '0px 1rem 1rem 0px ' + getColors(0, 0, 0).rgba(0.2),
     },
     radius: {
         default: '4px',

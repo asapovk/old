@@ -22,7 +22,7 @@ export default {
     shadow: getColors(220, 220, 220),
     shadows: {
         button: '0px 2px 6px 0px ' + getColors(0, 0, 0).rgba(0.2),
-        card: '0px 1rem 1rem 0px ' + getColors(220, 220, 220).hex,
+        card: '0px 1rem 1rem 0px ' + getColors(0, 0, 0).rgba(0.2),
     },
     borders: {
         button: {
