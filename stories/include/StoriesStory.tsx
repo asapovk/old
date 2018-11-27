@@ -11,10 +11,12 @@ export default () => {
                 read: false,
                 slides: [{
                     image: 'http://www.guten.my1.ru/_ld/2/74962800.jpg',
-                    text: 'Это лев'
+                    text: 'Это лев',
+                    key: 'lev'
                 }, {
                     image: 'http://pngimg.com/uploads/rockets/rockets_PNG13291.png',
-                    text: 'Полетели!'
+                    text: 'Полетели!',
+                    key: 'poletelix'
                 }]
             }, {
                 label: 'Вам кажется кто-то крадет ваш газ?',
@@ -23,13 +25,16 @@ export default () => {
                 read: true,
                 slides: [{
                     image: 'http://pngimg.com/uploads/rockets/rockets_PNG13291.png',
-                    text: 'Полетели!'
+                    text: 'Полетели!',
+                    key: 'poleteli'
                 }, {
                     image: 'http://2.bp.blogspot.com/-3wsVAFGLs3c/UF_SRKZ-HhI/AAAAAAAAC74/MHoqfOauMmk/s640/Man+in+the+Moon+tag+~+lilac-n-lavender.jpg',
-                    text: 'Просто текст с картинкой!'
+                    text: 'Просто текст с картинкой!',
+                    key: 'text'
                 }, {
                     image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsc3aCpaZ-a7mP2OX2FvGnOfrUQO9KWNNGiOkAY-kPEl1sT-2TRQ',
-                    text: 'Бухнем!'
+                    text: 'Бухнем!',
+                    key: 'buhnem'
                 }]
             }]} />
         </Flexbox>
