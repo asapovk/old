@@ -112,18 +112,21 @@ export default () => {
                     labelColor: "#e1f1cb",
                     onClick: () => { },
                     read: false,
+                    slides: [],
                 }, {
                     label: "МихаЕль -- дерево без границ",
                     image: "https://www.taigatree.ru/wp-content/uploads/2016/05/5.jpg",
                     labelColor: "#ffffff",
                     onClick: () => { },
                     read: false,
+                    slides: [],
                 }, {
                     label: "Text of storieeeeEEE.",
                     image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTiciBxA-xkgNIzzgB96Z4VYzstyBrVbUkcH5P_U_j7Rlcew4KLA",
                     labelColor: "#000000",
                     onClick: () => { },
                     read: true,
+                    slides: [],
                 }]} />,
             }}
             displaySideBar={true}

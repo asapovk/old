@@ -5,6 +5,7 @@ import StoriesModal from './Modal';
 interface StorySlide {
     image: any,
     text: string
+    key: string
 }
 export interface Story {
     image: any
@@ -39,10 +40,9 @@ export default (props: IStories) => {
     if (!props.stories.length) return null;
 
     const [modalActive, setModalActive] = useState(false);
-    const [currentStoryIndex, setCurrentStoryIndex] = useState(-1);
+    const [currentStoryIndex, setCurrentStoryIndex] = useState(0);
 
     const onModalClose = () => {
-        setCurrentStoryIndex(-1);
         setModalActive(false);
     }
 
@@ -55,7 +55,7 @@ export default (props: IStories) => {
             modalClose: () => onModalClose()
         }}>
             <StoriesList {...props} />
-            <StoriesModal stories={props.stories} />
+            {modalActive && <StoriesModal stories={props.stories} />}
         </StoriesContext.Provider>
     )
 }

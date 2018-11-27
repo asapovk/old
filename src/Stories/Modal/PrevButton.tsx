@@ -3,7 +3,7 @@ import { Flexbox, Icon } from '../..';
 import { useStoriesContext } from '../Stories';
 import useBrowser from '../../hooks/useBrowser';
 
-export default () => {
+export default (props) => {
     const ctx = useStoriesContext();
     const browser = useBrowser();
 
@@ -15,7 +15,7 @@ export default () => {
                 style={{ height: '100%' }}
                 justifyContent='center'
                 alignItems='center'
-                onClick={() => ctx.currentStoryIndex !== null && ctx.setStory(--ctx.currentStoryIndex)}>
+                onClick={() => props.onPrev()}>
                 <Icon type="left" />
             </Flexbox>
         </div>

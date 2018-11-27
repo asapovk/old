@@ -15,7 +15,7 @@ export default (props) => {
                 style={{ height: '100%' }}
                 justifyContent='center'
                 alignItems='center'
-                onClick={() => ctx.currentStoryIndex !== null && ctx.setStory(++ctx.currentStoryIndex)}
+                onClick={() => props.onNext()}
             >
                 <Icon type="right" />
             </Flexbox>
