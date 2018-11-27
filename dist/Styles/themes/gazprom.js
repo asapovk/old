@@ -10,6 +10,7 @@ var accentColors = {
 exports.default = {
     name: "gazprom",
     background: utilities_1.getColors(247, 247, 247),
+    background2: utilities_1.getColors(237, 239, 242),
     interface: utilities_1.getColors(250, 250, 250),
     pale: utilities_1.getColors(217, 217, 217),
     lowlight: utilities_1.getColors(146, 143, 148),

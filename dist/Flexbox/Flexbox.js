@@ -34,11 +34,13 @@ var Flexbox = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     Flexbox.prototype.render = function () {
-        var _a = this.props, className = _a.className, elementRef = _a.elementRef, onClick = _a.onClick, w = _a.w, h = _a.h, pr = _a.pr, pl = _a.pl, pt = _a.pt, pb = _a.pb, p = _a.p, m = _a.m, mr = _a.mr, ml = _a.ml, mt = _a.mt, mb = _a.mb, flex = _a.flex, inline = _a.inline, flexBasis = _a.flexBasis, alignContent = _a.alignContent, alignSelf = _a.alignSelf, alignItems = _a.alignItems, justifyContent = _a.justifyContent, flexDirection = _a.flexDirection, flexFlow = _a.flexFlow, flexShrink = _a.flexShrink, flexGrow = _a.flexGrow, column = _a.column;
+        var _a = this.props, className = _a.className, elementRef = _a.elementRef, onClick = _a.onClick, onMouseEnter = _a.onMouseEnter, onMouseLeave = _a.onMouseLeave, w = _a.w, h = _a.h, pr = _a.pr, pl = _a.pl, pt = _a.pt, pb = _a.pb, p = _a.p, m = _a.m, mr = _a.mr, ml = _a.ml, mt = _a.mt, mb = _a.mb, flex = _a.flex, inline = _a.inline, flexBasis = _a.flexBasis, alignContent = _a.alignContent, alignSelf = _a.alignSelf, alignItems = _a.alignItems, justifyContent = _a.justifyContent, flexDirection = _a.flexDirection, flexFlow = _a.flexFlow, flexShrink = _a.flexShrink, flexGrow = _a.flexGrow, column = _a.column;
         var props = {
             className: className,
             ref: elementRef,
             onClick: onClick,
+            onMouseEnter: onMouseEnter,
+            onMouseLeave: onMouseLeave,
             style: __assign({ position: 'relative', display: inline ? 'inline-flex' : 'flex', flexDirection: column ? "column" : flexDirection }, this.props.style)
         };
         if (flex)
