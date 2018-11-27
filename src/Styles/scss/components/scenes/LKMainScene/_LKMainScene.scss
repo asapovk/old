@@ -1,0 +1,28 @@
+.ui-scenes-lkmain { 
+    &-side {
+        overflow: scroll;
+        border-right: 1px solid;
+        max-width: 320px;
+        &-mask {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+        }
+    }  
+    &-main {
+        min-width: 320px;
+        &-top {
+            overflow: scroll;
+            border-bottom-left-radius: 100% 40px;
+            border-bottom-right-radius: 100% 40px;
+        }
+    }
+}
+@media (max-width: 640px) {
+    .ui-scenes-lkmain { 
+        &-side {
+            max-width: initial;
+        }
+    }
+}

@@ -1,8 +1,7 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { Flexbox } from '../../';
 import useStyles from '../../hooks/useStyles';
 import useBrowser from '../../hooks/useBrowser';
-
 interface IProps {
     components: {
         header?: React.Component | any
@@ -21,36 +20,7 @@ interface IProps {
 export default (props: IProps) => {
     const browser = useBrowser();
     const styles = useStyles();
-
-    const st = {
-        root: {
-            height: browser.height,
-            overflow: "hidden"
-        },
-        main: {
-            overflow: "hidden"
-        },
-        side: {
-            overflow: "scroll",
-            background: styles.theme.background.hex,
-            maxWidth: browser.resolutionMobileMinimum,
-            borderRight: "1px solid",
-            borderColor: styles.theme.pale.hex,
-        },
-        sideBottom: {
-            overflow: "scroll",
-        },
-        mainRight: {
-            overflow: "scroll",
-            minWidth: browser.resolutionMobileMinimum,
-        },
-        mainTop: {
-            minWidth: browser.resolutionMobileMinimum,
-            overflow: "scroll",
-            borderBottomLeftRadius: "100% 40px",
-            borderBottomRightRadius: "100% 40px"
-        },
-    }
+    const st: any = styles.scenes.lkmain;
 
     let needDisplaySideBar = Boolean(props.components.side);
     let needDisplayMain = Boolean(props.components.mainTop || props.components.main);
@@ -61,53 +31,69 @@ export default (props: IProps) => {
     if (props.displaySideBar && browser.isMobile) {
         needDisplaySideBar = true;
         needDisplayMain = false;
-        delete st.side.maxWidth;
     }
 
     return (
-        <Flexbox style={st.root} flexDirection="column">
+        <Flexbox style={{ ...st.root, height: browser.height }} flexDirection="column">
             {props.components.header &&
                 props.components.header
             }
             <Flexbox style={st.main} flex={1}>
                 {needDisplaySideBar && (
-                    <Flexbox flex={1} flexDirection="column" style={st.side}>
-                        {props.components.mainTop && (
-                            <div style={{
-                                position: "absolute",
-                                left: 0, right: 0, top: 0,
-                                height: browser.resolutionMobileMinimum - 50,
-                                background: `linear-gradient(0deg, ${styles.theme.background.hex}, ${styles.theme.background2.hex} 20%)`
-                            }} />
-                        )}
-                        <Flexbox
-                            flex={1}
-                            flexDirection="column"
-                            justifyContent="space-between"
-                        >
-                            <div children={props.components.side} />
-                            {props.components.sideBottom && (
+                    <Flexbox
+                        flex={1}
+                        flexDirection="column"
+                        style={st.side}
+                        className="ui-scenes-lkmain-side"
+                        children={(
+                            <Fragment>
+                                {props.components.mainTop && (
+                                    <div
+                                        style={st.sideMask}
+                                        className="ui-scenes-lkmain-side-mask"
+                                    />
+                                )}
                                 <Flexbox
-                                    flexShrink={0}
+                                    flex={1}
                                     flexDirection="column"
-                                    style={st.sideBottom}
-                                    children={props.components.sideBottom}
+                                    justifyContent="space-between"
+                                    children={(
+                                        <Fragment>
+                                            <div children={props.components.side} />
+                                            {props.components.sideBottom && (
+                                                <Flexbox
+                                                    flexShrink={0}
+                                                    flexDirection="column"
+                                                    style={st.sideBottom}
+                                                    children={props.components.sideBottom}
+                                                />
+                                            )}
+                                        </Fragment>
+                                    )}
                                 />
-                            )}
-                        </Flexbox>
-                    </Flexbox>
+                            </Fragment>
+                        )} />
+
                 )}
                 {needDisplayMain && (
-                    <Flexbox flex={1} flexDirection="column" style={st.mainRight}>
-                        {props.components.mainTop && (
-                            <Flexbox
-                                flexShrink={0}
-                                style={st.mainTop}
-                                children={props.components.mainTop}
-                            />
-                        )}
-                        {props.components.main}
-                    </Flexbox>
+                    <Flexbox
+                        flex={1}
+                        flexDirection="column"
+                        style={st.mainRight}
+                        className="ui-scenes-lkmain-main"
+                        children={(
+                            <Fragment>
+                                {props.components.mainTop && (
+                                    <Flexbox
+                                        flexShrink={0}
+                                        style={st.mainTop}
+                                        className="ui-scenes-lkmain-main-top"
+                                        children={props.components.mainTop}
+                                    />
+                                )}
+                                {props.components.main}
+                            </Fragment>
+                        )} />
                 )}
             </Flexbox>
         </Flexbox>

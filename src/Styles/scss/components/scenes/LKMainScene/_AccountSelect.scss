@@ -1,0 +1,32 @@
+.ui-lkcomponent { 
+    &-account-select {
+        margin-bottom: 2.25rem;
+
+        > h3 {
+            padding-left: 2.25rem;
+        }
+        > div > div > ._field {
+            border-width: 0.5px;
+            border-style: solid;
+            border-left: 0;
+            border-radius: 0 2rem 2rem 0;
+            > ._text {
+                padding-left: 2.25rem;
+                font-weight: 600;
+            }
+        }
+        > div > ._add {
+            position: relative;
+            transition: all 0.25s;
+            width: 2.25rem;
+            height: 2.25rem;
+            border-radius: 2rem;
+            margin-left:  1rem;
+            margin-right: 2.25rem;
+
+            &:hover {
+                transform: rotate(90deg) scale(1.1);
+            }
+        }
+    }
+} 
