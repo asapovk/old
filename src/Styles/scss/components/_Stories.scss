@@ -38,5 +38,80 @@
             line-height: 14px;
         }
     }
+
+    &-modal {
+        z-index: 500;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        opacity: 0;
+        visibility: hidden;
+        overflow-y: scroll;
+        padding: 20px;
+        margin: 0 -23px 0 -23px;
+        @include css3-prefix("transition", all .25s);
+
+        &-mask {
+            z-index: 500;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            opacity: 0;
+            opacity: 0;
+            visibility: hidden;
+            @include css3-prefix("transition", all .25s);
+            &-visible {
+                visibility: visible;
+                opacity: 0.7;
+            }
+        }
+
+        &-visible {
+            opacity: 1;
+            visibility: visible;
+            > div > div {
+                opacity: 1;
+                visibility: visible;
+                @include css3-prefix("transform", scale(1));
+            }
+        }
+        &-hidding {
+            > div > div {  
+                @include css3-prefix("transform", scale(1.8));
+            }
+        }
+
+        &-nextstory {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 2.5rem;
+            height: 100%;
+            cursor: pointer;
+            z-index: 5;
+
+            &:hover {
+                background-color: rgba(0,0,0,0.1);
+            }
+        }
+
+        &-prevstory {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 2.5rem;
+            height: 100%;
+            cursor: pointer;
+            z-index: 5;
+
+            &:hover {
+                background-color: rgba(0,0,0,0.1);
+            }
+        }
+    }
     
 }

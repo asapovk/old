@@ -1,51 +1,61 @@
-import React, { useState } from 'react';
-import { Flexbox } from '..';
-import useStyles from '../hooks/useStyles';
+import React, { useState, useContext, useEffect } from 'react';
+import StoriesList from './StoriesList';
+import StoriesModal from './Modal';
 
-interface Story {
+interface StorySlide {
+    image: any,
+    text: string
+}
+export interface Story {
     image: any
     label: string
     labelColor: any
     read: boolean
     onClick?: () => void
+    slides: StorySlide[]
 }
 
-interface IStories {
+export interface IStories {
     title: string
     stories: Story[]
 }
 
+interface IStoriesContext {
+    modalClose: () => void
+    modalOpen: () => void
+    setStory: (storyIndex: number) => void
+    currentStoryIndex: number
+    active: boolean
+}
+
+const StoriesContext = React.createContext({} as IStoriesContext);
+
+export function useStoriesContext() {
+    return useContext(StoriesContext);
+}
+
 export default (props: IStories) => {
+
     if (!props.stories.length) return null;
 
-    const styles = useStyles();
+    const [modalActive, setModalActive] = useState(false);
+    const [currentStoryIndex, setCurrentStoryIndex] = useState(-1);
+
+    const onModalClose = () => {
+        setCurrentStoryIndex(-1);
+        setModalActive(false);
+    }
 
     return (
-        <Flexbox className='ui-stories' flexDirection='column'>
-            <div className='ui-stories-title'>{props.title}</div>
-            <Flexbox className='ui-stories-items' flex={1}>
-                {props.stories.map((story, index) => (
-                    <Flexbox
-                        key={index}
-                        className='ui-stories-items-item'
-                        style={{
-                            backgroundImage: `url(${story.image})`,
-                            borderColor: !story.read ? styles.theme.highlight.rgba(.7) : 'transparent'
-                        }}
-                        onClick={() => {
-                            story.onClick && story.onClick();
-                        }}
-                        alignItems='flex-end'
-                    >
-                        <div
-                            className='ui-stories-items-label'
-                            style={{ color: story.labelColor || '#fff' }}
-                        >
-                            {story.label}
-                        </div>
-                    </Flexbox>
-                ))}
-            </Flexbox>
-        </Flexbox >
+        <StoriesContext.Provider value={{
+            active: modalActive,
+            currentStoryIndex: currentStoryIndex,
+            setStory: (storyIndex: number) => setCurrentStoryIndex(storyIndex),
+            modalOpen: () => setModalActive(true),
+            modalClose: () => onModalClose()
+        }}>
+            <StoriesList {...props} />
+            <StoriesModal stories={props.stories} />
+        </StoriesContext.Provider>
     )
 }

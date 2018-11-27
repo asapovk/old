@@ -62,6 +62,7 @@ class Modal extends React.Component<Props> {
         modalHeight = modal.offsetHeight;
 
         const viewHeight = view.offsetHeight;
+        console.log(modalHeight, viewHeight);
         if (modalHeight > viewHeight) {
 
             if (!this.state.center) return;
