@@ -1,12 +1,28 @@
 import React from 'react';
 import { Flexbox } from '..';
 import useStyles from '../hooks/useStyles';
-import { useStoriesContext, IStories } from './Stories';
+import { IStories } from './Stories';
 
-export default (props: IStories) => {
+interface IStoriesListProps {
+    setStory: (storyIndex: number) => void
+    setModalActive: (active: boolean) => void
+}
+
+type IStoriesList = IStories & IStoriesListProps;
+
+export default (props: IStoriesList) => {
 
     const styles = useStyles();
-    const ctx = useStoriesContext();
+
+    function StoryLabel({ story }) {
+        return (
+            <div
+                className='ui-stories-items-label'
+                style={{ color: story.labelColor || '#fff' }}
+                children={story.label}
+            />
+        )
+    }
 
     return (
         <Flexbox className='ui-stories' flexDirection='column'>
@@ -18,21 +34,15 @@ export default (props: IStories) => {
                         className='ui-stories-items-item'
                         style={{
                             backgroundImage: `url(${story.image})`,
-                            borderColor: !story.read ? styles.theme.highlight.rgba(.7) : 'transparent'
+                            // borderColor: !story.read ? styles.theme.highlight.rgba(.7) : 'transparent'
                         }}
                         onClick={() => {
-                            ctx.setStory(index);
-                            ctx.modalOpen();
+                            props.setStory(index);
+                            props.setModalActive(true);
                         }}
                         alignItems='flex-end'
-                    >
-                        <div
-                            className='ui-stories-items-label'
-                            style={{ color: story.labelColor || '#fff' }}
-                        >
-                            {story.label}
-                        </div>
-                    </Flexbox>
+                        children={<StoryLabel story={story} />}
+                    />
                 ))}
             </Flexbox>
         </Flexbox>

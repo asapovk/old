@@ -1,8 +1,8 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useState, Fragment } from 'react';
 import StoriesList from './StoriesList';
-import StoriesModal from './Modal';
+import StoryModal from './StoryModal';
 
-interface StorySlide {
+export interface StorySlide {
     image: any,
     text: string
     key: string
@@ -21,41 +21,26 @@ export interface IStories {
     stories: Story[]
 }
 
-interface IStoriesContext {
-    modalClose: () => void
-    modalOpen: () => void
-    setStory: (storyIndex: number) => void
-    currentStoryIndex: number
-    active: boolean
-}
-
-const StoriesContext = React.createContext({} as IStoriesContext);
-
-export function useStoriesContext() {
-    return useContext(StoriesContext);
-}
-
 export default (props: IStories) => {
-
-    if (!props.stories.length) return null;
 
     const [modalActive, setModalActive] = useState(false);
     const [currentStoryIndex, setCurrentStoryIndex] = useState(0);
 
-    const onModalClose = () => {
-        setModalActive(false);
-    }
-
     return (
-        <StoriesContext.Provider value={{
-            active: modalActive,
-            currentStoryIndex: currentStoryIndex,
-            setStory: (storyIndex: number) => setCurrentStoryIndex(storyIndex),
-            modalOpen: () => setModalActive(true),
-            modalClose: () => onModalClose()
-        }}>
-            <StoriesList {...props} />
-            {modalActive && <StoriesModal stories={props.stories} />}
-        </StoriesContext.Provider>
+        <Fragment>
+            <StoriesList
+                {...props}
+                setStory={setCurrentStoryIndex}
+                setModalActive={setModalActive}
+            />
+            {modalActive && (
+                <StoryModal
+                    {...props}
+                    active={modalActive}
+                    setModalActive={setModalActive}
+                    currentStoryIndex={currentStoryIndex}
+                />
+            )}
+        </Fragment>
     )
 }
