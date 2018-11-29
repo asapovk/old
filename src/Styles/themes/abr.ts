@@ -9,7 +9,7 @@ const accentColors = {
 }
 
 export default {
-    name: "abr",
+    name: "abrTheme",
     background: getColors(247, 247, 247),
     background2: getColors(240, 240, 240),
     interface: getColors(250, 250, 250),
@@ -45,6 +45,10 @@ export default {
         buddy: [
             "#FFFFFF",
             getColors(196, 13, 60).hex
-        ]
+        ],
+        card: [
+            getColors(196, 13, 60).hex,
+            getColors(243, 103, 103).hex,
+        ],
     },
 } as ThemeInterface

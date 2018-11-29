@@ -1,24 +1,25 @@
-declare const _default: (theme: any) => {
+import { ThemeInterface } from "..";
+declare const _default: (theme: ThemeInterface) => {
     main: {
-        labelColor: any;
+        labelColor: string;
     };
     day: {
         default: {
             fontSize: number;
-            borderRadius: any;
-            background: any;
-            borderColor: any;
-            color: any;
+            borderRadius: string;
+            background: string;
+            borderColor: string;
+            color: string;
         };
         active: {
-            borderColor: any;
+            borderColor: string;
         };
         current: {
-            background: any;
+            background: string;
             color: string;
         };
         anotherMonth: {
-            background: any;
+            background: string;
         };
         disabledDay: {
             opacity: number;
@@ -33,14 +34,14 @@ declare const _default: (theme: any) => {
     };
     title: {
         style: {
-            color: any;
-            background: any;
-            borderColor: any;
+            color: string;
+            background: string;
+            borderColor: string;
         };
         weekDayStyle: {
-            color: any;
-            background: any;
-            borderColor: any;
+            color: string;
+            background: string;
+            borderColor: string;
         };
     };
 };

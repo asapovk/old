@@ -50,7 +50,7 @@ exports.default = (function (theme) {
                 default:
                     style.borderWidth = theme.borders.button.width;
                     style.borderStyle = theme.borders.button.style;
-                    style.borderColor = theme.pale.rgb;
+                    style.borderColor = theme.borders.button.color;
             }
             if (inversion) {
                 style = __assign({}, style, { background: theme.interface.rgb, color: style.background });

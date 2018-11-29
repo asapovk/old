@@ -1,6 +1,7 @@
-declare const _default: (theme: any) => {
+import { ThemeInterface } from "..";
+declare const _default: (theme: ThemeInterface) => {
     active: {
-        color: any;
+        color: string;
     };
 };
 export default _default;

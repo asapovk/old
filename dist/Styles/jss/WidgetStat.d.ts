@@ -1,15 +1,16 @@
-declare const _default: (theme: any) => {
+import { ThemeInterface } from "..";
+declare const _default: (theme: ThemeInterface) => {
     titleStyle: {
-        color: any;
+        color: string;
     };
     valueStyle: {
-        color: any;
+        color: string;
     };
     subtitleStyle: {
-        color: any;
+        color: string;
     };
     extraStyle: {
-        borderColor: any;
+        borderColor: string;
     };
 };
 export default _default;

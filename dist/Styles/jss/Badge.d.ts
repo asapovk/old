@@ -1,5 +1,6 @@
 import { CSSProperties } from "react";
-declare const _default: (theme: any) => {
+import { ThemeInterface } from "..";
+declare const _default: (theme: ThemeInterface) => {
     container: CSSProperties;
     main: (color?: string | undefined, top?: string | number, right?: string | number, left?: string | number) => CSSProperties;
 };

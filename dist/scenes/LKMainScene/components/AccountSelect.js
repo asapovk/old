@@ -1,4 +1,15 @@
 "use strict";
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
 var __importStar = (this && this.__importStar) || function (mod) {
     if (mod && mod.__esModule) return mod;
     var result = {};
@@ -14,52 +25,34 @@ var react_1 = __importStar(require("react"));
 var Flexbox_1 = require("../../../Flexbox");
 var Icon_1 = require("../../../Icon");
 var useStyles_1 = __importDefault(require("../../../hooks/useStyles"));
+var useClass_1 = __importDefault(require("../../../hooks/useClass"));
 exports.default = (function (props) {
     var styles = useStyles_1.default();
-    var _a = react_1.useState(false), addHover = _a[0], setAddHover = _a[1];
-    var st = {
-        addButton: {
-            position: "relative",
-            transition: "all 0.25s",
-            width: addHover ? "2.75rem" : "2.25rem",
-            height: addHover ? "2.75rem" : "2.25rem",
-            transform: "rotate(" + addHover ? "0deg" : "180deg" + ")",
-            borderRadius: "2rem",
-            background: styles.theme.highlight.hex,
-            marginLeft: addHover ? "0.75rem" : "1rem",
-            marginRight: addHover ? "2rem" : "2.25rem",
-            marginTop: addHover ? "-0.25rem" : "0",
-            marginBottom: addHover ? "-0.25rem" : "0",
-        },
-        addButtonIcon: {
-            fill: styles.theme.textOnAccent.hex,
-        },
-        title: {
-            paddingLeft: "2.25rem",
-        },
-        accountText: {
-            paddingLeft: "2.25rem",
-            fontWeight: 500,
-            color: styles.theme.text.hex,
-        },
-        selectField: {
-            borderColor: styles.theme.pale.hex,
-            background: styles.theme.interface.hex,
-        },
-        dropIcon: {
-            height: "2.25rem",
-            marginLeft: "0.75rem",
-            marginRight: "0.75rem",
-        }
+    var _a = useClass_1.default('ui-lkcomponent-account-select'), accountSelectClassName = _a[0], AccountSelectClassName = _a[1];
+    var st = styles.scenes.lkmain.components.accountSelect;
+    var onSelectToggle = function () {
+        AccountSelectClassName.toggleModifier('active');
     };
-    var addMouseIn = function () { return setAddHover(true); };
-    var addMouseOut = function () { return setAddHover(false); };
-    return (react_1.default.createElement(react_1.Fragment, null,
-        react_1.default.createElement("h3", { style: st.title }, "\u041B\u0438\u0446\u0435\u0432\u043E\u0439 \u0441\u0447\u0435\u0442"),
-        react_1.default.createElement(Flexbox_1.Flexbox, { className: "ui-lkcomponent-account-select" },
-            react_1.default.createElement(Flexbox_1.Flexbox, { className: "ui-lkcomponent-account-select-field", style: st.selectField, flex: 1 },
-                react_1.default.createElement(Flexbox_1.Flexbox, { style: st.accountText, flex: 1, alignItems: "center" }, "1234567890"),
-                react_1.default.createElement(Icon_1.Icon, { type: "down", style: st.dropIcon })),
-            react_1.default.createElement(Flexbox_1.Flexbox, { style: st.addButton, alignItems: "center", justifyContent: "center", onMouseEnter: addMouseIn, onMouseLeave: addMouseOut },
-                react_1.default.createElement(Icon_1.Icon, { type: "add", style: st.addButtonIcon, size: 1.1 })))));
+    var accountSetHandler = function (account) {
+        props.onChange && props.onChange(account.value);
+    };
+    var displayAccount = "";
+    props.values.forEach(function (item, index) {
+        if (!index) {
+            displayAccount = item.label;
+        }
+        if (item.value === props.value) {
+            displayAccount = item.label;
+        }
+    });
+    return (react_1.default.createElement("div", { className: accountSelectClassName },
+        react_1.default.createElement("h3", null, "\u041B\u0438\u0446\u0435\u0432\u043E\u0439 \u0441\u0447\u0435\u0442"),
+        react_1.default.createElement(Flexbox_1.Flexbox, { alignItems: "center" },
+            react_1.default.createElement(Flexbox_1.Flexbox, { flex: 1, children: (react_1.default.createElement(Flexbox_1.Flexbox, { flex: 1, className: "_field", style: __assign({}, st.field, { height: AccountSelectClassName.hasModifier("active") ? (props.values.length * 3 + 2.25) + "rem" : '2.25rem' }), onClick: onSelectToggle, children: (react_1.default.createElement(react_1.Fragment, null,
+                        react_1.default.createElement(Flexbox_1.Flexbox, { className: "_text", flex: 1, style: st.accountText, children: displayAccount }),
+                        react_1.default.createElement(Icon_1.Icon, { type: "down", style: st.dropIcon }),
+                        react_1.default.createElement("div", { className: "_list", style: {
+                                height: (props.values.length * 3) + "rem"
+                            } }, props.values.map(function (item) { return (react_1.default.createElement("div", { key: item.value, onClick: function () { return accountSetHandler(item); }, children: item.label })); })))) })) }),
+            react_1.default.createElement(Flexbox_1.Flexbox, { style: st.add, className: "_add", alignItems: "center", justifyContent: "center", children: (react_1.default.createElement(Icon_1.Icon, { type: "add", style: st.addIcon, size: 1.1 })) }))));
 });

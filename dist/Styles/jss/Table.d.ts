@@ -1,26 +1,27 @@
-declare const _default: (theme: any) => {
+import { ThemeInterface } from "..";
+declare const _default: (theme: ThemeInterface) => {
     main: {
-        backgroundColor: any;
-        titleColor: any;
-        shadowColor: any;
-        borderColor: any;
-        borderRadius: any;
+        backgroundColor: string;
+        titleColor: string;
+        borderColor: string;
+        borderRadius: string;
+        boxShadow: string;
     };
     row: {
-        backgroundColor: any;
-        borderColor: any;
+        backgroundColor: string;
+        borderColor: string;
     };
     actions: {
-        backgroundColor: any;
-        actionColor: any;
+        backgroundColor: string;
+        actionColor: string;
     };
     form: {
-        backgroundColor: any;
-        borderColor: any;
+        backgroundColor: string;
+        borderColor: string;
     };
     pagination: {
-        textColor: any;
-        backgroundColor: any;
+        textColor: string;
+        backgroundColor: string;
     };
 };
 export default _default;

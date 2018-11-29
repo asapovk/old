@@ -1,26 +1,27 @@
-declare const _default: (theme: any) => {
-    textColor: any;
-    backgroundColor: any;
-    borderColor: any;
-    iconColor: any;
+import { ThemeInterface } from "..";
+declare const _default: (theme: ThemeInterface) => {
+    textColor: string;
+    backgroundColor: string;
+    borderColor: string;
+    iconColor: string;
     label: {
-        color: any;
+        color: string;
     };
     singleline: {
         field: {
-            borderColor: any;
-            backgroundColor: any;
-            borderRadius: any;
+            borderColor: string;
+            backgroundColor: string;
+            borderRadius: string;
         };
         input: {
-            color: any;
+            color: string;
         };
         placeholder: {
-            color: any;
+            color: string;
         };
     };
     hint: {
-        color: any;
+        color: string;
     };
 };
 export default _default;

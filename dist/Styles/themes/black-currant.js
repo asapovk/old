@@ -8,7 +8,7 @@ var accentColors = {
     orange: utilities_1.getColors(255, 149, 0),
 };
 exports.default = {
-    name: "black-currant",
+    name: "blackCurrant",
     background: utilities_1.getColors(36, 33, 38),
     background2: utilities_1.getColors(29, 28, 30),
     interface: utilities_1.getColors(51, 47, 54),
@@ -21,6 +21,7 @@ exports.default = {
     shadow: utilities_1.getColors(19, 20, 25),
     shadows: {
         button: '0px 2px 6px 0px ' + utilities_1.getColors(19, 20, 25).hex,
+        table: 'none',
         card: '0px 1rem 1rem 0px ' + utilities_1.getColors(19, 20, 25).hex,
     },
     borders: {
@@ -31,8 +32,9 @@ exports.default = {
     },
     radius: {
         default: '2px',
-        window: '4px',
-        button: '4px',
+        window: '0.25rem',
+        button: '0.25rem',
+        card: '0.5rem',
     },
     gradient: {
         default: [
@@ -42,6 +44,10 @@ exports.default = {
         buddy: [
             utilities_1.getColors(36, 33, 38).hex,
             utilities_1.getColors(216, 15, 105).hex
-        ]
+        ],
+        card: [
+            utilities_1.getColors(255, 7, 118).hex,
+            utilities_1.getColors(120, 44, 167).hex,
+        ],
     },
 };

@@ -1,5 +1,5 @@
-import { ThemeInterface } from "..";
 import { CSSProperties } from "react";
+import { ThemeInterface } from "..";
 declare const _default: (theme: ThemeInterface) => {
     main: {
         backgroundColor: string;

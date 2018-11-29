@@ -1,17 +1,18 @@
-declare const _default: (theme: any) => {
+import { ThemeInterface } from "..";
+declare const _default: (theme: ThemeInterface) => {
     main: {
-        textColor: any;
-        backgroundColor: any;
-        borderColor: any;
+        textColor: string;
+        backgroundColor: string;
+        borderColor: string;
     };
     filter: {
-        backgroundColor: any;
-        inputBackground: any;
-        borderColor: any;
-        color: any;
+        backgroundColor: string;
+        inputBackground: string;
+        borderColor: string;
+        color: string;
     };
     nav: {
-        badgeColor: any;
+        badgeColor: string;
     };
 };
 export default _default;

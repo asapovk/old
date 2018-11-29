@@ -1,11 +1,12 @@
-declare const _default: (theme: any) => {
-    background: any;
-    labelColor: any;
-    textColor: any;
-    borderColor: any;
+import { ThemeInterface } from "..";
+declare const _default: (theme: ThemeInterface) => {
+    background: string;
+    labelColor: string;
+    textColor: string;
+    borderColor: string;
     SelectMenuItem: {
-        text: any;
-        background: any;
+        text: string;
+        background: string;
     };
 };
 export default _default;

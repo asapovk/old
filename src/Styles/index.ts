@@ -85,6 +85,7 @@ export interface ThemeInterface {
     gradient: {
         default: string[]
         buddy: string[]
+        card: string[]
     }
 }
 

@@ -1,7 +1,8 @@
-declare const _default: (theme: any) => {
-    color: any;
-    shadowColor: any;
-    borderColor: any;
-    background: any;
+import { ThemeInterface } from "..";
+declare const _default: (theme: ThemeInterface) => {
+    color: string;
+    shadowColor: string;
+    borderColor: string;
+    background: string;
 };
 export default _default;

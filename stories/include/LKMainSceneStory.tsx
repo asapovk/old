@@ -3,6 +3,8 @@ import Scene from '../../src/scenes/LKMainScene';
 import { Card, Menu, Icon, Stories } from '../../src';
 import useStyles from '../../src/hooks/useStyles';
 import SmoLogo from '../../src/logos/smorodina';
+import AbrLogo from '../../src/logos/abr';
+import MrgLogo from '../../src/logos/mrg';
 import AccountSelect from '../../src/scenes/LKMainScene/components/AccountSelect';
 import MainScrollView from '../../src/scenes/LKMainScene/components/MainScrollView';
 
@@ -11,9 +13,20 @@ import TableStory from './TableStory';
 const Header = () => {
     const [active, onClick] = useState(0);
     const styles = useStyles();
+    let logo = <SmoLogo style={{ width: "8rem" }} color={styles.theme.text.hex} />;
+
+    if (styles.theme.name === "gazpromTheme") {
+        logo = <MrgLogo style={{ width: "5.5rem" }} />;
+    }
+    if (styles.theme.name === "abrTheme") {
+        logo = <AbrLogo style={{ width: "10rem" }} />;
+    }
+    if (styles.theme.name === "whiteCurrant") {
+        logo = <SmoLogo style={{ width: "8rem" }} />;
+    }
     return (
         <Menu
-            header={<SmoLogo style={{ width: "8rem" }} color={styles.theme.text.hex} />}
+            header={logo}
             items={{
                 active,
                 onClick,

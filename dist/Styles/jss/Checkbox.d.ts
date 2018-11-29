@@ -1,21 +1,22 @@
-declare const _default: (theme: any) => {
+import { ThemeInterface } from "..";
+declare const _default: (theme: ThemeInterface) => {
     main: {
-        color: any;
+        color: string;
     };
     input: (isRadio: any) => {
-        color: any;
-        borderColor: any;
-        backgroundColor: any;
-        borderRadius: any;
+        color: string;
+        borderColor: string;
+        backgroundColor: string;
+        borderRadius: string;
     };
     inputActive: (isRadio: any) => {
-        color: any;
-        borderColor: any;
-        backgroundColor: any;
-        borderRadius: any;
+        color: string;
+        borderColor: string;
+        backgroundColor: string;
+        borderRadius: string;
     };
     circle: {
-        background: any;
+        background: string;
     };
 };
 export default _default;

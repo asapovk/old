@@ -14,7 +14,7 @@ export default () => {
     let logo: any = <SmorodinaLogo style={{ marginBottom: 20, width: "100%" }} />;
     let rightComponent: any;
 
-    if (styles.theme.name === "gazprom") {
+    if (styles.theme.name === "gazpromTheme") {
         rightComponent = (
             <Flexbox flex="1" alignContent="center" alignItems="center" justifyContent="center">
                 <img
@@ -30,12 +30,12 @@ export default () => {
         title = "Вся информация по вашим лицевым счетам. Удобно.";
     }
 
-    if (styles.theme.name === "abr") {
+    if (styles.theme.name === "abrTheme") {
         logo = <AbrLogo />;
         title = "БАНК - мечта!";
     }
 
-    if (styles.theme.name === "black-currant") {
+    if (styles.theme.name === "blackCurrant") {
         logo = <SmorodinaLogo color="#fff" style={{ marginBottom: 20, width: "100%" }} />
     }
 
