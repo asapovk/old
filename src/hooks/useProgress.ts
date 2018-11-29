@@ -8,27 +8,25 @@ let useProgress = (animate: boolean, time: number) => {
     let rafId: number | null = null;
     let start = null;
 
-    useEffect(
-        //@ts-ignore
-        () => {
-            if (animate) {
-                let step = timestamp => {
-                    if (!start) {
-                        start = timestamp;
-                    }
-                    let currentProgress = timestamp - (start! + progress);
-                    setProgress(currentProgress);
+    //@ts-ignore
+    useEffect(() => {
+        if (animate) {
+            let step = timestamp => {
+                if (!start) {
+                    start = timestamp;
+                }
+                let currentProgress = timestamp - start!;
+                setProgress(currentProgress);
 
-                    if (progress < time) {
-                        rafId = requestAnimationFrame(step);
-                    }
-                };
-                rafId = requestAnimationFrame(step);
-                return () => cancelAnimationFrame(rafId!);
-            }
-        },
-        [animate, time]
-    );
+                if (progress < time) {
+                    rafId = requestAnimationFrame(step);
+                }
+            };
+            rafId = requestAnimationFrame(step);
+            return () => cancelAnimationFrame(rafId!);
+        }
+    }, [animate, time]);
+
     return progress / time;
 };
 
