@@ -1,11 +1,11 @@
 import React, { Fragment, useEffect } from 'react';
-import { Story, IStories } from '../Stories';
+import { IStory, IStories } from '../Stories';
 import ModalMask from './ModalMask';
 import StoriesContainer from './StoriesContainer';
 import useClass from '../../hooks/useClass';
 
 export interface IStoriesModalProps {
-    stories: Story[]
+    stories: IStory[]
     active: boolean
     setModalActive: (active: boolean) => void
     currentStoryIndex: number

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Flexbox, Stories, Slider } from '../../src';
+import { Flexbox, Stories } from '../../src';
 
 export default () => {
     return (
@@ -37,7 +37,6 @@ export default () => {
                     key: 'buhnem'
                 }]
             }]} />
-            <Slider />
         </Flexbox>
     )
 }

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import useClass from '../../hooks/useClass';
 
-export default ({ image, children, isCurrent, onPause, onContinue }) => {
+export default ({ image, children, isCurrent, onPause }) => {
 
     const [slideClassName, slideClassModifier] = useClass('ui-stories-modal-container-story-slides-slide');
 

@@ -2,23 +2,23 @@ import React, { useState, Fragment } from 'react';
 import StoriesList from './StoriesList';
 import StoryModal from './StoryModal';
 
-export interface StorySlide {
+export interface IStorySlide {
     image: any,
     text: string
     key: string
 }
-export interface Story {
+export interface IStory {
     image: any
     label: string
     labelColor: any
     read: boolean
     onClick?: () => void
-    slides: StorySlide[]
+    slides: IStorySlide[]
 }
 
 export interface IStories {
     title: string
-    stories: Story[]
+    stories: IStory[]
 }
 
 export default (props: IStories) => {

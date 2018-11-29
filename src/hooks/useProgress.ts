@@ -3,8 +3,8 @@
 
 import { useState, useEffect } from "react";
 
-let useProgress = (animate: boolean, time: number) => {
-    let [progress, setProgress] = useState<number>(0);
+let useProgress = (animate: boolean, time: number, pause, currentProgress) => {
+    let [progress, setProgress] = useState(currentProgress);
     let rafId: number | null = null;
     let start = null;
 
@@ -12,14 +12,16 @@ let useProgress = (animate: boolean, time: number) => {
     useEffect(() => {
         if (animate) {
             let step = timestamp => {
-                if (!start) {
-                    start = timestamp;
-                }
-                let currentProgress = timestamp - start!;
-                setProgress(currentProgress);
+                if (!pause) {
+                    if (!start) {
+                        start = timestamp;
+                    }
+                    let currentProgress = timestamp - start!;
+                    setProgress(currentProgress);
 
-                if (progress < time) {
-                    rafId = requestAnimationFrame(step);
+                    if (progress < time) {
+                        rafId = requestAnimationFrame(step);
+                    }
                 }
             };
             rafId = requestAnimationFrame(step);
@@ -27,7 +29,7 @@ let useProgress = (animate: boolean, time: number) => {
         }
     }, [animate, time]);
 
-    return progress / time;
+    return (progress / time);
 };
 
 export default useProgress;

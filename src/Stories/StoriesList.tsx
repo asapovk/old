@@ -21,7 +21,7 @@ export default (props: IStoriesList) => {
                 style={{ color: story.labelColor || '#fff' }}
                 children={story.label}
             />
-        )
+        );
     }
 
     return (
@@ -34,7 +34,8 @@ export default (props: IStoriesList) => {
                         className='ui-stories-items-item'
                         style={{
                             backgroundImage: `url(${story.image})`,
-                            // borderColor: !story.read ? styles.theme.highlight.rgba(.7) : 'transparent'
+                            padding: '0.25rem',
+                            borderColor: !story.read ? styles.theme.highlight.rgb : 'transparent'
                         }}
                         onClick={() => {
                             props.setStory(index);
