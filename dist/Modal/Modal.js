@@ -62,7 +62,6 @@ var Modal = /** @class */ (function (_super) {
         var modalHeight = 0;
         modalHeight = modal.offsetHeight;
         var viewHeight = view.offsetHeight;
-        console.log(modalHeight, viewHeight);
         if (modalHeight > viewHeight) {
             if (!this.state.center)
                 return;
