@@ -14,6 +14,6 @@ export default ({ image, children, isCurrent, onPause, onContinue }) => {
     }, [isCurrent]);
 
     return (
-        <div onMouseDown={() => onPause()} onMouseUp={() => onContinue()} className={slideClassName} style={{ backgroundImage: `url(${image})` }} children={children} />
+        <div onClick={() => onPause()} className={slideClassName} style={{ backgroundImage: `url(${image})` }} children={children} />
     )
 }

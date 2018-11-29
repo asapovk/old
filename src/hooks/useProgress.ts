@@ -5,17 +5,20 @@ import { useState, useEffect } from "react";
 
 let useProgress = (animate: boolean, time: number) => {
     let [progress, setProgress] = useState<number>(0);
+    let rafId: number | null = null;
+    let start = null;
 
     useEffect(
         //@ts-ignore
         () => {
             if (animate) {
-                let rafId: number | null = null;
-                let start = null;
                 let step = timestamp => {
-                    if (!start) start = timestamp;
-                    let progress = timestamp - start!;
-                    setProgress(progress);
+                    if (!start) {
+                        start = timestamp;
+                    }
+                    let currentProgress = timestamp - (start! + progress);
+                    setProgress(currentProgress);
+
                     if (progress < time) {
                         rafId = requestAnimationFrame(step);
                     }
@@ -26,8 +29,7 @@ let useProgress = (animate: boolean, time: number) => {
         },
         [animate, time]
     );
-
-    return animate ? Math.min(progress / time, time) : 0;
+    return progress / time;
 };
 
 export default useProgress;

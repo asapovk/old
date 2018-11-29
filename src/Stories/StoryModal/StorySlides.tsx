@@ -1,6 +1,6 @@
 import React, { useReducer, useEffect } from 'react';
 import Slide from './Slide';
-import ProgressBar from './ProgressBar';
+// import ProgressBar from './ProgressBar';
 import Control from './Control';
 
 let SLIDE_DURATION = 3000;
@@ -15,6 +15,7 @@ export default ({ active, slides, onNextStory, onPrevStory, currentStoryIndex })
     const initialState = {
         activeSlide: 0,
         isPlaying: true,
+        pause: false
     };
 
     const [state, dispatch] = useReducer(
@@ -25,12 +26,14 @@ export default ({ active, slides, onNextStory, onPrevStory, currentStoryIndex })
                 case 'PAUSE':
                     return {
                         ...state,
-                        isPlaying: false
+                        isPlaying: false,
+                        pause: true
                     }
                 case 'CONTINUE':
                     return {
                         ...state,
-                        isPlaying: true
+                        isPlaying: true,
+                        pause: false
                     }
                 case 'NEXT':
                     return {
@@ -57,7 +60,6 @@ export default ({ active, slides, onNextStory, onPrevStory, currentStoryIndex })
     }
 
     function onPrevSlide() {
-        console.log(1);
         if (state.activeSlide === 0) {
             if (currentStoryIndex === 0) {
                 return dispatch({ type: 'INITIAL' });
@@ -65,6 +67,15 @@ export default ({ active, slides, onNextStory, onPrevStory, currentStoryIndex })
             return onPrevStory();
         }
         dispatch({ type: 'PREVIOUS' });
+    }
+
+    function onPause() {
+        if (!state.pause) {
+            dispatch({ type: 'PAUSE' });
+            clearTimeout(timeout);
+            return;
+        }
+        dispatch({ type: 'CONTINUE' });
     }
 
     //@ts-ignore
@@ -81,17 +92,18 @@ export default ({ active, slides, onNextStory, onPrevStory, currentStoryIndex })
 
     return (
         <div style={{ height: '100%' }} className={'ui-stories-modal-container-story-slides'}>
-            <div style={{ position: 'absolute', left: 0, top: -10, right: 0, display: 'flex', flexDirection: 'row' }}>
+            {/* <div style={{ position: 'absolute', left: 0, top: -10, right: 0, display: 'flex', flexDirection: 'row' }}>
                 {slides.map((slide, index) => (
                     <ProgressBar
                         key={currentStoryIndex + '-' + index}
                         lastElement={index === slides.length - 1}
-                        animate={index === state.activeSlide && state.isPlaying}
+                        animate={index === state.activeSlide}
+                        pause={state.pause}
                         finished={index < state.activeSlide}
                         time={SLIDE_DURATION}
                     />
                 ))}
-            </div>
+            </div> */}
             {/* <Control onPrev={onPrevSlide} onNext={onNextSlide} /> */}
             {slides.map((slide, index) => (
                 <Slide
@@ -99,7 +111,7 @@ export default ({ active, slides, onNextStory, onPrevStory, currentStoryIndex })
                     key={index}
                     image={slide.image}
                     children={slide.text}
-                    onPause={() => dispatch({ type: 'PAUSE' })}
+                    onPause={onPause}
                     onContinue={() => dispatch({ type: 'CONTINUE' })}
                 />
             ))}
