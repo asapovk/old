@@ -1566,7 +1566,7 @@ blockquote {
 .ui-stories-items-item {
   box-sizing: border-box;
   background-size: cover;
-  background-position: center;
+  background-position: center center;
   background-repeat: no-repeat;
   overflow: hidden;
   border-radius: 0.5rem;
@@ -1605,6 +1605,60 @@ blockquote {
   -o-transition: all 0.25s;
   transition: all 0.25s;
 }
+.ui-stories-modal-container {
+  box-sizing: border-box;
+  position: relative;
+  min-width: 320px;
+  min-height: 480px;
+}
+.ui-stories-modal-container-story {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  opacity: 0;
+}
+.ui-stories-modal-container-story-active {
+  opacity: 1;
+}
+.ui-stories-modal-container-story-slides {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.ui-stories-modal-container-story-slides-slide {
+  opacity: 0;
+}
+.ui-stories-modal-container-story-slides-slide-active {
+  opacity: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+.ui-stories-modal-container-story-progressbar {
+  position: relative;
+  background: blue;
+  border-radius: 5px;
+}
+.ui-stories-modal-container-story-progressbar-finished {
+  background: yellow;
+}
+.ui-stories-modal-container-story-progressbar > div {
+  background-color: red;
+  height: 3px;
+}
+.ui-stories-modal-visible {
+  opacity: 1;
+  visibility: visible;
+}
 .ui-stories-modal-mask {
   z-index: 500;
   position: fixed;
@@ -1625,52 +1679,6 @@ blockquote {
 .ui-stories-modal-mask-visible {
   visibility: visible;
   opacity: 0.7;
-}
-.ui-stories-modal-visible {
-  opacity: 1;
-  visibility: visible;
-}
-.ui-stories-modal-visible > div > div {
-  opacity: 1;
-  visibility: visible;
-  -webkit-transform: scale(1);
-  -khtml-transform: scale(1);
-  -moz-transform: scale(1);
-  -ms-transform: scale(1);
-  -o-transform: scale(1);
-  transform: scale(1);
-}
-.ui-stories-modal-hidding > div > div {
-  -webkit-transform: scale(1.8);
-  -khtml-transform: scale(1.8);
-  -moz-transform: scale(1.8);
-  -ms-transform: scale(1.8);
-  -o-transform: scale(1.8);
-  transform: scale(1.8);
-}
-.ui-stories-modal-nextstory {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 2.5rem;
-  height: 100%;
-  cursor: pointer;
-  z-index: 5;
-}
-.ui-stories-modal-nextstory:hover {
-  background-color: rgba(0, 0, 0, 0.1);
-}
-.ui-stories-modal-prevstory {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 2.5rem;
-  height: 100%;
-  cursor: pointer;
-  z-index: 5;
-}
-.ui-stories-modal-prevstory:hover {
-  background-color: rgba(0, 0, 0, 0.1);
 }
 
 .ui-scenes-lkmain-side {
