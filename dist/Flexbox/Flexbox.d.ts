@@ -3,6 +3,10 @@ export interface FlexboxProps {
     onClick?: (event: any) => void;
     onMouseEnter?: (event: any) => void;
     onMouseLeave?: (event: any) => void;
+    onMouseDown?: (event: any) => void;
+    onMouseUp?: (event: any) => void;
+    onTouchStart?: (event: any) => void;
+    onTouchEnd?: (event: any) => void;
     elementRef?: any;
     style?: CSSProperties;
     className?: string;

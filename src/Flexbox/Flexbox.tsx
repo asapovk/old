@@ -4,6 +4,10 @@ export interface FlexboxProps {
     onClick?: (event: any) => void
     onMouseEnter?: (event: any) => void
     onMouseLeave?: (event: any) => void
+    onMouseDown?: (event: any) => void
+    onMouseUp?: (event: any) => void
+    onTouchStart?: (event: any) => void
+    onTouchEnd?: (event: any) => void
     elementRef?: any
     style?: CSSProperties
     className?: string
@@ -38,13 +42,17 @@ export interface FlexboxProps {
 
 class Flexbox extends React.Component<FlexboxProps> {
     render() {
-        const { className, elementRef, onClick, onMouseEnter, onMouseLeave, w, h, pr, pl, pt, pb, p, m, mr, ml, mt, mb, flex, inline, flexBasis, alignContent, alignSelf, alignItems, justifyContent, flexDirection, flexFlow, flexShrink, flexGrow, column } = this.props;
+        const { className, elementRef, onClick, onMouseEnter, onMouseLeave, onMouseUp, onMouseDown, onTouchStart, onTouchEnd, w, h, pr, pl, pt, pb, p, m, mr, ml, mt, mb, flex, inline, flexBasis, alignContent, alignSelf, alignItems, justifyContent, flexDirection, flexFlow, flexShrink, flexGrow, column } = this.props;
         const props: any = {
             className,
             ref: elementRef,
             onClick,
             onMouseEnter,
             onMouseLeave,
+            onTouchStart,
+            onTouchEnd,
+            onMouseUp,
+            onMouseDown,
             style: {
                 position: 'relative',
                 display: inline ? 'inline-flex' : 'flex',

@@ -53,76 +53,78 @@
         margin: 0 -23px 0 -23px;
         @include css3-prefix("transition", all .25s);
 
-        &-container {
+
+        &-slider {
             box-sizing: border-box;
-            position: relative;
             min-width: 320px;
             min-height: 480px;
+            position: relative;
 
             &-story {
-                position: absolute;
-                top: 0;
-                left: 0;
-                bottom: 0;
-                right: 0;
                 opacity: 0;
-    
                 &-active {
                     opacity: 1;
                 }
-    
-                &-slides {
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    right: 0;
-                    bottom: 0;
-                    
-                    &-slide {
-                        opacity: 0;
-                        // transition-delay: 0.5s;
-                        // background-size: cover;
-                        // background-repeat: no-repeat;
-                        // background-position: center center;
-                        // @include css3-prefix("transform", scale(1.2));
-            
-                        &-active {
-                            opacity: 1;
-                            position: absolute;
-                            top: 0;
-                            left: 0;
-                            bottom: 0;
-                            right: 0;
-                            background-size: cover;
-                            background-repeat: no-repeat;
-                            background-position: center center;
-                            // transition: all 0.3s ease;
-                            // @include css3-prefix("transform", scale(1));
-                        }
+
+                &-slide {
+                    opacity: 0;
+                    // transition-delay: 0.5s;
+                    // background-size: cover;
+                    // background-repeat: no-repeat;
+                    // background-position: center center;
+                    // @include css3-prefix("transform", scale(1.2));
+        
+                    &-active {
+                        opacity: 1;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        bottom: 0;
+                        right: 0;
+                        background-size: cover;
+                        background-repeat: no-repeat;
+                        background-position: center center;
+                        // transition: all 0.3s ease;
+                        // @include css3-prefix("transform", scale(1));
                     }
                 }
-    
-                &-progressbar {
-                    position: relative;
-                    background: blue;
-                    border-radius: 5px;
-    
-                    &-finished {
-                        background: yellow;
-                    }
-                    
-                    > div {
-                        background-color: red;
-                        height: 3px;
-                    }
+            }
+
+            &-progressbar {
+                position: relative;
+                background: blue;
+                border-radius: 5px;
+
+                &-finished {
+                    background: yellow;
+                }
+                
+                > div {
+                    background-color: red;
+                    height: 3px;
                 }
             }
         }
 
+
+
         &-visible {
             opacity: 1;
             visibility: visible;
+            > div > div {
+                opacity: 1;
+                visibility: visible;
+                @include css3-prefix("transform", scale(1));
+            }
         }
+        &-hidding {
+            > div > div {  
+                @include css3-prefix("transform", scale(1.8));
+            }
+        }
+
+
+
 
         &-mask {
             z-index: 500;
@@ -135,7 +137,6 @@
             opacity: 0;
             visibility: hidden;
             @include css3-prefix("transition", all .25s);
-            
             &-visible {
                 visibility: visible;
                 opacity: 0.7;

@@ -21,10 +21,15 @@ export default (className: string) => {
         setClass(cls.replace(" " + defaultClass + "-" + modifier, ""));
     };
     const toggleModifier = (modifier: string) => {
-        if (!hasModifier(modifier)) {
-            addModifier(modifier)
-        } else {
+        let remove = hasModifier(modifier);
+        if (modifier[0] === "!") {
+            modifier = modifier.replace(/^!/, "");
+            remove = !hasModifier(modifier);
+        }
+        if (remove) {
             removeModifier(modifier)
+        } else {
+            addModifier(modifier)
         }
     };
 

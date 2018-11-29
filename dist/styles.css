@@ -110,7 +110,7 @@ blockquote {
 .ui-button.large, .ui-textfield > div > div > input,
 .ui-textfield > div > textarea, .c1 {
   font-size: 1rem;
-  line-height: 1rem;
+  line-height: 1.25rem;
 }
 
 .ui-button, .c2 {
@@ -1585,6 +1585,92 @@ blockquote {
   font-weight: bold;
   padding: 0.75rem;
   line-height: 14px;
+}
+.ui-stories-modal {
+  z-index: 500;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
+  visibility: hidden;
+  overflow-y: scroll;
+  padding: 20px;
+  margin: 0 -23px 0 -23px;
+  -webkit-transition: all 0.25s;
+  -khtml-transition: all 0.25s;
+  -moz-transition: all 0.25s;
+  -ms-transition: all 0.25s;
+  -o-transition: all 0.25s;
+  transition: all 0.25s;
+}
+.ui-stories-modal-mask {
+  z-index: 500;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: all 0.25s;
+  -khtml-transition: all 0.25s;
+  -moz-transition: all 0.25s;
+  -ms-transition: all 0.25s;
+  -o-transition: all 0.25s;
+  transition: all 0.25s;
+}
+.ui-stories-modal-mask-visible {
+  visibility: visible;
+  opacity: 0.7;
+}
+.ui-stories-modal-visible {
+  opacity: 1;
+  visibility: visible;
+}
+.ui-stories-modal-visible > div > div {
+  opacity: 1;
+  visibility: visible;
+  -webkit-transform: scale(1);
+  -khtml-transform: scale(1);
+  -moz-transform: scale(1);
+  -ms-transform: scale(1);
+  -o-transform: scale(1);
+  transform: scale(1);
+}
+.ui-stories-modal-hidding > div > div {
+  -webkit-transform: scale(1.8);
+  -khtml-transform: scale(1.8);
+  -moz-transform: scale(1.8);
+  -ms-transform: scale(1.8);
+  -o-transform: scale(1.8);
+  transform: scale(1.8);
+}
+.ui-stories-modal-nextstory {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 2.5rem;
+  height: 100%;
+  cursor: pointer;
+  z-index: 5;
+}
+.ui-stories-modal-nextstory:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+.ui-stories-modal-prevstory {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 2.5rem;
+  height: 100%;
+  cursor: pointer;
+  z-index: 5;
+}
+.ui-stories-modal-prevstory:hover {
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 .ui-scenes-lkmain-side {
