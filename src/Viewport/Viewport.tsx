@@ -61,7 +61,7 @@ class Viewport extends Component<ViewportProps> {
             <StylesContext.Provider value={uiStyles}>
                 <div
                     data-viewport
-                    className={this.props.transparent ? '' : 'ui-view'}
+                    className={this.props.transparent ? 'ui-viewport' : 'ui-viewport ui-viewport-fit'}
                     id='0cd82567-7684-4147-ab02-dd3c56332364'
                     style={this.props.transparent ? { ...this.props.style } : { ...uiStyles.viewport.main, ...this.props.style }}
                     children={(

@@ -1,4 +1,4 @@
-.noselect {
+.ui-viewport .noselect {
     -webkit-touch-callout: none; /* iOS Safari */
       -webkit-user-select: none; /* Safari */
        -khtml-user-select: none; /* Konqueror HTML */
@@ -8,11 +8,11 @@
                                     supported by Chrome and Opera */
 }
 
-.uppercase {
+.ui-viewport .uppercase {
     text-transform: uppercase;
 }
 
-.disabled {
+.ui-viewport .disabled {
     opacity: 0.5;
 }
 
