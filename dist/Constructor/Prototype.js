@@ -179,7 +179,6 @@ var Prototype = /** @class */ (function (_super) {
          */
         if (object.$conditions && object.$conditions.visible) {
             var data_1 = this.props.getConstructor().data;
-            console.log(object);
             var findConditions = function (conditionsArray, shouldBeEquils) {
                 var _loop_1 = function (i) {
                     var $condition = conditionsArray[i];
