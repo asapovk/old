@@ -12,143 +12,92 @@
   more info: http://www.findmebyip.com/litmus/#css3-properties
 
 ------------------------------------------------------------- */
-/* http://meyerweb.com/eric/tools/css/reset/ 
-   v2.0 | 20110126
-   License: none (public domain)
-*/
-html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  vertical-align: baseline;
-}
-
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
-  display: block;
-}
-
-ol, ul {
-  list-style: none;
-}
-
-blockquote, q {
-  quotes: none;
-}
-
-blockquote:before, blockquote:after {
-  content: "";
-  content: none;
-}
-
-q:before, q:after {
-  content: "";
-  content: none;
-}
-
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
-
 /* 
 * ———————————————————————
 * SETTINGS
 * ———————————————————————
 */
-:root {
+.ui-viewport, .ui-modal, .ui-notifications {
   font-size: 16px;
   line-height: 1.5rem;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
-article {
+.ui-viewport article, .ui-modal article, .ui-notifications article {
   max-width: 640px;
 }
-
-p {
+.ui-viewport p, .ui-modal p, .ui-notifications p {
   font-size: 1rem;
   line-height: 1.5rem;
   margin-bottom: 1.5rem;
 }
-
-h1 {
+.ui-viewport h1, .ui-modal h1, .ui-notifications h1 {
   font-size: 2rem;
   line-height: 3rem;
   margin-top: 3rem;
   margin-bottom: 1.5rem;
 }
-
-h2 {
+.ui-viewport h2, .ui-modal h2, .ui-notifications h2 {
   font-size: 1.5rem;
   line-height: 2rem;
   margin-top: 2.5rem;
   margin-bottom: 0.5rem;
 }
-
-h3 {
+.ui-viewport h3, .ui-modal h3, .ui-notifications h3 {
   font-size: 1.25rem;
   line-height: 1.5rem;
   margin-top: 2rem;
   margin-bottom: 0.5rem;
 }
-
-h4 {
+.ui-viewport h4, .ui-modal h4, .ui-notifications h4 {
   font-size: 1.125rem;
   line-height: 1.5rem;
   margin-top: 1.5rem;
   margin-bottom: 0.5rem;
 }
-
-blockquote {
+.ui-viewport blockquote, .ui-modal blockquote, .ui-notifications blockquote {
   font-family: Georgia, Times, Times New Roman, serif;
   font-style: italic;
 }
-
-.ui-button.large, .ui-textfield > div > div > input,
-.ui-textfield > div > textarea, .c1 {
+.ui-viewport .ui-button.large, .ui-viewport .ui-textfield > div > div > input,
+.ui-viewport .ui-textfield > div > textarea, .ui-viewport .c1, .ui-modal .ui-button.large, .ui-modal .ui-textfield > div > div > input,
+.ui-modal .ui-textfield > div > textarea, .ui-modal .c1, .ui-notifications .ui-button.large, .ui-notifications .ui-textfield > div > div > input,
+.ui-notifications .ui-textfield > div > textarea, .ui-notifications .c1 {
   font-size: 1rem;
   line-height: 1.25rem;
 }
-
-.ui-button, .c2 {
+.ui-viewport .ui-button, .ui-viewport .c2, .ui-modal .ui-button, .ui-modal .c2, .ui-notifications .ui-button, .ui-notifications .c2 {
   font-size: 0.875rem;
   line-height: 0.875rem;
 }
-
-.ui-select-label, .ui-button.small, .ui-textfield-hint, .ui-textfield-label, .c3 {
+.ui-viewport .ui-select-label, .ui-viewport .ui-button.small, .ui-viewport .ui-textfield-hint, .ui-viewport .ui-textfield-label, .ui-viewport .c3, .ui-modal .ui-select-label, .ui-modal .ui-button.small, .ui-modal .ui-textfield-hint, .ui-modal .ui-textfield-label, .ui-modal .c3, .ui-notifications .ui-select-label, .ui-notifications .ui-button.small, .ui-notifications .ui-textfield-hint, .ui-notifications .ui-textfield-label, .ui-notifications .c3 {
   font-size: 0.75rem;
   line-height: 0.75rem;
 }
-
-.c4 {
+.ui-viewport .c4, .ui-modal .c4, .ui-notifications .c4 {
   font-size: 0.625rem;
   line-height: 0.625rem;
 }
-
-.ui-select, .t1 {
+.ui-viewport .ui-select, .ui-viewport .t1, .ui-modal .ui-select, .ui-modal .t1, .ui-notifications .ui-select, .ui-notifications .t1 {
   font-size: 1rem;
   line-height: 1.5rem;
 }
-
-.t2 {
+.ui-viewport .t2, .ui-modal .t2, .ui-notifications .t2 {
   font-size: 0.875rem;
   line-height: 1.25rem;
 }
-
-.t3 {
+.ui-viewport .t3, .ui-modal .t3, .ui-notifications .t3 {
   font-size: 0.75rem;
   line-height: 1rem;
 }
-
-.t4 {
+.ui-viewport .t4, .ui-modal .t4, .ui-notifications .t4 {
   font-size: 0.625rem;
   line-height: 0.75rem;
 }
 
-.noselect {
+.ui-viewport .noselect {
   -webkit-touch-callout: none;
   /* iOS Safari */
   -webkit-user-select: none;
@@ -164,15 +113,15 @@ blockquote {
      supported by Chrome and Opera */
 }
 
-.uppercase {
+.ui-viewport .uppercase {
   text-transform: uppercase;
 }
 
-.disabled {
+.ui-viewport .disabled {
   opacity: 0.5;
 }
 
-.ui-view {
+.ui-viewport-fit {
   position: absolute;
   top: 0;
   left: 0;
@@ -1566,7 +1515,7 @@ blockquote {
 .ui-stories-items-item {
   box-sizing: border-box;
   background-size: cover;
-  background-position: center;
+  background-position: center center;
   background-repeat: no-repeat;
   overflow: hidden;
   border-radius: 0.5rem;
@@ -1605,6 +1554,60 @@ blockquote {
   -o-transition: all 0.25s;
   transition: all 0.25s;
 }
+.ui-stories-modal-container {
+  box-sizing: border-box;
+  position: relative;
+  min-width: 320px;
+  min-height: 480px;
+}
+.ui-stories-modal-container-story {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  opacity: 0;
+}
+.ui-stories-modal-container-story-active {
+  opacity: 1;
+}
+.ui-stories-modal-container-story-slides {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.ui-stories-modal-container-story-slides-slide {
+  opacity: 0;
+}
+.ui-stories-modal-container-story-slides-slide-active {
+  opacity: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+.ui-stories-modal-container-story-progressbar {
+  position: relative;
+  background: blue;
+  border-radius: 5px;
+}
+.ui-stories-modal-container-story-progressbar-finished {
+  background: yellow;
+}
+.ui-stories-modal-container-story-progressbar > div {
+  background-color: red;
+  height: 3px;
+}
+.ui-stories-modal-visible {
+  opacity: 1;
+  visibility: visible;
+}
 .ui-stories-modal-mask {
   z-index: 500;
   position: fixed;
@@ -1625,52 +1628,6 @@ blockquote {
 .ui-stories-modal-mask-visible {
   visibility: visible;
   opacity: 0.7;
-}
-.ui-stories-modal-visible {
-  opacity: 1;
-  visibility: visible;
-}
-.ui-stories-modal-visible > div > div {
-  opacity: 1;
-  visibility: visible;
-  -webkit-transform: scale(1);
-  -khtml-transform: scale(1);
-  -moz-transform: scale(1);
-  -ms-transform: scale(1);
-  -o-transform: scale(1);
-  transform: scale(1);
-}
-.ui-stories-modal-hidding > div > div {
-  -webkit-transform: scale(1.8);
-  -khtml-transform: scale(1.8);
-  -moz-transform: scale(1.8);
-  -ms-transform: scale(1.8);
-  -o-transform: scale(1.8);
-  transform: scale(1.8);
-}
-.ui-stories-modal-nextstory {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 2.5rem;
-  height: 100%;
-  cursor: pointer;
-  z-index: 5;
-}
-.ui-stories-modal-nextstory:hover {
-  background-color: rgba(0, 0, 0, 0.1);
-}
-.ui-stories-modal-prevstory {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 2.5rem;
-  height: 100%;
-  cursor: pointer;
-  z-index: 5;
-}
-.ui-stories-modal-prevstory:hover {
-  background-color: rgba(0, 0, 0, 0.1);
 }
 
 .ui-scenes-lkmain-side {

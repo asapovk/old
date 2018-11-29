@@ -211,7 +211,6 @@ class Prototype extends React.Component<Props> {
          */
         if (object.$conditions && object.$conditions.visible) {
             const { data } = this.props.getConstructor();
-            console.log(object)
 
             const findConditions = (conditionsArray, shouldBeEquils) => {
                 for (let i = 0; i < conditionsArray.length; i++) {

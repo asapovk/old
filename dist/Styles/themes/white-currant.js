@@ -8,7 +8,7 @@ var accentColors = {
     orange: utilities_1.getColors(255, 149, 0),
 };
 exports.default = {
-    name: "white-currant",
+    name: "whiteCurrant",
     background: utilities_1.getColors(243, 240, 245),
     background2: utilities_1.getColors(240, 230, 237),
     interface: utilities_1.getColors(250, 250, 250),
@@ -44,6 +44,10 @@ exports.default = {
         buddy: [
             "#FFFFFF",
             utilities_1.getColors(127, 8, 191).hex,
-        ]
+        ],
+        card: [
+            utilities_1.getColors(127, 8, 191).hex,
+            utilities_1.getColors(156, 58, 216).hex,
+        ],
     },
 };

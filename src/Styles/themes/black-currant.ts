@@ -9,7 +9,7 @@ const accentColors = {
 }
 
 export default {
-    name: "black-currant",
+    name: "blackCurrant",
     background: getColors(36, 33, 38),
     background2: getColors(29, 28, 30),
     interface: getColors(51, 47, 54),
@@ -45,6 +45,10 @@ export default {
         buddy: [
             getColors(36, 33, 38).hex,
             getColors(216, 15, 105).hex
-        ]
+        ],
+        card: [
+            getColors(255, 7, 118).hex,
+            getColors(120, 44, 167).hex,
+        ],
     },
 } as ThemeInterface

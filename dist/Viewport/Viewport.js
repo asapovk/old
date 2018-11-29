@@ -78,11 +78,11 @@ var Viewport = /** @class */ (function (_super) {
     Viewport.prototype.render = function () {
         var uiStyles = Styles_1.createStyles(this.props.theme);
         return (react_1.default.createElement(Styles_1.StylesContext.Provider, { value: uiStyles },
-            react_1.default.createElement("div", { "data-viewport": true, className: 'ui-view', id: '0cd82567-7684-4147-ab02-dd3c56332364', style: __assign({}, this.props.style, uiStyles.viewport.main) },
-                this.props.children,
-                this.state.mountedActions.map(function (action, index) {
-                    return react_1.default.createElement(react_1.Fragment, { key: index }, action.component);
-                }))));
+            react_1.default.createElement("div", { "data-viewport": true, className: this.props.transparent ? 'ui-viewport' : 'ui-viewport ui-viewport-fit', id: '0cd82567-7684-4147-ab02-dd3c56332364', style: this.props.transparent ? __assign({}, this.props.style) : __assign({}, uiStyles.viewport.main, this.props.style), children: (react_1.default.createElement(react_1.Fragment, null,
+                    this.props.children,
+                    this.state.mountedActions.map(function (action, index) {
+                        return react_1.default.createElement(react_1.Fragment, { key: index }, action.component);
+                    }))) })));
     };
     return Viewport;
 }(react_1.Component));

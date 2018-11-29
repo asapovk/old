@@ -8,7 +8,7 @@ var accentColors = {
     orange: utilities_1.getColors(255, 149, 0),
 };
 exports.default = {
-    name: "gazprom",
+    name: "gazpromTheme",
     background: utilities_1.getColors(247, 247, 247),
     background2: utilities_1.getColors(237, 239, 242),
     interface: utilities_1.getColors(250, 250, 250),
@@ -50,6 +50,10 @@ exports.default = {
         buddy: [
             "#FFFFFF",
             "#007BBC"
+        ],
+        card: [
+            utilities_1.getColors(5, 106, 255).hex,
+            utilities_1.getColors(18, 140, 214).hex
         ],
     },
 };

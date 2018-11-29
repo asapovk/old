@@ -50,6 +50,7 @@ export interface ThemeInterface {
     gradient: {
         default: string[];
         buddy: string[];
+        card: string[];
     };
 }
 export declare const createStyles: (themeName?: "blackCurrant" | "whiteCurrant" | "abrTheme" | "gazpromTheme" | undefined) => {

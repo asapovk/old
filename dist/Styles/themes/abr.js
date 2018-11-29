@@ -8,7 +8,7 @@ var accentColors = {
     orange: utilities_1.getColors(245, 169, 0),
 };
 exports.default = {
-    name: "abr",
+    name: "abrTheme",
     background: utilities_1.getColors(247, 247, 247),
     background2: utilities_1.getColors(240, 240, 240),
     interface: utilities_1.getColors(250, 250, 250),
@@ -44,6 +44,10 @@ exports.default = {
         buddy: [
             "#FFFFFF",
             utilities_1.getColors(196, 13, 60).hex
-        ]
+        ],
+        card: [
+            utilities_1.getColors(196, 13, 60).hex,
+            utilities_1.getColors(243, 103, 103).hex,
+        ],
     },
 };

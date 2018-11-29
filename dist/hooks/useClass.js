@@ -20,11 +20,16 @@ exports.default = (function (className) {
         setClass(cls.replace(" " + defaultClass + "-" + modifier, ""));
     };
     var toggleModifier = function (modifier) {
-        if (!hasModifier(modifier)) {
-            addModifier(modifier);
+        var remove = hasModifier(modifier);
+        if (modifier[0] === "!") {
+            modifier = modifier.replace(/^!/, "");
+            remove = !hasModifier(modifier);
+        }
+        if (remove) {
+            removeModifier(modifier);
         }
         else {
-            removeModifier(modifier);
+            addModifier(modifier);
         }
     };
     return [cls, {

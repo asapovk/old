@@ -9,7 +9,7 @@ const accentColors = {
 }
 
 export default {
-    name: "gazprom",
+    name: "gazpromTheme",
     background: getColors(247, 247, 247),
     background2: getColors(237, 239, 242),
     interface: getColors(250, 250, 250),
@@ -51,6 +51,10 @@ export default {
         buddy: [
             "#FFFFFF",
             "#007BBC"
+        ],
+        card: [
+            getColors(5, 106, 255).hex,
+            getColors(18, 140, 214).hex
         ],
     },
 } as ThemeInterface

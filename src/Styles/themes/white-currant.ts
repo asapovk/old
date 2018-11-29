@@ -9,7 +9,7 @@ const accentColors = {
 }
 
 export default {
-    name: "white-currant",
+    name: "whiteCurrant",
     background: getColors(243, 240, 245),
     background2: getColors(240, 230, 237),
     interface: getColors(250, 250, 250),
@@ -45,6 +45,10 @@ export default {
         buddy: [
             "#FFFFFF",
             getColors(127, 8, 191).hex,
-        ]
+        ],
+        card: [
+            getColors(127, 8, 191).hex,
+            getColors(156, 58, 216).hex,
+        ],
     },
 } as ThemeInterface
