@@ -26,7 +26,7 @@ class WidgetStat extends Component<Props> {
             <Styles>
                 {styles => (
                     <Widget loading={loading} style={style}>
-                        <Flexbox column className={classes} flex={1}>
+                        <Flexbox column className={classes}>
                             <Flexbox column flex={1}>
                                 <Flexbox>
                                     <Flexbox pr={10} flex={1} className="ui-widgetstat-title" style={styles.widgetStat.titleStyle}>{title}</Flexbox>

@@ -31,7 +31,7 @@ var WidgetStat = /** @class */ (function (_super) {
         var _a = this.props, children = _a.children, onClick = _a.onClick, actionTitle = _a.actionTitle, loading = _a.loading, style = _a.style, title = _a.title, subtitle = _a.subtitle, subtitle2 = _a.subtitle2, value1 = _a.value1, value2 = _a.value2;
         var classes = 'ui-widgetstat';
         return (react_1.default.createElement(__1.Styles, null, function (styles) { return (react_1.default.createElement(__1.Widget, { loading: loading, style: style },
-            react_1.default.createElement(__1.Flexbox, { column: true, className: classes, flex: 1 },
+            react_1.default.createElement(__1.Flexbox, { column: true, className: classes },
                 react_1.default.createElement(__1.Flexbox, { column: true, flex: 1 },
                     react_1.default.createElement(__1.Flexbox, null,
                         react_1.default.createElement(__1.Flexbox, { pr: 10, flex: 1, className: "ui-widgetstat-title", style: styles.widgetStat.titleStyle }, title),

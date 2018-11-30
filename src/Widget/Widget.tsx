@@ -22,7 +22,7 @@ class Widget extends Component<Props> {
         return (
             <Styles>
                 {styles => (
-                    <Flexbox column flex={1} justifyContent="center" className={classes} onClick={onClick} style={{
+                    <Flexbox column flex={1} justifyContent="flex-start" className={classes} onClick={onClick} style={{
                         ...style,
                         background: styles.widget.background,
                         borderColor: styles.widget.borderColor
