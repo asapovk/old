@@ -20,8 +20,8 @@ const TableActions = props => (
                     background: `linear-gradient(90deg, ${styles.table.actions.backgroundColor} 0%, ${styles.table.actions.backgroundColor} 20%)`
                 }}>{
                         props.actions.map((action, index) => (
-                            <Button decoration='none' key={index} className={action.className} onClick={event => {
-                                event.stopPropagation();
+                            <Button decoration='none' key={index} className={action.className} onClick={() => {
+                                // event.stopPropagation();
                                 action.onAction(props.data);
                             }}>{action.label}</Button>
                         ))
