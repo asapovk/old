@@ -30,7 +30,7 @@ class WidgetStat extends Component<Props> {
                             <Flexbox column flex={1}>
                                 <Flexbox>
                                     <Flexbox pr={10} flex={1} className="ui-widgetstat-title" style={styles.widgetStat.titleStyle}>{title}</Flexbox>
-                                    <Flexbox className="ui-widgetstat-value2" style={styles.widgetStat.valueStyle}><Icon type="chart" />{value2}</Flexbox>
+                                    <Flexbox className="ui-widgetstat-value2" style={styles.widgetStat.valueStyle}><Icon type="chart" size={1.5} />{value2}</Flexbox>
                                 </Flexbox>
                                 <Flexbox pt={5}>
                                     <Flexbox pr={10} flex={1} className="ui-widgetstat-subtitle" style={styles.widgetStat.subtitleStyle}>{subtitle}</Flexbox>

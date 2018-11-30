@@ -48,7 +48,7 @@ var Widget = /** @class */ (function (_super) {
             title ? (react_1.default.createElement(index_1.Flexbox, { pr: 10, flex: 1, className: "ui-widget-title" }, title)) : "",
             loading ? (react_1.default.createElement(index_1.Flexbox, { column: true, className: "ui-widget-loading", alignItems: "center", alignSelf: "center", justifyContent: "center" },
                 react_1.default.createElement(index_1.Spin, null,
-                    react_1.default.createElement(index_1.Icon, { type: "sync", style: { color: styles.widget.highlight } })),
+                    react_1.default.createElement(index_1.Icon, { type: "sync", style: { color: styles.widget.highlight }, size: 1.5 })),
                 typeof loading === "string" && react_1.default.createElement("div", { className: "ui-widget-loadingtext", style: { color: styles.widget.lowlight } }, "loading"))) : children)); }));
     };
     return Widget;

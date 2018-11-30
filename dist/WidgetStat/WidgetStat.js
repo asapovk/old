@@ -36,7 +36,7 @@ var WidgetStat = /** @class */ (function (_super) {
                     react_1.default.createElement(__1.Flexbox, null,
                         react_1.default.createElement(__1.Flexbox, { pr: 10, flex: 1, className: "ui-widgetstat-title", style: styles.widgetStat.titleStyle }, title),
                         react_1.default.createElement(__1.Flexbox, { className: "ui-widgetstat-value2", style: styles.widgetStat.valueStyle },
-                            react_1.default.createElement(__1.Icon, { type: "chart" }),
+                            react_1.default.createElement(__1.Icon, { type: "chart", size: 1.5 }),
                             value2)),
                     react_1.default.createElement(__1.Flexbox, { pt: 5 },
                         react_1.default.createElement(__1.Flexbox, { pr: 10, flex: 1, className: "ui-widgetstat-subtitle", style: styles.widgetStat.subtitleStyle }, subtitle),
