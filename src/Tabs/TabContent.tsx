@@ -17,16 +17,6 @@ interface Props {
 
 class TabContent extends React.Component<Props> {
 
-    static defaultProps = {
-        active: false,
-        style: {},
-        mobileActive: false,
-
-        backTitle: "",
-        label: "",
-        onClose: _ => { }
-    }
-
     render() {
         return (
             <Styles>
@@ -39,7 +29,7 @@ class TabContent extends React.Component<Props> {
                                     onClick={this.props.onClose}
                                     label={this.props.backTitle || "Назад"}
                                 />
-                                <div className={`ui-tabs-content-mobile-header-title`}>{this.props.label}</div>
+                                {this.props.label && <div className={`ui-tabs-content-mobile-header-title`}>{this.props.label}</div>}
                             </div>
                         )}
                         {this.props.children}

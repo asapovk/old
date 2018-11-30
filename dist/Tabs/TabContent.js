@@ -5,7 +5,7 @@ var __extends = (this && this.__extends) || (function () {
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
             function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
         return extendStatics(d, b);
-    }
+    };
     return function (d, b) {
         extendStatics(d, b);
         function __() { this.constructor = d; }
@@ -28,16 +28,8 @@ var TabContent = /** @class */ (function (_super) {
         return (react_1.default.createElement(__1.Styles, null, function (styles) { return (react_1.default.createElement("div", { style: styles.tabs.container, className: "ui-tabs-content" + (_this.props.active ? " active" : "") + (_this.props.mobileActive ? " mobileActive" : "") },
             _this.props.mobileActive && (react_1.default.createElement("div", { className: "ui-tabs-content-mobile-header" },
                 react_1.default.createElement(__1.Button, { className: "ui-tabs-content-mobile-header-backBtn", onClick: _this.props.onClose, label: _this.props.backTitle || "Назад" }),
-                react_1.default.createElement("div", { className: "ui-tabs-content-mobile-header-title" }, _this.props.label))),
+                _this.props.label && react_1.default.createElement("div", { className: "ui-tabs-content-mobile-header-title" }, _this.props.label))),
             _this.props.children)); }));
-    };
-    TabContent.defaultProps = {
-        active: false,
-        style: {},
-        mobileActive: false,
-        backTitle: "",
-        label: "",
-        onClose: function (_) { }
     };
     return TabContent;
 }(react_1.default.Component));

@@ -13,11 +13,6 @@ interface Props {
     buttonRef: (ref: any) => void;
 }
 declare class Tab extends React.Component<Props> {
-    static defaultProps: {
-        onClick: (_: any) => void;
-        buttonRef: (_: any) => void;
-        icon: string;
-    };
     hf: HTMLSpanElement | null;
     setBackgroundSelectedIndex(index: any, offsetLeft: any, width: any): void;
     render(): JSX.Element;

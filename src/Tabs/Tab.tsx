@@ -19,12 +19,6 @@ interface Props {
 
 class Tab extends React.Component<Props> {
 
-    static defaultProps = {
-        onClick: _ => { },
-        buttonRef: _ => { },
-        icon: "",
-    }
-
     hf: HTMLSpanElement | null
 
     // //Для анимации
