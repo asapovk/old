@@ -17,12 +17,6 @@ interface Modal {
     modal: any;
 }
 declare class Modal extends React.Component<Props> {
-    static defaultProps: {
-        onClose: (_: any) => void;
-        didClose: (_: any) => void;
-        onOpen: (_: any) => void;
-        didOpen: (_: any) => void;
-    };
     state: {
         active: boolean;
         visible: boolean;

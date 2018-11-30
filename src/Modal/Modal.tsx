@@ -25,13 +25,6 @@ interface Modal {
 }
 class Modal extends React.Component<Props> {
 
-    static defaultProps = {
-        onClose: _ => { },
-        didClose: _ => { },
-        onOpen: _ => { },
-        didOpen: _ => { },
-    }
-
     state = {
         active: false,
         visible: false,
@@ -39,6 +32,7 @@ class Modal extends React.Component<Props> {
         center: true,
         loading: false,
     }
+
     constructor(props) {
         super(props);
         this.setVetricalCenter = this.setVetricalCenter.bind(this);

@@ -160,12 +160,6 @@ var Modal = /** @class */ (function (_super) {
                 react_1.default.createElement(ModalView_1.default, __assign({}, this.props, { center: this.state.center, wrapperReference: function (ref) { return _this.modal = ref; } })),
                 react_1.default.createElement(Spinner_1.Spinner, { center: true, spinning: loading }))));
     };
-    Modal.defaultProps = {
-        onClose: function (_) { },
-        didClose: function (_) { },
-        onOpen: function (_) { },
-        didOpen: function (_) { },
-    };
     return Modal;
 }(react_1.default.Component));
 exports.default = Modal;
