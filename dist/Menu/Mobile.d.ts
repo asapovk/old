@@ -6,6 +6,7 @@ interface IMobileMenu {
 interface IMobileMenuItems {
     active: boolean;
     items: IMenuItems;
+    tools?: any[];
 }
 export declare function MobileMenu(props: IMobileMenu): JSX.Element;
 export declare function MobileMenuItems(props: IMobileMenuItems): JSX.Element;

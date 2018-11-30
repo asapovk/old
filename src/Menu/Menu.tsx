@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, CSSProperties } from 'react';
 import { Flexbox, Login } from '..';
 import Nav from './Nav';
 import useStyles from '../hooks/useStyles';
 import useBrowser from '../hooks/useBrowser';
 import { MobileMenu, MobileMenuItems } from './Mobile';
+import { ILogin } from '../Login/Login';
 
 interface IMenuItem {
     label: string
@@ -20,8 +21,8 @@ interface IMenu {
     items: IMenuItems
     toolsRight?: any[]
     pin?: boolean
-    style?: any
-    profile?: any
+    style?: CSSProperties
+    profile?: ILogin
 }
 
 export default (props: IMenu) => {
@@ -95,7 +96,14 @@ export default (props: IMenu) => {
                 )}
 
                 {windowSize.isDesktop && (
-                    <Flexbox alignItems='center' justifyContent='center' className={'ui-menu-navbar'}>
+                    <Flexbox
+                        flex={1}
+                        alignItems='center'
+                        justifyContent='center'
+                        className={'ui-menu-navbar'}
+                        style={{
+                            position: 'absolute', left: 0, right: 0
+                        }}>
                         {items.list.map((navItem, index) => (
                             <Nav
                                 key={index}
@@ -108,21 +116,22 @@ export default (props: IMenu) => {
                     </Flexbox>
                 )}
 
-                {toolsRight && (
-                    <Flexbox alignItems='center' justifyContent='flex-end' className={'ui-menu-toolsbar'}>
-                        {toolsRight.map((tool, index) => React.cloneElement(tool, { key: index }))}
-                    </Flexbox>
-                )}
+                <Flexbox alignItems='center' justifyContent='flex-end' className={'ui-menu-toolsbar'}>
+                    {toolsRight && windowSize.isDesktop && (
+                        <Flexbox className={'ui-menu-toolsbar-tools'}>
+                            {toolsRight.map((tool, index) => React.cloneElement(tool, { key: index }))}
+                        </Flexbox>
+                    )}
 
-                {profile && (
-                    <Flexbox alignItems='center' justifyContent='flex-end' className={'ui-menu-profile'}>
-                        <Login {...profile} />
-                    </Flexbox>
-                )}
-
+                    {profile && (
+                        <Flexbox className={'ui-menu-toolsbar-profile'}>
+                            <Login {...profile} />
+                        </Flexbox>
+                    )}
+                </Flexbox>
             </Flexbox>
 
-            {!windowSize.isDesktop && <MobileMenuItems active={mobileActive} items={props.items} />}
+            {!windowSize.isDesktop && <MobileMenuItems active={mobileActive} items={props.items} tools={toolsRight} />}
         </div>
     )
 }

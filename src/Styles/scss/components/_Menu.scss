@@ -70,14 +70,15 @@ $rowHeightMin: 2.5rem;
 
     &-toolsbar {
         height: $rowHeight;
-        > * {
+
+        &-tools {
             margin-right: 0.625rem;
+            > * {
+                margin-right: 0.625rem;
+            }
         }
     }
 
-    &-profile {
-        height: $rowHeight;
-    }
 }
 
 .ui-menu-nav {

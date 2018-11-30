@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from 'react';
-import { Menu, Nav, Login } from '../../src';
+import { Menu, Button, Icon } from '../../src';
 
 export const loginUser = {
     id_user: 1,
@@ -43,6 +43,14 @@ export default () => {
                     fullname: loginUser.first_name + ' ' + loginUser.last_name,
                     role: loginUser.desc_role
                 }}
+                toolsRight={[
+                    <Button decoration='none' onClick={() => console.log(1)}>
+                        <Icon type='add' size={1.5} />
+                    </Button>,
+                    <Button decoration='none' style={{ fontSize: 24 }} onClick={() => console.log(2)}>
+                        <Icon type='filter' size={1.5} />
+                    </Button>
+                ]}
             />
         </Fragment>
     )

@@ -1,3 +1,5 @@
+import { CSSProperties } from 'react';
+import { ILogin } from '../Login/Login';
 interface IMenuItem {
     label: string;
 }
@@ -11,8 +13,8 @@ interface IMenu {
     items: IMenuItems;
     toolsRight?: any[];
     pin?: boolean;
-    style?: any;
-    profile?: any;
+    style?: CSSProperties;
+    profile?: ILogin;
 }
 declare const _default: (props: IMenu) => JSX.Element;
 export default _default;

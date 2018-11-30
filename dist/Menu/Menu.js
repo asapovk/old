@@ -77,9 +77,12 @@ exports.default = (function (props) {
         react_1.default.createElement(__1.Flexbox, { className: 'ui-menu', alignItems: 'center', justifyContent: 'space-between', style: __assign({}, styles.menu.main.menu, style) },
             !windowSize.isDesktop && react_1.default.createElement(Mobile_1.MobileMenu, { active: mobileActive, setActive: setMobileActive }),
             header && (react_1.default.createElement(__1.Flexbox, { alignItems: 'center', justifyContent: 'flex-start', className: 'ui-menu-header' }, !header.label ? header : (react_1.default.createElement("div", { className: 'ui-menu-header-title', onClick: header.onAction }, header.label)))),
-            windowSize.isDesktop && (react_1.default.createElement(__1.Flexbox, { alignItems: 'center', justifyContent: 'center', className: 'ui-menu-navbar' }, items.list.map(function (navItem, index) { return (react_1.default.createElement(Nav_1.default, { key: index, menuKey: index, label: navItem.label, active: index === items.active, onClick: items.onClick })); }))),
-            toolsRight && (react_1.default.createElement(__1.Flexbox, { alignItems: 'center', justifyContent: 'flex-end', className: 'ui-menu-toolsbar' }, toolsRight.map(function (tool, index) { return react_1.default.cloneElement(tool, { key: index }); }))),
-            profile && (react_1.default.createElement(__1.Flexbox, { alignItems: 'center', justifyContent: 'flex-end', className: 'ui-menu-profile' },
-                react_1.default.createElement(__1.Login, __assign({}, profile))))),
-        !windowSize.isDesktop && react_1.default.createElement(Mobile_1.MobileMenuItems, { active: mobileActive, items: props.items })));
+            windowSize.isDesktop && (react_1.default.createElement(__1.Flexbox, { flex: 1, alignItems: 'center', justifyContent: 'center', className: 'ui-menu-navbar', style: {
+                    position: 'absolute', left: 0, right: 0
+                } }, items.list.map(function (navItem, index) { return (react_1.default.createElement(Nav_1.default, { key: index, menuKey: index, label: navItem.label, active: index === items.active, onClick: items.onClick })); }))),
+            react_1.default.createElement(__1.Flexbox, { alignItems: 'center', justifyContent: 'flex-end', className: 'ui-menu-toolsbar' },
+                toolsRight && windowSize.isDesktop && (react_1.default.createElement(__1.Flexbox, { className: 'ui-menu-toolsbar-tools' }, toolsRight.map(function (tool, index) { return react_1.default.cloneElement(tool, { key: index }); }))),
+                profile && (react_1.default.createElement(__1.Flexbox, { className: 'ui-menu-toolsbar-profile' },
+                    react_1.default.createElement(__1.Login, __assign({}, profile)))))),
+        !windowSize.isDesktop && react_1.default.createElement(Mobile_1.MobileMenuItems, { active: mobileActive, items: props.items, tools: toolsRight })));
 });

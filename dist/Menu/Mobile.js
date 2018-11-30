@@ -33,7 +33,7 @@ function MobileMenuItems(props) {
     var styles = useStyles_1.default();
     var menuRef = react_1.useRef(null);
     var _a = react_1.useState(0), menuHeight = _a[0], setMenuHeight = _a[1];
-    var items = props.items, active = props.active;
+    var items = props.items, active = props.active, tools = props.tools;
     react_1.useEffect(function () {
         if (active) {
             setMenuHeight(menuRef.current.childNodes[0].offsetHeight);
@@ -43,6 +43,8 @@ function MobileMenuItems(props) {
         }
     }, [active]);
     return (react_1.default.createElement("div", { ref: menuRef, style: { height: menuHeight, background: utilities_1.ColorCorrector.darker(styles.theme.background.hex, 3) }, className: "ui-menu-navbar-hamburger-content" },
-        react_1.default.createElement(__1.Flexbox, { alignItems: "center", flexDirection: "column", style: { position: "relative", top: active ? 0 : 110, opacity: active ? 1 : 0 } }, items.list.map(function (navItem, index) { return (react_1.default.createElement(Nav_1.default, { style: { marginBottom: (index === items.list.length - 1) ? 0 : '1rem' }, key: index, menuKey: index, label: navItem.label, active: index === items.active, onClick: items.onClick })); }))));
+        react_1.default.createElement(__1.Flexbox, { alignItems: "center", flexDirection: "column", style: { position: "relative", top: active ? 0 : 110, opacity: active ? 1 : 0 } },
+            tools && (react_1.default.createElement(__1.Flexbox, { justifyContent: 'space-around', alignItems: 'center', style: { marginBottom: '1rem' } }, tools.map(function (tool, index) { return react_1.default.cloneElement(tool, { key: index, style: { marginRight: index != tools.length - 1 ? 10 : 0 } }); }))),
+            items.list.map(function (navItem, index) { return (react_1.default.createElement(Nav_1.default, { style: { marginBottom: (index === items.list.length - 1) ? 0 : '1rem' }, key: index, menuKey: index, label: navItem.label, active: index === items.active, onClick: items.onClick })); }))));
 }
 exports.MobileMenuItems = MobileMenuItems;

@@ -727,11 +727,11 @@
 .ui-menu-toolsbar {
   height: calc(4rem - 0.5px);
 }
-.ui-menu-toolsbar > * {
+.ui-menu-toolsbar-tools {
   margin-right: 0.625rem;
 }
-.ui-menu-profile {
-  height: calc(4rem - 0.5px);
+.ui-menu-toolsbar-tools > * {
+  margin-right: 0.625rem;
 }
 
 .ui-menu-nav {

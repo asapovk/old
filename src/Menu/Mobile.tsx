@@ -13,6 +13,7 @@ interface IMobileMenu {
 interface IMobileMenuItems {
     active: boolean
     items: IMenuItems
+    tools?: any[]
 }
 
 export function MobileMenu(props: IMobileMenu) {
@@ -42,7 +43,7 @@ export function MobileMenuItems(props: IMobileMenuItems) {
     const menuRef = useRef<HTMLDivElement>(null);
     const [menuHeight, setMenuHeight] = useState(0);
 
-    const { items, active } = props;
+    const { items, active, tools } = props;
 
     useEffect(() => {
         if (active) {
@@ -55,6 +56,13 @@ export function MobileMenuItems(props: IMobileMenuItems) {
     return (
         <div ref={menuRef} style={{ height: menuHeight, background: ColorCorrector.darker(styles.theme.background.hex, 3) }} className={`ui-menu-navbar-hamburger-content`}>
             <Flexbox alignItems="center" flexDirection="column" style={{ position: "relative", top: active ? 0 : 110, opacity: active ? 1 : 0 }}>
+
+                {tools && (
+                    <Flexbox justifyContent='space-around' alignItems='center' style={{ marginBottom: '1rem' }}>
+                        {tools.map((tool, index) => React.cloneElement(tool, { key: index, style: { marginRight: index != tools.length - 1 ? 10 : 0 } }))}
+                    </Flexbox>
+                )}
+
                 {items.list.map((navItem, index) => (
                     <Nav
                         style={{ marginBottom: (index === items.list.length - 1) ? 0 : '1rem' }}
