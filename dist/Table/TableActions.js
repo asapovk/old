@@ -12,8 +12,8 @@ var TableActions = function (props) { return (react_1.default.createElement(__1.
     react_1.default.createElement("div", { className: 'ui-table-content-body-row-actions-buttons', style: {
             // TODO: gradient opacity
             background: "linear-gradient(90deg, " + styles.table.actions.backgroundColor + " 0%, " + styles.table.actions.backgroundColor + " 20%)"
-        } }, props.actions.map(function (action, index) { return (react_1.default.createElement(Button_1.Button, { decoration: 'none', key: index, className: action.className, onClick: function (event) {
-            event.stopPropagation();
+        } }, props.actions.map(function (action, index) { return (react_1.default.createElement(Button_1.Button, { decoration: 'none', key: index, className: action.className, onClick: function () {
+            // event.stopPropagation();
             action.onAction(props.data);
         } }, action.label)); })))); })); };
 exports.default = TableActions;

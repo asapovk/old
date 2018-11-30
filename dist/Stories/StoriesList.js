@@ -16,6 +16,8 @@ exports.default = (function (props) {
         react_1.default.createElement("div", { className: 'ui-stories-title' }, props.title),
         react_1.default.createElement(__1.Flexbox, { className: 'ui-stories-items' }, props.stories.map(function (story, index) { return (react_1.default.createElement(__1.Flexbox, { key: index, className: 'ui-stories-items-item', style: {
                 backgroundImage: "url(" + story.image + ")",
+                padding: '0.25rem',
+                borderColor: !story.read ? styles.theme.highlight.rgb : 'transparent'
             }, onClick: function () {
                 props.setStory(index);
                 props.setModalActive(true);

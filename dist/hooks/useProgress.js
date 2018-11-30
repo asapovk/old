@@ -3,27 +3,29 @@
 // don't trust this code
 Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = require("react");
-var useProgress = function (animate, time) {
-    var _a = react_1.useState(0), progress = _a[0], setProgress = _a[1];
-    react_1.useEffect(
+var useProgress = function (animate, time, pause, currentProgress) {
+    var _a = react_1.useState(currentProgress), progress = _a[0], setProgress = _a[1];
+    var rafId = null;
+    var start = null;
     //@ts-ignore
-    function () {
+    react_1.useEffect(function () {
         if (animate) {
-            var rafId_1 = null;
-            var start_1 = null;
             var step_1 = function (timestamp) {
-                if (!start_1)
-                    start_1 = timestamp;
-                var progress = timestamp - start_1;
-                setProgress(progress);
-                if (progress < time) {
-                    rafId_1 = requestAnimationFrame(step_1);
+                if (!pause) {
+                    if (!start) {
+                        start = timestamp;
+                    }
+                    var currentProgress_1 = timestamp - start;
+                    setProgress(currentProgress_1);
+                    if (progress < time) {
+                        rafId = requestAnimationFrame(step_1);
+                    }
                 }
             };
-            rafId_1 = requestAnimationFrame(step_1);
-            return function () { return cancelAnimationFrame(rafId_1); };
+            rafId = requestAnimationFrame(step_1);
+            return function () { return cancelAnimationFrame(rafId); };
         }
     }, [animate, time]);
-    return animate ? Math.min(progress / time, time) : 0;
+    return (progress / time);
 };
 exports.default = useProgress;

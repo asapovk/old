@@ -1,6 +1,6 @@
-import { Story, IStories } from '../Stories';
+import { IStory, IStories } from '../Stories';
 export interface IStoriesModalProps {
-    stories: Story[];
+    stories: IStory[];
     active: boolean;
     setModalActive: (active: boolean) => void;
     currentStoryIndex: number;

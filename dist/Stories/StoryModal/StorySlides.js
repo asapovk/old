@@ -25,12 +25,11 @@ var react_1 = __importStar(require("react"));
 var Slide_1 = __importDefault(require("./Slide"));
 var ProgressBar_1 = __importDefault(require("./ProgressBar"));
 var SLIDE_DURATION = 3000;
-var timeout;
 exports.default = (function (_a) {
     var active = _a.active, slides = _a.slides, onNextStory = _a.onNextStory, onPrevStory = _a.onPrevStory, currentStoryIndex = _a.currentStoryIndex;
     var initialState = {
         activeSlide: 0,
-        isPlaying: true,
+        isPlaying: true
     };
     var _b = react_1.useReducer(function (state, action) {
         switch (action.type) {
@@ -55,7 +54,6 @@ exports.default = (function (_a) {
         dispatch({ type: 'NEXT' });
     }
     function onPrevSlide() {
-        console.log(1);
         if (state.activeSlide === 0) {
             if (currentStoryIndex === 0) {
                 return dispatch({ type: 'INITIAL' });
@@ -64,17 +62,14 @@ exports.default = (function (_a) {
         }
         dispatch({ type: 'PREVIOUS' });
     }
-    //@ts-ignore
-    react_1.useEffect(function () {
-        if (active) {
-            if (state.isPlaying) {
-                timeout = setTimeout(function () { return onNextSlide(); }, SLIDE_DURATION);
-                return function () { return clearTimeout(timeout); };
-            }
+    function onPause() {
+        if (state.isPlaying) {
+            return dispatch({ type: 'PAUSE' });
         }
-    }, [active, state.activeSlide, state.isPlaying]);
+        dispatch({ type: 'CONTINUE' });
+    }
     react_1.useEffect(function () { return dispatch({ type: 'INITIAL' }); }, [currentStoryIndex]);
     return (react_1.default.createElement("div", { style: { height: '100%' }, className: 'ui-stories-modal-container-story-slides' },
-        react_1.default.createElement("div", { style: { position: 'absolute', left: 0, top: -10, right: 0, display: 'flex', flexDirection: 'row' } }, slides.map(function (slide, index) { return (react_1.default.createElement(ProgressBar_1.default, { key: currentStoryIndex + '-' + index, lastElement: index === slides.length - 1, animate: index === state.activeSlide && state.isPlaying, finished: index < state.activeSlide, time: SLIDE_DURATION })); })),
-        slides.map(function (slide, index) { return (react_1.default.createElement(Slide_1.default, { isCurrent: state.activeSlide === index, key: index, image: slide.image, children: slide.text, onPause: function () { return dispatch({ type: 'PAUSE' }); }, onContinue: function () { return dispatch({ type: 'CONTINUE' }); } })); })));
+        react_1.default.createElement("div", { style: { position: 'absolute', left: 0, top: -10, right: 0, display: 'flex', flexDirection: 'row' } }, slides.map(function (slide, index) { return (react_1.default.createElement(ProgressBar_1.default, { key: currentStoryIndex + '-' + index, isPlaying: state.isPlaying, isCurrent: index === state.activeSlide, isPassed: state.activeSlide > index, duration: SLIDE_DURATION, onPassed: onNextSlide })); })),
+        slides.map(function (slide, index) { return (react_1.default.createElement(Slide_1.default, { key: index, isCurrent: state.activeSlide === index, image: slide.image, children: slide.text, onPause: onPause })); })));
 });

@@ -1,19 +1,19 @@
-export interface StorySlide {
+export interface IStorySlide {
     image: any;
     text: string;
     key: string;
 }
-export interface Story {
+export interface IStory {
     image: any;
     label: string;
     labelColor: any;
     read: boolean;
     onClick?: () => void;
-    slides: StorySlide[];
+    slides: IStorySlide[];
 }
 export interface IStories {
     title: string;
-    stories: Story[];
+    stories: IStory[];
 }
 declare const _default: (props: IStories) => JSX.Element;
 export default _default;
