@@ -7,11 +7,6 @@ interface Props {
     children: any;
 }
 declare class Tabs extends React.Component<Props> {
-    static defaultProps: {
-        style: {};
-        type: string;
-        mobileCurrentPageTitle: string;
-    };
     view: HTMLElement;
     tabRefs: any[];
     maxDesktopWidth: 900;

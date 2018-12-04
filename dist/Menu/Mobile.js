@@ -14,7 +14,7 @@ var react_1 = __importStar(require("react"));
 var __1 = require("..");
 var useStyles_1 = __importDefault(require("../hooks/useStyles"));
 var utilities_1 = require("../Styles/utilities");
-var Nav_1 = __importDefault(require("./Nav"));
+var NavBarItem_1 = __importDefault(require("./NavBarItem"));
 function MobileMenu(props) {
     var styles = useStyles_1.default();
     var active = props.active, setActive = props.setActive;
@@ -45,6 +45,6 @@ function MobileMenuItems(props) {
     return (react_1.default.createElement("div", { ref: menuRef, style: { height: menuHeight, background: utilities_1.ColorCorrector.darker(styles.theme.background.hex, 3) }, className: "ui-menu-navbar-hamburger-content" },
         react_1.default.createElement(__1.Flexbox, { alignItems: "center", flexDirection: "column", style: { position: "relative", top: active ? 0 : 110, opacity: active ? 1 : 0 } },
             tools && (react_1.default.createElement(__1.Flexbox, { justifyContent: 'space-around', alignItems: 'center', style: { marginBottom: '1rem' } }, tools.map(function (tool, index) { return react_1.default.cloneElement(tool, { key: index, style: { marginRight: index != tools.length - 1 ? 10 : 0 } }); }))),
-            items.list.map(function (navItem, index) { return (react_1.default.createElement(Nav_1.default, { style: { marginBottom: (index === items.list.length - 1) ? 0 : '1rem' }, key: index, menuKey: index, label: navItem.label, active: index === items.active, onClick: items.onClick })); }))));
+            items.list.map(function (navItem, index) { return (react_1.default.createElement(NavBarItem_1.default, { style: { marginBottom: (index === items.list.length - 1) ? 0 : '1rem' }, key: index, menuKey: index, label: navItem.label, active: index === items.active, onClick: items.onClick })); }))));
 }
 exports.MobileMenuItems = MobileMenuItems;

@@ -18,9 +18,6 @@ declare class Buddy extends Component<Props> {
         x: number;
         y: number;
     };
-    static defaultProps: {
-        defaultFace: string;
-    };
     BUDDY_ID: string;
     constructor(props: any);
     init(): void;

@@ -163,6 +163,7 @@ var Buddy = /** @class */ (function (_super) {
             case 'sad':
                 this.makeSad(true);
                 break;
+            default: this.makeHappy(true);
         }
     };
     Buddy.prototype.componentWillUnmount = function () {
@@ -203,9 +204,6 @@ var Buddy = /** @class */ (function (_super) {
                         react_1.default.createElement("path", { "data-id": "brouwRightHappy", id: "buddyBrouwRightStateHappy" + _this.BUDDY_ID, d: "M173.6,39.9c0,0-4.7-2.9-13-4.4c-9.4-1.6-19.2,2.5-19.2,2.5" }),
                         react_1.default.createElement("path", { "data-id": "brouwLeftSad", id: "buddyBrouwLeftStateSad" + _this.BUDDY_ID, d: "M58.1,39c0,0-6.5,0.9-11.5,3.6c-5,2.7-7.2,6.4-7.2,6.4" }),
                         react_1.default.createElement("path", { "data-id": "brouwRightSad", id: "buddyBrouwRightStateSad" + _this.BUDDY_ID, d: "M175.7,49.8c0,0-2.1-3.6-6.7-6.8c-4.2-3-11-3.1-11-3.1" })))))); }));
-    };
-    Buddy.defaultProps = {
-        defaultFace: "happy"
     };
     return Buddy;
 }(react_1.Component));

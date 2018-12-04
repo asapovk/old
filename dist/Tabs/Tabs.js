@@ -102,12 +102,12 @@ var Tabs = /** @class */ (function (_super) {
         if (Array.isArray(tabs) === false) {
             tabs = [tabs];
         }
-        return (react_1.default.createElement(__1.Styles, null, function (styles) { return (react_1.default.createElement("div", { className: "ui-tabs ui-tabs-" + _this.props.type, style: _this.props.style, ref: function (ref) { return _this.view = ref; } },
+        return (react_1.default.createElement(__1.Styles, null, function (styles) { return (react_1.default.createElement("div", { className: "ui-tabs ui-tabs-" + (_this.props.type || 'grid'), style: _this.props.style || {}, ref: function (ref) { return _this.view = ref; } },
             react_1.default.createElement(__1.Flexbox, { className: "ui-tabs-container", style: styles.tabs.container }, tabs.map(function (child, i) {
                 var props = {
                     key: i,
                     index: i,
-                    type: _this.props.type,
+                    type: _this.props.type || 'grid',
                     icon: child.props.icon,
                     label: child.props.label,
                     right: child.props.right,
@@ -135,7 +135,7 @@ var Tabs = /** @class */ (function (_super) {
                         key: i,
                         children: child.props.children,
                         mobileActive: _this.state.mobileActive,
-                        backTitle: _this.props.mobileCurrentPageTitle,
+                        backTitle: _this.props.mobileCurrentPageTitle || "",
                         label: child.props.label,
                         onClose: function () {
                             _this.setState({ mobileActive: false });
@@ -146,11 +146,6 @@ var Tabs = /** @class */ (function (_super) {
                 }
                 return null;
             }))); }));
-    };
-    Tabs.defaultProps = {
-        style: {},
-        type: "grid",
-        mobileCurrentPageTitle: ""
     };
     return Tabs;
 }(react_1.default.Component));

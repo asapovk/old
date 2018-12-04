@@ -23,13 +23,14 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importStar(require("react"));
 var __1 = require("..");
-var Nav_1 = __importDefault(require("./Nav"));
 var useStyles_1 = __importDefault(require("../hooks/useStyles"));
 var useBrowser_1 = __importDefault(require("../hooks/useBrowser"));
 var Mobile_1 = require("./Mobile");
+var NavBar_1 = __importDefault(require("./NavBar"));
 exports.default = (function (props) {
     var styles = useStyles_1.default();
     var windowSize = useBrowser_1.default();
+    var navBar = react_1.useRef(null);
     var _a = react_1.useState(false), mobileActive = _a[0], setMobileActive = _a[1];
     var header = props.header, style = props.style, toolsRight = props.toolsRight, profile = props.profile, items = props.items;
     // const animate = (from: number, to: number, onFrame: (value: number) => void, delay: number = 250, idAnimation?: string, fps: number = 60) => {
@@ -76,10 +77,8 @@ exports.default = (function (props) {
     return (react_1.default.createElement("div", null,
         react_1.default.createElement(__1.Flexbox, { className: 'ui-menu', alignItems: 'center', justifyContent: 'space-between', style: __assign({}, styles.menu.main.menu, style) },
             !windowSize.isDesktop && react_1.default.createElement(Mobile_1.MobileMenu, { active: mobileActive, setActive: setMobileActive }),
-            header && (react_1.default.createElement(__1.Flexbox, { alignItems: 'center', justifyContent: 'flex-start', className: 'ui-menu-header' }, !header.label ? header : (react_1.default.createElement("div", { className: 'ui-menu-header-title', onClick: header.onAction }, header.label)))),
-            windowSize.isDesktop && (react_1.default.createElement(__1.Flexbox, { flex: 1, alignItems: 'center', justifyContent: 'center', className: 'ui-menu-navbar', style: {
-                    position: 'absolute', left: 0, right: 0
-                } }, items.list.map(function (navItem, index) { return (react_1.default.createElement(Nav_1.default, { key: index, menuKey: index, label: navItem.label, active: index === items.active, onClick: items.onClick })); }))),
+            header && (react_1.default.createElement(__1.Flexbox, { alignItems: 'center', justifyContent: 'center', className: 'ui-menu-header' }, !header.label ? header : (react_1.default.createElement("div", { className: 'ui-menu-header-title', onClick: header.onAction }, header.label)))),
+            windowSize.isDesktop && (react_1.default.createElement(NavBar_1.default, { items: items, containerWidth: navBar.current && navBar.current.offsetWidth })),
             react_1.default.createElement(__1.Flexbox, { alignItems: 'center', justifyContent: 'flex-end', className: 'ui-menu-toolsbar' },
                 toolsRight && windowSize.isDesktop && (react_1.default.createElement(__1.Flexbox, { className: 'ui-menu-toolsbar-tools' }, toolsRight.map(function (tool, index) { return react_1.default.cloneElement(tool, { key: index }); }))),
                 profile && (react_1.default.createElement(__1.Flexbox, { className: 'ui-menu-toolsbar-profile' },

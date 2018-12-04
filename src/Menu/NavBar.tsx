@@ -67,12 +67,15 @@ export default (props) => {
                 />
             ))}
             {sliceIndex < items.list.length && (
-                <div className='ui-menu-nav-ext'>
+                <div className='ui-menu-nav-ext' style={{
+                    color: items.active >= sliceIndex ? styles.theme.textOnAccent.rgb : styles.menu.nav.textColor,
+                    background: items.active >= sliceIndex ? styles.menu.nav.textColorActive : 'transparent',
+                    borderRadius: styles.theme.radius.button
+                }}>
                     <div>Еще</div>
                     <div className='ui-menu-nav-ext-dropdown' style={{
                         backgroundColor: styles.theme.background.hex,
-                        borderRadius: styles.theme.radius.default,
-                        paddingTop: '1rem'
+                        borderRadius: styles.theme.radius.default
                     }}>
                         {items.list.filter((_, index) => index >= sliceIndex)
                             .map((navItem, index) => (
