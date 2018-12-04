@@ -10,7 +10,7 @@ interface Props {
     bubble?: number
     disabled?: boolean
     mobileActive?: boolean
-    onClose: () => void
+    onClose?: () => void
     label?: string
     backTitle?: string
 }

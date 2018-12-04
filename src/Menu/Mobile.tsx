@@ -2,8 +2,9 @@ import React, { useEffect, useState, useRef } from 'react';
 import { Flexbox } from '..';
 import useStyles from '../hooks/useStyles';
 import { ColorCorrector } from '../Styles/utilities';
-import Nav from './Nav';
+import NavBarItem from './NavBarItem';
 import { IMenuItems } from './Menu';
+import useBrowser from '../hooks/useBrowser';
 
 interface IMobileMenu {
     active: boolean
@@ -19,6 +20,7 @@ interface IMobileMenuItems {
 export function MobileMenu(props: IMobileMenu) {
 
     const styles = useStyles();
+
     const { active, setActive } = props;
 
     let hamburgerClasses = 'ui-menu-navbar-hamburger';
@@ -38,7 +40,6 @@ export function MobileMenu(props: IMobileMenu) {
 }
 
 export function MobileMenuItems(props: IMobileMenuItems) {
-
     const styles = useStyles();
     const menuRef = useRef<HTMLDivElement>(null);
     const [menuHeight, setMenuHeight] = useState(0);
@@ -64,7 +65,7 @@ export function MobileMenuItems(props: IMobileMenuItems) {
                 )}
 
                 {items.list.map((navItem, index) => (
-                    <Nav
+                    <NavBarItem
                         style={{ marginBottom: (index === items.list.length - 1) ? 0 : '1rem' }}
                         key={index}
                         menuKey={index}

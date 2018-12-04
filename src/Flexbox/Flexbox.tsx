@@ -37,6 +37,7 @@ export interface FlexboxProps {
     flexWrap?: "nowrap" | "wrap" | "wrap-reverse"
     flexFlow?: "flex-direction" | "flex-wrap"
     children?: any
+    id?: any
 }
 
 

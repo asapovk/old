@@ -1,10 +1,10 @@
-import React, { useState, CSSProperties } from 'react';
+import React, { useState, CSSProperties, useRef } from 'react';
 import { Flexbox, Login } from '..';
-import Nav from './Nav';
 import useStyles from '../hooks/useStyles';
 import useBrowser from '../hooks/useBrowser';
 import { MobileMenu, MobileMenuItems } from './Mobile';
 import { ILogin } from '../Login/Login';
+import NavBar from './NavBar';
 
 interface IMenuItem {
     label: string
@@ -29,6 +29,7 @@ export default (props: IMenu) => {
 
     const styles = useStyles();
     const windowSize = useBrowser();
+    let navBar = useRef<HTMLDivElement>(null);
 
     const [mobileActive, setMobileActive] = useState(false);
 
@@ -86,7 +87,7 @@ export default (props: IMenu) => {
                 {!windowSize.isDesktop && <MobileMenu active={mobileActive} setActive={setMobileActive} />}
 
                 {header && (
-                    <Flexbox alignItems='center' justifyContent='flex-start' className={'ui-menu-header'}>
+                    <Flexbox alignItems='center' justifyContent='center' className={'ui-menu-header'}>
                         {!header.label ? header : (
                             <div className='ui-menu-header-title' onClick={header.onAction}>
                                 {header.label}
@@ -96,24 +97,7 @@ export default (props: IMenu) => {
                 )}
 
                 {windowSize.isDesktop && (
-                    <Flexbox
-                        flex={1}
-                        alignItems='center'
-                        justifyContent='center'
-                        className={'ui-menu-navbar'}
-                        style={{
-                            position: 'absolute', left: 0, right: 0
-                        }}>
-                        {items.list.map((navItem, index) => (
-                            <Nav
-                                key={index}
-                                menuKey={index}
-                                label={navItem.label}
-                                active={index === items.active}
-                                onClick={items.onClick}
-                            />
-                        ))}
-                    </Flexbox>
+                    <NavBar items={items} containerWidth={navBar.current && navBar.current.offsetWidth} />
                 )}
 
                 <Flexbox alignItems='center' justifyContent='flex-end' className={'ui-menu-toolsbar'}>

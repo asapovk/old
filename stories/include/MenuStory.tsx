@@ -33,7 +33,7 @@ export default () => {
             <Menu
                 header={<Header />}
                 items={{
-                    list: [{ label: 'Pineapple' }, { label: 'Grape' }, { label: 'Peach' }, { label: 'Strawberry' }],
+                    list: [{ label: 'Pineapple' }, { label: 'Grape' }, { label: 'Peach' }, { label: 'Strawberry' }, { label: 'Cucumber' }, { label: 'LongLabel' }, { label: 'VeryLongLabel' }],
                     active: active,
                     onClick: setActive
                 }}

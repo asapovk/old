@@ -28,10 +28,6 @@ class Buddy extends Component<Props> {
     PATH_STATES: any = {};
     cursorPos = { x: 0, y: 0 };
 
-    static defaultProps = {
-        defaultFace: "happy"
-    }
-
     BUDDY_ID: string
 
     constructor(props) {
@@ -173,6 +169,7 @@ class Buddy extends Component<Props> {
         switch (this.props.defaultFace) {
             case 'happy': this.makeHappy(true); break;
             case 'sad': this.makeSad(true); break;
+            default: this.makeHappy(true);
         }
     }
     componentWillUnmount() {

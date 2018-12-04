@@ -3,6 +3,7 @@ import useStyles from '../hooks/useStyles';
 
 interface INav {
     active?: boolean
+    hidden?: boolean
     onClick?: (menuKey: number) => void
     label: any
     style?: React.CSSProperties
@@ -12,10 +13,10 @@ interface INav {
 export default (props: INav) => {
 
     const styles = useStyles();
-    const { active, onClick, label } = props;
+    const { active, onClick, label, hidden } = props;
 
     let classes = 'ui-menu-nav';
-    if (active) classes += ' active';
+    if (hidden) classes += ' hidden';
 
     return (
         <div
@@ -27,8 +28,7 @@ export default (props: INav) => {
                 background: active ? styles.menu.nav.textColorActive : 'transparent',
                 borderRadius: styles.theme.radius.button
             }}
-        >
-            {label}
-        </div>
+            children={label}
+        />
     )
 }

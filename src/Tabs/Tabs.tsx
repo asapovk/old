@@ -16,12 +16,6 @@ interface Props {
 
 class Tabs extends React.Component<Props> {
 
-    static defaultProps = {
-        style: {},
-        type: "grid",
-        mobileCurrentPageTitle: ""
-    }
-
     view: HTMLElement
     tabRefs: any[] = [];
     maxDesktopWidth: 900;
@@ -105,7 +99,7 @@ class Tabs extends React.Component<Props> {
         return (
             <Styles>
                 {styles => (
-                    <div className={`ui-tabs ui-tabs-${this.props.type}`} style={this.props.style} ref={ref => this.view = ref!}>
+                    <div className={`ui-tabs ui-tabs-${this.props.type || 'grid'}`} style={this.props.style || {}} ref={ref => this.view = ref!}>
                         {/*
                         Tab Buttons
                     */}
@@ -114,7 +108,7 @@ class Tabs extends React.Component<Props> {
                                 const props = {
                                     key: i,
                                     index: i,
-                                    type: this.props.type,
+                                    type: this.props.type || 'grid',
                                     icon: child.props.icon,
                                     label: child.props.label,
                                     right: child.props.right,
@@ -148,7 +142,7 @@ class Tabs extends React.Component<Props> {
                                     key: i,
                                     children: child.props.children,
                                     mobileActive: this.state.mobileActive,
-                                    backTitle: this.props.mobileCurrentPageTitle,
+                                    backTitle: this.props.mobileCurrentPageTitle || "",
                                     label: child.props.label,
                                     onClose: () => {
                                         this.setState({ mobileActive: false });
