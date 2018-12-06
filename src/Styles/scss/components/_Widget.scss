@@ -1,7 +1,7 @@
 .ui-widget {
     line-height: 1;
     padding: 1rem;
-    min-width: 300px;
+    min-width: 250px;
     overflow: hidden;
     @include css3-prefix("transition", all .1s);
     @include css3-prefix("user-select", none);
