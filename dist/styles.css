@@ -1281,6 +1281,7 @@
   line-height: 1;
   padding: 1rem;
   min-width: 300px;
+  overflow: hidden;
   -webkit-transition: all 0.1s;
   -khtml-transition: all 0.1s;
   -moz-transition: all 0.1s;

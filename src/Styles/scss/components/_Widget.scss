@@ -2,6 +2,7 @@
     line-height: 1;
     padding: 1rem;
     min-width: 300px;
+    overflow: hidden;
     @include css3-prefix("transition", all .1s);
     @include css3-prefix("user-select", none);
 
