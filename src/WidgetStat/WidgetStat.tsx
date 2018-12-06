@@ -44,7 +44,7 @@ class WidgetStat extends Component<Props> {
                             </Flexbox>
                         </Flexbox>
                         {typeof children !== "undefined" ? (
-                            <Flexbox flexDirection='column' className="ui-widgetstat-extra" style={styles.widgetStat.extraStyle}>{children}</Flexbox>
+                            <Flexbox flexDirection='column' flex={1} className="ui-widgetstat-extra" style={styles.widgetStat.extraStyle}>{children}</Flexbox>
                         ) : null}
                     </Widget>
                 )}

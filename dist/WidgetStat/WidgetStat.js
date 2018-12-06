@@ -44,7 +44,7 @@ var WidgetStat = /** @class */ (function (_super) {
                 react_1.default.createElement(__1.Flexbox, { pt: 10, alignItems: "flex-end" },
                     react_1.default.createElement(__1.Flexbox, { pr: 10, flex: 1, className: "ui-widgetstat-value1", style: styles.widgetStat.valueStyle }, value1),
                     typeof onClick === "function" ? react_1.default.createElement("div", { className: "ui-widgetstat-link", onClick: onClick }, actionTitle || "Подробнее") : null)),
-            typeof children !== "undefined" ? (react_1.default.createElement(__1.Flexbox, { flexDirection: 'column', className: "ui-widgetstat-extra", style: styles.widgetStat.extraStyle }, children)) : null)); }));
+            typeof children !== "undefined" ? (react_1.default.createElement(__1.Flexbox, { flexDirection: 'column', flex: 1, className: "ui-widgetstat-extra", style: styles.widgetStat.extraStyle }, children)) : null)); }));
     };
     return WidgetStat;
 }(react_1.Component));
