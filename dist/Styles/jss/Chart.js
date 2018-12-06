@@ -5,6 +5,6 @@ exports.default = (function (theme) {
         text: theme.text.hex,
         accent: theme.highlight.hex,
         background: theme.background.hex,
-        chartTextColor: "#777777"
+        chartTextColor: theme.lowlight.hex
     };
 });
