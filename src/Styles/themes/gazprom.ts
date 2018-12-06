@@ -35,6 +35,11 @@ export default {
             width: '1px',
             style: 'solid',
             color: getColors(217, 217, 217).hex,
+        },
+        widget: {
+            width: '1px',
+            style: 'solid',
+            radius: '0.25rem'
         }
     },
     radius: {

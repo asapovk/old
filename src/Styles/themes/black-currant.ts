@@ -29,6 +29,16 @@ export default {
         button: {
             width: '1px',
             style: 'solid'
+        },
+        table: {
+            width: '1px',
+            style: 'solid',
+            color: getColors(80, 60, 70).hex
+        },
+        widget: {
+            width: '1px',
+            style: 'solid',
+            radius: '0.25rem'
         }
     },
     radius: {

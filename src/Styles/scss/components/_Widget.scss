@@ -1,9 +1,7 @@
 .ui-widget {
     line-height: 1;
-    padding: 15px;
-    background: rgba(#333, 0.2);
-    border: 0.5px solid rgba(#333, 0.2);
-    border-radius: 4px;
+    padding: 1rem;
+    min-width: 300px;
     @include css3-prefix("transition", all .1s);
     @include css3-prefix("user-select", none);
 

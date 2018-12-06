@@ -34,11 +34,19 @@ export interface ThemeInterface {
             width: string;
             style: string;
             color: string;
+            radius: string;
         };
         table: {
             width: string;
             style: string;
             color: string;
+            radius: string;
+        };
+        widget: {
+            width: string;
+            style: string;
+            color: string;
+            radius: string;
         };
     };
     radius: {
@@ -296,9 +304,9 @@ export declare const createStyles: (themeName?: "blackCurrant" | "whiteCurrant" 
     };
     widget: {
         background: string;
-        borderColor: string;
         lowlight: string;
         highlight: string;
+        borderRadius: string;
     };
     widgetStat: {
         titleStyle: {
@@ -630,9 +638,9 @@ export declare const StylesContext: React.Context<{
     };
     widget: {
         background: string;
-        borderColor: string;
         lowlight: string;
         highlight: string;
+        borderRadius: string;
     };
     widgetStat: {
         titleStyle: {
@@ -964,9 +972,9 @@ declare const _default: React.ExoticComponent<React.ConsumerProps<{
     };
     widget: {
         background: string;
-        borderColor: string;
         lowlight: string;
         highlight: string;
+        borderRadius: string;
     };
     widgetStat: {
         titleStyle: {

@@ -69,11 +69,19 @@ export interface ThemeInterface {
             width: string
             style: string
             color: string
+            radius: string
         }
         table: {
             width: string
             style: string
             color: string
+            radius: string
+        }
+        widget: {
+            width: string
+            style: string
+            color: string
+            radius: string
         }
     },
     radius: {
