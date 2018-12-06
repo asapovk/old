@@ -1,4 +1,4 @@
-import React, { Component, Fragment, Children } from 'react';
+import React, { Component } from 'react';
 import { Widget, Icon, Button, Flexbox, Styles } from '../';
 
 interface Props {
@@ -40,7 +40,7 @@ class WidgetStat extends Component<Props> {
 
                             <Flexbox pt={10} alignItems="flex-end">
                                 <Flexbox pr={10} flex={1} className="ui-widgetstat-value1" style={styles.widgetStat.valueStyle}>{value1}</Flexbox>
-                                {typeof onClick === "function" ? <Button decoration="none" className="ui-widgetstat-button" onClick={onClick}>{actionTitle || "Подробнее"}</Button> : null}
+                                {typeof onClick === "function" ? <div className="ui-widgetstat-link" onClick={onClick}>{actionTitle || "Подробнее"}</div> : null}
                             </Flexbox>
                         </Flexbox>
                         {typeof children !== "undefined" ? (

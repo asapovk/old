@@ -27,10 +27,13 @@
             font-size: 28px;
         }
     }
-    &-button {
+    &-link {
         font-size: 14px;
-        padding: 10px 10px;
         text-decoration: underline;
+
+        &:hover {
+            cursor: pointer;
+        }
     }
     &-extra {
         margin: 14.5px -14.5px -14.5px -14.5px;
