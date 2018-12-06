@@ -43,9 +43,9 @@ export default {
     },
     radius: {
         default: '2px',
-        window: '1rem',
-        button: '1.5rem',
-        card: '0.5rem',
+        window: '18px',
+        button: '4px',
+        card: '8px',
     },
     gradient: {
         default: [
