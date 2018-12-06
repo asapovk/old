@@ -307,6 +307,9 @@ export declare const createStyles: (themeName?: "blackCurrant" | "whiteCurrant" 
         lowlight: string;
         highlight: string;
         borderRadius: string;
+        borderColor: string;
+        borderStyle: string;
+        borderWidth: string;
     };
     widgetStat: {
         titleStyle: {
@@ -641,6 +644,9 @@ export declare const StylesContext: React.Context<{
         lowlight: string;
         highlight: string;
         borderRadius: string;
+        borderColor: string;
+        borderStyle: string;
+        borderWidth: string;
     };
     widgetStat: {
         titleStyle: {
@@ -975,6 +981,9 @@ declare const _default: React.ExoticComponent<React.ConsumerProps<{
         lowlight: string;
         highlight: string;
         borderRadius: string;
+        borderColor: string;
+        borderStyle: string;
+        borderWidth: string;
     };
     widgetStat: {
         titleStyle: {

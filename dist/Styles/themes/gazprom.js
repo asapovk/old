@@ -38,7 +38,8 @@ exports.default = {
         widget: {
             width: '1px',
             style: 'solid',
-            radius: '0.25rem'
+            radius: '0.25rem',
+            color: utilities_1.getColors(217, 217, 217).hex,
         }
     },
     radius: {

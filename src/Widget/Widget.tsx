@@ -25,7 +25,10 @@ class Widget extends Component<Props> {
                     <Flexbox column flex={1} justifyContent="flex-start" className={classes} onClick={onClick} style={{
                         ...style,
                         background: styles.widget.background,
-                        borderRadius: styles.widget.borderRadius
+                        borderRadius: styles.widget.borderRadius,
+                        borderColor: styles.widget.borderColor,
+                        borderWidth: styles.widget.borderWidth,
+                        borderStyle: styles.widget.borderStyle
                     }}>
                         {title ? (
                             <Flexbox pr={10} flex={1} className="ui-widget-title">{title}</Flexbox>

@@ -4,5 +4,8 @@ declare const _default: (theme: ThemeInterface) => {
     lowlight: string;
     highlight: string;
     borderRadius: string;
+    borderColor: string;
+    borderStyle: string;
+    borderWidth: string;
 };
 export default _default;

@@ -244,6 +244,9 @@ declare const _default: () => {
         lowlight: string;
         highlight: string;
         borderRadius: string;
+        borderColor: string;
+        borderStyle: string;
+        borderWidth: string;
     };
     widgetStat: {
         titleStyle: {

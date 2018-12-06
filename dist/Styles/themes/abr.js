@@ -37,14 +37,15 @@ exports.default = {
         widget: {
             width: '1px',
             style: 'solid',
-            radius: '0.25rem'
+            radius: '0.25rem',
+            color: utilities_1.getColors(217, 217, 217).hex
         }
     },
     radius: {
         default: '2px',
-        window: '1rem',
-        button: '1.5rem',
-        card: '0.5rem',
+        window: '18px',
+        button: '4px',
+        card: '8px',
     },
     gradient: {
         default: [

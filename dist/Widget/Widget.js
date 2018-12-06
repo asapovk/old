@@ -44,7 +44,7 @@ var Widget = /** @class */ (function (_super) {
         if (onClick) {
             classes += " ui-widget-clickable";
         }
-        return (react_1.default.createElement(index_1.Styles, null, function (styles) { return (react_1.default.createElement(index_1.Flexbox, { column: true, flex: 1, justifyContent: "flex-start", className: classes, onClick: onClick, style: __assign({}, style, { background: styles.widget.background, borderRadius: styles.widget.borderRadius }) },
+        return (react_1.default.createElement(index_1.Styles, null, function (styles) { return (react_1.default.createElement(index_1.Flexbox, { column: true, flex: 1, justifyContent: "flex-start", className: classes, onClick: onClick, style: __assign({}, style, { background: styles.widget.background, borderRadius: styles.widget.borderRadius, borderColor: styles.widget.borderColor, borderWidth: styles.widget.borderWidth, borderStyle: styles.widget.borderStyle }) },
             title ? (react_1.default.createElement(index_1.Flexbox, { pr: 10, flex: 1, className: "ui-widget-title" }, title)) : "",
             loading ? (react_1.default.createElement(index_1.Flexbox, { column: true, className: "ui-widget-loading", alignItems: "center", alignSelf: "center", justifyContent: "center" },
                 react_1.default.createElement(index_1.Spin, null,
