@@ -27,7 +27,8 @@ exports.default = {
     borders: {
         button: {
             width: '1px',
-            style: 'solid'
+            style: 'solid',
+            color: utilities_1.getColors(80, 60, 70).hex
         },
         table: {
             width: '1px',
@@ -35,10 +36,10 @@ exports.default = {
             color: utilities_1.getColors(80, 60, 70).hex
         },
         widget: {
-            width: '0px',
+            width: '1px',
             style: 'solid',
             radius: '0.25rem',
-            color: utilities_1.getColors(217, 217, 217).hex,
+            color: utilities_1.getColors(80, 60, 70).hex
         }
     },
     radius: {

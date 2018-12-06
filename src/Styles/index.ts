@@ -36,11 +36,7 @@ export const themes = {
     blackCurrant, whiteCurrant, abrTheme, gazpromTheme
 }
 
-export type themeName =
-    'blackCurrant' |
-    'whiteCurrant' |
-    'abrTheme' |
-    'gazpromTheme'
+export type themeName = 'blackCurrant' | 'whiteCurrant' | 'abrTheme' | 'gazpromTheme'
 
 export interface ThemeInterface {
     name: string
