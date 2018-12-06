@@ -1335,12 +1335,10 @@
 }
 .ui-widgetstat-subtitle {
   font-size: 12px;
-  opacity: 0.5;
 }
 .ui-widgetstat-subtitle2 {
   font-size: 12px;
   text-align: right;
-  opacity: 0.5;
 }
 .ui-widgetstat-value1 {
   font-weight: 600;
@@ -1357,10 +1355,12 @@
   top: -5px;
   font-size: 28px;
 }
-.ui-widgetstat-button {
+.ui-widgetstat-link {
   font-size: 14px;
-  padding: 10px 10px;
   text-decoration: underline;
+}
+.ui-widgetstat-link:hover {
+  cursor: pointer;
 }
 .ui-widgetstat-extra {
   margin: 14.5px -14.5px -14.5px -14.5px;
