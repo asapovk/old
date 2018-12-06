@@ -38,7 +38,7 @@ class WidgetStat extends Component<Props> {
                                 </Flexbox>
                             </Flexbox>
 
-                            <Flexbox pt={10} alignItems="center">
+                            <Flexbox pt={10} alignItems="flex-end">
                                 <Flexbox pr={10} flex={1} className="ui-widgetstat-value1" style={styles.widgetStat.valueStyle}>{value1}</Flexbox>
                                 {typeof onClick === "function" ? <Button decoration="none" className="ui-widgetstat-button" onClick={onClick}>{actionTitle || "Подробнее"}</Button> : null}
                             </Flexbox>
