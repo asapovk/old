@@ -41,7 +41,7 @@ var WidgetStat = /** @class */ (function (_super) {
                     react_1.default.createElement(__1.Flexbox, { pt: 5 },
                         react_1.default.createElement(__1.Flexbox, { pr: 10, flex: 1, className: "ui-widgetstat-subtitle", style: styles.widgetStat.subtitleStyle }, subtitle),
                         react_1.default.createElement(__1.Flexbox, { className: "ui-widgetstat-subtitle2", style: styles.widgetStat.subtitleStyle }, subtitle2))),
-                react_1.default.createElement(__1.Flexbox, { pt: 10, alignItems: "center" },
+                react_1.default.createElement(__1.Flexbox, { pt: 10, alignItems: "flex-end" },
                     react_1.default.createElement(__1.Flexbox, { pr: 10, flex: 1, className: "ui-widgetstat-value1", style: styles.widgetStat.valueStyle }, value1),
                     typeof onClick === "function" ? react_1.default.createElement(__1.Button, { decoration: "none", className: "ui-widgetstat-button", onClick: onClick }, actionTitle || "Подробнее") : null)),
             typeof children !== "undefined" ? (react_1.default.createElement(__1.Flexbox, { flexDirection: 'column', className: "ui-widgetstat-extra", style: styles.widgetStat.extraStyle }, children)) : null)); }));
