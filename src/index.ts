@@ -29,6 +29,7 @@ export { default as Styles } from './Styles'
 export { StylesContext as StylesContext } from './Styles';
 export { Card as Card } from './Card';
 export { Stories as Stories } from './Stories';
+export { Timeline as Timeline } from './Timeline';
 
 export { Portal as Portal } from 'react-portal';
 export { Buddy as Buddy } from './Buddy'

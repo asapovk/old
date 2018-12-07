@@ -30,6 +30,7 @@ storiesOf('General')
     .add('Widget', $('WidgetStory'))
     .add('WidgetStat', $('WidgetStatStory'))
     .add('Stories', $('StoriesStory'))
+    .add('Timeline', $('TimelineStory'))
 
 storiesOf('Advanced')
     .add('Constructor', $('ConstructorStory'))
