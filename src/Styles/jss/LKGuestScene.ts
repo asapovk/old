@@ -7,7 +7,7 @@ export default (theme: ThemeInterface) => {
     let backButtonColor = theme.text.hex;
     let secondaryButtonBackground = theme.highlight.grayscale;
 
-    if (theme.name === "gazprom") {
+    if (theme.name === "gazpromTheme") {
         titleColor = "#fff";
         backgroundColor = "#000";
         backButtonColor = "#fff";
