@@ -23,14 +23,9 @@ exports.default = (function (theme) {
                 borderColor: theme.pale.rgba(1)
             };
             if (active) {
-                style = __assign({}, style, { backgroundColor: theme.gradient.card[0], background: "linear-gradient(80deg," + theme.gradient.card[0] + "," + theme.gradient.card[1] + ")", border: 'none', color: style.background, borderColor: theme.pale.rgba(0) });
+                style = __assign({}, style, { background: "linear-gradient(80deg," + theme.gradient.card[0] + "," + theme.gradient.card[1] + ")", border: 'none', color: style.background, borderColor: theme.pale.rgba(0) });
             }
             return style;
         },
-        counter: function (active) {
-            return {
-                color: active ? theme.interface.rgb : theme.highlight.rgb
-            };
-        }
     };
 });

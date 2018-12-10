@@ -22,12 +22,22 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importStar(require("react"));
-var StoriesList_1 = __importDefault(require("./StoriesList"));
-var StoriesModal_1 = __importDefault(require("./StoriesModal"));
+var ModalMask_1 = __importDefault(require("./ModalMask"));
+var StoriesContainer_1 = __importDefault(require("./StoriesContainer"));
+var useClass_1 = __importDefault(require("../../hooks/useClass"));
 exports.default = (function (props) {
-    var _a = react_1.useState(false), modalActive = _a[0], setModalActive = _a[1];
-    var _b = react_1.useState(0), currentStoryIndex = _b[0], setCurrentStoryIndex = _b[1];
+    var _a = useClass_1.default('ui-stories-modal'), modalClassName = _a[0], modalClassModifier = _a[1];
+    var active = props.active;
+    react_1.useEffect(function () {
+        if (active) {
+            modalClassModifier.addModifier('visible');
+        }
+        else {
+            modalClassModifier.removeModifier('visible');
+        }
+    }, [active]);
     return (react_1.default.createElement(react_1.Fragment, null,
-        react_1.default.createElement(StoriesList_1.default, __assign({}, props, { setStory: setCurrentStoryIndex, setModalActive: setModalActive })),
-        modalActive && (react_1.default.createElement(StoriesModal_1.default, __assign({}, props, { active: modalActive, setModalActive: setModalActive, currentStoryIndex: currentStoryIndex })))));
+        react_1.default.createElement(ModalMask_1.default, { active: props.active }),
+        react_1.default.createElement("div", { className: modalClassName, children: react_1.default.createElement(StoriesContainer_1.default, __assign({}, props)) })));
 });
+{ /* <div className={`ui-stories-modal ${ctx.active && "ui-stories-modal-visible"} ${!ctx.active && "ui-stories-modal-hidding"}`}> */ }

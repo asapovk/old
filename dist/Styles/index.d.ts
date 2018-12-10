@@ -68,9 +68,6 @@ export declare const createStyles: (themeName?: "blackCurrant" | "whiteCurrant" 
     };
     card: {
         main: (active?: boolean | undefined) => React.CSSProperties;
-        counter: (active?: boolean | undefined) => {
-            color: string;
-        };
     };
     chart: {
         text: string;
@@ -360,12 +357,14 @@ export declare const createStyles: (themeName?: "blackCurrant" | "whiteCurrant" 
             main: {
                 overflow: string;
             };
-            side: {
+            sideBackground: {
                 background: string;
                 borderColor: string;
             };
             sideBottom: {
                 overflow: string;
+                marginRight: string;
+                marginLeft: string;
             };
             mainRight: {
                 overflow: string;
@@ -405,9 +404,6 @@ export declare const StylesContext: React.Context<{
     };
     card: {
         main: (active?: boolean | undefined) => React.CSSProperties;
-        counter: (active?: boolean | undefined) => {
-            color: string;
-        };
     };
     chart: {
         text: string;
@@ -697,12 +693,14 @@ export declare const StylesContext: React.Context<{
             main: {
                 overflow: string;
             };
-            side: {
+            sideBackground: {
                 background: string;
                 borderColor: string;
             };
             sideBottom: {
                 overflow: string;
+                marginRight: string;
+                marginLeft: string;
             };
             mainRight: {
                 overflow: string;
@@ -742,9 +740,6 @@ declare const _default: React.ExoticComponent<React.ConsumerProps<{
     };
     card: {
         main: (active?: boolean | undefined) => React.CSSProperties;
-        counter: (active?: boolean | undefined) => {
-            color: string;
-        };
     };
     chart: {
         text: string;
@@ -1034,12 +1029,14 @@ declare const _default: React.ExoticComponent<React.ConsumerProps<{
             main: {
                 overflow: string;
             };
-            side: {
+            sideBackground: {
                 background: string;
                 borderColor: string;
             };
             sideBottom: {
                 overflow: string;
+                marginRight: string;
+                marginLeft: string;
             };
             mainRight: {
                 overflow: string;

@@ -5,7 +5,7 @@ exports.default = (function (theme) {
     var titleColor = theme.text.hex;
     var backButtonColor = theme.text.hex;
     var secondaryButtonBackground = theme.highlight.grayscale;
-    if (theme.name === "gazprom") {
+    if (theme.name === "gazpromTheme") {
         titleColor = "#fff";
         backgroundColor = "#000";
         backButtonColor = "#fff";

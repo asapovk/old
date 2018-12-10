@@ -17,20 +17,15 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importDefault(require("react"));
 var __1 = require("../");
 var useStyles_1 = __importDefault(require("../hooks/useStyles"));
+var Waves_1 = __importDefault(require("./animations/Waves"));
+var Circles_1 = __importDefault(require("./animations/Circles"));
 exports.default = (function (props) {
     var styles = useStyles_1.default();
     var classes = 'ui-card';
     if (props.active)
         classes += ' active';
-    var style = props.style, title = props.title, subtitle = props.subtitle, action = props.action, info = props.info;
+    var style = props.style;
     return (react_1.default.createElement(__1.Flexbox, { flexDirection: 'column', onClick: function () { return props.onClick && props.onClick(); }, className: classes, style: __assign({}, styles.card.main(props.active), style), flex: 1 },
-        react_1.default.createElement(__1.Flexbox, { flexDirection: 'column' },
-            react_1.default.createElement(__1.Flexbox, { className: 'ui-card-title' }, title),
-            subtitle && react_1.default.createElement(__1.Flexbox, { className: 'ui-card-subtitle' }, subtitle)),
-        react_1.default.createElement(__1.Flexbox, { pt: '1.5rem' },
-            info && (react_1.default.createElement(__1.Flexbox, { className: 'ui-card-counter', flexDirection: 'column', flex: 1 },
-                react_1.default.createElement(__1.Flexbox, { className: 'ui-card-counter-value', style: __assign({}, styles.card.counter(props.active)) }, info.value),
-                react_1.default.createElement(__1.Flexbox, { className: 'ui-card-counter-description' }, info.description))),
-            action && (react_1.default.createElement(__1.Flexbox, { alignItems: 'flex-end', flexBasis: 100 },
-                react_1.default.createElement(__1.Button, { decoration: 'highlight', label: action.label, inversion: props.active, onClick: action.onAction, size: 'small', labelCase: 'upper', style: { width: '100%' } }))))));
+        props.animation === "waves" && (react_1.default.createElement(Waves_1.default, { color: styles.card.main(props.active).color, active: props.active })),
+        props.animation === "circles" && (react_1.default.createElement(Circles_1.default, { color: styles.card.main(props.active).color, active: props.active }))));
 });

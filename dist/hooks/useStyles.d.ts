@@ -5,9 +5,6 @@ declare const _default: () => {
     };
     card: {
         main: (active?: boolean | undefined) => import("react").CSSProperties;
-        counter: (active?: boolean | undefined) => {
-            color: string;
-        };
     };
     chart: {
         text: string;
@@ -297,12 +294,14 @@ declare const _default: () => {
             main: {
                 overflow: string;
             };
-            side: {
+            sideBackground: {
                 background: string;
                 borderColor: string;
             };
             sideBottom: {
                 overflow: string;
+                marginRight: string;
+                marginLeft: string;
             };
             mainRight: {
                 overflow: string;
