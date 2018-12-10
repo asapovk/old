@@ -46,7 +46,7 @@ export default ({ stories, setModalActive, currentStoryIndex }) => {
     }
 
     return (
-        <Flexbox alignItems="center" justifyContent="center" style={{ height: !browser.isMobile ? "100%" : "auto" }}>
+        <div style={{ width: '100%', height: !browser.isMobile ? "100%" : "auto" }}>
             <div className='ui-stories-modal-container'>
                 {stories.map((story, index) => (
                     <StoryContainer
@@ -60,6 +60,6 @@ export default ({ stories, setModalActive, currentStoryIndex }) => {
 
                 ))}
             </div>
-        </Flexbox>
+        </div>
     )
 }
