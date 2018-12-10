@@ -5,7 +5,7 @@ export default (theme: ThemeInterface) => {
     return {
         main: {
             menu: {
-                backgroundColor: theme.interface.rgb,
+                backgroundColor: theme.background.hex,
                 borderColor: theme.pale.rgb,
             },
             searchBar: {

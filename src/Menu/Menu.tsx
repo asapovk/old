@@ -6,6 +6,10 @@ import { MobileMenu, MobileMenuItems } from './Mobile';
 import { ILogin } from '../Login/Login';
 import NavBar from './NavBar';
 
+import SmoLogo from '../../src/logos/smorodina';
+import AbrLogo from '../../src/logos/abr';
+import MrgLogo from '../../src/logos/mrg';
+
 interface IMenuItem {
     label: string
 }
@@ -34,6 +38,22 @@ export default (props: IMenu) => {
     const [mobileActive, setMobileActive] = useState(false);
 
     const { header, style, toolsRight, profile, items } = props;
+
+    let logo;
+
+    if (!header) {
+        logo = <SmoLogo style={{ width: "8rem" }} color={styles.theme.text.hex} />;
+
+        if (styles.theme.name === "gazpromTheme") {
+            logo = <MrgLogo style={{ width: "5.5rem" }} />;
+        }
+        if (styles.theme.name === "abrTheme") {
+            logo = <AbrLogo style={{ width: "10rem" }} />;
+        }
+        if (styles.theme.name === "whiteCurrant") {
+            logo = <SmoLogo style={{ width: "8rem" }} />;
+        }
+    }
 
     // const animate = (from: number, to: number, onFrame: (value: number) => void, delay: number = 250, idAnimation?: string, fps: number = 60) => {
     //     let value = from;
@@ -82,13 +102,22 @@ export default (props: IMenu) => {
 
     return (
         <div>
-            <Flexbox className='ui-menu' alignItems='center' justifyContent='space-between' style={{ ...styles.menu.main.menu, ...style }}>
+            <Flexbox
+                className='ui-menu'
+                alignItems='center'
+                justifyContent='space-between'
+                style={{
+                    ...styles.menu.main.menu,
+                    ...style,
+                    marginLeft: windowSize.isDesktop ? '321px' : 0
+                }}
+            >
 
                 {!windowSize.isDesktop && <MobileMenu active={mobileActive} setActive={setMobileActive} />}
 
-                {header && (
+                {!windowSize.isDesktop && (
                     <Flexbox alignItems='center' justifyContent='center' className={'ui-menu-header'}>
-                        {!header.label ? header : (
+                        {logo ? logo : (
                             <div className='ui-menu-header-title' onClick={header.onAction}>
                                 {header.label}
                             </div>

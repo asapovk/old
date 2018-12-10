@@ -2,13 +2,12 @@ import { CSSProperties } from "react";
 import { ThemeInterface } from "..";
 
 export default (theme: ThemeInterface) => {
-
     return {
         root: {
             overflow: "hidden"
         },
         main: {
-            overflow: "hidden"
+            // overflow: "hidden"
         },
         sideBackground: {
             background: theme.background.hex,

@@ -39,6 +39,13 @@ $rowHeightMin: 2.5rem;
                 padding: 0 2.5rem;
                 overflow: hidden;
                 transition: all 0.35s ease;
+                position: absolute;
+                top: 64px;
+                left: 0px;
+                right: 0px;
+                bottom: 0px;
+                z-index: 11;
+            
 
                 > div {
                     transition: all 0.55s ease;

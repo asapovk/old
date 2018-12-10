@@ -43,6 +43,7 @@ export default (props: IProps) => {
                     <>
                         <div
                             className="ui-scenes-lkmain-side"
+                            style={{ marginTop: browser.isDesktop ? '-64px' : 0 }}
                             children={(
                                 <Fragment>
                                     <Flexbox
@@ -64,8 +65,9 @@ export default (props: IProps) => {
                                 </Fragment>
                             )} />
                         <div
-                            style={st.sideBackground}
+                            style={{ ...st.sideBackground, marginTop: browser.isDesktop ? '-64px' : 0 }}
                             className="ui-scenes-lkmain-side-background"
+
                         />
                     </>
 
@@ -75,16 +77,23 @@ export default (props: IProps) => {
                         style={st.mainRight}
                         className="ui-scenes-lkmain-main"
                         children={(
-                            <Fragment>
+                            <>
                                 {props.components.mainTop && (
                                     <div
-                                        style={st.mainTop}
-                                        className="ui-scenes-lkmain-main-top"
-                                        children={props.components.mainTop}
-                                    />
+                                        style={{
+                                            ...st.mainTop,
+                                            backgroundColor: styles.theme.background2.hex
+                                        }}
+                                        className='ui-scenes-lkmain-main-top'
+                                    >
+                                        <div className='ui-scenes-lkmain-main-top-content' children={props.components.mainTop} />
+                                    </div>
                                 )}
-                                {props.components.main}
-                            </Fragment>
+
+                                <div className='ui-scenes-lkmain-main-layout'>
+                                    {props.components.main}
+                                </div>
+                            </>
                         )} />
                 )}
             </Flexbox>
