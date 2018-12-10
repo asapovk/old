@@ -10,8 +10,8 @@ const accentColors = {
 
 export default {
     name: "whiteCurrant",
-    background: getColors(243, 240, 245),
-    background2: getColors(240, 230, 237),
+    background: getColors(255, 255, 255),
+    background2: getColors(244, 241, 246),
     interface: getColors(250, 250, 250),
     pale: getColors(217, 217, 217),
     lowlight: getColors(146, 143, 148),

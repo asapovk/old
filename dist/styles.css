@@ -1487,19 +1487,21 @@
   padding: 1.25rem;
   height: 160px;
   min-width: 280px;
-  transition: all 0.3s ease 0s;
-  -moz-transition: all 0.3s ease 0s;
-  -webkit-transition: all 0.3s ease 0s;
-  -o-transition: all 0.3s ease 0s;
-  -ms-transition: all 0.3s ease 0s;
-  -webkit-box-sizing: border-box;
-  /* Safari/Chrome, other WebKit */
-  -moz-box-sizing: border-box;
-  /* Firefox, other Gecko */
-  box-sizing: border-box;
-  /* Opera/IE 8+ */
   margin-bottom: 1.25rem;
   overflow: hidden;
+  will-change: height;
+  -webkit-box-sizing: border-box;
+  -khtml-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transition: all 0.3s;
+  -khtml-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
 }
 .ui-card.active {
   transform: translateX(20px);
@@ -1749,7 +1751,7 @@
   overflow: scroll;
   max-width: 280px;
   padding: 20px;
-  padding-right: 40px;
+  padding-right: 50px;
 }
 .ui-scenes-lkmain-side-background {
   position: absolute;

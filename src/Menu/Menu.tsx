@@ -6,9 +6,9 @@ import { MobileMenu, MobileMenuItems } from './Mobile';
 import { ILogin } from '../Login/Login';
 import NavBar from './NavBar';
 
-import SmoLogo from '../../src/logos/smorodina';
-import AbrLogo from '../../src/logos/abr';
-import MrgLogo from '../../src/logos/mrg';
+import SmoLogo from '../logos/smorodina';
+import AbrLogo from '../logos/abr';
+import MrgLogo from '../logos/mrg';
 
 interface IMenuItem {
     label: string
@@ -40,7 +40,6 @@ export default (props: IMenu) => {
     const { header, style, toolsRight, profile, items } = props;
 
     let logo;
-
     if (!header) {
         logo = <SmoLogo style={{ width: "8rem" }} color={styles.theme.text.hex} />;
 

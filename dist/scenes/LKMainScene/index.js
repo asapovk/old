@@ -49,7 +49,6 @@ exports.default = (function (props) {
                                 props.components.sideBottom && (react_1.default.createElement("div", { style: st.sideBottom, children: props.components.sideBottom })))) }))) }),
                 react_1.default.createElement("div", { style: __assign({}, st.sideBackground, { marginTop: browser.isDesktop ? '-64px' : 0 }), className: "ui-scenes-lkmain-side-background" }))),
             needDisplayMain && (react_1.default.createElement("div", { style: st.mainRight, className: "ui-scenes-lkmain-main", children: (react_1.default.createElement(react_1.default.Fragment, null,
-                    props.components.mainTop && (react_1.default.createElement("div", { style: __assign({}, st.mainTop, { backgroundColor: styles.theme.background2.hex }), className: 'ui-scenes-lkmain-main-top' },
-                        react_1.default.createElement("div", { className: 'ui-scenes-lkmain-main-top-content', children: props.components.mainTop }))),
-                    react_1.default.createElement("div", { className: 'ui-scenes-lkmain-main-layout' }, props.components.main))) })))));
+                    props.components.mainTop && (react_1.default.createElement("div", { style: __assign({}, st.mainTop, { backgroundColor: styles.theme.background2.hex }), className: 'ui-scenes-lkmain-main-top', children: react_1.default.createElement("div", { className: 'ui-scenes-lkmain-main-top-content', children: props.components.mainTop }) })),
+                    react_1.default.createElement("div", { className: 'ui-scenes-lkmain-main-layout', children: props.components.main }))) })))));
 });

@@ -67,7 +67,6 @@ export default (props: IProps) => {
                         <div
                             style={{ ...st.sideBackground, marginTop: browser.isDesktop ? '-64px' : 0 }}
                             className="ui-scenes-lkmain-side-background"
-
                         />
                     </>
 
@@ -85,14 +84,13 @@ export default (props: IProps) => {
                                             backgroundColor: styles.theme.background2.hex
                                         }}
                                         className='ui-scenes-lkmain-main-top'
-                                    >
-                                        <div className='ui-scenes-lkmain-main-top-content' children={props.components.mainTop} />
-                                    </div>
+                                        children={
+                                            <div className='ui-scenes-lkmain-main-top-content' children={props.components.mainTop} />
+                                        }
+                                    />
                                 )}
 
-                                <div className='ui-scenes-lkmain-main-layout'>
-                                    {props.components.main}
-                                </div>
+                                <div className='ui-scenes-lkmain-main-layout' children={props.components.main} />
                             </>
                         )} />
                 )}
