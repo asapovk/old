@@ -16,3 +16,7 @@ yarn-error.log*
 package-lock.json
 .idea*
 yarn-lock.log*
+
+# чтоб работал сторибук, развернутый на тесте
+yarn.lock
+/.cache
