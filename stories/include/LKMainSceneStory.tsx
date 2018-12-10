@@ -5,8 +5,7 @@ import useStyles from '../../src/hooks/useStyles';
 import SmoLogo from '../../src/logos/smorodina';
 import AbrLogo from '../../src/logos/abr';
 import MrgLogo from '../../src/logos/mrg';
-import AccountSelect from '../../src/scenes/LKMainScene/components/AccountSelect';
-import MainScrollView from '../../src/scenes/LKMainScene/components/MainScrollView';
+import { Timeline } from '../../src';
 
 import TableStory from './TableStory';
 
@@ -66,6 +65,22 @@ const Main = () => {
     )
 }
 
+const MainTop = () => {
+    const styles = useStyles();
+    return (
+        <div style={{ padding: 40, background: styles.theme.background2.hex }}>
+            <Timeline
+                dots={[
+                    { color: "black", bottomTitle: "Сталинградская битва", value: "17 июля 1942" },
+                    { color: "black", bottomTitle: "Атаку под Курском", value: "5 июля 1943" },
+                    { color: "black", bottomTitle: "Освобождение Рима", value: "4 июня 1944" }
+                ]}
+                leftTitle="22 июня 1941"
+                rightTitle="9 мая 1945"
+            />
+        </div>
+    )
+}
 export default () => {
 
     return (
@@ -73,7 +88,7 @@ export default () => {
             components={{
                 header: <Header />,
                 side: <SideMenu />,
-                mainTop: <MainScrollView />,
+                mainTop: <MainTop />,
                 main: <Main />,
                 sideBottom: <Stories title="Рекомендации" stories={[{
                     label: "Кукушка пробила голову андрею",

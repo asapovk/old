@@ -77,8 +77,7 @@ export default (props: IProps) => {
                         children={(
                             <Fragment>
                                 {props.components.mainTop && (
-                                    <Flexbox
-                                        flexShrink={0}
+                                    <div
                                         style={st.mainTop}
                                         className="ui-scenes-lkmain-main-top"
                                         children={props.components.mainTop}
