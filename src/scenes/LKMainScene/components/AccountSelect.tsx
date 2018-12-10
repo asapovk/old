@@ -14,7 +14,9 @@ interface IProps {
     value?: string | number
     onChange?: (value: string | number) => void
 }
-
+/**
+ * @deprecated slice 1 dec 2018
+ */
 export default (props: IProps) => {
     const styles = useStyles();
     const [accountSelectClassName, AccountSelectClassName] = useClass('ui-lkcomponent-account-select');

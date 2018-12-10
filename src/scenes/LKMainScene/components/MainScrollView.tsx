@@ -8,6 +8,9 @@ import { Button } from '../../../Button';
 interface IProps {
 
 }
+/**
+ * @deprecated slice 1 dec 2018
+ */
 export default (props: IProps) => {
     const styles = useStyles();
 
