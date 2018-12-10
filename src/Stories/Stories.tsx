@@ -1,6 +1,6 @@
 import React, { useState, Fragment } from 'react';
 import StoriesList from './StoriesList';
-import StoryModal from './StoryModal';
+import StoriesModal from './StoriesModal';
 
 export interface IStorySlide {
     image: any,
@@ -34,7 +34,7 @@ export default (props: IStories) => {
                 setModalActive={setModalActive}
             />
             {modalActive && (
-                <StoryModal
+                <StoriesModal
                     {...props}
                     active={modalActive}
                     setModalActive={setModalActive}

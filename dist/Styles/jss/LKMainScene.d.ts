@@ -6,12 +6,14 @@ declare const _default: (theme: ThemeInterface) => {
     main: {
         overflow: string;
     };
-    side: {
+    sideBackground: {
         background: string;
         borderColor: string;
     };
     sideBottom: {
         overflow: string;
+        marginRight: string;
+        marginLeft: string;
     };
     mainRight: {
         overflow: string;

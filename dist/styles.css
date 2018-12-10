@@ -1485,7 +1485,6 @@
   -webkit-transition: all 0.3s ease 0s;
   -o-transition: all 0.3s ease 0s;
   -ms-transition: all 0.3s ease 0s;
-  box-shadow: 0 1rem 1rem 0 #DAE4F2;
   margin: 0;
   -webkit-box-sizing: border-box;
   /* Safari/Chrome, other WebKit */
@@ -1494,34 +1493,49 @@
   box-sizing: border-box;
   /* Opera/IE 8+ */
   margin-bottom: 1.25rem;
-}
-.ui-card-title {
-  font-size: 1.125rem;
-  font-weight: bold;
-  line-height: 1.5rem;
-}
-.ui-card-subtitle {
-  opacity: 0.8;
-  font-size: 1rem;
-  font-weight: normal;
-  line-height: 1.25rem;
-  padding-top: 0.25rem;
-}
-.ui-card-counter-value {
-  font-size: 1.125rem;
-  line-height: 1.5rem;
-  font-weight: 500;
-}
-.ui-card-counter-description {
-  font-size: 0.75rem;
-  line-height: 0.875rem;
-  font-weight: normal;
+  overflow: hidden;
 }
 .ui-card.active {
-  margin-left: -0.625rem;
-  margin-right: -0.625rem;
+  transform: translateX(40px);
+}
+.ui-card-animation-wave1 {
+  transition: transform 3s;
+  will-change: transform;
+  transform: translateX(-300px);
+}
+.ui-card-animation-wave1-init {
+  transform: translateX(0);
+}
+.ui-card-animation-wave2 {
+  transition: transform 2s;
+  will-change: transform;
+  transform: translateX(-630px);
+}
+.ui-card-animation-wave2-init {
+  transform: translateX(0);
+}
+.ui-card-animation-circle1 {
+  transition: transform 2s;
+  will-change: transform;
+  transform: translateX(0px) translateY(0px);
+}
+.ui-card-animation-circle1-init {
+  transform: translateX(-50px) translateY(50px);
+}
+.ui-card-animation-circle2 {
+  transition: transform 3s;
+  will-change: transform;
+  transform: translateX(0px) translateY(0px);
+}
+.ui-card-animation-circle2-init {
+  transform: translateX(-120px) translateY(120px);
 }
 
+@media (max-width: 640px) {
+  .ui-card.active {
+    transform: translateX(0);
+  }
+}
 .ui-stories {
   box-sizing: border-box;
   padding: 1.25rem 0;
@@ -1572,50 +1586,40 @@
   overflow-y: scroll;
   padding: 20px;
   margin: 0 -23px 0 -23px;
-  -webkit-transition: all 0.25s;
-  -khtml-transition: all 0.25s;
-  -moz-transition: all 0.25s;
-  -ms-transition: all 0.25s;
-  -o-transition: all 0.25s;
-  transition: all 0.25s;
+  -webkit-transition: all 0.3s;
+  -khtml-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+  transform: translateY(50px) translateZ(0);
 }
 .ui-stories-modal-container {
-  box-sizing: border-box;
   position: relative;
-  min-width: 320px;
-  min-height: 480px;
+  padding: 0.5rem 0;
+  height: 100%;
+  width: 100%;
+  white-space: nowrap;
+  display: table;
+  transition: transform 0.3s ease;
+  transition-delay: 0.3s;
+  will-change: transform;
 }
 .ui-stories-modal-container-story {
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  opacity: 0;
+  transition: transform 0.3s ease;
+  transform: translateY(80px) translateZ(0);
+  min-width: 320px;
+  max-width: 540px;
+  height: 100%;
+  width: 50vh;
+  display: inline-table;
+  border-radius: 0.5rem;
+  border-style: solid;
+  border-width: 1px;
+  margin-left: 40px;
 }
 .ui-stories-modal-container-story-active {
-  opacity: 1;
-}
-.ui-stories-modal-container-story-slides {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-}
-.ui-stories-modal-container-story-slides-slide {
-  opacity: 0;
-}
-.ui-stories-modal-container-story-slides-slide-active {
-  opacity: 1;
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
+  transform: translateY(0) translateZ(0);
 }
 .ui-stories-modal-container-story-progressbar {
   position: relative;
@@ -1632,6 +1636,7 @@
 .ui-stories-modal-visible {
   opacity: 1;
   visibility: visible;
+  transform: translateY(0) translateZ(0);
 }
 .ui-stories-modal-mask {
   z-index: 500;
@@ -1655,19 +1660,105 @@
   opacity: 0.7;
 }
 
-.ui-scenes-lkmain-side {
-  overflow: scroll;
-  border-right: 1px solid;
-  max-width: 320px;
-}
-.ui-scenes-lkmain-side-mask {
+.ui-timeline-layout {
+  display: flex;
+  flex: 1 1 auto;
+  align-items: center;
   position: absolute;
+  top: 0;
   left: 0;
   right: 0;
+  bottom: 0;
+}
+.ui-timeline-layout-line {
+  display: flex;
+  flex: 1 1 auto;
+  align-items: center;
+  height: 0.25rem;
+  border-radius: 0.125rem;
+}
+.ui-timeline-layout-titleright {
+  line-height: 1.25rem;
+  font-size: 1rem;
+  margin-left: 0.5rem;
+  text-align: right;
+}
+.ui-timeline-layout-titleleft {
+  line-height: 1.25rem;
+  font-size: 1rem;
+  margin-right: 0.5rem;
+  text-align: left;
+}
+.ui-timeline-dots {
+  display: flex;
+  flex: 1 1 auto;
+  justify-content: space-around;
+  margin: 0 5rem;
+  z-index: 1;
+}
+.ui-timeline-dots-top {
+  display: flex;
+  flex: 1 1 auto;
+  justify-content: center;
+  align-items: center;
+  height: 1.5rem;
+  font-size: 1.125rem;
+  font-weight: bold;
+  line-height: 1.5rem;
+  padding-bottom: 0.25rem;
+}
+.ui-timeline-dots-bottom {
+  display: flex;
+  flex: 1 1 auto;
+  justify-content: center;
+  align-items: center;
+  height: 1.25rem;
+  font-size: 1rem;
+  line-height: 1.25rem;
+  padding-top: 0.5rem;
+}
+.ui-timeline-dots-container {
+  display: flex;
+  flex: 1 1 auto;
+  justify-content: center;
+  align-items: center;
+}
+.ui-timeline-dots-container-dot {
+  box-sizing: border-box;
+  height: 22px;
+  width: 22px;
+  border: 4px solid;
+  border-radius: 50%;
+  content: "";
+}
+
+.ui-scenes-lkmain-side {
+  position: absolute;
+  left: 0;
   top: 0;
+  bottom: 0;
+  z-index: 10;
+  overflow: scroll;
+  max-width: 280px;
+  padding: 20px;
+  padding-right: 40px;
+}
+.ui-scenes-lkmain-side-background {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 320px;
+  bottom: 0;
+  border-right: 1px solid;
 }
 .ui-scenes-lkmain-main {
-  min-width: 320px;
+  position: absolute;
+  left: 0;
+  margin-left: 321px;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 8;
 }
 .ui-scenes-lkmain-main-top {
   overflow: scroll;
@@ -1676,8 +1767,16 @@
 }
 
 @media (max-width: 640px) {
+  .ui-scenes-lkmain-main {
+    margin-left: 0;
+  }
   .ui-scenes-lkmain-side {
     max-width: initial;
+    right: 0;
+    padding-right: 20px;
+  }
+  .ui-scenes-lkmain-side-background {
+    width: initial;
   }
 }
 .ui-lkcomponent-account-select {
