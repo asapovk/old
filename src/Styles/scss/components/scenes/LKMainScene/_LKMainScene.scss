@@ -1,17 +1,32 @@
 .ui-scenes-lkmain { 
     &-side {
+        position: absolute;
+        left:0;
+        top:0;
+        bottom: 0;
+        z-index: 10;
         overflow: scroll;
-        border-right: 1px solid;
-        max-width: 320px;
-        &-mask {
+        max-width: 280px;
+        padding: 20px;
+        padding-right: 40px;
+        &-background {
             position: absolute;
             left: 0;
-            right: 0;
             top: 0;
+            width: 320px;
+            bottom: 0;
+            border-right: 1px solid;
+
         }
     }  
     &-main {
-        min-width: 320px;
+        position: absolute;
+        left:0;
+        margin-left: 321px; 
+        right: 0;
+        top:0;
+        bottom: 0;
+        z-index: 8;
         &-top {
             overflow: scroll;
             border-bottom-left-radius: 100% 40px;
@@ -21,8 +36,16 @@
 }
 @media (max-width: 640px) {
     .ui-scenes-lkmain { 
+        &-main {
+            margin-left:0;
+        }
         &-side {
             max-width: initial;
+            right: 0;
+            padding-right: 20px;
+            &-background {
+                width: initial;
+            }
         }
     }
 }

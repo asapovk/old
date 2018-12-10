@@ -7,42 +7,61 @@
     -webkit-transition: all 0.3s ease 0s;
     -o-transition: all 0.3s ease 0s;
     -ms-transition: all 0.3s ease 0s;
-    box-shadow: 0 1rem 1rem 0 #DAE4F2;
     margin: 0;
     -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
     -moz-box-sizing: border-box;    /* Firefox, other Gecko */
     box-sizing: border-box;         /* Opera/IE 8+ */
     margin-bottom: 1.25rem;
-
-    &-title {
-        font-size: 1.125rem;
-        font-weight: bold;	
-        line-height: 1.5rem;
-    }
-
-    &-subtitle {
-        opacity: 0.8;
-        font-size: 1rem;
-        font-weight: normal;
-        line-height: 1.25rem;
-        padding-top: 0.25rem;
-    }
-
-    &-counter {
-        &-value {
-            font-size: 1.125rem;
-            line-height: 1.5rem;
-            font-weight: 500;
-        }
-        &-description {
-            font-size: 0.75rem;
-            line-height: 0.875rem;
-            font-weight: normal;
-        }
-    }
+    overflow: hidden;
 
     &.active {
-        margin-left: -0.625rem;
-        margin-right: -0.625rem;
+        transform: translateX(40px)
+    }
+
+    &-animation {
+        &-wave {
+            &1 {
+                transition: transform 3s;
+                will-change: transform;
+                &-init {
+                    transform: translateX(0)
+                }
+                transform: translateX(-300px)
+            }
+            &2 {
+                transition: transform 2s;
+                will-change: transform;
+                &-init {
+                    transform: translateX(0)
+                }
+                transform: translateX(-630px)
+            }
+        }
+        &-circle {
+            &1 {
+                transition: transform 2s;
+                will-change: transform;
+                &-init {
+                    transform: translateX(-50px) translateY(50px)
+                }
+                transform: translateX(0px) translateY(0px)
+            }
+            &2 {
+                transition: transform 3s;
+                will-change: transform;
+                &-init {
+                    transform: translateX(-120px) translateY(120px)
+                }
+                transform: translateX(0px) translateY(0px)
+            }
+        }
+    }
+}
+
+@media (max-width: 640px) {
+    .ui-card { 
+        &.active {
+            transform: translateX(0);
+        }
     }
 }

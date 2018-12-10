@@ -48,55 +48,11 @@ const SideMenu = () => {
     const [account, setAccount] = useState(2 as number | string);
     return (
         <Fragment>
-            <AccountSelect
-                values={accounts}
-                value={account}
-                onChange={setAccount}
-            />
-            <div style={{ margin: "1.25rem" }}>
-                <Card
-                    title="Платежи"
-                    info={{
-                        value: "342,34 ₽",
-                        description: "к оплате"
-                    }}
-                    action={{
-                        label: "Оплатить",
-                        onAction: () => { }
-                    }}
-                    subtitle="1 неоплатченная услуга"
-                    active={card === 0}
-                    onClick={() => setCard(0)}
-                />
-                <Card
-                    title="Показания"
-                    subtitle="Обновлены 16 дней назад"
-                    action={{
-                        label: "Передать",
-                        onAction: () => { }
-                    }}
-                    info={{
-                        value: "5 m3",
-                        description: "Передано"
-                    }}
-                    active={card === 1}
-                    onClick={() => setCard(1)}
-                />
-                <Card
-                    title="Начисления"
-                    subtitle="Декабрь 2018"
-                    action={{
-                        label: "Квитанция",
-                        onAction: () => { }
-                    }}
-                    info={{
-                        value: "13 492,42 ₽",
-                        description: "начислено"
-                    }}
-                    active={card === 2}
-                    onClick={() => setCard(2)}
-                />
-            </div>
+            {accounts.map((account, index) => <Card
+                animation={index % 2 ? "circles" : "waves"}
+                active={card === index}
+                onClick={() => setCard(index)}
+            />)}
         </Fragment>
     )
 }

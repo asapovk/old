@@ -40,45 +40,38 @@ export default (props: IProps) => {
             }
             <Flexbox style={st.main} flex={1}>
                 {needDisplaySideBar && (
-                    <Flexbox
-                        flex={1}
-                        flexDirection="column"
-                        style={st.side}
-                        className="ui-scenes-lkmain-side"
-                        children={(
-                            <Fragment>
-                                {props.components.mainTop && (
-                                    <div
-                                        style={st.sideMask}
-                                        className="ui-scenes-lkmain-side-mask"
+                    <>
+                        <div
+                            className="ui-scenes-lkmain-side"
+                            children={(
+                                <Fragment>
+                                    <Flexbox
+                                        flex={1}
+                                        flexDirection="column"
+                                        justifyContent="space-between"
+                                        children={(
+                                            <Fragment>
+                                                <div children={props.components.side} />
+                                                {props.components.sideBottom && (
+                                                    <div
+                                                        style={st.sideBottom}
+                                                        children={props.components.sideBottom}
+                                                    />
+                                                )}
+                                            </Fragment>
+                                        )}
                                     />
-                                )}
-                                <Flexbox
-                                    flex={1}
-                                    flexDirection="column"
-                                    justifyContent="space-between"
-                                    children={(
-                                        <Fragment>
-                                            <div children={props.components.side} />
-                                            {props.components.sideBottom && (
-                                                <Flexbox
-                                                    flexShrink={0}
-                                                    flexDirection="column"
-                                                    style={st.sideBottom}
-                                                    children={props.components.sideBottom}
-                                                />
-                                            )}
-                                        </Fragment>
-                                    )}
-                                />
-                            </Fragment>
-                        )} />
+                                </Fragment>
+                            )} />
+                        <div
+                            style={st.sideBackground}
+                            className="ui-scenes-lkmain-side-background"
+                        />
+                    </>
 
                 )}
                 {needDisplayMain && (
-                    <Flexbox
-                        flex={1}
-                        flexDirection="column"
+                    <div
                         style={st.mainRight}
                         className="ui-scenes-lkmain-main"
                         children={(
