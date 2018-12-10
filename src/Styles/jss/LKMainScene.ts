@@ -10,12 +10,14 @@ export default (theme: ThemeInterface) => {
         main: {
             overflow: "hidden"
         },
-        side: {
+        sideBackground: {
             background: theme.background.hex,
             borderColor: theme.pale.hex,
         },
         sideBottom: {
             overflow: "scroll",
+            marginRight: "-20px",
+            marginLeft: "-20px",
         },
         mainRight: {
             overflow: "scroll",

@@ -16,7 +16,6 @@ export default (theme: ThemeInterface) => {
             if (active) {
                 style = {
                     ...style,
-                    backgroundColor: theme.gradient.card[0],
                     background: "linear-gradient(80deg," + theme.gradient.card[0] + "," + theme.gradient.card[1] + ")",
                     border: 'none',
                     color: style.background,
@@ -26,10 +25,5 @@ export default (theme: ThemeInterface) => {
 
             return style;
         },
-        counter: (active?: boolean) => {
-            return {
-                color: active ? theme.interface.rgb : theme.highlight.rgb
-            }
-        }
     }
 }
