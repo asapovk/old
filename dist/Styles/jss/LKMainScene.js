@@ -6,7 +6,7 @@ exports.default = (function (theme) {
             overflow: "hidden"
         },
         main: {
-            overflow: "hidden"
+        // overflow: "hidden"
         },
         sideBackground: {
             background: theme.background.hex,

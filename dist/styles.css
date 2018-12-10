@@ -702,10 +702,16 @@
   margin-right: 1.25rem;
 }
 .ui-menu-navbar-hamburger-content {
-  background-color: rgba(0, 0, 0, 0.3);
   padding: 0 2.5rem;
   overflow: hidden;
   transition: all 0.35s ease;
+  position: absolute;
+  top: 64px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  z-index: 11;
+  box-shadow: 0 1rem 1rem 0 rgba(0, 0, 0, 0.2);
 }
 .ui-menu-navbar-hamburger-content > div {
   transition: all 0.55s ease;
@@ -1479,13 +1485,13 @@
 .ui-card {
   user-select: none;
   padding: 1.25rem;
-  height: 150px;
+  height: 160px;
+  min-width: 280px;
   transition: all 0.3s ease 0s;
   -moz-transition: all 0.3s ease 0s;
   -webkit-transition: all 0.3s ease 0s;
   -o-transition: all 0.3s ease 0s;
   -ms-transition: all 0.3s ease 0s;
-  margin: 0;
   -webkit-box-sizing: border-box;
   /* Safari/Chrome, other WebKit */
   -moz-box-sizing: border-box;
@@ -1496,7 +1502,9 @@
   overflow: hidden;
 }
 .ui-card.active {
-  transform: translateX(40px);
+  transform: translateX(20px);
+  margin-right: -20px;
+  height: 180px;
 }
 .ui-card-animation-wave1 {
   transition: transform 3s;
@@ -1760,10 +1768,18 @@
   bottom: 0;
   z-index: 8;
 }
+.ui-scenes-lkmain-main-layout {
+  padding: 0 40px;
+  margin: 0 auto;
+  max-width: 960px;
+}
 .ui-scenes-lkmain-main-top {
   overflow: scroll;
-  border-bottom-left-radius: 100% 40px;
-  border-bottom-right-radius: 100% 40px;
+  padding: 40px;
+}
+.ui-scenes-lkmain-main-top-content {
+  margin: 0 auto;
+  max-width: 960px;
 }
 
 @media (max-width: 640px) {

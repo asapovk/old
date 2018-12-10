@@ -27,12 +27,28 @@ var useStyles_1 = __importDefault(require("../hooks/useStyles"));
 var useBrowser_1 = __importDefault(require("../hooks/useBrowser"));
 var Mobile_1 = require("./Mobile");
 var NavBar_1 = __importDefault(require("./NavBar"));
+var smorodina_1 = __importDefault(require("../../src/logos/smorodina"));
+var abr_1 = __importDefault(require("../../src/logos/abr"));
+var mrg_1 = __importDefault(require("../../src/logos/mrg"));
 exports.default = (function (props) {
     var styles = useStyles_1.default();
     var windowSize = useBrowser_1.default();
     var navBar = react_1.useRef(null);
     var _a = react_1.useState(false), mobileActive = _a[0], setMobileActive = _a[1];
     var header = props.header, style = props.style, toolsRight = props.toolsRight, profile = props.profile, items = props.items;
+    var logo;
+    if (!header) {
+        logo = react_1.default.createElement(smorodina_1.default, { style: { width: "8rem" }, color: styles.theme.text.hex });
+        if (styles.theme.name === "gazpromTheme") {
+            logo = react_1.default.createElement(mrg_1.default, { style: { width: "5.5rem" } });
+        }
+        if (styles.theme.name === "abrTheme") {
+            logo = react_1.default.createElement(abr_1.default, { style: { width: "10rem" } });
+        }
+        if (styles.theme.name === "whiteCurrant") {
+            logo = react_1.default.createElement(smorodina_1.default, { style: { width: "8rem" } });
+        }
+    }
     // const animate = (from: number, to: number, onFrame: (value: number) => void, delay: number = 250, idAnimation?: string, fps: number = 60) => {
     //     let value = from;
     //     let total = from;
@@ -75,9 +91,9 @@ exports.default = (function (props) {
     //     setTimeout(runAnimation, 1);
     // }
     return (react_1.default.createElement("div", null,
-        react_1.default.createElement(__1.Flexbox, { className: 'ui-menu', alignItems: 'center', justifyContent: 'space-between', style: __assign({}, styles.menu.main.menu, style) },
+        react_1.default.createElement(__1.Flexbox, { className: 'ui-menu', alignItems: 'center', justifyContent: 'space-between', style: __assign({}, styles.menu.main.menu, style, { marginLeft: windowSize.isDesktop ? '321px' : 0 }) },
             !windowSize.isDesktop && react_1.default.createElement(Mobile_1.MobileMenu, { active: mobileActive, setActive: setMobileActive }),
-            header && (react_1.default.createElement(__1.Flexbox, { alignItems: 'center', justifyContent: 'center', className: 'ui-menu-header' }, !header.label ? header : (react_1.default.createElement("div", { className: 'ui-menu-header-title', onClick: header.onAction }, header.label)))),
+            !windowSize.isDesktop && (react_1.default.createElement(__1.Flexbox, { alignItems: 'center', justifyContent: 'center', className: 'ui-menu-header' }, logo ? logo : (react_1.default.createElement("div", { className: 'ui-menu-header-title', onClick: header.onAction }, header.label)))),
             windowSize.isDesktop && (react_1.default.createElement(NavBar_1.default, { items: items, containerWidth: navBar.current && navBar.current.offsetWidth })),
             react_1.default.createElement(__1.Flexbox, { alignItems: 'center', justifyContent: 'flex-end', className: 'ui-menu-toolsbar' },
                 toolsRight && windowSize.isDesktop && (react_1.default.createElement(__1.Flexbox, { className: 'ui-menu-toolsbar-tools' }, toolsRight.map(function (tool, index) { return react_1.default.cloneElement(tool, { key: index }); }))),

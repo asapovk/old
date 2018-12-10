@@ -26,6 +26,9 @@ var Flexbox_1 = require("../../../Flexbox");
 var Icon_1 = require("../../../Icon");
 var useStyles_1 = __importDefault(require("../../../hooks/useStyles"));
 var useClass_1 = __importDefault(require("../../../hooks/useClass"));
+/**
+ * @deprecated slice 1 dec 2018
+ */
 exports.default = (function (props) {
     var styles = useStyles_1.default();
     var _a = useClass_1.default('ui-lkcomponent-account-select'), accountSelectClassName = _a[0], AccountSelectClassName = _a[1];

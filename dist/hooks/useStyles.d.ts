@@ -291,9 +291,7 @@ declare const _default: () => {
             root: {
                 overflow: string;
             };
-            main: {
-                overflow: string;
-            };
+            main: {};
             sideBackground: {
                 background: string;
                 borderColor: string;
