@@ -1,5 +1,5 @@
 import React from 'react';
-import useStyles from '../../hooks/useStyles';
+import useStyles from '../../hooks/useTheme';
 
 export default ({ active }) => {
     const styles = useStyles();

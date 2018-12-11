@@ -4,7 +4,7 @@ import SmorodinaLogo from '../../src/logos/smorodina';
 import MrgLogo from '../../src/logos/mrg';
 import AbrLogo from '../../src/logos/abr';
 import Scene from '../../src/scenes/LKGuestScene';
-import useStyles from '../../src/hooks/useStyles';
+import useStyles from '../../src/hooks/useTheme';
 
 export default () => {
 

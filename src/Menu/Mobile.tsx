@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { Flexbox } from '..';
-import useStyles from '../hooks/useStyles';
+import useStyles from '../hooks/useTheme';
 import { ColorCorrector } from '../Styles/utilities';
 import NavBarItem from './NavBarItem';
 import { IMenuItems } from './Menu';

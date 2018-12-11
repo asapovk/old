@@ -1,8 +1,9 @@
 
 import { css } from '@emotion/core';
+import useTheme from '../hooks/useTheme';
 
-export default (theme) => {
-
+export default () => {
+    const theme = useTheme().theme;
     return {
         container: css({
             position: 'relative',

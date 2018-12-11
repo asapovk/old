@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import useClass from '../../hooks/useClass';
-import useStyles from '../../hooks/useStyles';
+import useStyles from '../../hooks/useTheme';
 
 export default ({ active, story, index, onClick, onNextStory, onPrevStory, currentStoryIndex }) => {
 

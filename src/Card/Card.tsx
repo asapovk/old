@@ -1,6 +1,6 @@
 import React, { CSSProperties, ReactElement } from 'react';
 import { Flexbox, Button } from '../';
-import useStyles from '../hooks/useStyles';
+import useStyles from '../hooks/useTheme';
 import Waves from './animations/Waves';
 import Circles from './animations/Circles';
 

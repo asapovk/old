@@ -1,11 +1,10 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
-import React, { CSSProperties, ReactNode } from 'react';
-import useStyles from '../hooks/useStyles';
+import useStyles from './useStyles';
+import { CSSProperties, ReactNode } from 'react';
 import { Spin, Icon } from '../index';
-import styles from './styles';
 
-export interface ButtonProps {
+export interface BageProps {
     value?: string | number
     color?: 'highlight' | 'red' | 'green' | 'orange' | 'blue'
     loading?: boolean
@@ -17,15 +16,14 @@ export interface ButtonProps {
     children: ReactNode
 }
 
-export default (props: ButtonProps) => {
+export default (props: BageProps) => {
 
     const { onClick, value, children, style, loading, color, top, right, left } = props;
-    const theme = useStyles().theme;
-    const themedStyles = styles(theme);
+    const styles = useStyles();
 
     return (
-        <div css={{ ...themedStyles.container, ...style }} onClick={onClick}>
-            <div css={themedStyles.main(color, top, right, left)}>{value}</div>
+        <div css={{ ...styles.container, ...style }} onClick={onClick}>
+            <div css={styles.main(color, top, right, left)}>{value}</div>
             {children}
         </div>
     );

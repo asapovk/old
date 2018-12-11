@@ -1,7 +1,7 @@
 import React, { useRef, useState, useLayoutEffect } from 'react';
 import NavBarItem from './NavBarItem';
 import useBrowser from '../hooks/useBrowser';
-import useStyles from '../hooks/useStyles';
+import useStyles from '../hooks/useTheme';
 
 const PW: number[] = [];
 export default (props) => {

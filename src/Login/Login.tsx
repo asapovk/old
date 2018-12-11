@@ -1,6 +1,6 @@
 import React from 'react';
 import { Popup } from '../';
-import useStyles from '../hooks/useStyles';
+import useStyles from '../hooks/useTheme';
 
 export interface ILogin {
     name: any

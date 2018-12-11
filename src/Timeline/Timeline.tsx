@@ -1,6 +1,6 @@
 import React from 'react';
 import { Flexbox } from '..';
-import useStyles from '../hooks/useStyles';
+import useStyles from '../hooks/useTheme';
 
 interface IDot {
     value: string

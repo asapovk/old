@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import { Flexbox, TextField, Button } from '../../..';
 import useTextField from '../../../hooks/useTextField';
 import useNumberСaseString from '../../../hooks/useNumberСaseString';
-import useStyles from '../../../hooks/useStyles';
+import useStyles from '../../../hooks/useTheme';
 import { Icon } from '../../../Icon';
 
 interface SignUpProps {

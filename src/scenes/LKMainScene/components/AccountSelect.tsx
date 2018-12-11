@@ -2,7 +2,7 @@ import React, { Fragment, useState } from 'react';
 import { Flexbox } from '../../../Flexbox';
 import { Icon } from '../../../Icon';
 import { Select } from '../../../Select';
-import useStyles from '../../../hooks/useStyles';
+import useStyles from '../../../hooks/useTheme';
 import useClass from '../../../hooks/useClass';
 
 interface IAccount {

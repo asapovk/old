@@ -4,7 +4,7 @@ import Form from './Forms';
 import { GuestSceneProps } from '.';
 
 import useBrowser from '../../hooks/useBrowser';
-import useStyles from '../../hooks/useStyles';
+import useStyles from '../../hooks/useTheme';
 
 
 export default (props: GuestSceneProps) => {

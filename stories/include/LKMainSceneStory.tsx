@@ -1,7 +1,7 @@
 import React, { Fragment, useState } from 'react';
 import Scene from '../../src/scenes/LKMainScene';
 import { Card, Menu, Icon, Stories } from '../../src';
-import useStyles from '../../src/hooks/useStyles';
+import useStyles from '../../src/hooks/useTheme';
 import useBrowser from '../../src/hooks/useBrowser';
 import SmoLogo from '../../src/logos/smorodina';
 import AbrLogo from '../../src/logos/abr';

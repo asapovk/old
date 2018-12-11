@@ -1,6 +1,6 @@
 import React, { useState, CSSProperties, useRef } from 'react';
 import { Flexbox, Login } from '..';
-import useStyles from '../hooks/useStyles';
+import useStyles from '../hooks/useTheme';
 import useBrowser from '../hooks/useBrowser';
 import { MobileMenu, MobileMenuItems } from './Mobile';
 import { ILogin } from '../Login/Login';

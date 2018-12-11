@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Flexbox, Icon } from '../..';
 import useBrowser from '../../hooks/useBrowser';
 import { GuestSceneProps } from '.';
-import useStyles from '../../hooks/useStyles';
+import useStyles from '../../hooks/useTheme';
 
 export default (props: GuestSceneProps) => {
 

@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import { Flexbox } from '../../';
-import useStyles from '../../hooks/useStyles';
+import useStyles from '../../hooks/useTheme';
 import useBrowser from '../../hooks/useBrowser';
 interface IProps {
     components: {

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import addons from '@storybook/addons';
 import styled from '@emotion/styled';
 import { Select, Viewport, Flexbox, Checkbox } from '../../src/';
-import useStyles from '../../src/hooks/useStyles';
+import useStyles from '../../src/hooks/useTheme';
 
 require('../../src/Styles/scss/main.scss');
 
