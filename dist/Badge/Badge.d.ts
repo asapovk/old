@@ -1,4 +1,4 @@
-import { Component, CSSProperties } from 'react';
+import { CSSProperties, ReactNode } from 'react';
 export interface ButtonProps {
     value?: string | number;
     color?: 'highlight' | 'red' | 'green' | 'orange' | 'blue';
@@ -8,8 +8,7 @@ export interface ButtonProps {
     left?: number | string;
     onClick?: (MouseEvent?: any) => void;
     style?: CSSProperties;
+    children: ReactNode;
 }
-declare class Badge extends Component<ButtonProps> {
-    render(): JSX.Element;
-}
-export default Badge;
+declare const _default: (props: ButtonProps) => JSX.Element;
+export default _default;

@@ -1,4 +1,4 @@
-import { configure, addDecorator } from '@storybook/react';
+import { configure } from '@storybook/react';
 import { setOptions, withOptions } from '@storybook/addon-options';
 import { themes } from '@storybook/components';
 

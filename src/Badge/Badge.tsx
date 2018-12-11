@@ -1,5 +1,9 @@
-import React, { Component, CSSProperties } from 'react';
-import { Spin, Icon, Styles } from '../index';
+/** @jsx jsx */
+import { jsx } from '@emotion/core'
+import React, { CSSProperties, ReactNode } from 'react';
+import useStyles from '../hooks/useStyles';
+import { Spin, Icon } from '../index';
+import styles from './styles';
 
 export interface ButtonProps {
     value?: string | number
@@ -10,31 +14,19 @@ export interface ButtonProps {
     left?: number | string
     onClick?: (MouseEvent?) => void
     style?: CSSProperties
+    children: ReactNode
 }
 
-class Badge extends Component<ButtonProps> {
-    render() {
+export default (props: ButtonProps) => {
 
-        const { onClick, value, children, style, loading, color, top, right, left } = this.props;
+    const { onClick, value, children, style, loading, color, top, right, left } = props;
+    const theme = useStyles().theme;
+    const themedStyles = styles(theme);
 
-        let classes = 'ui-badge';
-
-        // if (loading) classes += ' loading';
-
-        return (
-            <Styles>
-                {styles => {
-
-                    return (
-                        <div className={classes} style={{ ...styles.badge.container, ...style }} onClick={onClick}>
-                            <div className="ui-badge-content" style={styles.badge.main(color, top, right, left)}>{value}</div>
-                            {children}
-                        </div>
-                    )
-                }}
-            </Styles>
-        );
-    }
+    return (
+        <div css={{ ...themedStyles.container, ...style }} onClick={onClick}>
+            <div css={themedStyles.main(color, top, right, left)}>{value}</div>
+            {children}
+        </div>
+    );
 }
-
-export default Badge;

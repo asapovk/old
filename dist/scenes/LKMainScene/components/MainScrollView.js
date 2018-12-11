@@ -14,6 +14,9 @@ var react_1 = __importStar(require("react"));
 var Flexbox_1 = require("../../../Flexbox");
 var useStyles_1 = __importDefault(require("../../../hooks/useStyles"));
 var Button_1 = require("../../../Button");
+/**
+ * @deprecated slice 1 dec 2018
+ */
 exports.default = (function (props) {
     var styles = useStyles_1.default();
     var st = {

@@ -51,7 +51,7 @@ class Checkbox extends React.Component<CheckboxProps> {
             <div className='ui-checkbox-input' style={this.state.checked ? { ...style.inputActive(radio) } : { ...style.input(radio) }}>
                 {
                     this.state.checked ? (
-                        radio ? <span className='ui-checkbox-circle' style={...style.circle}></span> : <Icon type='check' />
+                        radio ? <span className='ui-checkbox-circle' style={{...style.circle}}></span> : <Icon type='check' />
                     ) : null
                 }
             </div>
