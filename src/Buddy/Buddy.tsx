@@ -1,27 +1,26 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
 import useStyles from './useStyles';
-import React, { Component, CSSProperties, useEffect } from 'react';
+import React, { Component, CSSProperties, useEffect, useImperativeMethods, forwardRef } from 'react';
 import { Styles } from '../index';
 
 require('./lib/TweenMax.min');
+require('./lib/MorphSVGPlugin.min');
 
 declare const TweenMax: any
 declare const Power0: any
-const ease = Power0.easeNone;
 
 export interface Props {
     style?: CSSProperties
     size?: number
-    defaultFace?: "happy" | "sad"
-    ref: any
+    face?: "happy" | "sad" | "normal"
+    jumpy?: () => void
 }
 
-export default (props: Props) => {
-
-    require('./lib/MorphSVGPlugin.min');
+export default forwardRef((props: Props, ref) => {
 
     let timeline: any
+    const ease = Power0.easeNone;
 
     let buddy: HTMLElement
     let buddyContainer: HTMLElement
@@ -38,7 +37,10 @@ export default (props: Props) => {
 
     let BUDDY_ID: string = "_" + (Math.random() * 10000000).toFixed(0);
 
-    function init() {
+    /**
+     * ComponentDidMount
+     */
+    useEffect(() => {
         buddy = window.document.getElementById("buddy" + BUDDY_ID)!;
         buddyContainer = window.document.getElementById("buddyContainer" + BUDDY_ID)!;
         buddyMouth = window.document.getElementById("buddyMouth" + BUDDY_ID)!;
@@ -58,25 +60,29 @@ export default (props: Props) => {
             const key = el.getAttribute("data-id");
             PATH_STATES[key] = el;
         });
-    }
 
-    useEffect(() => {
-        init();
-        setListenersEnabled(true);
-
-        switch (props.defaultFace) {
-            case 'happy': makeHappy(true); break;
-            case 'sad': makeSad(true); break;
-            default: makeHappy(true);
-        }
-        return () => {
-            setListenersEnabled(false);
-        };
-    });
+        window.addEventListener("mousemove", moveEyes as any);
+        window.addEventListener("touchmove", moveEyes as any);
+    }, []);
 
     /**
-     * Счастливый
+     * ComponentWillRecieveProps and DidUnmount (return)
      */
+    useEffect(() => {
+        switch (props.face) {
+            case 'happy': makeHappy(true); break;
+            case 'sad': makeSad(true); break;
+            case 'normal': makeNormal(true); break;
+            default: makeHappy(true);
+        }
+        props.jumpy && makeJumpy();
+        return () => {
+            window.removeEventListener("mousemove", moveEyes as any);
+            window.removeEventListener("touchmove", moveEyes as any);
+        };
+    }, [props.face, props.jumpy]);
+
+
     function makeHappy(instant = false) {
         const speed = instant ? 0 : 0.2;
         TweenMax.to(buddyMouth, speed, { morphSVG: PATH_STATES.mouthHappy, ease });
@@ -84,18 +90,14 @@ export default (props: Props) => {
         TweenMax.to(buddyBrouwRight, speed, { morphSVG: PATH_STATES.brouwRightHappy, ease });
     }
 
-    /**
-     * Обычный
-     */
+
     function makeNormal(instant = false) {
         const speed = instant ? 0 : 0.2;
         TweenMax.to(buddyMouth, speed, { morphSVG: PATH_STATES.mouthNormal, ease });
         TweenMax.to(buddyBrouwLeft, speed, { morphSVG: PATH_STATES.brouwLeftNormal, ease });
         TweenMax.to(buddyBrouwRight, speed, { morphSVG: PATH_STATES.brouwRightNormal, ease });
     }
-    /**
-     * Грустный
-     */
+
     function makeSad(instant = false) {
         const speed = instant ? 0 : 0.2;
         TweenMax.to(buddyMouth, speed, { morphSVG: PATH_STATES.mouthSad, ease });
@@ -103,9 +105,12 @@ export default (props: Props) => {
         TweenMax.to(buddyBrouwRight, speed, { morphSVG: PATH_STATES.brouwRightSad, ease });
     }
 
-    /**
-     * Попрыгун
-     */
+    useImperativeMethods(ref, () => ({
+        jumpy() {
+            makeJumpy();
+        }
+    }));
+
     function makeJumpy(repeat = 0) {
         var speed = 0.15;
         //@ts-ignore TimelineMax
@@ -124,16 +129,6 @@ export default (props: Props) => {
         if (timeline) {
             timeline.stop();
             timeline = null
-        }
-    }
-
-    function setListenersEnabled(active = false) {
-        if (active) {
-            window.addEventListener("mousemove", moveEyes as any);
-            window.addEventListener("touchmove", moveEyes as any);
-        } else {
-            window.removeEventListener("mousemove", moveEyes as any);
-            window.removeEventListener("touchmove", moveEyes as any);
         }
     }
 
@@ -222,4 +217,4 @@ export default (props: Props) => {
             )}
         </Styles>
     );
-}
+})
