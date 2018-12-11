@@ -4,7 +4,7 @@ import useStyles from './useStyles';
 import { CSSProperties, ReactNode } from 'react';
 import { Spin, Icon } from '../index';
 
-export interface BageProps {
+export interface BadgeProps {
     value?: string | number
     color?: 'highlight' | 'red' | 'green' | 'orange' | 'blue'
     loading?: boolean
@@ -16,7 +16,7 @@ export interface BageProps {
     children: ReactNode
 }
 
-export default (props: BageProps) => {
+export default (props: BadgeProps) => {
 
     const { onClick, value, children, style, loading, color, top, right, left } = props;
     const styles = useStyles();
