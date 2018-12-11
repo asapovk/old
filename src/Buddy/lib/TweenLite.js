@@ -1,1 +1,3 @@
-export { TweenLite } from './TweenMax.min';
+module.exports = {
+    TweenLite: require('./TweenMax.min')
+}

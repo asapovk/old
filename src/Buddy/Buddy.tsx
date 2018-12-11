@@ -1,14 +1,16 @@
 import React, { Component, CSSProperties } from 'react';
-import TweenMax from './lib/TweenMax.min';
 import { Styles } from '../index';
 
+require('./lib/TweenMax.min');
+
+declare const TweenMax: any
+declare const Power0: any
 export interface Props {
     style?: CSSProperties
     size?: number
     defaultFace?: "happy" | "sad"
 }
 
-//@ts-ignore
 const ease = Power0.easeNone;
 
 class Buddy extends Component<Props> {

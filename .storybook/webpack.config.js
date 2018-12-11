@@ -3,7 +3,7 @@ const path = require("path");
 module.exports = (baseConfig, env, config) => {
   config.module.rules.push({
     test: /\.(ts|tsx)$/,
-    loader: require.resolve("ts-loader")
+    loader: require.resolve("awesome-typescript-loader")
   });
   config.module.rules = config.module.rules.filter(rule => {
     return !rule.test.toString().match("scss")
