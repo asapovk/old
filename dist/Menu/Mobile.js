@@ -12,11 +12,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importStar(require("react"));
 var __1 = require("..");
-var useStyles_1 = __importDefault(require("../hooks/useStyles"));
+var useTheme_1 = __importDefault(require("../hooks/useTheme"));
 var utilities_1 = require("../Styles/utilities");
 var NavBarItem_1 = __importDefault(require("./NavBarItem"));
 function MobileMenu(props) {
-    var styles = useStyles_1.default();
+    var styles = useTheme_1.default();
     var active = props.active, setActive = props.setActive;
     var hamburgerClasses = 'ui-menu-navbar-hamburger';
     if (active) {
@@ -30,7 +30,7 @@ function MobileMenu(props) {
 }
 exports.MobileMenu = MobileMenu;
 function MobileMenuItems(props) {
-    var styles = useStyles_1.default();
+    var styles = useTheme_1.default();
     var menuRef = react_1.useRef(null);
     var _a = react_1.useState(0), menuHeight = _a[0], setMenuHeight = _a[1];
     var items = props.items, active = props.active, tools = props.tools;

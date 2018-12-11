@@ -13,11 +13,11 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importStar(require("react"));
 var NavBarItem_1 = __importDefault(require("./NavBarItem"));
 var useBrowser_1 = __importDefault(require("../hooks/useBrowser"));
-var useStyles_1 = __importDefault(require("../hooks/useStyles"));
+var useTheme_1 = __importDefault(require("../hooks/useTheme"));
 var PW = [];
 exports.default = (function (props) {
     var browser = useBrowser_1.default();
-    var styles = useStyles_1.default();
+    var styles = useTheme_1.default();
     var items = props.items;
     var containerRef = react_1.useRef(null);
     var _a = react_1.useState(0), containerWidth = _a[0], setContainerWidth = _a[1];

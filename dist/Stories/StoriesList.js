@@ -5,9 +5,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importDefault(require("react"));
 var __1 = require("..");
-var useStyles_1 = __importDefault(require("../hooks/useStyles"));
+var useTheme_1 = __importDefault(require("../hooks/useTheme"));
 exports.default = (function (props) {
-    var styles = useStyles_1.default();
+    var styles = useTheme_1.default();
     function StoryLabel(_a) {
         var story = _a.story;
         return (react_1.default.createElement("div", { className: 'ui-stories-items-label', style: { color: story.labelColor || '#fff' }, children: story.label }));

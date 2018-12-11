@@ -24,13 +24,13 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importStar(require("react"));
 var Flexbox_1 = require("../../../Flexbox");
 var Icon_1 = require("../../../Icon");
-var useStyles_1 = __importDefault(require("../../../hooks/useStyles"));
+var useTheme_1 = __importDefault(require("../../../hooks/useTheme"));
 var useClass_1 = __importDefault(require("../../../hooks/useClass"));
 /**
  * @deprecated slice 1 dec 2018
  */
 exports.default = (function (props) {
-    var styles = useStyles_1.default();
+    var styles = useTheme_1.default();
     var _a = useClass_1.default('ui-lkcomponent-account-select'), accountSelectClassName = _a[0], AccountSelectClassName = _a[1];
     var st = styles.scenes.lkmain.components.accountSelect;
     var onSelectToggle = function () {

@@ -15,9 +15,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importDefault(require("react"));
-var useStyles_1 = __importDefault(require("../hooks/useStyles"));
+var useTheme_1 = __importDefault(require("../hooks/useTheme"));
 exports.default = (function (props) {
-    var styles = useStyles_1.default();
+    var styles = useTheme_1.default();
     var active = props.active, onClick = props.onClick, label = props.label, hidden = props.hidden;
     var classes = 'ui-menu-nav';
     if (hidden)

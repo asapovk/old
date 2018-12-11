@@ -1,5 +1,5 @@
 import { CSSProperties, ReactNode } from 'react';
-export interface ButtonProps {
+export interface BadgeProps {
     value?: string | number;
     color?: 'highlight' | 'red' | 'green' | 'orange' | 'blue';
     loading?: boolean;
@@ -10,5 +10,5 @@ export interface ButtonProps {
     style?: CSSProperties;
     children: ReactNode;
 }
-declare const _default: (props: ButtonProps) => JSX.Element;
+declare const _default: (props: BadgeProps) => JSX.Element;
 export default _default;

@@ -6,10 +6,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importDefault(require("react"));
 var __1 = require("../..");
 var useBrowser_1 = __importDefault(require("../../hooks/useBrowser"));
-var useStyles_1 = __importDefault(require("../../hooks/useStyles"));
+var useTheme_1 = __importDefault(require("../../hooks/useTheme"));
 exports.default = (function (props) {
     var size = useBrowser_1.default();
-    var styles = useStyles_1.default();
+    var styles = useTheme_1.default();
     var st = {
         root: {
             background: "#eee"

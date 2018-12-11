@@ -23,11 +23,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importStar(require("react"));
 var __1 = require("../../");
-var useStyles_1 = __importDefault(require("../../hooks/useStyles"));
+var useTheme_1 = __importDefault(require("../../hooks/useTheme"));
 var useBrowser_1 = __importDefault(require("../../hooks/useBrowser"));
 exports.default = (function (props) {
     var browser = useBrowser_1.default();
-    var styles = useStyles_1.default();
+    var styles = useTheme_1.default();
     var st = styles.scenes.lkmain;
     var needDisplaySideBar = Boolean(props.components.side);
     var needDisplayMain = Boolean(props.components.mainTop || props.components.main);

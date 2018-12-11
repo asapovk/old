@@ -12,13 +12,13 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importStar(require("react"));
 var Flexbox_1 = require("../../../Flexbox");
-var useStyles_1 = __importDefault(require("../../../hooks/useStyles"));
+var useTheme_1 = __importDefault(require("../../../hooks/useTheme"));
 var Button_1 = require("../../../Button");
 /**
  * @deprecated slice 1 dec 2018
  */
 exports.default = (function (props) {
-    var styles = useStyles_1.default();
+    var styles = useTheme_1.default();
     var st = {
         root: {
             background: styles.theme.background2.hex,

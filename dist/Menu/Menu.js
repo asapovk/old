@@ -23,7 +23,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importStar(require("react"));
 var __1 = require("..");
-var useStyles_1 = __importDefault(require("../hooks/useStyles"));
+var useTheme_1 = __importDefault(require("../hooks/useTheme"));
 var useBrowser_1 = __importDefault(require("../hooks/useBrowser"));
 var Mobile_1 = require("./Mobile");
 var NavBar_1 = __importDefault(require("./NavBar"));
@@ -31,7 +31,7 @@ var smorodina_1 = __importDefault(require("../logos/smorodina"));
 var abr_1 = __importDefault(require("../logos/abr"));
 var mrg_1 = __importDefault(require("../logos/mrg"));
 exports.default = (function (props) {
-    var styles = useStyles_1.default();
+    var styles = useTheme_1.default();
     var windowSize = useBrowser_1.default();
     var navBar = react_1.useRef(null);
     var _a = react_1.useState(false), mobileActive = _a[0], setMobileActive = _a[1];

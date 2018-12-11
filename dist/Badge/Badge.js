@@ -16,13 +16,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 /** @jsx jsx */
 var core_1 = require("@emotion/core");
-var useStyles_1 = __importDefault(require("../hooks/useStyles"));
-var styles_1 = __importDefault(require("./styles"));
+var useStyles_1 = __importDefault(require("./useStyles"));
 exports.default = (function (props) {
     var onClick = props.onClick, value = props.value, children = props.children, style = props.style, loading = props.loading, color = props.color, top = props.top, right = props.right, left = props.left;
-    var theme = useStyles_1.default().theme;
-    var themedStyles = styles_1.default(theme);
-    return (core_1.jsx("div", { css: __assign({}, themedStyles.container, style), onClick: onClick },
-        core_1.jsx("div", { css: themedStyles.main(color, top, right, left) }, value),
+    var styles = useStyles_1.default();
+    return (core_1.jsx("div", { css: __assign({}, styles.container, style), onClick: onClick },
+        core_1.jsx("div", { css: styles.main(color, top, right, left) }, value),
         children));
 });

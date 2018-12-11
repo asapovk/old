@@ -12,11 +12,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importStar(require("react"));
 var useClass_1 = __importDefault(require("../../hooks/useClass"));
-var useStyles_1 = __importDefault(require("../../hooks/useStyles"));
+var useTheme_1 = __importDefault(require("../../hooks/useTheme"));
 exports.default = (function (_a) {
     var active = _a.active, story = _a.story, index = _a.index, onClick = _a.onClick, onNextStory = _a.onNextStory, onPrevStory = _a.onPrevStory, currentStoryIndex = _a.currentStoryIndex;
     var _b = useClass_1.default('ui-stories-modal-container-story'), storyContainerClassname = _b[0], storyContainerModifiers = _b[1];
-    var styles = useStyles_1.default();
+    var styles = useTheme_1.default();
     react_1.useEffect(function () {
         if (active) {
             storyContainerModifiers.addModifier('active');

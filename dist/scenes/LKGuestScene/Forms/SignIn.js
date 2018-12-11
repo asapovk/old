@@ -24,9 +24,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importStar(require("react"));
 var __1 = require("../../..");
 var useTextField_1 = __importDefault(require("../../../hooks/useTextField"));
-var useStyles_1 = __importDefault(require("../../../hooks/useStyles"));
+var useTheme_1 = __importDefault(require("../../../hooks/useTheme"));
 exports.default = (function (props) {
-    var styles = useStyles_1.default();
+    var styles = useTheme_1.default();
     var login = useTextField_1.default({ id: "LOGIN" });
     var password = useTextField_1.default({});
     var onSubmit = function () { return props.onSubmit(login.value, password.value); };

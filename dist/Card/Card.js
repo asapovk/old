@@ -16,11 +16,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importDefault(require("react"));
 var __1 = require("../");
-var useStyles_1 = __importDefault(require("../hooks/useStyles"));
+var useTheme_1 = __importDefault(require("../hooks/useTheme"));
 var Waves_1 = __importDefault(require("./animations/Waves"));
 var Circles_1 = __importDefault(require("./animations/Circles"));
 exports.default = (function (props) {
-    var styles = useStyles_1.default();
+    var styles = useTheme_1.default();
     var classes = 'ui-card';
     if (props.active)
         classes += ' active';

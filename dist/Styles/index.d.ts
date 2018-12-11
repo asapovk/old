@@ -289,10 +289,6 @@ export declare const createStyles: (themeName?: "blackCurrant" | "whiteCurrant" 
             color: string;
         };
     };
-    badge: {
-        container: React.CSSProperties;
-        main: (color?: string | undefined, top?: string | number, right?: string | number, left?: string | number) => React.CSSProperties;
-    };
     viewport: {
         main: {
             background: string;
@@ -623,10 +619,6 @@ export declare const StylesContext: React.Context<{
             color: string;
         };
     };
-    badge: {
-        container: React.CSSProperties;
-        main: (color?: string | undefined, top?: string | number, right?: string | number, left?: string | number) => React.CSSProperties;
-    };
     viewport: {
         main: {
             background: string;
@@ -956,10 +948,6 @@ declare const _default: React.ExoticComponent<React.ConsumerProps<{
         active: {
             color: string;
         };
-    };
-    badge: {
-        container: React.CSSProperties;
-        main: (color?: string | undefined, top?: string | number, right?: string | number, left?: string | number) => React.CSSProperties;
     };
     viewport: {
         main: {
