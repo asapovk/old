@@ -8,7 +8,7 @@
         overflow: scroll;
         max-width: 280px;
         padding: 20px;
-        padding-right: 40px;
+        padding-right: 50px;
         &-background {
             position: absolute;
             left: 0;
@@ -16,7 +16,6 @@
             width: 320px;
             bottom: 0;
             border-right: 1px solid;
-
         }
     }  
     &-main {
@@ -27,10 +26,23 @@
         top:0;
         bottom: 0;
         z-index: 8;
+
+        &-layout {
+            padding: 0 40px;
+            margin: 0 auto;
+            max-width: 960px;
+        }
+
         &-top {
             overflow: scroll;
-            border-bottom-left-radius: 100% 40px;
-            border-bottom-right-radius: 100% 40px;
+            // border-bottom-left-radius: 100% 40px;
+            // border-bottom-right-radius: 100% 40px;
+            padding: 40px;
+
+            &-content {
+                margin: 0 auto;
+                max-width: 960px;
+            }
         }
     }
 }

@@ -43,12 +43,12 @@ exports.default = (function (props) {
             props.components.header,
         react_1.default.createElement(__1.Flexbox, { style: st.main, flex: 1 },
             needDisplaySideBar && (react_1.default.createElement(react_1.default.Fragment, null,
-                react_1.default.createElement("div", { className: "ui-scenes-lkmain-side", children: (react_1.default.createElement(react_1.Fragment, null,
+                react_1.default.createElement("div", { className: "ui-scenes-lkmain-side", style: { marginTop: browser.isDesktop ? '-64px' : 0 }, children: (react_1.default.createElement(react_1.Fragment, null,
                         react_1.default.createElement(__1.Flexbox, { flex: 1, flexDirection: "column", justifyContent: "space-between", children: (react_1.default.createElement(react_1.Fragment, null,
                                 react_1.default.createElement("div", { children: props.components.side }),
                                 props.components.sideBottom && (react_1.default.createElement("div", { style: st.sideBottom, children: props.components.sideBottom })))) }))) }),
-                react_1.default.createElement("div", { style: st.sideBackground, className: "ui-scenes-lkmain-side-background" }))),
-            needDisplayMain && (react_1.default.createElement("div", { style: st.mainRight, className: "ui-scenes-lkmain-main", children: (react_1.default.createElement(react_1.Fragment, null,
-                    props.components.mainTop && (react_1.default.createElement("div", { style: st.mainTop, className: "ui-scenes-lkmain-main-top", children: props.components.mainTop })),
-                    props.components.main)) })))));
+                react_1.default.createElement("div", { style: __assign({}, st.sideBackground, { marginTop: browser.isDesktop ? '-64px' : 0 }), className: "ui-scenes-lkmain-side-background" }))),
+            needDisplayMain && (react_1.default.createElement("div", { style: st.mainRight, className: "ui-scenes-lkmain-main", children: (react_1.default.createElement(react_1.default.Fragment, null,
+                    props.components.mainTop && (react_1.default.createElement("div", { style: __assign({}, st.mainTop, { backgroundColor: styles.theme.background2.hex }), className: 'ui-scenes-lkmain-main-top', children: react_1.default.createElement("div", { className: 'ui-scenes-lkmain-main-top-content', children: props.components.mainTop }) })),
+                    react_1.default.createElement("div", { className: 'ui-scenes-lkmain-main-layout', children: props.components.main }))) })))));
 });

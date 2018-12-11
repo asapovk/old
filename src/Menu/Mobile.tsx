@@ -55,7 +55,7 @@ export function MobileMenuItems(props: IMobileMenuItems) {
     }, [active]);
 
     return (
-        <div ref={menuRef} style={{ height: menuHeight, background: ColorCorrector.darker(styles.theme.background.hex, 3) }} className={`ui-menu-navbar-hamburger-content`}>
+        <div ref={menuRef} style={{ height: menuHeight, background: ColorCorrector.darker(styles.theme.background2.hex, 3) }} className={`ui-menu-navbar-hamburger-content`}>
             <Flexbox alignItems="center" flexDirection="column" style={{ position: "relative", top: active ? 0 : 110, opacity: active ? 1 : 0 }}>
 
                 {tools && (

@@ -35,10 +35,17 @@ $rowHeightMin: 2.5rem;
             margin-right: 1.25rem;
 
             &-content {
-                background-color: rgba(0,0,0,.3);
                 padding: 0 2.5rem;
                 overflow: hidden;
                 transition: all 0.35s ease;
+                position: absolute;
+                top: 64px;
+                left: 0px;
+                right: 0px;
+                bottom: 0px;
+                z-index: 11;
+                box-shadow: 0 1rem 1rem 0 rgba(0,0,0,0.2);
+            
 
                 > div {
                     transition: all 0.55s ease;

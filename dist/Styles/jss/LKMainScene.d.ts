@@ -3,9 +3,7 @@ declare const _default: (theme: ThemeInterface) => {
     root: {
         overflow: string;
     };
-    main: {
-        overflow: string;
-    };
+    main: {};
     sideBackground: {
         background: string;
         borderColor: string;

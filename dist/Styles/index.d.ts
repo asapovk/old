@@ -354,9 +354,7 @@ export declare const createStyles: (themeName?: "blackCurrant" | "whiteCurrant" 
             root: {
                 overflow: string;
             };
-            main: {
-                overflow: string;
-            };
+            main: {};
             sideBackground: {
                 background: string;
                 borderColor: string;
@@ -690,9 +688,7 @@ export declare const StylesContext: React.Context<{
             root: {
                 overflow: string;
             };
-            main: {
-                overflow: string;
-            };
+            main: {};
             sideBackground: {
                 background: string;
                 borderColor: string;
@@ -1026,9 +1022,7 @@ declare const _default: React.ExoticComponent<React.ConsumerProps<{
             root: {
                 overflow: string;
             };
-            main: {
-                overflow: string;
-            };
+            main: {};
             sideBackground: {
                 background: string;
                 borderColor: string;
