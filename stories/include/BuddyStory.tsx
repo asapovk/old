@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import { Buddy, Flexbox, Button } from '../../src';
 
 export default class Story extends React.Component {
-    buddy: Buddy
+    buddy: any
     render() {
         return (
             <Flexbox p={40} mt={-40} flex={1}>
@@ -14,7 +14,7 @@ export default class Story extends React.Component {
                         <Button style={{ margin: 5 }} decoration="orange" onClick={() => this.buddy.makeJumpy()} label="ref.makeJumpy()" />
                     </Flexbox>
                     <Flexbox flex={1} justifyContent="center" alignItems="center">
-                        <Buddy size={4} defaultFace="happy" ref={ref => this.buddy = ref as Buddy} />
+                        <Buddy size={4} defaultFace="happy" ref={ref => this.buddy = ref as any} />
                     </Flexbox>
                 </Flexbox>
             </Flexbox>
