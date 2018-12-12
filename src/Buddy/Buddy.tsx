@@ -10,14 +10,13 @@ require('./lib/MorphSVGPlugin.min');
 declare const TweenMax: any
 declare const Power0: any
 
-export interface Props {
+export interface BuddyProps {
     style?: CSSProperties
     size?: number
-    face?: "happy" | "sad" | "normal"
-    jumpy?: () => void
+    defaultFace?: "happy" | "sad" | "normal"
 }
 
-export default forwardRef((props: Props, ref) => {
+export default forwardRef((props: BuddyProps, ref) => {
 
     let timeline: any
     const ease = Power0.easeNone;
@@ -36,6 +35,24 @@ export default forwardRef((props: Props, ref) => {
     let cursorPos = { x: 0, y: 0 };
 
     let BUDDY_ID: string = "_" + (Math.random() * 10000000).toFixed(0);
+
+    useImperativeMethods(ref, () => ({
+        makeJumpy() {
+            makeJumpy();
+        },
+        makeHappy() {
+            makeHappy();
+        },
+        makeSad() {
+            makeSad();
+        },
+        makeNormal() {
+            makeNormal();
+        },
+        stopAnimation() {
+            stopAnimation();
+        }
+    }));
 
     /**
      * ComponentDidMount
@@ -69,19 +86,17 @@ export default forwardRef((props: Props, ref) => {
      * ComponentWillRecieveProps and DidUnmount (return)
      */
     useEffect(() => {
-        switch (props.face) {
+        switch (props.defaultFace) {
             case 'happy': makeHappy(true); break;
             case 'sad': makeSad(true); break;
             case 'normal': makeNormal(true); break;
             default: makeHappy(true);
         }
-        props.jumpy && makeJumpy();
         return () => {
             window.removeEventListener("mousemove", moveEyes as any);
             window.removeEventListener("touchmove", moveEyes as any);
         };
-    }, [props.face, props.jumpy]);
-
+    }, [props.defaultFace]);
 
     function makeHappy(instant = false) {
         const speed = instant ? 0 : 0.2;
@@ -104,12 +119,6 @@ export default forwardRef((props: Props, ref) => {
         TweenMax.to(buddyBrouwLeft, speed, { morphSVG: PATH_STATES.brouwLeftSad, ease });
         TweenMax.to(buddyBrouwRight, speed, { morphSVG: PATH_STATES.brouwRightSad, ease });
     }
-
-    useImperativeMethods(ref, () => ({
-        jumpy() {
-            makeJumpy();
-        }
-    }));
 
     function makeJumpy(repeat = 0) {
         var speed = 0.15;

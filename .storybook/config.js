@@ -7,7 +7,7 @@ setOptions({
   name: 'ABRR-UI',
   showAddonPanel: true,
   showSearchBox: false,
-  sortStoriesByKind: true,
+  sortStoriesByKind: false,
   sidebarAnimations: false,
   selectedAddonPanel: undefined,
   enableShortcuts: false,

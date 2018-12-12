@@ -13,7 +13,6 @@
   ],
   "devDependencies": {
     "@babel/core": "^7.2.0",
-    "@emotion/core": "^10.0.4",
     "@storybook/addon-options": "^4.0.12",
     "@storybook/addons": "^4.0.12",
     "@storybook/react": "^4.0.12",
@@ -25,13 +24,11 @@
     "@types/react-router-dom": "^4.3.1",
     "awesome-typescript-loader": "^5.2.1",
     "babel-loader": "^8.0.4",
-    "chart.js": "^2.7.3",
     "css-loader": "^1.0.1",
     "fakerator": "^0.3.0",
     "mini-css-extract-plugin": "^0.4.5",
     "node-sass": "^4.11.0",
     "react": "^16.7.0-alpha.2",
-    "react-chartjs-2": "^2.7.4",
     "react-dom": "^16.7.0-alpha.2",
     "sass": "^1.15.1",
     "sass-loader": "^7.1.0",
@@ -50,6 +47,9 @@
     "build-sass": "npx sass src/Styles/scss/main.scss dist/styles.css"
   },
   "dependencies": {
-    "react-portal": "^4.2.0"
+    "react-portal": "^4.2.0",
+    "@emotion/core": "^10.0.4",
+    "chart.js": "^2.7.3",
+    "react-chartjs-2": "^2.7.4"
   }
 }
