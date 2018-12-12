@@ -102,7 +102,6 @@ function getDecoration(decoration, inversion) {
     if (inversion) {
         color = background;
         background = theme.interface.rgb;
-        border = theme.borders.button.width + ' ' + theme.borders.button.style + ' ' + theme.borders.button.color;
     }
 
     return {
