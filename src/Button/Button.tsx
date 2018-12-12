@@ -1,60 +1,41 @@
-import React, { Component, CSSProperties } from 'react';
-import { Spin, Icon, Styles } from '../index';
+/** @jsx jsx */
+import { jsx } from '@emotion/core'
+import useStyles from './useStyles';
+import React from 'react';
+import { Spin, Icon } from '../index';
 
 export interface ButtonProps {
     label?: string
     outline?: true | undefined
     decoration?: 'none' | 'highlight' | 'red' | 'green' | 'orange' | 'blue' | 'grayscale'
     loading?: boolean
-    icon?: Component
+    icon?: React.Component
     labelCase?: 'upper' | 'lower' | 'capitalize' | 'sentence'
     onClick?: (MouseEvent?) => void
     className?: string
-    style?: CSSProperties
+    style?: React.CSSProperties
     disabled?: boolean
     size?: 'small' | 'large'
-    inversion?: boolean
+    inversion?: boolean,
+    children?: React.ReactNode
 }
 
-class Button extends Component<ButtonProps> {
-    onClick(event) {
-        if (!this.props.disabled && !this.props.loading) {
+export default (props: ButtonProps) => {
+
+    const { labelCase, label, children, style, loading, decoration, disabled, size, inversion } = props;
+    const styles = useStyles(size, loading, disabled, labelCase, decoration, inversion);
+
+    const onClick = (event) => {
+        if (!props.disabled && !props.loading) {
             event.stopPropagation();
-            this.props.onClick && this.props.onClick();
+            props.onClick && props.onClick();
         }
     }
 
-    render() {
-        const { labelCase, label, children, style, loading, decoration, disabled, size, inversion } = this.props;
-
-        let classes = 'ui-button';
-
-        if (labelCase == 'upper') classes += ' uppercase';
-        if (loading) classes += ' loading';
-        if (disabled) classes += ' disabled';
-        if (size) classes += ` ${size}`;
-
-        return (
-            <Styles>
-                {styles => (
-                    <button
-                        className={classes}
-                        onClick={(event) => this.onClick(event)}
-                        style={{ ...styles.button.main(decoration, inversion), ...style }}
-                    >
-                        <span className='ui-button-label'>{label || children}</span>
-
-                        {loading && (
-                            <Spin>
-                                <Icon type="sync" />
-                            </Spin>
-                        )}
-
-                    </button>
-                )}
-            </Styles>
-        );
-    }
+    return (
+        <button css={{ ...styles, ...style }} onClick={(event) => onClick(event)}>
+            <span>{label || children}</span>
+            {loading && (<Spin><Icon type="sync" /></Spin>)}
+        </button>
+    );
 }
-
-export default Button;
