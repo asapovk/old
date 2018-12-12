@@ -19,7 +19,6 @@ exports.default = react_1.forwardRef(function (props, ref) {
     var PATH_STATES = {};
     var cursorPos = { x: 0, y: 0 };
     var BUDDY_ID = "_" + (Math.random() * 10000000).toFixed(0);
-<<<<<<< HEAD
     react_1.useImperativeMethods(ref, function () { return ({
         makeJumpy: function () {
             makeJumpy();
@@ -37,8 +36,6 @@ exports.default = react_1.forwardRef(function (props, ref) {
             stopAnimation();
         }
     }); });
-=======
->>>>>>> 87d9ac400b9139bcf9b00296d6e159294d9d4fc1
     /**
      * ComponentDidMount
      */
@@ -64,11 +61,7 @@ exports.default = react_1.forwardRef(function (props, ref) {
      * ComponentWillRecieveProps and DidUnmount (return)
      */
     react_1.useEffect(function () {
-<<<<<<< HEAD
         switch (props.defaultFace) {
-=======
-        switch (props.face) {
->>>>>>> 87d9ac400b9139bcf9b00296d6e159294d9d4fc1
             case 'happy':
                 makeHappy(true);
                 break;
@@ -80,19 +73,11 @@ exports.default = react_1.forwardRef(function (props, ref) {
                 break;
             default: makeHappy(true);
         }
-<<<<<<< HEAD
-=======
-        props.jumpy && makeJumpy();
->>>>>>> 87d9ac400b9139bcf9b00296d6e159294d9d4fc1
         return function () {
             window.removeEventListener("mousemove", moveEyes);
             window.removeEventListener("touchmove", moveEyes);
         };
-<<<<<<< HEAD
     }, [props.defaultFace]);
-=======
-    }, [props.face, props.jumpy]);
->>>>>>> 87d9ac400b9139bcf9b00296d6e159294d9d4fc1
     function makeHappy(instant) {
         if (instant === void 0) { instant = false; }
         var speed = instant ? 0 : 0.2;
@@ -114,14 +99,6 @@ exports.default = react_1.forwardRef(function (props, ref) {
         TweenMax.to(buddyBrouwLeft, speed, { morphSVG: PATH_STATES.brouwLeftSad, ease: ease });
         TweenMax.to(buddyBrouwRight, speed, { morphSVG: PATH_STATES.brouwRightSad, ease: ease });
     }
-<<<<<<< HEAD
-=======
-    react_1.useImperativeMethods(ref, function () { return ({
-        jumpy: function () {
-            makeJumpy();
-        }
-    }); });
->>>>>>> 87d9ac400b9139bcf9b00296d6e159294d9d4fc1
     function makeJumpy(repeat) {
         if (repeat === void 0) { repeat = 0; }
         var speed = 0.15;
