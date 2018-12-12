@@ -36,10 +36,13 @@ class Icon extends React.Component<Props> {
             <svg
                 className={`ui-icon${className ? " " + className : ""}`}
                 fill="currentColor"
-                height={(size || 1) + "rem"}
-                width={(size || 1) + "rem"}
+                height={'1em'}
+                width={'1em'}
                 viewBox="0 0 128 128"
-                style={style}
+                style={{
+                    ...style,
+                    fontSize: (size || 1) + "rem"
+                }}
                 children={<g><path d={svgIconPath[type]}></path></g>}
             />
         )
