@@ -4,11 +4,12 @@ import useTypography from '../hooks/useTypography';
 
 export default (size, loading, disabled, labelCase, decoration, inversion) => {
 
+    const theme = useTheme().theme;
     const typography = useTypography();
 
     return css(
         {
-            ...getDecoration(decoration, inversion),
+            ...getDecoration(decoration, inversion, theme),
             ...typography.caption[2],
             height: '2rem',
             fontWeight: 'bold',
@@ -58,9 +59,7 @@ export default (size, loading, disabled, labelCase, decoration, inversion) => {
     )
 }
 
-function getDecoration(decoration, inversion) {
-
-    const theme = useTheme().theme;
+function getDecoration(decoration, inversion, theme) {
 
     let padding = '0 1rem';
     let background = theme.interface.rgb;

@@ -19,11 +19,11 @@ export interface BadgeProps {
 export default (props: BadgeProps) => {
 
     const { onClick, value, children, style, loading, color, top, right, left } = props;
-    const styles = useStyles();
+    const styles = useStyles(color, top, right, left);
 
     return (
         <div css={{ ...styles.container, ...style }} onClick={onClick}>
-            <div css={styles.main(color, top, right, left)}>{value}</div>
+            <div css={styles.main}>{value}</div>
             {children}
         </div>
     );
