@@ -1,9 +1,7 @@
 import { configure } from '@storybook/react';
-import { setOptions, withOptions } from '@storybook/addon-options';
-import { themes } from '@storybook/components';
+import { withOptions } from '@storybook/addon-options';
 
 withOptions({
-  // theme: themes.dark,
   name: 'ABRR-UI',
   showAddonPanel: true,
   showSearchBox: false,

@@ -37,13 +37,12 @@
     "sass-loader": "^7.1.0",
     "source-map-loader": "^0.2.4",
     "style-loader": "^0.23.1",
-    "ts-loader": "^5.3.1",
     "typescript": "^3.2.2",
     "webpack": "^4.27.1",
     "webpack-cli": "^3.1.2"
   },
   "scripts": {
-    "start": "start-storybook -p 9001",
+    "start": "start-storybook -p 9001 --ci",
     "build": "yarn build-sass && yarn build-ts && yarn build-copylib",
     "build-ts": "npx tsc",
     "build-copylib": "cp -R src/Buddy/lib dist/Buddy/lib",
