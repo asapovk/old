@@ -3,11 +3,11 @@ import { storiesOf } from '@storybook/react';
 
 require('../src/Styles/scss/main.scss');
 
-storiesOf('Base')
+storiesOf('Base', module)
     .add('Цвета', $('ColorStory'))
     .add('Типографика', $('TypographyStory'))
 
-storiesOf('General')
+storiesOf('General', module)
     .add('Button', $('ButtonStory'))
     .add('Badge', $('BadgeStory'))
     .add('Chart', $('ChartStory'))
@@ -32,18 +32,18 @@ storiesOf('General')
     .add('Stories', $('StoriesStory'))
     .add('Timeline', $('TimelineStory'))
 
-storiesOf('Advanced')
+storiesOf('Advanced', module)
     .add('Constructor', $('ConstructorStory'))
     .add('Login', $('LoginStory'))
     .add('Spinner', $('SpinnerStory'))
     .add('WidgetStat', $('WidgetStatStory'))
     .add('Buddy', $('BuddyStory'));
 
-storiesOf('Scenes')
+storiesOf('Scenes', module)
     .add('LKGuestScene', $('LKGuestSceneStory'))
     .add('LKMainScene', $('LKMainSceneStory'))
 
-storiesOf("Utils")
+storiesOf("Utils", module)
     .add('alert', $('UtilsAlertStory'))
     .add('notification', $('UtilsNotificationStory'))
     .add('getTheme', $('UtilsGetThemeStory'))
