@@ -26,12 +26,15 @@ export default (props: IProps) => {
 
     let timer;
 
-    function onScroll(view, initScrollBar = false) {
-        if (view.target) {
-            view = view.target;
+    function onScroll(e?) {
+
+        const scrollView = getScrollView();
+
+        if (!scrollView) {
+            return;
         }
 
-        const { scrollTop, scrollLeft, scrollHeight, scrollWidth, offsetHeight, offsetWidth, } = view;
+        const { scrollTop, scrollLeft, scrollHeight, scrollWidth, offsetHeight, offsetWidth, } = scrollView;
 
         let size, offset = 0;
 
@@ -45,7 +48,12 @@ export default (props: IProps) => {
 
         setThumb({ offset, size });
 
-        if (!initScrollBar) {
+        /**
+         * Если null
+         * значит первый вызов функции 
+         * из useEffect, не выставляем setHidden
+         */
+        if (e !== null) {
             setHidden(false);
 
             if (timer) {
@@ -67,7 +75,9 @@ export default (props: IProps) => {
     }
 
     function onMouseMove(e) {
-        if (!manualScrollControl) {
+        const scrollView = getScrollView();
+
+        if (!manualScrollControl || !scrollView) {
             return;
         }
 
@@ -77,7 +87,7 @@ export default (props: IProps) => {
             scrollView.scrollTop += e.movementY * (scrollView.scrollHeight / scrollView.offsetHeight);
         }
 
-        onScroll(scrollView);
+        onScroll();
     }
 
     function getScrollView() {
@@ -91,7 +101,7 @@ export default (props: IProps) => {
         window.addEventListener("mousemove", onMouseMove);
         window.addEventListener("mouseup", disableManualScroll);
 
-        onScroll(scrollView, true);
+        onScroll(null);
 
         return () => {
             scrollView = getScrollView();
