@@ -11,21 +11,21 @@ const View = (props) => {
     //     }
     //     return lines;
     // }
-    const [theme, setTheme] = useState(localStorage.getItem('THEME') || 'blackCurrant');
-    useEffect(() => {
-        if (interval) {
-            clearInterval(interval);
-        }
-        interval = setInterval(() => {
-            const currentTheme = localStorage.getItem('THEME');
-            if (theme !== currentTheme) {
-                setTheme(currentTheme);
-            }
-        }, 100);
-    }, [theme]);
+    // const [theme, setTheme] = useState(localStorage.getItem('THEME') || 'blackCurrant');
+    // useEffect(() => {
+    //     if (interval) {
+    //         clearInterval(interval);
+    //     }
+    //     interval = setInterval(() => {
+    //         const currentTheme = localStorage.getItem('THEME');
+    //         if (theme !== currentTheme) {
+    //             setTheme(currentTheme);
+    //         }
+    //     }, 100);
+    // }, [theme]);
 
     return (
-        <Viewport theme={theme}>
+        <Viewport>
             {props.children}
         </Viewport>
     )
