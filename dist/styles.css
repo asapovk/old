@@ -61,18 +61,18 @@
   font-family: Georgia, Times, Times New Roman, serif;
   font-style: italic;
 }
-.ui-viewport .ui-button.large, .ui-viewport .ui-textfield > div > div > input,
-.ui-viewport .ui-textfield > div > textarea, .ui-viewport .c1, .ui-modal .ui-button.large, .ui-modal .ui-textfield > div > div > input,
-.ui-modal .ui-textfield > div > textarea, .ui-modal .c1, .ui-notifications .ui-button.large, .ui-notifications .ui-textfield > div > div > input,
+.ui-viewport .ui-textfield > div > div > input,
+.ui-viewport .ui-textfield > div > textarea, .ui-viewport .c1, .ui-modal .ui-textfield > div > div > input,
+.ui-modal .ui-textfield > div > textarea, .ui-modal .c1, .ui-notifications .ui-textfield > div > div > input,
 .ui-notifications .ui-textfield > div > textarea, .ui-notifications .c1 {
   font-size: 1rem;
   line-height: 1.25rem;
 }
-.ui-viewport .ui-button, .ui-viewport .c2, .ui-modal .ui-button, .ui-modal .c2, .ui-notifications .ui-button, .ui-notifications .c2 {
+.ui-viewport .c2, .ui-modal .c2, .ui-notifications .c2 {
   font-size: 0.875rem;
   line-height: 0.875rem;
 }
-.ui-viewport .ui-select-label, .ui-viewport .ui-button.small, .ui-viewport .ui-textfield-hint, .ui-viewport .ui-textfield-label, .ui-viewport .c3, .ui-modal .ui-select-label, .ui-modal .ui-button.small, .ui-modal .ui-textfield-hint, .ui-modal .ui-textfield-label, .ui-modal .c3, .ui-notifications .ui-select-label, .ui-notifications .ui-button.small, .ui-notifications .ui-textfield-hint, .ui-notifications .ui-textfield-label, .ui-notifications .c3 {
+.ui-viewport .ui-select-label, .ui-viewport .ui-textfield-hint, .ui-viewport .ui-textfield-label, .ui-viewport .c3, .ui-modal .ui-select-label, .ui-modal .ui-textfield-hint, .ui-modal .ui-textfield-label, .ui-modal .c3, .ui-notifications .ui-select-label, .ui-notifications .ui-textfield-hint, .ui-notifications .ui-textfield-label, .ui-notifications .c3 {
   font-size: 0.75rem;
   line-height: 0.75rem;
 }
@@ -627,47 +627,6 @@
 }
 .ui-title-action-active {
   opacity: 1;
-}
-
-.ui-button {
-  font-weight: bold;
-  position: relative;
-  outline: none;
-  cursor: pointer;
-  padding: 0 calc(1rem - 1px);
-  height: 2.25rem;
-  line-height: 1rem;
-  user-select: none;
-}
-.ui-button.small {
-  line-height: 1.75rem;
-  height: 1.75rem;
-  padding: 0 calc(1rem - 1px);
-  letter-spacing: -0.29px;
-}
-.ui-button.large {
-  line-height: 2.75rem;
-  height: 2.75rem;
-  padding: 0 calc(1.5rem - 1px);
-}
-.ui-button:active {
-  box-shadow: none !important;
-}
-.ui-button.loading > span:first-child {
-  filter: blur(1px);
-  opacity: 0.4;
-}
-.ui-button.loading > span:last-child {
-  position: absolute;
-  left: 50%;
-  margin-left: -0.5rem;
-}
-.ui-button.loading > span:last-child > svg {
-  font-size: 1rem;
-}
-.ui-button.disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
 }
 
 .ui-menu {

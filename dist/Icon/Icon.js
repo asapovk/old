@@ -12,6 +12,17 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
@@ -44,7 +55,7 @@ var Icon = /** @class */ (function (_super) {
     }
     Icon.prototype.render = function () {
         var _a = this.props, className = _a.className, style = _a.style, type = _a.type, size = _a.size;
-        return (react_1.default.createElement("svg", { className: "ui-icon" + (className ? " " + className : ""), fill: "currentColor", height: (size || 1) + "rem", width: (size || 1) + "rem", viewBox: "0 0 128 128", style: style, children: react_1.default.createElement("g", null,
+        return (react_1.default.createElement("svg", { className: "ui-icon" + (className ? " " + className : ""), fill: "currentColor", height: '1em', width: '1em', viewBox: "0 0 128 128", style: __assign({}, style, { fontSize: (size || 1) + "rem" }), children: react_1.default.createElement("g", null,
                 react_1.default.createElement("path", { d: exports.svgIconPath[type] })) }));
     };
     return Icon;

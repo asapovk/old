@@ -61,4 +61,18 @@ exports.default = {
             utilities_1.getColors(243, 103, 103).hex,
         ],
     },
+    scrollbar: {
+        thumb: {
+            size: 4,
+            color: utilities_1.getColors(250, 250, 250).hex,
+            borderWidth: 0,
+            borderRadius: 4,
+            borderColor: utilities_1.getColors(196, 13, 60).hex,
+        },
+        backgroundColor: utilities_1.getColors(196, 13, 60).rgba(0.2),
+        borderWidth: 2,
+        borderRadius: 6,
+        borderColor: utilities_1.getColors(196, 13, 60).rgba(0),
+        offsetPosition: 4,
+    }
 };

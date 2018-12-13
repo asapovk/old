@@ -1,17 +1,4 @@
 "use strict";
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
 var __assign = (this && this.__assign) || function () {
     __assign = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
@@ -23,44 +10,25 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
-var __importStar = (this && this.__importStar) || function (mod) {
-    if (mod && mod.__esModule) return mod;
-    var result = {};
-    if (mod != null) for (var k in mod) if (Object.hasOwnProperty.call(mod, k)) result[k] = mod[k];
-    result["default"] = mod;
-    return result;
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var react_1 = __importStar(require("react"));
+/** @jsx jsx */
+var core_1 = require("@emotion/core");
+var useStyles_1 = __importDefault(require("./useStyles"));
 var index_1 = require("../index");
-var Button = /** @class */ (function (_super) {
-    __extends(Button, _super);
-    function Button() {
-        return _super !== null && _super.apply(this, arguments) || this;
-    }
-    Button.prototype.onClick = function (event) {
-        if (!this.props.disabled && !this.props.loading) {
+exports.default = (function (props) {
+    var labelCase = props.labelCase, label = props.label, children = props.children, style = props.style, loading = props.loading, decoration = props.decoration, disabled = props.disabled, size = props.size, inversion = props.inversion;
+    var styles = useStyles_1.default(size, loading, disabled, labelCase, decoration, inversion);
+    var onClick = function (event) {
+        if (!props.disabled && !props.loading) {
             event.stopPropagation();
-            this.props.onClick && this.props.onClick();
+            props.onClick && props.onClick();
         }
     };
-    Button.prototype.render = function () {
-        var _this = this;
-        var _a = this.props, labelCase = _a.labelCase, label = _a.label, children = _a.children, style = _a.style, loading = _a.loading, decoration = _a.decoration, disabled = _a.disabled, size = _a.size, inversion = _a.inversion;
-        var classes = 'ui-button';
-        if (labelCase == 'upper')
-            classes += ' uppercase';
-        if (loading)
-            classes += ' loading';
-        if (disabled)
-            classes += ' disabled';
-        if (size)
-            classes += " " + size;
-        return (react_1.default.createElement(index_1.Styles, null, function (styles) { return (react_1.default.createElement("button", { className: classes, onClick: function (event) { return _this.onClick(event); }, style: __assign({}, styles.button.main(decoration, inversion), style) },
-            react_1.default.createElement("span", { className: 'ui-button-label' }, label || children),
-            loading && (react_1.default.createElement(index_1.Spin, null,
-                react_1.default.createElement(index_1.Icon, { type: "sync" }))))); }));
-    };
-    return Button;
-}(react_1.Component));
-exports.default = Button;
+    return (core_1.jsx("button", { css: __assign({}, styles, style), onClick: function (event) { return onClick(event); } },
+        core_1.jsx("span", null, label || children),
+        loading && (core_1.jsx(index_1.Spin, null,
+            core_1.jsx(index_1.Icon, { type: "sync" })))));
+});

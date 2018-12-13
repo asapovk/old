@@ -19,8 +19,8 @@ var core_1 = require("@emotion/core");
 var useStyles_1 = __importDefault(require("./useStyles"));
 exports.default = (function (props) {
     var onClick = props.onClick, value = props.value, children = props.children, style = props.style, loading = props.loading, color = props.color, top = props.top, right = props.right, left = props.left;
-    var styles = useStyles_1.default();
+    var styles = useStyles_1.default(color, top, right, left);
     return (core_1.jsx("div", { css: __assign({}, styles.container, style), onClick: onClick },
-        core_1.jsx("div", { css: styles.main(color, top, right, left) }, value),
+        core_1.jsx("div", { css: styles.main }, value),
         children));
 });

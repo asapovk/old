@@ -60,12 +60,23 @@ export interface ThemeInterface {
         buddy: string[];
         card: string[];
     };
+    scrollbar: {
+        thumb: {
+            size: number;
+            color: string;
+            borderWidth: number;
+            borderColor: string;
+            borderRadius: number;
+        };
+        backgroundColor: string;
+        borderWidth: number;
+        borderColor: string;
+        borderRadius: number;
+        offsetPosition: number;
+    };
 }
 export declare const createStyles: (themeName?: "blackCurrant" | "whiteCurrant" | "abrTheme" | "gazpromTheme" | undefined) => {
     theme: ThemeInterface;
-    button: {
-        main: (decoration?: string | undefined, inversion?: boolean | undefined) => React.CSSProperties;
-    };
     card: {
         main: (active?: boolean | undefined) => React.CSSProperties;
     };
@@ -393,9 +404,6 @@ export declare const createStyles: (themeName?: "blackCurrant" | "whiteCurrant" 
 };
 export declare const StylesContext: React.Context<{
     theme: ThemeInterface;
-    button: {
-        main: (decoration?: string | undefined, inversion?: boolean | undefined) => React.CSSProperties;
-    };
     card: {
         main: (active?: boolean | undefined) => React.CSSProperties;
     };
@@ -723,9 +731,6 @@ export declare const StylesContext: React.Context<{
 }>;
 declare const _default: React.ExoticComponent<React.ConsumerProps<{
     theme: ThemeInterface;
-    button: {
-        main: (decoration?: string | undefined, inversion?: boolean | undefined) => React.CSSProperties;
-    };
     card: {
         main: (active?: boolean | undefined) => React.CSSProperties;
     };
