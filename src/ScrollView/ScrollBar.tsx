@@ -80,25 +80,26 @@ export default (props: IProps) => {
         onScroll(scrollView);
     }
 
+    function getScrollView() {
+        return document.getElementById(scrollViewId) as HTMLDivElement || null;
+    }
     useEffect(() => {
-        scrollView = document.getElementById(scrollViewId) as HTMLDivElement;
+        let scrollView = getScrollView();
 
-        if (scrollView) {
-            scrollView.addEventListener("scroll", onScroll);
-            thumb.current!.addEventListener("mousedown", enableManualScroll);
-            window.addEventListener("mousemove", onMouseMove);
-            window.addEventListener("mouseup", disableManualScroll);
+        scrollView && scrollView.addEventListener("scroll", onScroll);
+        thumb.current && thumb.current.addEventListener("mousedown", enableManualScroll);
+        window.addEventListener("mousemove", onMouseMove);
+        window.addEventListener("mouseup", disableManualScroll);
 
-            onScroll(scrollView, true);
+        onScroll(scrollView, true);
 
-            return () => {
-                scrollView.removeEventListener("scroll", onScroll);
-                thumb.current!.removeEventListener("mousedown", enableManualScroll);
-                window.addEventListener("mousemove", onMouseMove);
-                window.addEventListener("mouseup", disableManualScroll);
-            }
+        return () => {
+            scrollView = getScrollView();
+            scrollView && scrollView.removeEventListener("scroll", onScroll);
+            thumb.current && thumb.current.removeEventListener("mousedown", enableManualScroll);
+            window.removeEventListener("mousemove", onMouseMove);
+            window.removeEventListener("mouseup", disableManualScroll);
         }
-        return;
     }, []);
 
     return (
