@@ -11,11 +11,12 @@ export interface IProps {
 export default (props: IProps) => {
     const { horizontal, scrollViewId } = props;
     let manualScrollControl = false;
-    let scrollView: HTMLDivElement;
+    let mouseOverScroll = false;
 
-    const thumb = createRef<HTMLDivElement>();
+    const scrollThumb = createRef<HTMLDivElement>();
+    const scrollBar = createRef<HTMLDivElement>();
 
-    const [thumbState, setThumb] = useState({
+    const [scrollThumbState, setScrollThumbState] = useState({
         offset: 0,
         size: 0,
     });
@@ -46,7 +47,7 @@ export default (props: IProps) => {
             offset = (scrollTop * size / scrollHeight) * (scrollHeight / offsetHeight);
         }
 
-        setThumb({ offset, size });
+        setScrollThumbState({ offset, size });
 
         /**
          * Если null
@@ -61,7 +62,9 @@ export default (props: IProps) => {
             }
 
             timer = setTimeout(() => {
-                setHidden(true);
+                if (!mouseOverScroll) {
+                    setHidden(true);
+                }
             }, 2000);
         }
     }
@@ -72,6 +75,14 @@ export default (props: IProps) => {
 
     function disableManualScroll() {
         manualScrollControl = false;
+    }
+
+    function mouseEnterScrollBar() {
+        mouseOverScroll = true;
+    }
+    function mouseLeaveScrollBar() {
+        mouseOverScroll = false;
+        onScroll();
     }
 
     function onMouseMove(e) {
@@ -93,11 +104,15 @@ export default (props: IProps) => {
     function getScrollView() {
         return document.getElementById(scrollViewId) as HTMLDivElement || null;
     }
+
     useEffect(() => {
         let scrollView = getScrollView();
 
         scrollView && scrollView.addEventListener("scroll", onScroll);
-        thumb.current && thumb.current.addEventListener("mousedown", enableManualScroll);
+        scrollThumb.current && scrollThumb.current.addEventListener("mousedown", enableManualScroll);
+        scrollBar.current && scrollBar.current.addEventListener("mouseenter", mouseEnterScrollBar);
+        scrollBar.current && scrollBar.current.addEventListener("mouseleave", mouseLeaveScrollBar);
+
         window.addEventListener("mousemove", onMouseMove);
         window.addEventListener("mouseup", disableManualScroll);
 
@@ -106,23 +121,25 @@ export default (props: IProps) => {
         return () => {
             scrollView = getScrollView();
             scrollView && scrollView.removeEventListener("scroll", onScroll);
-            thumb.current && thumb.current.removeEventListener("mousedown", enableManualScroll);
+            scrollThumb.current && scrollThumb.current.removeEventListener("mousedown", enableManualScroll);
+            scrollBar.current && scrollBar.current.addEventListener("mouseenter", mouseEnterScrollBar);
+            scrollBar.current && scrollBar.current.addEventListener("mouseleave", mouseLeaveScrollBar);
             window.removeEventListener("mousemove", onMouseMove);
             window.removeEventListener("mouseup", disableManualScroll);
         }
     }, []);
 
     return (
-        <div css={styles.scrollbar}>
+        <div css={styles.scrollbar} ref={scrollBar}>
             <div
                 css={styles.thumb}
                 style={{
-                    height: props.horizontal ? undefined : thumbState.size,
-                    width: !props.horizontal ? undefined : thumbState.size,
-                    top: props.horizontal ? undefined : thumbState.offset,
-                    left: !props.horizontal ? undefined : thumbState.offset,
+                    height: props.horizontal ? undefined : scrollThumbState.size,
+                    width: !props.horizontal ? undefined : scrollThumbState.size,
+                    top: props.horizontal ? undefined : scrollThumbState.offset,
+                    left: !props.horizontal ? undefined : scrollThumbState.offset,
                 }}
-                ref={thumb}
+                ref={scrollThumb}
             />
         </div>
     );
