@@ -89,6 +89,20 @@ export interface ThemeInterface {
         buddy: string[]
         card: string[]
     }
+    scrollbar: {
+        thumb: {
+            size: number
+            color: string
+            borderWidth: number
+            borderColor: string
+            borderRadius: number
+        }
+        backgroundColor: string
+        borderWidth: number
+        borderColor: string
+        borderRadius: number
+        offsetPosition: number
+    }
 }
 
 export const createStyles = (themeName?: themeName) => {

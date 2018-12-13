@@ -63,4 +63,18 @@ export default {
             getColors(120, 44, 167).hex,
         ],
     },
+    scrollbar: {
+        thumb: {
+            size: 8,
+            color: getColors(216, 15, 105).hex,
+            borderWidth: 0,
+            borderRadius: 8,
+            borderColor: getColors(0, 0, 0).rgba(0),
+        },
+        backgroundColor: getColors(51, 47, 54).rgba(0.1),
+        borderWidth: 1,
+        borderRadius: 8,
+        borderColor: getColors(51, 47, 54).rgba(0.1),
+        offsetPosition: 2,
+    }
 } as ThemeInterface
