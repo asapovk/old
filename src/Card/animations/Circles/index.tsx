@@ -1,3 +1,6 @@
+/** @jsx jsx */
+import { jsx } from '@emotion/core';
+import useStyles from '../../useStyles';
 import React, { CSSProperties, Fragment, useEffect, useLayoutEffect } from "react";
 import Circle from './Circle';
 import useClass from "../../../hooks/useClass";
@@ -6,24 +9,14 @@ interface IProps {
     color?: string
 }
 export default (props: IProps) => {
-    const [circleClass1, circle1Modifiers] = useClass('ui-card-animation-circle1');
-    const [circleClass2, circle2Modifiers] = useClass('ui-card-animation-circle2');
 
-    useEffect(() => {
-        if (props.active) {
-            circle1Modifiers.addModifier('init');
-            circle2Modifiers.addModifier('init');
-        } else {
-            circle1Modifiers.removeModifier('init');
-            circle2Modifiers.removeModifier('init');
-        }
-    }, [props.active])
+    const styles = useStyles(props.active);
 
     return (
         <Fragment>
             <Circle
-                className={circleClass1}
-                color={props.color}
+                css={styles.animation.circle[1]}
+                color={styles.color}
                 size={0.4}
                 style={{
                     position: "absolute",
@@ -32,8 +25,8 @@ export default (props: IProps) => {
                 }}
             />
             <Circle
-                className={circleClass2}
-                color={props.color}
+                css={styles.animation.circle[2]}
+                color={styles.color}
                 size={0.8}
                 style={{
                     position: "absolute",

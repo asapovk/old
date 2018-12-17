@@ -1,2 +1,2 @@
 import '@storybook/addon-options/register';
-//import '../stories/addons/themes';
+import '../stories/addons/themes';

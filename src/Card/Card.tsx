@@ -1,6 +1,8 @@
+/** @jsx jsx */
+import { jsx } from '@emotion/core';
+import useStyles from './useStyles';
 import React, { CSSProperties, ReactElement } from 'react';
 import { Flexbox, Button } from '../';
-import useStyles from '../hooks/useTheme';
 import Waves from './animations/Waves';
 import Circles from './animations/Circles';
 
@@ -14,26 +16,22 @@ export interface ICard {
 
 export default (props: ICard) => {
 
-    const styles = useStyles();
-
-    let classes = 'ui-card';
-    if (props.active) classes += ' active';
-
     const { style } = props;
+    const styles = useStyles(props.active);
 
     return (
         <Flexbox
             flexDirection='column'
             onClick={() => props.onClick && props.onClick()}
-            className={classes}
-            style={{ ...styles.card.main(props.active), ...style }}
+
+            css={{ ...styles.main, ...style }}
             flex={1}
         >
             {props.animation === "waves" && (
-                <Waves color={styles.card.main(props.active).color!} active={props.active} />
+                <Waves active={props.active} />
             )}
             {props.animation === "circles" && (
-                <Circles color={styles.card.main(props.active).color!} active={props.active} />
+                <Circles active={props.active} />
             )}
         </Flexbox>
     );
