@@ -13,19 +13,16 @@
   ],
   "devDependencies": {
     "@babel/core": "^7.2.0",
-    "@storybook/addon-options": "^4.1.1",
-    "@storybook/addons": "^4.1.1",
-    "@storybook/react": "^4.1.1",
     "@types/chart.js": "^2.7.40",
     "@types/node": "^10.12.14",
     "@types/react": "^16.7.17",
     "@types/react-dom": "^16.0.11",
     "@types/react-portal": "^4.0.1",
     "@types/react-router-dom": "^4.3.1",
-    "@types/storybook__react": "^4.0.0",
     "@types/webpack-env": "^1.13.6",
     "awesome-typescript-loader": "^5.2.1",
     "babel-loader": "^8.0.4",
+    "compcase": "^0.1.110",
     "css-loader": "^1.0.1",
     "fakerator": "^0.3.0",
     "mini-css-extract-plugin": "^0.4.5",
@@ -42,11 +39,13 @@
     "webpack-cli": "^3.1.2"
   },
   "scripts": {
-    "start": "start-storybook -p 9001 --ci",
+    "start": "./node_modules/compcase/.bin/cli/start.js",
     "build": "yarn build-sass && yarn build-ts && yarn build-copylib",
     "build-ts": "npx tsc",
     "build-copylib": "cp -R src/Buddy/lib dist/Buddy/lib",
-    "build-sass": "npx sass src/Styles/scss/main.scss dist/styles.css"
+    "build-sass": "npx sass src/Styles/scss/main.scss dist/styles.css",
+    "showcase-init": "cd ./showcase_workspace/compcase && yarn install",
+    "showcase": "node ./_node_modules/compcase/.bin/cli/start"
   },
   "dependencies": {
     "@emotion/core": "^10.0.4",
