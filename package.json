@@ -44,8 +44,8 @@
     "build-ts": "npx tsc",
     "build-copylib": "cp -R src/Buddy/lib dist/Buddy/lib",
     "build-sass": "npx sass src/Styles/scss/main.scss dist/styles.css",
-    "showcase-init": "cd ./showcase_workspace/compcase && yarn install",
-    "showcase": "node ./_node_modules/compcase/.bin/cli/start"
+    "showcase-init": "cd ./showcase_workspace/showcase && yarn install",
+    "showcase": "node ./showcase_workspace/showcase/.bin/cli/start"
   },
   "dependencies": {
     "@emotion/core": "^10.0.4",
