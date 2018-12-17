@@ -1,3 +1,6 @@
+/** @jsx jsx */
+import { jsx } from '@emotion/core';
+import useStyles from '../../useStyles';
 import React, { CSSProperties, Fragment, useEffect, useLayoutEffect } from "react";
 import Wave from './Wave';
 import useClass from "../../../hooks/useClass";
@@ -6,24 +9,14 @@ interface IProps {
     color?: string
 }
 export default (props: IProps) => {
-    const [waveClass1, wave1Modifiers] = useClass('ui-card-animation-wave1');
-    const [waveClass2, wave2Modifiers] = useClass('ui-card-animation-wave2');
 
-    useEffect(() => {
-        if (props.active) {
-            wave1Modifiers.addModifier('init');
-            wave2Modifiers.addModifier('init');
-        } else {
-            wave1Modifiers.removeModifier('init');
-            wave2Modifiers.removeModifier('init');
-        }
-    }, [props.active])
+    const styles = useStyles(props.active);
 
     return (
         <Fragment>
             <Wave
-                className={waveClass1}
-                color={props.color}
+                css={styles.animation.wave[1]}
+                color={styles.color}
                 size={1}
                 style={{
                     position: "absolute",
@@ -32,8 +25,8 @@ export default (props: IProps) => {
                 }}
             />
             <Wave
-                className={waveClass2}
-                color={props.color}
+                css={styles.animation.wave[2]}
+                color={styles.color}
                 size={1}
                 style={{
                     position: "absolute",

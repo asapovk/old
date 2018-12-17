@@ -84,6 +84,7 @@ export default (active?: boolean) => {
                     }
                 ),
             }
-        }
+        },
+        color: active ? theme.textOnAccent.rgb : theme.text.rgb,
     }
 }

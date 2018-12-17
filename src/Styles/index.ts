@@ -7,7 +7,6 @@ import whiteCurrant from './themes/white-currant'
 import abrTheme from './themes/abr'
 import gazpromTheme from './themes/gazprom'
 
-import cardStyles from './jss/Card'
 import chartStyles from './jss/Chart'
 import checkboxStyles from './jss/Checkbox'
 import datePickerStyles from './jss/DatePicker'
@@ -109,7 +108,6 @@ export const createStyles = (themeName?: themeName) => {
     const theme = themeName ? themes[themeName] : themes['blackCurrant'];
     return {
         theme: theme,
-        card: cardStyles(theme),
         chart: chartStyles(theme),
         checkbox: checkboxStyles(theme),
         datePicker: datePickerStyles(theme),
