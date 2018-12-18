@@ -31,18 +31,29 @@
     flex-direction: column;
 }
 
+.showcase-menu-content {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
 .showcase-menu-content-group {
-    margin-bottom: 40px;
+    margin: 40px;
+    display: flex;
+    flex-direction: column;
 }
 
 .showcase-menu-content-group-name {
     all: unset;
     font-weight: bold;
-    text-decoration: underline;
     display: block;
+    border-bottom: 1px solid black;
+    margin-bottom: 16px;
 }
 
 .showcase-menu-content-item {
     all: unset;
     cursor: pointer;
+    display: block;
+    margin-bottom: 8px;
 }
