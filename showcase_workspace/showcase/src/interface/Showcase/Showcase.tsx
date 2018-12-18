@@ -30,8 +30,10 @@ class Showcase extends React.Component<ShowcaseProps> {
 	}
 
 	_handleContextMenu = (event) => {
-		event.preventDefault();
-		this.setState({ isMenuOpen: !this.state.isMenuOpen });
+		if (!event.altKey) {
+			event.preventDefault();
+			this.setState({ isMenuOpen: !this.state.isMenuOpen });
+		}
 	};
 
 	changeCase = (currentCase: React.ReactNode) => {
@@ -42,6 +44,8 @@ class Showcase extends React.Component<ShowcaseProps> {
 	}
 
 	render() {
+
+		console.log(core.cases);
 
 		const { isMenuOpen, currentCase } = this.state;
 

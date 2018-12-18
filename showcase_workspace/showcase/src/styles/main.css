@@ -1,4 +1,6 @@
-
+.case {
+    padding: 64px;
+}
 .showcase-welcome {
     all: unset;
     position: absolute;
