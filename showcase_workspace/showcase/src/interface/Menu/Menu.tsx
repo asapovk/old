@@ -14,15 +14,15 @@ export default class Menu extends React.Component<MenuProps> {
           return (
             <div
               key={name}
-              className='showcase-menu-item'
+              className='showcase-menu-content-item'
               onClick={() => this.props.onChange(cases[name]['node'])}
               children={name}
             />
           )
         }
         return (
-          <div key={name} className='showcase-menu-group'>
-            <div className='showcase-menu-group-name'>{name}</div>
+          <div key={name} className='showcase-menu-content-group'>
+            <div className='showcase-menu-content-group-name'>{name}</div>
             {this.casesList(cases[name])}
           </div>
         );

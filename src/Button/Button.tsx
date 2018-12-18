@@ -33,7 +33,7 @@ export default (props: ButtonProps) => {
     }
 
     return (
-        <button css={{ ...styles, ...style }} onClick={(event) => onClick(event)}>
+        <button css={styles} style={style} onClick={(event) => onClick(event)}>
             <span>{label || children}</span>
             {loading && (<Spin><Icon type="sync" /></Spin>)}
         </button>

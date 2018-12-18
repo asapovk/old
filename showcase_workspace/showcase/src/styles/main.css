@@ -29,18 +29,18 @@
     flex-direction: column;
 }
 
-.showcase-menu-group {
+.showcase-menu-content-group {
     margin-bottom: 40px;
 }
 
-.showcase-menu-group-name {
+.showcase-menu-content-group-name {
     all: unset;
     font-weight: bold;
     text-decoration: underline;
     display: block;
 }
 
-.showcase-menu-item {
+.showcase-menu-content-item {
     all: unset;
     cursor: pointer;
 }

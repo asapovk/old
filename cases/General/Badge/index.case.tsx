@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
-import { TextField, Flexbox, Button, Badge } from '../../../src';
+import { TextField, Flexbox, Button, Badge, Viewport } from '../../../src';
+import '../../../src/Styles/scss/main.scss';
 
 export default class Story extends React.Component {
     state = {
@@ -7,41 +8,44 @@ export default class Story extends React.Component {
     }
     render() {
         return (
-            <Flexbox p={40} alignItems="flex-end">
-                <div>
-                    <Badge value={this.state.textFieldBadge} top={0}>
-                        <TextField
-                            label='Введите текст'
-                            value={this.state.textFieldBadge}
-                            onChange={textFieldBadge => this.setState({
-                                textFieldBadge
-                            })}
-                            style={{ flexBasis: '90px' }}
-                        />
-                    </Badge>
-                </div>
-                <div style={{ paddingLeft: 20 }}>
-                    <Badge value={4} color="highlight">
-                        <Button label="Сообщения" />
-                    </Badge>
-                </div>
-                <div style={{ paddingLeft: 20 }}>
-                    <Badge value={4} color="blue">
-                        <Button label="Уведомления" />
-                    </Badge>
-                </div>
-                <div style={{ paddingLeft: 20 }}>
-                    <Badge value={42} color="orange">
-                        <Button label="Апельсины" />
-                    </Badge>
-                </div>
-                <div style={{ paddingLeft: 20 }}>
-                    <Badge value={9} color="green">
-                        <Button label="Яблоки" />
-                    </Badge>
-                </div>
+            <Viewport>
+                <Flexbox p={40} alignItems="flex-end">
+                    <div>
+                        <Badge value={this.state.textFieldBadge} top={0}>
+                            <TextField
+                                label='Введите текст'
+                                value={this.state.textFieldBadge}
+                                onChange={textFieldBadge => this.setState({
+                                    textFieldBadge
+                                })}
+                                style={{ flexBasis: '90px' }}
+                            />
+                        </Badge>
+                    </div>
+                    <div style={{ paddingLeft: 20 }}>
+                        <Badge value={4} color="highlight">
+                            <Button label="Сообщения" />
+                        </Badge>
+                    </div>
+                    <div style={{ paddingLeft: 20 }}>
+                        <Badge value={4} color="blue">
+                            <Button label="Уведомления" />
+                        </Badge>
+                    </div>
+                    <div style={{ paddingLeft: 20 }}>
+                        <Badge value={42} color="orange">
+                            <Button label="Апельсины" />
+                        </Badge>
+                    </div>
+                    <div style={{ paddingLeft: 20 }}>
+                        <Badge value={9} color="green">
+                            <Button label="Яблоки" />
+                        </Badge>
+                    </div>
 
-            </Flexbox>
+                </Flexbox>
+            </Viewport>
+
         )
     }
 }
