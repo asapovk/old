@@ -7,18 +7,13 @@ export interface MenuProps {
 
 export default class Menu extends React.Component<MenuProps> {
 
-  state = {
-    currentCaseID: '' as string,
-    currentCase: undefined as React.ReactNode,
-    casesList: [] as any[]
-  }
-
-  createCasesList(cases) {
+  casesList(cases) {
     return Object.keys(cases).map(name => {
       if (typeof cases[name] === 'object') {
         if (cases[name].node) {
           return (
             <div
+              key={name}
               className='showcase-menu-item'
               onClick={() => this.props.onChange(cases[name]['node'])}
               children={name}
@@ -26,9 +21,9 @@ export default class Menu extends React.Component<MenuProps> {
           )
         }
         return (
-          <div className='showcase-menu-group'>
+          <div key={name} className='showcase-menu-group'>
             <div className='showcase-menu-group-name'>{name}</div>
-            {this.createCasesList(cases[name])}
+            {this.casesList(cases[name])}
           </div>
         );
       }
@@ -40,7 +35,9 @@ export default class Menu extends React.Component<MenuProps> {
     return (
       <div className='showcase-menu'>
         <h1>Menu</h1>
-        {this.createCasesList(this.props.cases)}
+        <div className='showcase-menu-content'>
+          {this.casesList(this.props.cases)}
+        </div>
       </div>
     )
   }

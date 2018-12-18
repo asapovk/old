@@ -8,15 +8,18 @@ interface ShowcaseProps {
 }
 
 interface Showcase {
-	state: any
+	state: {
+		currentCase: React.ReactNode,
+		isMenuOpen: boolean
+	}
 }
 
 class Showcase extends React.Component<ShowcaseProps> {
 
 	state = {
-		currentCase: null,
+		currentCase: null as React.ReactNode,
 		isMenuOpen: false
-	} as any
+	}
 
 	componentDidMount() {
 		document.addEventListener('contextmenu', this._handleContextMenu);
@@ -40,7 +43,7 @@ class Showcase extends React.Component<ShowcaseProps> {
 
 	render() {
 
-		console.log(core.cases);
+		const { isMenuOpen, currentCase } = this.state;
 
 		const WelcomeTSX = (
 			<div className='showcase-welcome'>
@@ -49,12 +52,18 @@ class Showcase extends React.Component<ShowcaseProps> {
 			</div>
 		)
 
-		const CaseTSX = this.state.currentCase;
+		const CaseTSX = (AnyCase) => <AnyCase />;
 
 		return (
 			<>
 				{core.config.plugins}
-				{this.state.isMenuOpen ? <Menu cases={core.cases} onChange={this.changeCase} /> : CaseTSX ? <CaseTSX /> : WelcomeTSX}
+				{
+					isMenuOpen
+						? <Menu cases={core.cases} onChange={this.changeCase} />
+						: currentCase
+							? CaseTSX(currentCase)
+							: WelcomeTSX
+				}
 			</>
 		)
 	}
