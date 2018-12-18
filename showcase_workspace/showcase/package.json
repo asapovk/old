@@ -1,6 +1,6 @@
 {
-  "name": "compcase",
-  "version": "0.1.110",
+  "name": "showcase-ui",
+  "version": "0.1.0",
   "scripts": {
     "start": "node ./.bin/cli/start.js",
     "build": "webpack"
@@ -15,7 +15,6 @@
     "not op_mini all"
   ],
   "dependencies": {
-    "@emotion/core": "^10.0.5",
     "@types/node": "^10.12.15",
     "awesome-typescript-loader": "^5.2.1",
     "commander": "^2.19.0",
@@ -25,7 +24,5 @@
     "webpack-cli": "^3.1.2",
     "webpack-dev-server": "^3.1.10"
   },
-  "devDependencies": {
-    "@emotion/core": "^10.0.4"
-  }
+  "devDependencies": {}
 }

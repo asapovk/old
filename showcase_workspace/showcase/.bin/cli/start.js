@@ -42,6 +42,7 @@ const compiler = Webpack({
                     "css-loader"
                 ]
             },
+
             {
                 test: /\.scss$/,
                 use: [

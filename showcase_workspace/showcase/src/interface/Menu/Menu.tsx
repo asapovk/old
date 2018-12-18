@@ -14,7 +14,7 @@ export default class Menu extends React.Component<MenuProps> {
           return (
             <div
               key={name}
-              className='showcase-menu-content-item'
+              className='showcase-menu-content-group-item'
               onClick={() => this.props.onChange(cases[name]['node'])}
               children={name}
             />
@@ -34,7 +34,7 @@ export default class Menu extends React.Component<MenuProps> {
   render() {
     return (
       <div className='showcase-menu'>
-        <h1>Menu</h1>
+        <h1>Show cases</h1>
         <div className='showcase-menu-content'>
           {this.casesList(this.props.cases)}
         </div>

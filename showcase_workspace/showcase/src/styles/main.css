@@ -1,6 +1,3 @@
-.case {
-    padding: 64px;
-}
 .showcase-welcome {
     all: unset;
     position: absolute;
@@ -51,7 +48,7 @@
     margin-bottom: 8px;
 }
 
-.showcase-menu-content-item {
+.showcase-menu-content-group-item {
     all: unset;
     cursor: pointer;
     display: block;

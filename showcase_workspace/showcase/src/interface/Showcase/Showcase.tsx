@@ -1,7 +1,6 @@
 import * as React from "react";
 import core from '../../core';
 import { Menu } from '../Menu';
-import '../../styles/main.css';
 
 interface ShowcaseProps {
 

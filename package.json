@@ -12,7 +12,6 @@
     "index.js"
   ],
   "devDependencies": {
-    "@babel/core": "^7.2.0",
     "@types/chart.js": "^2.7.40",
     "@types/node": "^10.12.14",
     "@types/react": "^16.7.17",
@@ -21,8 +20,6 @@
     "@types/react-router-dom": "^4.3.1",
     "@types/webpack-env": "^1.13.6",
     "awesome-typescript-loader": "^5.2.1",
-    "babel-loader": "^8.0.4",
-    "compcase": "^0.1.110",
     "css-loader": "^1.0.1",
     "fakerator": "^0.3.0",
     "mini-css-extract-plugin": "^0.4.5",
