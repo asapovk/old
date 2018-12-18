@@ -1,0 +1,46 @@
+
+.showcase-welcome {
+    all: unset;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center; 
+    flex-direction: column;
+    color: white;
+    background: black;
+}
+
+.showcase-menu {
+    all: unset;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center; 
+    flex-direction: column;
+}
+
+.showcase-menu-group {
+    margin-bottom: 40px;
+}
+
+.showcase-menu-group-name {
+    all: unset;
+    font-weight: bold;
+    text-decoration: underline;
+    display: block;
+}
+
+.showcase-menu-item {
+    all: unset;
+    cursor: pointer;
+}

@@ -8,10 +8,12 @@ class Core {
     }
 
     protected context: any;
+    protected generatedConfigObject: any;
     protected generatedCasesObject: any = {};
 
     constructor() {
         this.context = require['context']('../../../../cases', true, /\index.case$/);
+        this.generatedConfigObject = require('../../../../compcase.config');
         this.init();
     }
 
@@ -19,9 +21,14 @@ class Core {
         return this.generatedCasesObject;
     }
 
-    private getId() {
-        return "CCID-" + Math.trunc(Math.random() * 99999999);
+    get config() {
+        return this.generatedConfigObject.default;
     }
+
+    private getId() {
+        return "SCID-" + Math.trunc(Math.random() * 99999999);
+    }
+
     private init() {
         this.context.keys().map((currentContext: any) => {
             let objectLink = this.generatedCasesObject;
