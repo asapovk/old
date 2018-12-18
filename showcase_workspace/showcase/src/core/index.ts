@@ -43,8 +43,8 @@ class Core {
                         objectLink[contextItem] = {
                             id: this.getId()
                         }
-                        objectLink = objectLink[contextItem];
                     }
+                    objectLink = objectLink[contextItem];
                 }
             });
         });
