@@ -28,7 +28,7 @@ class Showcase extends React.Component<ShowcaseProps> {
 
 	_handleContextMenu = (event) => {
 		event.preventDefault();
-		this.setState({ isMenuOpen: true });
+		this.setState({ isMenuOpen: !this.state.isMenuOpen });
 	};
 
 	changeCase = (currentCase: React.ReactNode) => {

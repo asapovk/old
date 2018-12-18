@@ -15,28 +15,25 @@ export default class Menu extends React.Component<MenuProps> {
 
   createCasesList(cases) {
     return Object.keys(cases).map(name => {
-      console.log(cases);
-      if (cases[name].node) {
+      if (typeof cases[name] === 'object') {
+        if (cases[name].node) {
+          return (
+            <div
+              className='showcase-menu-item'
+              onClick={() => this.props.onChange(cases[name]['node'])}
+              children={name}
+            />
+          )
+        }
         return (
-          <div
-            className='showcase-menu-item'
-            onClick={() => this.props.onChange(cases[name]['node'])}
-            children={name}
-          />
-        )
+          <div className='showcase-menu-group'>
+            <div className='showcase-menu-group-name'>{name}</div>
+            {this.createCasesList(cases[name])}
+          </div>
+        );
       }
-      else if (typeof cases[name] === 'object') return (
-        <div className='showcase-menu-group'>
-          <div className='showcase-menu-group-name'>{name}</div>
-          {this.createCasesList(cases[name])}
-        </div>
-      );
       return null
     })
-  }
-
-  findCase = (cases: any, caseID: string) => {
-    //return Object.keys(this.props.cases).find(item => )
   }
 
   render() {
