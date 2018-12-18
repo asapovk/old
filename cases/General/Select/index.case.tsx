@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import { Viewport, Select } from '../../../src';
+import { Select, Viewport } from '../../../src';
 import '../../../src/Styles/scss/main.scss';
 
 const flexCentered = {
@@ -25,31 +25,33 @@ class SelectStory extends React.Component {
 
     render() {
         return (
-            <Fragment>
-                <Select
-                    label='Multiselect'
-                    search={true}
-                    placeholder='Select some'
-                    defaultValue={['irv', 'greg']}
-                    options={selectOptions}
-                    style={{ padding: '40px' }}
-                    clearable={true}
-                    multiselect={true}
-                    // disabled={true}
-                    onChange={(value) => console.log('Multi', value)}
-                />
-                <Select
-                    label='Select'
-                    search={true}
-                    placeholder='Select some'
-                    defaultValue={'ann'}
-                    options={selectOptions}
-                    clearable={true}
-                    style={{ padding: '40px' }}
-                    //disabled={true}
-                    onChange={(value) => console.log('Singe', value)}
-                />
-            </Fragment>
+            <Viewport>
+                <Fragment>
+                    <Select
+                        label='Multiselect'
+                        search={true}
+                        placeholder='Select some'
+                        defaultValue={['irv', 'greg']}
+                        options={selectOptions}
+                        style={{ padding: '40px' }}
+                        clearable={true}
+                        multiselect={true}
+                        // disabled={true}
+                        onChange={(value) => console.log('Multi', value)}
+                    />
+                    <Select
+                        label='Select'
+                        search={true}
+                        placeholder='Select some'
+                        defaultValue={'ann'}
+                        options={selectOptions}
+                        clearable={true}
+                        style={{ padding: '40px' }}
+                        //disabled={true}
+                        onChange={(value) => console.log('Singe', value)}
+                    />
+                </Fragment>
+            </Viewport>
         )
     }
 }

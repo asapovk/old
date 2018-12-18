@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from 'react';
 import Scene from '../../../src/scenes/LKMainScene';
-import { Card, Menu, Icon, Stories } from '../../../src';
+import { Card, Menu, Icon, Stories, Viewport } from '../../../src';
 import useStyles from '../../../src/hooks/useTheme';
 import useBrowser from '../../../src/hooks/useBrowser';
 import SmoLogo from '../../../src/logos/smorodina';
@@ -14,16 +14,18 @@ const Header = () => {
     const [active, onClick] = useState(0);
 
     return (
-        <Menu
-            items={{
-                active,
-                onClick,
-                list: [{ label: "Лицевой счет" }, { label: "Документы" }, { label: "Карта отделений" }, { label: "Поддержка" }]
-            }}
-            toolsRight={[
-                <Icon type="settings" size={2} />
-            ]}
-        />
+        <Viewport>
+            <Menu
+                items={{
+                    active,
+                    onClick,
+                    list: [{ label: "Лицевой счет" }, { label: "Документы" }, { label: "Карта отделений" }, { label: "Поддержка" }]
+                }}
+                toolsRight={[
+                    <Icon type="settings" size={2} />
+                ]}
+            />
+        </Viewport>
     )
 }
 const SideMenu = (props) => {

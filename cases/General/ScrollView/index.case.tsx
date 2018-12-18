@@ -1,13 +1,12 @@
 import React from 'react';
-import { ScrollView } from '../../../src/ScrollView';
+import { ScrollView, Viewport, Title } from '../../../src';
 import useTheme from '../../../src/hooks/useTheme';
-import { Title } from '../../../src/Title';
 import '../../../src/Styles/scss/main.scss';
 
 export default () => {
     const { theme } = useTheme();
     return (
-        <>
+        <Viewport>
             <ScrollView>
                 <div
                     style={{
@@ -32,6 +31,6 @@ export default () => {
                     )}
                 />
             </ScrollView>
-        </>
+        </Viewport>
     )
 }

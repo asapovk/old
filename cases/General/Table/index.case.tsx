@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import { Flexbox, Table } from '../../../src';
+import { Flexbox, Table, Viewport } from '../../../src';
 import TableCustomCell from './TableCustomCell'
 import Fakerator from 'fakerator';
 import '../../../src/Styles/scss/main.scss';
@@ -30,21 +30,23 @@ class TableStory extends React.Component {
         ]
 
         return (
-            <Flexbox pr={35} pl={50} pt={0} column flex={1}>
-                <Table
-                    data={tableData}
-                    pagination={{
-                        pageSize: 10
-                    }}
-                    columns={tableColumns}
-                    actions={[{
-                        label: "Action",
-                        onAction: (event) => console.log(event)
-                    }]}
-                    noDataLabel='Данных то нету...'
-                    search
-                />
-            </Flexbox>
+            <Viewport>
+                <Flexbox pr={35} pl={50} pt={0} column flex={1}>
+                    <Table
+                        data={tableData}
+                        pagination={{
+                            pageSize: 10
+                        }}
+                        columns={tableColumns}
+                        actions={[{
+                            label: "Action",
+                            onAction: (event) => console.log(event)
+                        }]}
+                        noDataLabel='Данных то нету...'
+                        search
+                    />
+                </Flexbox>
+            </Viewport>
         )
     }
 }

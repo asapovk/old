@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import { Constructor, utils } from '../../../src';
+import { Constructor, utils, Viewport } from '../../../src';
 import { UIElement } from '../../../src/Constructor';
 import '../../../src/Styles/scss/main.scss';
 
@@ -135,26 +135,28 @@ const template: UIElement = {
 }
 
 export default () => (
-    <Constructor
-        template={template}
-        onAction={(data, onSuccess) => {
-            utils.notification({
-                title: "Action called",
-                text: JSON.stringify(data),
-            });
-
-            setTimeout(() => {
+    <Viewport>
+        <Constructor
+            template={template}
+            onAction={(data, onSuccess) => {
                 utils.notification({
-                    title: "onSuccess called",
+                    title: "Action called",
                     text: JSON.stringify(data),
                 });
-                onSuccess();
-            }, 1000);
 
-        }}
-        async
-        onChange={(data, onSuccess, onError) => {
-            onSuccess()
-        }}
-    />
+                setTimeout(() => {
+                    utils.notification({
+                        title: "onSuccess called",
+                        text: JSON.stringify(data),
+                    });
+                    onSuccess();
+                }, 1000);
+
+            }}
+            async
+            onChange={(data, onSuccess, onError) => {
+                onSuccess()
+            }}
+        />
+    </Viewport>
 )

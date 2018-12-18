@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import { Flexbox, Spinner } from '../../../src';
+import { Flexbox, Spinner, Viewport } from '../../../src';
 import '../../../src/Styles/scss/main.scss';
 
 export default class Story extends React.Component {
@@ -7,9 +7,11 @@ export default class Story extends React.Component {
 
     render() {
         return (
-            <Flexbox alignContent="center" justifyContent="center">
-                <Spinner spinning />
-            </Flexbox>
+            <Viewport>
+                <Flexbox alignContent="center" justifyContent="center">
+                    <Spinner spinning />
+                </Flexbox>
+            </Viewport>
         )
     }
 }
