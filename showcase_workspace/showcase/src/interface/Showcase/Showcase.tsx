@@ -44,7 +44,7 @@ class Showcase extends React.Component<ShowcaseProps> {
 
 	render() {
 
-		console.log(core.cases);
+		console.log(core.config.plugins[0]);
 
 		const { isMenuOpen, currentCase } = this.state;
 
@@ -57,9 +57,11 @@ class Showcase extends React.Component<ShowcaseProps> {
 
 		const CaseTSX = (AnyCase) => <AnyCase />;
 
+		const PluginsTSX = (Plugin) => <Plugin />;
+
 		return (
 			<>
-				{core.config.plugins}
+				{PluginsTSX(core.config.plugins[0])}
 				{
 					isMenuOpen
 						? <Menu cases={core.cases} onChange={this.changeCase} />

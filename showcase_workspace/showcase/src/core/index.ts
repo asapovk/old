@@ -13,7 +13,7 @@ class Core {
 
     constructor() {
         this.context = require['context']('../../../../cases', true, /\index.case$/);
-        this.generatedConfigObject = require('../../../../compcase.config');
+        this.generatedConfigObject = require('../../../../showcase.config');
         this.init();
     }
 
