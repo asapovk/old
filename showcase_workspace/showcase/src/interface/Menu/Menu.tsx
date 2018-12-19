@@ -15,7 +15,7 @@ export default class Menu extends React.Component<MenuProps> {
             <div
               key={name}
               className='showcase-menu-content-group-item'
-              onClick={() => this.props.onChange(cases[name]['node'], cases[name]['id'])}
+              onClick={() => this.props.onChange(cases[name].node, cases[name].id)}
               children={name}
             />
           )

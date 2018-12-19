@@ -22,10 +22,11 @@ class Showcase extends React.Component<ShowcaseProps> {
 
 	componentDidMount() {
 		document.addEventListener('contextmenu', this._handleContextMenu);
-		const cacheCurrentCaseID = localStorage.getItem('currentCaseID') as string;
-		// this.setState({
-		// 	currentCase: this.findCase(cacheCurrentCaseID)
-		// });
+		const cachedCaseID = localStorage.getItem('currentCaseID') as string;
+		const cachedCase = cachedCaseID && this.findCase(core.cases, cachedCaseID);
+		this.setState({
+			currentCase: cachedCase ? cachedCase : null
+		});
 	};
 
 	componentWillUnmount() {
@@ -39,8 +40,16 @@ class Showcase extends React.Component<ShowcaseProps> {
 		}
 	};
 
-	findCase(caseID: string) {
-
+	findCase(cases, caseID: string) {
+		let findedCase = null;
+		Object.keys(cases).map(name => {
+			if (typeof cases[name] === 'object' && findedCase === null) {
+				if (cases[name].node && cases[name].id === caseID) {
+					findedCase = cases[name].node;
+				} else findedCase = this.findCase(cases[name], caseID);
+			}
+		})
+		return findedCase
 	}
 
 	changeCase = (currentCase: React.ReactNode, currentCaseID: string) => {
@@ -65,11 +74,8 @@ class Showcase extends React.Component<ShowcaseProps> {
 
 		const CaseTSX = (AnyCase) => <AnyCase />;
 
-		// const PluginsTSX = (Plugin) => <Plugin />;
-
 		return (
 			<>
-				{/* {PluginsTSX(core.config.plugins[0])} */}
 				{
 					isMenuOpen
 						? <Menu cases={core.cases} onChange={this.changeCase} />
