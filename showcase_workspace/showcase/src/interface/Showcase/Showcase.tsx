@@ -22,6 +22,10 @@ class Showcase extends React.Component<ShowcaseProps> {
 
 	componentDidMount() {
 		document.addEventListener('contextmenu', this._handleContextMenu);
+		const cacheCurrentCaseID = localStorage.getItem('currentCaseID') as string;
+		// this.setState({
+		// 	currentCase: this.findCase(cacheCurrentCaseID)
+		// });
 	};
 
 	componentWillUnmount() {
@@ -35,11 +39,16 @@ class Showcase extends React.Component<ShowcaseProps> {
 		}
 	};
 
-	changeCase = (currentCase: React.ReactNode) => {
+	findCase(caseID: string) {
+
+	}
+
+	changeCase = (currentCase: React.ReactNode, currentCaseID: string) => {
 		this.setState({
 			currentCase: currentCase,
 			isMenuOpen: false
 		});
+		localStorage.setItem('currentCaseID', currentCaseID);
 	}
 
 	render() {

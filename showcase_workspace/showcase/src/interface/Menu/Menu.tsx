@@ -2,7 +2,7 @@ import * as React from "react";
 
 export interface MenuProps {
   cases: any,
-  onChange: (currentCase: React.ReactNode) => void
+  onChange: (currentCase: React.ReactNode, currentCaseID: string) => void
 }
 
 export default class Menu extends React.Component<MenuProps> {
@@ -15,7 +15,7 @@ export default class Menu extends React.Component<MenuProps> {
             <div
               key={name}
               className='showcase-menu-content-group-item'
-              onClick={() => this.props.onChange(cases[name]['node'])}
+              onClick={() => this.props.onChange(cases[name]['node'], cases[name]['id'])}
               children={name}
             />
           )

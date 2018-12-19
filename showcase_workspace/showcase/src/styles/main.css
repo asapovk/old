@@ -14,6 +14,12 @@
     background: black;
 }
 
+.showcase-panel {
+    height: 64px;
+    background: white;
+    position: absolute;
+}
+
 .showcase-menu {
     all: unset;
     position: absolute;
