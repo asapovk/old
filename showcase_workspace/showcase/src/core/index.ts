@@ -1,3 +1,7 @@
+import { IConfig, IPluginProps } from '../../types'
+import { ReactNode } from 'react';
+import PluginRender from './pluginRender';
+
 class Core {
     static instance: Core;
     static getInstance() {
@@ -8,12 +12,16 @@ class Core {
     }
 
     protected context: any;
-    protected generatedConfigObject: any;
+    protected configObject: IConfig = {};
+    protected generatedPluginsArray: any[] = [];
     protected generatedCasesObject: any = {};
 
     constructor() {
         this.context = require['context']('../../../../cases', true, /\index.case$/);
-        this.generatedConfigObject = require('../../../../showcase.config');
+        const config = require('../../../../showcase.config');
+        if (config && config.default) {
+            this.configObject = config.default;
+        }
         this.init();
     }
 
@@ -22,14 +30,48 @@ class Core {
     }
 
     get config() {
-        return this.generatedConfigObject.default;
+        return this.configObject as IConfig;
     }
 
-    private getId() {
-        return "SCID-" + Math.trunc(Math.random() * 99999999);
+    private getId(prefix: string) {
+        return prefix + "-" + Math.trunc(Math.random() * 99999999);
+    }
+
+    private initPlugin(plugin: (props: IPluginProps) => void) {
+        const pluginId = this.getId("PLUGIN");
+        const pluginObject = {
+            id: pluginId,
+            executer: plugin,
+            render: (Node: ReactNode) => {
+
+                this.generatedPluginsArray.forEach(plugin => {
+                    if (plugin.id === pluginId) {
+                        let pluginContainer = document.getElementById(pluginId);
+
+                        if (!pluginContainer) {
+                            pluginContainer = document.createElement('div');
+                            pluginContainer.setAttribute("id", pluginId);
+                            document.body.appendChild(pluginContainer);
+
+                            PluginRender(Node, pluginContainer);
+                        }
+                    }
+                })
+            }
+        };
+        this.generatedPluginsArray.push(pluginObject);
+
+        plugin({
+            cases: this.cases,
+            config: this.config,
+            render: pluginObject.render
+        });
     }
 
     private init() {
+        /**
+         * Generate cases
+         */
         this.context.keys().map((currentContext: any) => {
             let objectLink = this.generatedCasesObject;
 
@@ -41,13 +83,21 @@ class Core {
                 } else {
                     if (!objectLink[contextItem]) {
                         objectLink[contextItem] = {
-                            id: this.getId()
+                            id: this.getId("CASEID")
                         }
                     }
                     objectLink = objectLink[contextItem];
                 }
             });
         });
+        /**
+         * Initiating plugins
+         */
+        if (this.config.plugins) {
+            this.config.plugins.map(plugin => {
+                this.initPlugin(plugin);
+            });
+        }
     }
 }
 

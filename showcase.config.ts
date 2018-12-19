@@ -1,7 +1,8 @@
-import { panel } from './showcase_workspace/showcase/src/plugins'
+import React from 'react';
+import SimplePlugin from './SimplePlugin';
 
 export default {
     plugins: [
-        panel({})
+        SimplePlugin
     ]
 };
