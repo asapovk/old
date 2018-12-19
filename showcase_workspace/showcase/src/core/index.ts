@@ -33,8 +33,17 @@ class Core {
         return this.configObject as IConfig;
     }
 
-    private getId(prefix: string) {
-        return prefix + "-" + Math.trunc(Math.random() * 99999999);
+    private getId(prefix: string, id?: string) {
+        let uniqueId = "";
+        if (id) {
+            id.split("").forEach(char => {
+                uniqueId += char.charCodeAt(0).toString(16);
+            });
+        }
+        if (!uniqueId) {
+            uniqueId = Math.trunc(Math.random() * 99999999).toString();
+        }
+        return prefix + "-" + uniqueId;
     }
 
     private initPlugin(plugin: (props: IPluginProps) => void) {
@@ -84,13 +93,14 @@ class Core {
                 } else {
                     if (!objectLink[contextItem]) {
                         objectLink[contextItem] = {
-                            id: this.getId("CASEID")
+                            id: this.getId("CASE", contextItem)
                         }
                     }
                     objectLink = objectLink[contextItem];
                 }
             });
         });
+        console.log(this.generatedCasesObject);
         /**
          * Initiating plugins
          */
