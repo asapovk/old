@@ -12,9 +12,7 @@ class MenuItem extends React.Component<MenuItemProps> {
     render() {
 
 
-        return (
-
-    )
+        return null
     }
 }
 
