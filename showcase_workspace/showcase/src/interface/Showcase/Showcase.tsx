@@ -3,13 +3,19 @@ import core from '../../core';
 import { Menu } from '../Menu';
 import { Panel } from '../Panel'
 
+const Welcome = () => (
+	<div className='showcase-welcome'>
+		<h1>The Showcase</h1>
+		<p>Make the Right click by you're mouse to select a case</p>
+	</div>
+);
 interface ShowcaseProps {
 
 }
 
 interface Showcase {
 	state: {
-		currentCase: React.ReactNode,
+		CurrentCase: any
 		isMenuOpen: boolean
 	}
 }
@@ -17,44 +23,40 @@ interface Showcase {
 class Showcase extends React.Component<ShowcaseProps> {
 
 	state = {
-		currentCase: null as React.ReactNode,
+		CurrentCase: Welcome as any,
 		isMenuOpen: false
 	}
 
-	componentDidMount() {
-		document.addEventListener('contextmenu', this._handleContextMenu);
-		const cachedCaseID = localStorage.getItem('currentCaseID') as string;
-		this.setState({
-			currentCase: this.findCase(core.cases, cachedCaseID)
-		});
-	};
-
-	componentWillUnmount() {
-		document.removeEventListener('contextmenu', this._handleContextMenu);
+	constructor(props) {
+		super(props);
+		this.changeCase = this.changeCase.bind(this);
+		this.handleContextMenu = this.handleContextMenu.bind(this);
 	}
 
-	_handleContextMenu = (event) => {
+	private handleContextMenu = (event: MouseEvent) => {
 		if (!event.altKey) {
 			event.preventDefault();
 			this.setState({ isMenuOpen: !this.state.isMenuOpen });
 		}
 	};
 
-	findCase(cases, caseID: string) {
-		let findedCase = null;
-		Object.keys(cases).map(name => {
-			if (typeof cases[name] === 'object' && findedCase === null) {
-				if (cases[name].node && cases[name].id === caseID) {
-					findedCase = cases[name].node;
-				} else findedCase = this.findCase(cases[name], caseID);
-			}
-		})
-		return findedCase
+	componentDidMount() {
+		document.addEventListener('contextmenu', this.handleContextMenu);
+		const id = localStorage.getItem('currentCaseID');
+		if (id) {
+			this.setState({
+				CurrentCase: core.getCaseById(id)
+			});
+		}
+	};
+
+	componentWillUnmount() {
+		document.removeEventListener('contextmenu', this.handleContextMenu);
 	}
 
-	changeCase = (currentCase: React.ReactNode, currentCaseID: string) => {
+	changeCase(CurrentCase: any, currentCaseID: string) {
 		this.setState({
-			currentCase: currentCase,
+			CurrentCase: CurrentCase,
 			isMenuOpen: false
 		});
 		localStorage.setItem('currentCaseID', currentCaseID);
@@ -62,26 +64,14 @@ class Showcase extends React.Component<ShowcaseProps> {
 
 	render() {
 
+		const { isMenuOpen, CurrentCase } = this.state;
 
-		const { isMenuOpen, currentCase } = this.state;
-
-		const CaseTSX = (AnyCase) => <AnyCase />;
-
-		if (isMenuOpen) return <Menu cases={core.cases} onChange={this.changeCase} />
-
-		if (!currentCase) return (
-			<div className='showcase-welcome'>
-				<h1>The Showcase</h1>
-				<p>Make the Right click by you're mouse to select a case</p>
-			</div>
-		)
-
-		return (
-			<>
-				<Panel extentions={{}} />
-				{CaseTSX(currentCase)}
-			</>
-		)
+		if (isMenuOpen) {
+			return (
+				<Menu cases={core.cases} onChange={this.changeCase} />
+			)
+		}
+		return <CurrentCase />
 	}
 }
 

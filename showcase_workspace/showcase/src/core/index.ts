@@ -100,7 +100,6 @@ class Core {
                 }
             });
         });
-        console.log(this.generatedCasesObject);
         /**
          * Initiating plugins
          */
@@ -108,6 +107,25 @@ class Core {
             this.config.plugins.map(plugin => {
                 this.initPlugin(plugin);
             });
+        }
+    }
+
+    public getCaseById(id: string, cases?: any) {
+        if (!cases) {
+            cases = this.cases;
+        }
+        const keys = Object.keys(cases);
+        for (let i = 0; i < keys.length; i++) {
+            const group: any = cases[keys[i]];
+            if (typeof group === "object" && !group.node) {
+                const node = this.getCaseById(id, group);
+                if (node) {
+                    return node;
+                }
+            }
+            if (group.id === id) {
+                return group.node
+            }
         }
     }
 }
