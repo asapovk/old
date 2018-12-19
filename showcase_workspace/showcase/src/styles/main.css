@@ -16,8 +16,12 @@
 
 .showcase-panel {
     height: 64px;
+    bottom: 0;
+    left: 0;
+    right: 0;
     background: white;
     position: absolute;
+    z-index: 999;
 }
 
 .showcase-menu {

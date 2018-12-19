@@ -1,6 +1,7 @@
 import * as React from "react";
 import core from '../../core';
 import { Menu } from '../Menu';
+import { Panel } from '../Panel'
 
 interface ShowcaseProps {
 
@@ -23,9 +24,8 @@ class Showcase extends React.Component<ShowcaseProps> {
 	componentDidMount() {
 		document.addEventListener('contextmenu', this._handleContextMenu);
 		const cachedCaseID = localStorage.getItem('currentCaseID') as string;
-		const cachedCase = cachedCaseID && this.findCase(core.cases, cachedCaseID);
 		this.setState({
-			currentCase: cachedCase ? cachedCase : null
+			currentCase: this.findCase(core.cases, cachedCaseID)
 		});
 	};
 
@@ -65,24 +65,21 @@ class Showcase extends React.Component<ShowcaseProps> {
 
 		const { isMenuOpen, currentCase } = this.state;
 
-		const WelcomeTSX = (
+		const CaseTSX = (AnyCase) => <AnyCase />;
+
+		if (isMenuOpen) return <Menu cases={core.cases} onChange={this.changeCase} />
+
+		if (!currentCase) return (
 			<div className='showcase-welcome'>
 				<h1>The Showcase</h1>
 				<p>Make the Right click by you're mouse to select a case</p>
 			</div>
 		)
 
-		const CaseTSX = (AnyCase) => <AnyCase />;
-
 		return (
 			<>
-				{
-					isMenuOpen
-						? <Menu cases={core.cases} onChange={this.changeCase} />
-						: currentCase
-							? CaseTSX(currentCase)
-							: WelcomeTSX
-				}
+				<Panel extentions={{}} />
+				{CaseTSX(currentCase)}
 			</>
 		)
 	}
