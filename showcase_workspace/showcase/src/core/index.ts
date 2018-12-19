@@ -39,6 +39,14 @@ class Core {
 
     private initPlugin(plugin: (props: IPluginProps) => void) {
         const pluginId = this.getId("PLUGIN");
+        let selfContainer: HTMLElement = document.getElementById(pluginId)!;
+
+        if (!selfContainer) {
+            selfContainer = document.createElement('div');
+            selfContainer.setAttribute("id", pluginId);
+            document.body.appendChild(selfContainer);
+        }
+
         const pluginObject = {
             id: pluginId,
             executer: plugin,
@@ -46,15 +54,7 @@ class Core {
 
                 this.generatedPluginsArray.forEach(plugin => {
                     if (plugin.id === pluginId) {
-                        let pluginContainer = document.getElementById(pluginId);
-
-                        if (!pluginContainer) {
-                            pluginContainer = document.createElement('div');
-                            pluginContainer.setAttribute("id", pluginId);
-                            document.body.appendChild(pluginContainer);
-
-                            PluginRender(Node, pluginContainer);
-                        }
+                        PluginRender(Node, selfContainer);
                     }
                 })
             }
@@ -64,6 +64,7 @@ class Core {
         plugin({
             cases: this.cases,
             config: this.config,
+            selfContainer,
             render: pluginObject.render
         });
     }

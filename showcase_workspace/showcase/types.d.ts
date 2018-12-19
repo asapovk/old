@@ -7,5 +7,6 @@ export interface IConfig {
 export interface IPluginProps {
     cases: any
     config: any
+    selfContainer: HTMLElement
     render: (node: ReactNode) => void
 }
