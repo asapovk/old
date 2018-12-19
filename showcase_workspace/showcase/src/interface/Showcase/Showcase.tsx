@@ -78,7 +78,6 @@ class Showcase extends React.Component<ShowcaseProps> {
 
 		return (
 			<>
-				<Panel extentions={{}} />
 				{CaseTSX(currentCase)}
 			</>
 		)
