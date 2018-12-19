@@ -93,13 +93,14 @@ class Core {
                 } else {
                     if (!objectLink[contextItem]) {
                         objectLink[contextItem] = {
-                            id: this.getId("CASE-", contextItem)
+                            id: this.getId("CASE", contextItem)
                         }
                     }
                     objectLink = objectLink[contextItem];
                 }
             });
         });
+        console.log(this.generatedCasesObject);
         /**
          * Initiating plugins
          */
