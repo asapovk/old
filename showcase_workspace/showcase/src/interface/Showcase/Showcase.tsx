@@ -65,13 +65,18 @@ class Showcase extends React.Component<ShowcaseProps> {
 	render() {
 
 		const { isMenuOpen, CurrentCase } = this.state;
+		const CaseWrapper = core.config.CaseWrapper || React.Fragment;
 
 		if (isMenuOpen) {
 			return (
 				<Menu cases={core.cases} onChange={this.changeCase} />
 			)
 		}
-		return <CurrentCase />
+		return (
+			<CaseWrapper>
+				<CurrentCase />
+			</CaseWrapper>
+		)
 	}
 }
 

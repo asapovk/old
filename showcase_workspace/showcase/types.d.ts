@@ -1,6 +1,7 @@
 import { ReactNode } from "react";
 
 export interface IConfig {
+    CaseWrapper?: any
     plugins?: ((props: IPluginProps) => void)[]
 }
 

@@ -31,7 +31,7 @@ export default (props: IProps) => {
                     {props.components.header}
 
                     {props.components.mainTop}
-                    {/* {props.components.main} */}
+                    {props.components.main}
                 </ScrollView>
             </Flexbox>
         </>
