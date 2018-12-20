@@ -9,28 +9,39 @@ const Welcome = () => (
 		<p>Make the Right click by you're mouse to select a case</p>
 	</div>
 );
-interface ShowcaseProps {
 
-}
 
 interface Showcase {
 	state: {
 		CurrentCase: any
-		isMenuOpen: boolean
+		isMenuOpen: boolean,
+		items: {
+			id: string
+			name: string,
+			render: React.ReactNode
+		}[],
+		tools: React.ReactNode[]
 	}
 }
 
-class Showcase extends React.Component<ShowcaseProps> {
+class Showcase extends React.Component {
 
 	state = {
 		CurrentCase: Welcome as any,
-		isMenuOpen: false
+		isMenuOpen: false,
+		items: [] as {
+			id: string
+			name: string,
+			render: React.ReactNode
+		}[],
+		tools: [] as React.ReactNode[]
 	}
 
 	constructor(props) {
 		super(props);
 		this.changeCase = this.changeCase.bind(this);
 		this.handleContextMenu = this.handleContextMenu.bind(this);
+		this.addMenuData = this.addMenuData.bind(this);
 	}
 
 	private handleContextMenu = (event: MouseEvent) => {
@@ -41,6 +52,7 @@ class Showcase extends React.Component<ShowcaseProps> {
 	};
 
 	componentDidMount() {
+		core.init();
 		document.addEventListener('contextmenu', this.handleContextMenu);
 		const id = localStorage.getItem('currentCaseID');
 		if (id) {
@@ -49,6 +61,14 @@ class Showcase extends React.Component<ShowcaseProps> {
 			});
 		}
 	};
+
+	private addMenuData(item, tool) {
+		if (item) item = Object.assign(item, { id: Math.trunc(Math.random() * 99999999).toString() })
+		this.setState({
+			items: item ? [...this.state.items, item] : this.state.items,
+			tools: tool ? [...this.state.tools, tool] : this.state.tools,
+		})
+	}
 
 	componentWillUnmount() {
 		document.removeEventListener('contextmenu', this.handleContextMenu);
@@ -71,7 +91,12 @@ class Showcase extends React.Component<ShowcaseProps> {
 				<Menu cases={core.cases} onChange={this.changeCase} />
 			)
 		}
-		return <CurrentCase />
+		return (
+			<>
+				<Panel items={this.state.items} tools={this.state.tools} />
+				<CurrentCase />
+			</>
+		)
 	}
 }
 

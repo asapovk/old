@@ -1,50 +1,67 @@
 import * as React from "react";
 import MenuItem from './MenuItem';
 
+interface PanelItem {
+  id: string
+  name: string,
+  render: React.ReactNode
+}
+
 interface PanelProps {
-  menu: any,
-  tools: any,
-  extentions: any
+  items?: PanelItem[],
+  tools?: React.ReactNode[]
 }
 
 class Panel extends React.Component<PanelProps> {
 
   state = {
-    position: 'showcase-panel-down',
-    currentItem: ''
+    isUp: false,
+    currentItemID: ''
   }
 
-  changeItem(item) {
+  constructor(props) {
+    super(props);
+    this.changeItem = this.changeItem.bind(this);
+  }
+
+  changeItem(itemID) {
     this.setState({
-      currentItem: item
+      currentItemID: itemID
     })
   }
 
-  createMenuItems(items) {
-    return Object.keys(items).map(item => (
+  createMenuItems(items: PanelItem[]) {
+    if (!items.length) return null
+    return items.map(item => (
       <MenuItem
-        active={this.state.currentItem === item}
+        key={item.name}
+        active={this.state.currentItemID === item.id}
         onChoose={this.changeItem}
-        label={item}
+        label={item.name}
+        id={item.id}
       />
     ))
   }
 
   render() {
 
-    const { tools, menu, extentions } = this.props;
-    const extention = this.state.currentItem ? extentions[this.state.currentItem] : null;
+    const { items, tools } = this.props;
+    let className = 'showcase-panel';
+    if (this.state.isUp) className += ' showcase-panel-up';
+    else className += ' showcase-panel-down';
 
     return (
-      <div className={this.state.position}>
+      <div className={className}>
         <div className='showcase-panel-menu'>
-          <div className='showcase-panel-menu-items'>{this.createMenuItems(menu)}</div>
+          <div className='showcase-panel-menu-items'>
+            {items && this.createMenuItems(items)}
+          </div>
           <div className='showcase-panel-menu-toolbar'>
             {tools}
-            <div>↑</div>
+            <div className='showcase-panel-menu-toolbar-move'>↑</div>
           </div>
         </div>
-        <div className='showcase-panel-extention'>{extention}</div>
+        <div className='showcase-panel-extention'>{}</div>
       </div>
     )
   }

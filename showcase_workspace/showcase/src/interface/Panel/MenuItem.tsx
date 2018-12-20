@@ -3,21 +3,24 @@ import * as React from "react";
 interface MenuItemProps {
     active: boolean,
     onChoose: (item: string) => void,
-    label: string
+    label: string,
+    id: string
 }
 
 class MenuItem extends React.Component<MenuItemProps> {
 
     render() {
 
-        const { active, label, onChoose } = this.props;
+        const { active, label, onChoose, id } = this.props;
         let className = 'showcase-panel-menu-items-item';
         if (active) className += '-active';
 
         return (
-            <div className={className} onClick={() => onChoose(label)}>
-                {label}
-            </div>
+            <div
+                className={className}
+                onClick={() => onChoose(id)}
+                children={label}
+            />
         )
 
     }

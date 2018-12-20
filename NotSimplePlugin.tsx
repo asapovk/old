@@ -3,12 +3,12 @@ import { IPluginProps } from './showcase_workspace/showcase/types'
 
 function SimplePlugin(props: IPluginProps) {
     props.render(
-        <div style={{ position: "absolute", background: "red", color: "white" }}>Hello world.</div>
+        <div style={{ position: "absolute", background: "black", color: "white", top: 48 }}>Not Hello world.</div>
     )
     props.panel({
         item: {
-            name: 'Simple',
-            render: <div>Simple</div>
+            name: 'Not Simple',
+            render: <div>Not Simple</div>
         }
     })
 }

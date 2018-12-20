@@ -9,4 +9,15 @@ export interface IPluginProps {
     config: any
     selfContainer: HTMLElement
     render: (node: ReactNode) => void
+    panel: (content: PanelRenderProps) => void
+}
+
+export interface PanelRenderProps {
+    item?: PanelRenderItem,
+    tool?: React.ReactNode
+}
+
+export interface PanelRenderItem {
+    name: string,
+    render: React.ReactNode
 }

@@ -1,6 +1,7 @@
 import { IConfig, IPluginProps } from '../../types'
 import { ReactNode } from 'react';
 import PluginRender from './pluginRender';
+import PanelRender from './panelRender';
 
 class Core {
     static instance: Core;
@@ -22,7 +23,6 @@ class Core {
         if (config && config.default) {
             this.configObject = config.default;
         }
-        this.init();
     }
 
     get cases() {
@@ -59,26 +59,22 @@ class Core {
         const pluginObject = {
             id: pluginId,
             executer: plugin,
-            render: (Node: ReactNode) => {
-
-                this.generatedPluginsArray.forEach(plugin => {
-                    if (plugin.id === pluginId) {
-                        PluginRender(Node, selfContainer);
-                    }
-                })
-            }
+            render: (Node: ReactNode) => PluginRender(Node, selfContainer),
+            panel: PanelRender
         };
+
         this.generatedPluginsArray.push(pluginObject);
 
         plugin({
             cases: this.cases,
             config: this.config,
             selfContainer,
-            render: pluginObject.render
+            render: pluginObject.render,
+            panel: pluginObject.panel
         });
     }
 
-    private init() {
+    public init() {
         /**
          * Generate cases
          */
@@ -100,6 +96,9 @@ class Core {
                 }
             });
         });
+    }
+
+    public initPlugins() {
         /**
          * Initiating plugins
          */
