@@ -8,6 +8,7 @@ export interface IProps {
     children?: ReactNode
     horizontal?: boolean
     style?: CSSProperties
+    customCss?: any
     width?: number
     height?: number
 }
@@ -17,9 +18,10 @@ const isWebkit = !!window.webkitURL;
 
 export default (props: IProps) => {
 
-    const { children, horizontal, style, width, height } = props;
+    const { children, horizontal, style, width, height, customCss } = props;
+    console.log(customCss);
     const scrollView = createRef<HTMLDivElement>();
-    const styles = useStyles(horizontal, isWebkit, false, width, height);
+    const styles = useStyles(horizontal, isWebkit, false, width, height, customCss);
 
     /**
      * FF returns null as reference

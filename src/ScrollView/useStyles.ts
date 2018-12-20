@@ -2,7 +2,7 @@
 import { css } from '@emotion/core';
 import useTheme from '../hooks/useTheme';
 
-export default (horizontal?: boolean, isWebkit?: boolean, hidden?: boolean, width?: number, height?: number) => {
+export default (horizontal?: boolean, isWebkit?: boolean, hidden?: boolean, width?: number, height?: number, customCss: any = {}) => {
     const { scrollbar } = useTheme().theme;
     return {
         root: css({
@@ -24,6 +24,7 @@ export default (horizontal?: boolean, isWebkit?: boolean, hidden?: boolean, widt
             "&::-webkit-scrollbar": {
                 display: "none"
             },
+            ...customCss
         }),
 
         scrollbar: css({

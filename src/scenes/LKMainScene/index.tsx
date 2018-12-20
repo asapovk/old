@@ -1,11 +1,13 @@
+/** @jsx jsx */
+import { jsx } from '@emotion/core';
 import React, { Fragment } from 'react';
 import { Flexbox } from '../../';
-import useStyles from '../../hooks/useTheme';
+import useStyles from './useStyles';
 import useBrowser from '../../hooks/useBrowser';
 import { ScrollView } from '../../ScrollView';
 interface IProps {
     components: {
-        header?: React.Component | any
+        menu?: React.Component | any
         side?: React.Component | any
         sideBottom?: React.Component | any
         mainTop?: React.Component | any
@@ -19,21 +21,33 @@ interface IProps {
 }
 
 export default (props: IProps) => {
-    const browser = useBrowser();
-
+    // const browser = useBrowser();
+    const styles = useStyles();
     return (
-        <>
-            <Flexbox style={{ height: "100%" }}>
-                <ScrollView width={320} style={{ padding: "0 20px" }}>
-                    {props.components.side}
-                </ScrollView>
-                <ScrollView>
-                    {props.components.header}
-
-                    {props.components.mainTop}
-                    {props.components.main}
-                </ScrollView>
+        <Fragment>
+            <Flexbox css={styles.root}>
+                <div css={styles.side}>
+                    <ScrollView customCss={styles.$sideScroll}>
+                        {props.components.side}
+                    </ScrollView>
+                </div>
+                <div style={{
+                    flex: 1,
+                    height: "100%",
+                    position: "relative",
+                }}>
+                    <ScrollView customCss={styles.$mainScroll}>
+                        {props.components.mainTop}
+                        {props.components.main}
+                    </ScrollView>
+                    <div css={styles.menuDesktop}>
+                        {props.components.menu}
+                    </div>
+                </div>
             </Flexbox>
-        </>
+            <div css={styles.menuMobile}>
+                {props.components.menu}
+            </div>
+        </Fragment>
     );
 }

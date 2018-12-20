@@ -23,8 +23,9 @@ export default () => {
                                         width: 3000,
                                         background: 'linear-gradient(90deg, ' + theme.pale.rgba(0) + ', ' + theme.pale.rgba(1) + ')'
                                     }}
-                                    children={<Title style={{ padding: 40 }}>HORIZONTAL</Title>
-                                    }
+                                    children={(
+                                        <Title style={{ padding: 40 }}>HORIZONTAL</Title>
+                                    )}
                                 />
                             </ScrollView>
                         </>

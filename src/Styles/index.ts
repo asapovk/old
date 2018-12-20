@@ -27,7 +27,6 @@ import widgetStyles from './jss/Widget'
 import widgetStatStyles from './jss/WidgetStat'
 import notificationsStyles from './jss/Notifications'
 import lkGuestSceneStyles from './jss/LKGuestScene'
-import lkMainSceneStyles from './jss/LKMainScene'
 
 export const themes = {
     blackCurrant, whiteCurrant, abrTheme, gazpromTheme
@@ -129,7 +128,6 @@ export const createStyles = (themeName?: themeName) => {
         notifications: notificationsStyles(theme),
         scenes: {
             lkguest: lkGuestSceneStyles(theme),
-            lkmain: lkMainSceneStyles(theme)
         }
     }
 };
