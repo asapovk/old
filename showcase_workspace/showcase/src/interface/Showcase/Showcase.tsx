@@ -85,6 +85,7 @@ class Showcase extends React.Component {
 	render() {
 
 		const { isMenuOpen, CurrentCase } = this.state;
+		const CaseWrapper = core.config.CaseWrapper || React.Fragment;
 
 		if (isMenuOpen) {
 			return (
@@ -92,10 +93,10 @@ class Showcase extends React.Component {
 			)
 		}
 		return (
-			<>
+			<CaseWrapper>
 				<Panel items={this.state.items} tools={this.state.tools} />
 				<CurrentCase />
-			</>
+			</CaseWrapper>
 		)
 	}
 }

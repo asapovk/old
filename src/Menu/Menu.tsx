@@ -108,7 +108,6 @@ export default (props: IMenu) => {
                 style={{
                     ...styles.menu.main.menu,
                     ...style,
-                    marginLeft: windowSize.isDesktop ? '321px' : 0
                 }}
             >
 
