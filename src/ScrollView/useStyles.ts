@@ -2,13 +2,15 @@
 import { css } from '@emotion/core';
 import useTheme from '../hooks/useTheme';
 
-export default (horizontal?: boolean, isWebkit?: boolean, hidden?: boolean) => {
+export default (horizontal?: boolean, isWebkit?: boolean, hidden?: boolean, width?: number, height?: number) => {
     const { scrollbar } = useTheme().theme;
     return {
         root: css({
             position: 'relative',
             overflow: 'hidden',
-            height: !horizontal ? "100%" : "initial",
+            width,
+            flex: width ? "inherit" : 1,
+            height: height || (!horizontal ? "100%" : "initial"),
         }),
 
         scrollview: css({
