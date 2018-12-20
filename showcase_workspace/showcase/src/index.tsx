@@ -4,10 +4,8 @@ import { Showcase } from './interface/Showcase';
 import './styles/main.css';
 import core from './core';
 
-//@ts-ignore
-global.showcaseRef = null
+let showcaseRef = null as any
 
-//@ts-ignore
-ReactDOM.render(<Showcase ref={ref => { global.showcaseRef = ref }} />, document.getElementById('showcase'));
+ReactDOM.render(<Showcase ref={ref => showcaseRef = ref} />, document.getElementById('showcase'));
 
-core.initPlugins();
+core.initPlugins(showcaseRef);

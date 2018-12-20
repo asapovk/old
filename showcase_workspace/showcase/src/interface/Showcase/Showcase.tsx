@@ -62,7 +62,7 @@ class Showcase extends React.Component {
 		}
 	};
 
-	private addMenuData(item, tool) {
+	addMenuData(item, tool) {
 		if (item) item = Object.assign(item, { id: Math.trunc(Math.random() * 99999999).toString() })
 		this.setState({
 			items: item ? [...this.state.items, item] : this.state.items,

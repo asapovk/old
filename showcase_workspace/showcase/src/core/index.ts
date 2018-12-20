@@ -2,6 +2,7 @@ import { IConfig, IPluginProps } from '../../types'
 import { ReactNode } from 'react';
 import PluginRender from './pluginRender';
 import PanelRender from './panelRender';
+import { Showcase } from 'interface/Showcase';
 
 class Core {
     static instance: Core;
@@ -16,6 +17,7 @@ class Core {
     protected configObject: IConfig = {};
     protected generatedPluginsArray: any[] = [];
     protected generatedCasesObject: any = {};
+    protected showcaseRef: Showcase | null = null
 
     constructor() {
         this.context = require['context']('../../../../cases', true, /\index.case$/);
@@ -31,6 +33,10 @@ class Core {
 
     get config() {
         return this.configObject as IConfig;
+    }
+
+    get ref() {
+        return this.showcaseRef;
     }
 
     private getId(prefix: string, id?: string) {
@@ -98,10 +104,11 @@ class Core {
         });
     }
 
-    public initPlugins() {
+    public initPlugins(showcaseRef: Showcase) {
         /**
          * Initiating plugins
          */
+        this.showcaseRef = showcaseRef;
         if (this.config.plugins) {
             this.config.plugins.map(plugin => {
                 this.initPlugin(plugin);
