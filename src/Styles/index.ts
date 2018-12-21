@@ -103,7 +103,7 @@ export interface ThemeInterface {
     }
 }
 
-export const createStyles = (themeName?: themeName) => {
+export const createStyles = (themeName?: string) => {
     const theme = themeName ? themes[themeName] : themes['blackCurrant'];
     return {
         theme: theme,

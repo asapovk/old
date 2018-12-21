@@ -4,7 +4,7 @@ import React, { Component, Fragment } from 'react';
 interface ViewportProps {
     children?: any
     style?: any
-    theme?: themeName
+    theme?: string
     transparent?: true
 }
 

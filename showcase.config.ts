@@ -1,12 +1,12 @@
 import React from 'react';
-import SimplePlugin from './SimplePlugin';
-import NotSimplePlugin from './NotSimplePlugin';
-import CaseWrapper from './CaseWrapper';
+import ThemeChanger from './plugins/ThemeChanger';
+import HelloPlugin from './plugins/HelloPlugin';
+import caseWrapper from './plugins/caseWrapper';
 
 export default {
     plugins: [
-        SimplePlugin,
-        CaseWrapper,
-        NotSimplePlugin
+        ThemeChanger,
+        caseWrapper,
+        HelloPlugin
     ]
 };

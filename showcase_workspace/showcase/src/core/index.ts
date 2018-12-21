@@ -1,9 +1,11 @@
 import { IConfig, IPluginProps } from '../../types'
 import { ReactNode } from 'react';
+import React from 'react';
+import { Showcase } from 'interface/Showcase';
 import PluginRender from './plugins/pluginRender';
 import PanelRender from './plugins/panelRender';
-import caseWrapper from './plugins/caseWrapper';
-import { Showcase } from 'interface/Showcase';
+import wrapper from './plugins/wrapper';
+import wrapperProps from './plugins/wrapperProps';
 
 class Core {
     static instance: Core;
@@ -18,7 +20,8 @@ class Core {
     protected configObject: IConfig = {};
     protected generatedPluginsArray: any[] = [];
     protected generatedCasesObject: any = {};
-    protected showcaseRef: Showcase | null = null
+    protected showcaseRef: Showcase | null = null;
+    protected reactContext: any = React.createContext(null);
 
     constructor() {
         this.context = require['context']('../../../../cases', true, /\index.case$/);
@@ -38,6 +41,10 @@ class Core {
 
     get ref() {
         return this.showcaseRef;
+    }
+
+    get getReactContext() {
+        return this.reactContext;
     }
 
     private getId(prefix: string, id?: string) {
@@ -68,7 +75,9 @@ class Core {
             executer: plugin,
             render: (Node: ReactNode) => PluginRender(Node, selfContainer),
             panel: PanelRender,
-            caseWrapper: caseWrapper
+            wrapper: wrapper,
+            wrapperProps: wrapperProps,
+            context: this.reactContext
         };
 
         this.generatedPluginsArray.push(pluginObject);
@@ -79,7 +88,9 @@ class Core {
             selfContainer,
             render: pluginObject.render,
             panel: pluginObject.panel,
-            caseWrapper: pluginObject.caseWrapper
+            wrapper: pluginObject.wrapper,
+            wrapperProps: pluginObject.wrapperProps,
+            context: pluginObject.context
         });
     }
 

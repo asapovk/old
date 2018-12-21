@@ -11,7 +11,9 @@ export interface IPluginProps {
     selfContainer: HTMLElement
     render: (node: ReactNode) => void
     panel: (content: PanelRenderProps) => void
-    caseWrapper: (Wrapper: typeof React.Component) => void
+    wrapper: (Wrapper: typeof React.Component) => void,
+    wrapperProps: (wrapperProps: any) => void,
+    context: any
 }
 
 export interface PanelRenderProps {

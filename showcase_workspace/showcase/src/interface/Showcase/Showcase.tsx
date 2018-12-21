@@ -21,7 +21,8 @@ interface Showcase {
 			render: React.ReactNode
 		}[],
 		tools: React.ReactNode[],
-		Wrapper: typeof React.Component | null
+		Wrapper: typeof React.Component | null,
+		wrapperProps: any
 	}
 }
 
@@ -36,7 +37,8 @@ class Showcase extends React.Component {
 			render: React.ReactNode
 		}[],
 		tools: [] as React.ReactNode[],
-		Wrapper: null as typeof React.Component | null
+		Wrapper: null as typeof React.Component | null,
+		wrapperProps: {} as any
 	}
 
 	constructor(props) {
@@ -44,6 +46,7 @@ class Showcase extends React.Component {
 		this.changeCase = this.changeCase.bind(this);
 		this.handleContextMenu = this.handleContextMenu.bind(this);
 		this.addMenuData = this.addMenuData.bind(this);
+		this.addWrapperProps = this.addWrapperProps.bind(this);
 	}
 
 	private handleContextMenu = (event: MouseEvent) => {
@@ -78,6 +81,13 @@ class Showcase extends React.Component {
 		})
 	}
 
+	addWrapperProps(wrapperProps: any) {
+		console.log(wrapperProps);
+		this.setState({
+			wrapperProps: wrapperProps
+		})
+	}
+
 	componentWillUnmount() {
 		document.removeEventListener('contextmenu', this.handleContextMenu);
 	}
@@ -93,7 +103,13 @@ class Showcase extends React.Component {
 	render() {
 
 		const { isMenuOpen, CurrentCase } = this.state;
-
+		const Context = core.getReactContext
+		const ContextedCurrentCase = () => (
+			<Context.Provider value={{ wrapperProps: this.addWrapperProps }}>
+				<Panel items={this.state.items} tools={this.state.tools} />
+				<CurrentCase />
+			</Context.Provider>
+		)
 		const Wrapper = this.state.Wrapper
 
 		if (isMenuOpen) {
@@ -103,18 +119,12 @@ class Showcase extends React.Component {
 		}
 
 		if (Wrapper) return (
-			<Wrapper>
-				<Panel items={this.state.items} tools={this.state.tools} />
-				<CurrentCase />
+			<Wrapper {...this.state.wrapperProps}>
+				<ContextedCurrentCase />
 			</Wrapper>
 		)
 
-		return (
-			<>
-				<Panel items={this.state.items} tools={this.state.tools} />
-				<CurrentCase />
-			</>
-		)
+		return <ContextedCurrentCase />
 	}
 }
 
