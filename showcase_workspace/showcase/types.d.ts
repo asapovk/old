@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
+import React from 'react';
 
 export interface IConfig {
-    CaseWrapper?: any
     plugins?: ((props: IPluginProps) => void)[]
 }
 
@@ -11,6 +11,7 @@ export interface IPluginProps {
     selfContainer: HTMLElement
     render: (node: ReactNode) => void
     panel: (content: PanelRenderProps) => void
+    caseWrapper: (Wrapper: typeof React.Component) => void
 }
 
 export interface PanelRenderProps {

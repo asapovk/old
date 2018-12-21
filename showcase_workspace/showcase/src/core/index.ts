@@ -1,7 +1,8 @@
 import { IConfig, IPluginProps } from '../../types'
 import { ReactNode } from 'react';
-import PluginRender from './pluginRender';
-import PanelRender from './panelRender';
+import PluginRender from './plugins/pluginRender';
+import PanelRender from './plugins/panelRender';
+import caseWrapper from './plugins/caseWrapper';
 import { Showcase } from 'interface/Showcase';
 
 class Core {
@@ -66,7 +67,8 @@ class Core {
             id: pluginId,
             executer: plugin,
             render: (Node: ReactNode) => PluginRender(Node, selfContainer),
-            panel: PanelRender
+            panel: PanelRender,
+            caseWrapper: caseWrapper
         };
 
         this.generatedPluginsArray.push(pluginObject);
@@ -76,7 +78,8 @@ class Core {
             config: this.config,
             selfContainer,
             render: pluginObject.render,
-            panel: pluginObject.panel
+            panel: pluginObject.panel,
+            caseWrapper: pluginObject.caseWrapper
         });
     }
 

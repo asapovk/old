@@ -4,9 +4,9 @@ import NotSimplePlugin from './NotSimplePlugin';
 import CaseWrapper from './CaseWrapper';
 
 export default {
-    CaseWrapper,
     plugins: [
         SimplePlugin,
+        CaseWrapper,
         NotSimplePlugin
     ]
 };

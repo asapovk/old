@@ -20,7 +20,8 @@ interface Showcase {
 			name: string,
 			render: React.ReactNode
 		}[],
-		tools: React.ReactNode[]
+		tools: React.ReactNode[],
+		Wrapper: typeof React.Component | null
 	}
 }
 
@@ -34,7 +35,8 @@ class Showcase extends React.Component {
 			name: string,
 			render: React.ReactNode
 		}[],
-		tools: [] as React.ReactNode[]
+		tools: [] as React.ReactNode[],
+		Wrapper: null as typeof React.Component | null
 	}
 
 	constructor(props) {
@@ -70,6 +72,12 @@ class Showcase extends React.Component {
 		})
 	}
 
+	addWrapper(Wrapper: typeof React.Component) {
+		this.setState({
+			Wrapper: Wrapper
+		})
+	}
+
 	componentWillUnmount() {
 		document.removeEventListener('contextmenu', this.handleContextMenu);
 	}
@@ -85,18 +93,27 @@ class Showcase extends React.Component {
 	render() {
 
 		const { isMenuOpen, CurrentCase } = this.state;
-		const CaseWrapper = core.config.CaseWrapper || React.Fragment;
+
+		const Wrapper = this.state.Wrapper
 
 		if (isMenuOpen) {
 			return (
 				<Menu cases={core.cases} onChange={this.changeCase} />
 			)
 		}
-		return (
-			<CaseWrapper>
+
+		if (Wrapper) return (
+			<Wrapper>
 				<Panel items={this.state.items} tools={this.state.tools} />
 				<CurrentCase />
-			</CaseWrapper>
+			</Wrapper>
+		)
+
+		return (
+			<>
+				<Panel items={this.state.items} tools={this.state.tools} />
+				<CurrentCase />
+			</>
 		)
 	}
 }

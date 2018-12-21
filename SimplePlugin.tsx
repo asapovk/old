@@ -2,15 +2,13 @@ import React from 'react';
 import { IPluginProps } from './showcase_workspace/showcase/types'
 
 function SimplePlugin(props: IPluginProps) {
-    props.render(
-        <div style={{ position: "absolute", background: "red", color: "white" }}>Hello world.</div>
-    )
     props.panel({
-        item: {
-            name: 'Simple',
-            render: <div>Simple</div>
-        }
+        tool: <ThemeSwitch />
     })
+}
+
+function ThemeSwitch(props) {
+    return <select></select>
 }
 
 export default SimplePlugin;
