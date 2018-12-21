@@ -22,7 +22,7 @@ class FinderStory extends React.Component {
     }
     render() {
         return (
-            <Viewport>
+            
                 <Flexbox alignContent="center" justifyContent="center">
                     <Finder filter filterPlaceholder='search something'>
                         <FinderNav label="Пользователь" filter badge={this.state.checkedNames.length}>
@@ -60,7 +60,7 @@ class FinderStory extends React.Component {
                         </FinderNav>
                     </Finder>
                 </Flexbox>
-            </Viewport>
+            
         )
     }
 }

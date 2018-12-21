@@ -5,7 +5,7 @@ import '../../../src/Styles/scss/main.scss';
 export default class Story extends React.Component {
     render() {
         return (
-            <Viewport>
+            
                 <div style={{ padding: "0 40px" }}>
                     <Tabs>
                         <Tab label="Добавление" icon="add">
@@ -19,7 +19,7 @@ export default class Story extends React.Component {
                         </Tab>
                     </Tabs>
                 </div>
-            </Viewport>
+            
         )
     }
 }

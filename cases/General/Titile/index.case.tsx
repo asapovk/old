@@ -8,7 +8,7 @@ class TitleStory extends React.Component {
     }
     render() {
         return (
-            <Viewport>
+            
                 <Fragment>
                     <Flexbox p={40}>
                         <Title>Простой заголовок</Title>
@@ -22,7 +22,7 @@ class TitleStory extends React.Component {
                         />
                     </Flexbox>
                 </Fragment>
-            </Viewport>
+            
         )
     }
 }

@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import { Flexbox, Viewport } from '../../../src';
+import { Flexbox } from '../../../src';
 import SmorodinaLogo from '../../../src/logos/smorodina';
 import MrgLogo from '../../../src/logos/mrg';
 import AbrLogo from '../../../src/logos/abr';
@@ -41,43 +41,41 @@ export default () => {
     }
 
     return (
-        <Viewport>
-            <Scene
-                title={title}
-                config={{
-                    newPasswordsMinLength: 8,
-                }}
-                components={{
-                    logo: logo,
-                    right: rightComponent
-                }}
-                onLogin={async (login, password) => {
-                    return new Promise((resolve, reject) => {
-                        setTimeout(() => {
-                            reject({
-                                ok: false,
-                                message: "Не верный логин или пароль"
-                            })
-                        }, 1000);
-                    }) as any;
-                }}
-                onRegister={async (login, password) => {
-                    return {
-                        ok: false,
-                        message: 'Ха-ха, я знаю твой пароль ' + password
-                    }
-                }}
-                footerActions={[
-                    {
-                        title: "Оплатить услуги газоснабжения",
-                        icon: "settings"
-                    },
-                    {
-                        title: "Передать показания",
-                        icon: "clock"
-                    }
-                ]}
-            />
-        </Viewport>
+        <Scene
+            title={title}
+            config={{
+                newPasswordsMinLength: 8,
+            }}
+            components={{
+                logo: logo,
+                right: rightComponent
+            }}
+            onLogin={async (login, password) => {
+                return new Promise((resolve, reject) => {
+                    setTimeout(() => {
+                        reject({
+                            ok: false,
+                            message: "Не верный логин или пароль"
+                        })
+                    }, 1000);
+                }) as any;
+            }}
+            onRegister={async (login, password) => {
+                return {
+                    ok: false,
+                    message: 'Ха-ха, я знаю твой пароль ' + password
+                }
+            }}
+            footerActions={[
+                {
+                    title: "Оплатить услуги газоснабжения",
+                    icon: "settings"
+                },
+                {
+                    title: "Передать показания",
+                    icon: "clock"
+                }
+            ]}
+        />
     )
 }

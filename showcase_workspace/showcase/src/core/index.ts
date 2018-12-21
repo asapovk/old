@@ -1,5 +1,4 @@
 import { IConfig, IPluginProps } from '../../types'
-import { ReactNode } from 'react';
 import React from 'react';
 import { Showcase } from 'interface/Showcase';
 import PluginRender from './plugins/pluginRender';
@@ -73,7 +72,7 @@ class Core {
         const pluginObject = {
             id: pluginId,
             executer: plugin,
-            render: (Node: ReactNode) => PluginRender(Node, selfContainer),
+            render: (Body: () => JSX.Element) => PluginRender(Body, selfContainer),
             panel: PanelRender,
             wrapper: wrapper,
             wrapperProps: wrapperProps,

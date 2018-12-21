@@ -7,7 +7,7 @@ export default () => {
     const [active, setActive] = useState(0);
 
     return (
-        <Viewport>
+        
             <div style={{ padding: 20, width: 320 }}>
                 <div>
                     <Card
@@ -37,6 +37,6 @@ export default () => {
                     />
                 </div>
             </div>
-        </Viewport>
+        
     )
 }

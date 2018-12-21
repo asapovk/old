@@ -6,7 +6,7 @@ class ChartStory extends React.Component {
 
     render() {
         return (
-            <Viewport>
+            
                 <Flexbox pr={40} pl={40} pb={40}>
                     <Chart
                         labels={['Январь', 'Февраль', 'March', 'April', 'May', 'June', 'Декабрь']}
@@ -25,7 +25,7 @@ class ChartStory extends React.Component {
                         ]}
                     />
                 </Flexbox>
-            </Viewport>
+            
         )
     }
 }

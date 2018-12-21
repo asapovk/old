@@ -30,7 +30,7 @@ export default () => {
     }
 
     return (
-        <Viewport>
+        
             <Fragment>
                 <Menu
                     header={<Header />}
@@ -55,6 +55,6 @@ export default () => {
                     ]}
                 />
             </Fragment>
-        </Viewport>
+        
     )
 }

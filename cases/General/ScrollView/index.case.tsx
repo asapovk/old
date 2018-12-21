@@ -6,7 +6,7 @@ import '../../../src/Styles/scss/main.scss';
 export default () => {
     const { theme } = useTheme();
     return (
-        <Viewport>
+        
             <ScrollView>
                 <div
                     style={{
@@ -32,6 +32,6 @@ export default () => {
                     )}
                 />
             </ScrollView>
-        </Viewport>
+        
     )
 }

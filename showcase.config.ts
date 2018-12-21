@@ -1,12 +1,11 @@
-import React from 'react';
-import ThemeChanger from './plugins/ThemeChanger';
-import HelloPlugin from './plugins/HelloPlugin';
+import themeChanger from './plugins/themeChanger';
+import panelPlugin from './plugins/panelPlugin';
 import caseWrapper from './plugins/caseWrapper';
 
 export default {
     plugins: [
-        ThemeChanger,
+        themeChanger,
         caseWrapper,
-        HelloPlugin
+        panelPlugin
     ]
 };

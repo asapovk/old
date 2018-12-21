@@ -1,5 +1,6 @@
 .showcase-welcome {
-    all: unset;
+    all: initial;
+    font-family: 'Courier New', Courier, monospace;
     position: absolute;
     top: 0;
     bottom: 0;
@@ -14,18 +15,9 @@
     background: black;
 }
 
-.showcase-panel {
-    height: 48px;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: white;
-    position: absolute;
-    z-index: 999;
-}
-
 .showcase-menu {
-    all: unset;
+    all: initial;
+    font-family: 'Courier New', Courier, monospace;
     position: absolute;
     top: 0;
     bottom: 0;
@@ -36,6 +28,7 @@
     justify-content: center;
     text-align: center; 
     flex-direction: column;
+    overflow: scroll;
 }
 
 .showcase-menu-content {
@@ -51,7 +44,6 @@
 }
 
 .showcase-menu-content-group-name {
-    all: unset;
     font-weight: bold;
     display: block;
     border-bottom: 1px solid black;
@@ -59,7 +51,6 @@
 }
 
 .showcase-menu-content-group-item {
-    all: unset;
     cursor: pointer;
     display: block;
     margin-bottom: 8px;

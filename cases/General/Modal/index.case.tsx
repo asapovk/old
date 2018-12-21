@@ -7,7 +7,7 @@ export default class Story extends React.Component {
 
     render() {
         return (
-            <Viewport>
+            
                 <Flexbox alignContent="center" justifyContent="center">
                     <Modal title="Модальное окно" subtitle={"Нажмите close"} ref={ref => this.modal = ref}>
                         <Flexbox justifyContent="center">
@@ -16,7 +16,7 @@ export default class Story extends React.Component {
                     </Modal>
                     <Button onClick={() => this.modal.open()}>Open</Button>
                 </Flexbox>
-            </Viewport>
+            
         )
     }
 }

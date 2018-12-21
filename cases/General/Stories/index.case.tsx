@@ -4,7 +4,7 @@ import '../../../src/Styles/scss/main.scss';
 
 export default () => {
     return (
-        <Viewport>
+        
             <Flexbox>
                 <Stories title='Рекомендуем' stories={[{
                     label: 'Лень передавать показания?',
@@ -40,6 +40,6 @@ export default () => {
                     }]
                 }]} />
             </Flexbox>
-        </Viewport>
+        
     )
 }

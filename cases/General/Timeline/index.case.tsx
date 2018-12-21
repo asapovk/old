@@ -19,7 +19,7 @@ export default () => {
     }];
 
     return (
-        <Viewport>
+        
             <Flexbox p={40}>
                 <Timeline
                     dots={dots}
@@ -27,6 +27,6 @@ export default () => {
                     rightTitle='10 октября'
                 />
             </Flexbox>
-        </Viewport>
+        
     )
 }

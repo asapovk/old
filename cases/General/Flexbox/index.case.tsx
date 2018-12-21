@@ -6,7 +6,7 @@ class FlexboxStory extends React.Component {
 
     render() {
         return (
-            <Viewport>
+            
                 <div style={{ padding: "0 40px" }}>
                     <Flexbox style={{ border: "10px solid #000" }}>
                         <Flexbox justifyContent="center" style={{ background: "white" }} flex={1}>
@@ -82,7 +82,7 @@ class FlexboxStory extends React.Component {
                     </Flexbox>
                     <br />
                 </div>
-            </Viewport>
+            
         )
     }
 }

@@ -9,7 +9,7 @@ export interface IPluginProps {
     cases: any
     config: any
     selfContainer: HTMLElement
-    render: (node: ReactNode) => void
+    render: (Body: React.SFC<{}>) => void
     panel: (content: PanelRenderProps) => void
     wrapper: (Wrapper: typeof React.Component) => void,
     wrapperProps: (wrapperProps: any) => void,
@@ -18,10 +18,10 @@ export interface IPluginProps {
 
 export interface PanelRenderProps {
     item?: PanelRenderItem,
-    tool?: React.ReactNode
+    tool?: React.SFC<{}>
 }
 
 export interface PanelRenderItem {
     name: string,
-    render: React.ReactNode
+    render: React.SFC<{}>
 }

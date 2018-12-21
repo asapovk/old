@@ -8,7 +8,7 @@ export default class Story extends React.Component {
     }
     render() {
         return (
-            <Viewport>
+            
                 <Flexbox p={40} alignItems="flex-end">
                     <div>
                         <Badge value={this.state.textFieldBadge} top={0}>
@@ -44,7 +44,7 @@ export default class Story extends React.Component {
                     </div>
 
                 </Flexbox>
-            </Viewport>
+            
 
         )
     }

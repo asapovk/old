@@ -9,13 +9,13 @@ interface PopupStory {
 class PopupStory extends React.Component {
     render() {
         return (
-            <Viewport>
+            
                 <Flexbox alignContent="center" justifyContent="center">
                     <Popup trigger={<Button label='Call Tooltip'></Button>}>
                         <a>Hello</a>
                     </Popup>
                 </Flexbox>
-            </Viewport>
+            
         )
 
     }

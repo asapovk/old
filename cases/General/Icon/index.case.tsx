@@ -24,11 +24,11 @@ export default class Story extends React.Component {
             Row.push(element);
         })
         return (
-            <Viewport>
+            
                 <Flexbox column alignItems="stretch" flex={1} pr={40} pl={40}>
                     {Rows.map(Row => <Flexbox justifyContent="center">{Row}</Flexbox>)}
                 </Flexbox>
-            </Viewport>
+            
         );
     }
 }

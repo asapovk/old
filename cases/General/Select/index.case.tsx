@@ -25,7 +25,7 @@ class SelectStory extends React.Component {
 
     render() {
         return (
-            <Viewport>
+            
                 <Fragment>
                     <Select
                         label='Multiselect'
@@ -51,7 +51,7 @@ class SelectStory extends React.Component {
                         onChange={(value) => console.log('Singe', value)}
                     />
                 </Fragment>
-            </Viewport>
+            
         )
     }
 }

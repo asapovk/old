@@ -1,44 +1,33 @@
 import * as React from "react";
 import core from '../../core';
 import { Menu } from '../Menu';
-import { Panel } from '../Panel'
+import { Panel } from '../Panel';
+import { Welcome } from '../Welcome';
 
-const Welcome = () => (
-	<div className='showcase-welcome'>
-		<h1>The Showcase</h1>
-		<p>Make the Right click by you're mouse to select a case</p>
-	</div>
-);
-
-
-interface Showcase {
-	state: {
-		CurrentCase: any
-		isMenuOpen: boolean,
-		items: {
-			id: string
-			name: string,
-			render: React.ReactNode
-		}[],
-		tools: React.ReactNode[],
-		Wrapper: typeof React.Component | null,
-		wrapperProps: any
-	}
+interface State {
+	CurrentCase: React.SFC<{}>
+	isMenuOpen: boolean,
+	items: {
+		id: string
+		name: string,
+		render: React.SFC<{}>
+	}[],
+	tools: React.SFC<{}>[],
+	Wrapper: typeof React.Component | null,
+	wrapperProps: any,
+	context: any
 }
 
-class Showcase extends React.Component {
+class Showcase extends React.Component<{}, State>  {
 
-	state = {
-		CurrentCase: Welcome as any,
+	state: Readonly<State> = {
+		CurrentCase: Welcome,
 		isMenuOpen: false,
-		items: [] as {
-			id: string
-			name: string,
-			render: React.ReactNode
-		}[],
-		tools: [] as React.ReactNode[],
-		Wrapper: null as typeof React.Component | null,
-		wrapperProps: {} as any
+		items: [],
+		tools: [],
+		Wrapper: null,
+		wrapperProps: {},
+		context: {}
 	}
 
 	constructor(props) {
@@ -46,7 +35,7 @@ class Showcase extends React.Component {
 		this.changeCase = this.changeCase.bind(this);
 		this.handleContextMenu = this.handleContextMenu.bind(this);
 		this.addMenuData = this.addMenuData.bind(this);
-		this.addWrapperProps = this.addWrapperProps.bind(this);
+		this.setContext = this.setContext.bind(this);
 	}
 
 	private handleContextMenu = (event: MouseEvent) => {
@@ -67,6 +56,12 @@ class Showcase extends React.Component {
 		}
 	};
 
+	setContext(newContext) {
+		this.setState({
+			context: newContext
+		})
+	}
+
 	addMenuData(item, tool) {
 		if (item) item = Object.assign(item, { id: Math.trunc(Math.random() * 99999999).toString() })
 		this.setState({
@@ -78,13 +73,6 @@ class Showcase extends React.Component {
 	addWrapper(Wrapper: typeof React.Component) {
 		this.setState({
 			Wrapper: Wrapper
-		})
-	}
-
-	addWrapperProps(wrapperProps: any) {
-		console.log(wrapperProps);
-		this.setState({
-			wrapperProps: wrapperProps
 		})
 	}
 
@@ -102,15 +90,8 @@ class Showcase extends React.Component {
 
 	render() {
 
-		const { isMenuOpen, CurrentCase } = this.state;
-		const Context = core.getReactContext
-		const ContextedCurrentCase = () => (
-			<Context.Provider value={{ wrapperProps: this.addWrapperProps }}>
-				<Panel items={this.state.items} tools={this.state.tools} />
-				<CurrentCase />
-			</Context.Provider>
-		)
-		const Wrapper = this.state.Wrapper
+		const { isMenuOpen, CurrentCase, items, tools, Wrapper, context } = this.state;
+		const Context = core.getReactContext;
 
 		if (isMenuOpen) {
 			return (
@@ -119,12 +100,18 @@ class Showcase extends React.Component {
 		}
 
 		if (Wrapper) return (
-			<Wrapper {...this.state.wrapperProps}>
-				<ContextedCurrentCase />
-			</Wrapper>
+			<Context.Provider value={{ ...context, setContext: this.setContext }}>
+				<Panel items={items} tools={tools} />
+				<Wrapper><CurrentCase /></Wrapper>
+			</Context.Provider>
 		)
 
-		return <ContextedCurrentCase />
+		return (
+			<Context.Provider value={{ ...context, setContext: this.setContext }}>
+				<Panel items={items} tools={tools} />
+				<CurrentCase />
+			</Context.Provider>
+		)
 	}
 }
 
