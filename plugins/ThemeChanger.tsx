@@ -23,10 +23,18 @@ class ThemeSwitch extends React.Component {
         }
     }
 
+    changeTheme(theme) {
+        this.setState({
+            theme: theme
+        })
+        this.context.changeTheme(theme)
+    }
+
+
     render() {
         return (
             <select
-                onChange={(event) => { this.context.changeTheme(event.target.value) }}
+                onChange={(event) => { this.changeTheme(event.target.value) }}
                 value={this.state.theme}
             >
                 <option value="blackCurrant">Черная смородина</option>
