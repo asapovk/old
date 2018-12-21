@@ -17,11 +17,22 @@ export default () => {
             borderRightColor: theme.pale.hex,
             '@media (max-width: 1023px)': {
                 paddingTop: 64,
+            },
+            '@media (max-width: 768px)': {
+                width: '100%'
             }
         }),
         $sideScroll: {
             padding: 20
         },
+        main: css({
+            flex: 1,
+            height: "100%",
+            position: "relative",
+            '@media (max-width: 768px)': {
+                display: 'none'
+            }
+        }),
         menuMobile: css({
             position: 'absolute',
             left: 0,
