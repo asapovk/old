@@ -12,7 +12,6 @@ export interface IPluginProps {
     render: (Body: React.SFC<{}>) => void
     panel: (content: PanelRenderProps) => void
     wrapper: (Wrapper: typeof React.Component) => void,
-    wrapperProps: (wrapperProps: any) => void,
     context: any
 }
 

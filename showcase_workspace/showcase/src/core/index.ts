@@ -4,7 +4,6 @@ import { Showcase } from 'interface/Showcase';
 import PluginRender from './plugins/pluginRender';
 import PanelRender from './plugins/panelRender';
 import wrapper from './plugins/wrapper';
-import wrapperProps from './plugins/wrapperProps';
 
 class Core {
     static instance: Core;
@@ -75,7 +74,6 @@ class Core {
             render: (Body: () => JSX.Element) => PluginRender(Body, selfContainer),
             panel: PanelRender,
             wrapper: wrapper,
-            wrapperProps: wrapperProps,
             context: this.reactContext
         };
 
@@ -88,7 +86,6 @@ class Core {
             render: pluginObject.render,
             panel: pluginObject.panel,
             wrapper: pluginObject.wrapper,
-            wrapperProps: pluginObject.wrapperProps,
             context: pluginObject.context
         });
     }
