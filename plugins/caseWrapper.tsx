@@ -34,15 +34,6 @@ class Wrapper extends React.Component {
         })
     }
 
-    componentWillReceiveProps() {
-        const theme = this.context.theme;
-        if (theme) {
-            this.setState({
-                theme: theme
-            })
-        }
-    }
-
     render() {
         return (
             <Viewport theme={this.state.theme}>{this.props.children}</Viewport>

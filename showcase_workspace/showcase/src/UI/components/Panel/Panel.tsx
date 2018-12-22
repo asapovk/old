@@ -26,26 +26,26 @@ class Panel extends React.Component<PanelProps> {
   }
 
   componentWillMount() {
-    let isUp = localStorage.getItem('panelIsUp');
+    let isUp = localStorage.getItem('isPanelOnTop');
     this.setState({
-      isUp: isUp && (/true/i).test(isUp)
+      isPanelOnTop: isUp && (/true/i).test(isUp)
     })
   }
 
-  createPluginMenu(plugins: PanelItem[]) {
-    if (!plugins.length) return null
-    return plugins.map(plugin => (
+  createMenu(items: PanelItem[]) {
+    if (!items.length) return null
+    return items.map(item => (
       <MenuItem
-        key={plugin.id}
-        active={this.state.activePluginID === plugin.id}
+        key={item.id}
+        active={this.state.activePluginID === item.id}
         onChoose={this.changeActivePlugin}
-        label={plugin.name}
-        id={plugin.id}
+        label={item.name}
+        id={item.id}
       />
     ))
   }
 
-  createToolsMenu(tools: React.SFC<{}>[]) {
+  createToolbar(tools: React.SFC<{}>[]) {
     if (!tools.length) return null
     return tools.map(Tool => (
       <div
@@ -69,7 +69,7 @@ class Panel extends React.Component<PanelProps> {
 
   movePanel() {
     const next = !this.state.isPanelOnTop;
-    localStorage.setItem('panelIsUp', next.toString());
+    localStorage.setItem('isPanelOnTop', next.toString());
     this.setState({ isPanelOnTop: next });
   }
 
@@ -86,10 +86,10 @@ class Panel extends React.Component<PanelProps> {
       <div className={className}>
         <div className='showcase-panel-menu'>
           <div className='showcase-panel-menu-items'>
-            {items && this.createPluginMenu(items)}
+            {this.createMenu(items)}
           </div>
           <div className='showcase-panel-menu-toolbar'>
-            {this.createToolsMenu(tools)}
+            {this.createToolbar(tools)}
             <div
               className='showcase-panel-menu-toolbar-item'
               onClick={() => this.movePanel()}

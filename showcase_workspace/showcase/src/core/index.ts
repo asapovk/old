@@ -1,9 +1,6 @@
 import { IConfig, IPluginProps } from '../../types'
 import React from 'react';
-import { Showcase } from 'interface/Showcase';
-import PluginRender from './plugins/pluginRender';
-import PanelRender from './plugins/panelRender';
-import wrapper from './plugins/wrapper';
+import PluginRender from './pluginRender';
 
 class Core {
     static instance: Core;
@@ -18,7 +15,7 @@ class Core {
     protected configObject: IConfig = {};
     protected generatedPluginsArray: any[] = [];
     protected generatedCasesObject: any = {};
-    protected showcaseRef: Showcase | null = null;
+    protected userInterface: any;
     protected reactContext: any = React.createContext(null);
 
     constructor() {
@@ -37,15 +34,15 @@ class Core {
         return this.configObject as IConfig;
     }
 
-    get ref() {
-        return this.showcaseRef;
+    get UI() {
+        return this.userInterface;
     }
 
     get getReactContext() {
         return this.reactContext;
     }
 
-    private getId(prefix: string, id?: string) {
+    public getId(prefix: string, id?: string) {
         let uniqueId = "";
         if (id) {
             id.split("").forEach(char => {
@@ -72,8 +69,8 @@ class Core {
             id: pluginId,
             executer: plugin,
             render: (Body: () => JSX.Element) => PluginRender(Body, selfContainer),
-            panel: PanelRender,
-            wrapper: wrapper,
+            panel: this.userInterface.addOnPanel,
+            wrapper: this.userInterface.setWrapper,
             context: this.reactContext
         };
 
@@ -90,7 +87,7 @@ class Core {
         });
     }
 
-    public init() {
+    public init(UI: any) {
         /**
          * Generate cases
          */
@@ -112,13 +109,11 @@ class Core {
                 }
             });
         });
-    }
 
-    public initPlugins(showcaseRef: Showcase) {
         /**
          * Initiating plugins
          */
-        this.showcaseRef = showcaseRef;
+        this.userInterface = UI;
         if (this.config.plugins) {
             this.config.plugins.map(plugin => {
                 this.initPlugin(plugin);
