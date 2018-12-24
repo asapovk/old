@@ -26,9 +26,9 @@ class Panel extends React.Component<PanelProps> {
   }
 
   componentWillMount() {
-    let isUp = localStorage.getItem('isPanelOnTop');
+    let onTop = localStorage.getItem('isPanelOnTop');
     this.setState({
-      isPanelOnTop: isUp && (/true/i).test(isUp)
+      isPanelOnTop: onTop && (/true/i).test(onTop)
     })
   }
 
@@ -57,7 +57,10 @@ class Panel extends React.Component<PanelProps> {
     ))
   }
 
-  getBody() {
+  getBody(activePluginID) {
+    const body = this.props.items.find(item => item.id === activePluginID);
+    console.log(body);
+    if (body) return <body.render />;
     return null;
   }
 
@@ -76,6 +79,7 @@ class Panel extends React.Component<PanelProps> {
   render() {
 
     const { items, tools } = this.props;
+    const { isPanelOnTop, activePluginID } = this.state;
 
     let className = 'showcase-panel';
     if (this.state.isPanelOnTop) className += ' showcase-panel-up';
@@ -93,10 +97,17 @@ class Panel extends React.Component<PanelProps> {
             <div
               className='showcase-panel-menu-toolbar-item'
               onClick={() => this.movePanel()}
-            >{this.state.isPanelOnTop ? '[↓]' : '[↑]'}</div>
+            >{isPanelOnTop ? '↓' : '↑'}</div>
+            {activePluginID
+              ? <div
+                className='showcase-panel-menu-toolbar-item'
+                onClick={() => this.setState({ activePluginID: null })}
+              >X</div>
+              : null}
           </div>
         </div>
-        <div className='showcase-panel-body'>{this.getBody()}</div>
+        {activePluginID
+          && <div className='showcase-panel-body'>{this.getBody(activePluginID)}</div>}
       </div>
     )
   }
