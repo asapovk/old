@@ -57,7 +57,8 @@ const compiler = Webpack({
 
 const server = new WebpackDevServer(
     compiler, {
-        contentBase: __dirname + "/../../public"
+        contentBase: __dirname + "/../../public",
+        hot: true
     }
 );
 

@@ -1,3 +1,6 @@
+/** @jsx jsx */
+import { jsx } from '@emotion/core';
+import useStyles from './useStyles';
 import React from 'react';
 import { Spin, Icon, Flexbox, Styles } from '../index';
 import { defaults } from 'chart.js';
@@ -72,83 +75,77 @@ const chartTypes: any = {
         pointHoverBorderWidth: 1,
     })
 }
-class Chart extends React.Component<Props> {
-    render() {
-        const { labels, data, responsive, type, tension, loading, style, legendDisplay } = this.props;
+export default (props: Props) => {
 
-        defaults.global.defaultFontSize = 14;
+    const { labels, data, responsive, type, tension, loading, style, legendDisplay } = props;
+    const styles = useStyles();
+    console.log(styles);
+    defaults.global.defaultFontSize = 14;
 
-        const chartData = (style) => {
-            return {
-                labels: labels,
-                datasets: data.map(item => {
-                    return {
-                        label: item.title,
-                        data: item.values,
-                        ...chartTypes[type || 'default'](item, style),
-                    }
-                })
-            }
-        };
+    const chartData = (style) => {
+        return {
+            labels: labels,
+            datasets: data.map(item => {
+                return {
+                    label: item.title,
+                    data: item.values,
+                    ...chartTypes[type || 'default'](item, style),
+                }
+            })
+        }
+    };
 
-        return (
-            <Styles>
-                {styles => (
-                    <Flexbox column flex={1} justifyContent="center" className="ui-chart" style={style}>
-                        {loading ? (
-                            <Flexbox column className="ui-chart-loading" alignItems="center" alignSelf="center" justifyContent="center">
-                                <Spin>
-                                    <Icon type="sync" />
-                                </Spin>
-                                {typeof loading === "string" && <div className="ui-chart-loadingtext" style={{ color: styles.widget.lowlight }}>{loading}</div>}
-                            </Flexbox>
-                        ) :
-                            <Line data={chartData(styles.chart)} options={{
-                                responsive: responsive !== undefined ? responsive : true,
-                                animation: this.props.noAnimation ? (false as any) : {
-                                    animateScale: true,
-                                    duration: this.props.animationDuration || 1000,
-                                    onComplete: this.props.onAnimationComplete,
-                                    onProgress: this.props.onAnimationProgress
-                                },
-                                scales: {
-                                    xAxes: [{
-                                        display: true,
-                                        gridLines: {
-                                            color: styles.chart.accent,
-                                            lineWidth: 0.2,
-                                        },
-                                        ticks: {
-                                            beginAtZero: true,
-                                            fontColor: styles.chart.chartTextColor
-                                        }
-                                    }],
-                                    yAxes: [{
-                                        display: true,
+    return (
+        <Flexbox column flex={1} justifyContent="center" css={styles.main} style={style}>
+            {loading ? (
+                <Flexbox column css={styles.loading} alignItems="center" alignSelf="center" justifyContent="center">
+                    <Spin>
+                        <Icon type="sync" />
+                    </Spin>
+                    {typeof loading === "string" && <div css={styles.loadingtext} style={{ color: styles.lowlight }}>{loading}</div>}
+                </Flexbox>
+            ) :
+                <Line data={chartData(styles)} options={{
+                    responsive: responsive !== undefined ? responsive : true,
+                    animation: props.noAnimation ? (false as any) : {
+                        animateScale: true,
+                        duration: props.animationDuration || 1000,
+                        onComplete: props.onAnimationComplete,
+                        onProgress: props.onAnimationProgress
+                    },
+                    scales: {
+                        xAxes: [{
+                            display: true,
+                            gridLines: {
+                                color: styles.accent,
+                                lineWidth: 0.2,
+                            },
+                            ticks: {
+                                beginAtZero: true,
+                                fontColor: styles.chartTextColor
+                            }
+                        }],
+                        yAxes: [{
+                            display: true,
 
-                                        gridLines: {
-                                            color: styles.chart.accent,
-                                            lineWidth: 0.2,
-                                        },
-                                        ticks: {
-                                            beginAtZero: true,
-                                            fontColor: styles.chart.chartTextColor
-                                        }
-                                    }],
-                                },
-                                legend: {
-                                    display: legendDisplay !== undefined ? legendDisplay : true,
-                                    labels: {
-                                        fontColor: styles.chart.chartTextColor
-                                    }
-                                }
-                            }} />
+                            gridLines: {
+                                color: styles.accent,
+                                lineWidth: 0.2,
+                            },
+                            ticks: {
+                                beginAtZero: true,
+                                fontColor: styles.chartTextColor
+                            }
+                        }],
+                    },
+                    legend: {
+                        display: legendDisplay !== undefined ? legendDisplay : true,
+                        labels: {
+                            fontColor: styles.chartTextColor
                         }
-                    </Flexbox>
-                )}
-            </Styles>
-        );
-    }
+                    }
+                }} />
+            }
+        </Flexbox>
+    );
 }
-
-export default Chart;
