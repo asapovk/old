@@ -121,7 +121,8 @@ class Core {
         }
     }
 
-    public getCaseById(id: string, cases?: any) {
+    public getCaseById(id: string | null, cases?: any) {
+        if (!id) return null;
         if (!cases) {
             cases = this.cases;
         }

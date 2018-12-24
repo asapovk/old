@@ -44,10 +44,10 @@ class UI extends React.Component<{}, State>  {
 			addOnPanel: this.addOnPanel
 		});
 		document.addEventListener('contextmenu', this.handleContextMenu);
-		const id = localStorage.getItem('currentCaseID');
-		if (id) {
+		const Case = core.getCaseById(localStorage.getItem('currentCaseID'));
+		if (Case) {
 			this.setState({
-				CurrentCase: core.getCaseById(id)
+				CurrentCase: Case
 			});
 		}
 	};

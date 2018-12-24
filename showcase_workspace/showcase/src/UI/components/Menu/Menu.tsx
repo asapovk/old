@@ -1,4 +1,5 @@
 import * as React from "react";
+import { Welcome } from '../Welcome'
 
 export interface MenuProps {
   cases: any,
@@ -34,7 +35,7 @@ export default class Menu extends React.Component<MenuProps> {
   render() {
     return (
       <div className='showcase-menu'>
-        <h1>Show cases</h1>
+        <h1 onClick={() => this.props.onChange(Welcome, 'null')}>The Showcase</h1>
         <div className='showcase-menu-content'>
           {this.casesList(this.props.cases)}
         </div>
