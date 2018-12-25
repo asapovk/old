@@ -44,7 +44,6 @@
     "showcase": "node ./showcase_workspace/showcase/.bin/cli/start"
   },
   "dependencies": {
-    "@emotion/babel-preset-css-prop": "^10.0.5",
     "@emotion/core": "^10.0.4",
     "chart.js": "^2.7.3",
     "react-chartjs-2": "^2.7.4",

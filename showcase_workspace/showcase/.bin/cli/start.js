@@ -5,11 +5,16 @@ const config = require("../../webpack.config.ts");
 const webpack = require("webpack");
 const webpackDevServer = require('webpack-dev-server');
 
-config.entry.app.unshift("webpack-dev-server/client?http://localhost:9050/", "webpack/hot/dev-server");
-const compiler = webpack(config);
-const server = new webpackDevServer(compiler, {
+const options = {
     hot: true,
+    host: 'localhost',
     contentBase: __dirname + "/../../public"
-});
+}
 
-server.listen(9050);
+webpackDevServer.addDevServerEntrypoints(config, options);
+const compiler = webpack(config);
+const server = new webpackDevServer(compiler, options);
+
+server.listen(9050, 'localhost', () => {
+    console.log('dev server listening on port 9050');
+});
