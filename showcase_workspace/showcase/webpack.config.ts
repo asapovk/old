@@ -16,10 +16,7 @@ module.exports = {
 
     resolve: {
         // Add '.ts' and '.tsx' as resolvable extensions.
-        extensions: [".ts", ".tsx", ".js", ".json"],
-        alias: {
-            'webpack-dev-server/client': path.resolve(__dirname + '/node_modules/webpack-dev-server/client')
-        },
+        extensions: [".ts", ".tsx", ".js", ".json"]
     },
 
     module: {
