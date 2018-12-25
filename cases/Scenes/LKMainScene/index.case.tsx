@@ -1,14 +1,13 @@
 import React from 'react';
 import Scene from '../../../src/scenes/LKMainScene';
 import useTheme from '../../../src/hooks/useTheme';
-import useBrowser from '../../../src/hooks/useBrowser';
 import SmoLogo from '../../../src/logos/smorodina';
 import AbrLogo from '../../../src/logos/abr';
 import MrgLogo from '../../../src/logos/mrg';
 import '../../../src/Styles/scss/main.scss';
 
 import SideMenu from './SideMenu';
-import SideBottom from './MainTop';
+import SideBottom from './SideBottom';
 import Menu from './Menu';
 import Main from './Main';
 import MainTop from './MainTop';

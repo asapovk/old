@@ -29,13 +29,10 @@ export default (props: IProps) => {
                 <div css={styles.side}>
                     <ScrollView customCss={styles.$sideScroll}>
                         {props.components.side}
+                        {props.components.sideBottom}
                     </ScrollView>
                 </div>
-                <div style={{
-                    flex: 1,
-                    height: "100%",
-                    position: "relative",
-                }}>
+                <div css={styles.main}>
                     <ScrollView customCss={styles.$mainScroll}>
                         {props.components.mainTop}
                         {props.components.main}
