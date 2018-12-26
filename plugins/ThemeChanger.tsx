@@ -1,5 +1,5 @@
 import React from 'react';
-import { IPluginProps } from '../showcase_workspace/showcase/types'
+import { IPluginProps } from 'showcase-ui/types'
 
 function SimplePlugin(props: IPluginProps) {
     ThemeSwitch.contextType = props.context;

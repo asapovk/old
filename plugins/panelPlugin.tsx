@@ -1,5 +1,5 @@
 import React from 'react';
-import { IPluginProps } from '../showcase_workspace/showcase/types'
+import { IPluginProps } from 'showcase-ui/types'
 
 function PanelPlugin(props: IPluginProps) {
     props.panel({

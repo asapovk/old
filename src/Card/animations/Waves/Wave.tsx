@@ -1,6 +1,5 @@
 import React, { CSSProperties, useLayoutEffect, useEffect } from "react";
 interface IProps {
-    className?: string
     color?: string
     size?: number
     style?: CSSProperties
@@ -13,7 +12,6 @@ export default (props: IProps) => {
 
     return (
         <svg
-            className={props.className}
             viewBox={`0 0 ${width} ${height}`}
             style={{
                 width: width * (props.size || 1),

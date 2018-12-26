@@ -28,6 +28,7 @@
     "react-scripts": "^2.1.1",
     "sass": "^1.15.1",
     "sass-loader": "^7.1.0",
+    "showcase-ui": "ssh://git@gitlab.abr-region.ru:npm/showcase-ui.git",
     "source-map-loader": "^0.2.4",
     "style-loader": "^0.23.1",
     "typescript": "^3.2.2",
@@ -35,13 +36,11 @@
     "webpack-cli": "^3.1.2"
   },
   "scripts": {
-    "start": "./node_modules/compcase/.bin/cli/start.js",
     "build": "yarn build-sass && yarn build-ts && yarn build-copylib",
     "build-ts": "npx tsc",
     "build-copylib": "cp -R src/Buddy/lib dist/Buddy/lib",
     "build-sass": "npx sass src/Styles/scss/main.scss dist/styles.css",
-    "showcase-init": "cd ./showcase_workspace/showcase && yarn install",
-    "showcase": "node ./showcase_workspace/showcase/.bin/cli/start"
+    "showcase": "showcase"
   },
   "dependencies": {
     "@emotion/core": "^10.0.4",

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Viewport } from '../src';
-import { IPluginProps } from '../showcase_workspace/showcase/types'
+import { IPluginProps } from 'showcase-ui/types'
 
 function caseWrapper(props: IPluginProps) {
     Wrapper.contextType = props.context;
