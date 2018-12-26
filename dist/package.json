@@ -36,7 +36,9 @@
     "build-ts": "npx tsc",
     "build-copylib": "cp -R src/extra/Buddy/lib dist/extra/Buddy/lib",
     "build-sass": "npx sass src/Styles/scss/main.scss dist/styles.css",
-    "showcase": "showcase"
+    "showcase": "showcase",
+    "testflight": "git subtree push --prefix dist origin testflight",
+    "deploy": "git subtree push --prefix dist origin build"
   },
   "dependencies": {
     "@emotion/core": "^10.0.4",
