@@ -31,6 +31,7 @@ export { StylesContext as StylesContext } from './Styles';
 export { Card as Card } from './Card';
 export { Stories as Stories } from './Stories';
 export { Timeline as Timeline } from './Timeline';
+export { default as LKGuestScene } from './scenes/LKGuestScene';
 
 export { Portal as Portal } from 'react-portal';
 export { Buddy as Buddy } from './Buddy'
