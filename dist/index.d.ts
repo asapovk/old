@@ -16,6 +16,7 @@ export { Tabs as Tabs } from './Tabs';
 export { Tab as Tab } from './Tabs';
 export { Spin as Spin } from './Spin';
 export { Select as Select } from './Select';
+export { ScrollView as ScrollView } from './ScrollView';
 export { Spinner as Spinner } from './Spinner';
 export { Checkbox as Checkbox } from './Checkbox';
 export { Chart as Chart } from './Chart';

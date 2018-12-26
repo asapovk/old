@@ -1,6 +1,5 @@
 import { CSSProperties } from "react";
 interface IProps {
-    className?: string;
     color?: string;
     size?: number;
     style?: CSSProperties;

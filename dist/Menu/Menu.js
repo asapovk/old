@@ -91,7 +91,7 @@ exports.default = (function (props) {
     //     setTimeout(runAnimation, 1);
     // }
     return (react_1.default.createElement("div", null,
-        react_1.default.createElement(__1.Flexbox, { className: 'ui-menu', alignItems: 'center', justifyContent: 'space-between', style: __assign({}, styles.menu.main.menu, style, { marginLeft: windowSize.isDesktop ? '321px' : 0 }) },
+        react_1.default.createElement(__1.Flexbox, { className: 'ui-menu', alignItems: 'center', justifyContent: 'space-between', style: __assign({}, styles.menu.main.menu, style) },
             !windowSize.isDesktop && react_1.default.createElement(Mobile_1.MobileMenu, { active: mobileActive, setActive: setMobileActive }),
             !windowSize.isDesktop && (react_1.default.createElement(__1.Flexbox, { alignItems: 'center', justifyContent: 'center', className: 'ui-menu-header' }, logo ? logo : (react_1.default.createElement("div", { className: 'ui-menu-header-title', onClick: header.onAction }, header.label)))),
             windowSize.isDesktop && (react_1.default.createElement(NavBar_1.default, { items: items, containerWidth: navBar.current && navBar.current.offsetWidth })),

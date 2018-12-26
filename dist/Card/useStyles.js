@@ -31,12 +31,6 @@ exports.default = (function (active) {
             border: 'none',
             color: theme.textOnAccent.rgb,
             borderColor: theme.pale.rgba(0),
-            transform: 'translateX(20px)',
-            marginRight: '-20px',
-            height: '180px',
-            '@media (max-width: 640px)': {
-                transform: 'translateX(0)'
-            }
         }),
         animation: {
             wave: {
@@ -71,6 +65,7 @@ exports.default = (function (active) {
                     transform: 'translateX(-120px) translateY(120px)'
                 }),
             }
-        }
+        },
+        color: active ? theme.textOnAccent.rgb : theme.text.rgb,
     };
 });

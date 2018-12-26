@@ -1,7 +1,7 @@
 import React from 'react';
 interface IProps {
     components: {
-        header?: React.Component | any;
+        menu?: React.Component | any;
         side?: React.Component | any;
         sideBottom?: React.Component | any;
         mainTop?: React.Component | any;

@@ -8,8 +8,6 @@ var black_currant_1 = __importDefault(require("./themes/black-currant"));
 var white_currant_1 = __importDefault(require("./themes/white-currant"));
 var abr_1 = __importDefault(require("./themes/abr"));
 var gazprom_1 = __importDefault(require("./themes/gazprom"));
-var Card_1 = __importDefault(require("./jss/Card"));
-var Chart_1 = __importDefault(require("./jss/Chart"));
 var Checkbox_1 = __importDefault(require("./jss/Checkbox"));
 var DatePicker_1 = __importDefault(require("./jss/DatePicker"));
 var Finder_1 = __importDefault(require("./jss/Finder"));
@@ -29,7 +27,6 @@ var Widget_1 = __importDefault(require("./jss/Widget"));
 var WidgetStat_1 = __importDefault(require("./jss/WidgetStat"));
 var Notifications_1 = __importDefault(require("./jss/Notifications"));
 var LKGuestScene_1 = __importDefault(require("./jss/LKGuestScene"));
-var LKMainScene_1 = __importDefault(require("./jss/LKMainScene"));
 exports.themes = {
     blackCurrant: black_currant_1.default, whiteCurrant: white_currant_1.default, abrTheme: abr_1.default, gazpromTheme: gazprom_1.default
 };
@@ -37,8 +34,6 @@ exports.createStyles = function (themeName) {
     var theme = themeName ? exports.themes[themeName] : exports.themes['blackCurrant'];
     return {
         theme: theme,
-        card: Card_1.default(theme),
-        chart: Chart_1.default(theme),
         checkbox: Checkbox_1.default(theme),
         datePicker: DatePicker_1.default(theme),
         finder: Finder_1.default(theme),
@@ -59,7 +54,6 @@ exports.createStyles = function (themeName) {
         notifications: Notifications_1.default(theme),
         scenes: {
             lkguest: LKGuestScene_1.default(theme),
-            lkmain: LKMainScene_1.default(theme)
         }
     };
 };

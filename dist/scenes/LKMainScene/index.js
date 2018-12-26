@@ -1,54 +1,27 @@
 "use strict";
-var __assign = (this && this.__assign) || function () {
-    __assign = Object.assign || function(t) {
-        for (var s, i = 1, n = arguments.length; i < n; i++) {
-            s = arguments[i];
-            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-                t[p] = s[p];
-        }
-        return t;
-    };
-    return __assign.apply(this, arguments);
-};
-var __importStar = (this && this.__importStar) || function (mod) {
-    if (mod && mod.__esModule) return mod;
-    var result = {};
-    if (mod != null) for (var k in mod) if (Object.hasOwnProperty.call(mod, k)) result[k] = mod[k];
-    result["default"] = mod;
-    return result;
-};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var react_1 = __importStar(require("react"));
+/** @jsx jsx */
+var core_1 = require("@emotion/core");
+var react_1 = require("react");
 var __1 = require("../../");
-var useTheme_1 = __importDefault(require("../../hooks/useTheme"));
-var useBrowser_1 = __importDefault(require("../../hooks/useBrowser"));
+var useStyles_1 = __importDefault(require("./useStyles"));
+var ScrollView_1 = require("../../ScrollView");
 exports.default = (function (props) {
-    var browser = useBrowser_1.default();
-    var styles = useTheme_1.default();
-    var st = styles.scenes.lkmain;
-    var needDisplaySideBar = Boolean(props.components.side);
-    var needDisplayMain = Boolean(props.components.mainTop || props.components.main);
-    if (!props.displaySideBar && browser.isMobile) {
-        needDisplaySideBar = false;
-    }
-    if (props.displaySideBar && browser.isMobile) {
-        needDisplaySideBar = true;
-        needDisplayMain = false;
-    }
-    return (react_1.default.createElement(__1.Flexbox, { style: __assign({}, st.root, { height: browser.height }), flexDirection: "column" },
-        props.components.header &&
-            props.components.header,
-        react_1.default.createElement(__1.Flexbox, { style: st.main, flex: 1 },
-            needDisplaySideBar && (react_1.default.createElement(react_1.default.Fragment, null,
-                react_1.default.createElement("div", { className: "ui-scenes-lkmain-side", style: { marginTop: browser.isDesktop ? '-64px' : 0 }, children: (react_1.default.createElement(react_1.Fragment, null,
-                        react_1.default.createElement(__1.Flexbox, { flex: 1, flexDirection: "column", justifyContent: "space-between", children: (react_1.default.createElement(react_1.Fragment, null,
-                                react_1.default.createElement("div", { children: props.components.side }),
-                                props.components.sideBottom && (react_1.default.createElement("div", { style: st.sideBottom, children: props.components.sideBottom })))) }))) }),
-                react_1.default.createElement("div", { style: __assign({}, st.sideBackground, { marginTop: browser.isDesktop ? '-64px' : 0 }), className: "ui-scenes-lkmain-side-background" }))),
-            needDisplayMain && (react_1.default.createElement("div", { style: st.mainRight, className: "ui-scenes-lkmain-main", children: (react_1.default.createElement(react_1.default.Fragment, null,
-                    props.components.mainTop && (react_1.default.createElement("div", { style: __assign({}, st.mainTop, { backgroundColor: styles.theme.background2.hex }), className: 'ui-scenes-lkmain-main-top', children: react_1.default.createElement("div", { className: 'ui-scenes-lkmain-main-top-content', children: props.components.mainTop }) })),
-                    react_1.default.createElement("div", { className: 'ui-scenes-lkmain-main-layout', children: props.components.main }))) })))));
+    // const browser = useBrowser();
+    var styles = useStyles_1.default();
+    return (core_1.jsx(react_1.Fragment, null,
+        core_1.jsx(__1.Flexbox, { css: styles.root },
+            core_1.jsx("div", { css: styles.side },
+                core_1.jsx(ScrollView_1.ScrollView, { customCss: styles.$sideScroll },
+                    props.components.side,
+                    props.components.sideBottom)),
+            core_1.jsx("div", { css: styles.main },
+                core_1.jsx(ScrollView_1.ScrollView, { customCss: styles.$mainScroll },
+                    props.components.mainTop,
+                    props.components.main),
+                core_1.jsx("div", { css: styles.menuDesktop }, props.components.menu))),
+        core_1.jsx("div", { css: styles.menuMobile }, props.components.menu)));
 });

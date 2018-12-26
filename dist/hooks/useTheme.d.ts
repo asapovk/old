@@ -1,14 +1,5 @@
 declare const _default: () => {
-    theme: import("../Styles").ThemeInterface;
-    card: {
-        main: (active?: boolean | undefined) => import("react").CSSProperties;
-    };
-    chart: {
-        text: string;
-        accent: string;
-        background: string;
-        chartTextColor: string;
-    };
+    theme: any;
     checkbox: {
         main: {
             color: string;
@@ -278,49 +269,6 @@ declare const _default: () => {
             backButton: import("react").CSSProperties;
             backButtonIcon: {
                 color: string;
-            };
-        };
-        lkmain: {
-            root: {
-                overflow: string;
-            };
-            main: {};
-            sideBackground: {
-                background: string;
-                borderColor: string;
-            };
-            sideBottom: {
-                overflow: string;
-                marginRight: string;
-                marginLeft: string;
-            };
-            mainRight: {
-                overflow: string;
-            };
-            sideMask: {
-                background: string;
-            };
-            components: {
-                accountSelect: {
-                    field: {
-                        borderColor: string;
-                        background: string;
-                    };
-                    add: {
-                        background: string;
-                    };
-                    addIcon: {
-                        fill: string;
-                    };
-                    accountText: {
-                        color: string;
-                    };
-                    dropIcon: {
-                        height: string;
-                        marginLeft: string;
-                        marginRight: string;
-                    };
-                };
             };
         };
     };

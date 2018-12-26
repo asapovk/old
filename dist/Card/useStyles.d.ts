@@ -1,14 +1,15 @@
 declare const _default: (active?: boolean | undefined) => {
-    main: import("@emotion/core").SerializedStyles;
+    main: import("@emotion/utils").SerializedStyles;
     animation: {
         wave: {
-            1: import("@emotion/core").SerializedStyles;
-            2: import("@emotion/core").SerializedStyles;
+            1: import("@emotion/utils").SerializedStyles;
+            2: import("@emotion/utils").SerializedStyles;
         };
         circle: {
-            1: import("@emotion/core").SerializedStyles;
-            2: import("@emotion/core").SerializedStyles;
+            1: import("@emotion/utils").SerializedStyles;
+            2: import("@emotion/utils").SerializedStyles;
         };
     };
+    color: any;
 };
 export default _default;

@@ -14,18 +14,16 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var react_1 = __importDefault(require("react"));
+/** @jsx jsx */
+var core_1 = require("@emotion/core");
+var useStyles_1 = __importDefault(require("./useStyles"));
 var __1 = require("../");
-var useTheme_1 = __importDefault(require("../hooks/useTheme"));
 var Waves_1 = __importDefault(require("./animations/Waves"));
 var Circles_1 = __importDefault(require("./animations/Circles"));
 exports.default = (function (props) {
-    var styles = useTheme_1.default();
-    var classes = 'ui-card';
-    if (props.active)
-        classes += ' active';
     var style = props.style;
-    return (react_1.default.createElement(__1.Flexbox, { flexDirection: 'column', onClick: function () { return props.onClick && props.onClick(); }, className: classes, style: __assign({}, styles.card.main(props.active), style), flex: 1 },
-        props.animation === "waves" && (react_1.default.createElement(Waves_1.default, { color: styles.card.main(props.active).color, active: props.active })),
-        props.animation === "circles" && (react_1.default.createElement(Circles_1.default, { color: styles.card.main(props.active).color, active: props.active }))));
+    var styles = useStyles_1.default(props.active);
+    return (core_1.jsx(__1.Flexbox, { flexDirection: 'column', onClick: function () { return props.onClick && props.onClick(); }, css: __assign({}, styles.main, style), flex: 1 },
+        props.animation === "waves" && (core_1.jsx(Waves_1.default, { active: props.active })),
+        props.animation === "circles" && (core_1.jsx(Circles_1.default, { active: props.active }))));
 });

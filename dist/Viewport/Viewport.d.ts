@@ -1,9 +1,8 @@
-import { themeName } from '../Styles';
 import { Component } from 'react';
 interface ViewportProps {
     children?: any;
     style?: any;
-    theme?: themeName;
+    theme?: string;
     transparent?: true;
 }
 interface State {

@@ -1,30 +1,35 @@
 "use strict";
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@emotion/core");
 var useTheme_1 = __importDefault(require("../hooks/useTheme"));
-exports.default = (function (horizontal, isWebkit, hidden) {
+exports.default = (function (horizontal, isWebkit, hidden, width, height, customCss) {
+    if (customCss === void 0) { customCss = {}; }
     var scrollbar = useTheme_1.default().theme.scrollbar;
     return {
         root: core_1.css({
             position: 'relative',
             overflow: 'hidden',
-            height: !horizontal ? "100%" : "initial",
+            width: width,
+            flex: width ? "inherit" : 1,
+            height: height || (!horizontal ? "100%" : "initial"),
         }),
-        scrollview: core_1.css({
-            position: 'relative',
-            height: horizontal ? "auto" : "100%",
-            overflowX: horizontal ? "scroll" : "hidden",
-            overflowY: horizontal ? "hidden" : "scroll",
-            marginRight: isWebkit ? 0 : -15,
-            marginBottom: (isWebkit && horizontal) ? 0 : -15,
-            whiteSpace: horizontal ? "nowrap" : "normal",
-            "&::-webkit-scrollbar": {
+        scrollview: core_1.css(__assign({ position: 'relative', height: horizontal ? "auto" : "100%", overflowX: horizontal ? "scroll" : "hidden", overflowY: horizontal ? "hidden" : "scroll", marginRight: isWebkit ? 0 : -15, marginBottom: (isWebkit && horizontal) ? 0 : -15, whiteSpace: horizontal ? "nowrap" : "normal", "&::-webkit-scrollbar": {
                 display: "none"
-            },
-        }),
+            } }, customCss)),
         scrollbar: core_1.css({
             position: "absolute",
             borderStyle: 'solid',
