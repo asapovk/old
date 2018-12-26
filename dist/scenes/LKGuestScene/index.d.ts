@@ -1,4 +1,4 @@
-import { IconType } from '../../Icon/Icon';
+import { IconType } from '../../core/Icon/Icon';
 interface GuestSceneConfig {
     title?: string;
     /**

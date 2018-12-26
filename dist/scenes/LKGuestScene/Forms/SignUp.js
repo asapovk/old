@@ -26,7 +26,7 @@ var __1 = require("../../..");
 var useTextField_1 = __importDefault(require("../../../hooks/useTextField"));
 var useNumber_aseString_1 = __importDefault(require("../../../hooks/useNumber\u0421aseString"));
 var useTheme_1 = __importDefault(require("../../../hooks/useTheme"));
-var Icon_1 = require("../../../Icon");
+var __2 = require("../../../");
 exports.default = (function (props) {
     var styles = useTheme_1.default();
     var login = useTextField_1.default({ id: "LOGIN" });
@@ -37,7 +37,7 @@ exports.default = (function (props) {
     return (react_1.default.createElement(react_1.Fragment, null,
         react_1.default.createElement(__1.Flexbox, { flex: 1 },
             react_1.default.createElement("div", { onClick: props.onBack, style: styles.scenes.lkguest.backButton },
-                react_1.default.createElement(Icon_1.Icon, { type: "left", size: 1.5, style: styles.scenes.lkguest.backButtonIcon })),
+                react_1.default.createElement(__2.Icon, { type: "left", size: 1.5, style: styles.scenes.lkguest.backButtonIcon })),
             react_1.default.createElement(__1.Flexbox, { flex: 1 },
                 react_1.default.createElement(__1.TextField, __assign({}, login, { placeholder: "\u0422\u0435\u043B\u0435\u0444\u043E\u043D/\u041F\u043E\u0447\u0442\u0430" })))),
         login.value && (react_1.default.createElement(__1.Flexbox, { pt: '1rem' },

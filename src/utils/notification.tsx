@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import { Viewport } from '../';
-import Notifications from '../Notifications/Notifications';
-import { NotificationOptions } from '../Notifications/Notifications';
+import Notifications from '../core/Notifications/Notifications';
+import { NotificationOptions } from '../core/Notifications/Notifications';
 
 export default (options: NotificationOptions) => {
     //@ts-ignore

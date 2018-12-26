@@ -21,10 +21,6 @@ export default (props: GuestSceneProps) => {
             marginBottom: 20
         }
     }
-    if (size.height >= 600 && size.width >= 600) {
-        st.root.borderBottomLeftRadius = "100% 40px";
-        st.root.borderBottomRightRadius = "100% 40px";
-    }
 
     return (
         <Flexbox flex={2} style={st.root}>

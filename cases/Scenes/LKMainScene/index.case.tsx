@@ -1,9 +1,7 @@
 import React from 'react';
 import Scene from '../../../src/scenes/LKMainScene';
 import useTheme from '../../../src/hooks/useTheme';
-import SmoLogo from '../../../src/logos/smorodina';
-import AbrLogo from '../../../src/logos/abr';
-import MrgLogo from '../../../src/logos/mrg';
+import { MRG, ABR, Smorodina } from '../../../src/logos';
 import '../../../src/Styles/scss/main.scss';
 
 import SideMenu from './SideMenu';
@@ -14,19 +12,19 @@ import MainTop from './MainTop';
 
 export default () => {
     const styles = useTheme();
-    let logo = <SmoLogo color={styles.theme.text.hex} />;
+    let logo = <Smorodina color={styles.theme.text.hex} />;
     let logoWidth = 10;
 
     if (styles.theme.name === "gazpromTheme") {
-        logo = <MrgLogo />;
+        logo = <MRG />;
         logoWidth = 9;
     }
     if (styles.theme.name === "abrTheme") {
-        logo = <AbrLogo />;
+        logo = <ABR />;
         logoWidth = 12;
     }
     if (styles.theme.name === "whiteCurrant") {
-        logo = <SmoLogo />;
+        logo = <Smorodina />;
         logoWidth = 10;
     }
     return (

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Icon, Flexbox, Viewport } from '../../../src';
-import { svgIconPath } from '../../../src/Icon/Icon';
+import { svgIconPath } from '../../../src/core/Icon/Icon';
 import '../../../src/Styles/scss/main.scss';
 
 export default class Story extends React.Component {
@@ -24,11 +24,11 @@ export default class Story extends React.Component {
             Row.push(element);
         })
         return (
-            
-                <Flexbox column alignItems="stretch" flex={1} pr={40} pl={40}>
-                    {Rows.map(Row => <Flexbox justifyContent="center">{Row}</Flexbox>)}
-                </Flexbox>
-            
+
+            <Flexbox column alignItems="stretch" flex={1} pr={40} pl={40}>
+                {Rows.map(Row => <Flexbox justifyContent="center">{Row}</Flexbox>)}
+            </Flexbox>
+
         );
     }
 }

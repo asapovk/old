@@ -1,3 +1,3 @@
-export { default as MrgLogo } from './mrg';
-export { default as AbrLogo } from './abr';
-export { default as SmorodinaLogo } from './smorodina';
+export { default as MRG } from './mrg';
+export { default as ABR } from './abr';
+export { default as Smorodina } from './smorodina';

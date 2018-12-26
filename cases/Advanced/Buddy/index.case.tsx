@@ -1,5 +1,6 @@
 import React, { Fragment, useRef } from 'react';
-import { Buddy, Flexbox, Button } from '../../../src';
+import { Flexbox, Button } from '../../../src';
+import { Buddy } from '../../../src/extra';
 import '../../../src/Styles/scss/main.scss';
 
 export default (props) => {

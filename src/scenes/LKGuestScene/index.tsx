@@ -1,6 +1,6 @@
 import React from 'react';
 import { Flexbox } from '../..';
-import { IconType } from '../../Icon/Icon';
+import { IconType } from '../../core/Icon/Icon';
 
 import Main from './Main';
 import Footer from './Footer';

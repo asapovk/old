@@ -4,7 +4,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importDefault(require("react"));
-var Notifications_1 = __importDefault(require("../Notifications/Notifications"));
+var Notifications_1 = __importDefault(require("../core/Notifications/Notifications"));
 exports.default = (function (options) {
     //@ts-ignore
     var viewport = document.__uiviewport;

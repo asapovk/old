@@ -31,10 +31,6 @@ exports.default = (function (props) {
             marginBottom: 20
         }
     };
-    if (size.height >= 600 && size.width >= 600) {
-        st.root.borderBottomLeftRadius = "100% 40px";
-        st.root.borderBottomRightRadius = "100% 40px";
-    }
     return (react_1.default.createElement(__1.Flexbox, { flex: 2, style: st.root },
         react_1.default.createElement(__1.Flexbox, { flexDirection: "column", flex: 1, justifyContent: "center" },
             react_1.default.createElement(__1.Flexbox, { flexDirection: "column", style: { width: 250 }, alignSelf: "center" },

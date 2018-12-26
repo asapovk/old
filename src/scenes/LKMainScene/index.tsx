@@ -4,7 +4,7 @@ import React, { Fragment } from 'react';
 import { Flexbox } from '../../';
 import useStyles from './useStyles';
 import useBrowser from '../../hooks/useBrowser';
-import { ScrollView } from '../../ScrollView';
+import { ScrollView } from '../../extra/ScrollView';
 interface IProps {
     components: {
         menu?: React.Component | any

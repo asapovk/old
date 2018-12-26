@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
-import { Flexbox, WidgetStat, Icon } from '../../../src';
+import { Flexbox, Icon } from '../../../src';
+import { WidgetStat } from '../../../src/extra';
 import '../../../src/Styles/scss/main.scss';
 
 class WidgetStatStory extends React.Component {
