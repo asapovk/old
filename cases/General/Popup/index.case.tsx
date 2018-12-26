@@ -1,6 +1,6 @@
 import React from 'react';
 import { Flexbox, Popup, Button, Viewport } from '../../../src';
-import '../../../src/Styles/scss/main.scss';
+
 
 interface PopupStory {
     tooltip: any

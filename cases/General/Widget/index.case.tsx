@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import { Viewport, Flexbox, Widget } from '../../../src';
-import '../../../src/Styles/scss/main.scss';
+
 
 class WidgetStory extends React.Component {
     state = {

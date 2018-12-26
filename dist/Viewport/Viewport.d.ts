@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import '../Styles/scss/main.scss';
 interface ViewportProps {
     children?: any;
     style?: any;

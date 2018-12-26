@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import { Flexbox, Title, Icon, Viewport } from '../../../src';
-import '../../../src/Styles/scss/main.scss';
+
 
 class TitleStory extends React.Component {
     state = {

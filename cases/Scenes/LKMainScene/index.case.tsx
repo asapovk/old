@@ -4,7 +4,7 @@ import useTheme from '../../../src/hooks/useTheme';
 import SmoLogo from '../../../src/logos/smorodina';
 import AbrLogo from '../../../src/logos/abr';
 import MrgLogo from '../../../src/logos/mrg';
-import '../../../src/Styles/scss/main.scss';
+
 
 import SideMenu from './SideMenu';
 import SideBottom from './SideBottom';

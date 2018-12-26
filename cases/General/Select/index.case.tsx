@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import { Select, Viewport } from '../../../src';
-import '../../../src/Styles/scss/main.scss';
+
 
 const flexCentered = {
     display: 'flex',

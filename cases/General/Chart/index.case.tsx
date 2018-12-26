@@ -1,6 +1,6 @@
 import React from 'react';
 import { Flexbox, Chart, Viewport } from '../../../src';
-import '../../../src/Styles/scss/main.scss';
+
 
 class ChartStory extends React.Component {
 

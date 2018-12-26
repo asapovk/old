@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import { Constructor, utils } from '../../../src';
 import { UIElement } from '../../../src/Constructor';
-import '../../../src/Styles/scss/main.scss';
+
 
 const template: UIElement = {
     $: "flex",

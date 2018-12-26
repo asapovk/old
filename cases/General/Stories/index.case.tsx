@@ -1,6 +1,6 @@
 import React from 'react';
 import { Flexbox, Stories, Viewport } from '../../../src';
-import '../../../src/Styles/scss/main.scss';
+
 
 export default () => {
     return (
