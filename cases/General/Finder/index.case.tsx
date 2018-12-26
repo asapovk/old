@@ -1,7 +1,7 @@
 import React from 'react';
 import { Flexbox, Finder, FinderNav, FinderSection, Checkbox, DatePicker, Viewport } from '../../../src';
 import Fakerator from 'fakerator';
-
+import '../../../src/Styles/scss/main.scss';
 
 var fakerator = Fakerator();
 

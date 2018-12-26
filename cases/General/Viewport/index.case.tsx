@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Flexbox, Icon, Viewport } from '../../../src';
-
+import '../../../src/Styles/scss/main.scss';
 
 export default class Story extends Component {
     render() {

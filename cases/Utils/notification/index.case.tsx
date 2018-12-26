@@ -1,6 +1,6 @@
 import React from 'react';
 import { utils, Button, Flexbox } from '../../../src';
-
+import '../../../src/Styles/scss/main.scss';
 
 let counter = 0;
 export default class Story extends React.Component {

@@ -1,6 +1,5 @@
 import { StylesContext, createStyles, themeName } from '../Styles';
 import React, { Component, Fragment } from 'react';
-import '../Styles/scss/main.scss'
 
 interface ViewportProps {
     children?: any

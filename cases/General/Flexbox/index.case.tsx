@@ -1,6 +1,6 @@
 import React from 'react';
 import { Flexbox, Viewport } from '../../../src';
-
+import '../../../src/Styles/scss/main.scss';
 
 class FlexboxStory extends React.Component {
 

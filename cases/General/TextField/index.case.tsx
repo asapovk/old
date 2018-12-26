@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import { TextField, Flexbox, Viewport } from '../../../src';
-
+import '../../../src/Styles/scss/main.scss';
 
 export default class Story extends React.Component {
     render() {

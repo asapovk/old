@@ -1,7 +1,7 @@
 import React from 'react';
 import { ScrollView, Viewport, Title } from '../../../src';
 import useTheme from '../../../src/hooks/useTheme';
-
+import '../../../src/Styles/scss/main.scss';
 
 export default () => {
     const { theme } = useTheme();

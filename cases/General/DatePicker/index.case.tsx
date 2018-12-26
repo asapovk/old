@@ -1,7 +1,7 @@
 import React from 'react';
 import { Flexbox, DatePicker, Viewport } from '../../../src';
 import moment from 'moment';
-
+import '../../../src/Styles/scss/main.scss';
 
 class DatePickerStory extends React.Component {
 

@@ -5,7 +5,7 @@ import MrgLogo from '../../../src/logos/mrg';
 import AbrLogo from '../../../src/logos/abr';
 import Scene from '../../../src/scenes/LKGuestScene';
 import useStyles from '../../../src/hooks/useTheme';
-
+import '../../../src/Styles/scss/main.scss';
 
 export default () => {
 
