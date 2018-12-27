@@ -14,31 +14,26 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var react_1 = __importDefault(require("react"));
+/** @jsx jsx */
+var core_1 = require("@emotion/core");
+var useStyles_1 = __importDefault(require("./useStyles"));
 var __1 = require("../..");
 var Forms_1 = __importDefault(require("./Forms"));
-var useBrowser_1 = __importDefault(require("../../hooks/useBrowser"));
-var useTheme_1 = __importDefault(require("../../hooks/useTheme"));
+var hooks_1 = require("../../hooks");
 exports.default = (function (props) {
-    var size = useBrowser_1.default();
-    var styles = useTheme_1.default();
-    var st = {
-        root: {
-            background: styles.scenes.lkguest.main.backgroundColor,
-        },
-        title: {
-            color: styles.scenes.lkguest.main.titleColor,
-            marginBottom: 20
-        }
-    };
-    return (react_1.default.createElement(__1.Flexbox, { flex: 2, style: st.root },
-        react_1.default.createElement(__1.Flexbox, { flexDirection: "column", flex: 1, justifyContent: "center" },
-            react_1.default.createElement(__1.Flexbox, { flexDirection: "column", style: { width: 250 }, alignSelf: "center" },
-                props.components && props.components.logo,
-                props.title !== undefined && react_1.default.createElement("h2", { style: st.title }, props.title),
-                react_1.default.createElement(Forms_1.default, __assign({}, props)))),
-        size.width >= 500 &&
-            props.components !== undefined &&
-            props.components.right !== undefined &&
-            (react_1.default.createElement(__1.Flexbox, { flex: 1 }, props.components.right))));
+    var size = hooks_1.useBrowser();
+    var styles = useStyles_1.default();
+    var Logo = function () { return props.components ? core_1.jsx("div", { css: styles.main.logo }, props.components.logo) : null; };
+    var Title = function () { return props.title ? core_1.jsx("span", { css: styles.main.title }, props.title) : null; };
+    return (core_1.jsx(__1.Flexbox, { css: styles.main.container },
+        core_1.jsx(__1.Flexbox, { css: styles.main.wrapper, flex: 1 },
+            core_1.jsx(__1.Flexbox, { flexDirection: "column", flex: 1, justifyContent: "center" },
+                core_1.jsx(__1.Flexbox, { css: styles.main.welcome, flexDirection: "column", alignSelf: "center" },
+                    core_1.jsx(Logo, null),
+                    core_1.jsx(Title, null),
+                    core_1.jsx(Forms_1.default, __assign({}, props)))),
+            size.width >= 500 &&
+                props.components !== undefined &&
+                props.components.right !== undefined &&
+                (core_1.jsx(__1.Flexbox, { flex: 1 }, props.components.right)))));
 });

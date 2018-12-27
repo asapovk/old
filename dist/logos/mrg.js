@@ -5,11 +5,17 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importDefault(require("react"));
 exports.default = (function (props) {
-    var style = props.style || {
-        width: "100%"
+    var style = {
+        container: props.style || {
+            width: '100%',
+            height: '100%'
+        },
+        svg: {
+            height: '100%'
+        }
     };
-    return (react_1.default.createElement("div", { style: style },
-        react_1.default.createElement("svg", { x: "0px", y: "0px", viewBox: "0 0 200 99", xmlSpace: "preserve" },
+    return (react_1.default.createElement("div", { style: style.container },
+        react_1.default.createElement("svg", { role: "img", style: style.svg, x: "0px", y: "0px", viewBox: "0 0 200 99", xmlSpace: "preserve" },
             react_1.default.createElement("g", { fill: props.color || "#0079C2", fillRule: "evenodd" },
                 react_1.default.createElement("path", { d: "M54.5 17.9C52.4 8.7 47.2 1.3 46.4.1c-1.1 1.7-5.3 8.3-7.4 15.6-2.3 8.1-2.7 15.3-1.9 22.5.8 7.1 3.8 14.4 3.8 14.4 1.6 3.8 4 7.9 5.5 9.9 2.3-3 7.5-11.8 9.2-23.4.9-6.4 1-12-1.1-21.2zm-8.1 42.3c-1-1.9-2.6-5.6-2.8-11.3 0-5.5 2.2-10.2 2.8-11.2.6 1 2.5 5.1 2.7 10.7.2 5.5-1.6 9.8-2.7 11.8zm7.5-26.8c-.1 3.5-.5 7.2-1 9.4.2-3.8-.3-9.2-1.1-13.3-.9-4.2-3.3-11.2-5.3-14.4-1.8 3.1-4.1 9.1-5.2 14.4-1.3 5.2-1.4 11.5-1.4 13.4-.3-1.6-1.1-7.3-.9-13.1.2-4.7 1.3-9.6 1.9-11.9 2.3-7.5 4.9-12.3 5.4-13 .5.8 3.8 6.6 5.5 12.8 1.8 6.3 2.2 12.2 2.1 15.7z", fillRule: "nonzero" }),
                 react_1.default.createElement("path", { d: "M50 64.6H34.1v10.7c3.7-3.7 9.8-3.7 13.6 0 3.7 3.7 3.7 9.8 0 13.6l-.1.1c-3.7 3.7-8.6 5.6-13.5 5.6s-9.8-1.9-13.6-5.6c-6.6-6.6-7.4-16.8-2.3-24.3.7-1 1.5-2 2.3-2.9 3.7-3.7 8.6-5.6 13.6-5.6V30.5C15.2 30.5 0 45.8 0 64.6s15.3 34.1 34.1 34.1c9.8 0 18.7-4.2 24.9-10.8V64.6h-9zM63 30.5h13v4.2h-6.2v29.9H63z" }),

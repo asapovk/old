@@ -1313,12 +1313,6 @@
   font-size: 18px;
   text-transform: uppercase;
 }
-.ui-widgetstat-value2 svg {
-  position: absolute;
-  left: -30px;
-  top: -5px;
-  font-size: 28px;
-}
 .ui-widgetstat-link {
   font-size: 14px;
   text-decoration: underline;

@@ -10,27 +10,31 @@ declare const _default: () => {
             lineHeight: string;
             marginTop: string;
             marginBottom: string;
+            fontWeight: number;
         };
         2: {
             fontSize: string;
             lineHeight: string;
             marginTop: string;
             marginBottom: string;
+            fontWeight: number;
         };
         3: {
             fontSize: string;
             lineHeight: string;
             marginTop: string;
             marginBottom: string;
+            fontWeight: number;
         };
         4: {
             fontSize: string;
             lineHeight: string;
             marginTop: string;
             marginBottom: string;
+            fontWeight: number;
         };
     };
-    caption: {
+    text: {
         1: {
             fontSize: string;
             lineHeight: string;
@@ -48,7 +52,29 @@ declare const _default: () => {
             lineHeight: string;
         };
     };
-    text: {
+    display: {
+        1: {
+            fontSize: string;
+            lineHeight: string;
+            fontWeight: number;
+        };
+        2: {
+            fontSize: string;
+            lineHeight: string;
+            fontWeight: number;
+        };
+        3: {
+            fontSize: string;
+            lineHeight: string;
+            fontWeight: number;
+        };
+        4: {
+            fontSize: string;
+            lineHeight: string;
+            fontWeight: number;
+        };
+    };
+    caption: {
         1: {
             fontSize: string;
             lineHeight: string;

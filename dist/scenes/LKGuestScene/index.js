@@ -19,7 +19,7 @@ var __1 = require("../..");
 var Main_1 = __importDefault(require("./Main"));
 var Footer_1 = __importDefault(require("./Footer"));
 exports.default = (function (props) {
-    return (react_1.default.createElement(__1.Flexbox, { style: { height: "100%" }, flexDirection: "column" },
+    return (react_1.default.createElement(__1.Flexbox, { flexDirection: "column" },
         react_1.default.createElement(Main_1.default, __assign({}, props)),
         react_1.default.createElement(Footer_1.default, __assign({}, props))));
 });

@@ -37,7 +37,7 @@ exports.default = (function (props) {
     return (react_1.default.createElement(react_1.Fragment, null,
         react_1.default.createElement(__1.Flexbox, { flex: 1 },
             react_1.default.createElement("div", { onClick: props.onBack, style: styles.scenes.lkguest.backButton },
-                react_1.default.createElement(__2.Icon, { type: "left", size: 1.5, style: styles.scenes.lkguest.backButtonIcon })),
+                react_1.default.createElement(__2.Icon, { type: "left", style: __assign({}, styles.scenes.lkguest.backButtonIcon, { fontSize: '1.5 rem' }) })),
             react_1.default.createElement(__1.Flexbox, { flex: 1 },
                 react_1.default.createElement(__1.TextField, __assign({}, login, { placeholder: "\u0422\u0435\u043B\u0435\u0444\u043E\u043D/\u041F\u043E\u0447\u0442\u0430" })))),
         login.value && (react_1.default.createElement(__1.Flexbox, { pt: '1rem' },

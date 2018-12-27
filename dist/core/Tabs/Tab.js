@@ -51,7 +51,7 @@ var Tab = /** @class */ (function (_super) {
         return (react_1.default.createElement(__1.Styles, null, function (styles) { return (react_1.default.createElement("div", __assign({}, props, { style: _this.props.active ? styles.tabs.tabActive : styles.tabs.tab }),
             _this.props.index === 0 && (react_1.default.createElement("span", { className: "hl", ref: function (ref) { return _this.hf = ref; }, style: styles.tabs.hl })),
             react_1.default.createElement(__1.Flexbox, { className: "ui-tabs-tab-container", column: true, justifyContent: "center", alignContent: "center", alignItems: "center" },
-                _this.props.icon && react_1.default.createElement(__1.Icon, { type: _this.props.icon, size: 2.5 }),
+                _this.props.icon && react_1.default.createElement(__1.Icon, { type: _this.props.icon, style: { fontSize: "2.5rem" } }),
                 _this.props.bubble &&
                     react_1.default.createElement("div", { className: "ui-tabs-tab-bubble" }, _this.props.bubble),
                 _this.props.label))); }));

@@ -1,29 +1,37 @@
 "use strict";
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var react_1 = __importDefault(require("react"));
+/** @jsx jsx */
+var core_1 = require("@emotion/core");
+var useStyles_1 = __importDefault(require("./useStyles"));
 var __1 = require("../..");
 var useBrowser_1 = __importDefault(require("../../hooks/useBrowser"));
-var useTheme_1 = __importDefault(require("../../hooks/useTheme"));
 exports.default = (function (props) {
     var size = useBrowser_1.default();
-    var styles = useTheme_1.default();
-    var st = {
-        root: {
-            background: "#eee"
-        }
-    };
+    var styles = useStyles_1.default();
     if (size.height <= 600 || !props.footerActions) {
         return null;
     }
-    return (react_1.default.createElement(__1.Flexbox, { flex: 1, style: st.root }, props.footerActions.map(function (action, index) {
-        return react_1.default.createElement(__1.Flexbox, { onClick: action.onAction, flex: 1, flexDirection: "column", justifyContent: "center", alignItems: "center" },
-            react_1.default.createElement(__1.Icon, { type: action.icon, size: 3, style: { marginBottom: "1rem" } }),
-            react_1.default.createElement("div", { style: { color: styles.theme.highlight.hex } },
-                action.title,
-                " ",
-                react_1.default.createElement(__1.Icon, { type: "right" })));
-    })));
+    return (core_1.jsx(__1.Flexbox, { flex: 1, css: styles.footer.main },
+        core_1.jsx(__1.Flexbox, { flex: 1, css: styles.footer.wrapper }, props.footerActions.map(function (action, index) {
+            return core_1.jsx(__1.Flexbox, { css: index > 0 ? __assign({}, styles.footer.item, styles.footer.separator) : styles.footer.item, onClick: action.onAction, flex: 1, flexDirection: "column", justifyContent: "center", alignItems: "center" },
+                core_1.jsx(__1.Icon, { css: styles.footer.icon, type: action.icon }),
+                core_1.jsx("div", { css: styles.footer.label },
+                    action.title,
+                    " ",
+                    core_1.jsx(__1.Icon, { type: "text-right" })));
+        }))));
 });
