@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import { Login, Viewport } from '../../../src';
-import { loginUser } from '../../General/Menu/index.case';
+import { loginUser } from '../Menu/index.case';
 import '../../../src/Styles/scss/main.scss';
 
 export default class Story extends React.Component {

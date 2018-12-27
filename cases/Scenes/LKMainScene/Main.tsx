@@ -1,5 +1,5 @@
 import React from 'react';
-import TableStory from '../../General/Table/index.case';
+import TableStory from '../../Core/Table/index.case';
 
 const Main = () => {
     return (
