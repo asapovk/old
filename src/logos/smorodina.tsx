@@ -9,13 +9,19 @@ export default (props: { color?: string, style?: CSSProperties }) => {
         st1.fill = props.color;
     }
 
-    let style = props.style || {
-        width: "100%"
-    };
+    let style = {
+        container: props.style || {
+            width: '100%',
+            height: '100%'
+        },
+        svg: {
+            height: '100%'
+        } as CSSProperties
+    }
 
     return (
-        <div style={style}>
-            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+        <div style={style.container}>
+            <svg style={style.svg} version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                 viewBox="0 0 300 106.3" xmlSpace="preserve">
                 <path style={st0} d="M31.7,30.4c0.3-0.4,0.5-0.8,0.5-1.3c0-1.2-1-2.1-2.1-2.1c-0.7,0-1.3,0.3-1.7,0.8c-2.3,3-5.8,4.9-9.8,4.9
                     c-6.8,0-12.3-5.6-12.3-12.6c0-7,5.5-12.6,12.3-12.6c4,0,7.5,2,9.8,5c0.4,0.5,1,0.8,1.7,0.8c1.2,0,2.1-1,2.1-2.1c0-0.5-0.2-1-0.5-1.3

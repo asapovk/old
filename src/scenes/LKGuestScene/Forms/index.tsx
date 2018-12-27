@@ -6,7 +6,7 @@ import SignUp from './SignUp';
 import alert from '../../../utils/alert';
 
 import useLocalStorage from '../../../hooks/useLocalStorage';
-import { GuestSceneProps } from '..';
+import { GuestSceneProps } from '../types'
 
 export default (props: GuestSceneProps) => {
 

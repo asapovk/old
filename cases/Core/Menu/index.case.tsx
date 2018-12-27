@@ -30,31 +30,31 @@ export default () => {
     }
 
     return (
-        
-            <Fragment>
-                <Menu
-                    header={<Header />}
-                    items={{
-                        list: [{ label: 'Pineapple' }, { label: 'Grape' }, { label: 'Peach' }, { label: 'Strawberry' }, { label: 'Cucumber' }, { label: 'LongLabel' }, { label: 'VeryLongLabel' }],
-                        active: active,
-                        onClick: setActive
-                    }}
-                    profile={{
-                        name: loginUser.first_name,
-                        login: loginUser.login,
-                        fullname: loginUser.first_name + ' ' + loginUser.last_name,
-                        role: loginUser.desc_role
-                    }}
-                    toolsRight={[
-                        <Button decoration='none' onClick={() => console.log(1)}>
-                            <Icon type='add' size={1.5} />
-                        </Button>,
-                        <Button decoration='none' style={{ fontSize: 24 }} onClick={() => console.log(2)}>
-                            <Icon type='filter' size={1.5} />
-                        </Button>
-                    ]}
-                />
-            </Fragment>
-        
+
+        <Fragment>
+            <Menu
+                header={<Header />}
+                items={{
+                    list: [{ label: 'Pineapple' }, { label: 'Grape' }, { label: 'Peach' }, { label: 'Strawberry' }, { label: 'Cucumber' }, { label: 'LongLabel' }, { label: 'VeryLongLabel' }],
+                    active: active,
+                    onClick: setActive
+                }}
+                profile={{
+                    name: loginUser.first_name,
+                    login: loginUser.login,
+                    fullname: loginUser.first_name + ' ' + loginUser.last_name,
+                    role: loginUser.desc_role
+                }}
+                toolsRight={[
+                    <Button decoration='none' onClick={() => console.log(1)}>
+                        <Icon type='add' style={{ fontSize: '1.5 rem' }} />
+                    </Button>,
+                    <Button decoration='none' style={{ fontSize: 24 }} onClick={() => console.log(2)}>
+                        <Icon type='filter' style={{ fontSize: '1.5 rem' }} />
+                    </Button>
+                ]}
+            />
+        </Fragment>
+
     )
 }

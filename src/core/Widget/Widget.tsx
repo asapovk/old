@@ -36,7 +36,7 @@ class Widget extends Component<Props> {
                         {loading ? (
                             <Flexbox column className="ui-widget-loading" alignItems="center" alignSelf="center" justifyContent="center">
                                 <Spin>
-                                    <Icon type="sync" style={{ color: styles.widget.highlight }} size={1.5} />
+                                    <Icon type="sync" style={{ color: styles.widget.highlight, fontSize: '1.5 rem' }} />
                                 </Spin>
                                 {typeof loading === "string" && <div className="ui-widget-loadingtext" style={{ color: styles.widget.lowlight }}>loading</div>}
                             </Flexbox>

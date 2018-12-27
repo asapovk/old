@@ -48,7 +48,7 @@ class Tab extends React.Component<Props> {
                             alignContent="center"
                             alignItems="center"
                         >
-                            {this.props.icon && <Icon type={this.props.icon} size={2.5} />}
+                            {this.props.icon && <Icon type={this.props.icon} style={{ fontSize: "2.5rem" }} />}
                             {
                                 this.props.bubble &&
                                 <div className="ui-tabs-tab-bubble">{this.props.bubble}</div>}

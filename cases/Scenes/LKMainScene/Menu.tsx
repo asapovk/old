@@ -12,7 +12,7 @@ const Menu$ = () => {
                 list: [{ label: "Лицевой счет" }, { label: "Документы" }, { label: "Карта отделений" }, { label: "Поддержка" }]
             }}
             toolsRight={[
-                <Icon type="settings" size={2} />
+                <Icon type="settings" style={{ fontSize: '2rem' }} />
             ]}
         />
     )

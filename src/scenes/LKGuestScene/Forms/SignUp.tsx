@@ -30,8 +30,7 @@ export default (props: SignUpProps) => {
                 <div onClick={props.onBack} style={styles.scenes.lkguest.backButton}>
                     <Icon
                         type="left"
-                        size={1.5}
-                        style={styles.scenes.lkguest.backButtonIcon}
+                        style={{ ...styles.scenes.lkguest.backButtonIcon, fontSize: '1.5 rem' }}
                     />
                 </div>
 

@@ -2,9 +2,16 @@ import React, { CSSProperties } from 'react'
 
 export default (props: { color?: string, style?: CSSProperties }) => {
 
-    let style = props.style || {
-        width: "100%"
-    };
+    let style = {
+        container: props.style || {
+            width: '100%',
+            height: '100%'
+        },
+        svg: {
+            height: '100%'
+        } as CSSProperties
+    }
+
     const st0: CSSProperties = { fill: "#D11349" };
     const st1: CSSProperties = { fill: "#004062" };
 
@@ -14,8 +21,8 @@ export default (props: { color?: string, style?: CSSProperties }) => {
     }
 
     return (
-        <div style={style}>
-            <svg x="0px" y="0px" viewBox="0 0 253 46" xmlSpace="preserve">
+        <div style={style.container}>
+            <svg style={style.svg} x="0px" y="0px" viewBox="0 0 253 46" xmlSpace="preserve">
                 <g fill="none" fillRule="evenodd">
                     <path
                         d="M59.1 24.5c0-.3 0-.6-.1-.9v-.1c-.8-5.6-5.9-11.2-10.5-13.3-2.7-1.6-6.1-2.2-9-2.8-2.6-.5-5-.9-6.7-1.9-.2-.1-.4-.2-.5-.3-.2-.1-.4-.2-.5-.3-.4-.3-1.9-1.5-2.8-2.6-.5-.6-.9-1.2-1.2-1.9l-.2-.5v24.8h2.7V7.2c.4.4.9.7 1.5 1.1 1.5.9 4.1 1.4 6.8 1.9 2.9.5 5.8 1.1 8.2 2.2 5.8 2.6 9.4 8.9 9.8 12.3V29H32.4v12.4h.1c.8 0 1.4 0 2.2-.2h.2v-9.8h24.3v-2.5c0-1.4 0-3-.1-4.4"

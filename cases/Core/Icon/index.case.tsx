@@ -6,7 +6,7 @@ import '../../../src/Styles/scss/main.scss';
 export default class Story extends React.Component {
 
     render() {
-        const HahaIcon = props => <Icon type={props.type} size={2} />
+        const HahaIcon = props => <Icon type={props.type} style={{ fontSize: "2rem" }} />
         const Icons = Object.keys(svgIconPath).map(key =>
             <Flexbox column key={key} p={20} justifyContent="center" alignItems="center" alignContent="center">
                 <HahaIcon type={key} />

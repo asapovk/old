@@ -1,8 +1,6 @@
 import React, { Fragment } from 'react';
 import { Flexbox } from '../../../src';
-import SmorodinaLogo from '../../../src/logos/smorodina';
-import MrgLogo from '../../../src/logos/mrg';
-import AbrLogo from '../../../src/logos/abr';
+import { ABR, MRG, Smorodina } from '../../../src/logos'
 import Scene from '../../../src/scenes/LKGuestScene';
 import useStyles from '../../../src/hooks/useTheme';
 import '../../../src/Styles/scss/main.scss';
@@ -12,7 +10,7 @@ export default () => {
     const styles = useStyles();
 
     let title;
-    let logo: any = <SmorodinaLogo style={{ marginBottom: 20, width: "100%" }} />;
+    let logo: any = <Smorodina color="#fff" />;
     let rightComponent: any;
 
     if (styles.theme.name === "gazpromTheme") {
@@ -27,17 +25,17 @@ export default () => {
                 />
             </Flexbox>
         );
-        logo = <MrgLogo color="#fff" style={{ width: 200 }} />;
-        title = "Вся информация по вашим лицевым счетам. Удобно.";
+        logo = <MRG color="#fff" />;
+        title = "Вся информация по\u00A0вашим лицевым счетам. Удобно.";
     }
 
     if (styles.theme.name === "abrTheme") {
-        logo = <AbrLogo />;
+        logo = <ABR />;
         title = "БАНК - мечта!";
     }
 
     if (styles.theme.name === "blackCurrant") {
-        logo = <SmorodinaLogo color="#fff" style={{ marginBottom: 20, width: "100%" }} />
+        logo = <Smorodina color="#fff" />
     }
 
     return (
@@ -69,11 +67,11 @@ export default () => {
             footerActions={[
                 {
                     title: "Оплатить услуги газоснабжения",
-                    icon: "settings"
+                    icon: "card"
                 },
                 {
                     title: "Передать показания",
-                    icon: "clock"
+                    icon: "counter"
                 }
             ]}
         />
