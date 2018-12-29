@@ -22,7 +22,7 @@ export interface ButtonProps {
 
 export default (props: ButtonProps) => {
 
-    const { labelCase, label, children, style, loading, decoration, disabled, size, inversion } = props;
+    const { labelCase, label, children, style, loading, decoration, disabled, size, inversion, className } = props;
     const styles = useStyles(size, loading, disabled, labelCase, decoration, inversion);
 
     const onClick = (event) => {
@@ -33,7 +33,7 @@ export default (props: ButtonProps) => {
     }
 
     return (
-        <button css={styles} style={style} onClick={(event) => onClick(event)}>
+        <button css={styles} className={className} style={style} onClick={(event) => onClick(event)}>
             <span>{label || children}</span>
             {loading && (<Spin><Icon type="sync" /></Spin>)}
         </button>

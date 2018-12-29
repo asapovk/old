@@ -13,9 +13,9 @@ exports.default = (function (opt) {
     var _a = react_1.useState(localstorage ? localstorage.value : (opt && opt.defaultValue || "")), value = _a[0], setValue = _a[1];
     return {
         value: value,
-        onChange: function (value) {
-            setValue(value);
-            localstorage && localstorage.setValue(value);
+        onChange: function (event) {
+            setValue(event.target.value);
+            localstorage && localstorage.setValue(event.target.value);
         },
     };
 });

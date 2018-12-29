@@ -10,7 +10,9 @@ export interface UseTextFieldInput {
 }
 declare const _default: (opt?: UseTextFieldInput | undefined) => {
     value: any;
-    onChange: (value: string) => void;
+    onChange: (event: {
+        target: HTMLInputElement;
+    }) => void;
 };
 /**
  * Использоватеть тексовое поле
