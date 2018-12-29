@@ -1,4 +1,4 @@
-import { IconType } from '../../core/Icon/Icon';
+import { IconTypes } from '../../core/types';
 
 export interface GuestSceneConfig {
     title?: string,
@@ -41,7 +41,7 @@ export interface OnLoginPromiseReturn {
 
 export interface GuestSceneFooterActions {
     title: string
-    icon: IconType
+    icon: IconTypes.Type
     onAction?: () => void
 }
 

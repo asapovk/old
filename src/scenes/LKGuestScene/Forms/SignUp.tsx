@@ -46,13 +46,13 @@ export default (props: SignUpProps) => {
                     <TextField {...password}
                         placeholder="Придумайте пароль"
                         type="password"
-                        hint={(() => {
-                            if (!login.value) return "";
-                            if (password.value.length <= 0) return "";
-                            if (password.value.length >= props.newPasswordsMinLength) return "";
+                    // hint={(() => {
+                    //     if (!login.value) return "";
+                    //     if (password.value.length <= 0) return "";
+                    //     if (password.value.length >= props.newPasswordsMinLength) return "";
 
-                            return "Введите еще " + charsLeft;
-                        })()}
+                    //     return "Введите еще " + charsLeft;
+                    // })()}
                     />
                 </Flexbox>
             )}

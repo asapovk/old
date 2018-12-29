@@ -27,7 +27,7 @@ export default () => {
             welcome: {
                 width: '20rem',
                 marginTop: '8rem',
-                marginBottom: '8rem'
+                marginBottom: '8em'
             },
             wrapper: {
                 maxWidth: maxWidth

@@ -1,11 +1,11 @@
 
 import React from 'react';
 import { Flexbox, Icon, Styles } from '../../';
-import { IconType } from '../Icon/Icon';
+import { IconTypes } from '../types';
 import { TabTypes } from './';
 
 interface Props {
-    icon?: IconType
+    icon?: IconTypes.Type
     active?: boolean
     bubble?: number
     label?: string

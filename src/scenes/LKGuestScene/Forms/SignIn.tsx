@@ -2,7 +2,7 @@ import React, { useState, useEffect, Fragment } from 'react';
 import { Flexbox, TextField, Button } from '../../..';
 
 import useTextField from '../../../hooks/useTextField';
-import useStyles from '../../../hooks/useTheme';
+import useStyles from '../useStyles';
 
 interface SignInProps {
     allowSignUp: boolean
@@ -24,6 +24,7 @@ export default (props: SignInProps) => {
                 <TextField
                     {...login}
                     placeholder="Ваш логин"
+                    size='large'
                 />
             </Flexbox>
             {login.value && (
@@ -32,6 +33,7 @@ export default (props: SignInProps) => {
                         {...password}
                         placeholder="Введите пароль"
                         type="password"
+                        size='large'
                     />
                 </Flexbox>
             )}
@@ -41,9 +43,10 @@ export default (props: SignInProps) => {
                     <Button
                         label="Вход"
                         decoration="highlight"
+                        size='large'
                         loading={props.pending}
                         onClick={onSubmit}
-                        style={styles.scenes.lkguest.submitButton}
+                        style={styles.form.submitButton}
 
                     />
                 </Flexbox>
@@ -51,10 +54,11 @@ export default (props: SignInProps) => {
                     <Flexbox flex={1} pl={'0.5rem'}>
                         <Button
                             label="Регистрация"
+                            size='large'
                             decoration="highlight"
                             disabled={props.pending}
                             onClick={props.onSignUp}
-                            style={styles.scenes.lkguest.secondaryButton}
+                            style={styles.form.secondaryButton}
                         />
                     </Flexbox>
                 )}
