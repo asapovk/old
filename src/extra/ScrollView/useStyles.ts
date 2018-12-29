@@ -15,6 +15,7 @@ export default (horizontal?: boolean, isWebkit?: boolean, hidden?: boolean, widt
 
         scrollview: css({
             position: 'relative',
+            boxSizing: 'border-box',
             height: horizontal ? "auto" : "100%",
             overflowX: horizontal ? "scroll" : "hidden",
             overflowY: horizontal ? "hidden" : "scroll",
