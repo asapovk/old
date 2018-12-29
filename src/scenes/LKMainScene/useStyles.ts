@@ -33,6 +33,7 @@ export default () => {
             width: "400px",
             top: 0,
             left: 0,
+            zIndex: 10
         },
         main: css({
             flex: 1,
