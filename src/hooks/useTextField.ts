@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, SyntheticEvent } from 'react';
 import useLocalStorage from './useLocalStorage';
 
 export interface UseTextFieldInput {
@@ -21,9 +21,9 @@ export default (opt?: UseTextFieldInput) => {
 
     return {
         value,
-        onChange: (value: string) => {
-            setValue(value);
-            localstorage && localstorage.setValue(value);
+        onChange: (event: { target: HTMLInputElement }) => {
+            setValue(event.target.value);
+            localstorage && localstorage.setValue(event.target.value);
         },
     }
 }
