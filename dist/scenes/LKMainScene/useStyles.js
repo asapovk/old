@@ -35,6 +35,7 @@ exports.default = (function () {
             width: "400px",
             top: 0,
             left: 0,
+            zIndex: 10
         },
         main: core_1.css({
             flex: 1,

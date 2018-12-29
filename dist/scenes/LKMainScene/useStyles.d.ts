@@ -7,6 +7,7 @@ declare const _default: () => {
         width: string;
         top: number;
         left: number;
+        zIndex: number;
     };
     main: import("@emotion/utils").SerializedStyles;
     menuMobile: import("@emotion/utils").SerializedStyles;
