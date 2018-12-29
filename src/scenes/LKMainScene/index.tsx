@@ -26,10 +26,12 @@ export default (props: IProps) => {
     return (
         <Fragment>
             <Flexbox css={styles.root}>
-                <div css={styles.side}>
+                <div css={styles.preside}>
                     <ScrollView customCss={styles.$sideScroll}>
-                        {props.components.side}
-                        {props.components.sideBottom}
+                        <div css={styles.side}>
+                            {props.components.side}
+                            {props.components.sideBottom}
+                        </div>
                     </ScrollView>
                 </div>
                 <div css={styles.main}>

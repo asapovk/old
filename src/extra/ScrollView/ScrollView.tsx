@@ -14,12 +14,11 @@ export interface IProps {
 }
 
 //@ts-ignore
-const isWebkit = !!window.webkitURL;
+const isWebkit = !!window.webkitRequestAnimationFrame;
 
 export default (props: IProps) => {
 
     const { children, horizontal, style, width, height, customCss } = props;
-    console.log(customCss);
     const scrollView = createRef<HTMLDivElement>();
     const styles = useStyles(horizontal, isWebkit, false, width, height, customCss);
 

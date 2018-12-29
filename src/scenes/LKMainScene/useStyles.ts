@@ -10,11 +10,17 @@ export default () => {
         root: css({
             height: "100%",
         }),
-        side: css({
-            width: 320,
+        preside: css({
+            width: "350px",
+            zIndex: 20000,
             borderRightWidth: 1,
             borderRightStyle: "solid",
             borderRightColor: theme.pale.hex,
+        }),
+        side: css({
+            padding: 20,
+            width: 320,
+
             '@media (max-width: 1023px)': {
                 paddingTop: 64,
             },
@@ -23,7 +29,10 @@ export default () => {
             }
         }),
         $sideScroll: {
-            padding: 20
+            position: "fixed",
+            width: "400px",
+            top: 0,
+            left: 0,
         },
         main: css({
             flex: 1,
