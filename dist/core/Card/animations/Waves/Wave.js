@@ -19,7 +19,7 @@ var width = 3900;
 var height = 90;
 exports.default = (function (props) {
     var id = Math.trunc(Math.random() * 100000);
-    return (react_1.default.createElement("svg", { viewBox: "0 0 " + width + " " + height, style: __assign({ width: width * (props.size || 1), height: height * (props.size || 1) }, props.style) },
+    return (react_1.default.createElement("svg", { className: props.className, viewBox: "0 0 " + width + " " + height, style: __assign({ width: width * (props.size || 1), height: height * (props.size || 1) }, props.style) },
         react_1.default.createElement("defs", null,
             react_1.default.createElement("style", null, ".wave-animation-" + id + "{fill:url(#wave-animation-" + id + ");}"),
             react_1.default.createElement("linearGradient", { id: "wave-animation-" + id, x1: 0.5, y1: 1, x2: 0.5, gradientUnits: "objectBoundingBox" },

@@ -39,20 +39,12 @@ exports.default = (function (props) {
             react_1.default.createElement("div", { onClick: props.onBack, style: styles.scenes.lkguest.backButton },
                 react_1.default.createElement(__2.Icon, { type: "left", style: __assign({}, styles.scenes.lkguest.backButtonIcon, { fontSize: '1.5 rem' }) })),
             react_1.default.createElement(__1.Flexbox, { flex: 1 },
-                react_1.default.createElement(__1.TextField, __assign({}, login, { placeholder: "\u0422\u0435\u043B\u0435\u0444\u043E\u043D/\u041F\u043E\u0447\u0442\u0430" })))),
+                react_1.default.createElement(__1.TextField, __assign({}, login, { placeholder: "\u0422\u0435\u043B\u0435\u0444\u043E\u043D/\u041F\u043E\u0447\u0442\u0430", decoration: 'borderless', size: 'large' })))),
         login.value && (react_1.default.createElement(__1.Flexbox, { pt: '1rem' },
-            react_1.default.createElement(__1.TextField, __assign({}, password, { placeholder: "\u041F\u0440\u0438\u0434\u0443\u043C\u0430\u0439\u0442\u0435 \u043F\u0430\u0440\u043E\u043B\u044C", type: "password", hint: (function () {
-                    if (!login.value)
-                        return "";
-                    if (password.value.length <= 0)
-                        return "";
-                    if (password.value.length >= props.newPasswordsMinLength)
-                        return "";
-                    return "Введите еще " + charsLeft;
-                })() })))),
+            react_1.default.createElement(__1.TextField, __assign({}, password, { placeholder: "\u041F\u0440\u0438\u0434\u0443\u043C\u0430\u0439\u0442\u0435 \u043F\u0430\u0440\u043E\u043B\u044C", type: "password", decoration: 'borderless', size: 'large' })))),
         login.value && password.value.length >= props.newPasswordsMinLength && (react_1.default.createElement(__1.Flexbox, { pt: '1rem' },
-            react_1.default.createElement(__1.TextField, __assign({}, password2, { placeholder: "\u041F\u043E\u0432\u0442\u043E\u0440\u0438\u0442\u0435 \u043F\u0430\u0440\u043E\u043B\u044C", type: "password" })))),
+            react_1.default.createElement(__1.TextField, __assign({}, password2, { placeholder: "\u041F\u043E\u0432\u0442\u043E\u0440\u0438\u0442\u0435 \u043F\u0430\u0440\u043E\u043B\u044C", type: "password", decoration: 'borderless', size: 'large' })))),
         react_1.default.createElement(__1.Flexbox, { justifyContent: "space-around", pt: '1rem' },
             react_1.default.createElement(__1.Flexbox, { flex: 1 },
-                react_1.default.createElement(__1.Button, { label: "\u0417\u0430\u0440\u0435\u0433\u0438\u0441\u0442\u0440\u0438\u0440\u043E\u0432\u0430\u0442\u044C\u0441\u044F", decoration: "highlight", onClick: onSubmit, style: styles.scenes.lkguest.submitButton })))));
+                react_1.default.createElement(__1.Button, { label: "\u0417\u0430\u0440\u0435\u0433\u0438\u0441\u0442\u0440\u0438\u0440\u043E\u0432\u0430\u0442\u044C\u0441\u044F", decoration: "highlight", size: 'large', onClick: onSubmit, style: styles.scenes.lkguest.submitButton })))));
 });

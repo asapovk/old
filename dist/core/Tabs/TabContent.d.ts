@@ -1,9 +1,9 @@
 import React, { CSSProperties } from 'react';
-import { IconType } from '../Icon/Icon';
+import { IconTypes } from '../types';
 interface Props {
     style?: CSSProperties;
     active?: boolean;
-    icon?: IconType;
+    icon?: IconTypes.Type;
     bubble?: number;
     disabled?: boolean;
     mobileActive?: boolean;

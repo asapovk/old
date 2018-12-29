@@ -5,10 +5,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@emotion/core");
 var useTheme_1 = __importDefault(require("../../hooks/useTheme"));
-var useTypography_1 = __importDefault(require("../../hooks/useTypography"));
+// import useTypography from '../../hooks/useTypography';
 exports.default = (function (active) {
     var theme = useTheme_1.default().theme;
-    var typography = useTypography_1.default();
+    // const typography = useTypography();
     return {
         main: core_1.css({
             background: theme.interface.rgb,
