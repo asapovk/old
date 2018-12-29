@@ -37,6 +37,8 @@ export default (props: SignUpProps) => {
                 <Flexbox flex={1}>
                     <TextField {...login}
                         placeholder="Телефон/Почта"
+                        decoration='borderless'
+                        size='large'
                     />
                 </Flexbox>
             </Flexbox>
@@ -46,6 +48,8 @@ export default (props: SignUpProps) => {
                     <TextField {...password}
                         placeholder="Придумайте пароль"
                         type="password"
+                        decoration='borderless'
+                        size='large'
                     // hint={(() => {
                     //     if (!login.value) return "";
                     //     if (password.value.length <= 0) return "";
@@ -61,6 +65,8 @@ export default (props: SignUpProps) => {
                     <TextField {...password2}
                         placeholder="Повторите пароль"
                         type="password"
+                        decoration='borderless'
+                        size='large'
                     />
                 </Flexbox>
             )}
@@ -70,6 +76,7 @@ export default (props: SignUpProps) => {
                     <Button
                         label="Зарегистрироваться"
                         decoration="highlight"
+                        size='large'
                         onClick={onSubmit}
                         style={styles.scenes.lkguest.submitButton}
                     />

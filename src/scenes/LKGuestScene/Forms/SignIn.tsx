@@ -25,6 +25,7 @@ export default (props: SignInProps) => {
                     {...login}
                     placeholder="Ваш логин"
                     size='large'
+                    decoration='borderless'
                 />
             </Flexbox>
             {login.value && (
@@ -34,6 +35,7 @@ export default (props: SignInProps) => {
                         placeholder="Введите пароль"
                         type="password"
                         size='large'
+                        decoration='borderless'
                     />
                 </Flexbox>
             )}

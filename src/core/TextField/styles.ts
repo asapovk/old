@@ -6,7 +6,7 @@ export default (multiline, size, disabled, decoration) => {
     const theme = useTheme().theme;
     const typography = useTypography();
 
-    const sizes = getSizes(size);
+    const sizes = getSizes(size, decoration);
 
     return {
         container: css(
@@ -83,11 +83,13 @@ export default (multiline, size, disabled, decoration) => {
     }
 }
 
-function getSizes(size) {
+function getSizes(size, decoration) {
     switch (size) {
         case 'large':
             return {
-                inputHeight: 'calc(2.75rem - 2px)',
+                inputHeight: decoration != 'borderless'
+                    ? 'calc(2.75rem - 2px)'
+                    : '2.75rem',
                 inputPadding: '0 0.75rem',
                 textareaPadding: '0.75rem',
                 iconSize: '1.25rem',
@@ -98,7 +100,9 @@ function getSizes(size) {
             };
         case 'small':
             return {
-                inputHeight: 'calc(1.75rem - 2px)',
+                inputHeight: decoration != 'borderless'
+                    ? 'calc(1.75rem - 2px)'
+                    : '1.75rem',
                 inputPadding: '0 0.5rem',
                 textareaPadding: '0.5rem',
                 iconSize: '0.75rem',
@@ -108,7 +112,9 @@ function getSizes(size) {
             };
         default:
             return {
-                inputHeight: 'calc(2rem - 2px)',
+                inputHeight: decoration != 'borderless'
+                    ? 'calc(2rem - 2px)'
+                    : '2rem',
                 inputPadding: '0 0.5rem',
                 textareaPadding: '0.5rem',
                 iconSize: '1rem',
