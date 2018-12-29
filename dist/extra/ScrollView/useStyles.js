@@ -24,7 +24,7 @@ exports.default = (function (horizontal, isWebkit, hidden, width, height, custom
             flex: width ? "inherit" : 1,
             height: height || (!horizontal ? "100%" : "initial"),
         }),
-        scrollview: core_1.css(__assign({ position: 'relative', height: horizontal ? "auto" : "100%", overflowX: horizontal ? "scroll" : "hidden", overflowY: horizontal ? "hidden" : "scroll", marginRight: isWebkit ? 0 : -15, marginBottom: (isWebkit && horizontal) ? 0 : -15, whiteSpace: horizontal ? "nowrap" : "normal", "&::-webkit-scrollbar": {
+        scrollview: core_1.css(__assign({ position: 'relative', boxSizing: 'border-box', height: horizontal ? "auto" : "100%", overflowX: horizontal ? "scroll" : "hidden", overflowY: horizontal ? "hidden" : "scroll", marginRight: isWebkit ? 0 : -15, marginBottom: (isWebkit && horizontal) ? 0 : -15, whiteSpace: horizontal ? "nowrap" : "normal", "&::-webkit-scrollbar": {
                 display: "none"
             } }, customCss)),
         scrollbar: core_1.css({
