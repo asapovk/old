@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core';
 import useStyles from '../../useStyles';
-import React, { CSSProperties, Fragment, useEffect, useLayoutEffect } from "react";
+import { Fragment } from "react";
 import Wave from './Wave';
 import useClass from "../../../../hooks/useClass";
 interface IProps {

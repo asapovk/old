@@ -3,6 +3,7 @@ interface IProps {
     color?: string
     size?: number
     style?: CSSProperties
+    className?: string
 }
 const width = 503;
 const height = 339;
@@ -12,6 +13,7 @@ export default (props: IProps) => {
 
     return (
         <svg
+            className={props.className}
             viewBox={`0 0 ${width} ${height}`}
             style={{
                 width: width * (props.size || 1),
