@@ -1,11 +1,11 @@
 import { css } from '@emotion/core';
 import useTheme from '../../hooks/useTheme';
-import useTypography from '../../hooks/useTypography';
+// import useTypography from '../../hooks/useTypography';
 
 export default (active?: boolean) => {
 
     const theme = useTheme().theme;
-    const typography = useTypography();
+    // const typography = useTypography();
 
     return {
         main: css(

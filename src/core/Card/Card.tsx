@@ -16,9 +16,8 @@ export interface ICard {
 
 export default (props: ICard) => {
 
-    const { style } = props;
+    const { style, children } = props;
     const styles = useStyles(props.active);
-
     return (
         <Flexbox
             flexDirection='column'
@@ -33,6 +32,7 @@ export default (props: ICard) => {
             {props.animation === "circles" && (
                 <Circles active={props.active} />
             )}
+            {children}
         </Flexbox>
     );
 }

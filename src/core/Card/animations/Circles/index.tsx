@@ -1,9 +1,8 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core';
 import useStyles from '../../useStyles';
-import React, { CSSProperties, Fragment, useEffect, useLayoutEffect } from "react";
+import { Fragment } from "react";
 import Circle from './Circle';
-import useClass from "../../../../hooks/useClass";
 interface IProps {
     active?: boolean
     color?: string
