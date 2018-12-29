@@ -20,10 +20,9 @@ var useStyles_1 = __importDefault(require("./useStyles"));
 var react_1 = require("react");
 var ScrollBar_1 = __importDefault(require("./ScrollBar"));
 //@ts-ignore
-var isWebkit = !!window.webkitURL;
+var isWebkit = !!window.webkitRequestAnimationFrame;
 exports.default = (function (props) {
     var children = props.children, horizontal = props.horizontal, style = props.style, width = props.width, height = props.height, customCss = props.customCss;
-    console.log(customCss);
     var scrollView = react_1.createRef();
     var styles = useStyles_1.default(horizontal, isWebkit, false, width, height, customCss);
     /**

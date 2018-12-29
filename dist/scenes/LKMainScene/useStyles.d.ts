@@ -1,8 +1,12 @@
 declare const _default: () => {
     root: import("@emotion/utils").SerializedStyles;
+    preside: import("@emotion/utils").SerializedStyles;
     side: import("@emotion/utils").SerializedStyles;
     $sideScroll: {
-        padding: number;
+        position: string;
+        width: string;
+        top: number;
+        left: number;
     };
     main: import("@emotion/utils").SerializedStyles;
     menuMobile: import("@emotion/utils").SerializedStyles;

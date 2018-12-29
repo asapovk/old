@@ -13,11 +13,16 @@ exports.default = (function () {
         root: core_1.css({
             height: "100%",
         }),
-        side: core_1.css({
-            width: 320,
+        preside: core_1.css({
+            width: "350px",
+            zIndex: 20000,
             borderRightWidth: 1,
             borderRightStyle: "solid",
             borderRightColor: theme.pale.hex,
+        }),
+        side: core_1.css({
+            padding: 20,
+            width: 320,
             '@media (max-width: 1023px)': {
                 paddingTop: 64,
             },
@@ -26,7 +31,10 @@ exports.default = (function () {
             }
         }),
         $sideScroll: {
-            padding: 20
+            position: "fixed",
+            width: "400px",
+            top: 0,
+            left: 0,
         },
         main: core_1.css({
             flex: 1,
