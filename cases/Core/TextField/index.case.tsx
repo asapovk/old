@@ -4,6 +4,7 @@ import '../../../src/Styles/scss/main.scss';
 
 export default () => {
     const [value, setValue] = useState('');
+
     return (
         <Flexbox alignContent="center" justifyContent='center' p={40}>
             <Flexbox column flexBasis='640px'>
