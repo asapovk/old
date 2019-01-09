@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
-import useStyles from './useStyles';
+import createStyles from './styles';
 import React from 'react';
 import { Flexbox } from '../..';
 import Form from './Forms';
@@ -11,7 +11,7 @@ import { useBrowser } from '../../hooks';
 export default (props: GuestSceneProps) => {
 
     const size = useBrowser();
-    const styles = useStyles();
+    const styles = createStyles();
     const Logo = () => props.components ? <div css={styles.main.logo}>{props.components.logo}</div> : null;
     const Title = () => props.title ? <span css={styles.main.title}>{props.title}</span> : null;
 

@@ -2,7 +2,7 @@
 import { jsx } from '@emotion/core';
 import React, { Fragment } from 'react';
 import { Flexbox } from '../../';
-import useStyles from './useStyles';
+import createStyles from './styles';
 import useBrowser from '../../hooks/useBrowser';
 import { ScrollView } from '../../extra/ScrollView';
 interface IProps {
@@ -22,7 +22,7 @@ interface IProps {
 
 export default (props: IProps) => {
     // const browser = useBrowser();
-    const styles = useStyles();
+    const styles = createStyles();
     return (
         <Fragment>
             <Flexbox css={styles.root}>
