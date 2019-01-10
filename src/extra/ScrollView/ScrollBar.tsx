@@ -127,7 +127,7 @@ export default (props: IProps) => {
             window.removeEventListener("mousemove", onMouseMove);
             window.removeEventListener("mouseup", disableManualScroll);
         }
-    }, []);
+    }, [scrollViewId]);
 
     return (
         <div css={styles.scrollbar} ref={scrollBar}>

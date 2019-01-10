@@ -1,25 +1,22 @@
 import { css } from '@emotion/core'
-import useTheme from '../../hooks/useTheme'
-import useTypography from '../../hooks/useTypography'
+import { useTheme } from '../../hooks'
 
 export default () => {
     const theme = useTheme().theme
-    const typography = useTypography()
 
     return {
         root: css({
             height: "100%",
         }),
         preside: css({
-            width: "350px",
-            zIndex: 20000,
+            width: "320px",
             borderRightWidth: 1,
             borderRightStyle: "solid",
             borderRightColor: theme.pale.hex,
         }),
         side: css({
             padding: 20,
-            width: 320,
+            width: 280,
 
             '@media (max-width: 1023px)': {
                 paddingTop: 64,

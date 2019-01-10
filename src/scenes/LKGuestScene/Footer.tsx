@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
-import useStyles from './useStyles';
+import createStyles from './styles';
 import React from 'react';
 import { Flexbox, Icon } from '../..';
 import useBrowser from '../../hooks/useBrowser';
@@ -9,7 +9,7 @@ import { GuestSceneProps } from './types'
 export default (props: GuestSceneProps) => {
 
     const size = useBrowser();
-    const styles = useStyles();
+    const styles = createStyles();
 
     if (size.height <= 600 || !props.footerActions) {
         return null;

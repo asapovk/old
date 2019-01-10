@@ -2,7 +2,7 @@ import React, { useState, useEffect, Fragment } from 'react';
 import { Flexbox, TextField, Button } from '../../..';
 
 import useTextField from '../../../hooks/useTextField';
-import useStyles from '../useStyles';
+import createStyles from '../styles';
 
 interface SignInProps {
     allowSignUp: boolean
@@ -12,7 +12,7 @@ interface SignInProps {
 }
 
 export default (props: SignInProps) => {
-    const styles = useStyles();
+    const styles = createStyles();
     const login = useTextField({ id: "LOGIN" });
     const password = useTextField({});
 
