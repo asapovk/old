@@ -31,8 +31,6 @@ export default (active?: boolean) => {
                 border: 'none',
                 color: theme.textOnAccent.rgb,
                 borderColor: theme.pale.rgba(0),
-                transform: 'translateX(20px)',
-                marginRight: '-20px',
                 height: '180px',
                 '@media (max-width: 640px)': {
                     transform: 'translateX(0)'

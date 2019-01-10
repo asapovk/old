@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core';
-import useStyles from '../../useStyles';
+import createStyles from '../../styles';
 import { Fragment } from "react";
 import Wave from './Wave';
 import useClass from "../../../../hooks/useClass";
@@ -10,7 +10,7 @@ interface IProps {
 }
 export default (props: IProps) => {
 
-    const styles = useStyles(props.active);
+    const styles = createStyles(props.active);
 
     return (
         <Fragment>

@@ -1,3 +1,5 @@
+/** @jsx jsx */
+import { jsx } from '@emotion/core';
 import React, { CSSProperties } from 'react';
 
 export interface FlexboxProps {
@@ -43,7 +45,7 @@ export interface FlexboxProps {
 
 class Flexbox extends React.Component<FlexboxProps> {
     render() {
-        const { className, elementRef, onClick, onMouseEnter, onMouseLeave, onMouseUp, onMouseDown, onTouchStart, onTouchEnd, w, h, pr, pl, pt, pb, p, m, mr, ml, mt, mb, flex, inline, flexBasis, alignContent, alignSelf, alignItems, justifyContent, flexDirection, flexFlow, flexShrink, flexGrow, column } = this.props;
+        const { className, elementRef, onClick, onMouseEnter, onMouseLeave, onMouseUp, onMouseDown, onTouchStart, onTouchEnd, w, h, pr, pl, pt, pb, p, m, mr, ml, mt, mb, flex, inline, flexBasis, alignContent, alignSelf, alignItems, justifyContent, flexDirection, flexFlow, flexShrink, flexGrow, column, id } = this.props;
         const props: any = {
             className,
             ref: elementRef,
@@ -54,38 +56,39 @@ class Flexbox extends React.Component<FlexboxProps> {
             onTouchEnd,
             onMouseUp,
             onMouseDown,
-            style: {
+            id: id,
+            css: {
                 position: 'relative',
                 display: inline ? 'inline-flex' : 'flex',
                 flexDirection: column ? "column" : flexDirection,
                 ...this.props.style
             }
         }
-        if (flex) props.style.flex = flex;
-        if (flexBasis) props.style.flexBasis = flexBasis;
+        if (flex) props.css.flex = flex;
+        if (flexBasis) props.css.flexBasis = flexBasis;
 
-        if (w) props.style.width = w;
-        if (h) props.style.height = h;
-        if (p) props.style.padding = p;
-        if (pt) props.style.paddingTop = pt;
-        if (pl) props.style.paddingLeft = pl;
-        if (pr) props.style.paddingRight = pr;
-        if (pb) props.style.paddingBottom = pb;
-        if (m) props.style.margin = m;
-        if (mt) props.style.marginTop = mt;
-        if (ml) props.style.marginLeft = ml;
-        if (mr) props.style.marginRight = mr;
-        if (mb) props.style.marginBottom = mb;
+        if (w) props.css.width = w;
+        if (h) props.css.height = h;
+        if (p) props.css.padding = p;
+        if (pt) props.css.paddingTop = pt;
+        if (pl) props.css.paddingLeft = pl;
+        if (pr) props.css.paddingRight = pr;
+        if (pb) props.css.paddingBottom = pb;
+        if (m) props.css.margin = m;
+        if (mt) props.css.marginTop = mt;
+        if (ml) props.css.marginLeft = ml;
+        if (mr) props.css.marginRight = mr;
+        if (mb) props.css.marginBottom = mb;
 
-        if (alignContent) props.style.alignContent = alignContent;
-        if (alignSelf) props.style.alignSelf = alignSelf;
-        if (alignItems) props.style.alignItems = alignItems;
-        if (justifyContent) props.style.justifyContent = justifyContent;
-        if (flexFlow !== undefined) props.style.flexFlow = flexFlow;
-        if (flexShrink !== undefined) props.style.flexShrink = flexShrink;
-        if (flexGrow !== undefined) props.style.flexGrow = flexGrow;
+        if (alignContent) props.css.alignContent = alignContent;
+        if (alignSelf) props.css.alignSelf = alignSelf;
+        if (alignItems) props.css.alignItems = alignItems;
+        if (justifyContent) props.css.justifyContent = justifyContent;
+        if (flexFlow !== undefined) props.css.flexFlow = flexFlow;
+        if (flexShrink !== undefined) props.css.flexShrink = flexShrink;
+        if (flexGrow !== undefined) props.css.flexGrow = flexGrow;
 
-        return React.createElement('div', props, this.props.children);
+        return jsx('div', props, this.props.children);
     }
 }
 

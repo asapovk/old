@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core';
-import useStyles from './useStyles';
-import React, { CSSProperties, ReactElement } from 'react';
+import createStyles from './styles';
+import { CSSProperties, ReactElement, ReactDOM } from 'react';
 import { Flexbox, Button } from '../';
 import Waves from './animations/Waves';
 import Circles from './animations/Circles';
@@ -12,19 +12,22 @@ export interface ICard {
     style?: CSSProperties
     children?: ReactElement<any>
     animation?: "waves" | "circles"
+    className?: string
 }
 
 export default (props: ICard) => {
 
     const { style, children } = props;
-    const styles = useStyles(props.active);
+    const styles = createStyles(props.active);
+
     return (
         <Flexbox
             flexDirection='column'
             onClick={() => props.onClick && props.onClick()}
-
-            css={{ ...styles.main, ...style }}
+            css={styles.main}
+            style={style}
             flex={1}
+            className={props.className}
         >
             {props.animation === "waves" && (
                 <Waves active={props.active} />

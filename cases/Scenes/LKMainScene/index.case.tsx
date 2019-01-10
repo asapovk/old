@@ -4,8 +4,7 @@ import useTheme from '../../../src/hooks/useTheme';
 import { MRG, ABR, Smorodina } from '../../../src/logos';
 import '../../../src/Styles/scss/main.scss';
 
-import SideMenu from './SideMenu';
-import SideBottom from './SideBottom';
+import Sidebar from './Sidebar';
 import Menu from './Menu';
 import Main from './Main';
 import MainTop from './MainTop';
@@ -31,10 +30,10 @@ export default () => {
         <Scene
             components={{
                 menu: <Menu />,
-                side: <SideMenu logo={logo} logoWidth={logoWidth} />,
+                logo: logo,
+                sidebar: <Sidebar />,
                 mainTop: <MainTop />,
                 main: <Main />,
-                sideBottom: <SideBottom />,
             }}
             displaySideBar={true}
         />

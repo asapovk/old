@@ -8,29 +8,31 @@ export default () => {
         root: css({
             height: "100%",
         }),
-        preside: css({
-            width: "320px",
+        sidebarHolder: css({
+            width: "20rem",
             borderRightWidth: 1,
             borderRightStyle: "solid",
             borderRightColor: theme.pale.hex,
         }),
-        side: css({
-            padding: 20,
-            width: 280,
-
+        sidebar: css({
+            top: 0,
+            left: 0,
+            bottom: 0,
+            width: "20rem",
+            position: "fixed",
+            overflow: 'hidden',
             '@media (max-width: 1023px)': {
-                paddingTop: 64,
+                paddingTop: '4rem',
             },
             '@media (max-width: 768px)': {
                 width: '100%'
             }
         }),
-        $sideScroll: {
-            width: "400px",
-            top: 0,
-            left: 0,
-            zIndex: 10
-        },
+        logo: css({
+            padding: '2.5rem 0',
+            height: '3.5rem',
+            margin: '0 auto'
+        }),
         main: css({
             flex: 1,
             height: "100%",

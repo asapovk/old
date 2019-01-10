@@ -122,8 +122,8 @@ export default (props: IProps) => {
             scrollView = getScrollView();
             scrollView && scrollView.removeEventListener("scroll", onScroll);
             scrollThumb.current && scrollThumb.current.removeEventListener("mousedown", enableManualScroll);
-            scrollBar.current && scrollBar.current.addEventListener("mouseenter", mouseEnterScrollBar);
-            scrollBar.current && scrollBar.current.addEventListener("mouseleave", mouseLeaveScrollBar);
+            scrollBar.current && scrollBar.current.removeEventListener("mouseenter", mouseEnterScrollBar);
+            scrollBar.current && scrollBar.current.removeEventListener("mouseleave", mouseLeaveScrollBar);
             window.removeEventListener("mousemove", onMouseMove);
             window.removeEventListener("mouseup", disableManualScroll);
         }
