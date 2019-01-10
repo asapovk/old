@@ -159,10 +159,6 @@ export declare const createStyles: (themeName?: string | undefined) => {
             badgeColor: string;
         };
     };
-    login: {
-        textColor: string;
-        textShadow: string;
-    };
     menu: {
         main: {
             menu: {
@@ -193,12 +189,6 @@ export declare const createStyles: (themeName?: string | undefined) => {
             background: string;
             borderRadius: string;
         };
-    };
-    popup: {
-        color: string;
-        shadowColor: string;
-        borderColor: string;
-        background: string;
     };
     select: {
         background: string;
@@ -434,10 +424,6 @@ export declare const StylesContext: React.Context<{
             badgeColor: string;
         };
     };
-    login: {
-        textColor: string;
-        textShadow: string;
-    };
     menu: {
         main: {
             menu: {
@@ -468,12 +454,6 @@ export declare const StylesContext: React.Context<{
             background: string;
             borderRadius: string;
         };
-    };
-    popup: {
-        color: string;
-        shadowColor: string;
-        borderColor: string;
-        background: string;
     };
     select: {
         background: string;
@@ -709,10 +689,6 @@ declare const _default: React.ExoticComponent<React.ConsumerProps<{
             badgeColor: string;
         };
     };
-    login: {
-        textColor: string;
-        textShadow: string;
-    };
     menu: {
         main: {
             menu: {
@@ -743,12 +719,6 @@ declare const _default: React.ExoticComponent<React.ConsumerProps<{
             background: string;
             borderRadius: string;
         };
-    };
-    popup: {
-        color: string;
-        shadowColor: string;
-        borderColor: string;
-        background: string;
     };
     select: {
         background: string;

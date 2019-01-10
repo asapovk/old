@@ -854,58 +854,6 @@
     box-shadow: 0;
   }
 }
-.ui-popup {
-  position: absolute;
-  color: #000000;
-  background: #ffffff;
-  border: 0.5px solid;
-  padding: 8px 16px;
-  font-size: 14px;
-  border-radius: 4px;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-.ui-popup-error {
-  background: red;
-  border: none;
-}
-
-.ui-login {
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-  font-size: 14px;
-}
-.ui-login-avatar {
-  padding-right: 10px;
-}
-.ui-login-avatar-generated {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-transform: uppercase;
-  background: linear-gradient(90deg, #ad949f 0%, #a5b1c1 100%);
-  border-radius: 20px;
-  width: 30px;
-  height: 30px;
-  font-size: 14px;
-}
-.ui-login-menu {
-  padding: 5px;
-}
-.ui-login-menu-fullname {
-  font-weight: bold;
-}
-.ui-login-menu-login {
-  padding-top: 4px;
-}
-.ui-login-menu-role {
-  padding-top: 10px;
-}
-.ui-login-menu-actions {
-  padding-top: 10px;
-}
-
 .ui-icon {
   line-height: 0;
 }

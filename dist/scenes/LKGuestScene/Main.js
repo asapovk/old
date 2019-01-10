@@ -16,13 +16,13 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 /** @jsx jsx */
 var core_1 = require("@emotion/core");
-var useStyles_1 = __importDefault(require("./useStyles"));
+var styles_1 = __importDefault(require("./styles"));
 var __1 = require("../..");
 var Forms_1 = __importDefault(require("./Forms"));
 var hooks_1 = require("../../hooks");
 exports.default = (function (props) {
     var size = hooks_1.useBrowser();
-    var styles = useStyles_1.default();
+    var styles = styles_1.default();
     var Logo = function () { return props.components ? core_1.jsx("div", { css: styles.main.logo }, props.components.logo) : null; };
     var Title = function () { return props.title ? core_1.jsx("span", { css: styles.main.title }, props.title) : null; };
     return (core_1.jsx(__1.Flexbox, { css: styles.main.container },

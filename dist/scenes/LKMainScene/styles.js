@@ -1,42 +1,38 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@emotion/core");
-var useTheme_1 = __importDefault(require("../../hooks/useTheme"));
-var useTypography_1 = __importDefault(require("../../hooks/useTypography"));
+var hooks_1 = require("../../hooks");
 exports.default = (function () {
-    var theme = useTheme_1.default().theme;
-    var typography = useTypography_1.default();
+    var theme = hooks_1.useTheme().theme;
     return {
         root: core_1.css({
             height: "100%",
         }),
-        preside: core_1.css({
-            width: "350px",
-            zIndex: 20000,
+        sidebarHolder: core_1.css({
+            width: "20rem",
             borderRightWidth: 1,
             borderRightStyle: "solid",
             borderRightColor: theme.pale.hex,
         }),
-        side: core_1.css({
-            padding: 20,
-            width: 320,
+        sidebar: core_1.css({
+            top: 0,
+            left: 0,
+            bottom: 0,
+            width: "20rem",
+            position: "fixed",
+            overflow: 'hidden',
             '@media (max-width: 1023px)': {
-                paddingTop: 64,
+                paddingTop: '4rem',
             },
             '@media (max-width: 768px)': {
                 width: '100%'
             }
         }),
-        $sideScroll: {
-            position: "fixed",
-            width: "400px",
-            top: 0,
-            left: 0,
-            zIndex: 10
-        },
+        logo: core_1.css({
+            padding: '2.5rem 0',
+            height: '3.5rem',
+            margin: '0 auto'
+        }),
         main: core_1.css({
             flex: 1,
             height: "100%",

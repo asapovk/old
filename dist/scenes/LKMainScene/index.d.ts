@@ -2,10 +2,10 @@ import React from 'react';
 interface IProps {
     components: {
         menu?: React.Component | any;
-        side?: React.Component | any;
-        sideBottom?: React.Component | any;
+        sidebar?: React.Component | any;
         mainTop?: React.Component | any;
         main?: React.Component | any;
+        logo?: React.Component | any;
     };
     /**
      * Display side bar instead of

@@ -7,18 +7,18 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@emotion/core");
 var react_1 = require("react");
 var __1 = require("../../");
-var useStyles_1 = __importDefault(require("./useStyles"));
+var styles_1 = __importDefault(require("./styles"));
+var useBrowser_1 = __importDefault(require("../../hooks/useBrowser"));
 var ScrollView_1 = require("../../extra/ScrollView");
 exports.default = (function (props) {
-    // const browser = useBrowser();
-    var styles = useStyles_1.default();
+    var styles = styles_1.default();
+    var browser = useBrowser_1.default();
     return (core_1.jsx(react_1.Fragment, null,
         core_1.jsx(__1.Flexbox, { css: styles.root },
-            core_1.jsx("div", { css: styles.preside },
-                core_1.jsx(ScrollView_1.ScrollView, { customCss: styles.$sideScroll },
-                    core_1.jsx("div", { css: styles.side },
-                        props.components.side,
-                        props.components.sideBottom))),
+            core_1.jsx("div", { css: styles.sidebarHolder },
+                core_1.jsx(__1.Flexbox, { css: styles.sidebar, flexDirection: 'column' },
+                    browser.isDesktop && core_1.jsx("div", { css: styles.logo }, props.components.logo),
+                    props.components.sidebar)),
             core_1.jsx("div", { css: styles.main },
                 core_1.jsx(ScrollView_1.ScrollView, { customCss: styles.$mainScroll },
                     props.components.mainTop,

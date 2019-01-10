@@ -95,12 +95,12 @@ exports.default = (function (props) {
             scrollView = getScrollView();
             scrollView && scrollView.removeEventListener("scroll", onScroll);
             scrollThumb.current && scrollThumb.current.removeEventListener("mousedown", enableManualScroll);
-            scrollBar.current && scrollBar.current.addEventListener("mouseenter", mouseEnterScrollBar);
-            scrollBar.current && scrollBar.current.addEventListener("mouseleave", mouseLeaveScrollBar);
+            scrollBar.current && scrollBar.current.removeEventListener("mouseenter", mouseEnterScrollBar);
+            scrollBar.current && scrollBar.current.removeEventListener("mouseleave", mouseLeaveScrollBar);
             window.removeEventListener("mousemove", onMouseMove);
             window.removeEventListener("mouseup", disableManualScroll);
         };
-    }, []);
+    }, [scrollViewId]);
     return (core_1.jsx("div", { css: styles.scrollbar, ref: scrollBar },
         core_1.jsx("div", { css: styles.thumb, style: {
                 height: props.horizontal ? undefined : scrollThumbState.size,

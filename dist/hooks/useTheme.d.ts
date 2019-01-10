@@ -82,10 +82,6 @@ declare const _default: () => {
             badgeColor: string;
         };
     };
-    login: {
-        textColor: string;
-        textShadow: string;
-    };
     menu: {
         main: {
             menu: {
@@ -116,12 +112,6 @@ declare const _default: () => {
             background: string;
             borderRadius: string;
         };
-    };
-    popup: {
-        color: string;
-        shadowColor: string;
-        borderColor: string;
-        background: string;
     };
     select: {
         background: string;

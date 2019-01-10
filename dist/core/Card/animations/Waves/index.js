@@ -5,11 +5,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 /** @jsx jsx */
 var core_1 = require("@emotion/core");
-var useStyles_1 = __importDefault(require("../../useStyles"));
+var styles_1 = __importDefault(require("../../styles"));
 var react_1 = require("react");
 var Wave_1 = __importDefault(require("./Wave"));
 exports.default = (function (props) {
-    var styles = useStyles_1.default(props.active);
+    var styles = styles_1.default(props.active);
     return (core_1.jsx(react_1.Fragment, null,
         core_1.jsx(Wave_1.default, { css: styles.animation.wave[1], color: styles.color, size: 1, style: {
                 position: "absolute",
