@@ -1,8 +1,8 @@
 import { css } from '@emotion/core';
-import { useTheme, useTypography } from '../../hooks';
+import { useTheme, useTypography, useBrowser } from '../../hooks';
 import { Position, TargetCoordinates } from './types';
 
-export default (visible: boolean, position: Position | undefined, targetCoord: TargetCoordinates, popupHeight: number) => {
+export default (visible: boolean, position: Position | undefined, targetCoord: TargetCoordinates, popupHeight: number, popupWidth: number) => {
 
     const theme = useTheme().theme;
     const typography = useTypography();
@@ -27,7 +27,7 @@ export default (visible: boolean, position: Position | undefined, targetCoord: T
             opacity: 0,
             pointerEvents: "none",
             transition: "all .2s ease-in-out",
-            ...getPosition(position, targetCoord, popupHeight)
+            ...getPosition(position, targetCoord, popupHeight, popupWidth)
         },
             visible && {
                 opacity: 1,
@@ -37,11 +37,16 @@ export default (visible: boolean, position: Position | undefined, targetCoord: T
     }
 }
 
-function getPosition(initialPosition: Position | undefined, targetCoord: TargetCoordinates, popupHeight: number) {
+function getPosition(initialPosition: Position | undefined, targetCoord: TargetCoordinates, popupHeight: number, popupWidth: number) {
+    const browser = useBrowser();
+
     let position = {
         top: 0,
         left: 0
     };
+
+    const posTop = browser.height / 2 > targetCoord.top;
+    const posLeft = browser.width / 2 > targetCoord.left;
 
     switch (initialPosition) {
         case 'bottom-right':
@@ -81,7 +86,10 @@ function getPosition(initialPosition: Position | undefined, targetCoord: TargetC
             position = { top: 0, left: 0 };
             break;
         default:
-            position = { top: targetCoord.bottom + 5, left: targetCoord.left };
+            position = {
+                top: posTop ? targetCoord.bottom + 5 : targetCoord.top - 5 - popupHeight,
+                left: posLeft ? targetCoord.left : targetCoord.right - popupWidth
+            };
     }
 
     return position;

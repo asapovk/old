@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core';
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useLayoutEffect } from 'react';
 import ReactDOM from 'react-dom';
 import { IPopup, TargetCoordinates } from './types';
 import createStyles from './styles';
@@ -18,10 +18,9 @@ export default (props: IPopup) => {
 
     const popupRef = useRef<HTMLDivElement>(null);
     const popupHeight: number = popupRef.current && popupRef.current.offsetHeight || 0;
+    const popupWidth: number = popupRef.current && popupRef.current.offsetWidth || 0;
 
     const triggerRef = useRef<HTMLDivElement>(null);
-
-    const styles = createStyles(visible, props.position, targetCoord, popupHeight);
 
     const handleClickOutside = (event: { target: any }) => {
         popupRef && !popupRef.current!.contains(event.target) && setVisible(false);
@@ -29,7 +28,7 @@ export default (props: IPopup) => {
 
     const { children, type, trigger } = props;
 
-    useEffect(() => {
+    useLayoutEffect(() => {
         const triggerElement = triggerRef && ReactDOM.findDOMNode(triggerRef.current!) as Element;
         const coords: TargetCoordinates = triggerElement && triggerElement.getBoundingClientRect();
 
@@ -46,6 +45,7 @@ export default (props: IPopup) => {
         return () => document.removeEventListener('mousedown', handleClickOutside);
     }, []);
 
+    const styles = createStyles(visible, props.position, targetCoord, popupHeight, popupWidth);
     const ViewportHTML = document.getElementById('0cd82567-7684-4147-ab02-dd3c56332364');
 
     return (
