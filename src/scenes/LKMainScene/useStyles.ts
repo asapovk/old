@@ -29,7 +29,6 @@ export default () => {
             }
         }),
         $sideScroll: {
-            position: "fixed",
             width: "400px",
             top: 0,
             left: 0,

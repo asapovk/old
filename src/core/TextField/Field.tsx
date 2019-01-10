@@ -3,6 +3,10 @@ import { jsx } from '@emotion/core'
 import { forwardRef, useState } from 'react';
 import { FieldProps } from './types'
 
+interface Test {
+    value: string
+}
+
 export default forwardRef((props: FieldProps, ref) => {
 
     const [value, setValue] = useState(props.value);

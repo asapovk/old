@@ -23,7 +23,8 @@ declare namespace IconTypes {
         'clock' |
         'card' |
         'counter' |
-        'text-right'
+        'text-right' |
+        'user'
 
     interface Props {
         style?: React.CSSProperties
