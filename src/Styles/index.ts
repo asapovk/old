@@ -13,7 +13,6 @@ import finderStyles from './jss/Finder'
 import loginStyles from './jss/Login'
 import menuStyles from './jss/Menu'
 import modalStyles from './jss/Modal'
-import popupStyles from './jss/Popup'
 import selectStyles from './jss/Select'
 import spinStyles from './jss/Spin'
 import spinnerStyles from './jss/Spinner'
@@ -112,7 +111,6 @@ export const createStyles = (themeName?: string) => {
         login: loginStyles(theme),
         menu: menuStyles(theme),
         modal: modalStyles(theme),
-        popup: popupStyles(theme),
         select: selectStyles(theme),
         spin: spinStyles(theme),
         spinner: spinnerStyles(theme),

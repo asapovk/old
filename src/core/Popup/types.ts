@@ -20,7 +20,6 @@ export type Position =
     'right-bottom'
 
 export interface IPopup {
-    id: string
     type?: 'error'
     position?: Position
     trigger: any,
