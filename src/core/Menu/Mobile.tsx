@@ -1,6 +1,5 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core';
-import React, { useEffect, useState, useRef } from 'react';
 import { Flexbox } from '..';
 import NavBarItem from './NavBarItem';
 import Types from './types';
@@ -24,7 +23,7 @@ export function MobileMenu(props: Types.MobileProps) {
     )
 }
 
-export function MobileMenuItems(props: Types.ItemsProps) {
+export function MobileMenuItems(props: Types.MobileMenuItemsProps) {
 
     const { items, value, active, onChange, styles } = props;
 

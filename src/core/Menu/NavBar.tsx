@@ -4,10 +4,9 @@ import React, { useRef, useState, useLayoutEffect } from 'react';
 import NavBarItem from './NavBarItem';
 import { Flexbox, Icon, Popup } from '..'
 import { useBrowser } from '../../hooks';
-import createStyles from './styles';
 import Types from './types';
 
-export default (props: Types.ItemsProps) => {
+export default (props: Types.NavBarProps) => {
     const browser = useBrowser();
     const { items, value, onChange, moreLabel, styles } = props;
 

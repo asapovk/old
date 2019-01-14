@@ -1,3 +1,3 @@
 import Types from './types';
-declare const _default: (props: Types.ItemProps) => JSX.Element;
+declare const _default: (props: Types.NavBarItemProps) => JSX.Element;
 export default _default;

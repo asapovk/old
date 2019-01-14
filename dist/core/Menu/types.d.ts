@@ -1,13 +1,17 @@
 import { CSSProperties } from 'react';
 declare namespace MenuTypes {
-    type Items = {
+    type Item = {
         text: string;
         value: string;
-    }[];
+    };
+    interface ItemsProps {
+        items: Item[];
+        value?: string;
+        onChange?: (value: string) => void;
+    }
     interface Props extends ItemsProps {
         title?: string;
         tools?: React.ReactElement<any>[];
-        pin?: boolean;
         style?: CSSProperties;
         logo?: React.ReactElement<any>;
         value?: string;
@@ -19,18 +23,16 @@ declare namespace MenuTypes {
         setActive: (active: boolean) => void;
         styles: any;
     }
-    interface ItemsProps {
-        items: Items;
-        value?: string;
+    interface NavBarProps extends ItemsProps {
         moreLabel?: string;
-        onChange?: (value: string) => void;
-        active?: boolean;
-        styles?: any;
+        styles: any;
     }
-    interface ItemProps {
+    interface MobileMenuItemsProps extends ItemsProps {
+        active?: boolean;
+        styles: any;
+    }
+    interface NavBarItemProps extends Item {
         onClick?: (value: string) => void;
-        text: any;
-        value: string;
         className?: string;
     }
 }
