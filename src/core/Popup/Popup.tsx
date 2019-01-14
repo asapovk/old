@@ -1,8 +1,9 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core';
-import { useState, useEffect, useRef, useLayoutEffect } from 'react';
+import React, { useState, useEffect, useRef, useLayoutEffect } from 'react';
+import { useBrowser } from '../../hooks'
 import ReactDOM from 'react-dom';
-import { IPopup, TargetCoordinates } from './types';
+import Types from './types';
 import createStyles from './styles';
 
 const initialTargetCoord = {
@@ -12,49 +13,56 @@ const initialTargetCoord = {
     right: 0
 };
 
-export default (props: IPopup) => {
+export default (props: Types.Props) => {
+    const { children, type, trigger } = props;
     const [visible, setVisible] = useState(false);
-    const [targetCoord, setTargetCoord] = useState<TargetCoordinates>(initialTargetCoord);
+    const [targetCoord, setTargetCoord] = useState<Types.TargetCoordinates>(initialTargetCoord);
 
     const popupRef = useRef<HTMLDivElement>(null);
-    const popupHeight: number = popupRef.current && popupRef.current.offsetHeight || 0;
-    const popupWidth: number = popupRef.current && popupRef.current.offsetWidth || 0;
-
-    const triggerRef = useRef<HTMLDivElement>(null);
-
-    const handleClickOutside = (event: { target: any }) => {
-        popupRef && !popupRef.current!.contains(event.target) && setVisible(false);
-    }
-
-    const { children, type, trigger } = props;
-
-    useLayoutEffect(() => {
-        const triggerElement = triggerRef && ReactDOM.findDOMNode(triggerRef.current!) as Element;
-        const coords: TargetCoordinates = triggerElement && triggerElement.getBoundingClientRect();
-
-        if (coords) {
-            setTargetCoord({
-                top: coords.top + document.documentElement!.scrollTop,
-                bottom: coords.bottom + document.documentElement!.scrollTop,
-                left: coords.left + document.documentElement!.scrollLeft,
-                right: coords.right + document.documentElement!.scrollLeft,
-            });
-        }
-
-        document.addEventListener('mousedown', handleClickOutside);
-        return () => document.removeEventListener('mousedown', handleClickOutside);
-    }, []);
-
-    const styles = createStyles(visible, props.position, targetCoord, popupHeight, popupWidth);
+    const triggerRef = props.triggerRef ? props.triggerRef : useRef<HTMLDivElement>(null);
     const ViewportHTML = document.getElementById('0cd82567-7684-4147-ab02-dd3c56332364');
 
+    const browser = useBrowser();
+    const styles = createStyles(visible, props.position, targetCoord, popupRef);
+
+    const Portal = ReactDOM.createPortal(
+        <div css={styles.popup} ref={popupRef} children={children} />,
+        ViewportHTML ? ViewportHTML : document.body
+    );
+
+    useLayoutEffect(() => {
+        const coord = triggerRef.current! && triggerRef.current!.getBoundingClientRect();
+
+        coord && setTargetCoord({
+            top: coord.top + document.documentElement!.scrollTop,
+            bottom: coord.bottom + document.documentElement!.scrollTop,
+            left: coord.left + document.documentElement!.scrollLeft,
+            right: coord.right + document.documentElement!.scrollLeft,
+        });
+
+    }, [browser.width]);
+
+    useEffect(() => {
+        if (typeof props.visible != 'undefined') setVisible(props.visible);
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => document.removeEventListener('mousedown', handleClickOutside);
+    }, [props.visible]);
+
+    function handleClickOutside(event: { target: any }) {
+        if (popupRef && !popupRef.current!.contains(event.target)) {
+            setVisible(false);
+            props.onClose && props.onClose();
+        }
+    }
+
+    if (props.triggerRef) return Portal
+
     return (
-        <div css={styles.wrapper}>
-            <div onClick={() => setVisible(!visible)} ref={triggerRef} children={trigger} />
-            {ReactDOM.createPortal(
-                <div css={styles.popup} ref={popupRef} children={children} />,
-                ViewportHTML ? ViewportHTML : document.body
-            )}
-        </div>
+        <div
+            onClick={() => setVisible(!visible)}
+            ref={triggerRef}
+            children={[React.cloneElement(trigger, { key: '1' }), Portal]}
+            css={styles.wrapper}
+        />
     )
 }

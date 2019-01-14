@@ -1,95 +1,71 @@
+/** @jsx jsx */
+import { jsx } from '@emotion/core';
 import React, { useRef, useState, useLayoutEffect } from 'react';
 import NavBarItem from './NavBarItem';
-import useBrowser from '../../hooks/useBrowser';
-import useStyles from '../../hooks/useTheme';
+import { Flexbox, Icon, Popup } from '..'
+import { useBrowser } from '../../hooks';
+import createStyles from './styles';
+import Types from './types';
 
-const PW: number[] = [];
-export default (props) => {
+export default (props: Types.ItemsProps) => {
     const browser = useBrowser();
-    const styles = useStyles();
-    const { items } = props;
+    const { items, value, onChange, moreLabel, styles } = props;
+
+    const [barCapacity, setBarCapacity] = useState<number | null>(null);
+    const [moreVisible, setMoreVisible] = useState<boolean>(false);
 
     const containerRef = useRef<HTMLDivElement>(null);
-    const [containerWidth, setContainerWidth] = useState<number>(0);
-    const [sliceIndex, setSliceIndex] = useState<number>(items.list.length);
+    const moreRef = useRef<HTMLDivElement>(null);
 
-    /** Высчитываем необходимую ширину для перерендера */
-    const calculateItemsWidth = () => {
-        /**
-         * Задаем дефолтный отстут - чтобы не сближать к другим элементам меню
-         * далее высчитываем необходимое место для элементов меню
-         */
-        const nodes = containerRef.current!.childNodes;
-        let width = 32;
-        nodes.forEach((node: HTMLDivElement) => width += node.offsetWidth);
-
-        if (containerWidth) {
-            // Если ширина контейнера меньше чем ширина всех элементов
-            if (containerWidth <= width) {
-                const lastNodeWidth = (containerRef.current!.childNodes[sliceIndex - 1] as HTMLDivElement).offsetWidth
-                PW.push(lastNodeWidth);
-
-                setSliceIndex(sliceIndex - 1);
-            } else {
-                if ((containerWidth > width + PW[PW.length - 1]) && (sliceIndex < items.list.length)) {
-                    PW.pop();
-                    setSliceIndex(sliceIndex + 1);
-                }
-            }
-        }
-    }
-
-    let onContainerWidthChange = (cw) => {
-        if (containerWidth !== cw) {
-            setContainerWidth(cw);
-        }
-    }
+    const valueIndex = items.findIndex(item => item.value === value);
+    const visibleItems = barCapacity ? items.slice(0, barCapacity) : items;
+    const moreItems = barCapacity ? items.slice(barCapacity) : [];
 
     useLayoutEffect(() => {
-        onContainerWidthChange(containerRef.current!.offsetWidth);
-        calculateItemsWidth();
-    }, [containerWidth, sliceIndex, browser.width]);
+        setBarCapacity(getBarCapacity(containerRef, moreRef));
+    }, [browser.width]);
+
+    function createItems(items) {
+        if (items.length > 0)
+            return items.map(item =>
+                <NavBarItem
+                    css={styles.item(value === item.value, true)}
+                    key={item.value}
+                    text={item.text}
+                    value={item.value}
+                    onClick={(value) => onChange && onChange(value)}
+                />)
+        else return null
+    }
 
     return (
-        <div
-            ref={containerRef}
-            className={'ui-menu-navbar'}
-            style={{ width: '100%' }}
-        >
-            {items.list.map((navItem, index) => (
-                <NavBarItem
-                    key={index}
-                    menuKey={index}
-                    label={navItem.label}
-                    active={index === items.active}
-                    onClick={items.onClick}
-                    hidden={index >= sliceIndex}
-                />
-            ))}
-            {sliceIndex < items.list.length && (
-                <div className='ui-menu-nav-ext' style={{
-                    color: items.active >= sliceIndex ? styles.theme.textOnAccent.rgb : styles.menu.nav.textColor,
-                    background: items.active >= sliceIndex ? styles.menu.nav.textColorActive : 'transparent',
-                    borderRadius: styles.theme.radius.button
-                }}>
-                    <div>Еще</div>
-                    <div className='ui-menu-nav-ext-dropdown' style={{
-                        backgroundColor: styles.theme.background.hex,
-                        borderRadius: styles.theme.radius.default
-                    }}>
-                        {items.list.filter((_, index) => index >= sliceIndex)
-                            .map((navItem, index) => (
-                                <NavBarItem
-                                    key={index + sliceIndex}
-                                    menuKey={index + sliceIndex}
-                                    label={navItem.label}
-                                    active={index + sliceIndex === items.active}
-                                    onClick={items.onClick}
-                                />
-                            ))}
-                    </div>
-                </div>
-            )}
-        </div>
+        <Flexbox ref={containerRef} css={styles.holder}>
+            {createItems(visibleItems)}
+            <div
+                css={styles.item(barCapacity && valueIndex >= barCapacity, !barCapacity || moreItems.length > 0)}
+                ref={moreRef}
+                onClick={() => setMoreVisible(true)}
+                children={moreLabel ? moreLabel : <Icon type='more' />}
+            />
+            <Popup
+                triggerRef={moreRef}
+                visible={moreVisible}
+                onClose={() => setMoreVisible(false)}
+                children={createItems(moreItems)}
+            />
+        </Flexbox>
     )
+}
+
+function getBarCapacity(containerRef, moreRef) {
+    const barsChilds = containerRef.current!.childNodes;
+    const containerWidth = containerRef.current!.offsetWidth - moreRef.current!.offsetWidth;
+    let capacity = 0, itemsWidth = 0;
+
+    barsChilds.forEach(node => {
+        itemsWidth += node.offsetWidth
+        if (itemsWidth < containerWidth) capacity++;
+    })
+
+    return capacity
 }

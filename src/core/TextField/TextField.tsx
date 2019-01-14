@@ -4,9 +4,9 @@ import createStyles from './styles';
 import { forwardRef } from 'react';
 import { Flexbox, Spin, Icon } from '..';
 import Field from './Field';
-import { Props, TextFieldIconProps } from './types';
+import Types from './types';
 
-export default forwardRef((props: Props, ref) => {
+export default forwardRef((props: Types.Props, ref) => {
 
     const styles = createStyles(props.multiline, props.size, props.disabled, props.decoration);
 
@@ -16,7 +16,7 @@ export default forwardRef((props: Props, ref) => {
         </span>
         : null
 
-    const TextFieldIcon = (props: TextFieldIconProps) =>
+    const TextFieldIcon = (props: Types.IconProps) =>
         props.type
             ? <Icon css={styles.icon(props.position)} type={props.type} />
             : null

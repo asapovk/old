@@ -1,13 +1,13 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
 import { forwardRef, useState } from 'react';
-import { FieldProps } from './types'
+import Types from './types'
 
 interface Test {
     value: string
 }
 
-export default forwardRef((props: FieldProps, ref) => {
+export default forwardRef((props: Types.FieldProps, ref) => {
 
     const [value, setValue] = useState(props.value);
 

@@ -10,7 +10,6 @@ import gazpromTheme from './themes/gazprom'
 import checkboxStyles from './jss/Checkbox'
 import datePickerStyles from './jss/DatePicker'
 import finderStyles from './jss/Finder'
-import menuStyles from './jss/Menu'
 import modalStyles from './jss/Modal'
 import selectStyles from './jss/Select'
 import spinStyles from './jss/Spin'
@@ -107,7 +106,6 @@ export const createStyles = (themeName?: string) => {
         checkbox: checkboxStyles(theme),
         datePicker: datePickerStyles(theme),
         finder: finderStyles(theme),
-        menu: menuStyles(theme),
         modal: modalStyles(theme),
         select: selectStyles(theme),
         spin: spinStyles(theme),

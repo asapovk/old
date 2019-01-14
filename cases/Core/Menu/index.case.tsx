@@ -1,5 +1,6 @@
 import React, { Fragment, useState } from 'react';
-import { Menu, Button, Icon, Viewport } from '../../../src';
+import { Menu, Button, Icon } from '../../../src';
+import { Login } from '../../../src/extra'
 import '../../../src/Styles/scss/main.scss';
 
 export const loginUser = {
@@ -18,43 +19,43 @@ export const loginUser = {
 
 export default () => {
 
-    const [active, setActive] = useState(0);
+    const [active, setActive] = useState('pin');
 
-    const Header = () => {
-        return (
-            <div>
-                <span style={{ fontWeight: 700, paddingRight: '10px' }}>Connect</span>
-                <span>Module</span>
-            </div>
-        )
-    }
+    const items = [
+        { text: 'Pineapple', value: 'pin' },
+        { text: 'Grape', value: 'grape' },
+        { text: 'Peach', value: 'peach' },
+        { text: 'Strawberry', value: 'str' },
+        { text: 'Cucumber', value: 'cuc' },
+        { text: 'Banana', value: 'ban' },
+        { text: 'Potato', value: 'pot' },
+        { text: 'Watermelon', value: 'wat' },
+        { text: 'Cherry', value: 'chr' },
+        // { text: 'Coconut', value: 'coc' },
+        // { text: 'Mango', value: 'man' },
+        // { text: 'Apple', value: 'app' },
+        // { text: 'Tomato', value: 'tom' },
+    ]
 
     return (
-
         <Fragment>
             <Menu
-                header={<Header />}
-                items={{
-                    list: [{ label: 'Pineapple' }, { label: 'Grape' }, { label: 'Peach' }, { label: 'Strawberry' }, { label: 'Cucumber' }, { label: 'LongLabel' }, { label: 'VeryLongLabel' }],
-                    active: active,
-                    onClick: setActive
-                }}
-                profile={{
-                    name: loginUser.first_name,
-                    login: loginUser.login,
-                    fullname: loginUser.first_name + ' ' + loginUser.last_name,
-                    role: loginUser.desc_role
-                }}
-                toolsRight={[
-                    <Button decoration='none' onClick={() => console.log(1)}>
-                        <Icon type='add' style={{ fontSize: '1.5 rem' }} />
-                    </Button>,
-                    <Button decoration='none' style={{ fontSize: 24 }} onClick={() => console.log(2)}>
-                        <Icon type='filter' style={{ fontSize: '1.5 rem' }} />
-                    </Button>
+                title='Application title'
+                items={items}
+                value={active}
+                onChange={(value) => setActive(value)}
+                tools={[
+                    <Icon type='add' onClick={() => console.log(1)} key={1} />,
+                    <Icon type='filter' onClick={() => console.log(2)} key={2} />,
+                    <Login
+                        name={loginUser.first_name}
+                        login={loginUser.login}
+                        fullname={loginUser.first_name + ' ' + loginUser.last_name}
+                        role={loginUser.desc_role}
+                        key={3}
+                    />
                 ]}
             />
         </Fragment>
-
     )
 }

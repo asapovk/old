@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 
 const RES_MIN = {
-    TABLET: 640,
-    MOBILE: 320,
+    TABLET: 768,
+    MOBILE: 414,
     DESKTOP: 1024,
 }
 /**

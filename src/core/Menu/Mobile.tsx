@@ -1,80 +1,44 @@
+/** @jsx jsx */
+import { jsx } from '@emotion/core';
 import React, { useEffect, useState, useRef } from 'react';
 import { Flexbox } from '..';
-import useStyles from '../../hooks/useTheme';
-import { ColorCorrector } from '../../styles/utilities';
 import NavBarItem from './NavBarItem';
-import { IMenuItems } from './Menu';
-import useBrowser from '../../hooks/useBrowser';
+import Types from './types';
 
-interface IMobileMenu {
-    active: boolean
-    setActive: (active: boolean) => void
-}
+export function MobileMenu(props: Types.MobileProps) {
 
-interface IMobileMenuItems {
-    active: boolean
-    items: IMenuItems
-    tools?: any[]
-}
-
-export function MobileMenu(props: IMobileMenu) {
-
-    const styles = useStyles();
-
-    const { active, setActive } = props;
-
-    let hamburgerClasses = 'ui-menu-navbar-hamburger';
-    if (active) {
-        hamburgerClasses += " active";
-    }
+    const { active, setActive, styles } = props;
 
     return (
-        <Flexbox justifyContent='center' alignItems='center' className='ui-menu-navbar'>
-            <Flexbox flexDirection='column' justifyContent='space-between' className={hamburgerClasses} onClick={() => setActive(!active)}>
-                <div className='ui-menu-navbar-hamburger-top' style={{ backgroundColor: styles.theme.highlight.hex }} ></div>
-                <div className='ui-menu-navbar-hamburger-middle' style={{ backgroundColor: styles.theme.highlight.hex }}></div>
-                <div className='ui-menu-navbar-hamburger-bottom' style={{ backgroundColor: styles.theme.highlight.hex }}></div>
-            </Flexbox>
-        </Flexbox>
+        <Flexbox
+            flexDirection='column'
+            justifyContent='space-between'
+            css={styles(active)}
+            onClick={() => setActive(!active)}
+            children={[
+                <div key={1} />,
+                <div key={2} />,
+                <div key={3} />
+            ]}
+        />
     )
 }
 
-export function MobileMenuItems(props: IMobileMenuItems) {
-    const styles = useStyles();
-    const menuRef = useRef<HTMLDivElement>(null);
-    const [menuHeight, setMenuHeight] = useState(0);
+export function MobileMenuItems(props: Types.ItemsProps) {
 
-    const { items, active, tools } = props;
-
-    useEffect(() => {
-        if (active) {
-            setMenuHeight((menuRef.current!.childNodes[0] as HTMLDivElement).offsetHeight)
-        } else {
-            setMenuHeight(0);
-        }
-    }, [active]);
+    const { items, value, active, onChange, styles } = props;
 
     return (
-        <div ref={menuRef} style={{ height: menuHeight, background: ColorCorrector.darker(styles.theme.background2.hex, 3) }} className={`ui-menu-navbar-hamburger-content`}>
-            <Flexbox alignItems="center" flexDirection="column" style={{ position: "relative", top: active ? 0 : 110, opacity: active ? 1 : 0 }}>
-
-                {tools && (
-                    <Flexbox justifyContent='space-around' alignItems='center' style={{ marginBottom: '1rem' }}>
-                        {tools.map((tool, index) => React.cloneElement(tool, { key: index, style: { marginRight: index != tools.length - 1 ? 10 : 0 } }))}
-                    </Flexbox>
-                )}
-
-                {items.list.map((navItem, index) => (
-                    <NavBarItem
-                        style={{ marginBottom: (index === items.list.length - 1) ? 0 : '1rem' }}
-                        key={index}
-                        menuKey={index}
-                        label={navItem.label}
-                        active={index === items.active}
-                        onClick={items.onClick}
-                    />
-                ))}
-            </Flexbox>
-        </div>
+        <Flexbox alignItems="center" flexDirection="column" css={styles.mobile(active)}>
+            {items.map(item => (
+                <NavBarItem
+                    css={styles.item(value === item.value, true)}
+                    key={item.value}
+                    text={item.text}
+                    value={item.value}
+                    onClick={(value) => onChange && onChange(value)}
+                />
+            ))}
+        </Flexbox>
     )
 }

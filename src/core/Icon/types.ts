@@ -30,6 +30,7 @@ declare namespace IconTypes {
         style?: React.CSSProperties
         className?: string
         type: Type
+        onClick?: () => void
     }
 
 }

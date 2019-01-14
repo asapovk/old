@@ -1,11 +1,14 @@
 import { css } from '@emotion/core';
 import { useTheme, useTypography, useBrowser } from '../../hooks';
-import { Position, TargetCoordinates } from './types';
+import Types from './types';
 
-export default (visible: boolean, position: Position | undefined, targetCoord: TargetCoordinates, popupHeight: number, popupWidth: number) => {
+export default (visible: boolean, position: Types.Position | undefined, targetCoord: Types.TargetCoordinates, popupRef: any) => {
 
     const theme = useTheme().theme;
     const typography = useTypography();
+
+    const popupHeight: number = popupRef.current && popupRef.current.offsetHeight || 0;
+    const popupWidth: number = popupRef.current && popupRef.current.offsetWidth || 0;
 
     return {
         wrapper: css({
@@ -37,7 +40,7 @@ export default (visible: boolean, position: Position | undefined, targetCoord: T
     }
 }
 
-function getPosition(initialPosition: Position | undefined, targetCoord: TargetCoordinates, popupHeight: number, popupWidth: number) {
+function getPosition(initialPosition: Types.Position | undefined, targetCoord: Types.TargetCoordinates, popupHeight: number, popupWidth: number) {
     const browser = useBrowser();
 
     let position = {
