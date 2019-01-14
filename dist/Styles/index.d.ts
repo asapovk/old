@@ -159,24 +159,6 @@ export declare const createStyles: (themeName?: string | undefined) => {
             badgeColor: string;
         };
     };
-    menu: {
-        main: {
-            menu: {
-                backgroundColor: string;
-                borderColor: string;
-            };
-            searchBar: {
-                background: string;
-                borderColor: string;
-                boxShadow: string;
-                borderRadius: string;
-            };
-        };
-        nav: {
-            textColor: string;
-            textColorActive: string;
-        };
-    };
     modal: {
         main: {
             backgroundColor: string;
@@ -424,24 +406,6 @@ export declare const StylesContext: React.Context<{
             badgeColor: string;
         };
     };
-    menu: {
-        main: {
-            menu: {
-                backgroundColor: string;
-                borderColor: string;
-            };
-            searchBar: {
-                background: string;
-                borderColor: string;
-                boxShadow: string;
-                borderRadius: string;
-            };
-        };
-        nav: {
-            textColor: string;
-            textColorActive: string;
-        };
-    };
     modal: {
         main: {
             backgroundColor: string;
@@ -687,24 +651,6 @@ declare const _default: React.ExoticComponent<React.ConsumerProps<{
         };
         nav: {
             badgeColor: string;
-        };
-    };
-    menu: {
-        main: {
-            menu: {
-                backgroundColor: string;
-                borderColor: string;
-            };
-            searchBar: {
-                background: string;
-                borderColor: string;
-                boxShadow: string;
-                borderRadius: string;
-            };
-        };
-        nav: {
-            textColor: string;
-            textColorActive: string;
         };
     };
     modal: {

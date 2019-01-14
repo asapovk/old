@@ -13,9 +13,11 @@ var __assign = (this && this.__assign) || function () {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@emotion/core");
 var hooks_1 = require("../../hooks");
-exports.default = (function (visible, position, targetCoord, popupHeight, popupWidth) {
+exports.default = (function (visible, position, targetCoord, popupRef) {
     var theme = hooks_1.useTheme().theme;
     var typography = hooks_1.useTypography();
+    var popupHeight = popupRef.current && popupRef.current.offsetHeight || 0;
+    var popupWidth = popupRef.current && popupRef.current.offsetWidth || 0;
     return {
         wrapper: core_1.css({
             pointerEvents: visible ? "none" : "auto"

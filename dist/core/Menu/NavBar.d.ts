@@ -1,2 +1,3 @@
-declare const _default: (props: any) => JSX.Element;
+import Types from './types';
+declare const _default: (props: Types.ItemsProps) => JSX.Element;
 export default _default;

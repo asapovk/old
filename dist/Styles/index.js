@@ -11,7 +11,6 @@ var gazprom_1 = __importDefault(require("./themes/gazprom"));
 var Checkbox_1 = __importDefault(require("./jss/Checkbox"));
 var DatePicker_1 = __importDefault(require("./jss/DatePicker"));
 var Finder_1 = __importDefault(require("./jss/Finder"));
-var Menu_1 = __importDefault(require("./jss/Menu"));
 var Modal_1 = __importDefault(require("./jss/Modal"));
 var Select_1 = __importDefault(require("./jss/Select"));
 var Spin_1 = __importDefault(require("./jss/Spin"));
@@ -35,7 +34,6 @@ exports.createStyles = function (themeName) {
         checkbox: Checkbox_1.default(theme),
         datePicker: DatePicker_1.default(theme),
         finder: Finder_1.default(theme),
-        menu: Menu_1.default(theme),
         modal: Modal_1.default(theme),
         select: Select_1.default(theme),
         spin: Spin_1.default(theme),

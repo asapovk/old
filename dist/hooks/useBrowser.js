@@ -2,8 +2,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = require("react");
 var RES_MIN = {
-    TABLET: 640,
-    MOBILE: 320,
+    TABLET: 768,
+    MOBILE: 414,
     DESKTOP: 1024,
 };
 /**

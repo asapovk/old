@@ -1,13 +1,3 @@
-import { IMenuItems } from './Menu';
-interface IMobileMenu {
-    active: boolean;
-    setActive: (active: boolean) => void;
-}
-interface IMobileMenuItems {
-    active: boolean;
-    items: IMenuItems;
-    tools?: any[];
-}
-export declare function MobileMenu(props: IMobileMenu): JSX.Element;
-export declare function MobileMenuItems(props: IMobileMenuItems): JSX.Element;
-export {};
+import Types from './types';
+export declare function MobileMenu(props: Types.MobileProps): JSX.Element;
+export declare function MobileMenuItems(props: Types.ItemsProps): JSX.Element;

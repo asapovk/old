@@ -82,24 +82,6 @@ declare const _default: () => {
             badgeColor: string;
         };
     };
-    menu: {
-        main: {
-            menu: {
-                backgroundColor: string;
-                borderColor: string;
-            };
-            searchBar: {
-                background: string;
-                borderColor: string;
-                boxShadow: string;
-                borderRadius: string;
-            };
-        };
-        nav: {
-            textColor: string;
-            textColorActive: string;
-        };
-    };
     modal: {
         main: {
             backgroundColor: string;
