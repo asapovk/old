@@ -15,7 +15,8 @@ export default () => {
             left: 0,
             right: 0,
             bottom: 0,
-            backgroundColor: theme.background2.hex
+            backgroundColor: theme.background2.hex,
+            zIndex: 0
         }),
 
         line: css({
@@ -44,7 +45,7 @@ export default () => {
             flex: "1 1 auto",
             justifyContent: "space-around",
             margin: "0 5rem",
-            zIndex: 1
+            zIndex: 0
         }),
 
         dotTopText: css({
