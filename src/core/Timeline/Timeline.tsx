@@ -1,43 +1,33 @@
-import React from 'react';
+/** @jsx jsx */
+import { jsx } from '@emotion/core';
 import { Flexbox } from '..';
-import useStyles from '../../hooks/useTheme';
+import createStyles from './styles';
+import Types from './types';
 
-interface IDot {
-    value: string
-    bottomTitle: string
-    color?: string
-}
 
-interface ITimeline {
-    leftTitle?: string
-    rightTitle?: string
-    dots: IDot[]
-}
-
-export default (props: ITimeline) => {
-    const styles = useStyles();
+export default (props: Types.ITimeline) => {
+    const styles = createStyles();
 
     return (
         <Flexbox flex={1} alignItems='center'>
-            <div className='ui-timeline-layout' style={{ backgroundColor: styles.theme.background2.hex }}>
-                {props.leftTitle && <div className='ui-timeline-layout-titleleft'>{props.leftTitle}</div>}
-                <div className='ui-timeline-layout-line' style={{ backgroundColor: styles.theme.pale.hex }} />
-                {props.rightTitle && <div className='ui-timeline-layout-titleright'>{props.rightTitle}</div>}
+            <div css={styles.layout}>
+                {props.leftTitle && (
+                    <div css={styles.titleLeft} children={props.leftTitle} />
+                )}
+                <div css={styles.line} />
+                {props.rightTitle && (
+                    <div css={styles.titleRight} children={props.rightTitle} />
+                )}
             </div>
-            <div className='ui-timeline-dots'>
+            <div css={styles.dotsContainer}>
                 {props.dots.map((dot, index) => (
                     <div key={index}>
-                        <div className='ui-timeline-dots-top' children={dot.value} />
-                        <div className='ui-timeline-dots-container' children={
-                            <div className='ui-timeline-dots-container-dot' style={{
-                                borderColor: styles.theme.background2.hex,
-                                backgroundColor: styles.theme.highlight.hex
-                            }} />
-                        } />
-                        <div className='ui-timeline-dots-bottom' children={dot.bottomTitle} />
+                        <div css={styles.dotTopText} children={dot.value} />
+                        <div css={styles.dotContainer} children={<div />} />
+                        <div css={styles.dotBottomText} children={dot.bottomTitle} />
                     </div>
                 ))}
             </div>
-        </Flexbox >
+        </Flexbox>
     )
 }
