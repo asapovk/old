@@ -1,29 +1,17 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
-import useStyles from './useStyles';
-import { CSSProperties, ReactNode } from 'react';
-import { Spin, Icon } from '../index';
+import { Spin, Icon } from '..';
 
-export interface BadgeProps {
-    value?: string | number
-    color?: 'highlight' | 'red' | 'green' | 'orange' | 'blue'
-    loading?: boolean
-    top?: number | string
-    right?: number | string
-    left?: number | string
-    onClick?: (MouseEvent?) => void
-    style?: CSSProperties
-    children: ReactNode
-}
+import createStyles from './styles';
+import Types from './types';
 
-export default (props: BadgeProps) => {
-
-    const { onClick, value, children, style, loading, color, top, right, left } = props;
-    const styles = useStyles(color, top, right, left);
+export default (props: Types.IBadge) => {
+    const { onClick, value, children, style, loading, color, top, right, left, className } = props;
+    const styles = createStyles(color, top, right, left);
 
     return (
-        <div css={{ ...styles.container, ...style }} onClick={onClick}>
-            <div css={styles.main}>{value}</div>
+        <div css={{ ...styles.container, ...style }} onClick={onClick} className={className}>
+            <div css={styles.main} children={!loading ? <Spin children={<Icon type="sync" />} /> : value} />
             {children}
         </div>
     );

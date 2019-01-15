@@ -13,7 +13,6 @@ import finderStyles from './jss/Finder'
 import modalStyles from './jss/Modal'
 import selectStyles from './jss/Select'
 import spinStyles from './jss/Spin'
-import spinnerStyles from './jss/Spinner'
 import tableStyles from './jss/Table'
 import tabsStyles from './jss/Tabs'
 import textFieldStyles from './jss/TextField'
@@ -109,7 +108,6 @@ export const createStyles = (themeName?: string) => {
         modal: modalStyles(theme),
         select: selectStyles(theme),
         spin: spinStyles(theme),
-        spinner: spinnerStyles(theme),
         table: tableStyles(theme),
         tabs: tabsStyles(theme),
         textField: textFieldStyles(theme),

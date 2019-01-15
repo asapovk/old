@@ -1,41 +1,33 @@
-import React, { Component } from 'react';
+/** @jsx jsx */
+import { jsx } from '@emotion/core';
+import createStyles from './styles';
+import Types from './types';
 
-interface Props {
-    spinning?: boolean,
-    center?: boolean,
-    dark?: boolean,
-    children?: any
-}
+export default (props: Types.ISpinner) => {
+    const { spinning, center, className, dark, children, style } = props;
+    const styles = createStyles();
 
-class Spinner extends Component<Props> {
-    render() {
-        if (!this.props.spinning) {
-            return this.props.children || null;
-        }
-        const spin = (
-            <div className={`ui-spinner${this.props.dark ? " dark" : ""}`}>
-                {Array(12).fill("").map((e, i) => <div key={i} />)}
-            </div>
-        );
-
-        if (this.props.center) {
-            return (
-                <div style={{ zIndex: 999999, position: "fixed", top: 0, bottom: 0, left: 0, right: 0 }}>
-                    <div
-                        style={{
-                            position: "absolute",
-                            left: "50%",
-                            top: "50%",
-                            marginLeft: -32,
-                            marginTop: -32,
-                        }}
-                        children={spin}
-                    />
-                </div>
-            )
-        }
-        return spin
+    if (!spinning) {
+        return children || null;
     }
+
+    if (center) {
+        return (
+            <div css={styles.centeredContainer} style={style} className={className}>
+                <div children={<Spin {...props} />} />
+            </div>
+        )
+    }
+
+    return <Spin {...props} />
 }
 
-export default Spinner;
+const Spin = (props: Types.ISpinner) => {
+    const styles = createStyles();
+
+    return (
+        <div css={styles.spinner} style={props.style} className={props.className}>
+            {Array(12).fill("").map((e, i) => <div key={i} />)}
+        </div>
+    );
+}
