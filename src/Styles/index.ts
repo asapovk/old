@@ -100,7 +100,7 @@ export interface ThemeInterface {
 }
 
 export const createStyles = (themeName?: string) => {
-    const theme = themeName ? themes[themeName] : themes['blackCurrant'];
+    const theme: ThemeInterface = themeName ? themes[themeName] : themes['blackCurrant'];
     return {
         theme: theme,
         checkbox: checkboxStyles(theme),
