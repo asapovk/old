@@ -10,7 +10,7 @@ export default (props: Types.IBadge) => {
     const styles = createStyles(color, top, right, left);
 
     return (
-        <div css={{ ...styles.container, ...style }} onClick={onClick} className={className}>
+        <div css={styles.container} style={style} onClick={onClick} className={className}>
             <div css={styles.main} children={!loading ? <Spin children={<Icon type="sync" />} /> : value} />
             {children}
         </div>
