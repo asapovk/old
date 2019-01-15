@@ -4,9 +4,9 @@ import '../../../src/Styles/scss/main.scss';
 
 export default () => {
     return (
-        
-            <Flexbox>
-                <Stories title='Рекомендуем' stories={[{
+        <Flexbox>
+            <Stories />
+            {/* <Stories title='Рекомендуем' stories={[{
                     label: 'Лень передавать показания?',
                     image: 'http://jokesland.net/pic/1/eb30d9e46c.jpg',
                     labelColor: '#fff',
@@ -38,8 +38,8 @@ export default () => {
                         text: 'Бухнем!',
                         key: 'buhnem'
                     }]
-                }]} />
-            </Flexbox>
-        
+                }]} /> */}
+        </Flexbox>
+
     )
 }
