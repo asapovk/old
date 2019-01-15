@@ -1,9 +1,15 @@
 declare const _default: () => {
+    /**
+     * Article's paragraph
+     */
     paragraph: {
         fontSize: string;
         lineHeight: string;
         marginBottom: string;
     };
+    /**
+     * Article's headers
+     */
     header: {
         1: {
             fontSize: string;
@@ -34,6 +40,9 @@ declare const _default: () => {
             fontWeight: number;
         };
     };
+    /**
+     * Article's text
+     */
     text: {
         1: {
             fontSize: string;
@@ -52,6 +61,9 @@ declare const _default: () => {
             lineHeight: string;
         };
     };
+    /**
+     * UI headers
+     */
     display: {
         1: {
             fontSize: string;
@@ -74,6 +86,9 @@ declare const _default: () => {
             fontWeight: number;
         };
     };
+    /**
+     * UI text
+     */
     caption: {
         1: {
             fontSize: string;

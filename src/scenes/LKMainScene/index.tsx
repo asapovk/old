@@ -5,22 +5,9 @@ import { Flexbox } from '../../';
 import createStyles from './styles';
 import useBrowser from '../../hooks/useBrowser';
 import { ScrollView } from '../../extra/ScrollView';
-interface IProps {
-    components: {
-        menu?: React.Component | any
-        sidebar?: React.Component | any
-        mainTop?: React.Component | any
-        main?: React.Component | any
-        logo?: React.Component | any
-    },
-    /**
-     * Display side bar instead of 
-     * mains (only for mobile resolution)
-     */
-    displaySideBar?: boolean
-}
+import Types from './types';
 
-export default (props: IProps) => {
+export default (props: Types.Props) => {
 
     const styles = createStyles();
     const browser = useBrowser();
