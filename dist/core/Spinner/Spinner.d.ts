@@ -1,11 +1,3 @@
-import { Component } from 'react';
-interface Props {
-    spinning?: boolean;
-    center?: boolean;
-    dark?: boolean;
-    children?: any;
-}
-declare class Spinner extends Component<Props> {
-    render(): any;
-}
-export default Spinner;
+import Types from './types';
+declare const _default: (props: Types.ISpinner) => any;
+export default _default;

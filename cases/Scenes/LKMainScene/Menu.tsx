@@ -4,16 +4,17 @@ import { Icon, Menu } from '../../../src';
 const Menu$ = () => {
     const [active, onClick] = useState(0);
     const items = [
-        { text: "Лицевой счет", value: 'ls' },
-        { text: "Документы", value: 'docs' },
-        { text: "Карта отделений", value: 'map' },
+        { text: "Счет", value: 'ls' },
+        { text: "История", value: 'hist' },
+        { text: "Поставщики", value: 'suppliers' },
         { text: "Поддержка", value: 'support' }
     ]
     return (
         <Menu
             items={items}
+            value='ls'
             tools={[
-                <Icon type="settings" style={{ fontSize: '2rem' }} />
+                <Icon type="user" />
             ]}
         />
     )

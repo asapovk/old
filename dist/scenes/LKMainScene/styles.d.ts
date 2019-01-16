@@ -1,13 +1,17 @@
 declare const _default: () => {
-    root: import("@emotion/utils").SerializedStyles;
-    sidebarHolder: import("@emotion/utils").SerializedStyles;
-    sidebar: import("@emotion/utils").SerializedStyles;
-    logo: import("@emotion/utils").SerializedStyles;
-    main: import("@emotion/utils").SerializedStyles;
-    menuMobile: import("@emotion/utils").SerializedStyles;
-    menuDesktop: import("@emotion/utils").SerializedStyles;
-    $mainScroll: {
-        paddingTop: number;
+    sidebar: {
+        holder: import("@emotion/utils").SerializedStyles;
+        content: import("@emotion/utils").SerializedStyles;
+        logo: import("@emotion/utils").SerializedStyles;
+    };
+    main: {
+        top: import("@emotion/utils").SerializedStyles;
+        holder: import("@emotion/utils").SerializedStyles;
+    };
+    menu: {
+        holder: import("@emotion/utils").SerializedStyles;
+        desktop: import("@emotion/utils").SerializedStyles;
+        mobile: import("@emotion/utils").SerializedStyles;
     };
 };
 export default _default;

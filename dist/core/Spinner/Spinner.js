@@ -1,48 +1,35 @@
 "use strict";
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-        return extendStatics(d, b);
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
     };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-var __importStar = (this && this.__importStar) || function (mod) {
-    if (mod && mod.__esModule) return mod;
-    var result = {};
-    if (mod != null) for (var k in mod) if (Object.hasOwnProperty.call(mod, k)) result[k] = mod[k];
-    result["default"] = mod;
-    return result;
+    return __assign.apply(this, arguments);
+};
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var react_1 = __importStar(require("react"));
-var Spinner = /** @class */ (function (_super) {
-    __extends(Spinner, _super);
-    function Spinner() {
-        return _super !== null && _super.apply(this, arguments) || this;
+/** @jsx jsx */
+var core_1 = require("@emotion/core");
+var styles_1 = __importDefault(require("./styles"));
+exports.default = (function (props) {
+    var spinning = props.spinning, center = props.center, className = props.className, dark = props.dark, children = props.children, style = props.style;
+    var styles = styles_1.default();
+    if (!spinning) {
+        return children || null;
     }
-    Spinner.prototype.render = function () {
-        if (!this.props.spinning) {
-            return this.props.children || null;
-        }
-        var spin = (react_1.default.createElement("div", { className: "ui-spinner" + (this.props.dark ? " dark" : "") }, Array(12).fill("").map(function (e, i) { return react_1.default.createElement("div", { key: i }); })));
-        if (this.props.center) {
-            return (react_1.default.createElement("div", { style: { zIndex: 999999, position: "fixed", top: 0, bottom: 0, left: 0, right: 0 } },
-                react_1.default.createElement("div", { style: {
-                        position: "absolute",
-                        left: "50%",
-                        top: "50%",
-                        marginLeft: -32,
-                        marginTop: -32,
-                    }, children: spin })));
-        }
-        return spin;
-    };
-    return Spinner;
-}(react_1.Component));
-exports.default = Spinner;
+    if (center) {
+        return (core_1.jsx("div", { css: styles.centeredContainer, style: style, className: className },
+            core_1.jsx("div", { children: core_1.jsx(Spin, __assign({}, props)) })));
+    }
+    return core_1.jsx(Spin, __assign({}, props));
+});
+var Spin = function (props) {
+    var styles = styles_1.default();
+    return (core_1.jsx("div", { css: styles.spinner, style: props.style, className: props.className }, Array(12).fill("").map(function (e, i) { return core_1.jsx("div", { key: i }); })));
+};

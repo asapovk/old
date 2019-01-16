@@ -1,5 +1,5 @@
 declare const _default: () => {
-    theme: any;
+    theme: import("../styles").ThemeInterface;
     checkbox: {
         main: {
             color: string;
@@ -105,8 +105,6 @@ declare const _default: () => {
             background: string;
         };
     };
-    spin: {};
-    spinner: {};
     table: {
         main: {
             backgroundColor: string;

@@ -76,7 +76,7 @@ export interface ThemeInterface {
     };
 }
 export declare const createStyles: (themeName?: string | undefined) => {
-    theme: any;
+    theme: ThemeInterface;
     checkbox: {
         main: {
             color: string;
@@ -182,8 +182,6 @@ export declare const createStyles: (themeName?: string | undefined) => {
             background: string;
         };
     };
-    spin: {};
-    spinner: {};
     table: {
         main: {
             backgroundColor: string;
@@ -323,7 +321,7 @@ export declare const createStyles: (themeName?: string | undefined) => {
     };
 };
 export declare const StylesContext: React.Context<{
-    theme: any;
+    theme: ThemeInterface;
     checkbox: {
         main: {
             color: string;
@@ -429,8 +427,6 @@ export declare const StylesContext: React.Context<{
             background: string;
         };
     };
-    spin: {};
-    spinner: {};
     table: {
         main: {
             backgroundColor: string;
@@ -570,7 +566,7 @@ export declare const StylesContext: React.Context<{
     };
 }>;
 declare const _default: React.ExoticComponent<React.ConsumerProps<{
-    theme: any;
+    theme: ThemeInterface;
     checkbox: {
         main: {
             color: string;
@@ -676,8 +672,6 @@ declare const _default: React.ExoticComponent<React.ConsumerProps<{
             background: string;
         };
     };
-    spin: {};
-    spinner: {};
     table: {
         main: {
             backgroundColor: string;
