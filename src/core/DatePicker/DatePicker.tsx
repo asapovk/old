@@ -2,16 +2,22 @@
  * DatePicker.tsx
  * author: I.Trikoz
  */
-import React, { useState, useLayoutEffect, Fragment } from 'react';
+/** @jsx jsx */
+import { jsx } from '@emotion/core'
+import { useState, useLayoutEffect, Fragment } from 'react';
 import moment from 'moment';
 import MonthGrid from './MonthGrid';
 import DatePickerProps from './types';
 import { TextField } from '../TextField';
+import { Button } from '..';
+import createStyles from './styles';
 
 export default (props: DatePickerProps.Props) => {
 
     const [value, setValue] = useState(moment());
     const [isActive, setActive] = useState(false);
+
+    const styles = createStyles();
 
     useLayoutEffect(() => {
         moment.locale("ru_RU");
@@ -31,7 +37,7 @@ export default (props: DatePickerProps.Props) => {
 
     function onChange(value: moment.Moment) {
         setValue(value);
-        console.log(1);
+
         if (props.onChange) {
             if (props.format) {
                 props.onChange(value.format(props.format));
@@ -41,25 +47,21 @@ export default (props: DatePickerProps.Props) => {
         }
     }
 
-    const MonthGridView = () => (
-        <MonthGrid
-            value={value}
-            minValue={props.minValue}
-            maxValue={props.maxValue}
-            onChange={onChange}
-        />
-    );
-
     switch (props.type) {
         case 'display':
             return (
-                <MonthGridView />
-            )
+                <MonthGrid
+                    value={value}
+                    minValue={props.minValue}
+                    maxValue={props.maxValue}
+                    onChange={onChange}
+                />)
         case 'textfield':
         default:
             return (
                 <div>
                     <TextField
+                        label={props.label}
                         value={value.format(props.format || "YYYY-MM-DD")}
                         onChange={e => {
                             let date = moment(e.target.value, props.format || "YYYY-MM-DD");
@@ -67,11 +69,26 @@ export default (props: DatePickerProps.Props) => {
                                 setValue(date);
                             }
                         }}
-                        onFocus={() => setActive(true)}
-                        onBlur={() => setActive(false)}
-                        rightIcon="calendar"
+                        onClick={() => setActive(true)}
+                        rightIcon={!isActive ? "calendar" : undefined}
                     />
-                    {isActive && <MonthGridView />}
+                    {isActive && (
+                        <div css={styles.textFieldWrapper}>
+                            <MonthGrid
+                                value={value}
+                                minValue={props.minValue}
+                                maxValue={props.maxValue}
+                                onChange={onChange}
+                            />
+                            <Button
+                                onClick={() => setActive(false)}
+                                size="small"
+                                label="OK"
+                                decoration="none"
+                                css={styles.textFieldOkButton}
+                            />
+                        </div>
+                    )}
                 </div>
             )
     }

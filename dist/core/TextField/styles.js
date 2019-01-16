@@ -19,8 +19,6 @@ exports.default = (function (multiline, size, disabled, decoration) {
     var sizes = getSizes(size, decoration);
     return {
         container: core_1.css({
-            height: '100%',
-            width: '100%',
             flex: 1,
             cursor: 'default'
         }, disabled && {

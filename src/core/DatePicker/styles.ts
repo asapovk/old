@@ -11,17 +11,41 @@ export default () => {
     const typography = useTypography();
 
     return {
-        /**
-         * Month grid container styles
-         */
-        container: css({
+
+        textFieldWrapper: css({
+            padding: '0.25rem',
+            background: theme.interface.hex,
+            borderRadius: theme.radius.default,
+            border: '0.5px solid ' + theme.pale.hex,
+            borderTop: 0,
+            position: 'relative',
+            top: "-" + theme.radius.default,
+        }),
+
+        textFieldOkButton: css({
+            position: 'absolute',
+            right: 10,
+            top: -28,
+        }),
+
+        monthGrid: css({
             position: "relative",
+            background: theme.background.hex,
+            color: theme.text.hex,
+            borderRadius: theme.radius.button,
         }),
 
         weekDay: css({
             userSelect: "none",
-            ...typography.caption[1],
+            ...typography.caption[2],
             fontWeight: 500,
+        }),
+
+        title: css({
+            background: theme.background.hex,
+            color: theme.text.hex,
+            borderRadius: theme.radius.button,
+            padding: '0.25rem'
         }),
 
         monthTitle: css({
@@ -43,8 +67,8 @@ export default () => {
                 transition: "all 0.3s",
                 border: "0.5px solid",
                 fontWeight: 500,
-                width: 30,
-                height: 30,
+                width: '2rem',
+                height: '2rem',
                 cursor: "pointer",
                 opacity: 1,
                 borderRadius: theme.radius.default,

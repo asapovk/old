@@ -29,7 +29,7 @@ export default (props: DatePickerProps.MonthGridTitleProps) => {
 
     return (
         <Fragment>
-            <Flexbox>
+            <Flexbox css={styles.title}>
                 <Action previous />
                 <Flexbox column flex={1} alignItems="center" justifyContent="center">
                     <div css={styles.monthTitle}>{props.date.format("MMMM")}</div>

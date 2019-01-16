@@ -9,7 +9,6 @@ var white_currant_1 = __importDefault(require("./themes/white-currant"));
 var abr_1 = __importDefault(require("./themes/abr"));
 var gazprom_1 = __importDefault(require("./themes/gazprom"));
 var Checkbox_1 = __importDefault(require("./jss/Checkbox"));
-var DatePicker_1 = __importDefault(require("./jss/DatePicker"));
 var Finder_1 = __importDefault(require("./jss/Finder"));
 var Modal_1 = __importDefault(require("./jss/Modal"));
 var Select_1 = __importDefault(require("./jss/Select"));
@@ -30,7 +29,6 @@ exports.createStyles = function (themeName) {
     return {
         theme: theme,
         checkbox: Checkbox_1.default(theme),
-        datePicker: DatePicker_1.default(theme),
         finder: Finder_1.default(theme),
         modal: Modal_1.default(theme),
         select: Select_1.default(theme),
