@@ -5,6 +5,7 @@ import createStyles from './styles';
 import Types from './types';
 
 
+//TODO: remove absolute positions
 export default (props: Types.ITimeline) => {
     const styles = createStyles();
 

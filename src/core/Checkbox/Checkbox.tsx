@@ -1,73 +1,40 @@
-import React from 'react';
-import { Icon, Styles } from '../../';
+/** @jsx jsx */
+import { jsx } from '@emotion/core';
+import { useState, useEffect } from 'react';
+import { Icon } from '../../';
+import Types from './types';
+import createStyles from './styles';
 
-export interface CheckboxProps {
-    label?: string
-    radio?: boolean
-    checked?: boolean
-    onChange?: (checked) => void
-    style?: any
-    defaultValue?: boolean
-    uppercase?: boolean
-}
-interface Checkbox {
-    checked: boolean
-}
+export default (props: Types.CheckboxProps) => {
+    const [checked, setChecked] = useState(props.checked || props.defaultValue || false);
+    const { style, label, uppercase, radio, className } = props;
 
-class Checkbox extends React.Component<CheckboxProps> {
+    const styles = createStyles(checked, radio, uppercase);
 
-    state = {
-        checked: false
-    }
+    useEffect(() => {
+        if (typeof props.checked !== "undefined") {
+            setChecked(props.checked);
+        }
+    }, [props.checked]);
 
-    componentWillMount() {
-        this.setState({
-            checked: this.props.checked || this.props.defaultValue || false
-        });
-    }
+    function onClick() {
+        props.onChange && props.onChange(!checked);
 
-    componentWillReceiveProps(nextProps) {
-        if (typeof nextProps.checked !== "undefined") {
-            this.setState({
-                checked: nextProps.checked
-            });
+        if (typeof props.checked === "undefined") {
+            setChecked(!checked);
         }
     }
 
-    onChange() {
-        this.props.onChange && this.props.onChange(!this.state.checked);
-
-        if (typeof this.props.checked === "undefined") {
-            this.setState({
-                checked: !this.state.checked
-            });
-        }
-    }
-
-    render() {
-        const { label, radio, style, uppercase } = this.props;
-
-        const InputTSX = (style) => (
-            <div className='ui-checkbox-input' style={this.state.checked ? { ...style.inputActive(radio) } : { ...style.input(radio) }}>
-                {
-                    this.state.checked ? (
-                        radio ? <span className='ui-checkbox-circle' style={{ ...style.circle }}></span> : <Icon type='check' />
-                    ) : null
-                }
-            </div>
-        )
-
-        return (
-            <Styles>
-                {styles => (
-                    <div className='ui-checkbox' onClick={() => this.onChange()} style={{ ...style, ...styles.checkbox.main }}>
-                        {InputTSX(styles.checkbox)}
-                        <div className={'ui-checkbox-label noselect' + (uppercase ? ' uppercase' : '')}>{label}</div>
-                    </div>
+    return (
+        <div css={styles.container} onClick={onClick} style={style} className={className}>
+            <div css={styles.input}>
+                {checked && (
+                    radio
+                        ? <span css={styles.circle} />
+                        : <Icon type='check' />
                 )}
-            </Styles>
-        )
-    }
+            </div>
+            <div css={styles.label} children={label} />
+        </div>
+    )
 }
-
-export default Checkbox;
