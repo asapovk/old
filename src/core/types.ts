@@ -7,3 +7,4 @@ export { default as CheckboxTypes } from './Checkbox/types';
 export { default as DatePickerTypes } from './DatePicker/types'
 
 export type SizeTypes = 'extra-large' | 'large' | 'small' | 'default';
+export type DecorationTypes = 'none' | 'highlight' | 'red' | 'green' | 'orange' | 'blue' | 'grayscale';
