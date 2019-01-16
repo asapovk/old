@@ -40,7 +40,7 @@ var CDatePicker = /** @class */ (function (_super) {
         if (!this.isVisible())
             return null;
         var props = {
-            style: this.getProperty("style", {}),
+            // style: this.getProperty("style", {}),
             format: this.getProperty("format"),
             value: this.getProperty("value"),
             minValue: this.getProperty("minValue"),
@@ -48,6 +48,7 @@ var CDatePicker = /** @class */ (function (_super) {
             label: this.getProperty("label"),
             // locale?: string
             onChange: function (value) { return _this.setValue(value); },
+            type: 'textfield'
         };
         return (react_1.default.createElement(__1.DatePicker, __assign({}, props)));
     };
