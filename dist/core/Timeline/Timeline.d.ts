@@ -1,12 +1,3 @@
-interface IDot {
-    value: string;
-    bottomTitle: string;
-    color?: string;
-}
-interface ITimeline {
-    leftTitle?: string;
-    rightTitle?: string;
-    dots: IDot[];
-}
-declare const _default: (props: ITimeline) => JSX.Element;
+import Types from './types';
+declare const _default: (props: Types.ITimeline) => JSX.Element;
 export default _default;

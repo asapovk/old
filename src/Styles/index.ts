@@ -7,7 +7,6 @@ import whiteCurrant from './themes/white-currant'
 import abrTheme from './themes/abr'
 import gazpromTheme from './themes/gazprom'
 
-import datePickerStyles from './jss/DatePicker'
 import finderStyles from './jss/Finder'
 import modalStyles from './jss/Modal'
 import selectStyles from './jss/Select'
@@ -100,7 +99,6 @@ export const createStyles = (themeName?: string) => {
     const theme: ThemeInterface = themeName ? themes[themeName] : themes['blackCurrant'];
     return {
         theme: theme,
-        datePicker: datePickerStyles(theme),
         finder: finderStyles(theme),
         modal: modalStyles(theme),
         select: selectStyles(theme),

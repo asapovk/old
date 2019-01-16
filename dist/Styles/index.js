@@ -9,12 +9,9 @@ var white_currant_1 = __importDefault(require("./themes/white-currant"));
 var abr_1 = __importDefault(require("./themes/abr"));
 var gazprom_1 = __importDefault(require("./themes/gazprom"));
 var Checkbox_1 = __importDefault(require("./jss/Checkbox"));
-var DatePicker_1 = __importDefault(require("./jss/DatePicker"));
 var Finder_1 = __importDefault(require("./jss/Finder"));
 var Modal_1 = __importDefault(require("./jss/Modal"));
 var Select_1 = __importDefault(require("./jss/Select"));
-var Spin_1 = __importDefault(require("./jss/Spin"));
-var Spinner_1 = __importDefault(require("./jss/Spinner"));
 var Table_1 = __importDefault(require("./jss/Table"));
 var Tabs_1 = __importDefault(require("./jss/Tabs"));
 var TextField_1 = __importDefault(require("./jss/TextField"));
@@ -32,12 +29,9 @@ exports.createStyles = function (themeName) {
     return {
         theme: theme,
         checkbox: Checkbox_1.default(theme),
-        datePicker: DatePicker_1.default(theme),
         finder: Finder_1.default(theme),
         modal: Modal_1.default(theme),
         select: Select_1.default(theme),
-        spin: Spin_1.default(theme),
-        spinner: Spinner_1.default(theme),
         table: Table_1.default(theme),
         tabs: Tabs_1.default(theme),
         textField: TextField_1.default(theme),

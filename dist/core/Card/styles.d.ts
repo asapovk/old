@@ -10,6 +10,6 @@ declare const _default: (active?: boolean | undefined) => {
             2: import("@emotion/utils").SerializedStyles;
         };
     };
-    color: any;
+    color: string;
 };
 export default _default;

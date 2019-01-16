@@ -1,93 +1,95 @@
-import React, { Fragment } from 'react';
-import { Icon, Flexbox, TextField, Styles } from '../../';
-import moment, { Moment } from 'moment';
-import { MonthGrid } from './MonthGrid';
+/**
+ * DatePicker.tsx
+ * author: I.Trikoz
+ */
+/** @jsx jsx */
+import { jsx } from '@emotion/core'
+import { useState, useLayoutEffect, Fragment } from 'react';
+import moment from 'moment';
+import MonthGrid from './MonthGrid';
+import DatePickerProps from './types';
+import { TextField } from '../TextField';
+import { Button } from '..';
+import createStyles from './styles';
 
-moment.locale("ru_RU");
+export default (props: DatePickerProps.Props) => {
 
-export interface DatePickerProps {
-    format?: string
-    value?: Moment | string
-    minValue?: Moment
-    maxValue?: Moment
-    label?: string
-    // locale?: string
-    onChange?: (date: Moment | string) => void
-}
+    const [value, setValue] = useState(moment());
+    const [isActive, setActive] = useState(false);
 
-class DatePicker extends React.Component<DatePickerProps> {
+    const styles = createStyles();
 
-    state = {
-        active: false,
-        value: moment(),
-        format: "",
-    }
+    useLayoutEffect(() => {
+        moment.locale("ru_RU");
 
-    componentWillMount() {
-        if (this.props.value) {
-            if (this.props.format) {
-                this.setState({
-                    value: moment(this.props.value, this.props.format),
-                    format: this.props.format
-                });
+        if (props.value) {
+            if (props.format) {
+                setValue(moment(props.value, props.format));
             } else {
-                this.setState({
-                    value: this.props.value
-                });
+                if (moment.isMoment(props.value)) {
+                    setValue(props.value);
+                } else {
+                    console.warn('DatePicker property value should be instanceof Moment, otherwise you should use format property.');
+                }
             }
-        } else {
-            if (this.props.format) {
-                this.setState({
-                    format: this.props.format
-                });
+        }
+    }, []);
+
+    function onChange(value: moment.Moment) {
+        setValue(value);
+
+        if (props.onChange) {
+            if (props.format) {
+                props.onChange(value.format(props.format));
+            } else {
+                props.onChange(value);
             }
         }
     }
-    render() {
-        return (
-            <Styles>
-                {styles => (
-                    <Flexbox column style={{ lineHeight: 1 }}>
-                        <div style={{
-                            color: styles.datePicker.main.labelColor, fontSize: 12,
-                            marginBottom: 5,
-                            textTransform: 'uppercase',
-                        }}>
-                            {this.props.label}
-                        </div>
-                        <TextField
-                            value={this.state.value.format(this.state.format || "DD • MMMM • YYYY")}
-                            onClick={() => this.setState({ active: !this.state.active })}
-                            // onChange={value => {
-                            //     if (moment(value).isValid()) {
-                            //         this.setState({ value });
-                            //     }
-                            // }}
-                            rightIcon="calendar"
-                        />
-                        {this.state.active &&
-                            <MonthGrid
-                                active={this.state.active}
-                                value={this.state.value}
-                                minValue={this.props.minValue}
-                                maxValue={this.props.maxValue}
-                                onChange={value => {
-                                    this.setState({ value, active: false });
-                                    if (this.props.onChange) {
-                                        if (this.state.format) {
-                                            this.props.onChange(value.format(this.state.format));
-                                        } else {
-                                            this.props.onChange(value);
-                                        }
-                                    }
-                                }}
-                            />
-                        }
-                    </Flexbox>
-                )}
-            </Styles>
-        )
-    }
-}
 
-export default DatePicker;
+    switch (props.type) {
+        case 'display':
+            return (
+                <MonthGrid
+                    value={value}
+                    minValue={props.minValue}
+                    maxValue={props.maxValue}
+                    onChange={onChange}
+                />)
+        case 'textfield':
+        default:
+            return (
+                <div>
+                    <TextField
+                        label={props.label}
+                        value={value.format(props.format || "YYYY-MM-DD")}
+                        onChange={e => {
+                            let date = moment(e.target.value, props.format || "YYYY-MM-DD");
+                            if (date.isValid()) {
+                                setValue(date);
+                            }
+                        }}
+                        onClick={() => setActive(true)}
+                        rightIcon={!isActive ? "calendar" : undefined}
+                    />
+                    {isActive && (
+                        <div css={styles.textFieldWrapper}>
+                            <MonthGrid
+                                value={value}
+                                minValue={props.minValue}
+                                maxValue={props.maxValue}
+                                onChange={onChange}
+                            />
+                            <Button
+                                onClick={() => setActive(false)}
+                                size="small"
+                                label="OK"
+                                decoration="none"
+                                css={styles.textFieldOkButton}
+                            />
+                        </div>
+                    )}
+                </div>
+            )
+    }
+};

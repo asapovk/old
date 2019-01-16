@@ -25,23 +25,23 @@ export default () => {
                     <TextField loading label='Loading' placeholder="Whait a minute..." />
                 </Flexbox>
                 <Flexbox pb={40}>
-                    <TextField type='password' label='Password' placeholder="Enter password" value={value} onChange={(event) => setValue(event.target.value)} />
+                    <TextField type='password' label='Password' placeholder="Enter password" />
                 </Flexbox>
                 <Flexbox pb={40}>
-                    <TextField type='number' label='Number' placeholder="Write some numbers" value={value} onChange={(event) => setValue(event.target.value)} />
+                    <TextField type='number' label='Number' placeholder="Write some numbers" />
                 </Flexbox>
                 <Flexbox pb={40}>
                     <TextField multiline={true} singlerow={true} label='Singlerow textarea' placeholder="This is for long string wrap" />
                 </Flexbox>
                 <hr style={{ width: '100%', border: '1px solid', marginBottom: '40px' }} />
                 <Flexbox pb={40}>
-                    <TextField decoration='none' placeholder="Without decoration" value={value} onChange={(event) => setValue(event.target.value)} />
+                    <TextField decoration='none' placeholder="Without decoration" />
                 </Flexbox>
                 <Flexbox pb={40}>
-                    <TextField decoration='borderless' label='Without border' placeholder="Enter something" value={value} onChange={(event) => setValue(event.target.value)} />
+                    <TextField decoration='borderless' label='Without border' placeholder="Enter something" />
                 </Flexbox>
                 <Flexbox pb={40}>
-                    <TextField size='small' label='Small field' placeholder="Write secret here" />
+                    <TextField size='small' value='sgf' label='Small field' placeholder="Write secret here" />
                 </Flexbox>
                 <Flexbox pb={40}>
                     <TextField size='large' label='Large field' placeholder="Really big" />

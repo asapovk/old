@@ -76,7 +76,7 @@ export interface ThemeInterface {
     };
 }
 export declare const createStyles: (themeName?: string | undefined) => {
-    theme: any;
+    theme: ThemeInterface;
     checkbox: {
         main: {
             color: string;
@@ -95,52 +95,6 @@ export declare const createStyles: (themeName?: string | undefined) => {
         };
         circle: {
             background: string;
-        };
-    };
-    datePicker: {
-        main: {
-            labelColor: string;
-        };
-        day: {
-            default: {
-                fontSize: number;
-                borderRadius: string;
-                background: string;
-                borderColor: string;
-                color: string;
-            };
-            active: {
-                borderColor: string;
-            };
-            current: {
-                background: string;
-                color: string;
-            };
-            anotherMonth: {
-                background: string;
-            };
-            disabledDay: {
-                opacity: number;
-            };
-        };
-        monthGrid: {
-            style: {
-                border: string;
-                borderTop: number;
-                top: string;
-            };
-        };
-        title: {
-            style: {
-                color: string;
-                background: string;
-                borderColor: string;
-            };
-            weekDayStyle: {
-                color: string;
-                background: string;
-                borderColor: string;
-            };
         };
     };
     finder: {
@@ -182,8 +136,6 @@ export declare const createStyles: (themeName?: string | undefined) => {
             background: string;
         };
     };
-    spin: {};
-    spinner: {};
     table: {
         main: {
             backgroundColor: string;
@@ -323,7 +275,7 @@ export declare const createStyles: (themeName?: string | undefined) => {
     };
 };
 export declare const StylesContext: React.Context<{
-    theme: any;
+    theme: ThemeInterface;
     checkbox: {
         main: {
             color: string;
@@ -342,52 +294,6 @@ export declare const StylesContext: React.Context<{
         };
         circle: {
             background: string;
-        };
-    };
-    datePicker: {
-        main: {
-            labelColor: string;
-        };
-        day: {
-            default: {
-                fontSize: number;
-                borderRadius: string;
-                background: string;
-                borderColor: string;
-                color: string;
-            };
-            active: {
-                borderColor: string;
-            };
-            current: {
-                background: string;
-                color: string;
-            };
-            anotherMonth: {
-                background: string;
-            };
-            disabledDay: {
-                opacity: number;
-            };
-        };
-        monthGrid: {
-            style: {
-                border: string;
-                borderTop: number;
-                top: string;
-            };
-        };
-        title: {
-            style: {
-                color: string;
-                background: string;
-                borderColor: string;
-            };
-            weekDayStyle: {
-                color: string;
-                background: string;
-                borderColor: string;
-            };
         };
     };
     finder: {
@@ -429,8 +335,6 @@ export declare const StylesContext: React.Context<{
             background: string;
         };
     };
-    spin: {};
-    spinner: {};
     table: {
         main: {
             backgroundColor: string;
@@ -570,7 +474,7 @@ export declare const StylesContext: React.Context<{
     };
 }>;
 declare const _default: React.ExoticComponent<React.ConsumerProps<{
-    theme: any;
+    theme: ThemeInterface;
     checkbox: {
         main: {
             color: string;
@@ -589,52 +493,6 @@ declare const _default: React.ExoticComponent<React.ConsumerProps<{
         };
         circle: {
             background: string;
-        };
-    };
-    datePicker: {
-        main: {
-            labelColor: string;
-        };
-        day: {
-            default: {
-                fontSize: number;
-                borderRadius: string;
-                background: string;
-                borderColor: string;
-                color: string;
-            };
-            active: {
-                borderColor: string;
-            };
-            current: {
-                background: string;
-                color: string;
-            };
-            anotherMonth: {
-                background: string;
-            };
-            disabledDay: {
-                opacity: number;
-            };
-        };
-        monthGrid: {
-            style: {
-                border: string;
-                borderTop: number;
-                top: string;
-            };
-        };
-        title: {
-            style: {
-                color: string;
-                background: string;
-                borderColor: string;
-            };
-            weekDayStyle: {
-                color: string;
-                background: string;
-                borderColor: string;
-            };
         };
     };
     finder: {
@@ -676,8 +534,6 @@ declare const _default: React.ExoticComponent<React.ConsumerProps<{
             background: string;
         };
     };
-    spin: {};
-    spinner: {};
     table: {
         main: {
             backgroundColor: string;

@@ -1,5 +1,5 @@
 declare const _default: () => {
-    theme: any;
+    theme: import("../styles").ThemeInterface;
     checkbox: {
         main: {
             color: string;
@@ -18,52 +18,6 @@ declare const _default: () => {
         };
         circle: {
             background: string;
-        };
-    };
-    datePicker: {
-        main: {
-            labelColor: string;
-        };
-        day: {
-            default: {
-                fontSize: number;
-                borderRadius: string;
-                background: string;
-                borderColor: string;
-                color: string;
-            };
-            active: {
-                borderColor: string;
-            };
-            current: {
-                background: string;
-                color: string;
-            };
-            anotherMonth: {
-                background: string;
-            };
-            disabledDay: {
-                opacity: number;
-            };
-        };
-        monthGrid: {
-            style: {
-                border: string;
-                borderTop: number;
-                top: string;
-            };
-        };
-        title: {
-            style: {
-                color: string;
-                background: string;
-                borderColor: string;
-            };
-            weekDayStyle: {
-                color: string;
-                background: string;
-                borderColor: string;
-            };
         };
     };
     finder: {
@@ -105,8 +59,6 @@ declare const _default: () => {
             background: string;
         };
     };
-    spin: {};
-    spinner: {};
     table: {
         main: {
             backgroundColor: string;

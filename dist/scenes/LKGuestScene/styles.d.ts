@@ -42,12 +42,12 @@ declare const _default: () => {
         icon: {
             marginBottom: string;
             fontSize: string;
-            color: any;
+            color: string;
         };
         label: {
             fontSize: string;
             lineHeight: string;
-            color: any;
+            color: string;
         };
         separator: {
             borderLeft: string;

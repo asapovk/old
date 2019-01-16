@@ -1,10 +1,16 @@
 export default () => {
     return {
+        /**
+         * Article's paragraph
+         */
         paragraph: {
             fontSize: '1rem',
             lineHeight: '1.5rem',
             marginBottom: '1.5rem'
         },
+        /**
+         * Article's headers
+         */
         header: {
             1: {
                 fontSize: '2rem',
@@ -35,6 +41,9 @@ export default () => {
                 fontWeight: 700
             }
         },
+        /**
+         * Article's text
+         */
         text: {
             1: {
                 fontSize: '1rem',
@@ -53,6 +62,9 @@ export default () => {
                 lineHeight: '0.75rem'
             }
         },
+        /**
+         * UI headers
+         */
         display: {
             1: {
                 fontSize: '2rem',
@@ -75,6 +87,9 @@ export default () => {
                 fontWeight: 700
             }
         },
+        /**
+         * UI text
+         */
         caption: {
             1: {
                 fontSize: '1rem',

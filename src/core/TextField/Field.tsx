@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
-import { forwardRef, useState } from 'react';
+import { forwardRef } from 'react';
 import Types from './types'
 
 interface Test {
@@ -9,10 +9,7 @@ interface Test {
 
 export default forwardRef((props: Types.FieldProps, ref) => {
 
-    const [value, setValue] = useState(props.value);
-
     function onChange(event) {
-        setValue(event.target.value);
         props.onChange && props.onChange(event);
     }
 
@@ -22,8 +19,9 @@ export default forwardRef((props: Types.FieldProps, ref) => {
             onFocus: props.onFocus,
             onBlur: props.onBlur,
             defaultValue: props.defaultValue,
-            value: value,
+            value: props.value,
             onChange: onChange,
+            onEnter: props.onEnter,
             disabled: props.disabled,
             placeholder: props.placeholder,
             css: props.styles.field,

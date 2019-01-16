@@ -1,9 +1,3 @@
-import { Component, CSSProperties } from 'react';
-interface Props {
-    style?: CSSProperties;
-    children?: any;
-}
-declare class Spin extends Component<Props> {
-    render(): JSX.Element;
-}
-export default Spin;
+import Types from './types';
+declare const _default: (props: Types.ISpin) => JSX.Element;
+export default _default;

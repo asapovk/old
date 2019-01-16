@@ -5,12 +5,13 @@ const MainTop = () => {
     return (
         <Timeline
             dots={[
-                { color: "black", bottomTitle: "Сталинградская битва", value: "17 июля 1942" },
-                { color: "black", bottomTitle: "Атаку под Курском", value: "5 июля 1943" },
-                { color: "black", bottomTitle: "Освобождение Рима", value: "4 июня 1944" }
+                { color: "black", bottomTitle: "Задолженность", value: "8 491" },
+                { color: "black", bottomTitle: "Аванс", value: "0" },
+                { color: "black", bottomTitle: "Начислено", value: "1 256" },
+                { color: "black", bottomTitle: "Оплачено", value: "5 010" }
             ]}
-            leftTitle="22 июня 1941"
-            rightTitle="9 мая 1945"
+            leftTitle="10 октября"
+            rightTitle="10 ноября"
         />
     )
 }
