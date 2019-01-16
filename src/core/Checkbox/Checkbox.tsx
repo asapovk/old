@@ -7,9 +7,9 @@ import createStyles from './styles';
 
 export default (props: Types.CheckboxProps) => {
     const [checked, setChecked] = useState(props.checked || props.defaultValue || false);
-    const { style, label, uppercase, radio, className } = props;
+    const { style, label, uppercase, radio, className, size } = props;
 
-    const styles = createStyles(checked, radio, uppercase);
+    const styles = createStyles(checked, radio, uppercase, size);
 
     useEffect(() => {
         if (typeof props.checked !== "undefined") {
@@ -27,13 +27,14 @@ export default (props: Types.CheckboxProps) => {
 
     return (
         <div css={styles.container} onClick={onClick} style={style} className={className}>
-            <div css={styles.input}>
-                {checked && (
+            <div
+                css={styles.input}
+                children={checked && (
                     radio
-                        ? <span css={styles.circle} />
+                        ? <div />
                         : <Icon type='check' />
                 )}
-            </div>
+            />
             <div css={styles.label} children={label} />
         </div>
     )

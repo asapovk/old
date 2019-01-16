@@ -1,3 +1,5 @@
+import { SizeTypes } from "../types";
+
 declare namespace CheckboxTypes {
     export interface CheckboxProps {
         label?: string
@@ -8,7 +10,7 @@ declare namespace CheckboxTypes {
         defaultValue?: boolean
         uppercase?: boolean
         className?: string
-        size?: string
+        size?: SizeTypes
     }
 
     export interface Checkbox {

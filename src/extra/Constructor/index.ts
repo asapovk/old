@@ -9,7 +9,6 @@ import {
 export { default as Constructor } from './Constructor';
 import { ButtonProps } from '../../core/Button/Button';
 import { SelectProps } from '../../core/Select/Select';
-import { DatePickerProps } from '../../core/DatePicker/DatePicker';
 
 export type UIElement =
     (DefaultConstructorElement & Flexbox & FlexboxTypes.Props)
