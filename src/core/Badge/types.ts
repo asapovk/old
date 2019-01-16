@@ -1,11 +1,11 @@
 import { CSSProperties, ReactNode } from 'react';
-import { SerializedStyles } from '@emotion/core';
+import { DecorationTypes } from '../types';
 
 declare namespace BadgeTypes {
     export interface IBadge {
         children: ReactNode
         value?: string | number
-        color?: 'highlight' | 'red' | 'green' | 'orange' | 'blue'
+        decoration?: DecorationTypes
         loading?: boolean
         top?: number | string
         right?: number | string
