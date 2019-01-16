@@ -18,6 +18,16 @@ export default () => {
             position: "relative",
         }),
 
+        underTextFieldWrapper: css({
+            padding: '0.25rem',
+            background: theme.interface.hex,
+            borderRadius: theme.radius.default,
+            border: '0.5px solid ' + theme.pale.hex,
+            borderTop: 0,
+            position: 'relative',
+            top: "-" + theme.radius.default,
+        }),
+
         weekDay: css({
             userSelect: "none",
             ...typography.caption[1],
