@@ -11,8 +11,6 @@ export default (multiline, size, disabled, decoration) => {
     return {
         container: css(
             {
-                height: '100%',
-                width: '100%',
                 flex: 1,
                 cursor: 'default'
             },
