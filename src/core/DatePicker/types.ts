@@ -39,6 +39,12 @@ declare namespace DatePickerProps {
         onChange?: (date: Moment | string) => void
     }
 
+    export interface MonthGridProps {
+        value: Moment,
+        minValue?: Moment
+        maxValue?: Moment
+        onChange: (date: Moment) => void
+    }
     export interface MonthGridDayProps {
         /**
          * Currect active day

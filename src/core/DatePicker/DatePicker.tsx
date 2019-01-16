@@ -9,6 +9,7 @@ import moment from 'moment';
 import MonthGrid from './MonthGrid';
 import DatePickerProps from './types';
 import { TextField } from '../TextField';
+import { Button } from '..';
 import createStyles from './styles';
 
 export default (props: DatePickerProps.Props) => {
@@ -17,7 +18,6 @@ export default (props: DatePickerProps.Props) => {
     const [isActive, setActive] = useState(false);
 
     const styles = createStyles();
-
 
     useLayoutEffect(() => {
         moment.locale("ru_RU");
@@ -47,25 +47,21 @@ export default (props: DatePickerProps.Props) => {
         }
     }
 
-    const MonthGridView = () => (
-        <MonthGrid
-            value={value}
-            minValue={props.minValue}
-            maxValue={props.maxValue}
-            onChange={onChange}
-        />
-    );
-
     switch (props.type) {
         case 'display':
             return (
-                <MonthGridView />
-            )
+                <MonthGrid
+                    value={value}
+                    minValue={props.minValue}
+                    maxValue={props.maxValue}
+                    onChange={onChange}
+                />)
         case 'textfield':
         default:
             return (
                 <div>
                     <TextField
+                        label={props.label}
                         value={value.format(props.format || "YYYY-MM-DD")}
                         onChange={e => {
                             let date = moment(e.target.value, props.format || "YYYY-MM-DD");
@@ -73,14 +69,24 @@ export default (props: DatePickerProps.Props) => {
                                 setValue(date);
                             }
                         }}
-                        onClick={() => setActive(!isActive)}
-                        // onFocus={() => setActive(true)}
-                        // onBlur={() => setActive(false)}
-                        rightIcon="calendar"
+                        onClick={() => setActive(true)}
+                        rightIcon={!isActive ? "calendar" : undefined}
                     />
                     {isActive && (
-                        <div css={styles.underTextFieldWrapper}>
-                            <MonthGridView />
+                        <div css={styles.textFieldWrapper}>
+                            <MonthGrid
+                                value={value}
+                                minValue={props.minValue}
+                                maxValue={props.maxValue}
+                                onChange={onChange}
+                            />
+                            <Button
+                                onClick={() => setActive(false)}
+                                size="small"
+                                label="OK"
+                                decoration="none"
+                                css={styles.textFieldOkButton}
+                            />
                         </div>
                     )}
                 </div>
