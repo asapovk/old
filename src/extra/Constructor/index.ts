@@ -1,12 +1,14 @@
 import { CSSProperties, Children } from 'react';
+import {
+    TextFieldTypes,
+    FlexboxTypes,
+    DatePickerTypes
+} from '../../core/types';
 
 export { default as Constructor } from './Constructor';
-import { FlexboxTypes } from '../../core/types';
 import { ButtonProps } from '../../core/Button/Button';
-import { TextFieldTypes } from '../../core/types';
 import { SelectProps } from '../../core/Select/Select';
 import { CheckboxProps } from '../../core/Checkbox/Checkbox';
-import { DatePickerProps } from '../../core/DatePicker/DatePicker';
 
 export type UIElement =
     (DefaultConstructorElement & Flexbox & FlexboxTypes.Props)
@@ -14,7 +16,7 @@ export type UIElement =
     | (DefaultConstructorElement & Checkbox & CheckboxProps)
     | (DefaultConstructorElement & Select & SelectProps)
     | (DefaultConstructorElement & Button & ButtonProps)
-    | (DefaultConstructorElement & DatePicker & DatePickerProps)
+    | (DefaultConstructorElement & DatePicker & DatePickerTypes.Props)
     | (DefaultConstructorElement & Attachment)
     | (DefaultConstructorElement & Spoiler)
     | (DefaultConstructorElement & Divider)
