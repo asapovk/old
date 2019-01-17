@@ -7,7 +7,7 @@ import { Spin, Icon } from '../index';
 export interface ButtonProps {
     label?: string
     outline?: true | undefined
-    decoration?: 'none' | 'highlight' | 'red' | 'green' | 'orange' | 'blue' | 'grayscale'
+    decoration?: 'none' | 'highlight' | 'red' | 'green' | 'orange' | 'blue' | 'grayscale' | 'inverse'
     loading?: boolean
     icon?: React.Component
     labelCase?: 'upper' | 'lower' | 'capitalize' | 'sentence'
@@ -18,12 +18,13 @@ export interface ButtonProps {
     size?: 'small' | 'large'
     inversion?: boolean,
     children?: React.ReactNode
+    thin?: boolean
 }
 
 export default (props: ButtonProps) => {
 
-    const { labelCase, label, children, style, loading, decoration, disabled, size, inversion, className } = props;
-    const styles = useStyles(size, loading, disabled, labelCase, decoration, inversion);
+    const { labelCase, label, children, style, loading, decoration, disabled, size, inversion, className, thin } = props;
+    const styles = useStyles(size, loading, disabled, labelCase, decoration, inversion, thin);
 
     const onClick = (event) => {
         if (!props.disabled && !props.loading) {

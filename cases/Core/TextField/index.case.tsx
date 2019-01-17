@@ -41,7 +41,7 @@ export default () => {
                     <TextField decoration='borderless' label='Without border' placeholder="Enter something" />
                 </Flexbox>
                 <Flexbox pb={40}>
-                    <TextField size='small' value='sgf' label='Small field' placeholder="Write secret here" />
+                    <TextField size='small' label='Small field' placeholder="Write secret here" />
                 </Flexbox>
                 <Flexbox pb={40}>
                     <TextField size='large' label='Large field' placeholder="Really big" />
