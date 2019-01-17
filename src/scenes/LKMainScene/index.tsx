@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core';
 import { Flexbox } from '../../';
-import createStyles from './Styles';
+import createStyles from './styles';
 import { useBrowser } from '../../hooks';
 import Types from './types';
 

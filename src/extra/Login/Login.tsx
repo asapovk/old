@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core';
 import { Popup, Icon } from '../../';
-import createStyles from './Styles';
+import createStyles from './styles';
 import Types from './types'
 
 export default (props: Types.Props) => {

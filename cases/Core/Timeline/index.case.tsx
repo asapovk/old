@@ -1,6 +1,6 @@
 import React from 'react';
-import { Flexbox, Timeline, Viewport } from '../../../src';
-import '../../../src/Styles/scss/main.scss'
+import { Flexbox, Timeline } from '../../../src';
+import '../../../src/styles/scss/main.scss'
 
 export default () => {
 

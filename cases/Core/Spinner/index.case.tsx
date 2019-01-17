@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import { Flexbox, Spinner } from '../../../src';
-import '../../../src/Styles/scss/main.scss';
+import '../../../src/styles/scss/main.scss';
 
 export default class Story extends React.Component {
     modal?: any = null;

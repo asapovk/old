@@ -31,7 +31,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var Styles_1 = require("../../Styles");
+var styles_1 = require("../../styles");
 var react_1 = __importStar(require("react"));
 var Viewport = /** @class */ (function (_super) {
     __extends(Viewport, _super);
@@ -76,8 +76,8 @@ var Viewport = /** @class */ (function (_super) {
         return this.state.mountedActions.find(function (action) { return action.id === id; }) || null;
     };
     Viewport.prototype.render = function () {
-        var uiStyles = Styles_1.createStyles(this.props.theme);
-        return (react_1.default.createElement(Styles_1.StylesContext.Provider, { value: uiStyles },
+        var uiStyles = styles_1.createStyles(this.props.theme);
+        return (react_1.default.createElement(styles_1.StylesContext.Provider, { value: uiStyles },
             react_1.default.createElement("div", { "data-viewport": true, className: this.props.transparent ? 'ui-viewport' : 'ui-viewport ui-viewport-fit', id: '0cd82567-7684-4147-ab02-dd3c56332364', style: this.props.transparent ? __assign({}, this.props.style) : __assign({}, uiStyles.viewport.main, this.props.style), children: (react_1.default.createElement(react_1.Fragment, null,
                     this.props.children,
                     this.state.mountedActions.map(function (action, index) {

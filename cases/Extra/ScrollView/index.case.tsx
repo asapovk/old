@@ -1,8 +1,8 @@
 import React from 'react';
-import { Viewport, Title } from '../../../src';
+import { Title } from '../../../src';
 import { ScrollView } from '../../../src/extra'
 import { useTheme } from '../../../src/hooks';
-import '../../../src/Styles/scss/main.scss';
+import '../../../src/styles/scss/main.scss';
 
 export default () => {
     const { theme } = useTheme();

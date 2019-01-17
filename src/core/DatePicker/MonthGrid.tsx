@@ -10,7 +10,7 @@ import moment, { Moment } from 'moment';
 import MonthGridTitle from './MonthGridTitle';
 import MonthGridDay from './MonthGridDay';
 import DatePickerProps from './types';
-import createStyles from './Styles';
+import createStyles from './styles';
 
 export default (props: DatePickerProps.MonthGridProps) => {
 

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { TextField, Flexbox, Viewport } from '../../../src';
-import '../../../src/Styles/scss/main.scss';
+import { TextField, Flexbox } from '../../../src';
+import '../../../src/styles/scss/main.scss';
 
 export default () => {
     const [value, setValue] = useState('');

@@ -1,4 +1,4 @@
 declare const _default: () => {
-    theme: import("../../Styles").ThemeInterface;
+    theme: import("../../styles").ThemeInterface;
 };
 export default _default;

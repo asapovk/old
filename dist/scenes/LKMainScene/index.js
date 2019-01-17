@@ -6,10 +6,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
 /** @jsx jsx */
 var core_1 = require("@emotion/core");
 var __1 = require("../../");
-var Styles_1 = __importDefault(require("./Styles"));
+var styles_1 = __importDefault(require("./styles"));
 var hooks_1 = require("../../hooks");
 exports.default = (function (props) {
-    var styles = Styles_1.default();
+    var styles = styles_1.default();
     var browser = hooks_1.useBrowser();
     return (core_1.jsx(__1.Flexbox, null,
         props.displaySideBar &&

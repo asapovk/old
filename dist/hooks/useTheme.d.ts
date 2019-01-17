@@ -1,5 +1,5 @@
 declare const _default: () => {
-    theme: import("../Styles").ThemeInterface;
+    theme: import("../styles").ThemeInterface;
     finder: {
         main: {
             textColor: string;
