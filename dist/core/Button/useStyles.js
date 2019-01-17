@@ -21,10 +21,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@emotion/core");
 var useTheme_1 = __importDefault(require("../../hooks/useTheme"));
 var useTypography_1 = __importDefault(require("../../hooks/useTypography"));
-exports.default = (function (size, loading, disabled, labelCase, decoration, inversion) {
+exports.default = (function (size, loading, disabled, labelCase, decoration, inversion, thin) {
     var theme = useTheme_1.default().theme;
     var typography = useTypography_1.default();
-    return core_1.css(__assign({}, getDecoration(decoration, inversion, theme), typography.caption[2], { height: '2rem', fontWeight: 'bold', position: 'relative', outline: 'none', cursor: 'pointer', userSelect: 'none', '&:active': {
+    return core_1.css(__assign({}, getDecoration(decoration, inversion, theme), typography.caption[2], { height: '2rem', fontWeight: thin ? 'normal' : 'bold', position: 'relative', outline: 'none', cursor: 'pointer', userSelect: 'none', '&:active': {
             boxShadow: 'none !important'
         } }), size === 'small' && __assign({ height: '1.75rem' }, typography.caption[3]), size === 'large' && __assign({ height: '2.75rem', padding: '0 1.5rem' }, typography.caption[1]), disabled && {
         opacity: 0.5,
@@ -58,6 +58,11 @@ function getDecoration(decoration, inversion, theme) {
             break;
         case 'grayscale':
             background = theme.highlight.grayscale;
+            break;
+        case 'inverse':
+            background = theme.background2.hex;
+            boxShadow = 'none';
+            color = theme.highlight.rgb;
             break;
         case 'none':
             background = 'none';

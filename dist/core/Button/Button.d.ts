@@ -2,7 +2,7 @@ import React from 'react';
 export interface ButtonProps {
     label?: string;
     outline?: true | undefined;
-    decoration?: 'none' | 'highlight' | 'red' | 'green' | 'orange' | 'blue' | 'grayscale';
+    decoration?: 'none' | 'highlight' | 'red' | 'green' | 'orange' | 'blue' | 'grayscale' | 'inverse';
     loading?: boolean;
     icon?: React.Component;
     labelCase?: 'upper' | 'lower' | 'capitalize' | 'sentence';
@@ -13,6 +13,7 @@ export interface ButtonProps {
     size?: 'small' | 'large';
     inversion?: boolean;
     children?: React.ReactNode;
+    thin?: boolean;
 }
 declare const _default: (props: ButtonProps) => JSX.Element;
 export default _default;

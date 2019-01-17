@@ -1,10 +1,16 @@
 declare const _default: () => {
     sidebar: {
         holder: import("@emotion/utils").SerializedStyles;
+        background: import("@emotion/utils").SerializedStyles;
         content: import("@emotion/utils").SerializedStyles;
-        logo: import("@emotion/utils").SerializedStyles;
+        logo: {
+            container: import("@emotion/utils").SerializedStyles;
+            holder: import("@emotion/utils").SerializedStyles;
+            wrapper: import("@emotion/utils").SerializedStyles;
+        };
     };
     main: {
+        container: import("@emotion/utils").SerializedStyles;
         top: import("@emotion/utils").SerializedStyles;
         holder: import("@emotion/utils").SerializedStyles;
     };

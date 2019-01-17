@@ -7,5 +7,5 @@ export interface ICard {
     animation?: "waves" | "circles";
     className?: string;
 }
-declare const _default: (props: ICard) => JSX.Element;
+declare const _default: import("react").ForwardRefExoticComponent<ICard & import("react").RefAttributes<{}>>;
 export default _default;

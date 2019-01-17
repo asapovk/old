@@ -7,14 +7,20 @@ exports.default = (function () {
     return {
         sidebar: {
             holder: core_1.css({
-                width: '20rem'
+                width: '20rem',
+                zIndex: 3,
+                position: 'sticky',
+                bottom: 0,
+                alignSelf: 'flex-end',
+                flexDirection: 'column'
             }),
-            content: core_1.css({
+            background: core_1.css({
                 top: 0,
                 left: 0,
                 bottom: 0,
                 position: 'fixed',
                 zIndex: 2,
+                width: '20rem',
                 borderRight: '1px solid ' + theme.pale.hex,
                 background: theme.interface.hex,
                 '@media (max-width: 1023px)': {
@@ -24,17 +30,60 @@ exports.default = (function () {
                     width: '100%'
                 }
             }),
-            logo: core_1.css({
-                padding: '2.5rem 0',
-                height: '3.5rem',
-                margin: '0 auto'
+            content: core_1.css({
+                width: '20rem',
+                zIndex: 3,
+                flexDirection: 'column'
             }),
+            logo: {
+                container: core_1.css({
+                    width: '20rem',
+                    height: '8.5rem',
+                }),
+                holder: core_1.css({
+                    position: 'fixed',
+                    width: '20rem',
+                    zIndex: 4,
+                    alignItems: 'center',
+                    flexDirection: 'column',
+                    '&::before': {
+                        content: "''",
+                        position: 'absolute',
+                        top: 0,
+                        left: 0,
+                        right: 0,
+                        height: '8rem',
+                        background: theme.interface.hex,
+                    },
+                    '&::after': {
+                        content: "''",
+                        width: '100%',
+                        height: '0.5rem',
+                        background: "linear-gradient(180deg, " + theme.interface.rgb + " 0%, " + theme.interface.rgba(0) + " 100%)",
+                    }
+                }),
+                wrapper: core_1.css({
+                    padding: '2.5rem 0 2rem 0',
+                    height: '3.5rem',
+                    width: '12rem',
+                    justifyContent: 'center',
+                })
+            }
         },
         main: {
+            container: core_1.css({
+                position: 'sticky',
+                top: 0,
+                alignSelf: 'flex-start',
+                flexDirection: 'column',
+                alignItems: 'center',
+                flex: 1
+            }),
             top: core_1.css({
                 backgroundColor: theme.background2.hex,
                 padding: '2.5rem 0',
                 width: '100%',
+                justifyContent: 'center',
                 '@media (max-width: 768px)': {
                     display: 'none'
                 }
@@ -45,7 +94,8 @@ exports.default = (function () {
                 maxWidth: '960px',
                 '@media (max-width: 768px)': {
                     display: 'none'
-                }
+                },
+                paddingBottom: '1.25rem'
             }),
         },
         menu: {
