@@ -5,7 +5,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 /** @jsx jsx */
 var core_1 = require("@emotion/core");
-var styles_1 = __importDefault(require("./Styles"));
+var Styles_1 = __importDefault(require("./Styles"));
 var react_1 = require("react");
 var hooks_1 = require("../../hooks");
 var storiesData = new Array(5).fill(1);
@@ -23,7 +23,7 @@ exports.default = (function () {
             setPosition((browser.width / 2 - (el.offsetWidth / 2 + 40)) - (Math.max(active, 0) * (el.offsetWidth + 40)));
         }
     }
-    var styles = styles_1.default(active, position);
+    var styles = Styles_1.default(active, position);
     return (core_1.jsx("div", { css: styles.container },
         storiesData.map(function (_, index) { return (core_1.jsx("div", { css: styles.minifiedStory, onClick: function () { return setActive(index); } }, "Some text here")); }),
         core_1.jsx("div", { css: styles.modal },

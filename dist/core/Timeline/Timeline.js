@@ -6,9 +6,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
 /** @jsx jsx */
 var core_1 = require("@emotion/core");
 var __1 = require("..");
-var styles_1 = __importDefault(require("./Styles"));
+var Styles_1 = __importDefault(require("./Styles"));
+//TODO: remove absolute positions
 exports.default = (function (props) {
-    var styles = styles_1.default();
+    var styles = Styles_1.default();
     return (core_1.jsx(__1.Flexbox, { flex: 1, alignItems: 'center' },
         core_1.jsx("div", { css: styles.layout },
             props.leftTitle && (core_1.jsx("div", { css: styles.titleLeft, children: props.leftTitle })),

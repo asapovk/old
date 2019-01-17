@@ -827,30 +827,6 @@
   border-bottom-right-radius: 0 !important;
 }
 
-.ui-checkbox {
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-}
-.ui-checkbox-input {
-  width: 16px;
-  height: 16px;
-  border: 1px solid;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.ui-checkbox-label {
-  padding-left: 5px;
-  font-size: 16px;
-  line-height: 24px;
-}
-.ui-checkbox-circle {
-  height: 10px;
-  width: 10px;
-  border-radius: 50%;
-}
-
 .ui-widget {
   line-height: 1;
   padding: 1rem;

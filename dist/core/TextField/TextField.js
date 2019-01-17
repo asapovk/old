@@ -16,12 +16,12 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 /** @jsx jsx */
 var core_1 = require("@emotion/core");
-var styles_1 = __importDefault(require("./Styles"));
+var Styles_1 = __importDefault(require("./Styles"));
 var react_1 = require("react");
 var __1 = require("..");
 var Field_1 = __importDefault(require("./Field"));
 exports.default = react_1.forwardRef(function (props, ref) {
-    var styles = styles_1.default(props.multiline, props.size, props.disabled, props.decoration);
+    var styles = Styles_1.default(props.multiline, props.size, props.disabled, props.decoration);
     var Label = function () { return props.label
         ? core_1.jsx("span", { css: styles.label }, props.label)
         : null; };

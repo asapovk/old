@@ -15,7 +15,7 @@ var core_1 = require("@emotion/core");
 var react_1 = __importStar(require("react"));
 var hooks_1 = require("../../hooks");
 var react_dom_1 = __importDefault(require("react-dom"));
-var styles_1 = __importDefault(require("./Styles"));
+var Styles_1 = __importDefault(require("./Styles"));
 var initialTargetCoord = {
     top: 0,
     bottom: 0,
@@ -30,7 +30,7 @@ exports.default = (function (props) {
     var triggerRef = props.triggerRef ? props.triggerRef : react_1.useRef(null);
     var ViewportHTML = document.getElementById('0cd82567-7684-4147-ab02-dd3c56332364');
     var browser = hooks_1.useBrowser();
-    var styles = styles_1.default(visible, props.position, targetCoord, popupRef);
+    var styles = Styles_1.default(visible, props.position, targetCoord, popupRef);
     var Portal = react_dom_1.default.createPortal(core_1.jsx("div", { css: styles.popup, ref: popupRef, children: children }), ViewportHTML ? ViewportHTML : document.body);
     react_1.useLayoutEffect(function () {
         var coord = triggerRef.current && triggerRef.current.getBoundingClientRect();

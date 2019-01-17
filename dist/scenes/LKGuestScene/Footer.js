@@ -16,12 +16,12 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 /** @jsx jsx */
 var core_1 = require("@emotion/core");
-var styles_1 = __importDefault(require("./Styles"));
+var Styles_1 = __importDefault(require("./Styles"));
 var __1 = require("../..");
 var useBrowser_1 = __importDefault(require("../../hooks/useBrowser"));
 exports.default = (function (props) {
     var size = useBrowser_1.default();
-    var styles = styles_1.default();
+    var styles = Styles_1.default();
     if (size.height <= 600 || !props.footerActions) {
         return null;
     }

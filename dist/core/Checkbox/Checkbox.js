@@ -1,71 +1,31 @@
 "use strict";
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-var __assign = (this && this.__assign) || function () {
-    __assign = Object.assign || function(t) {
-        for (var s, i = 1, n = arguments.length; i < n; i++) {
-            s = arguments[i];
-            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-                t[p] = s[p];
-        }
-        return t;
-    };
-    return __assign.apply(this, arguments);
-};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var react_1 = __importDefault(require("react"));
+/** @jsx jsx */
+var core_1 = require("@emotion/core");
+var react_1 = require("react");
 var __1 = require("../../");
-var Checkbox = /** @class */ (function (_super) {
-    __extends(Checkbox, _super);
-    function Checkbox() {
-        var _this = _super !== null && _super.apply(this, arguments) || this;
-        _this.state = {
-            checked: false
-        };
-        return _this;
+var styles_1 = __importDefault(require("./styles"));
+exports.default = (function (props) {
+    var _a = react_1.useState(props.checked || props.defaultValue || false), checked = _a[0], setChecked = _a[1];
+    var style = props.style, label = props.label, uppercase = props.uppercase, radio = props.radio, className = props.className, size = props.size;
+    var styles = styles_1.default(checked, radio, uppercase, size);
+    react_1.useEffect(function () {
+        if (typeof props.checked !== "undefined") {
+            setChecked(props.checked);
+        }
+    }, [props.checked]);
+    function onClick() {
+        props.onChange && props.onChange(!checked);
+        if (typeof props.checked === "undefined") {
+            setChecked(!checked);
+        }
     }
-    Checkbox.prototype.componentWillMount = function () {
-        this.setState({
-            checked: this.props.checked || this.props.defaultValue || false
-        });
-    };
-    Checkbox.prototype.componentWillReceiveProps = function (nextProps) {
-        if (typeof nextProps.checked !== "undefined") {
-            this.setState({
-                checked: nextProps.checked
-            });
-        }
-    };
-    Checkbox.prototype.onChange = function () {
-        this.props.onChange && this.props.onChange(!this.state.checked);
-        if (typeof this.props.checked === "undefined") {
-            this.setState({
-                checked: !this.state.checked
-            });
-        }
-    };
-    Checkbox.prototype.render = function () {
-        var _this = this;
-        var _a = this.props, label = _a.label, radio = _a.radio, style = _a.style, uppercase = _a.uppercase;
-        var InputTSX = function (style) { return (react_1.default.createElement("div", { className: 'ui-checkbox-input', style: _this.state.checked ? __assign({}, style.inputActive(radio)) : __assign({}, style.input(radio)) }, _this.state.checked ? (radio ? react_1.default.createElement("span", { className: 'ui-checkbox-circle', style: __assign({}, style.circle) }) : react_1.default.createElement(__1.Icon, { type: 'check' })) : null)); };
-        return (react_1.default.createElement(__1.Styles, null, function (styles) { return (react_1.default.createElement("div", { className: 'ui-checkbox', onClick: function () { return _this.onChange(); }, style: __assign({}, style, styles.checkbox.main) },
-            InputTSX(styles.checkbox),
-            react_1.default.createElement("div", { className: 'ui-checkbox-label noselect' + (uppercase ? ' uppercase' : '') }, label))); }));
-    };
-    return Checkbox;
-}(react_1.default.Component));
-exports.default = Checkbox;
+    return (core_1.jsx("div", { css: styles.container, onClick: onClick, style: style, className: className },
+        core_1.jsx("div", { css: styles.input, children: checked && (radio
+                ? core_1.jsx("div", null)
+                : core_1.jsx(__1.Icon, { type: 'check' })) }),
+        core_1.jsx("div", { css: styles.label, children: label })));
+});

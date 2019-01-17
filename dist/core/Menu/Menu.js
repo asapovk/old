@@ -8,11 +8,11 @@ var core_1 = require("@emotion/core");
 var react_1 = require("react");
 var __1 = require("..");
 var hooks_1 = require("../../hooks");
-var styles_1 = __importDefault(require("./Styles"));
+var Styles_1 = __importDefault(require("./Styles"));
 var Mobile_1 = require("./Mobile");
 var NavBar_1 = __importDefault(require("./NavBar"));
 exports.default = (function (props) {
-    var styles = styles_1.default();
+    var styles = Styles_1.default();
     var browser = hooks_1.useBrowser();
     var title = props.title, style = props.style, tools = props.tools, items = props.items, logo = props.logo, value = props.value, onChange = props.onChange, moreLabel = props.moreLabel;
     var _a = react_1.useState(false), mobileActive = _a[0], setMobileActive = _a[1];

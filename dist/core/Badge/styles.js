@@ -17,7 +17,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@emotion/core");
 var useTheme_1 = __importDefault(require("../../hooks/useTheme"));
 var useTypography_1 = __importDefault(require("../../hooks/useTypography"));
-exports.default = (function (color, top, right, left) {
+exports.default = (function (decoration, top, right, left) {
     if (top === void 0) { top = -12; }
     if (right === void 0) { right = -12; }
     if (left === void 0) { left = 'auto'; }
@@ -28,12 +28,13 @@ exports.default = (function (color, top, right, left) {
             position: 'relative',
             display: 'inline-block'
         }),
-        main: core_1.css(__assign({}, typography.caption[3], { position: "absolute", zIndex: 10, top: top, right: right, left: left, padding: '0 0.5rem', minWidth: '1.5rem', minHeight: '1.5rem', boxSizing: "border-box", display: "flex", justifyContent: 'center', alignItems: 'center', background: getBackground(color, theme), boxShadow: '0px 2px 6px 0px ' + theme.shadow.rgb, borderRadius: 24, color: theme.textOnAccent.hex, fontWeight: 600, borderColor: theme.pale.rgba(0) }))
+        counter: core_1.css(__assign({}, typography.caption[3], { position: "absolute", zIndex: 10, top: top, right: right, left: left, padding: '0 0.5rem', minWidth: '1.5rem', minHeight: '1.5rem', boxSizing: "border-box", display: "flex", justifyContent: 'center', alignItems: 'center', background: getBackground(decoration), boxShadow: '0px 2px 6px 0px ' + theme.shadow.rgb, borderRadius: 24, color: theme.textOnAccent.hex, fontWeight: 600, borderColor: theme.pale.rgba(0) }))
     };
 });
-function getBackground(color, theme) {
+function getBackground(decoration) {
+    var theme = useTheme_1.default().theme;
     var background = theme.interface.rgb;
-    switch (color) {
+    switch (decoration) {
         case 'highlight':
             background = theme.highlight.rgb;
             break;

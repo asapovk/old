@@ -1,10 +1,10 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = require("react");
-var styles_1 = require("../Styles");
+var Styles_1 = require("../Styles");
 /**
  * Использовать тему оформления
  */
 exports.default = (function () {
-    return react_1.useContext(styles_1.StylesContext);
+    return react_1.useContext(Styles_1.StylesContext);
 });
