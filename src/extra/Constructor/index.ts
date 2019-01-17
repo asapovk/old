@@ -2,18 +2,18 @@ import { CSSProperties, Children } from 'react';
 import {
     TextFieldTypes,
     FlexboxTypes,
-    DatePickerTypes
+    DatePickerTypes,
+    CheckboxTypes
 } from '../../core/types';
 
 export { default as Constructor } from './Constructor';
 import { ButtonProps } from '../../core/Button/Button';
 import { SelectProps } from '../../core/Select/Select';
-import { CheckboxProps } from '../../core/Checkbox/Checkbox';
 
 export type UIElement =
     (DefaultConstructorElement & Flexbox & FlexboxTypes.Props)
     | (DefaultConstructorElement & TextField & TextFieldTypes.Props)
-    | (DefaultConstructorElement & Checkbox & CheckboxProps)
+    | (DefaultConstructorElement & Checkbox & CheckboxTypes.CheckboxProps)
     | (DefaultConstructorElement & Select & SelectProps)
     | (DefaultConstructorElement & Button & ButtonProps)
     | (DefaultConstructorElement & DatePicker & DatePickerTypes.Props)

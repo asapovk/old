@@ -2,8 +2,9 @@
 import { css } from '@emotion/core';
 import useTheme from '../../hooks/useTheme';
 import useTypography from '../../hooks/useTypography';
+import { DecorationTypes } from '../types';
 
-export default (color?: string, top: number | string = -12, right: number | string = -12, left: number | string = 'auto') => {
+export default (decoration?: DecorationTypes, top: number | string = -12, right: number | string = -12, left: number | string = 'auto') => {
 
     const theme = useTheme().theme;
     const typography = useTypography();
@@ -14,7 +15,7 @@ export default (color?: string, top: number | string = -12, right: number | stri
             display: 'inline-block'
         }),
 
-        main: css({
+        counter: css({
             ...typography.caption[3],
             position: "absolute",
             zIndex: 10,
@@ -28,7 +29,7 @@ export default (color?: string, top: number | string = -12, right: number | stri
             display: "flex",
             justifyContent: 'center',
             alignItems: 'center',
-            background: getBackground(color, theme),
+            background: getBackground(decoration),
             boxShadow: '0px 2px 6px 0px ' + theme.shadow.rgb,
             borderRadius: 24,
             color: theme.textOnAccent.hex,
@@ -38,11 +39,12 @@ export default (color?: string, top: number | string = -12, right: number | stri
     }
 }
 
-function getBackground(color, theme) {
+function getBackground(decoration?: DecorationTypes) {
 
+    const theme = useTheme().theme;
     let background = theme.interface.rgb;
 
-    switch (color) {
+    switch (decoration) {
         case 'highlight':
             background = theme.highlight.rgb
             break;

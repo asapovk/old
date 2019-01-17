@@ -1,25 +1,5 @@
 declare const _default: () => {
-    theme: import("../styles").ThemeInterface;
-    checkbox: {
-        main: {
-            color: string;
-        };
-        input: (isRadio: any) => {
-            color: string;
-            borderColor: string;
-            backgroundColor: string;
-            borderRadius: string;
-        };
-        inputActive: (isRadio: any) => {
-            color: string;
-            borderColor: string;
-            backgroundColor: string;
-            borderRadius: string;
-        };
-        circle: {
-            background: string;
-        };
-    };
+    theme: import("../Styles").ThemeInterface;
     finder: {
         main: {
             textColor: string;

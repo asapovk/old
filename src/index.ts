@@ -26,7 +26,7 @@ export { Title as Title } from './core'
 export { Viewport as Viewport } from './core'
 export { Widget as Widget } from './core'
 
-export { default as Styles } from './styles'
+export { default as Styles } from './Styles'
 
 export { Portal as Portal } from 'react-portal';
 export { default as utils } from './utils'

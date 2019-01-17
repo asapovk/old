@@ -77,26 +77,6 @@ export interface ThemeInterface {
 }
 export declare const createStyles: (themeName?: string | undefined) => {
     theme: ThemeInterface;
-    checkbox: {
-        main: {
-            color: string;
-        };
-        input: (isRadio: any) => {
-            color: string;
-            borderColor: string;
-            backgroundColor: string;
-            borderRadius: string;
-        };
-        inputActive: (isRadio: any) => {
-            color: string;
-            borderColor: string;
-            backgroundColor: string;
-            borderRadius: string;
-        };
-        circle: {
-            background: string;
-        };
-    };
     finder: {
         main: {
             textColor: string;
@@ -276,26 +256,6 @@ export declare const createStyles: (themeName?: string | undefined) => {
 };
 export declare const StylesContext: React.Context<{
     theme: ThemeInterface;
-    checkbox: {
-        main: {
-            color: string;
-        };
-        input: (isRadio: any) => {
-            color: string;
-            borderColor: string;
-            backgroundColor: string;
-            borderRadius: string;
-        };
-        inputActive: (isRadio: any) => {
-            color: string;
-            borderColor: string;
-            backgroundColor: string;
-            borderRadius: string;
-        };
-        circle: {
-            background: string;
-        };
-    };
     finder: {
         main: {
             textColor: string;
@@ -475,26 +435,6 @@ export declare const StylesContext: React.Context<{
 }>;
 declare const _default: React.ExoticComponent<React.ConsumerProps<{
     theme: ThemeInterface;
-    checkbox: {
-        main: {
-            color: string;
-        };
-        input: (isRadio: any) => {
-            color: string;
-            borderColor: string;
-            backgroundColor: string;
-            borderRadius: string;
-        };
-        inputActive: (isRadio: any) => {
-            color: string;
-            borderColor: string;
-            backgroundColor: string;
-            borderRadius: string;
-        };
-        circle: {
-            background: string;
-        };
-    };
     finder: {
         main: {
             textColor: string;

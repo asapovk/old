@@ -1,10 +1,9 @@
 import { CSSProperties } from 'react';
-import { TextFieldTypes, FlexboxTypes, DatePickerTypes } from '../../core/types';
+import { TextFieldTypes, FlexboxTypes, DatePickerTypes, CheckboxTypes } from '../../core/types';
 export { default as Constructor } from './Constructor';
 import { ButtonProps } from '../../core/Button/Button';
 import { SelectProps } from '../../core/Select/Select';
-import { CheckboxProps } from '../../core/Checkbox/Checkbox';
-export declare type UIElement = (DefaultConstructorElement & Flexbox & FlexboxTypes.Props) | (DefaultConstructorElement & TextField & TextFieldTypes.Props) | (DefaultConstructorElement & Checkbox & CheckboxProps) | (DefaultConstructorElement & Select & SelectProps) | (DefaultConstructorElement & Button & ButtonProps) | (DefaultConstructorElement & DatePicker & DatePickerTypes.Props) | (DefaultConstructorElement & Attachment) | (DefaultConstructorElement & Spoiler) | (DefaultConstructorElement & Divider) | (DefaultConstructorElement & Title) | (DefaultConstructorElement & Any);
+export declare type UIElement = (DefaultConstructorElement & Flexbox & FlexboxTypes.Props) | (DefaultConstructorElement & TextField & TextFieldTypes.Props) | (DefaultConstructorElement & Checkbox & CheckboxTypes.CheckboxProps) | (DefaultConstructorElement & Select & SelectProps) | (DefaultConstructorElement & Button & ButtonProps) | (DefaultConstructorElement & DatePicker & DatePickerTypes.Props) | (DefaultConstructorElement & Attachment) | (DefaultConstructorElement & Spoiler) | (DefaultConstructorElement & Divider) | (DefaultConstructorElement & Title) | (DefaultConstructorElement & Any);
 export declare type UIElements = UIElement[];
 interface Flexbox {
     $: "flex" | "flexbox";

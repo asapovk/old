@@ -5,12 +5,12 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
 import { useState, useEffect } from 'react';
-import { Flexbox } from '../../../';
+import { Flexbox } from '..';
 import moment, { Moment } from 'moment';
 import MonthGridTitle from './MonthGridTitle';
 import MonthGridDay from './MonthGridDay';
 import DatePickerProps from './types';
-import createStyles from './styles';
+import createStyles from './Styles';
 
 export default (props: DatePickerProps.MonthGridProps) => {
 

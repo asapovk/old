@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { StylesContext } from '../styles';
+import { StylesContext } from '../Styles';
 
 /**
  * Использовать тему оформления

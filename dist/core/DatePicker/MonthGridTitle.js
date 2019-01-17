@@ -12,9 +12,9 @@ var core_1 = require("@emotion/core");
 var react_1 = require("react");
 var __1 = require("../../");
 var moment_1 = __importDefault(require("moment"));
-var styles_1 = __importDefault(require("./styles"));
+var Styles_1 = __importDefault(require("./Styles"));
 exports.default = (function (props) {
-    var styles = styles_1.default();
+    var styles = Styles_1.default();
     var Action = function (actionProps) { return (core_1.jsx(__1.Flexbox, { flexBasis: 20, alignItems: "center", onClick: function () {
             props.onChange && props.onChange(props.date.clone().add(actionProps.previous ? -1 : 1, "month"));
         }, children: core_1.jsx(__1.Icon, { type: actionProps.previous ? "left" : "right" }) })); };

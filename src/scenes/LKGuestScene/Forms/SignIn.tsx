@@ -2,7 +2,7 @@ import React, { useState, useEffect, Fragment } from 'react';
 import { Flexbox, TextField, Button } from '../../..';
 
 import useTextField from '../../../hooks/useTextField';
-import createStyles from '../styles';
+import createStyles from '../Styles';
 
 interface SignInProps {
     allowSignUp: boolean

@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core';
-import createStyles from './styles';
+import createStyles from './Styles';
 import { useState, useEffect, useLayoutEffect } from 'react';
 import { useBrowser } from '../../hooks';
 

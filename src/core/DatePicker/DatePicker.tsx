@@ -10,7 +10,7 @@ import MonthGrid from './MonthGrid';
 import DatePickerProps from './types';
 import { TextField } from '../TextField';
 import { Button } from '..';
-import createStyles from './styles';
+import createStyles from './Styles';
 
 export default (props: DatePickerProps.Props) => {
 

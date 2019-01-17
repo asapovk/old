@@ -1,8 +1,15 @@
 /** @jsx jsx */
+<<<<<<< HEAD
 import { jsx, css } from '@emotion/core';
 import React, { useState, useEffect, useRef } from 'react';
 import { Card, Flexbox, Stories, Button } from '../../../src';
 import createStyles from './styles';
+=======
+import { jsx } from '@emotion/core';
+import React, { useState } from 'react';
+import { Card, Flexbox, Stories } from '../../../src';
+import createStyles from './Styles';
+>>>>>>> 68e96c342303b338a822a794ff10a3f713f7dc1e
 
 const Sidebar = (props: any) => {
 
