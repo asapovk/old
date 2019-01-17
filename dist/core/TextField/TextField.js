@@ -16,7 +16,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 /** @jsx jsx */
 var core_1 = require("@emotion/core");
-var styles_1 = __importDefault(require("./styles"));
+var styles_1 = __importDefault(require("./Styles"));
 var react_1 = require("react");
 var __1 = require("..");
 var Field_1 = __importDefault(require("./Field"));

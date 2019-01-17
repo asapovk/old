@@ -14,7 +14,7 @@ var moment_1 = __importDefault(require("moment"));
 var MonthGrid_1 = __importDefault(require("./MonthGrid"));
 var TextField_1 = require("../TextField");
 var __1 = require("..");
-var styles_1 = __importDefault(require("./styles"));
+var styles_1 = __importDefault(require("./Styles"));
 exports.default = (function (props) {
     var _a = react_1.useState(moment_1.default()), value = _a[0], setValue = _a[1];
     var _b = react_1.useState(false), isActive = _b[0], setActive = _b[1];

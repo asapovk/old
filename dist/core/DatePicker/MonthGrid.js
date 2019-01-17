@@ -14,7 +14,7 @@ var __1 = require("../../../");
 var moment_1 = __importDefault(require("moment"));
 var MonthGridTitle_1 = __importDefault(require("./MonthGridTitle"));
 var MonthGridDay_1 = __importDefault(require("./MonthGridDay"));
-var styles_1 = __importDefault(require("./styles"));
+var styles_1 = __importDefault(require("./Styles"));
 exports.default = (function (props) {
     var _a = react_1.useState(props.value), date = _a[0], setDate = _a[1];
     var _b = react_1.useState(moment_1.default()), activeDate = _b[0], setActiveDate = _b[1];

@@ -1,5 +1,5 @@
 declare const _default: () => {
-    theme: import("../styles").ThemeInterface;
+    theme: import("../Styles").ThemeInterface;
     checkbox: {
         main: {
             color: string;

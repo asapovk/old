@@ -1,4 +1,4 @@
-import { StylesContext, createStyles, themeName } from '../../styles';
+import { StylesContext, createStyles, themeName } from '../../Styles';
 import React, { Component, Fragment } from 'react';
 
 interface ViewportProps {

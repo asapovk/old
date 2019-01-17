@@ -31,7 +31,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var styles_1 = require("../../styles");
+var styles_1 = require("../../Styles");
 var react_1 = __importStar(require("react"));
 var Viewport = /** @class */ (function (_super) {
     __extends(Viewport, _super);

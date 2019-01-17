@@ -15,7 +15,7 @@ var core_1 = require("@emotion/core");
 var react_1 = __importStar(require("react"));
 var hooks_1 = require("../../hooks");
 var react_dom_1 = __importDefault(require("react-dom"));
-var styles_1 = __importDefault(require("./styles"));
+var styles_1 = __importDefault(require("./Styles"));
 var initialTargetCoord = {
     top: 0,
     bottom: 0,

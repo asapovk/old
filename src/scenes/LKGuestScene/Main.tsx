@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
-import createStyles from './styles';
+import createStyles from './Styles';
 import React from 'react';
 import { Flexbox } from '../..';
 import Form from './Forms';

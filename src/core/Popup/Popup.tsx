@@ -4,7 +4,7 @@ import React, { useState, useEffect, useRef, useLayoutEffect } from 'react';
 import { useBrowser } from '../../hooks'
 import ReactDOM from 'react-dom';
 import Types from './types';
-import createStyles from './styles';
+import createStyles from './Styles';
 
 const initialTargetCoord = {
     top: 0,

@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core';
-import createStyles from '../../styles';
+import createStyles from '../../Styles';
 import { Fragment } from "react";
 import Wave from './Wave';
 import useClass from "../../../../hooks/useClass";

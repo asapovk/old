@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 /** @jsx jsx */
 var core_1 = require("@emotion/core");
 var __1 = require("../../");
-var styles_1 = __importDefault(require("./styles"));
+var styles_1 = __importDefault(require("./Styles"));
 exports.default = (function (props) {
     var name = props.name, fullname = props.fullname, login = props.login, role = props.role, children = props.children, avatar = props.avatar;
     var styles = styles_1.default();

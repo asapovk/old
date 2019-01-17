@@ -11,7 +11,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@emotion/core");
 var __1 = require("../../../");
 var moment_1 = __importDefault(require("moment"));
-var styles_1 = __importDefault(require("./styles"));
+var styles_1 = __importDefault(require("./Styles"));
 exports.default = (function (props) {
     var active = props.active, day = props.day, onClick = props.onClick, minValue = props.minValue, maxValue = props.maxValue;
     var isDisabled = (minValue && minValue > day) || (maxValue && maxValue < day) || false;

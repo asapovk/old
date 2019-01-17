@@ -2,7 +2,7 @@
 import { jsx } from '@emotion/core';
 import React, { useState } from 'react';
 import { Card, Flexbox, Stories } from '../../../src';
-import createStyles from './styles';
+import createStyles from './Styles';
 
 const Sidebar = (props: any) => {
 

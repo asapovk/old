@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 /** @jsx jsx */
 var core_1 = require("@emotion/core");
 var __1 = require("..");
-var styles_1 = __importDefault(require("./styles"));
+var styles_1 = __importDefault(require("./Styles"));
 exports.default = (function (props) {
     var styles = styles_1.default();
     return (core_1.jsx(__1.Flexbox, { flex: 1, alignItems: 'center' },
