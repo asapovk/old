@@ -10,7 +10,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 /** @jsx jsx */
 var core_1 = require("@emotion/core");
 var react_1 = require("react");
-var __1 = require("../../../");
+var __1 = require("..");
 var moment_1 = __importDefault(require("moment"));
 var MonthGridTitle_1 = __importDefault(require("./MonthGridTitle"));
 var MonthGridDay_1 = __importDefault(require("./MonthGridDay"));
