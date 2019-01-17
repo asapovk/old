@@ -1,12 +1,7 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core';
-<<<<<<< HEAD
 import createStyles from './styles';
 import { CSSProperties, ReactElement, ReactDOM, forwardRef } from 'react';
-=======
-import createStyles from './Styles';
-import { CSSProperties, ReactElement, ReactDOM } from 'react';
->>>>>>> 68e96c342303b338a822a794ff10a3f713f7dc1e
 import { Flexbox, Button } from '../';
 import Waves from './animations/Waves';
 import Circles from './animations/Circles';
