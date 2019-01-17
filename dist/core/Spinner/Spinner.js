@@ -16,10 +16,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 /** @jsx jsx */
 var core_1 = require("@emotion/core");
-var Styles_1 = __importDefault(require("./Styles"));
+var styles_1 = __importDefault(require("./styles"));
 exports.default = (function (props) {
     var spinning = props.spinning, center = props.center, className = props.className, dark = props.dark, children = props.children, style = props.style;
-    var styles = Styles_1.default();
+    var styles = styles_1.default();
     if (!spinning) {
         return children || null;
     }
@@ -30,6 +30,6 @@ exports.default = (function (props) {
     return core_1.jsx(Spin, __assign({}, props));
 });
 var Spin = function (props) {
-    var styles = Styles_1.default();
+    var styles = styles_1.default();
     return (core_1.jsx("div", { css: styles.spinner, style: props.style, className: props.className }, Array(12).fill("").map(function (e, i) { return core_1.jsx("div", { key: i }); })));
 };
