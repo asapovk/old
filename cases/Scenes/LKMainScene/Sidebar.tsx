@@ -1,54 +1,127 @@
 /** @jsx jsx */
-import { jsx } from '@emotion/core';
-import React, { useState } from 'react';
-import { Card, Flexbox, Stories } from '../../../src';
+import { jsx, css } from '@emotion/core';
+import React, { useState, useEffect, useRef } from 'react';
+import { Card, Flexbox, Stories, Button } from '../../../src';
 import createStyles from './styles';
 
 const Sidebar = (props: any) => {
 
     const accounts = [
-        { label: "1000001433", value: 1 },
-        { label: "1000001459", value: 2 },
-        { label: "95285-F", value: 3 }
+        { label: '1000001433', value: 1 },
+        { label: '1000001459', value: 2 },
+        { label: '95285-F', value: 3 },
+        { label: '95285-F', value: 3 },
+        { label: '95285-F', value: 3 },
+        { label: '95285-F', value: 3 }
     ];
 
+    const activeRef = useRef<HTMLDivElement>(null);
+    const containerRef = useRef<HTMLDivElement>(null);
+    let containerTop;
+
+    if (containerRef.current) {
+        containerTop = containerRef.current!.getBoundingClientRect().top
+    }
+
     const [activeID, setActiveID] = useState(0);
-    const styles = createStyles();
+    const [activePosition, setActivePosition] = useState<string | null>(null);
+
+    function setWhereActiveIs() {
+        if (activeRef) {
+            const coord = activeRef.current!.getBoundingClientRect();
+            if (coord.top < containerTop) {
+                setActivePosition('top')
+            } else if (coord.bottom > window.innerHeight - 10) {
+                setActivePosition('bottom');
+            } else if (activePosition) {
+                setActivePosition(null)
+            }
+        }
+    }
+
+    useEffect(() => {
+        window.addEventListener('mousewheel', setWhereActiveIs);
+        window.addEventListener('touchmove', setWhereActiveIs);
+        return () => {
+            window.removeEventListener('mousewheel', setWhereActiveIs);
+            window.removeEventListener('touchmove', setWhereActiveIs);
+        }
+    })
+
+    console.log(activePosition);
+
+    let ActiveCard;
+
+    const Cards = accounts.map((account, index) => {
+        const current = <Card
+            animation={index % 2 ? 'circles' : 'waves'}
+            active={activeID === index}
+            ref={activeID === index ? activeRef : undefined}
+            onClick={() => {
+                setActiveID(index)
+                setWhereActiveIs()
+            }}
+            key={index}
+            css={css({
+                margin: activeID === index
+                    ? '0 0.625rem 1.25rem 0.625rem'
+                    : '0 1.25rem 1.25rem 1.25rem'
+            })}
+        />
+        if (activeID === index) {
+            ActiveCard = current;
+        }
+        return current
+    })
 
     return (
-        <Flexbox flexDirection='column'>
-            <div css={styles.cards}>
-                <div css={styles.cardsBorderTop} />
-                {accounts.map((account, index) =>
-                    <Card
-                        animation={index % 2 ? "circles" : "waves"}
-                        active={activeID === index}
-                        onClick={() => setActiveID(index)}
-                        key={index}
-                        css={{
-                            margin: activeID === index
-                                ? '0 0.625rem 1.25rem 0.625rem'
-                                : '0 1.25rem 1.25rem 1.25rem'
-                        }}
-                    />
-                )}
-                <div css={styles.cardsBorderBottom} />
-            </div>
-            <div
-                css={styles.stories}
-            // children={StoriesTSX}
+        <Flexbox flexDirection='column' ref={containerRef}>
+            {Cards}
+            <Button
+                label='Изменить лицевые счета'
+                css={css({
+                    margin: '0 1.25rem 1.25rem 1.25rem'
+                })}
+                decoration='inverse'
+                size='large'
+                thin={true}
             />
+            {
+                activePosition
+                && <div css={css({
+                    position: 'fixed',
+                    zIndex: 4,
+                    width: 320
+                },
+                    activePosition === 'top'
+                        ? {
+                            top: 83
+                        }
+                        : {
+                            bottom: 20
+                        }
+                )}>
+                    {ActiveCard}
+                </div>
+            }
         </Flexbox>
     )
 }
 
 export default Sidebar;
 
+
+// const clone = activeRef.current!.cloneNode(true);
+// const wrapper = document.createElement('div');
+// wrapper.style.cssText = 'position: fixed;top: 20px;width:320px'
+// wrapper.appendChild(clone);
+// containerRef.current!.appendChild(wrapper);
+
 // const StoriesTSX = (
-//     <Stories title="Рекомендации" stories={[{
-//         label: "Кукушка пробила голову андрею",
-//         image: "http://storage.onbird.ru/bird/photo/gluhaya-kukushka/gluhaya-kukushka%20foto%201%20%28onbird.ru%29.jpg",
-//         labelColor: "#e1f1cb",
+//     <Stories title='Рекомендации' stories={[{
+//         label: 'Кукушка пробила голову андрею',
+//         image: 'http://storage.onbird.ru/bird/photo/gluhaya-kukushka/gluhaya-kukushka%20foto%201%20%28onbird.ru%29.jpg',
+//         labelColor: '#e1f1cb',
 //         onClick: () => { },
 //         read: false,
 //         slides: [{
@@ -61,9 +134,9 @@ export default Sidebar;
 //             key: 'poletelix'
 //         }]
 //     }, {
-//         label: "МихаЕль -- дерево без границ",
-//         image: "https://www.taigatree.ru/wp-content/uploads/2016/05/5.jpg",
-//         labelColor: "#ffffff",
+//         label: 'МихаЕль -- дерево без границ',
+//         image: 'https://www.taigatree.ru/wp-content/uploads/2016/05/5.jpg',
+//         labelColor: '#ffffff',
 //         onClick: () => { },
 //         read: false,
 //         slides: [{
@@ -80,9 +153,9 @@ export default Sidebar;
 //             key: 'buhnem'
 //         }]
 //     }, {
-//         label: "Text of storieeeeEEE.",
-//         image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTiciBxA-xkgNIzzgB96Z4VYzstyBrVbUkcH5P_U_j7Rlcew4KLA",
-//         labelColor: "#000000",
+//         label: 'Text of storieeeeEEE.',
+//         image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTiciBxA-xkgNIzzgB96Z4VYzstyBrVbUkcH5P_U_j7Rlcew4KLA',
+//         labelColor: '#000000',
 //         onClick: () => { },
 //         read: true,
 //         slides: [{
@@ -100,62 +173,3 @@ export default Sidebar;
 //         }]
 //     }]} />
 // )
-
-/**
- *
- * Escape the scroll
- */
-
-// const ActiveCard = (props) => {
-
-//     const controllerID = "ctrl-" + Math.trunc(Math.random() * 10000000);
-//     const cardID = "card-" + Math.trunc(Math.random() * 10000000);
-
-//     function setCard() {
-//         const controller = document.getElementById(controllerID) as HTMLDivElement || null;
-//         const card = document.getElementById(cardID) as HTMLDivElement || null;
-//         console.log(controller.offsetTop.toString());
-//         card.style.width = controller.offsetWidth.toString() + 'px';
-//         card.style.height = controller.offsetHeight.toString() + 'px';
-//         card.style.top = controller.getBoundingClientRect().top.toString() + 'px';
-//         card.style.left = controller.getBoundingClientRect().left.toString() + 'px';
-//         card.style.display = 'block';
-//     }
-
-//     useEffect(() => {
-//         const container = document.getElementById(props.containerId) as HTMLDivElement || null;
-//         container.addEventListener("scroll", setCard);
-//         setCard();
-
-//         return () => {
-//             container.removeEventListener("scroll", setCard);
-//         }
-
-//     })
-
-//     return (
-//         <div
-//             style={{
-//                 height: '180px',
-//                 marginBottom: '20px'
-//             }}
-//             css={{ flex: 1 }}
-//             id={controllerID}
-//         >
-//             {ReactDOM.createPortal(
-//                 <Card
-//                     animation={props.animation}
-//                     active={props.active}
-//                     onClick={props.onClick}
-//                     css={{
-//                         display: 'none',
-//                         position: 'absolute',
-//                         zIndex: 99
-//                     }}
-//                     id={cardID}
-//                 />,
-//                 document.body
-//             )}
-//         </div>
-//     )
-// }
