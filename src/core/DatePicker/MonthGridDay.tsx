@@ -4,7 +4,7 @@
  */
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
-import { Flexbox } from '../../../';
+import { Flexbox } from '..';
 import moment from 'moment';
 import DatePickerProps from './types';
 import createStyles from './Styles';

@@ -9,7 +9,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
  */
 /** @jsx jsx */
 var core_1 = require("@emotion/core");
-var __1 = require("../../../");
+var __1 = require("..");
 var moment_1 = __importDefault(require("moment"));
 var Styles_1 = __importDefault(require("./Styles"));
 exports.default = (function (props) {
