@@ -5,7 +5,7 @@ import React, { useState } from 'react';
 import { Flexbox } from '..';
 import { useBrowser } from '../../hooks';
 
-import createStyles from './Styles';
+import createStyles from './styles';
 import Types from './types';
 import { MobileMenu, MobileMenuItems } from './Mobile';
 import NavBar from './NavBar';

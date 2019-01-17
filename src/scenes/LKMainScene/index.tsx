@@ -2,7 +2,7 @@
 import { jsx } from '@emotion/core';
 import React, { Fragment, useEffect } from 'react';
 import { Flexbox } from '../../';
-import createStyles from './Styles';
+import createStyles from './styles';
 import { useBrowser } from '../../hooks';
 import Types from './types';
 

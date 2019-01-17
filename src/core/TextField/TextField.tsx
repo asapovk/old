@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core';
-import createStyles from './Styles';
+import createStyles from './styles';
 import { forwardRef } from 'react';
 import { Flexbox, Spin, Icon } from '..';
 import Field from './Field';

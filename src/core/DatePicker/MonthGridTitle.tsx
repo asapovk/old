@@ -5,9 +5,9 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
 import { Fragment } from 'react';
-import { Flexbox, Styles, Icon } from '../../';
+import { Flexbox, Icon } from '../../';
 import moment from 'moment';
-import createStyles from './Styles';
+import createStyles from './styles';
 import DatePickerProps from './types';
 
 export default (props: DatePickerProps.MonthGridTitleProps) => {

@@ -7,7 +7,7 @@ import { jsx } from '@emotion/core'
 import { Flexbox } from '..';
 import moment from 'moment';
 import DatePickerProps from './types';
-import createStyles from './Styles';
+import createStyles from './styles';
 
 export default (props: DatePickerProps.MonthGridDayProps) => {
     const { active, day, onClick, minValue, maxValue } = props;
