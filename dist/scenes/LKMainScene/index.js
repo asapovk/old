@@ -23,8 +23,9 @@ exports.default = (function (props) {
         core_1.jsx(__1.Flexbox, { css: styles.main.container },
             core_1.jsx("div", { css: styles.menu.holder },
                 core_1.jsx("div", { css: styles.menu.desktop }, props.components.menu)),
-            core_1.jsx(__1.Flexbox, { css: styles.main.top },
-                core_1.jsx("div", { css: styles.main.holder }, props.components.mainTop)),
+            props.components.mainTop &&
+                core_1.jsx(__1.Flexbox, { css: styles.main.top },
+                    core_1.jsx("div", { css: styles.main.holder }, props.components.mainTop)),
             core_1.jsx("div", { css: styles.main.holder }, props.components.main),
             core_1.jsx("div", { css: styles.menu.mobile }, props.components.menu))));
 });

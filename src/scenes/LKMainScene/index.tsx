@@ -35,11 +35,13 @@ export default (props: Types.Props) => {
                         {props.components.menu}
                     </div>
                 </div>
-                <Flexbox css={styles.main.top}>
-                    <div css={styles.main.holder}>
-                        {props.components.mainTop}
-                    </div>
-                </Flexbox>
+                {props.components.mainTop &&
+                    <Flexbox css={styles.main.top}>
+                        <div css={styles.main.holder}>
+                            {props.components.mainTop}
+                        </div>
+                    </Flexbox>
+                }
                 <div css={styles.main.holder}>
                     {props.components.main}
                 </div>
