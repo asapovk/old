@@ -1,7 +1,7 @@
 import { css } from '@emotion/core'
 import { useTheme } from '../../hooks'
 
-export default () => {
+export default (displaySideBar) => {
     const theme = useTheme().theme
 
     return {
@@ -46,21 +46,7 @@ export default () => {
                     zIndex: 4,
                     alignItems: 'center',
                     flexDirection: 'column',
-                    '&::before': {
-                        content: `''`,
-                        position: 'absolute',
-                        top: 0,
-                        left: 0,
-                        right: 0,
-                        height: '8rem',
-                        background: theme.interface.hex,
-                    },
-                    '&::after': {
-                        content: `''`,
-                        width: '100%',
-                        height: '0.5rem',
-                        background: `linear-gradient(180deg, ${theme.interface.rgb} 0%, ${theme.interface.rgba(0)} 100%)`,
-                    }
+                    background: theme.interface.hex
                 }),
                 wrapper: css({
                     padding: '2.5rem 0 2rem 0',
@@ -105,7 +91,9 @@ export default () => {
             }),
             desktop: css({
                 position: 'fixed',
-                left: '20rem',
+                left: displaySideBar
+                    ? '20rem'
+                    : 0,
                 right: 0,
                 top: 0,
                 zIndex: 1,

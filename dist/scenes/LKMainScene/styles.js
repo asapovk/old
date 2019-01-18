@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@emotion/core");
 var hooks_1 = require("../../hooks");
-exports.default = (function () {
+exports.default = (function (displaySideBar) {
     var theme = hooks_1.useTheme().theme;
     return {
         sidebar: {
@@ -46,21 +46,7 @@ exports.default = (function () {
                     zIndex: 4,
                     alignItems: 'center',
                     flexDirection: 'column',
-                    '&::before': {
-                        content: "''",
-                        position: 'absolute',
-                        top: 0,
-                        left: 0,
-                        right: 0,
-                        height: '8rem',
-                        background: theme.interface.hex,
-                    },
-                    '&::after': {
-                        content: "''",
-                        width: '100%',
-                        height: '0.5rem',
-                        background: "linear-gradient(180deg, " + theme.interface.rgb + " 0%, " + theme.interface.rgba(0) + " 100%)",
-                    }
+                    background: theme.interface.hex
                 }),
                 wrapper: core_1.css({
                     padding: '2.5rem 0 2rem 0',
@@ -105,7 +91,9 @@ exports.default = (function () {
             }),
             desktop: core_1.css({
                 position: 'fixed',
-                left: '20rem',
+                left: displaySideBar
+                    ? '20rem'
+                    : 0,
                 right: 0,
                 top: 0,
                 zIndex: 1,

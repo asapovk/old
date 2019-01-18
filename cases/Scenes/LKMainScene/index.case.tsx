@@ -31,7 +31,7 @@ export default () => {
                 mainTop: <MainTop />,
                 main: <Main />,
             }}
-            displaySideBar={true}
+            displaySideBar={false}
         />
     )
 }

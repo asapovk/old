@@ -7,7 +7,7 @@ import Types from './types';
 
 export default (props: Types.Props) => {
 
-    const styles = createStyles();
+    const styles = createStyles(props.displaySideBar);
     const browser = useBrowser();
 
     return (

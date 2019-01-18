@@ -9,7 +9,7 @@ var __1 = require("../../");
 var styles_1 = __importDefault(require("./styles"));
 var hooks_1 = require("../../hooks");
 exports.default = (function (props) {
-    var styles = styles_1.default();
+    var styles = styles_1.default(props.displaySideBar);
     var browser = hooks_1.useBrowser();
     return (core_1.jsx(__1.Flexbox, null,
         props.displaySideBar &&

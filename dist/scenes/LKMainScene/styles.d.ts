@@ -1,4 +1,4 @@
-declare const _default: () => {
+declare const _default: (displaySideBar: any) => {
     sidebar: {
         holder: import("@emotion/utils").SerializedStyles;
         background: import("@emotion/utils").SerializedStyles;
