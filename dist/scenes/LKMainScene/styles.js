@@ -10,8 +10,8 @@ exports.default = (function (displaySideBar) {
                 width: '20rem',
                 zIndex: 3,
                 position: 'sticky',
-                bottom: 0,
-                alignSelf: 'flex-end',
+                top: 0,
+                alignSelf: 'flex-start',
                 flexDirection: 'column'
             }),
             background: core_1.css({
@@ -49,7 +49,7 @@ exports.default = (function (displaySideBar) {
                     background: theme.interface.hex
                 }),
                 wrapper: core_1.css({
-                    padding: '2.5rem 0 2rem 0',
+                    padding: '2.5rem 0',
                     height: '3.5rem',
                     width: '12rem',
                     justifyContent: 'center',
