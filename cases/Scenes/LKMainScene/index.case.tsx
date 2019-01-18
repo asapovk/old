@@ -2,7 +2,7 @@ import React from 'react';
 import Scene from '../../../src/scenes/LKMainScene';
 import useTheme from '../../../src/hooks/useTheme';
 import { MRG, ABR, Smorodina } from '../../../src/logos';
-import '../../../src/Styles/scss/main.scss';
+import '../../../src/styles/scss/main.scss';
 
 import Sidebar from './Sidebar';
 import Menu from './Menu';

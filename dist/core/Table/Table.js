@@ -36,7 +36,7 @@ var Table = /** @class */ (function (_super) {
     }
     Table.prototype.render = function () {
         var _this = this;
-        var _a = this.props, columns = _a.columns, actions = _a.actions, border = _a.border, indexKey = _a.indexKey, scope = _a.scope, form = _a.form, style = _a.style, noDataLabel = _a.noDataLabel, onRowClick = _a.onRowClick, search = _a.search;
+        var _a = this.props, columns = _a.columns, actions = _a.actions, border = _a.border, indexKey = _a.indexKey, scope = _a.scope, form = _a.form, style = _a.style, noDataLabel = _a.noDataLabel, onRowClick = _a.onRowClick, search = _a.search, hideHeaders = _a.hideHeaders;
         var _b = this.props, data = _b.data, pagination = _b.pagination;
         var pageData = [];
         var isData = (this.props.data && Array.isArray(this.props.data) && this.props.data.length > 0);
@@ -90,7 +90,7 @@ var Table = /** @class */ (function (_super) {
         return (react_1.default.createElement(__1.Styles, null, function (styles) { return (react_1.default.createElement("div", { className: 'ui-table', ref: function (ref) { return _this.table = ref; }, style: style },
             react_1.default.createElement("div", { className: 'ui-table-content' },
                 !isData && noDataLabelTSX,
-                react_1.default.createElement("div", { className: 'ui-table-content-head-row', children: ColumnsTSX(styles.table.main), style: actions && { marginRight: '32px' } }),
+                !hideHeaders && react_1.default.createElement("div", { className: 'ui-table-content-head-row', children: ColumnsTSX(styles.table.main), style: actions && { marginRight: '32px' } }),
                 isData &&
                     react_1.default.createElement("div", { className: 'ui-table-content-body', style: {
                             borderColor: styles.table.main.borderColor,

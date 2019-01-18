@@ -25,77 +25,6 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-.ui-viewport article, .ui-modal article, .ui-notifications article {
-  max-width: 640px;
-}
-.ui-viewport p, .ui-modal p, .ui-notifications p {
-  font-size: 1rem;
-  line-height: 1.5rem;
-  margin-bottom: 1.5rem;
-}
-.ui-viewport h1, .ui-modal h1, .ui-notifications h1 {
-  font-size: 2rem;
-  line-height: 3rem;
-  margin-top: 3rem;
-  margin-bottom: 1.5rem;
-}
-.ui-viewport h2, .ui-modal h2, .ui-notifications h2 {
-  font-size: 1.5rem;
-  line-height: 2rem;
-  margin-top: 2.5rem;
-  margin-bottom: 0.5rem;
-}
-.ui-viewport h3, .ui-modal h3, .ui-notifications h3 {
-  font-size: 1.25rem;
-  line-height: 1.5rem;
-  margin-top: 2rem;
-  margin-bottom: 0.5rem;
-}
-.ui-viewport h4, .ui-modal h4, .ui-notifications h4 {
-  font-size: 1.125rem;
-  line-height: 1.5rem;
-  margin-top: 1.5rem;
-  margin-bottom: 0.5rem;
-}
-.ui-viewport blockquote, .ui-modal blockquote, .ui-notifications blockquote {
-  font-family: Georgia, Times, Times New Roman, serif;
-  font-style: italic;
-}
-.ui-viewport .ui-textfield > div > div > input,
-.ui-viewport .ui-textfield > div > textarea, .ui-viewport .c1, .ui-modal .ui-textfield > div > div > input,
-.ui-modal .ui-textfield > div > textarea, .ui-modal .c1, .ui-notifications .ui-textfield > div > div > input,
-.ui-notifications .ui-textfield > div > textarea, .ui-notifications .c1 {
-  font-size: 1rem;
-  line-height: 1.25rem;
-}
-.ui-viewport .c2, .ui-modal .c2, .ui-notifications .c2 {
-  font-size: 0.875rem;
-  line-height: 0.875rem;
-}
-.ui-viewport .ui-select-label, .ui-viewport .ui-textfield-hint, .ui-viewport .ui-textfield-label, .ui-viewport .c3, .ui-modal .ui-select-label, .ui-modal .ui-textfield-hint, .ui-modal .ui-textfield-label, .ui-modal .c3, .ui-notifications .ui-select-label, .ui-notifications .ui-textfield-hint, .ui-notifications .ui-textfield-label, .ui-notifications .c3 {
-  font-size: 0.75rem;
-  line-height: 0.75rem;
-}
-.ui-viewport .c4, .ui-modal .c4, .ui-notifications .c4 {
-  font-size: 0.625rem;
-  line-height: 0.625rem;
-}
-.ui-viewport .ui-select, .ui-viewport .t1, .ui-modal .ui-select, .ui-modal .t1, .ui-notifications .ui-select, .ui-notifications .t1 {
-  font-size: 1rem;
-  line-height: 1.5rem;
-}
-.ui-viewport .t2, .ui-modal .t2, .ui-notifications .t2 {
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-}
-.ui-viewport .t3, .ui-modal .t3, .ui-notifications .t3 {
-  font-size: 0.75rem;
-  line-height: 1rem;
-}
-.ui-viewport .t4, .ui-modal .t4, .ui-notifications .t4 {
-  font-size: 0.625rem;
-  line-height: 0.75rem;
-}
 
 .ui-viewport .noselect {
   -webkit-touch-callout: none;
@@ -128,73 +57,6 @@
   bottom: 0;
   right: 0;
   overflow: auto;
-}
-
-.ui-textfield {
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-  height: 100%;
-}
-.ui-textfield-label {
-  text-transform: uppercase;
-  padding-bottom: 0.25rem;
-}
-.ui-textfield-hint {
-  text-transform: none;
-  margin-top: 0.5rem;
-}
-.ui-textfield-hint > svg {
-  font-size: 1rem;
-  line-height: 1rem;
-  padding-right: 0.25rem;
-}
-.ui-textfield-input {
-  border: 1px solid;
-  padding: calc(0.375rem - 1px) calc(0.5rem - 1px);
-}
-.ui-textfield-input-placeholder {
-  position: absolute;
-  user-select: none;
-}
-.ui-textfield-input.disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
-.ui-textfield-textarea {
-  border: 1px solid;
-  padding: calc(0.375rem - 1px) calc(0.5rem - 1px);
-}
-.ui-textfield-textarea-placeholder {
-  position: absolute;
-  user-select: none;
-}
-.ui-textfield-textarea.disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
-.ui-textfield > div > div > input,
-.ui-textfield > div > textarea {
-  line-height: 1.5rem;
-  appearance: none;
-  box-sizing: border-box;
-  resize: none;
-  border: none;
-  background: none;
-  outline: none;
-  position: relative;
-  color: inherit;
-  width: 100%;
-  font-family: inherit;
-  margin: 0;
-  padding: 0;
-}
-.ui-textfield > div > div > input:disabled,
-.ui-textfield > div > textarea:disabled {
-  cursor: not-allowed;
-}
-.ui-textfield > div > textarea {
-  height: 100%;
 }
 
 .ui-notifications {
@@ -708,8 +570,12 @@
   box-sizing: border-box;
   flex: 1;
   line-height: 1;
+  font-size: 1rem;
+  line-height: 1.5rem;
 }
 .ui-select-label {
+  font-size: 0.75rem;
+  line-height: 0.75rem;
   text-transform: uppercase;
   padding-bottom: 0.25rem;
 }

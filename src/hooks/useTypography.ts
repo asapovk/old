@@ -1,4 +1,4 @@
-import typography from '../Styles/typography';
+import typography from '../styles/typography';
 
 /**
  * Использовать типографику

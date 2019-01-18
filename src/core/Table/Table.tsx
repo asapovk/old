@@ -33,7 +33,8 @@ export interface Props {
     children?: any
     onRowClick?: (row) => any
     search?: boolean
-    onSearch?: (value) => void
+    onSearch?: (value) => void,
+    hideHeaders?: boolean
 }
 
 class Table extends React.Component<Props> {
@@ -55,7 +56,7 @@ class Table extends React.Component<Props> {
     }
 
     render() {
-        const { columns, actions, border, indexKey, scope, form, style, noDataLabel, onRowClick, search } = this.props;
+        const { columns, actions, border, indexKey, scope, form, style, noDataLabel, onRowClick, search, hideHeaders } = this.props;
 
         let { data, pagination } = this.props;
         let pageData = [] as Object[]
@@ -144,7 +145,7 @@ class Table extends React.Component<Props> {
                     <div className='ui-table' ref={ref => this.table = ref} style={style}>
                         <div className='ui-table-content'>
                             {!isData && noDataLabelTSX}
-                            <div className='ui-table-content-head-row' children={ColumnsTSX(styles.table.main)} style={actions && { marginRight: '32px' }} />
+                            {!hideHeaders && <div className='ui-table-content-head-row' children={ColumnsTSX(styles.table.main)} style={actions && { marginRight: '32px' }} />}
                             {
                                 isData &&
                                 <div className='ui-table-content-body' style={{

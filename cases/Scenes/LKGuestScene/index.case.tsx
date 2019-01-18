@@ -3,7 +3,7 @@ import { Flexbox } from '../../../src';
 import { ABR, MRG, Smorodina } from '../../../src/logos'
 import Scene from '../../../src/scenes/LKGuestScene';
 import useStyles from '../../../src/hooks/useTheme';
-import '../../../src/Styles/scss/main.scss';
+import '../../../src/styles/scss/main.scss';
 
 export default () => {
 

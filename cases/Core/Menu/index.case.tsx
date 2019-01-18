@@ -1,7 +1,7 @@
 import React, { Fragment, useState } from 'react';
 import { Menu, Button, Icon } from '../../../src';
 import { Login } from '../../../src/extra'
-import '../../../src/Styles/scss/main.scss';
+import '../../../src/styles/scss/main.scss';
 
 export const loginUser = {
     id_user: 1,

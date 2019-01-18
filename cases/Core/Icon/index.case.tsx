@@ -1,7 +1,7 @@
 import React from 'react';
-import { Icon, Flexbox, Viewport } from '../../../src';
+import { Icon, Flexbox } from '../../../src';
 import { svgIconPath } from '../../../src/core/Icon/Icon';
-import '../../../src/Styles/scss/main.scss';
+import '../../../src/styles/scss/main.scss';
 
 export default class Story extends React.Component {
 

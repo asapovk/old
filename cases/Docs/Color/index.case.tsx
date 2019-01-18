@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import { Flexbox } from '../../../src';
 import { useTheme } from '../../../src/hooks';
-import '../../../src/Styles/scss/main.scss';
+import '../../../src/styles/scss/main.scss';
 
 export default () => {
 

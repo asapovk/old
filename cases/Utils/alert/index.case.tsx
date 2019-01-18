@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import { utils, Button, Flexbox } from '../../../src';
-import '../../../src/Styles/scss/main.scss';
+import '../../../src/styles/scss/main.scss';
 
 export default class Story extends React.Component {
     render() {

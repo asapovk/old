@@ -1,6 +1,5 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core';
-import React, { Fragment, useEffect } from 'react';
 import { Flexbox } from '../../';
 import createStyles from './styles';
 import { useBrowser } from '../../hooks';
@@ -8,29 +7,41 @@ import Types from './types';
 
 export default (props: Types.Props) => {
 
-    const styles = createStyles();
+    const styles = createStyles(props.displaySideBar);
     const browser = useBrowser();
 
     return (
         <Flexbox>
-            <div css={styles.sidebar.holder}>
-                <Flexbox css={styles.sidebar.content} flexDirection='column'>
+            {props.displaySideBar &&
+                <Flexbox css={styles.sidebar.holder}>
+                    <div css={styles.sidebar.background} />
                     {browser.isDesktop &&
-                        <div css={styles.sidebar.logo}>{props.components.logo}</div>}
-                    {props.components.sidebar}
+                        <div css={styles.sidebar.logo.container}>
+                            <Flexbox css={styles.sidebar.logo.holder}>
+                                <Flexbox css={styles.sidebar.logo.wrapper}>
+                                    {props.components.logo}
+                                </Flexbox>
+                            </Flexbox>
+                        </div>
+                    }
+                    <Flexbox css={styles.sidebar.content} >
+                        {props.components.sidebar}
+                    </Flexbox>
                 </Flexbox>
-            </div>
-            <Flexbox flexDirection='column' alignItems='center' flex={1}>
+            }
+            <Flexbox css={styles.main.container}>
                 <div css={styles.menu.holder}>
                     <div css={styles.menu.desktop}>
                         {props.components.menu}
                     </div>
                 </div>
-                <Flexbox css={styles.main.top} justifyContent='center'>
-                    <div css={styles.main.holder}>
-                        {props.components.mainTop}
-                    </div>
-                </Flexbox>
+                {props.components.mainTop &&
+                    <Flexbox css={styles.main.top}>
+                        <div css={styles.main.holder}>
+                            {props.components.mainTop}
+                        </div>
+                    </Flexbox>
+                }
                 <div css={styles.main.holder}>
                     {props.components.main}
                 </div>
@@ -38,6 +49,6 @@ export default (props: Types.Props) => {
                     {props.components.menu}
                 </div>
             </Flexbox>
-        </Flexbox>
+        </Flexbox >
     );
 }

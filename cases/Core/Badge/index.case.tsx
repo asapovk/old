@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
-import { TextField, Flexbox, Button, Badge, Viewport } from '../../../src';
-import '../../../src/Styles/scss/main.scss';
+import { TextField, Flexbox, Button, Badge } from '../../../src';
+import '../../../src/styles/scss/main.scss';
 
 export default class Story extends React.Component {
     state = {

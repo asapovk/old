@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { TextField, Flexbox, Viewport } from '../../../src';
-import '../../../src/Styles/scss/main.scss';
+import { TextField, Flexbox } from '../../../src';
+import '../../../src/styles/scss/main.scss';
 
 export default () => {
     const [value, setValue] = useState('');
@@ -41,7 +41,7 @@ export default () => {
                     <TextField decoration='borderless' label='Without border' placeholder="Enter something" />
                 </Flexbox>
                 <Flexbox pb={40}>
-                    <TextField size='small' value='sgf' label='Small field' placeholder="Write secret here" />
+                    <TextField size='small' label='Small field' placeholder="Write secret here" />
                 </Flexbox>
                 <Flexbox pb={40}>
                     <TextField size='large' label='Large field' placeholder="Really big" />

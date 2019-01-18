@@ -1,7 +1,7 @@
 import React from 'react';
 import { Login } from '../../../src/extra'
 import { loginUser } from '../../Core/Menu/index.case'
-import '../../../src/Styles/scss/main.scss';
+import '../../../src/styles/scss/main.scss';
 
 export default class Story extends React.Component {
     render() {

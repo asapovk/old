@@ -2,7 +2,7 @@ import { css } from '@emotion/core';
 import useTheme from '../../hooks/useTheme';
 import useTypography from '../../hooks/useTypography';
 
-export default (size, loading, disabled, labelCase, decoration, inversion) => {
+export default (size, loading, disabled, labelCase, decoration, inversion, thin) => {
 
     const theme = useTheme().theme;
     const typography = useTypography();
@@ -12,7 +12,7 @@ export default (size, loading, disabled, labelCase, decoration, inversion) => {
             ...getDecoration(decoration, inversion, theme),
             ...typography.caption[2],
             height: '2rem',
-            fontWeight: 'bold',
+            fontWeight: thin ? 'normal' : 'bold',
             position: 'relative',
             outline: 'none',
             cursor: 'pointer',
@@ -86,6 +86,11 @@ function getDecoration(decoration, inversion, theme) {
             break;
         case 'grayscale':
             background = theme.highlight.grayscale
+            break;
+        case 'inverse':
+            background = theme.background2.hex;
+            boxShadow = 'none';
+            color = theme.highlight.rgb;
             break;
         case 'none':
             background = 'none';

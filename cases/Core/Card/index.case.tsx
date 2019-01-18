@@ -1,7 +1,7 @@
 import React, { Fragment, useState } from 'react';
 import { Flexbox } from '../../../src/';
-import { Card, Viewport } from '../../../src';
-import '../../../src/Styles/scss/main.scss';
+import { Card } from '../../../src';
+import '../../../src/styles/scss/main.scss';
 
 export default () => {
     const [active, setActive] = useState(0);

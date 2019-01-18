@@ -8,6 +8,7 @@ export default (props: { color?: string, style?: CSSProperties }) => {
             height: '100%'
         },
         svg: {
+            width: '100%',
             height: '100%'
         } as CSSProperties
     }

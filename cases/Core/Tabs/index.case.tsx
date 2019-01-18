@@ -1,6 +1,6 @@
 import React from 'react';
-import { Tabs, Tab, Viewport } from '../../../src';
-import '../../../src/Styles/scss/main.scss';
+import { Tabs, Tab } from '../../../src';
+import '../../../src/styles/scss/main.scss';
 
 export default class Story extends React.Component {
     render() {

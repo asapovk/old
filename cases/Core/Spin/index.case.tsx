@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
-import { Flexbox, Spin, Icon, Viewport } from '../../../src';
-import '../../../src/Styles/scss/main.scss';
+import { Flexbox, Spin, Icon } from '../../../src';
+import '../../../src/styles/scss/main.scss';
 
 export default class Story extends React.Component {
     render() {
