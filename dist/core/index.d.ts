@@ -25,3 +25,4 @@ export { Timeline as Timeline } from './Timeline';
 export { Title as Title } from './Title';
 export { Viewport as Viewport } from './Viewport';
 export { Widget as Widget } from './Widget';
+export { P as P, H1 as H1, H2 as H2, H3 as H3, H4 as H4, D1 as D1, D2 as D2, D3 as D3, D4 as D4, T1 as T1, T2 as T2, T3 as T3, T4 as T4, C1 as C1, C2 as C2, C3 as C3, C4 as C4 } from './Typography';

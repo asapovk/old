@@ -2,9 +2,11 @@
     @include box-sizing(border-box);
     flex: 1;
     line-height: 1;
-    @extend %t1;
+    font-size: 1rem;
+    line-height: 1.5rem;
     &-label {
-        @extend %с3;
+        font-size: 0.75rem;
+        line-height: 0.75rem;
         text-transform: uppercase;
         padding-bottom: 0.25rem;
     }

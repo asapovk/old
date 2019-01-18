@@ -27,6 +27,7 @@ export interface Props {
     onRowClick?: (row: any) => any;
     search?: boolean;
     onSearch?: (value: any) => void;
+    hideHeaders?: boolean;
 }
 declare class Table extends React.Component<Props> {
     state: {

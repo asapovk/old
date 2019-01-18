@@ -1,11 +1,10 @@
 import React from 'react';
-import { Timeline } from '../../../src';
+import { Timeline, D2 } from '../../../src';
 
 const MainTop = () => {
     return (
         <>
-            <h2 style={{ margin: 0 }}>Ноябрь 2018</h2>
-            <hr style={{ marginBottom: '2rem' }} />
+            <D2 underline>Ноябрь 2018</D2>
             <Timeline
                 dots={[
                     { color: "black", bottomTitle: "Задолженность", value: "8 491" },

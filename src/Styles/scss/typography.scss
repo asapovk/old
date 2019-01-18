@@ -31,90 +31,90 @@ $base-font-size: 16px;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 
-    %article, article {
-        max-width: 640px;
-    }
+    // %article, article {
+    //     max-width: 640px;
+    // }
     
-    %p, p {
-        font-size: 1rem;
-        line-height: 1.5rem;
-        margin-bottom: 1.5rem;
-    }
+    // %p, p {
+    //     font-size: 1rem;
+    //     line-height: 1.5rem;
+    //     margin-bottom: 1.5rem;
+    // }
     
-    %h1, h1 {
-        font-size: 2rem;
-        line-height: 3rem;
-        margin-top: 3rem;
-        margin-bottom: 1.5rem;
-    }
+    // %h1, h1 {
+    //     font-size: 2rem;
+    //     line-height: 3rem;
+    //     margin-top: 3rem;
+    //     margin-bottom: 1.5rem;
+    // }
     
-    %h2, h2 {
-        font-size: 1.5rem; 
-        line-height: 2rem;
-        margin-top: 2.5rem;
-        margin-bottom: 0.5rem;
-    }
+    // %h2, h2 {
+    //     font-size: 1.5rem; 
+    //     line-height: 2rem;
+    //     margin-top: 2.5rem;
+    //     margin-bottom: 0.5rem;
+    // }
     
-    %h3, h3 {
-        font-size: 1.25rem;
-        line-height: 1.5rem;
-        margin-top: 2rem;
-        margin-bottom: 0.5rem;
-    }
+    // %h3, h3 {
+    //     font-size: 1.25rem;
+    //     line-height: 1.5rem;
+    //     margin-top: 2rem;
+    //     margin-bottom: 0.5rem;
+    // }
     
-    %h4, h4 {
-        font-size: 1.125rem;
-        line-height: 1.5rem;
-        margin-top: 1.5rem;
-        margin-bottom: 0.5rem;
-    }
+    // %h4, h4 {
+    //     font-size: 1.125rem;
+    //     line-height: 1.5rem;
+    //     margin-top: 1.5rem;
+    //     margin-bottom: 0.5rem;
+    // }
     
-    %blockqoute, blockquote {
-        font-family: $font-secondary;
-        font-style: italic;
-    }
+    // %blockqoute, blockquote {
+    //     font-family: $font-secondary;
+    //     font-style: italic;
+    // }
     
-    // C — Caption. Use it for bages and simmilar 
+    // // C — Caption. Use it for bages and simmilar 
     
-    %с1, .c1 {
-        font-size: 1rem;
-        line-height: 1.25rem;
-    }
+    // %с1, .c1 {
+    //     font-size: 1rem;
+    //     line-height: 1.25rem;
+    // }
     
-    %с2, .c2 {
-        font-size: 0.875rem;
-        line-height: 0.875rem;
-    }
+    // %с2, .c2 {
+    //     font-size: 0.875rem;
+    //     line-height: 0.875rem;
+    // }
     
-    %с3, .c3 {
-        font-size: 0.75rem;
-        line-height: 0.75rem;
-    }
+    // %с3, .c3 {
+    //     font-size: 0.75rem;
+    //     line-height: 0.75rem;
+    // }
     
-    %с4, .c4 {
-        font-size: 0.625rem;
-        line-height: 0.625rem;
-    }
+    // %с4, .c4 {
+    //     font-size: 0.625rem;
+    //     line-height: 0.625rem;
+    // }
     
-    // T — Text. Use it for labels and simmilar 
+    // // T — Text. Use it for labels and simmilar 
     
-    %t1, .t1 {
-        font-size: 1rem;
-        line-height: 1.5rem;
-    }
+    // %t1, .t1 {
+    //     font-size: 1rem;
+    //     line-height: 1.5rem;
+    // }
     
-    %t2, .t2 {
-        font-size: 0.875rem;
-        line-height: 1.25rem;
-    }
+    // %t2, .t2 {
+    //     font-size: 0.875rem;
+    //     line-height: 1.25rem;
+    // }
     
-    %t3, .t3 {
-        font-size: 0.75rem;
-        line-height: 1rem;
-    }
+    // %t3, .t3 {
+    //     font-size: 0.75rem;
+    //     line-height: 1rem;
+    // }
     
-    %t4, .t4 {
-        font-size: 0.625rem;
-        line-height: 0.75rem;
-    }
+    // %t4, .t4 {
+    //     font-size: 0.625rem;
+    //     line-height: 0.75rem;
+    // }
 }

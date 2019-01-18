@@ -1,5 +1,5 @@
 import React from 'react';
-import { Table, Icon } from '../../../src';
+import { Table, Icon, H2, T1 } from '../../../src';
 
 const Main = () => {
 
@@ -21,28 +21,30 @@ const Main = () => {
 
     return (
         <>
-            <h2>К оплате</h2>
-            <hr />
-            <h3>Коммунальные услуги</h3>
+            <H2 underline>К оплате</H2>
+            <T1 bold>Коммунальные услуги</T1>
             <Table
                 columns={tableColumns}
                 data={data}
+                hideHeaders={true}
             />
-            <h3>Содержание жилого помещения</h3>
+            <T1 bold>Содержание жилого помещения</T1>
             <Table
                 columns={tableColumns}
                 data={data}
+                hideHeaders={true}
             />
-            <h3>Прочие услуги</h3>
+            <T1 bold>Прочие услуги</T1>
             <Table
                 columns={tableColumns}
                 data={data}
+                hideHeaders={true}
             />
-            <h2>Приборы учета</h2>
-            <hr />
+            <H2 underline>Приборы учета</H2>
             <Table
                 columns={tableColumns}
                 data={data}
+                hideHeaders={true}
             />
         </>
     )
