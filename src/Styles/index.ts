@@ -73,6 +73,7 @@ export interface ThemeInterface {
         window: string
         button: string
         card: string
+        table: string
     }
     gradient: {
         default: string[]

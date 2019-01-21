@@ -15,19 +15,14 @@ const Sidebar = (props: any) => {
         { label: '95285-F', value: 3 }
     ];
 
-    const activeRef = useRef<HTMLDivElement>(null);
-    const containerRef = useRef<HTMLDivElement>(null);
-
     const [activeID, setActiveID] = useState(0);
 
-
     return (
-        <Flexbox flexDirection='column' ref={containerRef}>
+        <Flexbox flexDirection='column'>
             {accounts.map((account, index) =>
                 <Card
                     animation={index % 2 ? 'circles' : 'waves'}
                     active={activeID === index}
-                    ref={activeID === index ? activeRef : undefined}
                     onClick={() => {
                         setActiveID(index)
                     }}

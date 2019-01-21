@@ -1,8 +1,8 @@
 declare const _default: (displaySideBar: any) => {
     sidebar: {
         holder: import("@emotion/utils").SerializedStyles;
-        background: import("@emotion/utils").SerializedStyles;
         content: import("@emotion/utils").SerializedStyles;
+        background: import("@emotion/utils").SerializedStyles;
         logo: {
             container: import("@emotion/utils").SerializedStyles;
             holder: import("@emotion/utils").SerializedStyles;
@@ -15,9 +15,8 @@ declare const _default: (displaySideBar: any) => {
         holder: import("@emotion/utils").SerializedStyles;
     };
     menu: {
+        container: import("@emotion/utils").SerializedStyles;
         holder: import("@emotion/utils").SerializedStyles;
-        desktop: import("@emotion/utils").SerializedStyles;
-        mobile: import("@emotion/utils").SerializedStyles;
     };
 };
 export default _default;

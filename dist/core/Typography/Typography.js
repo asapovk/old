@@ -25,16 +25,16 @@ var Typography = react_1.forwardRef(function (props, ref) {
         onClick: props.onClick,
         css: core_1.css(__assign({}, typography), props.bold && {
             fontWeight: 'bold'
+        }, props.link && {
+            color: theme.highlight.rgb
         })
     }, props.children);
     if (props.underline || props.action) {
         return (core_1.jsx(__1.Flexbox, { flexDirection: 'column' },
             props.action
-                ? core_1.jsx(__1.Flexbox, null,
+                ? core_1.jsx(__1.Flexbox, { alignItems: 'center', justifyContent: 'space-between' },
                     Text,
-                    core_1.jsx("div", { children: props.action, css: core_1.css({
-                            alignSelf: 'flex-end'
-                        }) }))
+                    core_1.jsx("div", null, props.action))
                 : Text,
             core_1.jsx("div", { css: core_1.css({
                     marginTop: typography.marginBottom ? '-' + typography.marginBottom : 'none',

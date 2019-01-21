@@ -1,10 +1,14 @@
 import React from 'react';
-import { Timeline, D2 } from '../../../src';
+import { Timeline, D2, C1 } from '../../../src';
 
 const MainTop = () => {
     return (
         <>
-            <D2 underline>Ноябрь 2018</D2>
+            <D2
+                underline={true}
+                children='Ноябрь 2018'
+                action={<C1 link>Выбрать месяц</C1>}
+            />
             <Timeline
                 dots={[
                     { color: "black", bottomTitle: "Задолженность", value: "8 491" },

@@ -1,5 +1,6 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core';
+import { Fragment } from 'react';
 import { Flexbox } from '../../';
 import createStyles from './styles';
 import { useBrowser } from '../../hooks';
@@ -14,15 +15,17 @@ export default (props: Types.Props) => {
         <Flexbox>
             {props.displaySideBar &&
                 <Flexbox css={styles.sidebar.holder}>
-                    <div css={styles.sidebar.background} />
-                    {browser.isDesktop &&
-                        <div css={styles.sidebar.logo.container}>
-                            <Flexbox css={styles.sidebar.logo.holder}>
-                                <Flexbox css={styles.sidebar.logo.wrapper}>
-                                    {props.components.logo}
+                    {(browser.isDesktop || browser.isTablet) &&
+                        <Fragment>
+                            <div css={styles.sidebar.background} />
+                            <div css={styles.sidebar.logo.container}>
+                                <Flexbox css={styles.sidebar.logo.holder}>
+                                    <Flexbox css={styles.sidebar.logo.wrapper}>
+                                        {props.components.logo}
+                                    </Flexbox>
                                 </Flexbox>
-                            </Flexbox>
-                        </div>
+                            </div>
+                        </Fragment>
                     }
                     <Flexbox css={styles.sidebar.content} >
                         {props.components.sidebar}
@@ -30,8 +33,8 @@ export default (props: Types.Props) => {
                 </Flexbox>
             }
             <Flexbox css={styles.main.container}>
-                <div css={styles.menu.holder}>
-                    <div css={styles.menu.desktop}>
+                <div css={styles.menu.container}>
+                    <div css={styles.menu.holder}>
                         {props.components.menu}
                     </div>
                 </div>
@@ -45,10 +48,15 @@ export default (props: Types.Props) => {
                 <div css={styles.main.holder}>
                     {props.components.main}
                 </div>
-                <div css={styles.menu.mobile}>
-                    {props.components.menu}
-                </div>
             </Flexbox>
+            {
+                browser.isMobile
+                && <div css={styles.menu.container}>
+                    <div css={styles.menu.holder}>
+                        {props.components.menu}
+                    </div>
+                </div>
+            }
         </Flexbox >
     );
 }

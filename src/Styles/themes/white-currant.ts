@@ -48,6 +48,7 @@ export default {
         window: '0.25rem',
         button: '0.25rem',
         card: '0.5rem',
+        table: '0.5rem',
     },
     gradient: {
         default: [

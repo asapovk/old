@@ -12,7 +12,20 @@ export default (displaySideBar) => {
                 position: 'sticky',
                 top: 0,
                 alignSelf: 'flex-start',
-                flexDirection: 'column'
+                flexDirection: 'column',
+                '@media (max-width: 768px)': {
+                    position: 'relative',
+                    width: '100%'
+                }
+
+            }),
+            content: css({
+                width: '20rem',
+                zIndex: 3,
+                flexDirection: 'column',
+                '@media (max-width: 768px)': {
+                    width: '100%'
+                }
             }),
             background: css({
                 top: 0,
@@ -23,17 +36,9 @@ export default (displaySideBar) => {
                 width: '20rem',
                 borderRight: '1px solid ' + theme.pale.hex,
                 background: theme.interface.hex,
-                '@media (max-width: 1023px)': {
-                    paddingTop: '4rem',
-                },
                 '@media (max-width: 768px)': {
-                    width: '100%'
-                }
-            }),
-            content: css({
-                width: '20rem',
-                zIndex: 3,
-                flexDirection: 'column'
+                    display: 'none'
+                },
             }),
             logo: {
                 container: css({
@@ -63,33 +68,29 @@ export default (displaySideBar) => {
                 alignSelf: 'flex-start',
                 flexDirection: 'column',
                 alignItems: 'center',
-                flex: 1
+                flex: 1,
+                '@media (max-width: 768px)': {
+                    display: 'none'
+                },
             }),
             top: css({
                 backgroundColor: theme.background2.hex,
                 padding: '2.5rem 0',
                 width: '100%',
                 justifyContent: 'center',
-                '@media (max-width: 768px)': {
-                    display: 'none'
-                }
             }),
             holder: css({
                 width: '100%',
-                position: 'relative',
                 maxWidth: '960px',
-                '@media (max-width: 768px)': {
-                    display: 'none'
-                },
-                paddingBottom: '1.25rem'
+                margin: '0 2rem',
             }),
         },
         menu: {
-            holder: css({
+            container: css({
                 height: '4rem',
                 width: '100%'
             }),
-            desktop: css({
+            holder: css({
                 position: 'fixed',
                 left: displaySideBar
                     ? '20rem'
@@ -98,17 +99,11 @@ export default (displaySideBar) => {
                 top: 0,
                 zIndex: 1,
                 '@media (max-width: 1023px)': {
-                    display: 'none',
-                }
-            }),
-            mobile: css({
-                position: 'absolute',
-                left: 0,
-                right: 0,
-                top: 0,
-                zIndex: 1,
-                '@media (min-width: 1024px)': {
-                    display: 'none'
+                    position: 'absolute',
+                    left: 0,
+                    right: 0,
+                    top: 0,
+                    zIndex: 1,
                 }
             }),
         }

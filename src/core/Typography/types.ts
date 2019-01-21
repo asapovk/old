@@ -1,18 +1,21 @@
 declare namespace TypographyTypes {
-    interface Props extends HeadersProps {
+    interface Props extends HeadersProps, TextProps, CoreProps {
         type: string
-        size?: number,
+        size?: number
         tag: string
     }
-    interface HeadersProps extends TextProps {
-        underline?: boolean,
+    interface HeadersProps extends CoreProps {
+        underline?: boolean
         action?: any
     }
-    interface TextProps {
-        children?: any,
-        className?: string,
-        onClick?: (event) => void,
+    interface TextProps extends CoreProps {
         bold?: boolean
+        link?: boolean
+    }
+    interface CoreProps {
+        children?: any
+        className?: string
+        onClick?: (event) => void
     }
 }
 

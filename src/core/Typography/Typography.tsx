@@ -21,6 +21,9 @@ const Typography = forwardRef((props: Types.Props, ref) => {
             },
                 props.bold && {
                     fontWeight: 'bold'
+                },
+                props.link && {
+                    color: theme.highlight.rgb
                 })
         },
         props.children
@@ -30,14 +33,9 @@ const Typography = forwardRef((props: Types.Props, ref) => {
         return (
             <Flexbox flexDirection='column'>
                 {props.action
-                    ? <Flexbox>
+                    ? <Flexbox alignItems='center' justifyContent='space-between'>
                         {Text}
-                        <div
-                            children={props.action}
-                            css={css({
-                                alignSelf: 'flex-end'
-                            })}
-                        />
+                        <div>{props.action}</div>
                     </Flexbox>
                     : Text
                 }
