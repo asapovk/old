@@ -8,6 +8,7 @@ declare namespace TimelineTypes {
         leftTitle?: string;
         rightTitle?: string;
         dots: IDot[];
+        className?: string;
     }
 }
 export default TimelineTypes;

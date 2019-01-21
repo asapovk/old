@@ -25,9 +25,13 @@ export declare const T2: import("react").ForwardRefExoticComponent<Types.TextPro
 export declare const T3: import("react").ForwardRefExoticComponent<Types.TextProps & import("react").RefAttributes<{}>>;
 export declare const T4: import("react").ForwardRefExoticComponent<Types.TextProps & import("react").RefAttributes<{}>>;
 /**
- * CAPRTIONS
+ * CAPTIONS
  */
 export declare const C1: import("react").ForwardRefExoticComponent<Types.TextProps & import("react").RefAttributes<{}>>;
 export declare const C2: import("react").ForwardRefExoticComponent<Types.TextProps & import("react").RefAttributes<{}>>;
 export declare const C3: import("react").ForwardRefExoticComponent<Types.TextProps & import("react").RefAttributes<{}>>;
 export declare const C4: import("react").ForwardRefExoticComponent<Types.TextProps & import("react").RefAttributes<{}>>;
+/**
+ * OTHER
+ */
+export declare const HR: (props: any) => JSX.Element;

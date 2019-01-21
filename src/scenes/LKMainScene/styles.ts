@@ -15,7 +15,8 @@ export default (displaySideBar) => {
                 flexDirection: 'column',
                 '@media (max-width: 768px)': {
                     position: 'relative',
-                    width: '100%'
+                    width: '100%',
+                    marginTop: '1.25rem'
                 }
 
             }),
@@ -36,9 +37,6 @@ export default (displaySideBar) => {
                 width: '20rem',
                 borderRight: '1px solid ' + theme.pale.hex,
                 background: theme.interface.hex,
-                '@media (max-width: 768px)': {
-                    display: 'none'
-                },
             }),
             logo: {
                 container: css({
@@ -67,8 +65,8 @@ export default (displaySideBar) => {
                 top: 0,
                 alignSelf: 'flex-start',
                 flexDirection: 'column',
-                alignItems: 'center',
                 flex: 1,
+                alignItems: 'center',
                 '@media (max-width: 768px)': {
                     display: 'none'
                 },
@@ -79,10 +77,14 @@ export default (displaySideBar) => {
                 width: '100%',
                 justifyContent: 'center',
             }),
+            content: css({
+                width: '100%',
+                justifyContent: 'center',
+            }),
             holder: css({
                 width: '100%',
                 maxWidth: '960px',
-                margin: '0 2rem',
+                margin: '0 2rem'
             }),
         },
         menu: {

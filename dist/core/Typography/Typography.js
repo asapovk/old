@@ -23,7 +23,7 @@ var Typography = react_1.forwardRef(function (props, ref) {
         ref: ref,
         className: props.className,
         onClick: props.onClick,
-        css: core_1.css(__assign({}, typography), props.bold && {
+        css: core_1.css(__assign({}, typography, { display: 'inline-block' }), props.bold && {
             fontWeight: 'bold'
         }, props.link && {
             color: theme.highlight.rgb
@@ -36,12 +36,7 @@ var Typography = react_1.forwardRef(function (props, ref) {
                     Text,
                     core_1.jsx("div", null, props.action))
                 : Text,
-            core_1.jsx("div", { css: core_1.css({
-                    marginTop: typography.marginBottom ? '-' + typography.marginBottom : 'none',
-                    paddingTop: '0.625rem',
-                    width: '100%',
-                    borderBottom: '0.5px solid ' + theme.pale.rgb
-                }) })));
+            core_1.jsx(exports.HR, { css: core_1.css({ paddingTop: '0.625rem' }) })));
     }
     else
         return Text;
@@ -98,7 +93,7 @@ exports.T4 = react_1.forwardRef(function (props, ref) {
     return core_1.jsx(Typography, __assign({ tag: 'span', type: 'text', size: 4, ref: ref }, props));
 });
 /**
- * CAPRTIONS
+ * CAPTIONS
  */
 exports.C1 = react_1.forwardRef(function (props, ref) {
     return core_1.jsx(Typography, __assign({ tag: 'span', type: 'caption', size: 1, ref: ref }, props));
@@ -112,3 +107,14 @@ exports.C3 = react_1.forwardRef(function (props, ref) {
 exports.C4 = react_1.forwardRef(function (props, ref) {
     return core_1.jsx(Typography, __assign({ tag: 'span', type: 'caption', size: 4, ref: ref }, props));
 });
+/**
+ * OTHER
+ */
+exports.HR = function (props) {
+    var theme = hooks_1.useTheme().theme;
+    return core_1.jsx("div", { className: props.className, css: core_1.css({
+            height: '1px',
+            width: '100%',
+            borderBottom: '0.5px solid ' + theme.pale.rgb
+        }) });
+};

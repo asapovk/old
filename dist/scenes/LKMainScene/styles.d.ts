@@ -12,6 +12,7 @@ declare const _default: (displaySideBar: any) => {
     main: {
         container: import("@emotion/utils").SerializedStyles;
         top: import("@emotion/utils").SerializedStyles;
+        content: import("@emotion/utils").SerializedStyles;
         holder: import("@emotion/utils").SerializedStyles;
     };
     menu: {

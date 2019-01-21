@@ -1,9 +1,11 @@
-import React from 'react';
+/** @jsx jsx */
+import { jsx, css } from '@emotion/core'
+import React, { Fragment } from 'react';
 import { Timeline, D2, C1 } from '../../../src';
 
 const MainTop = () => {
     return (
-        <>
+        <Fragment>
             <D2
                 underline={true}
                 children='Ноябрь 2018'
@@ -18,8 +20,9 @@ const MainTop = () => {
                 ]}
                 leftTitle="10 октября"
                 rightTitle="10 ноября"
+                css={css({ marginTop: '2.5rem' })}
             />
-        </>
+        </Fragment>
     )
 }
 

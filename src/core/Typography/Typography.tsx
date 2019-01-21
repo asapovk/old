@@ -18,6 +18,7 @@ const Typography = forwardRef((props: Types.Props, ref) => {
             onClick: props.onClick,
             css: css({
                 ...typography,
+                display: 'inline-block'
             },
                 props.bold && {
                     fontWeight: 'bold'
@@ -39,14 +40,7 @@ const Typography = forwardRef((props: Types.Props, ref) => {
                     </Flexbox>
                     : Text
                 }
-                <div
-                    css={css({
-                        marginTop: typography.marginBottom ? '-' + typography.marginBottom : 'none',
-                        paddingTop: '0.625rem',
-                        width: '100%',
-                        borderBottom: '0.5px solid ' + theme.pale.rgb
-                    })}
-                />
+                <HR css={css({ paddingTop: '0.625rem' })} />
             </Flexbox>
         )
     } else return Text
@@ -122,7 +116,7 @@ export const T4 = forwardRef((props: Types.TextProps, ref) => {
 })
 
 /**
- * CAPRTIONS
+ * CAPTIONS
  */
 
 export const C1 = forwardRef((props: Types.TextProps, ref) => {
@@ -140,3 +134,19 @@ export const C3 = forwardRef((props: Types.TextProps, ref) => {
 export const C4 = forwardRef((props: Types.TextProps, ref) => {
     return <Typography tag='span' type='caption' size={4} ref={ref} {...props} />
 })
+
+/**
+ * OTHER
+ */
+
+export const HR = (props) => {
+    const theme = useTheme().theme;
+    return <div
+        className={props.className}
+        css={css({
+            height: '1px',
+            width: '100%',
+            borderBottom: '0.5px solid ' + theme.pale.rgb
+        })}
+    />
+}

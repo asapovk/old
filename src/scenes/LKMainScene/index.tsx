@@ -12,10 +12,18 @@ export default (props: Types.Props) => {
     const browser = useBrowser();
 
     return (
-        <Flexbox>
+        <Flexbox flexDirection={browser.isMobile ? 'column' : 'row'}>
+            {
+                browser.isMobile &&
+                <div css={styles.menu.container}>
+                    <div css={styles.menu.holder}>
+                        {props.components.menu}
+                    </div>
+                </div>
+            }
             {props.displaySideBar &&
                 <Flexbox css={styles.sidebar.holder}>
-                    {(browser.isDesktop || browser.isTablet) &&
+                    {!browser.isMobile &&
                         <Fragment>
                             <div css={styles.sidebar.background} />
                             <div css={styles.sidebar.logo.container}>
@@ -32,30 +40,26 @@ export default (props: Types.Props) => {
                     </Flexbox>
                 </Flexbox>
             }
-            <Flexbox css={styles.main.container}>
-                <div css={styles.menu.container}>
-                    <div css={styles.menu.holder}>
-                        {props.components.menu}
+            {!browser.isMobile &&
+                <Flexbox css={styles.main.container}>
+                    <div css={styles.menu.container}>
+                        <div css={styles.menu.holder}>
+                            {props.components.menu}
+                        </div>
                     </div>
-                </div>
-                {props.components.mainTop &&
-                    <Flexbox css={styles.main.top}>
+                    {props.components.mainTop &&
+                        <Flexbox css={styles.main.top}>
+                            <div css={styles.main.holder}>
+                                {props.components.mainTop}
+                            </div>
+                        </Flexbox>
+                    }
+                    <Flexbox css={styles.main.content}>
                         <div css={styles.main.holder}>
-                            {props.components.mainTop}
+                            {props.components.main}
                         </div>
                     </Flexbox>
-                }
-                <div css={styles.main.holder}>
-                    {props.components.main}
-                </div>
-            </Flexbox>
-            {
-                browser.isMobile
-                && <div css={styles.menu.container}>
-                    <div css={styles.menu.holder}>
-                        {props.components.menu}
-                    </div>
-                </div>
+                </Flexbox>
             }
         </Flexbox >
     );

@@ -1,3 +1,5 @@
+import { ClassNames } from "@emotion/core";
+
 declare namespace TimelineTypes {
     export interface IDot {
         value: string
@@ -9,6 +11,7 @@ declare namespace TimelineTypes {
         leftTitle?: string
         rightTitle?: string
         dots: IDot[]
+        className?: string
     }
 }
 

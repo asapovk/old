@@ -10,7 +10,7 @@ export default (props: Types.ITimeline) => {
     const styles = createStyles();
 
     return (
-        <Flexbox flex={1} alignItems='center'>
+        <Flexbox flex={1} alignItems='center' className={props.className}>
             <div css={styles.layout}>
                 {props.leftTitle && (
                     <div css={styles.titleLeft} children={props.leftTitle} />

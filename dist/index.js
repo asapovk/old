@@ -78,3 +78,4 @@ exports.C1 = core_28.C1;
 exports.C2 = core_28.C2;
 exports.C3 = core_28.C3;
 exports.C4 = core_28.C4;
+exports.HR = core_28.HR;
