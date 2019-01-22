@@ -16,6 +16,7 @@ declare namespace TypographyTypes {
         children?: any;
         className?: string;
         onClick?: (event: any) => void;
+        format?: boolean | 'rub' | 'volume';
     }
 }
 export default TypographyTypes;
