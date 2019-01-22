@@ -8,7 +8,7 @@ const Main = () => {
     ]
 
     const dataDevices = [
-        { label: 'Счетчик', amount: <D4 format='volume'>683,11</D4> }
+        { label: 'Счетчик', amount: <D4 format='volume'>683</D4> }
     ]
     return (
         <div css={css({ marginBottom: '1.25rem' })}>

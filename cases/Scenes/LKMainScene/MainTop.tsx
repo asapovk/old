@@ -13,10 +13,10 @@ const MainTop = () => {
             />
             <Timeline
                 dots={[
-                    { color: "black", bottomTitle: "Задолженность", value: "8 491" },
+                    { color: "black", bottomTitle: "Задолженность", value: "8491,24" },
                     { color: "black", bottomTitle: "Аванс", value: "0" },
-                    { color: "black", bottomTitle: "Начислено", value: "1 256" },
-                    { color: "black", bottomTitle: "Оплачено", value: "5 010" }
+                    { color: "black", bottomTitle: "Начислено", value: "1256,82" },
+                    { color: "black", bottomTitle: "Оплачено", value: "5010,17" }
                 ]}
                 leftTitle="10 октября"
                 rightTitle="10 ноября"
