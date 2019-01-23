@@ -14,7 +14,7 @@ exports.default = (function (props) {
     else
         return props.children;
     float = float.toString().split('.');
-    integer = float[0];
+    integer = float[0].replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, '$1\u00a0');
     fraction = float[1] && float[1];
     switch (props.format) {
         case 'rub':
@@ -29,6 +29,6 @@ exports.default = (function (props) {
     return (core_1.jsx(react_1.Fragment, null,
         integer,
         fraction && core_1.jsx("span", { css: core_1.css({ fontSize: '0.75em', opacity: .5 }) },
-            ',' + fraction + ' ',
+            ',' + fraction + '\u00a0',
             unit)));
 });

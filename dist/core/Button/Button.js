@@ -5,11 +5,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 /** @jsx jsx */
 var core_1 = require("@emotion/core");
-var useStyles_1 = __importDefault(require("./useStyles"));
+var styels_1 = __importDefault(require("./styels"));
 var index_1 = require("../index");
 exports.default = (function (props) {
     var labelCase = props.labelCase, label = props.label, children = props.children, style = props.style, loading = props.loading, decoration = props.decoration, disabled = props.disabled, size = props.size, inversion = props.inversion, className = props.className, thin = props.thin;
-    var styles = useStyles_1.default(size, loading, disabled, labelCase, decoration, inversion, thin);
+    var styles = styels_1.default(size, loading, disabled, labelCase, decoration, inversion, thin);
     var onClick = function (event) {
         if (!props.disabled && !props.loading) {
             event.stopPropagation();

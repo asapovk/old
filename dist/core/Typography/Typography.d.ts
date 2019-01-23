@@ -34,4 +34,4 @@ export declare const C4: import("react").ForwardRefExoticComponent<Types.TextPro
 /**
  * OTHER
  */
-export declare const HR: (props: any) => JSX.Element;
+export declare const HR: (props: Types.HRProps) => JSX.Element;

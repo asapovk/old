@@ -2,7 +2,7 @@ import React from 'react';
 export interface ButtonProps {
     label?: string;
     outline?: true | undefined;
-    decoration?: 'none' | 'highlight' | 'red' | 'green' | 'orange' | 'blue' | 'grayscale' | 'inverse';
+    decoration?: 'none' | 'highlight' | 'red' | 'green' | 'orange' | 'blue' | 'grayscale' | 'inverse' | 'outline';
     loading?: boolean;
     icon?: React.Component;
     labelCase?: 'upper' | 'lower' | 'capitalize' | 'sentence';

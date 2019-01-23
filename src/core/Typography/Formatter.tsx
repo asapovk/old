@@ -12,7 +12,7 @@ export default (props) => {
     } else return props.children
 
     float = float.toString().split('.');
-    integer = float[0];
+    integer = float[0].replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, '$1\u00a0');
     fraction = float[1] && float[1];
 
     switch (props.format) {
@@ -27,7 +27,7 @@ export default (props) => {
     return (
         <Fragment>
             {integer}
-            {fraction && <span css={css({ fontSize: '0.75em', opacity: .5 })}>{',' + fraction + ' '}{unit}</span>}
+            {fraction && <span css={css({ fontSize: '0.75em', opacity: .5 })}>{',' + fraction + '\u00a0'}{unit}</span>}
         </Fragment>
     )
 }

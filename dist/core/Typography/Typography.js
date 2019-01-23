@@ -27,7 +27,9 @@ var Typography = react_1.forwardRef(function (props, ref) {
         ref: ref,
         className: props.className,
         onClick: props.onClick,
-        css: core_1.css(__assign({}, typography, { display: props.type === 'caption' ? 'inline-block' : 'block' }), props.bold && {
+        css: core_1.css(__assign({}, typography, { display: props.type === 'caption' ? 'inline-block' : 'block' }), props.color && {
+            color: theme[props.color].rgb
+        }, props.bold && {
             fontWeight: 'bold'
         }, props.link && {
             color: theme.highlight.rgb,
@@ -39,7 +41,7 @@ var Typography = react_1.forwardRef(function (props, ref) {
     if (props.underline || props.action) {
         return (core_1.jsx(__1.Flexbox, { flexDirection: 'column' },
             props.action
-                ? core_1.jsx(__1.Flexbox, { alignItems: 'center', justifyContent: 'space-between' },
+                ? core_1.jsx(__1.Flexbox, { alignItems: 'baseline', justifyContent: 'space-between' },
                     Text,
                     core_1.jsx("div", null, props.action))
                 : Text,
@@ -123,9 +125,12 @@ exports.C4 = react_1.forwardRef(function (props, ref) {
  */
 exports.HR = function (props) {
     var theme = hooks_1.useTheme().theme;
+    console.log(props.bold ? '4px' : '0.5px');
     return core_1.jsx("div", { className: props.className, css: core_1.css({
             height: '1px',
             width: '100%',
-            borderBottom: '0.5px solid ' + theme.pale.rgb
+            borderBottomWidth: props.bold ? '4px' : '0.5px',
+            borderBottomStyle: props.dotted ? 'dotted' : 'solid',
+            borderBottomColor: theme[props.color ? props.color : 'pale'].rgb
         }) });
 };

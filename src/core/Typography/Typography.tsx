@@ -20,8 +20,11 @@ const Typography = forwardRef((props: Types.Props, ref) => {
             onClick: props.onClick,
             css: css({
                 ...typography,
-                display: props.type === 'caption' ? 'inline-block' : 'block'
+                display: props.type === 'caption' ? 'inline-block' : 'block',
             },
+                props.color && {
+                    color: theme[props.color].rgb
+                },
                 props.bold && {
                     fontWeight: 'bold'
                 },
@@ -39,7 +42,7 @@ const Typography = forwardRef((props: Types.Props, ref) => {
         return (
             <Flexbox flexDirection='column'>
                 {props.action
-                    ? <Flexbox alignItems='center' justifyContent='space-between'>
+                    ? <Flexbox alignItems='baseline' justifyContent='space-between'>
                         {Text}
                         <div>{props.action}</div>
                     </Flexbox>
@@ -148,14 +151,17 @@ export const C4 = forwardRef((props: Types.TextProps, ref) => {
  * OTHER
  */
 
-export const HR = (props) => {
+export const HR = (props: Types.HRProps) => {
     const theme = useTheme().theme;
+    console.log(props.bold ? '4px' : '0.5px');
     return <div
         className={props.className}
         css={css({
             height: '1px',
             width: '100%',
-            borderBottom: '0.5px solid ' + theme.pale.rgb
+            borderBottomWidth: props.bold ? '4px' : '0.5px',
+            borderBottomStyle: props.dotted ? 'dotted' : 'solid',
+            borderBottomColor: theme[props.color ? props.color : 'pale'].rgb
         })}
     />
 }

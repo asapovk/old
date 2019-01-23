@@ -17,6 +17,13 @@ declare namespace TypographyTypes {
         className?: string
         onClick?: (event) => void
         format?: boolean | 'rub' | 'volume'
+        color?: 'text' | 'highlight' | 'pale'
+    }
+    interface HRProps {
+        dotted?: boolean
+        bold?: boolean
+        className?: string
+        color?: 'text' | 'highlight' | 'pale'
     }
 }
 
