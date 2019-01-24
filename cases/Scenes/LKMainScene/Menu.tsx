@@ -13,9 +13,9 @@ const Menu$ = () => {
         <Menu
             items={items}
             value='ls'
-            tools={[
-                <Icon type="user" />
-            ]}
+            tools={
+                <Icon type="user" key={1} />
+            }
         />
     )
 }

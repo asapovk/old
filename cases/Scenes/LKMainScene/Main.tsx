@@ -1,11 +1,13 @@
 /** @jsx jsx */
 import { jsx, css } from '@emotion/core'
-import { D4 } from '../../../src';
+import { D4, Icon } from '../../../src';
+import { useTheme } from '../../../src/hooks';
 import { Section, ServiceGroup } from './components';
 
 const Main = () => {
+    const theme = useTheme().theme;
     const data = [
-        { label: 'Газоснабжение', amount: <D4 format='rub'>683,11</D4> }
+        { icon: <Icon type='counter' shape='oval' backgroud={theme.background2.rgb} />, label: 'Газоснабжение', amount: <D4 format='rub'>683,11</D4> }
     ]
 
     const dataDevices = [
@@ -14,7 +16,6 @@ const Main = () => {
     return (
         <div css={css({ marginBottom: '1.25rem' })}>
             <Section
-                header='Начисления'
                 children={[
                     <ServiceGroup name='Коммунальные услуги' data={data} key={1} />,
                     <ServiceGroup name='Содержание жилого помещения' data={data} key={2} />,

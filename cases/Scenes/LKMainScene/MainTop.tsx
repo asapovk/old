@@ -45,15 +45,31 @@ const MainTop = () => {
                 }
                 children={
                     <Fragment>
-                        <Flexbox css={css({ overflow: 'hidden', height: '100%', flex: 1 })} flex={1}>
+                        <Flexbox
+                            css={css({
+                                overflow: 'hidden',
+                                height: '100%',
+                                flex: 1
+                            })}
+                            flex={1}
+                            onClick={() => setOpen(!open)}
+                        >
                             <Flexbox
                                 css={css(
-                                    !open && { position: 'absolute', top: 0, right: 0, left: 0, flex: 1 },
-                                    { marginBottom: '2.5rem' })}
+                                    !open && {
+                                        position: 'absolute',
+                                        top: 0,
+                                        right: 0,
+                                        left: 0,
+                                        flex: 1
+                                    },
+                                    {
+                                        marginBottom: '2.5rem'
+                                    })}
                                 flexDirection='column'
                                 flex={1}
                                 children={dots.map((dot, index) => (
-                                    <Flexbox alignItems='flex-end' mb='1rem' flex={1}>
+                                    <Flexbox alignItems='flex-end' mb='1rem' flex={1} key={index}>
                                         <C1 css={css({ flexShrink: 0 })}>{dot.bottomTitle}</C1>
                                         <HR dotted color='text' css={css({ margin: '0.25rem 0.5rem' })} />
                                         {index === 0

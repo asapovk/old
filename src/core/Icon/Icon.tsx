@@ -1,11 +1,12 @@
 /** @jsx jsx */
-import { jsx } from '@emotion/core'
+import { jsx, css } from '@emotion/core'
 import React, { CSSProperties, forwardRef } from 'react';
+import { Flexbox } from '..';
 import IconTypes from './types'
 
 export default forwardRef((props: IconTypes.Props, ref) => {
 
-    return (
+    const Icon = (
         <svg
             className={props.className}
             fill="currentColor"
@@ -17,6 +18,28 @@ export default forwardRef((props: IconTypes.Props, ref) => {
             onClick={props.onClick}
         />
     )
+
+    if (props.shape) {
+        switch (props.shape) {
+            case 'oval':
+                return (
+                    <Flexbox
+                        css={css({
+                            padding: '25%',
+                            borderRadius: '999px',
+                            background: props.backgroud,
+                            flexShrink: 0,
+                        })}
+                        children={Icon}
+                        alignItems='center'
+                        justifyContent='center'
+                    />
+                )
+                break;
+        }
+    }
+
+    return Icon
 })
 
 export const svgIconPath: Record<IconTypes.Type, string> = {

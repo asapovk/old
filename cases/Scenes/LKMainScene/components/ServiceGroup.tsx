@@ -4,6 +4,7 @@ import { Table, C1 } from '../../../../src';
 
 export const ServiceGroup = (props) => {
     const tableColumns = [
+        { dataIndex: 'icon', width: 40 },
         { dataIndex: 'label' },
         { dataIndex: 'amount', width: 80 },
     ]

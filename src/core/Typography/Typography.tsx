@@ -153,7 +153,6 @@ export const C4 = forwardRef((props: Types.TextProps, ref) => {
 
 export const HR = (props: Types.HRProps) => {
     const theme = useTheme().theme;
-    console.log(props.bold ? '4px' : '0.5px');
     return <div
         className={props.className}
         css={css({
