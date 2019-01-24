@@ -17,13 +17,13 @@ declare namespace TypographyTypes {
         className?: string;
         onClick?: (event: any) => void;
         format?: boolean | 'rub' | 'volume';
-        color?: 'text' | 'highlight' | 'pale';
+        color?: 'text' | 'highlight' | 'pale' | 'textOnAccent';
     }
     interface HRProps {
         dotted?: boolean;
         bold?: boolean;
         className?: string;
-        color?: 'text' | 'highlight' | 'pale';
+        color?: 'text' | 'highlight' | 'pale' | 'textOnAccent';
     }
 }
 export default TypographyTypes;

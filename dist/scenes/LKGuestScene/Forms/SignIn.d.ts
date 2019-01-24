@@ -1,6 +1,6 @@
 interface SignInProps {
     allowSignUp: boolean;
-    onSignUp: () => void;
+    onSignUp: (value: any) => void;
     onSubmit: (login: string, password: string) => void;
     pending: boolean;
 }

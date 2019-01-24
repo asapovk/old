@@ -73,9 +73,6 @@ export default (props: GuestSceneProps) => {
             setPending(true);
             const result = await props.onRegister(login, password);
 
-            if (!result.ok) {
-                throw new Error(result.message || 'Ошибка регистрации');
-            }
             return true;
         } catch (error) {
             alert({
@@ -96,9 +93,6 @@ export default (props: GuestSceneProps) => {
             setPending(true);
             const result = await props.onVerify(login, password, code);
 
-            if (!result.ok) {
-                throw new Error(result.message || 'Ошибка регистрации')
-            }
         } catch (error) {
             alert({
                 title: "Неверный код",
@@ -113,19 +107,20 @@ export default (props: GuestSceneProps) => {
     if (value === "SIGNIN") {
         return <SignIn
             allowSignUp={typeof props.onRegister === "function"}
-            onSignUp={() => setValue("SIGNUP")}
+            onSignUp={setValue}
             onSubmit={onLogin}
             pending={pending}
         />
     }
 
-    if (value === "SIGNUP") {
+    if (value === "SIGNUP" || value === "RECOVER") {
         return <SignUp
             onBack={() => setValue("SIGNIN")}
             newPasswordsMinLength={props.config && props.config.newPasswordsMinLength || 6}
             onSignUp={onSignUp}
             pending={pending}
             onVerify={onVerify}
+            value={value}
         />
     }
 

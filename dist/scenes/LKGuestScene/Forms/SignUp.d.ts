@@ -4,6 +4,7 @@ interface SignUpProps {
     onVerify: (login: string, password: string, code: string) => void;
     newPasswordsMinLength: number;
     pending: boolean;
+    value: string;
 }
 declare const _default: (props: SignUpProps) => JSX.Element;
 export default _default;

@@ -10,7 +10,8 @@ interface SignUpProps {
     onSignUp: (login: string, password: string, password2: string) => Promise<boolean | undefined>
     onVerify: (login: string, password: string, code: string) => void
     newPasswordsMinLength: number
-    pending: boolean
+    pending: boolean,
+    value: string
 }
 
 
@@ -50,7 +51,7 @@ export default (props: SignUpProps) => {
             {login.value && (
                 <Flexbox pt='1rem'>
                     <TextField {...password}
-                        placeholder="Придумайте пароль"
+                        placeholder={props.value === 'RECOVER' ? 'Новый пароль' : "Придумайте пароль"}
                         type="password"
                         decoration='borderless'
                         size='large'

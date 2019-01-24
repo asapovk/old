@@ -128,9 +128,6 @@ exports.default = (function (props) {
                     return [4 /*yield*/, props.onRegister(login, password)];
                 case 2:
                     result = _a.sent();
-                    if (!result.ok) {
-                        throw new Error(result.message || 'Ошибка регистрации');
-                    }
                     return [2 /*return*/, true];
                 case 3:
                     error_2 = _a.sent();
@@ -161,9 +158,6 @@ exports.default = (function (props) {
                     return [4 /*yield*/, props.onVerify(login, password, code)];
                 case 2:
                     result = _a.sent();
-                    if (!result.ok) {
-                        throw new Error(result.message || 'Ошибка регистрации');
-                    }
                     return [3 /*break*/, 5];
                 case 3:
                     error_3 = _a.sent();
@@ -180,10 +174,10 @@ exports.default = (function (props) {
         });
     }); };
     if (value === "SIGNIN") {
-        return react_1.default.createElement(SignIn_1.default, { allowSignUp: typeof props.onRegister === "function", onSignUp: function () { return setValue("SIGNUP"); }, onSubmit: onLogin, pending: pending });
+        return react_1.default.createElement(SignIn_1.default, { allowSignUp: typeof props.onRegister === "function", onSignUp: setValue, onSubmit: onLogin, pending: pending });
     }
-    if (value === "SIGNUP") {
-        return react_1.default.createElement(SignUp_1.default, { onBack: function () { return setValue("SIGNIN"); }, newPasswordsMinLength: props.config && props.config.newPasswordsMinLength || 6, onSignUp: onSignUp, pending: pending, onVerify: onVerify });
+    if (value === "SIGNUP" || value === "RECOVER") {
+        return react_1.default.createElement(SignUp_1.default, { onBack: function () { return setValue("SIGNIN"); }, newPasswordsMinLength: props.config && props.config.newPasswordsMinLength || 6, onSignUp: onSignUp, pending: pending, onVerify: onVerify, value: value });
     }
     return null;
 });

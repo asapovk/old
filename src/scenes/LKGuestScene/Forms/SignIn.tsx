@@ -1,12 +1,12 @@
 import React, { useState, useEffect, Fragment } from 'react';
-import { Flexbox, TextField, Button } from '../../..';
+import { Flexbox, TextField, Button, T1 } from '../../..';
 
 import useTextField from '../../../hooks/useTextField';
 import createStyles from '../styles';
 
 interface SignInProps {
     allowSignUp: boolean
-    onSignUp: () => void
+    onSignUp: (value) => void
     onSubmit: (login: string, password: string) => void
     pending: boolean
 }
@@ -59,11 +59,14 @@ export default (props: SignInProps) => {
                             size='large'
                             decoration="highlight"
                             disabled={props.pending}
-                            onClick={props.onSignUp}
+                            onClick={() => props.onSignUp('SIGNUP')}
                             style={styles.form.secondaryButton}
                         />
                     </Flexbox>
                 )}
+            </Flexbox>
+            <Flexbox justifyContent='center' pt='1rem'>
+                <T1 link onClick={() => props.onSignUp('RECOVER')}>Забыли пароль?</T1>
             </Flexbox>
         </Fragment>
     );
