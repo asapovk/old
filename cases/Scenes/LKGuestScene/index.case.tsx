@@ -61,7 +61,13 @@ export default () => {
             onRegister={async (login, password) => {
                 return {
                     ok: false,
-                    message: 'Ха-ха, я знаю твой пароль ' + password
+                    message: 'Данные: ' + login + ';' + password
+                }
+            }}
+            onVerify={async (login, password, code) => {
+                return {
+                    ok: false,
+                    message: 'Данные: ' + login + ';' + password + ';' + code
                 }
             }}
             footerActions={[

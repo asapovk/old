@@ -92,5 +92,11 @@ function getThemedStyles(theme) {
         backButtonColor = "#fff";
         secondaryButtonBackground = theme.background.rgba(0.2);
     }
+    if (theme.name === "whiteCurrant") {
+        titleColor = "#fff";
+        backgroundColor = "#000";
+        backButtonColor = "#fff";
+        secondaryButtonBackground = theme.background.rgba(0.2);
+    }
     return { backgroundColor: backgroundColor, titleColor: titleColor, backButtonColor: backButtonColor, secondaryButtonBackground: secondaryButtonBackground };
 }

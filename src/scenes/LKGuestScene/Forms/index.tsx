@@ -52,7 +52,7 @@ export default (props: GuestSceneProps) => {
     /**
      * Регистрация
      */
-    const onSignIn = async (login, password, password2) => {
+    const onSignUp = async (login, password, password2) => {
         if (!props.onRegister) {
             return;
         }
@@ -74,11 +74,34 @@ export default (props: GuestSceneProps) => {
             const result = await props.onRegister(login, password);
 
             if (!result.ok) {
-                throw new Error(result.message || 'Ошибка авторизации')
+                throw new Error(result.message || 'Ошибка регистрации');
+            }
+            return true;
+        } catch (error) {
+            alert({
+                title: "Ошибка регистрации",
+                text: error.message,
+            });
+            return false;
+        } finally {
+            setPending(false);
+        }
+    }
+
+    const onVerify = async (login, password, code) => {
+        if (!props.onVerify) {
+            return;
+        }
+        try {
+            setPending(true);
+            const result = await props.onVerify(login, password, code);
+
+            if (!result.ok) {
+                throw new Error(result.message || 'Ошибка регистрации')
             }
         } catch (error) {
             alert({
-                title: "Ошибка входа",
+                title: "Неверный код",
                 text: error.message,
             });
 
@@ -100,8 +123,9 @@ export default (props: GuestSceneProps) => {
         return <SignUp
             onBack={() => setValue("SIGNIN")}
             newPasswordsMinLength={props.config && props.config.newPasswordsMinLength || 6}
-            onSubmit={onSignIn}
+            onSignUp={onSignUp}
             pending={pending}
+            onVerify={onVerify}
         />
     }
 

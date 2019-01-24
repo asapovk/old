@@ -14,9 +14,23 @@ Object.defineProperty(exports, "__esModule", { value: true });
 /** @jsx jsx */
 var core_1 = require("@emotion/core");
 var react_1 = require("react");
+var __1 = require("..");
 exports.default = react_1.forwardRef(function (props, ref) {
-    return (core_1.jsx("svg", { className: props.className, fill: "currentColor", height: '1em', width: '1em', viewBox: "0 0 128 128", style: __assign({}, props.style, { display: 'inline-block', verticalAlign: 'middle' }), children: core_1.jsx("g", null,
+    var Icon = (core_1.jsx("svg", { className: props.className, fill: "currentColor", height: '1em', width: '1em', viewBox: "0 0 128 128", style: __assign({}, props.style, { display: 'inline-block', verticalAlign: 'middle' }), children: core_1.jsx("g", null,
             core_1.jsx("path", { d: exports.svgIconPath[props.type] })), onClick: props.onClick }));
+    if (props.shape) {
+        switch (props.shape) {
+            case 'oval':
+                return (core_1.jsx(__1.Flexbox, { css: core_1.css({
+                        padding: '25%',
+                        borderRadius: '999px',
+                        background: props.backgroud,
+                        flexShrink: 0,
+                    }), children: Icon, alignItems: 'center', justifyContent: 'center' }));
+                break;
+        }
+    }
+    return Icon;
 });
 exports.svgIconPath = {
     'add': 'M107.534884,59.4882507 C108.7752,59.4882507 109.808781,59.9268886 110.635659,60.8041775 C111.462536,61.6814665 111.917312,62.74673 112,64 C111.917312,65.25327 111.462536,66.3185335 110.635659,67.1958225 C109.808781,68.0731114 108.7752,68.5117493 107.534884,68.5117493 L67.9689922,68.5117493 L67.9689922,107.488251 C67.9689922,108.825072 67.5348881,109.911223 66.6666667,110.746736 C65.7984453,111.58225 64.7441922,112 63.503876,112 C62.2635597,112 61.2093067,111.58225 60.3410853,110.746736 C59.4728639,109.911223 59.0387597,108.825072 59.0387597,107.488251 L59.0387597,68.5117493 L20.4651163,68.5117493 C19.1421122,68.5117493 18.0671876,68.0731114 17.2403101,67.1958225 C16.4134326,66.3185335 16,65.25327 16,64 C16,62.74673 16.4134326,61.6814665 17.2403101,60.8041775 C18.0671876,59.9268886 19.1421122,59.4882507 20.4651163,59.4882507 L59.0387597,59.4882507 L59.0387597,20.5117493 C59.0387597,19.2584794 59.4728639,18.2141034 60.3410853,17.3785901 C61.2093067,16.5430768 62.2635597,16.0835513 63.503876,16 C64.7441922,16.0835513 65.7984453,16.5430768 66.6666667,17.3785901 C67.5348881,18.2141034 67.9689922,19.2584794 67.9689922,20.5117493 L67.9689922,59.4882507 L107.534884,59.4882507 Z',

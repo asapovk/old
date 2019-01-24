@@ -1,6 +1,7 @@
 interface SignUpProps {
     onBack: () => void;
-    onSubmit: (login: string, password: string, password2: string) => void;
+    onSignUp: (login: string, password: string, password2: string) => Promise<boolean | undefined>;
+    onVerify: (login: string, password: string, code: string) => void;
     newPasswordsMinLength: number;
     pending: boolean;
 }

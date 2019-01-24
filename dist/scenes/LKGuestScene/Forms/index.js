@@ -100,7 +100,7 @@ exports.default = (function (props) {
     /**
      * Регистрация
      */
-    var onSignIn = function (login, password, password2) { return __awaiter(_this, void 0, void 0, function () {
+    var onSignUp = function (login, password, password2) { return __awaiter(_this, void 0, void 0, function () {
         var result, error_2;
         return __generator(this, function (_a) {
             switch (_a.label) {
@@ -129,14 +129,47 @@ exports.default = (function (props) {
                 case 2:
                     result = _a.sent();
                     if (!result.ok) {
-                        throw new Error(result.message || 'Ошибка авторизации');
+                        throw new Error(result.message || 'Ошибка регистрации');
                     }
-                    return [3 /*break*/, 5];
+                    return [2 /*return*/, true];
                 case 3:
                     error_2 = _a.sent();
                     alert_1.default({
-                        title: "Ошибка входа",
+                        title: "Ошибка регистрации",
                         text: error_2.message,
+                    });
+                    return [2 /*return*/, false];
+                case 4:
+                    setPending(false);
+                    return [7 /*endfinally*/];
+                case 5: return [2 /*return*/];
+            }
+        });
+    }); };
+    var onVerify = function (login, password, code) { return __awaiter(_this, void 0, void 0, function () {
+        var result, error_3;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    if (!props.onVerify) {
+                        return [2 /*return*/];
+                    }
+                    _a.label = 1;
+                case 1:
+                    _a.trys.push([1, 3, 4, 5]);
+                    setPending(true);
+                    return [4 /*yield*/, props.onVerify(login, password, code)];
+                case 2:
+                    result = _a.sent();
+                    if (!result.ok) {
+                        throw new Error(result.message || 'Ошибка регистрации');
+                    }
+                    return [3 /*break*/, 5];
+                case 3:
+                    error_3 = _a.sent();
+                    alert_1.default({
+                        title: "Неверный код",
+                        text: error_3.message,
                     });
                     return [3 /*break*/, 5];
                 case 4:
@@ -150,7 +183,7 @@ exports.default = (function (props) {
         return react_1.default.createElement(SignIn_1.default, { allowSignUp: typeof props.onRegister === "function", onSignUp: function () { return setValue("SIGNUP"); }, onSubmit: onLogin, pending: pending });
     }
     if (value === "SIGNUP") {
-        return react_1.default.createElement(SignUp_1.default, { onBack: function () { return setValue("SIGNIN"); }, newPasswordsMinLength: props.config && props.config.newPasswordsMinLength || 6, onSubmit: onSignIn, pending: pending });
+        return react_1.default.createElement(SignUp_1.default, { onBack: function () { return setValue("SIGNIN"); }, newPasswordsMinLength: props.config && props.config.newPasswordsMinLength || 6, onSignUp: onSignUp, pending: pending, onVerify: onVerify });
     }
     return null;
 });

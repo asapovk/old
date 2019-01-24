@@ -95,5 +95,12 @@ function getThemedStyles(theme) {
         secondaryButtonBackground = theme.background.rgba(0.2);
     }
 
+    if (theme.name === "whiteCurrant") {
+        titleColor = "#fff";
+        backgroundColor = "#000";
+        backButtonColor = "#fff";
+        secondaryButtonBackground = theme.background.rgba(0.2);
+    }
+
     return { backgroundColor, titleColor, backButtonColor, secondaryButtonBackground }
 }

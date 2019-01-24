@@ -38,7 +38,7 @@ exports.default = (function () {
             backgroundColor: theme.pale.hex
         }),
         titleRight: core_1.css(__assign({ marginLeft: "0.5rem", textAlign: "right" }, typography.caption[1])),
-        titleLeft: core_1.css(__assign({ marginRight: "0.5rem", textAlign: "left" }, typography.caption[1])),
+        titleLeft: core_1.css(__assign({ marginRight: "0.5rem", textAlign: "left", color: theme.lowlight.hex }, typography.caption[1])),
         dotsContainer: core_1.css({
             display: "flex",
             flex: "1 1 auto",

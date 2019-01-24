@@ -6,6 +6,8 @@ declare namespace IconTypes {
         className?: string;
         type: Type;
         onClick?: () => void;
+        shape?: 'cirle' | 'oval';
+        backgroud?: string;
     }
 }
 export default IconTypes;

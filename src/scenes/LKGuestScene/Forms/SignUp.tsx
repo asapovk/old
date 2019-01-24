@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState } from 'react';
 import { Flexbox, TextField, Button } from '../../..';
 import useTextField from '../../../hooks/useTextField';
 import useNumberСaseString from '../../../hooks/useNumberСaseString';
@@ -7,7 +7,8 @@ import { Icon } from '../../../';
 
 interface SignUpProps {
     onBack: () => void
-    onSubmit: (login: string, password: string, password2: string) => void
+    onSignUp: (login: string, password: string, password2: string) => Promise<boolean | undefined>
+    onVerify: (login: string, password: string, code: string) => void
     newPasswordsMinLength: number
     pending: boolean
 }
@@ -19,12 +20,15 @@ export default (props: SignUpProps) => {
     const login = useTextField({ id: "LOGIN" });
     const password = useTextField();
     const password2 = useTextField();
+    const code = useTextField();
 
     const charsLeft = useNumberСaseString(props.newPasswordsMinLength - password.value.length, ["знак", "знака", "знаков"]);
+    const [nextStep, setNextStep] = useState(false);
 
-    const onSubmit = () => props.onSubmit(login.value, password.value, password2.value);
+    const onSignUp = () => props.onSignUp(login.value, password.value, password2.value);
+    const onVerify = () => props.onVerify(login.value, password.value, code.value);
 
-    return (
+    if (!nextStep) return (
         <Fragment>
             <Flexbox flex={1}>
                 <div onClick={props.onBack} style={styles.scenes.lkguest.backButton}>
@@ -74,10 +78,44 @@ export default (props: SignUpProps) => {
             <Flexbox justifyContent="space-around" pt={'1rem'}>
                 <Flexbox flex={1}>
                     <Button
+                        label="Продолжить"
+                        decoration="highlight"
+                        size='large'
+                        onClick={() => {
+                            onSignUp() && setNextStep(true);
+                        }}
+                        style={styles.scenes.lkguest.submitButton}
+                    />
+                </Flexbox>
+            </Flexbox>
+        </Fragment>
+    ); else return (
+        <Fragment>
+            <Flexbox flex={1}>
+                <div onClick={() => setNextStep(false)} style={styles.scenes.lkguest.backButton}>
+                    <Icon
+                        type="left"
+                        style={{ ...styles.scenes.lkguest.backButtonIcon, fontSize: '1.5 rem' }}
+                    />
+                </div>
+
+                <Flexbox flex={1}>
+                    <TextField {...code}
+                        placeholder="Код подтверждения"
+                        decoration='borderless'
+                        size='large'
+                    />
+                </Flexbox>
+            </Flexbox>
+
+
+            <Flexbox justifyContent="space-around" pt={'1rem'}>
+                <Flexbox flex={1}>
+                    <Button
                         label="Зарегистрироваться"
                         decoration="highlight"
                         size='large'
-                        onClick={onSubmit}
+                        onClick={onVerify}
                         style={styles.scenes.lkguest.submitButton}
                     />
                 </Flexbox>

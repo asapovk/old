@@ -11,7 +11,7 @@ declare namespace MenuTypes {
     }
     interface Props extends ItemsProps {
         title?: string;
-        tools?: React.ReactElement<any>[];
+        tools?: React.ReactNode;
         style?: CSSProperties;
         logo?: React.ReactElement<any>;
         value?: string;

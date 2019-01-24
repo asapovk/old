@@ -46,7 +46,7 @@ export interface GuestSceneProps {
     onLogin: (login: string, password: string) => Promise<OnLoginPromiseReturn>;
     onRegister?: (login: string, password: string) => Promise<OnLoginPromiseReturn>;
     onRecovery?: (login: string, password: string) => Promise<OnLoginPromiseReturn>;
-    onVeritfy?: (login: string, code: string) => Promise<OnLoginPromiseReturn>;
+    onVerify?: (login: string, password: string, code: string) => Promise<OnLoginPromiseReturn>;
     footerActions?: GuestSceneFooterActions[];
     /**
      * Заголовок - слоган
