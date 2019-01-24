@@ -37,6 +37,7 @@ export default () => {
         titleLeft: css({
             marginRight: "0.5rem",
             textAlign: "left",
+            color: theme.lowlight.hex,
             ...typography.caption[1]
         }),
 
