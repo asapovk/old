@@ -1,13 +1,13 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
-import useStyles from './useStyles';
+import createStyles from './styels';
 import React from 'react';
 import { Spin, Icon } from '../index';
 
 export interface ButtonProps {
     label?: string
     outline?: true | undefined
-    decoration?: 'none' | 'highlight' | 'red' | 'green' | 'orange' | 'blue' | 'grayscale' | 'inverse'
+    decoration?: 'none' | 'highlight' | 'red' | 'green' | 'orange' | 'blue' | 'grayscale' | 'inverse' | 'outline'
     loading?: boolean
     icon?: React.Component
     labelCase?: 'upper' | 'lower' | 'capitalize' | 'sentence'
@@ -24,7 +24,7 @@ export interface ButtonProps {
 export default (props: ButtonProps) => {
 
     const { labelCase, label, children, style, loading, decoration, disabled, size, inversion, className, thin } = props;
-    const styles = useStyles(size, loading, disabled, labelCase, decoration, inversion, thin);
+    const styles = createStyles(size, loading, disabled, labelCase, decoration, inversion, thin);
 
     const onClick = (event) => {
         if (!props.disabled && !props.loading) {

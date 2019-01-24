@@ -1,38 +1,11 @@
 /** @jsx jsx */
 import { jsx, css } from '@emotion/core';
 import { useTypography, useTheme } from '../../hooks';
+import { Fragment } from 'react';
 import Types from './types';
 import { forwardRef } from 'react';
 import { Flexbox } from '..';
-
-const Format = (props) => {
-    let float, integer, fraction, unit
-
-    if (typeof props.children === 'string') {
-        float = parseFloat(props.children.replace(',', '.'));
-    } else if (typeof props.children === 'number') {
-        float = props.children
-    } else return props.children
-
-    float = float.toString().split('.');
-    integer = parseInt(float[0]);
-    fraction = parseInt(float[1]);
-
-    switch (props.format) {
-        case 'rub':
-            unit = '₽'
-            break;
-        case 'volume':
-            unit = ['м', <sup key={1}>{'3'}</sup>]
-    }
-
-    return (
-        <span>
-            {integer + ','}
-            <span css={css({ fontSize: '0.75em', opacity: .5 })}>{fraction + ' '}{unit}</span>
-        </span>
-    )
-}
+import Formatter from './Formatter'
 
 const Typography = forwardRef((props: Types.Props, ref) => {
 
@@ -47,17 +20,21 @@ const Typography = forwardRef((props: Types.Props, ref) => {
             onClick: props.onClick,
             css: css({
                 ...typography,
-                display: 'inline-block'
+                display: props.type === 'caption' ? 'inline-block' : 'block',
             },
+                props.color && {
+                    color: theme[props.color].rgb
+                },
                 props.bold && {
                     fontWeight: 'bold'
                 },
                 props.link && {
-                    color: theme.highlight.rgb
-                })
+                    color: theme.highlight.rgb,
+                    cursor: 'pointer'
+                }),
         },
         props.format
-            ? <Format format={props.format}>{props.children}</Format>
+            ? <Formatter format={props.format}>{props.children}</Formatter>
             : props.children
     );
 
@@ -65,13 +42,17 @@ const Typography = forwardRef((props: Types.Props, ref) => {
         return (
             <Flexbox flexDirection='column'>
                 {props.action
-                    ? <Flexbox alignItems='center' justifyContent='space-between'>
+                    ? <Flexbox alignItems='baseline' justifyContent='space-between'>
                         {Text}
                         <div>{props.action}</div>
                     </Flexbox>
                     : Text
                 }
-                <HR css={css({ paddingTop: '0.625rem', marginTop: typography.marginBottom && '-' + typography.marginBottom })} />
+                <HR css={css({
+                    paddingTop: '0.625rem',
+                    marginTop: typography.marginBottom &&
+                        '-' + typography.marginBottom
+                })} />
             </Flexbox>
         )
     } else return Text
@@ -170,14 +151,17 @@ export const C4 = forwardRef((props: Types.TextProps, ref) => {
  * OTHER
  */
 
-export const HR = (props) => {
+export const HR = (props: Types.HRProps) => {
     const theme = useTheme().theme;
+    console.log(props.bold ? '4px' : '0.5px');
     return <div
         className={props.className}
         css={css({
             height: '1px',
             width: '100%',
-            borderBottom: '0.5px solid ' + theme.pale.rgb
+            borderBottomWidth: props.bold ? '4px' : '0.5px',
+            borderBottomStyle: props.dotted ? 'dotted' : 'solid',
+            borderBottomColor: theme[props.color ? props.color : 'pale'].rgb
         })}
     />
 }

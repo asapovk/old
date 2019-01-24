@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core';
-import { Flexbox } from '..';
+import { Flexbox, C1 } from '..';
 import createStyles from './styles';
 import Types from './types';
 
@@ -23,7 +23,7 @@ export default (props: Types.ITimeline) => {
             <div css={styles.dotsContainer}>
                 {props.dots.map((dot, index) => (
                     <div key={index}>
-                        <div css={styles.dotTopText} children={dot.value} />
+                        <div css={styles.dotTopText} children={<C1 format='rub'>{dot.value}</C1>} />
                         <div css={styles.dotContainer} children={<div />} />
                         <div css={styles.dotBottomText} children={dot.bottomTitle} />
                     </div>

@@ -92,6 +92,12 @@ function getDecoration(decoration, inversion, theme) {
             boxShadow = 'none';
             color = theme.highlight.rgb;
             break;
+        case 'outline':
+            background = 'unset';
+            boxShadow = 'none';
+            border = '1px solid ' + theme.highlight.rgb;
+            color = theme.highlight.rgb;
+            break;
         case 'none':
             background = 'none';
             border = 'none';

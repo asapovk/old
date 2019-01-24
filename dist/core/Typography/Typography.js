@@ -10,12 +10,16 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 /** @jsx jsx */
 var core_1 = require("@emotion/core");
 var hooks_1 = require("../../hooks");
 var react_1 = require("react");
 var __1 = require("..");
+var Formatter_1 = __importDefault(require("./Formatter"));
 var Typography = react_1.forwardRef(function (props, ref) {
     var typography = hooks_1.useTypography()[props.type][props.size];
     var theme = hooks_1.useTheme().theme;
@@ -23,20 +27,29 @@ var Typography = react_1.forwardRef(function (props, ref) {
         ref: ref,
         className: props.className,
         onClick: props.onClick,
-        css: core_1.css(__assign({}, typography, { display: 'inline-block' }), props.bold && {
+        css: core_1.css(__assign({}, typography, { display: props.type === 'caption' ? 'inline-block' : 'block' }), props.color && {
+            color: theme[props.color].rgb
+        }, props.bold && {
             fontWeight: 'bold'
         }, props.link && {
-            color: theme.highlight.rgb
-        })
-    }, props.children);
+            color: theme.highlight.rgb,
+            cursor: 'pointer'
+        }),
+    }, props.format
+        ? core_1.jsx(Formatter_1.default, { format: props.format }, props.children)
+        : props.children);
     if (props.underline || props.action) {
         return (core_1.jsx(__1.Flexbox, { flexDirection: 'column' },
             props.action
-                ? core_1.jsx(__1.Flexbox, { alignItems: 'center', justifyContent: 'space-between' },
+                ? core_1.jsx(__1.Flexbox, { alignItems: 'baseline', justifyContent: 'space-between' },
                     Text,
                     core_1.jsx("div", null, props.action))
                 : Text,
-            core_1.jsx(exports.HR, { css: core_1.css({ paddingTop: '0.625rem' }) })));
+            core_1.jsx(exports.HR, { css: core_1.css({
+                    paddingTop: '0.625rem',
+                    marginTop: typography.marginBottom &&
+                        '-' + typography.marginBottom
+                }) })));
     }
     else
         return Text;
@@ -112,9 +125,12 @@ exports.C4 = react_1.forwardRef(function (props, ref) {
  */
 exports.HR = function (props) {
     var theme = hooks_1.useTheme().theme;
+    console.log(props.bold ? '4px' : '0.5px');
     return core_1.jsx("div", { className: props.className, css: core_1.css({
             height: '1px',
             width: '100%',
-            borderBottom: '0.5px solid ' + theme.pale.rgb
+            borderBottomWidth: props.bold ? '4px' : '0.5px',
+            borderBottomStyle: props.dotted ? 'dotted' : 'solid',
+            borderBottomColor: theme[props.color ? props.color : 'pale'].rgb
         }) });
 };

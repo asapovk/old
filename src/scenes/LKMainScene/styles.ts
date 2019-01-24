@@ -73,7 +73,6 @@ export default (displaySideBar) => {
             }),
             top: css({
                 backgroundColor: theme.background2.hex,
-                padding: '2.5rem 0',
                 width: '100%',
                 justifyContent: 'center',
             }),

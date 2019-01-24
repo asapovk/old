@@ -16,7 +16,7 @@ exports.default = (function (props) {
             core_1.jsx("div", { css: styles.line }),
             props.rightTitle && (core_1.jsx("div", { css: styles.titleRight, children: props.rightTitle }))),
         core_1.jsx("div", { css: styles.dotsContainer }, props.dots.map(function (dot, index) { return (core_1.jsx("div", { key: index },
-            core_1.jsx("div", { css: styles.dotTopText, children: dot.value }),
+            core_1.jsx("div", { css: styles.dotTopText, children: core_1.jsx(__1.C1, { format: 'rub' }, dot.value) }),
             core_1.jsx("div", { css: styles.dotContainer, children: core_1.jsx("div", null) }),
             core_1.jsx("div", { css: styles.dotBottomText, children: dot.bottomTitle }))); }))));
 });
