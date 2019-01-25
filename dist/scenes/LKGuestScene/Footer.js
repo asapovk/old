@@ -27,7 +27,7 @@ exports.default = (function (props) {
     }
     return (core_1.jsx(__1.Flexbox, { flex: 1, css: styles.footer.main },
         core_1.jsx(__1.Flexbox, { flex: 1, css: styles.footer.wrapper }, props.footerActions.map(function (action, index) {
-            return core_1.jsx(__1.Flexbox, { css: index > 0 ? __assign({}, styles.footer.item, styles.footer.separator) : styles.footer.item, onClick: action.onAction, flex: 1, flexDirection: "column", justifyContent: "center", alignItems: "center" },
+            return core_1.jsx(__1.Flexbox, { key: index, css: index > 0 ? __assign({}, styles.footer.item, styles.footer.separator) : styles.footer.item, onClick: action.onAction, flex: 1, flexDirection: "column", justifyContent: "center", alignItems: "center" },
                 core_1.jsx(__1.Icon, { css: styles.footer.icon, type: action.icon }),
                 core_1.jsx("div", { css: styles.footer.label },
                     action.title,

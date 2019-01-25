@@ -19,7 +19,6 @@ declare namespace TextFieldTypes {
         onClick?: (event: any) => void;
         onFocus?: (event: any) => void;
         onBlur?: (event: any) => void;
-        onEnter?: (event: any) => void;
         defaultValue?: string;
         value?: string;
         placeholder?: string;
