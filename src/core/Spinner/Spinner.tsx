@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { jsx } from '@emotion/core';
+import { jsx, css } from '@emotion/core';
 import createStyles from './styles';
 import Types from './types';
 
@@ -24,10 +24,19 @@ export default (props: Types.ISpinner) => {
 
 const Spin = (props: Types.ISpinner) => {
     const styles = createStyles();
+    const startDelay = 1.1;
 
     return (
         <div css={styles.spinner} style={props.style} className={props.className}>
-            {Array(12).fill("").map((e, i) => <div key={i} />)}
+            {Array(12).fill("").map((e, i) =>
+                <div
+                    key={i}
+                    css={css({
+                        transform: `rotate(${i * 30}deg)`,
+                        animationDelay: `-${(startDelay - i / 10).toFixed(1)}s !important`
+                    })}
+                />
+            )}
         </div>
     );
 }

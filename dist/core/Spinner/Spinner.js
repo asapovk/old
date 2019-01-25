@@ -31,5 +31,11 @@ exports.default = (function (props) {
 });
 var Spin = function (props) {
     var styles = styles_1.default();
-    return (core_1.jsx("div", { css: styles.spinner, style: props.style, className: props.className }, Array(12).fill("").map(function (e, i) { return core_1.jsx("div", { key: i }); })));
+    var startDelay = 1.1;
+    return (core_1.jsx("div", { css: styles.spinner, style: props.style, className: props.className }, Array(12).fill("").map(function (e, i) {
+        return core_1.jsx("div", { key: i, css: core_1.css({
+                transform: "rotate(" + i * 30 + "deg)",
+                animationDelay: "-" + (startDelay - i / 10).toFixed(1) + "s !important"
+            }) });
+    })));
 };
