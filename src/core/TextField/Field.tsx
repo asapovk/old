@@ -3,10 +3,6 @@ import { jsx } from '@emotion/core'
 import { forwardRef } from 'react';
 import Types from './types'
 
-interface Test {
-    value: string
-}
-
 export default forwardRef((props: Types.FieldProps, ref) => {
 
     function onChange(event) {
