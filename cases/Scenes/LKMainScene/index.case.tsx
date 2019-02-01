@@ -34,7 +34,9 @@ export default () => {
             user={{
                 name: 'Пользователь Пользователь Пользователь',
                 shortname: 'qwe',
-                onLogout: () => console.log('logout')
+                onLogout: async () => new Promise((res, rej) => {
+                    console.log('logout');
+                })
             }}
             displaySideBar={true}
         />
