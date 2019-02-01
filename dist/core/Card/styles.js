@@ -12,27 +12,27 @@ exports.default = (function (active) {
     return {
         main: core_1.css({
             background: theme.interface.rgb,
-            boxShadow: theme.shadows.card,
+            boxShadow: '0 0 0 rgba(0,0,0,0)',
             borderRadius: theme.radius.card,
             color: theme.text.rgb,
             border: "1px solid",
             borderColor: theme.pale.rgba(1),
             userSelect: 'none',
             padding: '1.25rem',
-            height: '160px',
-            minWidth: '280px',
-            marginBottom: '1.25rem',
+            height: '8rem',
+            minWidth: '13rem',
+            // marginBottom: '1.25rem',
             overflow: 'hidden',
             willChange: 'height',
             boxSizing: 'border-box',
             transition: 'all .3s'
         }, active && {
-            background: "linear-gradient(80deg," + theme.gradient.card[0] + "," + theme.gradient.card[1] + ")",
-            border: 'none',
+            // background: "linear-gradient(80deg," + theme.gradient.card[0] + "," + theme.gradient.card[1] + ")",
+            // border: 'none',
+            boxShadow: theme.shadows.card,
             color: theme.textOnAccent.rgb,
-            borderColor: theme.pale.rgba(0),
-            height: '180px',
-            marginLeft: '30px',
+            background: theme.interface.rgb,
+            // marginLeft: '30px',
             '@media (max-width: 640px)': {
                 transform: 'translateX(0)'
             }
@@ -71,6 +71,6 @@ exports.default = (function (active) {
                 }),
             }
         },
-        color: active ? theme.textOnAccent.rgb : theme.text.rgb,
+        color: theme.text.rgb
     };
 });

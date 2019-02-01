@@ -1,5 +1,6 @@
-declare const _default: () => {
+declare const _default: (forElka?: boolean | undefined) => {
     menu: {
+        container: import("@emotion/utils").SerializedStyles;
         holder: import("@emotion/utils").SerializedStyles;
         header: import("@emotion/utils").SerializedStyles;
         title: import("@emotion/utils").SerializedStyles;

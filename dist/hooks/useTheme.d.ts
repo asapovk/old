@@ -124,15 +124,6 @@ declare const _default: () => {
             color: string;
         };
     };
-    widget: {
-        background: string;
-        lowlight: string;
-        highlight: string;
-        borderRadius: string;
-        borderColor: string;
-        borderStyle: string;
-        borderWidth: string;
-    };
     widgetStat: {
         titleStyle: {
             color: string;

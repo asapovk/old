@@ -17,6 +17,7 @@ declare namespace MenuTypes {
         value?: string;
         onChange?: (value: string) => void;
         moreLabel?: string;
+        forElka?: boolean;
     }
     interface MobileProps {
         active: boolean;

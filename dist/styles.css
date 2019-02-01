@@ -693,57 +693,6 @@
   border-bottom-right-radius: 0 !important;
 }
 
-.ui-widget {
-  line-height: 1;
-  padding: 1rem;
-  min-width: 250px;
-  overflow: hidden;
-  -webkit-transition: all 0.1s;
-  -khtml-transition: all 0.1s;
-  -moz-transition: all 0.1s;
-  -ms-transition: all 0.1s;
-  -o-transition: all 0.1s;
-  transition: all 0.1s;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  -o-user-select: none;
-  user-select: none;
-}
-.ui-widget-clickable:hover {
-  -webkit-transform: scale(1.05);
-  -khtml-transform: scale(1.05);
-  -moz-transform: scale(1.05);
-  -ms-transform: scale(1.05);
-  -o-transform: scale(1.05);
-  transform: scale(1.05);
-}
-.ui-widget-clickable:active {
-  -webkit-transform: scale(1.03);
-  -khtml-transform: scale(1.03);
-  -moz-transform: scale(1.03);
-  -ms-transform: scale(1.03);
-  -o-transform: scale(1.03);
-  transform: scale(1.03);
-}
-.ui-widget-loading {
-  font-size: 24px;
-  font-weight: 500;
-  color: rgba(51, 51, 51, 0.5);
-}
-.ui-widget-loading svg {
-  color: #333;
-}
-.ui-widget-loadingtext {
-  font-size: 16px;
-  padding-top: 10px;
-}
-.ui-widget-title {
-  font-size: 18px;
-  text-transform: uppercase;
-}
-
 .ui-widgetstat-title {
   font-size: 18px;
   text-transform: uppercase;

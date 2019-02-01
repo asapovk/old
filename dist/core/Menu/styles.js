@@ -13,18 +13,25 @@ var __assign = (this && this.__assign) || function () {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@emotion/core");
 var hooks_1 = require("../../hooks");
-exports.default = (function () {
+exports.default = (function (forElka) {
     var theme = hooks_1.useTheme().theme;
     var typography = hooks_1.useTypography();
     return {
         menu: {
+            container: core_1.css({
+                width: '100%',
+            }),
             holder: core_1.css({
                 backgroundColor: theme.interface.hex,
                 height: 'calc(4rem - 1px)',
-                padding: '0 2.5rem',
-                borderBottom: '1px solid ' + theme.pale.rgb,
                 userSelect: 'none',
-                alignItems: 'center'
+                alignItems: 'center',
+                borderBottom: '1px solid ' + theme.pale.rgb,
+                padding: '0 2.5rem',
+            }, forElka && {
+                backgroundColor: 'rgba(0, 0, 0, 0)',
+                borderBottom: 'none',
+                padding: 0
             }),
             header: core_1.css({
                 cursor: 'pointer',
@@ -38,12 +45,14 @@ exports.default = (function () {
         },
         navbar: {
             holder: core_1.css({
-                justifyContent: 'center',
                 alignItems: 'center',
                 flex: '1 1 0',
                 overflow: 'hidden',
+                justifyContent: 'center',
+            }, forElka && {
+                justifyContent: 'flex-start'
             }),
-            item: function (active, visible) { return core_1.css(__assign({}, typography.caption[1], { padding: '0.375rem 1rem', cursor: 'pointer', fontWeight: 500, flexShrink: 0, color: active ? theme.textOnAccent.rgb : theme.text.rgb, background: active ? theme.highlight.rgb : 'transparent', borderRadius: theme.radius.button, display: visible ? 'block' : 'none' })); },
+            item: function (active, visible) { return core_1.css(__assign({}, typography.caption[1], { padding: '0.375rem 1.5rem', cursor: 'pointer', fontWeight: 500, flexShrink: 0, color: active ? theme.textOnAccent.rgb : theme.text.rgb, background: active ? theme.highlight.rgb : 'transparent', borderRadius: theme.radius.button, display: visible ? 'block' : 'none' })); },
             dropdown: core_1.css({
                 boxSizing: 'border-box',
                 padding: '1rem',

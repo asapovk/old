@@ -202,15 +202,6 @@ export declare const createStyles: (themeName?: string | undefined) => {
             color: string;
         };
     };
-    widget: {
-        background: string;
-        lowlight: string;
-        highlight: string;
-        borderRadius: string;
-        borderColor: string;
-        borderStyle: string;
-        borderWidth: string;
-    };
     widgetStat: {
         titleStyle: {
             color: string;
@@ -381,15 +372,6 @@ export declare const StylesContext: React.Context<{
             color: string;
         };
     };
-    widget: {
-        background: string;
-        lowlight: string;
-        highlight: string;
-        borderRadius: string;
-        borderColor: string;
-        borderStyle: string;
-        borderWidth: string;
-    };
     widgetStat: {
         titleStyle: {
             color: string;
@@ -559,15 +541,6 @@ declare const _default: React.ExoticComponent<React.ConsumerProps<{
             background: string;
             color: string;
         };
-    };
-    widget: {
-        background: string;
-        lowlight: string;
-        highlight: string;
-        borderRadius: string;
-        borderColor: string;
-        borderStyle: string;
-        borderWidth: string;
     };
     widgetStat: {
         titleStyle: {

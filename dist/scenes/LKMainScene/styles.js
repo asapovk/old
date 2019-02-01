@@ -1,110 +1,99 @@
 "use strict";
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@emotion/core");
 var hooks_1 = require("../../hooks");
 exports.default = (function (displaySideBar) {
     var theme = hooks_1.useTheme().theme;
+    var typography = hooks_1.useTypography();
     return {
         sidebar: {
-            holder: core_1.css({
-                width: '20rem',
-                zIndex: 3,
-                position: 'sticky',
-                top: 0,
-                alignSelf: 'flex-start',
+            container: core_1.css({
+                position: 'fixed',
+                display: 'flex',
                 flexDirection: 'column',
+                justifyContent: 'space-between',
+                top: 0,
+                bottom: 0,
+                left: 0,
+                width: '15rem',
+                boxSizing: 'border-box',
+                borderWidth: '1px',
+                borderStyle: 'solid',
+                borderColor: theme.pale.hex,
+                background: 'linear-gradient(270deg, #F2F0F5 0%, #FAF7FC 100%)',
+                padding: '2.75rem 0 2.75rem 2.75rem',
                 '@media (max-width: 768px)': {
                     position: 'relative',
                     width: '100%',
-                    marginTop: '1.25rem'
+                    padding: '2.75rem',
                 }
             }),
-            content: core_1.css({
-                width: '20rem',
-                zIndex: 3,
-                flexDirection: 'column',
-                '@media (max-width: 768px)': {
-                    width: '100%'
-                }
-            }),
-            background: core_1.css({
-                top: 0,
-                left: 0,
-                bottom: 0,
-                position: 'fixed',
-                zIndex: 2,
-                width: '20rem',
-                borderRight: '1px solid ' + theme.pale.hex,
-                background: theme.interface.hex,
-            }),
-            logo: {
+            user: {
                 container: core_1.css({
-                    width: '20rem',
-                    height: '8.5rem',
+                    marginBottom: '3.5rem',
                 }),
-                holder: core_1.css({
-                    position: 'fixed',
-                    width: '20rem',
-                    zIndex: 4,
+                avatar: core_1.css({
+                    display: 'flex',
+                    color: theme.textOnAccent.hex,
                     alignItems: 'center',
-                    flexDirection: 'column',
-                    background: theme.interface.hex
+                    width: '4.5rem',
+                    height: '4.5rem',
+                    borderRadius: '50%',
+                    background: 'linear-gradient(180deg, #A567C2 0%, #6B368F 100%)',
+                    "> div": __assign({}, typography.display[2], { width: 'inherit', textAlign: 'center', textTransform: 'uppercase' })
                 }),
-                wrapper: core_1.css({
-                    padding: '2.5rem 0',
-                    height: '3.5rem',
-                    width: '12rem',
-                    justifyContent: 'center',
+                name: core_1.css({
+                    display: 'block',
+                    marginTop: '.75rem',
+                    textOverflow: 'ellipsis',
+                    overflow: 'hidden',
+                    whiteSpace: 'nowrap',
+                    paddingRight: '1rem'
                 })
-            }
+            },
+            logo: core_1.css({
+                paddingTop: '2.5rem',
+                height: '3rem',
+                marginLeft: '-2.75rem'
+            }),
         },
         main: {
             container: core_1.css({
-                position: 'sticky',
-                top: 0,
-                alignSelf: 'flex-start',
-                flexDirection: 'column',
+                display: 'flex',
                 flex: 1,
-                alignItems: 'center',
+                justifyContent: 'center',
+                boxSizing: 'border-box',
+                marginLeft: '15rem',
+                padding: '2.75rem 4.5rem',
                 '@media (max-width: 768px)': {
-                    display: 'none'
-                },
-            }),
-            top: core_1.css({
-                backgroundColor: theme.background2.hex,
-                width: '100%',
-                justifyContent: 'center',
-            }),
-            content: core_1.css({
-                width: '100%',
-                justifyContent: 'center',
-            }),
-            holder: core_1.css({
-                width: '100%',
-                maxWidth: '960px',
-                margin: '0 2rem'
-            }),
-        },
-        menu: {
-            container: core_1.css({
-                height: '4rem',
-                width: '100%'
-            }),
-            holder: core_1.css({
-                position: 'fixed',
-                left: displaySideBar
-                    ? '20rem'
-                    : 0,
-                right: 0,
-                top: 0,
-                zIndex: 1,
-                '@media (max-width: 1023px)': {
-                    position: 'absolute',
-                    left: 0,
-                    right: 0,
-                    top: 0,
-                    zIndex: 1,
+                    marginLeft: '0',
                 }
+            }),
+            holder: core_1.css({
+                display: 'flex',
+                flexBasis: 960,
+                flexDirection: 'column',
+                '@media (max-width: 768px)': {
+                    display: 'block',
+                    width: '100%'
+                }
+            }),
+            menu: core_1.css({
+                display: 'flex',
+                alignItems: 'center',
+                height: '4.5rem',
+                width: '100%',
             }),
         }
     };

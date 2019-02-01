@@ -10,3 +10,5 @@ var ScrollView_1 = require("./ScrollView");
 exports.ScrollView = ScrollView_1.ScrollView;
 var WidgetStat_1 = require("./WidgetStat");
 exports.WidgetStat = WidgetStat_1.WidgetStat;
+var RublesField_1 = require("./RublesField");
+exports.RublesField = RublesField_1.RublesField;
