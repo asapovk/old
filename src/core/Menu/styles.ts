@@ -1,19 +1,28 @@
 import { css } from '@emotion/core';
 import { useTheme, useTypography } from '../../hooks';
 
-export default () => {
+export default (forElka?: boolean) => {
     const theme = useTheme().theme;
     const typography = useTypography();
     return {
         menu: {
+            container: css({
+                width: '100%',
+            }),
+
             holder: css({
                 backgroundColor: theme.interface.hex,
                 height: 'calc(4rem - 1px)',
-                padding: '0 2.5rem',
-                borderBottom: '1px solid ' + theme.pale.rgb,
                 userSelect: 'none',
-                alignItems: 'center'
+                alignItems: 'center',
+                borderBottom: '1px solid ' + theme.pale.rgb,
+                padding: '0 2.5rem',
+            }, forElka && {
+                backgroundColor: 'rgba(0, 0, 0, 0)',
+                borderBottom: 'none',
+                padding: 0
             }),
+
             header: css({
                 cursor: 'pointer',
                 marginRight: '2.5rem',
@@ -33,14 +42,17 @@ export default () => {
         },
         navbar: {
             holder: css({
-                justifyContent: 'center',
                 alignItems: 'center',
                 flex: '1 1 0',
                 overflow: 'hidden',
+                justifyContent: 'center',
+            }, forElka && {
+                justifyContent: 'flex-start'
             }),
+
             item: (active, visible) => css({
                 ...typography.caption[1],
-                padding: '0.375rem 1rem',
+                padding: '0.375rem 1.5rem',
                 cursor: 'pointer',
                 fontWeight: 500,
                 flexShrink: 0,
@@ -49,6 +61,7 @@ export default () => {
                 borderRadius: theme.radius.button,
                 display: visible ? 'block' : 'none'
             }),
+
             dropdown: css({
                 boxSizing: 'border-box',
                 padding: '1rem',
@@ -61,6 +74,7 @@ export default () => {
                 backgroundColor: theme.background.hex,
                 borderRadius: theme.radius.default
             }),
+
             mobile: (active) => css({
                 overflow: 'hidden',
                 transform: 'scaleY(0)',

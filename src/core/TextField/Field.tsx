@@ -5,7 +5,7 @@ import Types from './types'
 
 export default forwardRef((props: Types.FieldProps, ref) => {
 
-    function onChange(event) {
+    function onChange(event: React.FormEvent<HTMLInputElement>): void {
         props.onChange && props.onChange(event);
     }
 
@@ -24,7 +24,7 @@ export default forwardRef((props: Types.FieldProps, ref) => {
             type: props.type,
             ...props.multiline
                 ? props.singlerow && {
-                    onKeyDown: (event) => {
+                    onKeyDown: (event: React.KeyboardEvent<HTMLInputElement>) => {
                         if (event.keyCode === 13) {
                             event.preventDefault();
                         }

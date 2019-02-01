@@ -1,5 +1,5 @@
 import React from 'react';
-import Scene from '../../../src/scenes/LKMainScene';
+import Scene from '../../../src/scenes/LKMainScene_old';
 import useTheme from '../../../src/hooks/useTheme';
 import { MRG, ABR, Smorodina } from '../../../src/logos';
 import '../../../src/styles/scss/main.scss';
@@ -30,11 +30,6 @@ export default () => {
                 sidebar: <Sidebar />,
                 mainTop: <MainTop />,
                 main: <Main />,
-            }}
-            user={{
-                name: 'Пользователь Пользователь Пользователь',
-                shortname: 'qwe',
-                onLogout: () => console.log('logout')
             }}
             displaySideBar={true}
         />

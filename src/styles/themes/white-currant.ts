@@ -24,7 +24,7 @@ export default {
     shadows: {
         button: '0px 2px 6px 0px ' + getColors(0, 0, 0).rgba(0.2),
         table: 'none',
-        card: '0px 1rem 1rem 0px ' + getColors(0, 0, 0).rgba(0.2),
+        card: '0rem .5rem .5rem 0px ' + getColors(0, 0, 0).rgba(0.15),
     },
     borders: {
         button: {

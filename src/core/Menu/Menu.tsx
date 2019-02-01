@@ -13,13 +13,13 @@ import NavBar from './NavBar';
 
 export default (props: Types.Props) => {
 
-    const styles = createStyles();
+    const styles = createStyles(props.forElka);
     const browser = useBrowser();
     const { title, style, tools, items, logo, value, onChange, moreLabel } = props;
     const [mobileActive, setMobileActive] = useState(false);
 
     return (
-        <Flexbox flexDirection='column'>
+        <div css={styles.menu.container}>
             <Flexbox css={styles.menu.holder} style={style}>
                 {!browser.isDesktop && (
                     <MobileMenu
@@ -28,18 +28,22 @@ export default (props: Types.Props) => {
                         styles={styles.mobile.hamburger}
                     />
                 )}
-                <Flexbox
-                    alignItems='center'
-                    flexGrow={browser.isDesktop ? 0 : 1}
-                    css={styles.menu.header}
-                    children={logo
-                        ? logo
-                        : <div
-                            css={styles.menu.title}
-                            children={title}
-                        />
-                    }
-                />
+
+                {!props.forElka && (
+                    <Flexbox
+                        alignItems='center'
+                        flexGrow={browser.isDesktop ? 0 : 1}
+                        css={styles.menu.header}
+                        children={logo
+                            ? logo
+                            : <div
+                                css={styles.menu.title}
+                                children={title}
+                            />
+                        }
+                    />
+                )}
+
                 {browser.isDesktop && (
                     <NavBar
                         items={items}
@@ -66,6 +70,6 @@ export default (props: Types.Props) => {
                     active={mobileActive}
                 />
             )}
-        </Flexbox>
+        </div>
     )
 }

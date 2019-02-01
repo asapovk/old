@@ -1,111 +1,100 @@
 import { css } from '@emotion/core'
-import { useTheme } from '../../hooks'
+import { useTheme, useTypography } from '../../hooks';
 
-export default (displaySideBar) => {
+export default (displaySideBar?: boolean) => {
     const theme = useTheme().theme
+    const typography = useTypography();
 
     return {
         sidebar: {
-            holder: css({
-                width: '20rem',
-                zIndex: 3,
-                position: 'sticky',
-                top: 0,
-                alignSelf: 'flex-start',
+            container: css({
+                position: 'fixed',
+                display: 'flex',
                 flexDirection: 'column',
+                justifyContent: 'space-between',
+                top: 0,
+                bottom: 0,
+                left: 0,
+                width: '15rem',
+                boxSizing: 'border-box',
+                borderWidth: '1px',
+                borderStyle: 'solid',
+                borderColor: theme.pale.hex,
+                background: 'linear-gradient(270deg, #F2F0F5 0%, #FAF7FC 100%)',
+                padding: '2.75rem 0 2.75rem 2.75rem',
                 '@media (max-width: 768px)': {
                     position: 'relative',
                     width: '100%',
-                    marginTop: '1.25rem'
+                    padding: '2.75rem',
                 }
-
             }),
-            content: css({
-                width: '20rem',
-                zIndex: 3,
+
+            user: {
+                container: css({
+                    marginBottom: '3.5rem',
+                }),
+
+                avatar: css({
+                    display: 'flex',
+                    color: theme.textOnAccent.hex,
+                    alignItems: 'center',
+                    width: '4.5rem',
+                    height: '4.5rem',
+                    borderRadius: '50%',
+                    background: 'linear-gradient(180deg, #A567C2 0%, #6B368F 100%)',
+                    "> div": {
+                        ...typography.display[2],
+                        width: 'inherit',
+                        textAlign: 'center',
+                        textTransform: 'uppercase'
+                    }
+                }),
+
+                name: css({
+                    display: 'block',
+                    marginTop: '.75rem',
+                    textOverflow: 'ellipsis',
+                    overflow: 'hidden',
+                    whiteSpace: 'nowrap',
+                    paddingRight: '1rem'
+                })
+            },
+
+            logo: css({
+                paddingTop: '2.5rem',
+                height: '3rem',
+                marginLeft: '-2.75rem'
+            }),
+        },
+
+        main: {
+            container: css({
+                display: 'flex',
+                flex: 1,
+                justifyContent: 'center',
+                boxSizing: 'border-box',
+                marginLeft: '15rem',
+                padding: '2.75rem 4.5rem',
+                '@media (max-width: 768px)': {
+                    marginLeft: '0',
+                }
+            }),
+
+            holder: css({
+                display: 'flex',
+                flexBasis: 960,
                 flexDirection: 'column',
                 '@media (max-width: 768px)': {
+                    display: 'block',
                     width: '100%'
                 }
             }),
-            background: css({
-                top: 0,
-                left: 0,
-                bottom: 0,
-                position: 'fixed',
-                zIndex: 2,
-                width: '20rem',
-                borderRight: '1px solid ' + theme.pale.hex,
-                background: theme.interface.hex,
-            }),
-            logo: {
-                container: css({
-                    width: '20rem',
-                    height: '8.5rem',
-                }),
-                holder: css({
-                    position: 'fixed',
-                    width: '20rem',
-                    zIndex: 4,
-                    alignItems: 'center',
-                    flexDirection: 'column',
-                    background: theme.interface.hex
-                }),
-                wrapper: css({
-                    padding: '2.5rem 0',
-                    height: '3.5rem',
-                    width: '12rem',
-                    justifyContent: 'center',
-                })
-            }
-        },
-        main: {
-            container: css({
-                position: 'sticky',
-                top: 0,
-                alignSelf: 'flex-start',
-                flexDirection: 'column',
-                flex: 1,
+
+            menu: css({
+                display: 'flex',
                 alignItems: 'center',
-                '@media (max-width: 768px)': {
-                    display: 'none'
-                },
-            }),
-            top: css({
-                backgroundColor: theme.background2.hex,
+                height: '4.5rem',
                 width: '100%',
-                justifyContent: 'center',
-            }),
-            content: css({
-                width: '100%',
-                justifyContent: 'center',
-            }),
-            holder: css({
-                width: '100%',
-                maxWidth: '960px',
-                margin: '0 2rem'
-            }),
-        },
-        menu: {
-            container: css({
-                height: '4rem',
-                width: '100%'
-            }),
-            holder: css({
-                position: 'fixed',
-                left: displaySideBar
-                    ? '20rem'
-                    : 0,
-                right: 0,
-                top: 0,
-                zIndex: 1,
-                '@media (max-width: 1023px)': {
-                    position: 'absolute',
-                    left: 0,
-                    right: 0,
-                    top: 0,
-                    zIndex: 1,
-                }
             }),
         }
     }

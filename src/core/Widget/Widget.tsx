@@ -1,52 +1,33 @@
-import React, { Component, Fragment } from 'react';
+/** @jsx jsx */
+import { jsx } from '@emotion/core'
 import { Spin, Icon, Flexbox, Styles } from '../../';
+import createStyles from './styles';
+import Types from './types'
 
-interface Props {
-    label?: string
-    loading?: boolean | string
-    onClick?: (MouseEvent?) => any
-    className?: string
-    style?: any
-    title?: string
-    children?: any
+export default (props: Types.WidgetProps) => {
+    const { title, loading, onClick, className, style, children } = props;
+    const styles = createStyles(typeof onClick === 'function');
+
+    return (
+        <div
+            css={styles.container}
+            className={className}
+            style={style}
+            onClick={onClick}
+        >
+            {title && (
+                <div css={styles.title}>{title}</div>
+            )}
+            {loading ? (
+                <div css={styles.loading}>
+                    <Spin>
+                        <Icon type="sync" css={styles.icon} />
+                    </Spin>
+                    {typeof loading === "string" && (
+                        <div css={styles.loadingText}>{loading}</div>
+                    )}
+                </div>
+            ) : children}
+        </div>
+    )
 }
-
-class Widget extends Component<Props> {
-    render() {
-
-        const { onClick, title, children, style, loading } = this.props;
-        let classes = 'ui-widget';
-        if (onClick) {
-            classes += " ui-widget-clickable"
-        }
-        return (
-            <Styles>
-                {styles => (
-                    <Flexbox column flex={1} justifyContent="flex-start" className={classes} onClick={onClick} style={{
-                        ...style,
-                        background: styles.widget.background,
-                        borderRadius: styles.widget.borderRadius,
-                        borderColor: styles.widget.borderColor,
-                        borderWidth: styles.widget.borderWidth,
-                        borderStyle: styles.widget.borderStyle
-                    }}>
-                        {title ? (
-                            <Flexbox pr={10} flex={1} className="ui-widget-title">{title}</Flexbox>
-                        ) : ""}
-                        {loading ? (
-                            <Flexbox column className="ui-widget-loading" alignItems="center" alignSelf="center" justifyContent="center">
-                                <Spin>
-                                    <Icon type="sync" style={{ color: styles.widget.highlight, fontSize: '1.5 rem' }} />
-                                </Spin>
-                                {typeof loading === "string" && <div className="ui-widget-loadingtext" style={{ color: styles.widget.lowlight }}>loading</div>}
-                            </Flexbox>
-                        ) : children}
-                    </Flexbox>
-                )}
-            </Styles>
-
-        );
-    }
-}
-
-export default Widget;

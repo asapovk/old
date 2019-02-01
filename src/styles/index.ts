@@ -15,7 +15,6 @@ import tabsStyles from './jss/Tabs'
 import textFieldStyles from './jss/TextField'
 import titleStyles from './jss/Title'
 import viewportStyles from './jss/Viewport'
-import widgetStyles from './jss/Widget'
 import widgetStatStyles from './jss/WidgetStat'
 import notificationsStyles from './jss/Notifications'
 import lkGuestSceneStyles from './jss/LKGuestScene'
@@ -108,7 +107,6 @@ export const createStyles = (themeName?: string) => {
         textField: textFieldStyles(theme),
         title: titleStyles(theme),
         viewport: viewportStyles(theme),
-        widget: widgetStyles(theme),
         widgetStat: widgetStatStyles(theme),
         notifications: notificationsStyles(theme),
         scenes: {

@@ -1,10 +1,4 @@
-declare namespace LKMainSceneNew {
-
-    interface User {
-        name?: string
-        shortname: string
-        onLogout: () => void
-    }
+declare namespace LKMainScene {
     interface Props {
         components: {
             menu?: React.Component | any
@@ -13,7 +7,6 @@ declare namespace LKMainSceneNew {
             main?: React.Component | any
             logo?: React.Component | any
         },
-        user?: User
         /**
          * Display side bar instead of 
          * mains (only for mobile resolution)
@@ -22,4 +15,4 @@ declare namespace LKMainSceneNew {
     }
 }
 
-export default LKMainSceneNew
+export default LKMainScene

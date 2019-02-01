@@ -1,10 +1,10 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core';
-import { Fragment } from 'react';
-import { Flexbox } from '../../';
+import { Flexbox, Button, C1 } from '../../';
 import createStyles from './styles';
 import { useBrowser } from '../../hooks';
 import Types from './types';
+import { Fragment } from 'react';
 
 export default (props: Types.Props) => {
 
@@ -13,54 +13,53 @@ export default (props: Types.Props) => {
 
     return (
         <Flexbox flexDirection={browser.isMobile ? 'column' : 'row'}>
-            {
-                browser.isMobile &&
-                <div css={styles.menu.container}>
-                    <div css={styles.menu.holder}>
-                        {props.components.menu}
-                    </div>
-                </div>
-            }
-            {props.displaySideBar &&
-                <Flexbox css={styles.sidebar.holder}>
-                    {!browser.isMobile &&
-                        <Fragment>
-                            <div css={styles.sidebar.background} />
-                            <div css={styles.sidebar.logo.container}>
-                                <Flexbox css={styles.sidebar.logo.holder}>
-                                    <Flexbox css={styles.sidebar.logo.wrapper}>
-                                        {props.components.logo}
-                                    </Flexbox>
-                                </Flexbox>
-                            </div>
-                        </Fragment>
-                    }
-                    <Flexbox css={styles.sidebar.content} >
+            {/** Sidebar Container */}
+            {(props.components.sidebar && props.displaySideBar) && (
+                <div css={styles.sidebar.container}>
+                    <div>
+                        <div css={styles.sidebar.user.container}>
+                            {props.user ?
+                                <Fragment>
+                                    <div
+                                        css={styles.sidebar.user.avatar}
+                                        children={(
+                                            <div children={props.user.shortname.slice(0, 2) || 'П'} />
+                                        )}
+                                    />
+                                    <C1
+                                        bold
+                                        css={styles.sidebar.user.name}
+                                        children={props.user.name}
+                                    />
+                                    <Button
+                                        decoration='none'
+                                        label='Выйти'
+                                        onClick={props.user.onLogout}
+                                        thin={true}
+                                    />
+                                </Fragment>
+                                : <div css={styles.sidebar.logo}>
+                                    {props.components.logo}
+                                </div>
+                            }
+                        </div>
                         {props.components.sidebar}
-                    </Flexbox>
-                </Flexbox>
-            }
-            {!browser.isMobile &&
-                <Flexbox css={styles.main.container}>
-                    <div css={styles.menu.container}>
-                        <div css={styles.menu.holder}>
-                            {props.components.menu}
-                        </div>
                     </div>
-                    {props.components.mainTop &&
-                        <Flexbox css={styles.main.top}>
-                            <div css={styles.main.holder}>
-                                {props.components.mainTop}
-                            </div>
-                        </Flexbox>
-                    }
-                    <Flexbox css={styles.main.content}>
-                        <div css={styles.main.holder}>
-                            {props.components.main}
+                    {props.user && (
+                        <div css={styles.sidebar.logo}>
+                            {props.components.logo}
                         </div>
-                    </Flexbox>
-                </Flexbox>
-            }
-        </Flexbox >
+                    )}
+                </div>
+            )}
+
+            {/** Main Container */}
+            <div css={styles.main.container}>
+                <div css={styles.main.holder}>
+                    <div css={styles.main.menu}>{props.components.menu}</div>
+                    {props.components.main}
+                </div>
+            </div>
+        </Flexbox>
     );
 }

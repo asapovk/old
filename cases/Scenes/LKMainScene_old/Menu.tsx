@@ -16,7 +16,6 @@ const Menu$ = () => {
             tools={
                 <Icon type="user" key={1} />
             }
-            forElka={true}
         />
     )
 }

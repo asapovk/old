@@ -1,57 +1,43 @@
 /** @jsx jsx */
 import { jsx, css } from '@emotion/core';
 import React, { useState, useEffect, useRef } from 'react';
-import { Card, Flexbox, Stories, Button } from '../../../src';
+import { Card, Flexbox, Stories, Icon } from '../../../src';
 import createStyles from './styles';
 import { useBrowser } from '../../../src/hooks';
 
 const Sidebar = (props: any) => {
 
     const browser = useBrowser();
+    const styles = createStyles();
 
     const accounts = [
         { label: '1000001433', value: 1 },
         { label: '1000001459', value: 2 },
-        { label: '95285-F', value: 3 },
-        { label: '95285-F', value: 3 },
-        { label: '95285-F', value: 3 },
+        // { label: '95285-F', value: 3 },
+        // { label: '95285-F', value: 3 },
+        // { label: '95285-F', value: 3 },
         { label: '95285-F', value: 3 }
     ];
 
     const [activeID, setActiveID] = useState(0);
 
     return (
-        <Flexbox flexDirection='column'>
+        <Flexbox flexDirection='column' justifyContent='flex-start'>
             {accounts.map((account, index) =>
-                <Card
-                    animation={index % 2 ? 'circles' : 'waves'}
-                    active={!browser.isMobile && activeID === index}
-                    onClick={() => {
-                        setActiveID(index)
-                    }}
-                    key={index}
-                    css={css({
-                        margin: '0 1.25rem 1.25rem 1.25rem',
-                        zIndex: 0
-                    },
-                        !browser.isMobile && activeID === index && {
-                            margin: '0 0.625rem 1.25rem 0.625rem',
-                            position: 'sticky',
-                            top: 136,
-                            bottom: 10,
-                            zIndex: 4
-                        })}
-                />
+                <Flexbox alignItems='center' css={css({ marginBottom: '1.25rem' })}>
+                    <Flexbox
+                        alignItems='center'
+                        css={css({ ...styles.card.active }, { left: activeID === index ? '-1.5rem' : '-8rem' })}>
+                        <Icon type='right' />
+                    </Flexbox>
+                    <Card
+                        animation={index % 2 ? 'circles' : 'waves'}
+                        active={!browser.isMobile && activeID === index}
+                        onClick={() => { setActiveID(index) }}
+                        key={index}
+                    />
+                </Flexbox>
             )}
-            <Button
-                label='Изменить лицевые счета'
-                css={css({
-                    margin: '0 1.25rem 1.25rem 1.25rem'
-                })}
-                decoration='inverse'
-                size='large'
-                thin={true}
-            />
         </Flexbox>
     )
 }

@@ -1,6 +1,11 @@
 import { IconTypes } from '../types';
 
+function valueType<T>(arg: T): T {
+    return arg;
+}
+
 declare namespace TextFieldTypes {
+
     export interface Props extends FieldProps {
         label?: string
         style?: React.CSSProperties

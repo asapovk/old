@@ -1,26 +1,20 @@
 import { css } from '@emotion/core';
 import useTheme from '../../../src/hooks/useTheme';
 
-export default () => {
+export default (cardActive?: boolean) => {
     const theme = useTheme().theme;
     return {
-        cards: css({
-            overflowY: 'auto',
-            height: '100%'
-        }),
-        cardsBorderBottom: css({
-            background: `linear-gradient(180deg, ${theme.background.rgba(0)} 0%, ${theme.background.rgba(100)} 100%)`,
-            height: '1rem',
-            position: 'sticky',
-            bottom: 0
-        }),
-        cardsBorderTop: css({
-            background: `linear-gradient(0deg, ${theme.background.rgba(0)} 0%, ${theme.background.rgba(100)} 100%)`,
-            height: '0.5rem',
-            position: 'sticky',
-            top: 0,
-            zIndex: 1
-        }),
+        card: {
+            active: css({
+                position: 'absolute',
+                top: 0, bottom: 0,
+                paddingRight: '.75rem',
+                // left: '-10rem',
+                color: theme.highlight.hex,
+                transition: 'all .3s ease-in-out',
+            }),
+        },
+
         stories: css({
             height: '12.5rem',
             margin: '1.25rem 0',

@@ -1,38 +1,23 @@
 /** @jsx jsx */
 import { jsx, css } from '@emotion/core'
-import { D4, Icon } from '../../../src';
-import { useTheme } from '../../../src/hooks';
-import { Section, ServiceGroup } from './components';
+import { Widget, Flexbox, Button } from '../../../src';
+import { Section } from './components';
 
 const Main = () => {
-    const theme = useTheme().theme;
-    const data = [
-        { icon: <Icon type='counter' shape='oval' backgroud={theme.background2.rgb} />, label: 'Газоснабжение', amount: <D4 format='rub'>683,11</D4> }
-    ]
-
-    const dataDevices = [
-        { label: 'Счетчик', amount: <D4 format='volume'>683</D4> }
-    ]
     return (
         <div css={css({ marginBottom: '1.25rem' })}>
             <Section
+                header='Ноябрь 2018'
                 children={[
-                    <ServiceGroup name='Коммунальные услуги' data={data} key={1} />,
-                    <ServiceGroup name='Содержание жилого помещения' data={data} key={2} />,
-                    <ServiceGroup name='Прочие услуги' data={data} key={3} />
-                ]}
-                barHR
-                barMarginTop='4.25rem'
-            // bar={[
-            //     <D2 format='rub' key={1}>4546,45</D2>,
-            //     <C1 key={2} css={css({ marginTop: '0.25rem' })} >Итого к оплате до 10.12.18</C1>,
-            //     <Button label='Оплатить' decoration='highlight' key={3} css={css({ marginTop: '1.5rem' })} />
-            // ]}
-            />
-            <Section
-                header='Приборы учета'
-                children={[
-                    <ServiceGroup data={dataDevices} key={1} />,
+                    <Widget css={css({ marginTop: '1.25rem', padding: '2.5rem', boxShadow: '0 1rem 1rem 0 rgba(0,0,0,0.08)' })} children={(
+                        <Flexbox justifyContent='space-between'>
+                            <div>4574,05Р + 1225,05Р = 5800Р</div>
+                            <Flexbox flexDirection='column' justifyContent='space-between' flexShrink={0}>
+                                <Button label='Оплатить' size="large" decoration='highlight' />
+                                <Button label='Передать показания' size="large" decoration='outline' css={css({ marginTop: '1rem' })} />
+                            </Flexbox>
+                        </Flexbox>
+                    )} />
                 ]}
                 barHR
                 barMarginTop='4.25rem'

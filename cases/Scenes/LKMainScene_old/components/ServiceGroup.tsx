@@ -10,7 +10,12 @@ export const ServiceGroup = (props) => {
     ]
     return (
         <div css={css({ marginTop: '2rem' })}>
-            123
+            {props.name && <C1 bold css={css({ marginBottom: '1rem' })}>{props.name}</C1>}
+            <Table
+                columns={tableColumns}
+                data={props.data}
+                hideHeaders={true}
+            />
         </div>
     )
 }
