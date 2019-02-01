@@ -20,8 +20,8 @@ exports.default = (function (props) {
                         core_1.jsx("div", { css: styles.sidebar.user.avatar, children: (core_1.jsx("div", { children: props.user.shortname.slice(0, 2) || 'П' })) }),
                         core_1.jsx(__1.C1, { bold: true, css: styles.sidebar.user.name, children: props.user.name }),
                         core_1.jsx(__1.Button, { decoration: 'none', label: '\u0412\u044B\u0439\u0442\u0438', onClick: props.user.onLogout, thin: true }))
-                    : core_1.jsx("div", { css: styles.sidebar.logo }, props.components.logo)),
-                props.components.sidebar),
+                    : (core_1.jsx("div", { css: styles.sidebar.logo }, props.components.logo))),
+                core_1.jsx("div", { css: styles.sidebar.content }, props.components.sidebar)),
             props.user && (core_1.jsx("div", { css: styles.sidebar.logo }, props.components.logo)))),
         core_1.jsx("div", { css: styles.main.container },
             core_1.jsx("div", { css: styles.main.holder },

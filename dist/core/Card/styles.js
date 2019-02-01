@@ -30,7 +30,7 @@ exports.default = (function (active) {
             // background: "linear-gradient(80deg," + theme.gradient.card[0] + "," + theme.gradient.card[1] + ")",
             // border: 'none',
             boxShadow: theme.shadows.card,
-            color: theme.textOnAccent.rgb,
+            // color: theme.textOnAccent.rgb,
             background: theme.interface.rgb,
             // marginLeft: '30px',
             '@media (max-width: 640px)': {

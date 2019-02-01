@@ -39,8 +39,12 @@ exports.default = (function (displaySideBar) {
                     padding: '2.75rem',
                 }
             }),
+            content: core_1.css({
+                zIndex: 3
+            }),
             user: {
                 container: core_1.css({
+                    zIndex: 3,
                     marginBottom: '3.5rem',
                 }),
                 avatar: core_1.css({
