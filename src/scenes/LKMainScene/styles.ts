@@ -29,8 +29,13 @@ export default (displaySideBar?: boolean) => {
                 }
             }),
 
+            content: css({
+                zIndex: 3
+            }),
+
             user: {
                 container: css({
+                    zIndex: 3,
                     marginBottom: '3.5rem',
                 }),
 

@@ -38,12 +38,12 @@ export default (props: Types.Props) => {
                                         thin={true}
                                     />
                                 </Fragment>
-                                : <div css={styles.sidebar.logo}>
+                                : (<div css={styles.sidebar.logo}>
                                     {props.components.logo}
-                                </div>
+                                </div>)
                             }
                         </div>
-                        {props.components.sidebar}
+                        <div css={styles.sidebar.content}>{props.components.sidebar}</div>
                     </div>
                     {props.user && (
                         <div css={styles.sidebar.logo}>
