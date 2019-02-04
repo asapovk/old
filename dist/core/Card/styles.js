@@ -71,6 +71,6 @@ exports.default = (function (active) {
                 }),
             }
         },
-        color: theme.text.rgb
+        color: theme.text.rgba(0.25)
     };
 });
