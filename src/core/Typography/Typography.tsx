@@ -41,6 +41,9 @@ const Typography = forwardRef((props: Types.Props, ref) => {
                 props.link && {
                     color: theme.highlight.rgb,
                     cursor: 'pointer'
+                },
+                (props.underline || props.action) && {
+                    lineHeight: typography.fontSize
                 }),
         },
         props.format

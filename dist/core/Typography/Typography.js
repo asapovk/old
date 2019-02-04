@@ -34,6 +34,8 @@ var Typography = react_1.forwardRef(function (props, ref) {
         }, props.link && {
             color: theme.highlight.rgb,
             cursor: 'pointer'
+        }, (props.underline || props.action) && {
+            lineHeight: typography.fontSize
         }),
     }, props.format
         ? core_1.jsx(Formatter_1.default, { format: props.format }, props.children)

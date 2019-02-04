@@ -104,6 +104,7 @@ export default (displaySideBar?: boolean) => {
                 alignItems: 'center',
                 height: '4.5rem',
                 width: '100%',
+                marginBottom: '2.75rem'
             }),
         }
     }
