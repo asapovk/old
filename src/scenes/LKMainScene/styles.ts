@@ -44,7 +44,7 @@ export default (displaySideBar?: boolean) => {
                 }),
                 avatar: css({
                     display: 'flex',
-                    color: theme.textOnAccent.hex,
+                    color: '#FFFFFF',
                     alignItems: 'center',
                     width: '4.5rem',
                     height: '4.5rem',

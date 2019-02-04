@@ -84,6 +84,6 @@ export default (active?: boolean) => {
                 ),
             }
         },
-        color: theme.text.rgb
+        color: theme.text.rgba(0.25)
     }
 }
