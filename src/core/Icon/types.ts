@@ -24,7 +24,8 @@ declare namespace IconTypes {
         'card' |
         'counter' |
         'text-right' |
-        'user'
+        'user' |
+        'equal'
 
     interface Props {
         style?: React.CSSProperties
