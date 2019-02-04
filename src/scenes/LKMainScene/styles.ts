@@ -8,37 +8,40 @@ export default (displaySideBar?: boolean) => {
     return {
         sidebar: {
             container: css({
-                position: 'fixed',
+                position: 'sticky',
                 display: 'flex',
                 flexDirection: 'column',
-                justifyContent: 'space-between',
                 top: 0,
-                bottom: 0,
-                left: 0,
                 width: '15rem',
                 boxSizing: 'border-box',
-                borderWidth: '1px',
-                borderStyle: 'solid',
-                borderColor: theme.pale.hex,
-                background: 'linear-gradient(270deg, #F2F0F5 0%, #FAF7FC 100%)',
                 padding: '2.75rem 0 2.75rem 2.75rem',
                 '@media (max-width: 768px)': {
                     position: 'relative',
                     width: '100%',
                     padding: '2.75rem',
-                }
+                },
+                maxHeight: 'max-content',
+                minHeight: '100vh',
+                justifyContent: 'space-between'
             }),
 
-            content: css({
-                zIndex: 3
+            background: css({
+                position: 'fixed',
+                top: 0,
+                bottom: 0,
+                left: 0,
+                width: '15rem',
+                borderRightWidth: '1px',
+                borderRightStyle: 'solid',
+                borderRightColor: theme.pale.hex,
+                background: 'linear-gradient(270deg, #F2F0F5 0%, #FAF7FC 100%)',
+                zIndex: -1
             }),
 
             user: {
                 container: css({
-                    zIndex: 3,
-                    marginBottom: '3.5rem',
+                    position: 'absolute'
                 }),
-
                 avatar: css({
                     display: 'flex',
                     color: theme.textOnAccent.hex,
@@ -58,17 +61,18 @@ export default (displaySideBar?: boolean) => {
                 name: css({
                     display: 'block',
                     marginTop: '.75rem',
-                    textOverflow: 'ellipsis',
-                    overflow: 'hidden',
-                    whiteSpace: 'nowrap',
                     paddingRight: '1rem'
                 })
             },
 
+            content: css({
+                zIndex: 3,
+                marginTop: '11.25rem'
+            }),
+
             logo: css({
                 paddingTop: '2.5rem',
-                height: '3rem',
-                marginLeft: '-2.75rem'
+                width: '9.5rem'
             }),
         },
 
@@ -78,7 +82,6 @@ export default (displaySideBar?: boolean) => {
                 flex: 1,
                 justifyContent: 'center',
                 boxSizing: 'border-box',
-                marginLeft: '15rem',
                 padding: '2.75rem 4.5rem',
                 '@media (max-width: 768px)': {
                     marginLeft: '0',

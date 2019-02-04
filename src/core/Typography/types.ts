@@ -18,6 +18,16 @@ declare namespace TypographyTypes {
         onClick?: (event) => void
         format?: boolean | 'rub' | 'volume'
         color?: 'text' | 'highlight' | 'pale' | 'textOnAccent'
+        p?: number | string
+        pr?: number | string
+        pl?: number | string
+        pt?: number | string
+        pb?: number | string
+        m?: number | string
+        mr?: number | string
+        ml?: number | string
+        mt?: number | string
+        mb?: number | string
     }
     interface HRProps {
         dotted?: boolean

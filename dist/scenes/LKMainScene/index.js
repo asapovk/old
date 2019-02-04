@@ -14,14 +14,14 @@ exports.default = (function (props) {
     var browser = hooks_1.useBrowser();
     return (core_1.jsx(__1.Flexbox, { flexDirection: browser.isMobile ? 'column' : 'row' },
         (props.components.sidebar && props.displaySideBar) && (core_1.jsx("div", { css: styles.sidebar.container },
-            core_1.jsx("div", null,
-                core_1.jsx("div", { css: styles.sidebar.user.container }, props.user ?
-                    core_1.jsx(react_1.Fragment, null,
-                        core_1.jsx("div", { css: styles.sidebar.user.avatar, children: (core_1.jsx("div", { children: props.user.shortname.slice(0, 2) || 'П' })) }),
-                        core_1.jsx(__1.C1, { bold: true, css: styles.sidebar.user.name, children: props.user.name }),
-                        core_1.jsx(__1.Button, { decoration: 'none', label: '\u0412\u044B\u0439\u0442\u0438', onClick: props.user.onLogout, thin: true }))
-                    : (core_1.jsx("div", { css: styles.sidebar.logo }, props.components.logo))),
-                core_1.jsx("div", { css: styles.sidebar.content }, props.components.sidebar)),
+            core_1.jsx("div", { css: styles.sidebar.background }),
+            core_1.jsx(__1.Flexbox, { flexDirection: 'column', css: styles.sidebar.user.container }, props.user ?
+                core_1.jsx(react_1.Fragment, null,
+                    core_1.jsx("div", { css: styles.sidebar.user.avatar, children: (core_1.jsx("div", { children: props.user.shortname.slice(0, 2) || 'П' })) }),
+                    core_1.jsx(__1.C1, { bold: true, css: styles.sidebar.user.name, children: props.user.name }),
+                    core_1.jsx(__1.C2, { onClick: props.user.onLogout, children: '\u0412\u044B\u0439\u0442\u0438', pt: '.25rem' }))
+                : (core_1.jsx("div", { css: styles.sidebar.logo }, props.components.logo))),
+            core_1.jsx("div", { css: styles.sidebar.content }, props.components.sidebar),
             props.user && (core_1.jsx("div", { css: styles.sidebar.logo }, props.components.logo)))),
         core_1.jsx("div", { css: styles.main.container },
             core_1.jsx("div", { css: styles.main.holder },

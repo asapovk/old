@@ -32,7 +32,8 @@ export default () => {
                 main: <Main />,
             }}
             user={{
-                name: 'Пользователь Пользователь Пользователь',
+                //name: 'Рассул Абджахбумбамов',
+                name: 'Наталья Ростова',
                 shortname: 'qwe',
                 onLogout: async () => new Promise((res, rej) => {
                     console.log('logout');

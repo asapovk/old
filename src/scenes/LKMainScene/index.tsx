@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core';
-import { Flexbox, Button, C1 } from '../../';
+import { Flexbox, C2, C1 } from '../../';
 import createStyles from './styles';
 import { useBrowser } from '../../hooks';
 import Types from './types';
@@ -16,34 +16,34 @@ export default (props: Types.Props) => {
             {/** Sidebar Container */}
             {(props.components.sidebar && props.displaySideBar) && (
                 <div css={styles.sidebar.container}>
-                    <div>
-                        <div css={styles.sidebar.user.container}>
-                            {props.user ?
-                                <Fragment>
-                                    <div
-                                        css={styles.sidebar.user.avatar}
-                                        children={(
-                                            <div children={props.user.shortname.slice(0, 2) || 'П'} />
-                                        )}
-                                    />
-                                    <C1
-                                        bold
-                                        css={styles.sidebar.user.name}
-                                        children={props.user.name}
-                                    />
-                                    <Button
-                                        decoration='none'
-                                        label='Выйти'
-                                        onClick={props.user.onLogout}
-                                        thin={true}
-                                    />
-                                </Fragment>
-                                : (<div css={styles.sidebar.logo}>
-                                    {props.components.logo}
-                                </div>)
-                            }
-                        </div>
-                        <div css={styles.sidebar.content}>{props.components.sidebar}</div>
+                    <div css={styles.sidebar.background} />
+                    <Flexbox flexDirection='column' css={styles.sidebar.user.container}>
+                        {props.user ?
+                            <Fragment>
+                                <div
+                                    css={styles.sidebar.user.avatar}
+                                    children={(
+                                        <div children={props.user.shortname.slice(0, 2) || 'П'} />
+                                    )}
+                                />
+                                <C1
+                                    bold
+                                    css={styles.sidebar.user.name}
+                                    children={props.user.name}
+                                />
+                                <C2
+                                    onClick={props.user.onLogout}
+                                    children='Выйти'
+                                    pt='.25rem'
+                                />
+                            </Fragment>
+                            : (<div css={styles.sidebar.logo}>
+                                {props.components.logo}
+                            </div>)
+                        }
+                    </Flexbox>
+                    <div css={styles.sidebar.content}>
+                        {props.components.sidebar}
                     </div>
                     {props.user && (
                         <div css={styles.sidebar.logo}>

@@ -19,33 +19,37 @@ exports.default = (function (displaySideBar) {
     return {
         sidebar: {
             container: core_1.css({
-                position: 'fixed',
+                position: 'sticky',
                 display: 'flex',
                 flexDirection: 'column',
-                justifyContent: 'space-between',
                 top: 0,
-                bottom: 0,
-                left: 0,
                 width: '15rem',
                 boxSizing: 'border-box',
-                borderWidth: '1px',
-                borderStyle: 'solid',
-                borderColor: theme.pale.hex,
-                background: 'linear-gradient(270deg, #F2F0F5 0%, #FAF7FC 100%)',
                 padding: '2.75rem 0 2.75rem 2.75rem',
                 '@media (max-width: 768px)': {
                     position: 'relative',
                     width: '100%',
                     padding: '2.75rem',
-                }
+                },
+                maxHeight: 'max-content',
+                minHeight: '100vh',
+                justifyContent: 'space-between'
             }),
-            content: core_1.css({
-                zIndex: 3
+            background: core_1.css({
+                position: 'fixed',
+                top: 0,
+                bottom: 0,
+                left: 0,
+                width: '15rem',
+                borderRightWidth: '1px',
+                borderRightStyle: 'solid',
+                borderRightColor: theme.pale.hex,
+                background: 'linear-gradient(270deg, #F2F0F5 0%, #FAF7FC 100%)',
+                zIndex: -1
             }),
             user: {
                 container: core_1.css({
-                    zIndex: 3,
-                    marginBottom: '3.5rem',
+                    position: 'absolute'
                 }),
                 avatar: core_1.css({
                     display: 'flex',
@@ -60,16 +64,16 @@ exports.default = (function (displaySideBar) {
                 name: core_1.css({
                     display: 'block',
                     marginTop: '.75rem',
-                    textOverflow: 'ellipsis',
-                    overflow: 'hidden',
-                    whiteSpace: 'nowrap',
                     paddingRight: '1rem'
                 })
             },
+            content: core_1.css({
+                zIndex: 3,
+                marginTop: '11.25rem'
+            }),
             logo: core_1.css({
                 paddingTop: '2.5rem',
-                height: '3rem',
-                marginLeft: '-2.75rem'
+                width: '9.5rem'
             }),
         },
         main: {
@@ -78,7 +82,6 @@ exports.default = (function (displaySideBar) {
                 flex: 1,
                 justifyContent: 'center',
                 boxSizing: 'border-box',
-                marginLeft: '15rem',
                 padding: '2.75rem 4.5rem',
                 '@media (max-width: 768px)': {
                     marginLeft: '0',

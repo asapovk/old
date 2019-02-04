@@ -1,11 +1,11 @@
 /** @jsx jsx */
 import { jsx, css } from '@emotion/core'
-import { Flexbox, HR, H2 } from '../../../../src';
+import { Flexbox, HR, D1 } from '../../../../src';
 
 export const Section = (props) => {
     return (
         <div css={css({ width: '100%' })}>
-            {props.header && <H2 underline={true} action={props.headerAction}>{props.header}</H2>}
+            {props.header && <D1 underline={true} action={props.headerAction}>{props.header}</D1>}
             <div>
                 {props.children}
                 <Flexbox flexBasis={'14rem'} flexDirection='column' css={css({ marginLeft: '2.5rem' }, props.barMarginTop && { marginTop: props.barMarginTop })}>
