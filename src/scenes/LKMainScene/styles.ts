@@ -71,8 +71,9 @@ export default (displaySideBar?: boolean) => {
             }),
 
             logo: css({
-                paddingTop: '2.5rem',
-                width: '9.5rem'
+                paddingTop: '3.5rem',
+                width: '8rem',
+                marginLeft: '.75rem'
             }),
         },
 
