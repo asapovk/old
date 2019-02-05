@@ -18,43 +18,32 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@emotion/core");
 var hooks_1 = require("../../hooks");
 var react_1 = require("react");
-var __1 = require("..");
 var Formatter_1 = __importDefault(require("./Formatter"));
+var Decorator_1 = __importDefault(require("./Decorator"));
 var Typography = react_1.forwardRef(function (props, ref) {
     var typography = hooks_1.useTypography()[props.type][props.size];
     var theme = hooks_1.useTheme().theme;
-    var Text = core_1.jsx(props.tag, {
-        ref: ref,
-        className: props.className,
-        onClick: props.onClick,
-        css: core_1.css(__assign({}, typography, { display: props.type === 'caption' ? 'inline-block' : 'block', padding: props.p, paddingTop: props.pt, paddingLeft: props.pl, paddingRight: props.pr, paddingBottom: props.pb, margin: props.m, marginTop: props.mt, marginLeft: props.ml, marginRight: props.mr, marginBottom: props.mb }), props.color && {
-            color: theme[props.color].rgb
-        }, props.bold && {
-            fontWeight: 'bold'
-        }, props.link && {
-            color: theme.highlight.rgb,
-            cursor: 'pointer'
-        }, (props.underline || props.action) && {
-            lineHeight: typography.fontSize
-        }),
-    }, props.format
-        ? core_1.jsx(Formatter_1.default, { format: props.format }, props.children)
-        : props.children);
-    if (props.underline || props.action) {
-        return (core_1.jsx(__1.Flexbox, { flexDirection: 'column' },
-            props.action
-                ? core_1.jsx(__1.Flexbox, { alignItems: 'baseline', justifyContent: 'space-between' },
-                    Text,
-                    core_1.jsx("div", null, props.action))
-                : Text,
-            core_1.jsx(exports.HR, { css: core_1.css({
-                    paddingTop: '0.625rem',
-                    marginTop: typography.marginBottom &&
-                        '-' + typography.marginBottom
-                }) })));
+    if (props.underline || props.action || props.menu) {
+        return (core_1.jsx(Decorator_1.default, __assign({}, props, { typography: typography, theme: theme })));
     }
     else
-        return Text;
+        return core_1.jsx(props.tag, {
+            ref: ref,
+            className: props.className,
+            onClick: props.onClick,
+            css: core_1.css(__assign({}, typography, { display: props.type === 'caption' ? 'inline-block' : 'block', padding: props.p, paddingTop: props.pt, paddingLeft: props.pl, paddingRight: props.pr, paddingBottom: props.pb, margin: props.m, marginTop: props.mt, marginLeft: props.ml, marginRight: props.mr, marginBottom: props.mb }), props.color && {
+                color: theme[props.color].rgb
+            }, props.bold && {
+                fontWeight: 'bold'
+            }, props.link && {
+                color: theme.highlight.rgb,
+                cursor: 'pointer'
+            }, (props.underline || props.action) && {
+                lineHeight: typography.fontSize
+            }),
+        }, props.format
+            ? core_1.jsx(Formatter_1.default, { format: props.format, children: props.children })
+            : props.children);
 });
 /**
  * PARAGRAPH
