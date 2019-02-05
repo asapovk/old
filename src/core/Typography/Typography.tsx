@@ -1,37 +1,45 @@
 /** @jsx jsx */
 import { jsx, css } from '@emotion/core';
 import { useTypography, useTheme } from '../../hooks';
-import { Fragment } from 'react';
 import Types from './types';
 import { forwardRef } from 'react';
-import { Flexbox } from '..';
-import Formatter from './Formatter'
+import Formatter from './Formatter';
+import Decorator from './Decorator';
 
 const Typography = forwardRef((props: Types.Props, ref) => {
 
     const typography = useTypography()[props.type][props.size];
     const theme = useTheme().theme;
 
-    const Text = jsx(
+    if (props.underline || props.action || props.menu) {
+        return (
+            <Decorator
+                {...props}
+                typography={typography}
+                theme={theme}
+            />
+        )
+    } else return jsx(
         props.tag,
         {
             ref: ref,
             className: props.className,
             onClick: props.onClick,
-            css: css({
-                ...typography,
-                display: props.type === 'caption' ? 'inline-block' : 'block',
-                padding: props.p,
-                paddingTop: props.pt,
-                paddingLeft: props.pl,
-                paddingRight: props.pr,
-                paddingBottom: props.pb,
-                margin: props.m,
-                marginTop: props.mt,
-                marginLeft: props.ml,
-                marginRight: props.mr,
-                marginBottom: props.mb,
-            },
+            css: css(
+                {
+                    ...typography,
+                    display: props.type === 'caption' ? 'inline-block' : 'block',
+                    padding: props.p,
+                    paddingTop: props.pt,
+                    paddingLeft: props.pl,
+                    paddingRight: props.pr,
+                    paddingBottom: props.pb,
+                    margin: props.m,
+                    marginTop: props.mt,
+                    marginLeft: props.ml,
+                    marginRight: props.mr,
+                    marginBottom: props.mb,
+                },
                 props.color && {
                     color: theme[props.color].rgb
                 },
@@ -44,31 +52,16 @@ const Typography = forwardRef((props: Types.Props, ref) => {
                 },
                 (props.underline || props.action) && {
                     lineHeight: typography.fontSize
-                }),
+                }
+            ),
         },
         props.format
-            ? <Formatter format={props.format}>{props.children}</Formatter>
+            ? <Formatter
+                format={props.format}
+                children={props.children}
+            />
             : props.children
     );
-
-    if (props.underline || props.action) {
-        return (
-            <Flexbox flexDirection='column'>
-                {props.action
-                    ? <Flexbox alignItems='baseline' justifyContent='space-between'>
-                        {Text}
-                        <div>{props.action}</div>
-                    </Flexbox>
-                    : Text
-                }
-                <HR css={css({
-                    paddingTop: '0.625rem',
-                    marginTop: typography.marginBottom &&
-                        '-' + typography.marginBottom
-                })} />
-            </Flexbox>
-        )
-    } else return Text
 })
 
 /**

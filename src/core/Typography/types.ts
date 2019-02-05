@@ -1,23 +1,38 @@
+import typography from "../../styles/typography";
+
 declare namespace TypographyTypes {
     interface Props extends HeadersProps, TextProps, CoreProps {
         type: string
         size?: number
         tag: string
     }
+
+    type Menu = {
+        text: string
+        value: string
+    }[]
+
     interface HeadersProps extends CoreProps {
         underline?: boolean
-        action?: any
+        action?: React.ReactElement<any>
+        menu?: Menu
+        value?: string
+        onChange?: (value) => void
     }
     interface TextProps extends CoreProps {
         bold?: boolean
         link?: boolean
     }
+    interface DecoratorProps extends Props {
+        theme: any
+        typography: any
+    }
     interface CoreProps {
-        children?: any
+        children?: string
         className?: string
         onClick?: (event) => void
         format?: boolean | 'rub' | 'volume'
-        color?: 'text' | 'highlight' | 'pale' | 'textOnAccent'
+        color?: 'text' | 'highlight' | 'pale' | 'textOnAccent' | 'lowlight'
         p?: number | string
         pr?: number | string
         pl?: number | string
