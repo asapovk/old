@@ -64,23 +64,27 @@ var Table = /** @class */ (function (_super) {
         }
         var isAddForm = (typeof form != 'undefined' && typeof form.key === 'undefined');
         var SearchBarTSX = function (styles) {
-            if (_this.state.searchBar || _this.state.searchValue)
+            if (_this.state.searchBar || _this.state.searchValue) {
                 return (react_1.default.createElement("div", { className: 'ui-table-content-body-search', style: { borderColor: styles.theme.pale.rgb } },
                     react_1.default.createElement(__1.Icon, { type: 'search' }),
                     react_1.default.createElement("input", { onChange: function (event) { return _this.props.onSearch ? _this.props.onSearch(event.target.value) : _this.setState({ searchValue: event.target.value }); }, placeholder: '\u041D\u0430\u0439\u0442\u0438' }),
                     react_1.default.createElement("div", { onClick: function () { return _this.setState({ searchValue: '', searchBar: false, page: 1 }); } },
                         react_1.default.createElement(__1.Icon, { type: 'close' }))));
-            else
+            }
+            else {
                 return null;
+            }
         };
         var ColumnsTSX = function (style) {
             if (isData && !isAddForm) {
                 return columns.map(function (column) { return (react_1.default.createElement("div", { className: 'ui-table-content-head-row-column ' + column.dataIndex, key: column.dataIndex, style: column.width ? { flexBasis: column.width, color: style.titleColor } : { flex: 1, color: style.titleColor } }, column.title)); });
             }
-            else if (isData)
+            else if (isData) {
                 return react_1.default.createElement("div", { className: 'ui-table-content-head-row-column', style: { flex: 1 } }, "\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C");
-            else
+            }
+            else {
                 return null;
+            }
         };
         var RowsTSX = isData && pageData.map(function (row, index) {
             var key = indexKey && row[indexKey] || index.toString();
