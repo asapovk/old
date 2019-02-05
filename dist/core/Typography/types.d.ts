@@ -4,13 +4,14 @@ declare namespace TypographyTypes {
         size?: number;
         tag: string;
     }
+    type Menu = {
+        text: string;
+        value: string;
+    }[];
     interface HeadersProps extends CoreProps {
         underline?: boolean;
         action?: React.ReactElement<any>;
-        menu?: {
-            text: string;
-            value: string;
-        }[];
+        menu?: Menu;
         value?: string;
         onChange?: (value: any) => void;
     }
