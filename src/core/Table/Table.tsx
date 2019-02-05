@@ -4,9 +4,6 @@ import TableForm from './TableForm';
 import TablePagination, { PaginationProps } from './TablePagination';
 import { Flexbox, Styles, Icon } from '../../';
 
-// TODO
-// Without title props
-
 export interface Props {
     data: Object[]
     columns: {
@@ -95,16 +92,20 @@ class Table extends React.Component<Props> {
 
 
         const SearchBarTSX = (styles) => {
-            if (this.state.searchBar || this.state.searchValue) return (
-                <div className='ui-table-content-body-search' style={{ borderColor: styles.theme.pale.rgb }}>
-                    <Icon type='search' />
-                    <input
-                        onChange={(event) => this.props.onSearch ? this.props.onSearch(event.target.value) : this.setState({ searchValue: event.target.value })}
-                        placeholder='Найти'
-                    />
-                    <div onClick={() => this.setState({ searchValue: '', searchBar: false, page: 1 })}><Icon type='close' /></div>
-                </div>
-            ); else return null
+            if (this.state.searchBar || this.state.searchValue) {
+                return (
+                    <div className='ui-table-content-body-search' style={{ borderColor: styles.theme.pale.rgb }}>
+                        <Icon type='search' />
+                        <input
+                            onChange={(event) => this.props.onSearch ? this.props.onSearch(event.target.value) : this.setState({ searchValue: event.target.value })}
+                            placeholder='Найти'
+                        />
+                        <div onClick={() => this.setState({ searchValue: '', searchBar: false, page: 1 })}><Icon type='close' /></div>
+                    </div>
+                );
+            } else {
+                return null
+            }
         }
 
         const ColumnsTSX = (style) => {
@@ -114,8 +115,11 @@ class Table extends React.Component<Props> {
                         column.width ? { flexBasis: column.width, color: style.titleColor } : { flex: 1, color: style.titleColor }
                     }>{column.title}</div>
                 ))
-            } else if (isData) return <div className={'ui-table-content-head-row-column'} style={{ flex: 1 }}>Добавить</div>
-            else return null
+            } else if (isData) {
+                return <div className={'ui-table-content-head-row-column'} style={{ flex: 1 }}>Добавить</div>
+            } else {
+                return null
+            }
         }
 
         const RowsTSX = isData && pageData.map((row, index) => {
