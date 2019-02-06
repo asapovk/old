@@ -30,7 +30,7 @@ exports.default = (function (props) {
     }
     return (core_1.jsx("div", { css: styles.rowContainer, ref: rowRef },
         core_1.jsx(__1.Flexbox, { css: styles.row(header), onClick: onRowClick },
-            columns.map(function (col, keyIndex) { return (core_1.jsx("div", { key: "rowcell-" + keyIndex, css: styles.cell(col.width, col.borders), children: row ? col.render(row, row[col.dataIndex]) : groupHeader ? '' : col.title })); }),
+            columns.map(function (col, keyIndex) { return (core_1.jsx("div", { key: "rowcell-" + keyIndex, css: styles.cell(col.width, col.borders, col.alignment), children: row ? col.render(row, row[col.dataIndex]) : groupHeader ? '' : col.title })); }),
             core_1.jsx("div", { key: "rowcell-action", css: styles.cell(16), children: expandForm && (core_1.jsx(__1.Icon, { type: 'right', css: styles.actionIcon(expanded) })) })),
         expandForm && (core_1.jsx("div", { css: styles.expandRow(expanded), children: row && expandForm.render(row) }))));
 });

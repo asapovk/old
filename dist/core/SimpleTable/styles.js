@@ -47,7 +47,7 @@ exports.default = (function () {
             backgroundColor: theme.background.hex,
             borderWidth: '0 0 1px 0',
             borderStyle: theme.borders.table.style,
-            borderColor: theme.borders.table.color,
+            borderColor: theme.borders.table.color
         }, header && {
             backgroundColor: theme.background.rgba(0),
             borderWidth: 0,
@@ -56,9 +56,9 @@ exports.default = (function () {
             fontSize: '0.875rem',
             alignItems: 'center'
         }); },
-        cell: function (width, borders) { return core_1.css(width
+        cell: function (width, borders, columnAlignment) { return core_1.css(width
             ? { flexBasis: width }
-            : { flex: 1 }, __assign({ padding: '1.25rem', overflow: 'hidden', borderColor: theme.borders.table.color, borderStyle: theme.borders.table.style }, getBorders(borders))); },
+            : { flex: 1 }, __assign({ padding: '1.25rem', overflow: 'hidden', borderColor: theme.borders.table.color, borderStyle: theme.borders.table.style }, getBorders(borders), { textAlign: columnAlignment || 'left' })); },
         actionIcon: function (active) { return core_1.css({
             transform: 'rotate(0)',
             willChange: 'transform',

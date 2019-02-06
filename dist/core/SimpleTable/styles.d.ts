@@ -9,7 +9,7 @@ export interface TableStyles {
     paginationButton: (active: boolean) => SerializedStyles;
     groupTitle: SerializedStyles;
     row: (header?: boolean) => SerializedStyles;
-    cell: (width?: number, borders?: Types.Borders) => SerializedStyles;
+    cell: (width?: number, borders?: Types.Borders, columnAlignment?: Types.ColumnAlignment) => SerializedStyles;
     actionIcon: (active?: boolean) => SerializedStyles;
     expandRow: (active: boolean) => SerializedStyles;
 }
