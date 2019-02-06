@@ -2,18 +2,18 @@
 import { jsx, SerializedStyles } from '@emotion/core';
 import { Dispatch, SetStateAction } from 'react';
 import { Flexbox } from '../..'
+import { TableStyles } from '../styles';
 
 interface PaginationProps {
-    containerStyle: SerializedStyles,
-    buttonStyle: (active: boolean) => SerializedStyles
     dataLength: number
     pageSize: number
     page: number
     setPage: Dispatch<SetStateAction<number>>
+    styles: TableStyles
 }
 
 export default (props: PaginationProps) => {
-    const { dataLength, pageSize, page, setPage, containerStyle, buttonStyle } = props;
+    const { dataLength, pageSize, page, setPage, styles } = props;
     const buttons = Math.ceil(dataLength / pageSize);
     const buttonsComponents: React.ReactNode[] = [];
 
@@ -24,15 +24,16 @@ export default (props: PaginationProps) => {
     for (let i = 0; i < buttons; i++) {
         buttonsComponents.push(
             <div
+                key={`pagination-${i}`}
                 onClick={() => setPage(i + 1)}
                 children={`${i + 1}`}
-                css={buttonStyle(page === (i + 1))}
+                css={styles.paginationButton(page === (i + 1))}
             />
         )
     }
 
     return (
-        <Flexbox flex={1} css={containerStyle}>
+        <Flexbox flex={1} css={styles.paginationContainer}>
             {buttonsComponents}
         </Flexbox>
     )

@@ -22,6 +22,7 @@ class TableStory extends React.Component {
                 uuid: fakerator.random.hex(16),
                 uuidv2: fakerator.random.hex(16),
                 groupId: fakerator.random.number(0, 2),
+                // children: <div>123</div>
             });
         }
 
@@ -44,11 +45,11 @@ class TableStory extends React.Component {
             <Flexbox pr={35} pl={50} pt={0} column flex={1}>
                 <SimpleTable
                     data={tableData}
-                    // groupKey='groupId'
-                    // groups={groups}
-                    pagination={{
-                        pageSize: 10
-                    }}
+                    groupKey='groupId'
+                    groups={groups}
+                    // pagination={{
+                    //     pageSize: 10
+                    // }}
                     // border='all'
                     columns={tableColumns}
                 // actions={[{

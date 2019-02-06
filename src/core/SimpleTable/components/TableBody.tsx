@@ -2,6 +2,7 @@
 import { jsx } from '@emotion/core';
 import { Fragment } from 'react';
 import Types from '../types';
+import { TableStyles } from '../styles';
 
 import GroupHeaderRow from './GroupHeaderRow';
 import DataRows from './DataRows';
@@ -9,13 +10,13 @@ import DataRows from './DataRows';
 interface TableBodyProps {
     data: Object[]
     columns: Types.Column[]
-    style: any
     groups?: Types.Group[]
     groupKey?: string
+    styles: TableStyles
 }
 
 export default (props: TableBodyProps) => {
-    const { data, columns, groupKey, groups, style } = props;
+    const { data, columns, groupKey, groups, styles } = props;
 
     const cols = columns.map(col => {
         if (!col.render) {
@@ -24,7 +25,7 @@ export default (props: TableBodyProps) => {
         return col;
     });
 
-    if (groupKey && groups) {
+    if (groupKey && (Array.isArray(groups) && groups.length > 1)) {
         return (
             <Fragment>
                 {groups.map((group, index) => (
@@ -32,15 +33,12 @@ export default (props: TableBodyProps) => {
                         <GroupHeaderRow
                             columns={cols}
                             title={group.title}
-                            containerStyle={style.group.container}
-                            headerCellStyle={style.group.cell}
-                            groupTitleStyle={style.group.title}
+                            styles={styles}
                         />
                         <DataRows
                             data={data.filter(i => i[groupKey] === group.value)}
                             columns={cols}
-                            rowStyle={style.data.row}
-                            cellStyle={style.data.cell}
+                            styles={styles}
                         />
                     </div>
                 ))}
@@ -52,8 +50,7 @@ export default (props: TableBodyProps) => {
         <DataRows
             data={data}
             columns={cols}
-            rowStyle={style.data.row}
-            cellStyle={style.data.cell}
+            styles={styles}
         />
     )
 }

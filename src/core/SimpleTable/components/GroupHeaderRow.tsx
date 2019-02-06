@@ -1,28 +1,27 @@
 /** @jsx jsx */
-import { jsx, SerializedStyles } from '@emotion/core';
+import { jsx } from '@emotion/core';
 import Types from '../types';
-import { Flexbox } from '../..'
+import { TableStyles } from '../styles';
+import TableRow from './TableRow';
 
 interface GroupHeaderRowProps {
     columns: Types.Column[],
-    containerStyle: SerializedStyles
-    headerCellStyle: (width?: number, borders?: Types.Borders) => SerializedStyles
-    groupTitleStyle: SerializedStyles
     title: string
+    styles: TableStyles
 }
 
 export default (props: GroupHeaderRowProps) => {
-    const { columns, containerStyle, headerCellStyle, groupTitleStyle, title } = props;
+    const { columns, title, styles } = props;
 
     return (
-        <Flexbox css={containerStyle} justifyContent='center'>
-            {columns.map((col, keyIndex) => (
-                <div
-                    key={`rowcell-${keyIndex}`}
-                    css={headerCellStyle(col.width, col.borders)}
-                />
-            ))}
-            <div css={groupTitleStyle}>{title}</div>
-        </Flexbox>
+        <div css={styles.groupContainer} >
+            <TableRow
+                columns={columns}
+                styles={styles}
+                header={true}
+                groupHeader={true}
+            />
+            <div css={styles.groupTitle} children={title} />
+        </div>
     )
 }
