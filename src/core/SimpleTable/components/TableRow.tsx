@@ -52,7 +52,7 @@ export default (props: DataRowsProps) => {
                 {columns.map((col, keyIndex) => (
                     <div
                         key={`rowcell-${keyIndex}`}
-                        css={styles.cell(col.width, col.borders)}
+                        css={styles.cell(col.width, col.borders, col.alignment)}
                         children={row ? col.render!(row, row[col.dataIndex]) : groupHeader ? '' : col.title}
                     />
                 ))}

@@ -35,10 +35,10 @@ class TableStory extends React.Component {
         const tableColumns: SimpleTableTypes.Column[] = [
             { title: '#', dataIndex: 'id', width: 1 },
             { title: 'Fullname', dataIndex: 'name', render: (row, value) => <div style={{ fontSize: '1rem' }}>{value}</div> },
-            { title: 'Age', dataIndex: 'age', width: 40, borders: 'right' },
-            { title: 'Passport ID', dataIndex: 'passport', borders: 'right', width: 200, },
-            { title: 'uuid', dataIndex: 'uuid', borders: 'right', width: 200, },
-            { title: 'uuidv2', dataIndex: 'uuidv2', width: 200, }
+            { title: 'Age', dataIndex: 'age', width: 40, borders: 'right', alignment: 'right' },
+            { title: 'Passport ID', dataIndex: 'passport', borders: 'right', width: 200, alignment: 'right' },
+            { title: 'uuid', dataIndex: 'uuid', borders: 'right', width: 200, alignment: 'right' },
+            { title: 'uuidv2', dataIndex: 'uuidv2', width: 200, alignment: 'right' }
         ]
 
         const expandForm = {

@@ -3,6 +3,7 @@ import { CSSProperties } from "react";
 declare namespace SimpleTableTypes {
 
     export type Borders = "left" | "right" | "all"
+    export type ColumnAlignment = "left" | "right"
 
     export interface Column {
         dataIndex: string
@@ -10,6 +11,7 @@ declare namespace SimpleTableTypes {
         width?: number
         render?: (row: Object, value: any) => any
         borders?: Borders
+        alignment?: ColumnAlignment
     }
 
     export interface Group {

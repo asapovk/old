@@ -12,7 +12,7 @@ export interface TableStyles {
     groupTitle: SerializedStyles,
     // group: SerializedStyles,
     row: (header?: boolean) => SerializedStyles
-    cell: (width?: number, borders?: Types.Borders) => SerializedStyles
+    cell: (width?: number, borders?: Types.Borders, columnAlignment?: Types.ColumnAlignment) => SerializedStyles
     actionIcon: (active?: boolean) => SerializedStyles
     expandRow: (active: boolean) => SerializedStyles
 }
@@ -52,7 +52,7 @@ export default (): TableStyles => {
             backgroundColor: theme.background.hex,
             borderWidth: '0 0 1px 0',
             borderStyle: theme.borders.table.style,
-            borderColor: theme.borders.table.color,
+            borderColor: theme.borders.table.color
         }, header && {
             backgroundColor: theme.background.rgba(0),
             borderWidth: 0,
@@ -62,7 +62,7 @@ export default (): TableStyles => {
             alignItems: 'center'
         }),
 
-        cell: (width?: number, borders?: Types.Borders) => css(width
+        cell: (width?: number, borders?: Types.Borders, columnAlignment?: Types.ColumnAlignment) => css(width
             ? { flexBasis: width }
             : { flex: 1 },
             {
@@ -71,6 +71,7 @@ export default (): TableStyles => {
                 borderColor: theme.borders.table.color,
                 borderStyle: theme.borders.table.style,
                 ...getBorders(borders),
+                textAlign: columnAlignment || 'left'
             }
         ),
 
