@@ -35,6 +35,7 @@ class TableStory extends React.Component {
                     pagination={{
                         pageSize: 10
                     }}
+                    border='all'
                     columns={tableColumns}
                     actions={[{
                         label: "Action",

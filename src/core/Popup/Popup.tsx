@@ -30,6 +30,8 @@ export default (props: Types.Props) => {
         ViewportHTML ? ViewportHTML : document.body
     );
 
+    console.log(1);
+
     useLayoutEffect(() => {
         const coord = triggerRef.current! && triggerRef.current!.getBoundingClientRect();
 
@@ -39,7 +41,6 @@ export default (props: Types.Props) => {
             left: coord.left + document.documentElement!.scrollLeft,
             right: coord.right + document.documentElement!.scrollLeft,
         });
-
     }, [browser.width]);
 
     useEffect(() => {
@@ -49,6 +50,8 @@ export default (props: Types.Props) => {
     }, [props.visible]);
 
     function handleClickOutside(event: { target: any }) {
+        if (!visible) return;
+
         if (popupRef && !popupRef.current!.contains(event.target)) {
             setVisible(false);
             props.onClose && props.onClose();
