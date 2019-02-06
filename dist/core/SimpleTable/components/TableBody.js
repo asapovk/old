@@ -9,17 +9,17 @@ var react_1 = require("react");
 var GroupHeaderRow_1 = __importDefault(require("./GroupHeaderRow"));
 var DataRows_1 = __importDefault(require("./DataRows"));
 exports.default = (function (props) {
-    var data = props.data, columns = props.columns, groupKey = props.groupKey, groups = props.groups, style = props.style;
+    var data = props.data, columns = props.columns, groupKey = props.groupKey, groups = props.groups, styles = props.styles;
     var cols = columns.map(function (col) {
         if (!col.render) {
             col.render = function (row, value) { return value; };
         }
         return col;
     });
-    if (groupKey && groups) {
+    if (groupKey && (Array.isArray(groups) && groups.length > 1)) {
         return (core_1.jsx(react_1.Fragment, null, groups.map(function (group, index) { return (core_1.jsx("div", { key: "group-" + index },
-            core_1.jsx(GroupHeaderRow_1.default, { columns: cols, title: group.title, containerStyle: style.group.container, headerCellStyle: style.group.cell, groupTitleStyle: style.group.title }),
-            core_1.jsx(DataRows_1.default, { data: data.filter(function (i) { return i[groupKey] === group.value; }), columns: cols, rowStyle: style.data.row, cellStyle: style.data.cell }))); })));
+            core_1.jsx(GroupHeaderRow_1.default, { columns: cols, title: group.title, styles: styles }),
+            core_1.jsx(DataRows_1.default, { data: data.filter(function (i) { return i[groupKey] === group.value; }), columns: cols, styles: styles }))); })));
     }
-    return (core_1.jsx(DataRows_1.default, { data: data, columns: cols, rowStyle: style.data.row, cellStyle: style.data.cell }));
+    return (core_1.jsx(DataRows_1.default, { data: data, columns: cols, styles: styles }));
 });

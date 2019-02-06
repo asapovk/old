@@ -1,22 +1,16 @@
-declare const _default: () => {
-    container: import("@emotion/utils").SerializedStyles;
-    head: {
-        cell: (width?: number | undefined, borders?: "all" | "left" | "right" | undefined) => import("@emotion/utils").SerializedStyles;
-        row: import("@emotion/utils").SerializedStyles;
-    };
-    group: {
-        container: import("@emotion/utils").SerializedStyles;
-        title: import("@emotion/utils").SerializedStyles;
-        cell: (width?: number | undefined, borders?: "all" | "left" | "right" | undefined) => import("@emotion/utils").SerializedStyles;
-    };
-    data: {
-        group: import("@emotion/utils").SerializedStyles;
-        row: import("@emotion/utils").SerializedStyles;
-        cell: (width?: number | undefined, borders?: "all" | "left" | "right" | undefined) => import("@emotion/utils").SerializedStyles;
-    };
-    pagination: {
-        container: import("@emotion/utils").SerializedStyles;
-        button: (active: boolean) => import("@emotion/utils").SerializedStyles;
-    };
-};
+import { SerializedStyles } from '@emotion/core';
+import Types from './types';
+export interface TableStyles {
+    tableContainer: SerializedStyles;
+    groupContainer: SerializedStyles;
+    rowContainer: SerializedStyles;
+    paginationContainer: SerializedStyles;
+    paginationButton: (active: boolean) => SerializedStyles;
+    groupTitle: SerializedStyles;
+    row: (header?: boolean) => SerializedStyles;
+    cell: (width?: number, borders?: Types.Borders) => SerializedStyles;
+    actionIcon: (active?: boolean) => SerializedStyles;
+    expandRow: (active: boolean) => SerializedStyles;
+}
+declare const _default: () => TableStyles;
 export default _default;
