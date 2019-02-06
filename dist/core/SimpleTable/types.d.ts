@@ -31,6 +31,10 @@ declare namespace SimpleTableTypes {
         onSearch?: (value: any) => void;
         hideHeaders?: boolean;
         borders?: 'all' | 'external' | 'internal' | 'vertical' | 'horizontal';
+        expandForm?: {
+            key: string | number;
+            render: (row: Object) => any;
+        };
     }
 }
 export default SimpleTableTypes;
