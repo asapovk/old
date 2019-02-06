@@ -110,7 +110,10 @@ exports.default = (function () {
             flex: 1,
             alignItems: 'center',
             justifyContent: 'center',
-            padding: '1rem'
+            padding: '1.25rem',
+            borderColor: theme.borders.table.color,
+            borderStyle: theme.borders.table.style,
+            borderWidth: '1px 0 0 0',
         }),
         paginationButton: function (active) { return core_1.css({
             boxSizing: 'border-box',

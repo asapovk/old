@@ -16,6 +16,7 @@ declare namespace SimpleTableTypes {
     }
     interface Pagination {
         pageSize: number;
+        pageNeighbours: number;
     }
     interface Props {
         style?: CSSProperties;
