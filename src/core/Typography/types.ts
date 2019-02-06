@@ -27,12 +27,21 @@ declare namespace TypographyTypes {
         theme: any
         typography: any
     }
-    interface CoreProps {
+    interface CoreProps extends PM {
         children?: string
         className?: string
         onClick?: (event) => void
         format?: boolean | 'rub' | 'volume'
         color?: 'text' | 'highlight' | 'pale' | 'textOnAccent' | 'lowlight'
+        ellipsis?: boolean
+    }
+    interface HRProps extends PM {
+        dotted?: boolean
+        bold?: boolean
+        className?: string
+        color?: 'text' | 'highlight' | 'pale' | 'textOnAccent'
+    }
+    interface PM {
         p?: number | string
         pr?: number | string
         pl?: number | string
@@ -43,12 +52,6 @@ declare namespace TypographyTypes {
         ml?: number | string
         mt?: number | string
         mb?: number | string
-    }
-    interface HRProps {
-        dotted?: boolean
-        bold?: boolean
-        className?: string
-        color?: 'text' | 'highlight' | 'pale' | 'textOnAccent'
     }
 }
 

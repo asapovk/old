@@ -50,6 +50,11 @@ const Typography = forwardRef((props: Types.Props, ref) => {
                     color: theme.highlight.rgb,
                     cursor: 'pointer'
                 },
+                props.ellipsis && {
+                    whiteSpace: 'nowrap',
+                    overflow: 'hidden',
+                    textOverflow: 'ellipsis',
+                },
                 (props.underline || props.action) && {
                     lineHeight: typography.fontSize
                 }
@@ -166,7 +171,17 @@ export const HR = (props: Types.HRProps) => {
             width: '100%',
             borderBottomWidth: props.bold ? '4px' : '0.5px',
             borderBottomStyle: props.dotted ? 'dotted' : 'solid',
-            borderBottomColor: theme[props.color ? props.color : 'pale'].rgb
+            borderBottomColor: theme[props.color ? props.color : 'pale'].rgb,
+            padding: props.p,
+            paddingTop: props.pt,
+            paddingLeft: props.pl,
+            paddingRight: props.pr,
+            paddingBottom: props.pb,
+            margin: props.m,
+            marginTop: props.mt,
+            marginLeft: props.ml,
+            marginRight: props.mr,
+            marginBottom: props.mb,
         })}
     />
 }
