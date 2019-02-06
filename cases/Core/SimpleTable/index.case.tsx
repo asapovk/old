@@ -41,6 +41,11 @@ class TableStory extends React.Component {
             { title: 'uuidv2', dataIndex: 'uuidv2', width: 200, }
         ]
 
+        const expandForm = {
+            key: 'expandForm',
+            render: (row) => <div>{JSON.stringify(row)}</div>
+        }
+
         return (
             <Flexbox pr={35} pl={50} pt={0} column flex={1}>
                 <SimpleTable
@@ -52,6 +57,7 @@ class TableStory extends React.Component {
                     // }}
                     // border='all'
                     columns={tableColumns}
+                    expandForm={expandForm}
                 // actions={[{
                 //     label: "Action",
                 //     onAction: (event) => console.log(event)

@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core';
-import { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Types from '../types';
 import { Flexbox, Icon } from '../..'
 import { TableStyles } from '../styles';
@@ -11,10 +11,14 @@ interface DataRowsProps {
     header?: boolean
     groupHeader?: boolean
     styles: TableStyles
+    expandForm?: {
+        key: string | number
+        render: (row: Object) => any
+    }
 }
 
 export default (props: DataRowsProps) => {
-    const { row, columns, styles, header, groupHeader } = props;
+    const { row, columns, styles, header, groupHeader, expandForm } = props;
     const [expanded, setExpanded] = useState(false);
     const rowRef = useRef<HTMLDivElement>(null);
 
@@ -30,13 +34,13 @@ export default (props: DataRowsProps) => {
     }
 
     useEffect(() => {
-        if (row && row.children) {
+        if (expandForm) {
             setRowHeight(expanded);
         }
     }, []);
 
     function onRowClick() {
-        if (row && row.children) {
+        if (expandForm) {
             setRowHeight(!expanded);
             setExpanded(!expanded);
         }
@@ -55,13 +59,13 @@ export default (props: DataRowsProps) => {
                 <div
                     key={`rowcell-action`}
                     css={styles.cell(16)}
-                    children={(row && row.children) && (
+                    children={expandForm && (
                         <Icon type='right' css={styles.actionIcon(expanded)} />
                     )}
                 />
             </Flexbox>
-            {row && row.children && (
-                <div css={styles.expandRow(expanded)} children={row.children} />
+            {expandForm && (
+                <div css={styles.expandRow(expanded)} children={row && expandForm.render(row)} />
             )}
         </div>
     )

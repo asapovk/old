@@ -11,6 +11,10 @@ interface DataRowsProps {
     data: { [name: string]: any }[],
     columns: Types.Column[],
     styles: TableStyles
+    expandForm?: {
+        key: string | number
+        render: (row: Object) => any
+    }
 }
 
 export default (props: DataRowsProps) => {

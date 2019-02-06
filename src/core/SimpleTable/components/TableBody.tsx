@@ -13,10 +13,14 @@ interface TableBodyProps {
     groups?: Types.Group[]
     groupKey?: string
     styles: TableStyles
+    expandForm?: {
+        key: string | number
+        render: (row: Object) => any
+    }
 }
 
 export default (props: TableBodyProps) => {
-    const { data, columns, groupKey, groups, styles } = props;
+    const { data, columns, groupKey, groups, styles, expandForm } = props;
 
     const cols = columns.map(col => {
         if (!col.render) {
@@ -39,6 +43,7 @@ export default (props: TableBodyProps) => {
                             data={data.filter(i => i[groupKey] === group.value)}
                             columns={cols}
                             styles={styles}
+                            expandForm={expandForm}
                         />
                     </div>
                 ))}
