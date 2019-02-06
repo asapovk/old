@@ -29,7 +29,7 @@ export default (props: DataRowsProps) => {
 
             row.style.height = (!expanded
                 ? nodes[0].offsetHeight
-                : row.offsetHeight + nodes[1].offsetHeight) + 'px';
+                : nodes[0].offsetHeight + nodes[1].offsetHeight) + .5 + 'px';
         }
     }
 

@@ -14,7 +14,7 @@ export default (props: GroupHeaderRowProps) => {
     const { columns, title, styles } = props;
 
     return (
-        <div css={styles.groupContainer} >
+        <div css={styles.groupRowContainer} >
             <TableRow
                 columns={columns}
                 styles={styles}

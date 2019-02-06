@@ -19,7 +19,7 @@ interface DataRowsProps {
 
 export default (props: DataRowsProps) => {
     return (
-        <Fragment>
+        <div css={props.styles.rowsContainer}>
             {props.data.map((row, index) => (
                 <TableRow
                     {...props}
@@ -27,6 +27,6 @@ export default (props: DataRowsProps) => {
                     row={row}
                 />
             ))}
-        </Fragment>
+        </div>
     )
 }
