@@ -14,7 +14,7 @@ exports.default = (function (props) {
             var nodes = row_1.childNodes;
             row_1.style.height = (!expanded
                 ? nodes[0].offsetHeight
-                : row_1.offsetHeight + nodes[1].offsetHeight) + 'px';
+                : nodes[0].offsetHeight + nodes[1].offsetHeight) + .5 + 'px';
         }
     }
     react_1.useEffect(function () {
