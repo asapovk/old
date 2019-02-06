@@ -9,13 +9,13 @@ import TableRow from './components/TableRow';
 
 export default (props: Types.Props) => {
     const styles = createStyles();
-    const [page, setPage] = useState(1);
+    const [currentPage, setCurrentPage] = useState(1);
 
     let pageData = props.data;
     if (props.pagination) {
         const { pageSize } = props.pagination;
         pageData = props.data
-            .filter((_, i) => pageSize * page >= (i + 1) && i >= pageSize * page - pageSize);
+            .filter((_, i) => pageSize * currentPage >= (i + 1) && i >= pageSize * currentPage - pageSize);
     }
 
     return (
@@ -26,11 +26,11 @@ export default (props: Types.Props) => {
             <TableBody {...props} data={pageData} styles={styles} />
             {props.pagination && (
                 <TablePagination
-                    pageSize={props.pagination.pageSize}
-                    page={page}
-                    setPage={setPage}
+                    currentPage={currentPage}
+                    setCurrentPage={setCurrentPage}
                     dataLength={props.data.length}
                     styles={styles}
+                    pagination={props.pagination}
                 />
             )}
         </div>

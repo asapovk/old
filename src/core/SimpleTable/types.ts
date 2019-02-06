@@ -21,6 +21,7 @@ declare namespace SimpleTableTypes {
 
     export interface Pagination {
         pageSize: number
+        pageNeighbours: number
     }
 
     export interface Props {
