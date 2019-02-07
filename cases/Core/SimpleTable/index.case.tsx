@@ -13,7 +13,7 @@ class TableStory extends React.Component {
 
     render() {
         const tableData = [] as any[];
-        for (let i = 0; i < 50; i++) {
+        for (let i = 0; i < 400; i++) {
             tableData.push({
                 id: i + 1,
                 name: fakerator.names.name(),
@@ -35,10 +35,10 @@ class TableStory extends React.Component {
         const tableColumns: SimpleTableTypes.Column[] = [
             { title: '#', dataIndex: 'id', width: 1 },
             { title: 'Fullname', dataIndex: 'name', render: (row, value) => <div style={{ fontSize: '1rem' }}>{value}</div> },
-            { title: 'Age', dataIndex: 'age', width: 40, borders: 'right' },
-            { title: 'Passport ID', dataIndex: 'passport', borders: 'right', width: 200, },
-            { title: 'uuid', dataIndex: 'uuid', borders: 'right', width: 200, },
-            { title: 'uuidv2', dataIndex: 'uuidv2', width: 200, }
+            { title: 'Age', dataIndex: 'age', width: 40, borders: 'right', alignment: 'right' },
+            { title: 'Passport ID', dataIndex: 'passport', borders: 'right', width: 200, alignment: 'right' },
+            { title: 'uuid', dataIndex: 'uuid', borders: 'right', width: 200, alignment: 'right' },
+            { title: 'uuidv2', dataIndex: 'uuidv2', width: 200, alignment: 'right' }
         ]
 
         const expandForm = {
@@ -50,11 +50,12 @@ class TableStory extends React.Component {
             <Flexbox pr={35} pl={50} pt={0} column flex={1}>
                 <SimpleTable
                     data={tableData}
-                    groupKey='groupId'
-                    groups={groups}
-                    // pagination={{
-                    //     pageSize: 10
-                    // }}
+                    // groupKey='groupId'
+                    // groups={groups}
+                    pagination={{
+                        pageSize: 10,
+                        pageNeighbours: 2
+                    }}
                     // border='all'
                     columns={tableColumns}
                     expandForm={expandForm}

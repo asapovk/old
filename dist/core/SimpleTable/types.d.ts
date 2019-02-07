@@ -1,12 +1,14 @@
 import { CSSProperties } from "react";
 declare namespace SimpleTableTypes {
     type Borders = "left" | "right" | "all";
+    type ColumnAlignment = "left" | "right";
     interface Column {
         dataIndex: string;
         title?: string;
         width?: number;
         render?: (row: Object, value: any) => any;
         borders?: Borders;
+        alignment?: ColumnAlignment;
     }
     interface Group {
         title: string;
@@ -14,6 +16,7 @@ declare namespace SimpleTableTypes {
     }
     interface Pagination {
         pageSize: number;
+        pageNeighbours: number;
     }
     interface Props {
         style?: CSSProperties;

@@ -1,17 +1,18 @@
-import { css, SerializedStyles } from '@emotion/core';
+import { css, SerializedStyles, keyframes } from '@emotion/core';
 import useTheme from '../../hooks/useTheme';
 import Types from './types';
 
 export interface TableStyles {
     tableContainer: SerializedStyles
-    groupContainer: SerializedStyles
+    groupRowContainer: SerializedStyles
     rowContainer: SerializedStyles
+    rowsContainer: SerializedStyles
     paginationContainer: SerializedStyles
     paginationButton: (active: boolean) => SerializedStyles
     groupTitle: SerializedStyles,
     // group: SerializedStyles,
     row: (header?: boolean) => SerializedStyles
-    cell: (width?: number, borders?: Types.Borders) => SerializedStyles
+    cell: (width?: number, borders?: Types.Borders, columnAlignment?: Types.ColumnAlignment) => SerializedStyles
     actionIcon: (active?: boolean) => SerializedStyles
     expandRow: (active: boolean) => SerializedStyles
 }
@@ -26,7 +27,6 @@ export default (): TableStyles => {
             borderStyle: theme.borders.table.style,
             borderColor: theme.borders.table.color,
             overflow: 'hidden',
-            boxSizing: 'border-box'
         }),
 
         rowContainer: css({
@@ -35,24 +35,34 @@ export default (): TableStyles => {
             flex: 1
         }),
 
+        rowsContainer: css({
+            flex: 1,
+            "> :last-child": {
+                "> :first-of-type": {
+                    borderWidth: 0
+                }
+            }
+        }),
+
         row: (header?: boolean) => css({
             position: 'relative',
             display: 'flex',
             flexDirection: 'row',
             alignItems: 'stretch',
+            backgroundColor: theme.background.hex,
             borderWidth: '0 0 1px 0',
             borderStyle: theme.borders.table.style,
-            borderColor: theme.borders.table.color,
-            backgroundColor: theme.background.hex
+            borderColor: theme.borders.table.color
         }, header && {
             backgroundColor: theme.background.rgba(0),
+            borderWidth: 0,
             color: '#908E91',
             fontWeight: 600,
             fontSize: '0.875rem',
             alignItems: 'center'
         }),
 
-        cell: (width?: number, borders?: Types.Borders) => css(width
+        cell: (width?: number, borders?: Types.Borders, columnAlignment?: Types.ColumnAlignment) => css(width
             ? { flexBasis: width }
             : { flex: 1 },
             {
@@ -60,7 +70,8 @@ export default (): TableStyles => {
                 overflow: 'hidden',
                 borderColor: theme.borders.table.color,
                 borderStyle: theme.borders.table.style,
-                ...getBorders(borders)
+                ...getBorders(borders),
+                textAlign: columnAlignment || 'left'
             }
         ),
 
@@ -87,9 +98,12 @@ export default (): TableStyles => {
             opacity: 1
         }),
 
-        groupContainer: css({
+        groupRowContainer: css({
             position: 'relative',
             backgroundColor: theme.background2.hex,
+            borderWidth: '1px 0 1px 0',
+            borderStyle: theme.borders.table.style,
+            borderColor: theme.borders.table.color,
         }),
 
         groupTitle: css({
@@ -118,7 +132,10 @@ export default (): TableStyles => {
             flex: 1,
             alignItems: 'center',
             justifyContent: 'center',
-            padding: '1rem'
+            padding: '1.25rem',
+            borderColor: theme.borders.table.color,
+            borderStyle: theme.borders.table.style,
+            borderWidth: '1px 0 0 0',
         }),
 
         paginationButton: (active: boolean) => css({

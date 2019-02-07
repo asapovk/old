@@ -23,15 +23,15 @@ var TablePagination_1 = __importDefault(require("./components/TablePagination"))
 var TableRow_1 = __importDefault(require("./components/TableRow"));
 exports.default = (function (props) {
     var styles = styles_1.default();
-    var _a = react_1.useState(1), page = _a[0], setPage = _a[1];
+    var _a = react_1.useState(1), currentPage = _a[0], setCurrentPage = _a[1];
     var pageData = props.data;
     if (props.pagination) {
         var pageSize_1 = props.pagination.pageSize;
         pageData = props.data
-            .filter(function (_, i) { return pageSize_1 * page >= (i + 1) && i >= pageSize_1 * page - pageSize_1; });
+            .filter(function (_, i) { return pageSize_1 * currentPage >= (i + 1) && i >= pageSize_1 * currentPage - pageSize_1; });
     }
     return (core_1.jsx("div", { css: styles.tableContainer },
         !props.hideHeaders && (core_1.jsx(TableRow_1.default, { header: true, columns: props.columns, styles: styles })),
         core_1.jsx(TableBody_1.default, __assign({}, props, { data: pageData, styles: styles })),
-        props.pagination && (core_1.jsx(TablePagination_1.default, { pageSize: props.pagination.pageSize, page: page, setPage: setPage, dataLength: props.data.length, styles: styles }))));
+        props.pagination && (core_1.jsx(TablePagination_1.default, { currentPage: currentPage, setCurrentPage: setCurrentPage, dataLength: props.data.length, styles: styles, pagination: props.pagination }))));
 });

@@ -29,7 +29,7 @@ export default (props: DataRowsProps) => {
 
             row.style.height = (!expanded
                 ? nodes[0].offsetHeight
-                : row.offsetHeight + nodes[1].offsetHeight) + 'px';
+                : nodes[0].offsetHeight + nodes[1].offsetHeight) + .5 + 'px';
         }
     }
 
@@ -52,7 +52,7 @@ export default (props: DataRowsProps) => {
                 {columns.map((col, keyIndex) => (
                     <div
                         key={`rowcell-${keyIndex}`}
-                        css={styles.cell(col.width, col.borders)}
+                        css={styles.cell(col.width, col.borders, col.alignment)}
                         children={row ? col.render!(row, row[col.dataIndex]) : groupHeader ? '' : col.title}
                     />
                 ))}
