@@ -9,6 +9,7 @@ export default ({ reverseContainer }) => {
             display: 'flex',
             flexDirection: 'row',
             alignItems: 'flex-start',
+            padding: '2rem'
         }, reverseContainer && {
             flexDirection: 'row-reverse'
         }),
@@ -24,14 +25,14 @@ export default ({ reverseContainer }) => {
             borderColor: theme.borders.table.color,
             borderRadius: '0.25rem',
             position: 'sticky',
-            top: '50px', //TODO: 
+            top: 0, //TODO: 
             margin: '0 0 0 2.5rem',
             padding: '0 1.25rem',
         }, reverseContainer && {
             margin: '0 2.5rem 0 0'
         }),
 
-        menuItem: css({
+        menuItem: (activeItem: boolean) => css({
             display: 'block',
             width: '100%',
             boxSizing: 'border-box',
@@ -43,6 +44,8 @@ export default ({ reverseContainer }) => {
             "&:last-child": {
                 borderWidth: '0',
             }
+        }, activeItem && {
+            color: theme.highlight.hex
         }),
 
         content: css({

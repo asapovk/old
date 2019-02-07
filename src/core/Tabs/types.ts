@@ -14,7 +14,9 @@ declare namespace TabsTypes {
         children?: any
 
         tabs: Tab[]
+        activeItem: boolean
         reverseContainer?: boolean
+
     }
 }
 
