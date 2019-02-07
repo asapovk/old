@@ -134,7 +134,11 @@ exports.default = (function () {
         }, active && {
             borderColor: theme.highlight.hex,
             color: theme.highlight.hex
-        }); }
+        }); },
+        noDataContainer: core_1.css({
+            padding: '1.25rem',
+            textAlign: 'center'
+        })
     };
 });
 function getBorders(borders) {

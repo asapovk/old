@@ -30,6 +30,11 @@ exports.default = (function (props) {
         pageData = props.data
             .filter(function (_, i) { return pageSize_1 * currentPage >= (i + 1) && i >= pageSize_1 * currentPage - pageSize_1; });
     }
+    if (!props.data || props.data.length <= 0) {
+        return (props.noDataComponent
+            ? props.noDataComponent
+            : core_1.jsx("div", { css: styles.noDataContainer }, "\u041D\u0435\u0442 \u0434\u0430\u043D\u043D\u044B\u0445"));
+    }
     return (core_1.jsx("div", { css: styles.tableContainer },
         !props.hideHeaders && (core_1.jsx(TableRow_1.default, { header: true, columns: props.columns, styles: styles })),
         core_1.jsx(TableBody_1.default, __assign({}, props, { data: pageData, styles: styles })),

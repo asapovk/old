@@ -11,7 +11,6 @@ declare namespace TabsTypes {
         className?: string;
         children?: any;
         tabs: Tab[];
-        activeItem: boolean;
         reverseContainer?: boolean;
     }
 }
