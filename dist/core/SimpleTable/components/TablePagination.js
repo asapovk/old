@@ -11,25 +11,19 @@ exports.default = (function (props) {
     }
     var pages = fetchPageNumbers(pagination.pageNeighbours, totalPages, currentPage);
     function setPage(page) {
-        if (page < 1) {
-            page = 1;
-        }
-        if (page > totalPages) {
-            page = 40;
-        }
-        setCurrentPage(page);
+        var currentPage = Math.max(1, Math.min(page, totalPages));
+        setCurrentPage(currentPage);
     }
-    return (core_1.jsx(__1.Flexbox, { css: styles.paginationContainer }, pages.map(function (page, index) {
-        if (page === LEFT_PAGE) {
-            return (core_1.jsx("div", { key: "pagination-" + index, onClick: function () { return setPage(currentPage - (pagination.pageNeighbours * 2) - 1); }, children: core_1.jsx(__1.Icon, { type: 'left' }), css: styles.paginationButton(false) }));
-        }
-        ;
-        if (page === RIGHT_PAGE) {
-            return (core_1.jsx("div", { key: "pagination-" + index, onClick: function () { return setPage(currentPage + (pagination.pageNeighbours * 2) + 1); }, children: core_1.jsx(__1.Icon, { type: 'right' }), css: styles.paginationButton(false) }));
-        }
-        ;
-        return (core_1.jsx("div", { key: "pagination-" + index, onClick: function () { return setPage(page); }, children: page, css: styles.paginationButton(currentPage === page) }));
-    })));
+    return (core_1.jsx(__1.Flexbox, { css: styles.paginationContainer }, pages.map(function (page, index) { return (core_1.jsx("div", { key: "pagination-" + index, onClick: function (event) {
+            event.preventDefault();
+            typeof page === 'number'
+                ? setPage(page)
+                : page === LEFT_PAGE
+                    ? setPage(currentPage - (pagination.pageNeighbours * 2) - 1)
+                    : setPage(currentPage + (pagination.pageNeighbours * 2) + 1);
+        }, children: (typeof page === 'number'
+            ? page
+            : core_1.jsx(__1.Icon, { type: page })), css: styles.paginationButton(typeof page === 'number' ? (currentPage === page) : false) })); })));
 });
 var range = function (from, to, step) {
     if (step === void 0) { step = 1; }
@@ -84,5 +78,5 @@ var fetchPageNumbers = function (pageNeighbours, totalPages, currentPage) {
     }
     return range(1, totalPages);
 };
-var LEFT_PAGE = 'LEFT';
-var RIGHT_PAGE = 'RIGHT';
+var LEFT_PAGE = 'left';
+var RIGHT_PAGE = 'right';
