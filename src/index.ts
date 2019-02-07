@@ -20,7 +20,7 @@ export { Stories as Stories } from './core';
 export { Table as Table } from './core'
 export { SimpleTable as SimpleTable } from './core';
 export { Tabs as Tabs } from './core'
-export { Tab as Tab } from './core'
+// export { Tab as Tab } from './core'
 export { TextField as TextField } from './core'
 export { Timeline as Timeline } from './core';
 export { Title as Title } from './core'

@@ -1,25 +1,23 @@
 import React from 'react';
-import { Tabs, Tab } from '../../../src';
-import '../../../src/styles/scss/main.scss';
+import { Flexbox, Tabs } from '../../../src';
 
-export default class Story extends React.Component {
+
+class TabsStory extends React.Component {
+
     render() {
+        const tabs = [
+            { key: 'profile', title: 'Профиль', content: <div>Профиль</div>, icon: '' },
+            { key: 'accounts', title: 'Лицевые счета', content: <div>Лицевые счета</div>, icon: '' },
+            { key: 'payinfo', title: 'Платежная информация', content: <div>Платежная информация</div>, icon: '' },
+            { key: 'notifications', title: 'Уведомления', content: <div>Уведомления</div>, icon: '' }
+        ]
         return (
-            
-                <div style={{ padding: "0 40px" }}>
-                    <Tabs>
-                        <Tab label="Добавление" icon="add">
-                            <div>Разное</div>
-                        </Tab>
-                        <Tab label="Ожидание" icon="clock">
-                            <div>Упс</div>
-                        </Tab>
-                        <Tab label="Выполеное" icon="check">
-                            <div>...</div>
-                        </Tab>
-                    </Tabs>
-                </div>
-            
+            <Flexbox p={50} column flex={1}>
+                <div style={{ height: '200px', width: '100%' }}></div>
+                <Tabs tabs={tabs} />
+            </Flexbox>
         )
     }
 }
+
+export default TabsStory
