@@ -44,8 +44,7 @@ var SimpleTable_1 = require("./SimpleTable");
 exports.SimpleTable = SimpleTable_1.SimpleTable;
 var Tabs_1 = require("./Tabs");
 exports.Tabs = Tabs_1.Tabs;
-var Tabs_2 = require("./Tabs");
-exports.Tab = Tabs_2.Tab;
+// export { Tab as Tab } from './Tabs'
 var TextField_1 = require("./TextField");
 exports.TextField = TextField_1.TextField;
 var Timeline_1 = require("./Timeline");
