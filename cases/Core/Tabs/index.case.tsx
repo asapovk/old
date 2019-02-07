@@ -1,7 +1,6 @@
 import React from 'react';
 import { Flexbox, Tabs } from '../../../src';
 
-
 class TabsStory extends React.Component {
 
     render() {

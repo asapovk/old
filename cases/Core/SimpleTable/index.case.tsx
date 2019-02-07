@@ -13,7 +13,7 @@ class TableStory extends React.Component {
 
     render() {
         const tableData = [] as any[];
-        for (let i = 0; i < 400; i++) {
+        for (let i = 0; i < 0; i++) {
             tableData.push({
                 id: i + 1,
                 name: fakerator.names.name(),
@@ -59,6 +59,7 @@ class TableStory extends React.Component {
                     // border='all'
                     columns={tableColumns}
                     expandForm={expandForm}
+                // noDataComponent={<div>а данных то тю-тю</div>}
                 // actions={[{
                 //     label: "Action",
                 //     onAction: (event) => console.log(event)

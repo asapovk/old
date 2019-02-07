@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { jsx } from '@emotion/core';
+import { jsx, css } from '@emotion/core';
 import { useState } from 'react';
 import Types from './types';
 import createStyles from './styles';
@@ -16,6 +16,14 @@ export default (props: Types.Props) => {
         const { pageSize } = props.pagination;
         pageData = props.data
             .filter((_, i) => pageSize * currentPage >= (i + 1) && i >= pageSize * currentPage - pageSize);
+    }
+
+    if (!props.data || props.data.length <= 0) {
+        return (
+            props.noDataComponent
+                ? props.noDataComponent
+                : <div css={styles.noDataContainer}>Нет данных</div>
+        )
     }
 
     return (
