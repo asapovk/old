@@ -31,32 +31,28 @@ export default (props: PaginationProps) => {
 
     return (
         <Flexbox css={styles.paginationContainer}>
-            {pages.map((page, index) => {
-
-                return (
-                    <div
-                        key={`pagination-${index}`}
-                        onClick={(event) => {
-                            event.preventDefault();
-                            typeof page === 'number'
-                                ? setPage(page as number)
-                                : page === LEFT_PAGE
-                                    ? setPage(currentPage - (pagination.pageNeighbours * 2) - 1)
-                                    : setPage(currentPage + (pagination.pageNeighbours * 2) + 1);
-                        }}
-                        children={(
-                            typeof page === 'number'
-                                ? page
-                                : <Icon type={page as IconTypes.Type} />
-                        )}
-                        css={styles.paginationButton(typeof page === 'number' ? (currentPage === page) : false)}
-                    />
-                )
-            })}
+            {pages.map((page, index) => (
+                <div
+                    key={`pagination-${index}`}
+                    onClick={(event) => {
+                        event.preventDefault();
+                        typeof page === 'number'
+                            ? setPage(page as number)
+                            : page === LEFT_PAGE
+                                ? setPage(currentPage - (pagination.pageNeighbours * 2) - 1)
+                                : setPage(currentPage + (pagination.pageNeighbours * 2) + 1);
+                    }}
+                    children={(
+                        typeof page === 'number'
+                            ? page
+                            : <Icon type={page as IconTypes.Type} />
+                    )}
+                    css={styles.paginationButton(typeof page === 'number' ? (currentPage === page) : false)}
+                />
+            ))}
         </Flexbox>
     )
 }
-
 
 const range = (from: number, to: number, step = 1) => {
     let i = from;
@@ -71,7 +67,6 @@ const range = (from: number, to: number, step = 1) => {
 }
 
 const fetchPageNumbers = (pageNeighbours: number, totalPages: number, currentPage: number) => {
-
     /**
      * totalNumbers: the total page numbers to show on the control
      * totalBlocks: totalNumbers + 2 to cover for the left(<) and right(>) controls
