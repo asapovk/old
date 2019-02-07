@@ -92,6 +92,7 @@ export default (displaySideBar?: boolean) => {
             holder: css({
                 display: 'flex',
                 flexBasis: 960,
+                maxWidth: '960px',
                 flexDirection: 'column',
                 '@media (max-width: 768px)': {
                     display: 'block',
