@@ -30,11 +30,15 @@ exports.default = (function (props) {
             ? noDataComponent
             : core_1.jsx("div", { css: styles.noDataContainer }, "\u041D\u0435\u0442 \u0434\u0430\u043D\u043D\u044B\u0445")));
     }
+    react_1.useLayoutEffect(function () {
+        setCurrentPage(1);
+    }, [data]);
     var pageData = data;
     if (pagination) {
         var pageSize_1 = pagination.pageSize;
         pageData = data
-            .filter(function (_, i) { return pageSize_1 * currentPage >= (i + 1) && i >= pageSize_1 * currentPage - pageSize_1; });
+            .filter(function (_, i) { return (pageSize_1 * currentPage >= (i + 1)
+            && i >= pageSize_1 * currentPage - pageSize_1); });
     }
     return (core_1.jsx("div", { css: styles.tableContainer },
         !hideHeaders && (core_1.jsx(TableRow_1.default, { last: false, header: true, columns: columns, styles: styles, expandForm: expandForm })),

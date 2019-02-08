@@ -38,7 +38,7 @@ exports.default = (function () {
             }, header && {
                 borderWidth: 0,
             }, hideHeaders && {
-                "&:first-child": {
+                "&:first-of-type": {
                     borderWidth: 0,
                 }
             });
