@@ -76,7 +76,7 @@ export default (): TableStyles => {
                 overflow: 'hidden',
                 borderColor: theme.borders.table.color,
                 borderStyle: theme.borders.table.style,
-                justifyContent: 'flex-' + columnAlignment || 'flex-start',
+                justifyContent: columnAlignment || 'flex-start',
                 alignItems: 'center',
                 ...getBorders(borders),
             }
