@@ -23,6 +23,9 @@ var Decorator_1 = __importDefault(require("./Decorator"));
 var Typography = react_1.forwardRef(function (props, ref) {
     var typography = hooks_1.useTypography()[props.type][props.size];
     var theme = hooks_1.useTheme().theme;
+    var data = props.children && props.quotes
+        ? props.children.toString().replace(/"([^"]*)"/g, '«$1»')
+        : props.children;
     if (props.underline || props.action || props.menu) {
         return (core_1.jsx(Decorator_1.default, __assign({}, props, { typography: typography, theme: theme })));
     }
@@ -33,6 +36,8 @@ var Typography = react_1.forwardRef(function (props, ref) {
             onClick: props.onClick,
             css: core_1.css(__assign({}, typography, { display: props.type === 'caption' ? 'inline-block' : 'block', padding: props.p, paddingTop: props.pt, paddingLeft: props.pl, paddingRight: props.pr, paddingBottom: props.pb, margin: props.m, marginTop: props.mt, marginLeft: props.ml, marginRight: props.mr, marginBottom: props.mb }), props.color && {
                 color: theme[props.color].rgb
+            }, props.background && {
+                background: theme[props.background].rgb
             }, props.bold && {
                 fontWeight: 'bold'
             }, props.link && {
@@ -46,8 +51,8 @@ var Typography = react_1.forwardRef(function (props, ref) {
                 lineHeight: typography.fontSize
             }),
         }, props.format
-            ? core_1.jsx(Formatter_1.default, { format: props.format, children: props.children })
-            : props.children);
+            ? core_1.jsx(Formatter_1.default, { format: props.format, children: data })
+            : data);
 });
 /**
  * PARAGRAPH

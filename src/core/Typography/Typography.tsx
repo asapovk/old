@@ -11,6 +11,10 @@ const Typography = forwardRef((props: Types.Props, ref) => {
     const typography = useTypography()[props.type][props.size];
     const theme = useTheme().theme;
 
+    const data = props.children && props.quotes
+        ? props.children.toString().replace(/"([^"]*)"/g, '«$1»')
+        : props.children;
+
     if (props.underline || props.action || props.menu) {
         return (
             <Decorator
@@ -43,6 +47,9 @@ const Typography = forwardRef((props: Types.Props, ref) => {
                 props.color && {
                     color: theme[props.color].rgb
                 },
+                props.background && {
+                    background: theme[props.background].rgb
+                },
                 props.bold && {
                     fontWeight: 'bold'
                 },
@@ -63,9 +70,9 @@ const Typography = forwardRef((props: Types.Props, ref) => {
         props.format
             ? <Formatter
                 format={props.format}
-                children={props.children}
+                children={data}
             />
-            : props.children
+            : data
     );
 })
 

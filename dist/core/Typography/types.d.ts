@@ -29,7 +29,9 @@ declare namespace TypographyTypes {
         onClick?: (event: any) => void;
         format?: boolean | 'rub' | 'volume';
         color?: 'text' | 'highlight' | 'pale' | 'textOnAccent' | 'lowlight';
+        quotes?: boolean;
         ellipsis?: boolean;
+        background?: 'text' | 'highlight' | 'pale' | 'textOnAccent' | 'lowlight';
     }
     interface HRProps extends PM {
         dotted?: boolean;

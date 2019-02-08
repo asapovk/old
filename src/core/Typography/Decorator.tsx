@@ -44,7 +44,8 @@ const Header = (props) => jsx(
                 display: props.type === 'caption' ? 'inline-block' : 'block',
                 lineHeight: props.typography.fontSize,
                 marginRight: props.mr,
-                paddingBottom: '0.625rem',
+                paddingBottom: 'calc(0.625rem + 1px)',
+                marginBottom: '-1px'
             },
             props.color && {
                 color: props.theme[props.color].rgb
