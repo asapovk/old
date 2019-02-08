@@ -59,7 +59,7 @@ exports.default = (function () {
         }); },
         cell: function (width, borders, columnAlignment) { return core_1.css(width
             ? { flexBasis: width }
-            : { flex: 1 }, __assign({ padding: '1.25rem', overflow: 'hidden', borderColor: theme.borders.table.color, borderStyle: theme.borders.table.style }, getBorders(borders), { textAlign: columnAlignment || 'left' })); },
+            : { flex: 1 }, __assign({ padding: '1.25rem', overflow: 'hidden', borderColor: theme.borders.table.color, borderStyle: theme.borders.table.style }, getBorders(borders), { textAlign: columnAlignment || 'left', alignItems: 'center' })); },
         actionIcon: function (active) { return core_1.css({
             transform: 'rotate(0)',
             willChange: 'transform',
