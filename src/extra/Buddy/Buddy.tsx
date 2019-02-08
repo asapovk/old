@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
 import useStyles from './useStyles';
-import React, { Component, CSSProperties, useEffect, useImperativeMethods, forwardRef } from 'react';
+import React, { Component, CSSProperties, useEffect, useImperativeHandle, forwardRef } from 'react';
 
 require('../lib/TweenMax.min');
 require('../lib/MorphSVGPlugin.min');
@@ -37,7 +37,7 @@ export default forwardRef((props: BuddyProps, ref) => {
 
     let BUDDY_ID: string = "_" + (Math.random() * 10000000).toFixed(0);
 
-    useImperativeMethods(ref, () => ({
+    useImperativeHandle(ref, () => ({
         makeJumpy() {
             makeJumpy();
         },

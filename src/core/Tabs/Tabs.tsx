@@ -11,36 +11,33 @@ export default (props: Types.Props) => {
     const [currentId, setCurrentId] = useState('');
 
     useEffect(() => {
-        // isElementInViewport();
-        const viewport = document.querySelector('[data-viewport]')
-        viewport && viewport.addEventListener('scroll', onWindowScroll);
-
-        removeHash();
         setSmoothAnimation();
 
-        return () => viewport && document.removeEventListener('scroll', onWindowScroll);
+        const viewport = document.querySelector('[data-viewport]');
+
+        viewport && viewport.addEventListener('scroll', onWindowScroll);
+        return () => {
+            viewport && document.removeEventListener('scroll', onWindowScroll);
+        }
     }, []);
 
     function setSmoothAnimation() {
-        const anchorlinks = document.querySelectorAll('div[data-href]');
+        const anchorlinks = document.querySelectorAll('div[data-tab]');
 
         anchorlinks.forEach(item => {
             item.addEventListener('click', (event) => {
-                const hashval = item.getAttribute('data-href');
-                if (hashval) {
-                    const target = document.querySelector(hashval);
+                const tabId = item.getAttribute('data-tab');
+                if (tabId) {
+                    const target = document.querySelector(tabId);
                     if (target) {
                         target.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
-
+                            behavior: 'smooth'
                         });
                         event.preventDefault();
                     }
                 }
             });
         })
-
     }
 
     function onWindowScroll() {
@@ -56,28 +53,9 @@ export default (props: Types.Props) => {
             if (active) {
                 const id = active.getAttribute('id');
                 if (document.location.hash !== `${id}`) {
-                    // history.pushState(null, document.title, `#${id}`);
                     setCurrentId(id);
                 }
             }
-        }
-    }
-
-    function removeHash() {
-        let scrollV: number, scrollH: number, loc: Location = window.location;
-
-        if ("pushState" in history) {
-            history.pushState("", document.title, loc.pathname + loc.search);
-        } else {
-            // Prevent scrolling by storing the page's current scroll offset
-            scrollV = document.body.scrollTop;
-            scrollH = document.body.scrollLeft;
-
-            loc.hash = "";
-
-            // Restore the scroll offset, should be flicker free
-            document.body.scrollTop = scrollV;
-            document.body.scrollLeft = scrollH;
         }
     }
 
@@ -85,14 +63,25 @@ export default (props: Types.Props) => {
         <div css={styles.container}>
             <div css={styles.content}>
                 {tabs.map(tab => (
-                    <div id={tab.key} data-tab-container key={`tabcnt-${tab.key}`} css={styles.tab}>{tab.content}</div>
+                    <div
+                        data-tab-container
+                        id={tab.key}
+                        key={`tabcnt-${tab.key}`}
+                        children={tab.content}
+                        css={styles.tab}
+                    />
                 ))}
             </div>
             <div css={styles.menu}>
                 {tabs.map(tab => (
-                    <div data-href={`#${tab.key}`} key={`tab-${tab.key}`} css={styles.menuItem(location.hash === `#${tab.key}`)} >
-                        <C1 bold={tab.key == currentId}>{tab.title}</C1>
-                    </div>
+                    <div
+                        data-tab={tab.key}
+                        key={`tab-${tab.key}`}
+                        children={(
+                            <C1>{tab.title}</C1>
+                        )}
+                        css={styles.menuItem(tab.key == currentId)}
+                    />
                 ))}
             </div>
         </div>
