@@ -11,6 +11,7 @@ export interface IProps {
     customCss?: any
     width?: number
     height?: number
+    displayScroll?: boolean
 }
 
 //@ts-ignore
@@ -37,7 +38,9 @@ export default (props: IProps) => {
                 children={children}
                 style={{ ...style }}
             />
-            <ScrollBar scrollViewId={id} horizontal={horizontal} />
+            {props.displayScroll !== false && (
+                <ScrollBar scrollViewId={id} horizontal={horizontal} />
+            )}
         </div>
     );
 }
