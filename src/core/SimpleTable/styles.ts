@@ -11,7 +11,7 @@ export interface TableStyles {
     paginationButton: (active: boolean) => SerializedStyles
     groupTitle: SerializedStyles,
     // group: SerializedStyles,
-    row: (header?: boolean) => SerializedStyles
+    row: (header?: boolean, groupHeader?: boolean) => SerializedStyles
     cell: (width?: number, borders?: Types.Borders, columnAlignment?: Types.ColumnAlignment) => SerializedStyles
     actionIcon: (active?: boolean) => SerializedStyles
     expandRow: (active: boolean) => SerializedStyles
@@ -45,7 +45,7 @@ export default (): TableStyles => {
             }
         }),
 
-        row: (header?: boolean) => css({
+        row: (header?: boolean, groupHeader?: boolean) => css({
             position: 'relative',
             display: 'flex',
             flexDirection: 'row',
@@ -56,11 +56,12 @@ export default (): TableStyles => {
             borderColor: theme.borders.table.color
         }, header && {
             backgroundColor: theme.background.rgba(0),
-            borderWidth: 0,
             color: '#908E91',
             fontWeight: 600,
             fontSize: '0.875rem',
             alignItems: 'center'
+        }, groupHeader && {
+            borderWidth: 0
         }),
 
         cell: (width?: number, borders?: Types.Borders, columnAlignment?: Types.ColumnAlignment) => css(width

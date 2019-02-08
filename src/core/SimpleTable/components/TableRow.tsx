@@ -48,7 +48,7 @@ export default (props: DataRowsProps) => {
 
     return (
         <div css={styles.rowContainer} ref={rowRef}>
-            <Flexbox css={styles.row(header)} onClick={onRowClick}>
+            <Flexbox css={styles.row(header, groupHeader)} onClick={onRowClick}>
                 {columns.map((col, keyIndex) => (
                     <div
                         key={`rowcell-${keyIndex}`}
