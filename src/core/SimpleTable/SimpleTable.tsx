@@ -22,7 +22,7 @@ export default (props: Types.Props) => {
 
     useEffect(() => {
         setCurrentPage(1);
-    }, [data]);
+    }, []);
 
     let pageData = data;
     if (pagination) {

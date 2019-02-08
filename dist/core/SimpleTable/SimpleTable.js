@@ -32,7 +32,7 @@ exports.default = (function (props) {
     }
     react_1.useEffect(function () {
         setCurrentPage(1);
-    }, [data]);
+    }, []);
     var pageData = data;
     if (pagination) {
         var pageSize_1 = pagination.pageSize;
