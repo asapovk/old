@@ -12,3 +12,5 @@ var WidgetStat_1 = require("./WidgetStat");
 exports.WidgetStat = WidgetStat_1.WidgetStat;
 var RublesField_1 = require("./RublesField");
 exports.RublesField = RublesField_1.RublesField;
+var LiquidDrop_1 = require("./LiquidDrop");
+exports.LiquidDrop = LiquidDrop_1.LiquidDrop;

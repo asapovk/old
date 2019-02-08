@@ -6,6 +6,7 @@ export interface IProps {
     customCss?: any;
     width?: number;
     height?: number;
+    displayScroll?: boolean;
 }
 declare const _default: (props: IProps) => JSX.Element;
 export default _default;

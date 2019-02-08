@@ -32,5 +32,5 @@ exports.default = (function (props) {
     var id = "SV-" + Math.trunc(Math.random() * 10000000);
     return (core_1.jsx("div", { css: styles.root },
         core_1.jsx("div", { id: id, css: styles.scrollview, ref: scrollView, children: children, style: __assign({}, style) }),
-        core_1.jsx(ScrollBar_1.default, { scrollViewId: id, horizontal: horizontal })));
+        props.displayScroll !== false && (core_1.jsx(ScrollBar_1.default, { scrollViewId: id, horizontal: horizontal }))));
 });
