@@ -121,7 +121,6 @@ exports.C4 = react_1.forwardRef(function (props, ref) {
 exports.HR = function (props) {
     var theme = hooks_1.useTheme().theme;
     return core_1.jsx("div", { className: props.className, css: core_1.css({
-            height: '1px',
             width: '100%',
             borderBottomWidth: props.bold ? '4px' : '0.5px',
             borderBottomStyle: props.dotted ? 'dotted' : 'solid',

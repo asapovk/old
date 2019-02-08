@@ -10,3 +10,5 @@ var types_4 = require("./core/types");
 exports.PopupTypes = types_4.default;
 var types_5 = require("./core/types");
 exports.MenuTypes = types_5.default;
+var types_6 = require("./core/types");
+exports.TabsTypes = types_6.default;

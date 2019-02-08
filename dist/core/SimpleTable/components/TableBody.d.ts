@@ -6,10 +6,7 @@ interface TableBodyProps {
     groups?: Types.Group[];
     groupKey?: string;
     styles: TableStyles;
-    expandForm?: {
-        key: string | number;
-        render: (row: Object) => any;
-    };
+    expandForm?: Types.ExpandForm;
 }
 declare const _default: (props: TableBodyProps) => JSX.Element;
 export default _default;

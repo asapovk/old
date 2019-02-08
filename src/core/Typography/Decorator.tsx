@@ -26,7 +26,6 @@ export default forwardRef((props: Types.DecoratorProps, ref) => {
         <Flexbox flexDirection='column' {...props}>
             {Content}
             <HR css={css({
-                paddingTop: '0.625rem',
                 marginTop: props.typography.marginBottom &&
                     '-' + props.typography.marginBottom
             })} />
@@ -45,13 +44,14 @@ const Header = (props) => jsx(
                 display: props.type === 'caption' ? 'inline-block' : 'block',
                 lineHeight: props.typography.fontSize,
                 marginRight: props.mr,
+                paddingBottom: '0.625rem',
             },
             props.color && {
                 color: props.theme[props.color].rgb
             },
             props.menu && {
                 cursor: 'pointer'
-            },
+            }
         ),
     },
     props.children
@@ -76,12 +76,15 @@ const HeadersMenu = (props) => {
                     ...props,
                     ...{
                         children: item.text,
-                        color: value === item.value
-                            ? 'text'
-                            : 'lowlight',
                         onClick: () => onChange(item.value),
                         mr: '1.5rem',
-                        key: item.value
+                        key: item.value,
+                        css: value === item.value
+                            ? css({
+                                color: props.theme.text.rgb,
+                                borderBottom: `3px solid ${props.theme.highlight.rgb}`
+                            })
+                            : css({ color: props.theme.lowlight.rgb })
                     }
                 }} />
             ))}

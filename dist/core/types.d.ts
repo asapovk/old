@@ -7,5 +7,6 @@ export { default as SimpleTableTypes } from './SimpleTable/types';
 export { default as CheckboxTypes } from './Checkbox/types';
 export { default as DatePickerTypes } from './DatePicker/types';
 export { default as TypographyTypes } from './Typography/types';
+export { default as TabsTypes } from './Tabs/types';
 export declare type SizeTypes = 'extra-large' | 'large' | 'small' | 'default';
 export declare type DecorationTypes = 'none' | 'highlight' | 'red' | 'green' | 'orange' | 'blue' | 'grayscale';

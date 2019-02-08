@@ -11,10 +11,11 @@ export interface TableStyles {
     paginationButton: (active: boolean) => SerializedStyles
     groupTitle: SerializedStyles,
     // group: SerializedStyles,
-    row: (header?: boolean) => SerializedStyles
+    row: (header?: boolean, groupHeader?: boolean) => SerializedStyles
     cell: (width?: number, borders?: Types.Borders, columnAlignment?: Types.ColumnAlignment) => SerializedStyles
     actionIcon: (active?: boolean) => SerializedStyles
     expandRow: (active: boolean) => SerializedStyles
+    noDataContainer: SerializedStyles
 }
 
 export default (): TableStyles => {
@@ -44,7 +45,7 @@ export default (): TableStyles => {
             }
         }),
 
-        row: (header?: boolean) => css({
+        row: (header?: boolean, groupHeader?: boolean) => css({
             position: 'relative',
             display: 'flex',
             flexDirection: 'row',
@@ -55,23 +56,29 @@ export default (): TableStyles => {
             borderColor: theme.borders.table.color
         }, header && {
             backgroundColor: theme.background.rgba(0),
-            borderWidth: 0,
             color: '#908E91',
             fontWeight: 600,
             fontSize: '0.875rem',
             alignItems: 'center'
+        }, groupHeader && {
+            borderWidth: 0
         }),
 
         cell: (width?: number, borders?: Types.Borders, columnAlignment?: Types.ColumnAlignment) => css(width
-            ? { flexBasis: width }
+            ? {
+                flexBasis: width,
+                flexShrink: 0
+            }
             : { flex: 1 },
             {
+                display: 'flex',
                 padding: '1.25rem',
                 overflow: 'hidden',
                 borderColor: theme.borders.table.color,
                 borderStyle: theme.borders.table.style,
+                justifyContent: columnAlignment || 'flex-start',
+                alignItems: 'center',
                 ...getBorders(borders),
-                textAlign: columnAlignment || 'left'
             }
         ),
 
@@ -85,17 +92,15 @@ export default (): TableStyles => {
         }),
 
         expandRow: (active: boolean) => css({
-            opacity: 0,
             padding: '1.25rem',
             transition: 'all 0.2s ease-in-out',
             borderWidth: '0 0 1px 0',
             borderStyle: theme.borders.table.style,
             borderColor: theme.borders.table.color,
             backgroundColor: theme.background2.hex,
-            visibility: 'hidden'
+            display: 'none'
         }, active && {
-            visibility: 'visible',
-            opacity: 1
+            display: 'block'
         }),
 
         groupRowContainer: css({
@@ -157,6 +162,11 @@ export default (): TableStyles => {
         }, active && {
             borderColor: theme.highlight.hex,
             color: theme.highlight.hex
+        }),
+
+        noDataContainer: css({
+            padding: '1.25rem',
+            textAlign: 'center'
         })
     }
 }

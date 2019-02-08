@@ -11,10 +11,7 @@ interface DataRowsProps {
     header?: boolean
     groupHeader?: boolean
     styles: TableStyles
-    expandForm?: {
-        key: string | number
-        render: (row: Object) => any
-    }
+    expandForm?: Types.ExpandForm
 }
 
 export default (props: DataRowsProps) => {
@@ -22,33 +19,31 @@ export default (props: DataRowsProps) => {
     const [expanded, setExpanded] = useState(false);
     const rowRef = useRef<HTMLDivElement>(null);
 
-    function setRowHeight(expanded: boolean) {
-        if (rowRef && rowRef.current) {
-            const row = rowRef.current;
-            const nodes = row.childNodes as NodeListOf<HTMLDivElement>;
+    // function setRowHeight(expanded: boolean) {
+    //     if (rowRef && rowRef.current) {
+    //         const row = rowRef.current;
+    //         const nodes = row.childNodes as NodeListOf<HTMLDivElement>;
 
-            row.style.height = (!expanded
-                ? nodes[0].offsetHeight
-                : nodes[0].offsetHeight + nodes[1].offsetHeight) + .5 + 'px';
-        }
-    }
+    //         row.style.height = (!expanded
+    //             ? nodes[0].offsetHeight
+    //             : nodes[0].offsetHeight + nodes[1].offsetHeight) + 'px';
+    //     }
+    // }
 
-    useEffect(() => {
-        if (expandForm) {
-            setRowHeight(expanded);
-        }
-    }, []);
+    // useEffect(() => {
+    //     setRowHeight(expanded);
+    // }, []);
 
     function onRowClick() {
-        if (expandForm) {
-            setRowHeight(!expanded);
+        if (!header) {
+            // setRowHeight(!expanded);
             setExpanded(!expanded);
         }
     }
 
     return (
         <div css={styles.rowContainer} ref={rowRef}>
-            <Flexbox css={styles.row(header)} onClick={onRowClick}>
+            <Flexbox css={styles.row(header, groupHeader)} onClick={onRowClick}>
                 {columns.map((col, keyIndex) => (
                     <div
                         key={`rowcell-${keyIndex}`}
@@ -56,13 +51,15 @@ export default (props: DataRowsProps) => {
                         children={row ? col.render!(row, row[col.dataIndex]) : groupHeader ? '' : col.title}
                     />
                 ))}
-                <div
-                    key={`rowcell-action`}
-                    css={styles.cell(16)}
-                    children={expandForm && (
-                        <Icon type='right' css={styles.actionIcon(expanded)} />
-                    )}
-                />
+                {expandForm && (
+                    <div
+                        key={`rowcell-action`}
+                        css={styles.cell(16)}
+                        children={(!header && (
+                            <Icon type='right' css={styles.actionIcon(expanded)} />
+                        ))}
+                    />
+                )}
             </Flexbox>
             {expandForm && (
                 <div css={styles.expandRow(expanded)} children={row && expandForm.render(row)} />

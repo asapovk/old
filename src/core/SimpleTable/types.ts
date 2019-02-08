@@ -3,7 +3,7 @@ import { CSSProperties } from "react";
 declare namespace SimpleTableTypes {
 
     export type Borders = "left" | "right" | "all"
-    export type ColumnAlignment = "left" | "right"
+    export type ColumnAlignment = "flex-start" | "flex-end" | "center"
 
     export interface Column {
         dataIndex: string
@@ -24,6 +24,11 @@ declare namespace SimpleTableTypes {
         pageNeighbours: number
     }
 
+    export interface ExpandForm {
+        key: string | number
+        render: (row: Object) => any
+    }
+
     export interface Props {
         style?: CSSProperties,
         className?: string
@@ -35,16 +40,13 @@ declare namespace SimpleTableTypes {
         groupKey?: string
         groups?: Group[]
         pagination?: Pagination
-        noDataLabel?: string;
+        noDataComponent?: JSX.Element;
         onRowClick?: (row: Object) => any
         search?: boolean
         onSearch?: (value: any) => void,
         hideHeaders?: boolean
         borders?: 'all' | 'external' | 'internal' | 'vertical' | 'horizontal'
-        expandForm?: {
-            key: string | number
-            render: (row: Object) => any
-        }
+        expandForm?: ExpandForm
     }
 }
 

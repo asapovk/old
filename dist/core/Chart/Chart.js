@@ -65,7 +65,6 @@ var chartTypes = {
 exports.default = (function (props) {
     var labels = props.labels, data = props.data, responsive = props.responsive, type = props.type, tension = props.tension, loading = props.loading, style = props.style, legendDisplay = props.legendDisplay;
     var styles = useStyles_1.default();
-    console.log(styles);
     chart_js_1.defaults.global.defaultFontSize = 14;
     var chartData = function (style) {
         return {

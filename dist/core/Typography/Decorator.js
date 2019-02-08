@@ -29,7 +29,6 @@ exports.default = react_1.forwardRef(function (props, ref) {
     return (core_1.jsx(__1.Flexbox, __assign({ flexDirection: 'column' }, props),
         Content,
         core_1.jsx(__1.HR, { css: core_1.css({
-                paddingTop: '0.625rem',
                 marginTop: props.typography.marginBottom &&
                     '-' + props.typography.marginBottom
             }) })));
@@ -37,7 +36,7 @@ exports.default = react_1.forwardRef(function (props, ref) {
 var Header = function (props) { return core_1.jsx(props.tag, {
     className: props.className,
     onClick: props.onClick,
-    css: core_1.css(__assign({}, props.typography, { display: props.type === 'caption' ? 'inline-block' : 'block', lineHeight: props.typography.fontSize, marginRight: props.mr }), props.color && {
+    css: core_1.css(__assign({}, props.typography, { display: props.type === 'caption' ? 'inline-block' : 'block', lineHeight: props.typography.fontSize, marginRight: props.mr, paddingBottom: '0.625rem' }), props.color && {
         color: props.theme[props.color].rgb
     }, props.menu && {
         cursor: 'pointer'
@@ -53,11 +52,14 @@ var HeadersMenu = function (props) {
     };
     return (core_1.jsx(__1.Flexbox, null, props.menu.map(function (item) { return (core_1.jsx(Header, __assign({}, __assign({}, props, {
         children: item.text,
-        color: value === item.value
-            ? 'text'
-            : 'lowlight',
         onClick: function () { return onChange(item.value); },
         mr: '1.5rem',
-        key: item.value
+        key: item.value,
+        css: value === item.value
+            ? core_1.css({
+                color: props.theme.text.rgb,
+                borderBottom: "3px solid " + props.theme.highlight.rgb
+            })
+            : core_1.css({ color: props.theme.lowlight.rgb })
     })))); })));
 };

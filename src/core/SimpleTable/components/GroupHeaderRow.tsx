@@ -8,18 +8,20 @@ interface GroupHeaderRowProps {
     columns: Types.Column[],
     title: string
     styles: TableStyles
+    expandForm?: Types.ExpandForm
 }
 
 export default (props: GroupHeaderRowProps) => {
-    const { columns, title, styles } = props;
+    const { columns, title, styles, expandForm } = props;
 
     return (
-        <div css={styles.groupRowContainer} >
+        <div css={styles.groupRowContainer}>
             <TableRow
                 columns={columns}
                 styles={styles}
                 header={true}
                 groupHeader={true}
+                expandForm={expandForm}
             />
             <div css={styles.groupTitle} children={title} />
         </div>

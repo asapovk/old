@@ -1,163 +1,97 @@
+/** @jsx jsx */
+import { jsx } from '@emotion/core';
+import { useEffect } from 'react';
+import createStyles from './styles';
+import Types from './types';
 
-import React, { CSSProperties } from 'react';
+export default (props: Types.Props) => {
+    const { tabs, reverseContainer } = props;
+    const styles = createStyles({ reverseContainer });
 
-import Tab from './Tab';
-import { TabTypes } from './';
-import TabContent from './TabContent';
-import { Flexbox, Styles } from '../../';
+    useEffect(() => {
+        removeHash();
+        setSmoothAnimation();
 
+        // isElementInViewport();
+        // const viewport = document.querySelector('[data-viewport]')
+        // viewport && viewport.addEventListener('scroll', onWindowScroll);
+        // return () => viewport && document.removeEventListener('scroll', onWindowScroll);
+    }, []);
 
-interface Props {
-    type?: TabTypes
-    style?: CSSProperties
-    mobileCurrentPageTitle?: string
-    children: any
-}
+    function setSmoothAnimation() {
+        let anchorlinks = document.querySelectorAll('div[data-href]');
 
-class Tabs extends React.Component<Props> {
-
-    view: HTMLElement
-    tabRefs: any[] = [];
-    maxDesktopWidth: 900;
-    state = {
-        currentTab: 0,
-        mobileActive: false,
-    }
-    constructor(props) {
-        super(props);
-
-        //for event listeners
-        this.updateLayout = this.updateLayout.bind(this);
-    }
-
-    updateLayout = e => {
-        this.update(this.state.currentTab);
-        this.mobileDeactivateTabIfNeeded();
-    }
-
-    onSelect(currentTab) {
-        this.setState({ currentTab });
-        this.update(currentTab);
-
-        if (window.document.body.clientWidth <= this.maxDesktopWidth) {
-            if (!this.state.mobileActive) {
-                this.setState({
-                    mobileActive: true
+        //@ts-ignore
+        for (let item of anchorlinks) { // relitere 
+            item.addEventListener('click', (event) => {
+                let hashval = item.getAttribute('data-href');
+                let target = document.querySelector(hashval);
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
                 });
-                this.setBodyScroll(false);
-            }
-        }
-    }
-
-    private setBodyScroll(scroll = true) {
-        document.body.style.overflow = scroll ? "auto" : 'hidden';
-    }
-
-    private mobileDeactivateTabIfNeeded() {
-        if (window.document.body.clientWidth > this.maxDesktopWidth && this.state.mobileActive) {
-            this.setState({
-                mobileActive: false
+                history.pushState(null, document.title, hashval);
+                event.preventDefault();
             });
-            this.setBodyScroll(true);
         }
     }
 
-    componentWillMount() {
-        window.addEventListener('resize', this.updateLayout);
-    }
+    // function onWindowScroll(event) {
+    //     let tabs = document.querySelectorAll('[data-tab-container]');
+    //     if (tabs) {
+    //         tabs.forEach(tab => {
+    //             if (isElementInViewport(tab)) {
+    //                 let hashval = tab.getAttribute('id');
+    //                 history.pushState(null, document.title, `#${hashval}`);
+    //                 event.preventDefault();
+    //             }
+    //         });
+    //     }
+    // }
 
-    componentWillUnmount() {
-        window.removeEventListener('resize', this.updateLayout);
-        this.setBodyScroll(true);
-    }
+    // function isElementInViewport(el) {
+    //     const rect = el.getBoundingClientRect();
+    //     console.log(rect.bottom, window.innerHeight);
+    //     return (
+    //         rect.top >= 0 &&
+    //         rect.left >= 0 &&
+    //         rect.bottom >= (window.innerHeight || document.documentElement.clientHeight) &&
+    //         rect.right >= (window.innerWidth || document.documentElement.clientWidth)
+    //     );
+    // }
 
-    componentWillReceiveProps(nextProps) {
-        /**
-         * Если изменилось колличество табов
-         * рендерим заного
-         */
-        if (nextProps.children.length != this.props.children.length) {
-            setTimeout(_ => {
-                this.onSelect((this.state.currentTab >= nextProps.children.length) ? 0 : this.state.currentTab);
-            }, 1);
+    function removeHash() {
+        let scrollV: number, scrollH: number, loc: Location = window.location;
+
+        if ("pushState" in history) {
+            history.pushState("", document.title, loc.pathname + loc.search);
+        } else {
+            // Prevent scrolling by storing the page's current scroll offset
+            scrollV = document.body.scrollTop;
+            scrollH = document.body.scrollLeft;
+
+            loc.hash = "";
+
+            // Restore the scroll offset, should be flicker free
+            document.body.scrollTop = scrollV;
+            document.body.scrollLeft = scrollH;
         }
     }
 
-    update(i) {
-        if (this.tabRefs[-1]) {
-            this.tabRefs[-1].setBackgroundSelectedIndex(i, this.tabRefs[i].offsetLeft, this.tabRefs[i].offsetWidth);
-        }
-    }
-
-    render() {
-        let tabs: any = this.props.children;
-
-        if (Array.isArray(tabs) === false) {
-            tabs = [tabs];
-        }
-
-        return (
-            <Styles>
-                {styles => (
-                    <div className={`ui-tabs ui-tabs-${this.props.type || 'grid'}`} style={this.props.style || {}} ref={ref => this.view = ref!}>
-                        {/*
-                        Tab Buttons
-                    */}
-                        <Flexbox className={`ui-tabs-container`} style={styles.tabs.container}>
-                            {tabs.map((child, i) => {
-                                const props = {
-                                    key: i,
-                                    index: i,
-                                    type: this.props.type || 'grid',
-                                    icon: child.props.icon,
-                                    label: child.props.label,
-                                    right: child.props.right,
-                                    disabled: child.props.disabled,
-                                    bubble: child.props.bubble,
-                                    active: this.state.currentTab === i,
-
-                                    onClick: () => {
-                                        this.onSelect(i)
-                                    },
-
-                                    //Для анимации
-                                    buttonRef: ref => {
-                                        this.tabRefs[i] = ref;
-                                    },
-                                    ref: ref => {
-                                        if (i === 0) this.tabRefs[-1] = ref;
-                                    },
-
-                                    last: (tabs.length > 1 && i === tabs.length - 1)
-                                }
-                                return <Tab {...props} />;
-                            })}
-                        </Flexbox>
-                        {/*
-                        Tab TabContent
-                    */}
-                        {tabs.map((child, i) => {
-                            if (this.state.currentTab === i) {
-                                const props = {
-                                    key: i,
-                                    children: child.props.children,
-                                    mobileActive: this.state.mobileActive,
-                                    backTitle: this.props.mobileCurrentPageTitle || "",
-                                    label: child.props.label,
-                                    onClose: () => {
-                                        this.setState({ mobileActive: false });
-                                        this.setBodyScroll(true);
-                                    }
-                                }
-                                return <TabContent {...props} active={true} />;
-                            }
-                            return null;
-                        })}
+    return (
+        <div css={styles.container}>
+            <div css={styles.content}>
+                {tabs.map(tab => (
+                    <div id={tab.key} data-tab-container key={`tabcnt-${tab.key}`} css={styles.tab}>{tab.content}</div>
+                ))}
+            </div>
+            <div css={styles.menu}>
+                {tabs.map(tab => (
+                    <div data-href={`#${tab.key}`} key={`tab-${tab.key}`} css={styles.menuItem(location.hash === `#${tab.key}`)} >
+                        {tab.title}
                     </div>
-                )}
-            </Styles>
-        )
-    }
+                ))}
+            </div>
+        </div>
+    )
 }
-
-export default Tabs;

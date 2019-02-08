@@ -79,7 +79,6 @@ export default (props: Props) => {
 
     const { labels, data, responsive, type, tension, loading, style, legendDisplay } = props;
     const styles = useStyles();
-    console.log(styles);
     defaults.global.defaultFontSize = 14;
 
     const chartData = (style) => {

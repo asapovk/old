@@ -39,7 +39,7 @@ exports.default = (function () {
                 }
             }
         }),
-        row: function (header) { return core_1.css({
+        row: function (header, groupHeader) { return core_1.css({
             position: 'relative',
             display: 'flex',
             flexDirection: 'row',
@@ -50,15 +50,19 @@ exports.default = (function () {
             borderColor: theme.borders.table.color
         }, header && {
             backgroundColor: theme.background.rgba(0),
-            borderWidth: 0,
             color: '#908E91',
             fontWeight: 600,
             fontSize: '0.875rem',
             alignItems: 'center'
+        }, groupHeader && {
+            borderWidth: 0
         }); },
         cell: function (width, borders, columnAlignment) { return core_1.css(width
-            ? { flexBasis: width }
-            : { flex: 1 }, __assign({ padding: '1.25rem', overflow: 'hidden', borderColor: theme.borders.table.color, borderStyle: theme.borders.table.style }, getBorders(borders), { textAlign: columnAlignment || 'left' })); },
+            ? {
+                flexBasis: width,
+                flexShrink: 0
+            }
+            : { flex: 1 }, __assign({ display: 'flex', padding: '1.25rem', overflow: 'hidden', borderColor: theme.borders.table.color, borderStyle: theme.borders.table.style, justifyContent: columnAlignment || 'flex-start', alignItems: 'center' }, getBorders(borders))); },
         actionIcon: function (active) { return core_1.css({
             transform: 'rotate(0)',
             willChange: 'transform',
@@ -68,17 +72,15 @@ exports.default = (function () {
             transform: 'rotate(90deg)',
         }); },
         expandRow: function (active) { return core_1.css({
-            opacity: 0,
             padding: '1.25rem',
             transition: 'all 0.2s ease-in-out',
             borderWidth: '0 0 1px 0',
             borderStyle: theme.borders.table.style,
             borderColor: theme.borders.table.color,
             backgroundColor: theme.background2.hex,
-            visibility: 'hidden'
+            display: 'none'
         }, active && {
-            visibility: 'visible',
-            opacity: 1
+            display: 'block'
         }); },
         groupRowContainer: core_1.css({
             position: 'relative',
@@ -134,7 +136,11 @@ exports.default = (function () {
         }, active && {
             borderColor: theme.highlight.hex,
             color: theme.highlight.hex
-        }); }
+        }); },
+        noDataContainer: core_1.css({
+            padding: '1.25rem',
+            textAlign: 'center'
+        })
     };
 });
 function getBorders(borders) {
