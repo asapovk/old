@@ -20,10 +20,6 @@ export default (props: Types.Props) => {
         )
     }
 
-    useEffect(() => {
-        setCurrentPage(1);
-    }, []);
-
     let pageData = data;
     if (pagination) {
         const { pageSize } = pagination;

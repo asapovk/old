@@ -92,17 +92,15 @@ export default (): TableStyles => {
         }),
 
         expandRow: (active: boolean) => css({
-            opacity: 0,
             padding: '1.25rem',
             transition: 'all 0.2s ease-in-out',
             borderWidth: '0 0 1px 0',
             borderStyle: theme.borders.table.style,
             borderColor: theme.borders.table.color,
             backgroundColor: theme.background2.hex,
-            visibility: 'hidden'
+            display: 'none'
         }, active && {
-            visibility: 'visible',
-            opacity: 1
+            display: 'block'
         }),
 
         groupRowContainer: css({
