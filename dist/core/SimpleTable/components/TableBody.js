@@ -16,7 +16,7 @@ exports.default = (function (props) {
         }
         return col;
     });
-    if (groupKey && (Array.isArray(groups) && groups.length > 1)) {
+    if (groupKey && (Array.isArray(groups) && groups.length > 0)) {
         return (core_1.jsx(react_1.Fragment, null, groups.map(function (group, index) { return (core_1.jsx("div", { key: "group-" + index, id: "group-" + index },
             core_1.jsx(GroupHeaderRow_1.default, { columns: cols, title: group.title, styles: styles }),
             core_1.jsx(DataRows_1.default, { data: data.filter(function (i) { return i[groupKey] === group.value; }), columns: cols, styles: styles, expandForm: expandForm }))); })));
