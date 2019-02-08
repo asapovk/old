@@ -8,21 +8,21 @@ exports.default = (function (props) {
     var row = props.row, columns = props.columns, styles = props.styles, header = props.header, groupHeader = props.groupHeader, expandForm = props.expandForm;
     var _a = react_1.useState(false), expanded = _a[0], setExpanded = _a[1];
     var rowRef = react_1.useRef(null);
-    function setRowHeight(expanded) {
-        if (rowRef && rowRef.current) {
-            var row_1 = rowRef.current;
-            var nodes = row_1.childNodes;
-            row_1.style.height = (!expanded
-                ? nodes[0].offsetHeight
-                : nodes[0].offsetHeight + nodes[1].offsetHeight) + 'px';
-        }
-    }
-    react_1.useEffect(function () {
-        setRowHeight(expanded);
-    }, []);
+    // function setRowHeight(expanded: boolean) {
+    //     if (rowRef && rowRef.current) {
+    //         const row = rowRef.current;
+    //         const nodes = row.childNodes as NodeListOf<HTMLDivElement>;
+    //         row.style.height = (!expanded
+    //             ? nodes[0].offsetHeight
+    //             : nodes[0].offsetHeight + nodes[1].offsetHeight) + 'px';
+    //     }
+    // }
+    // useEffect(() => {
+    //     setRowHeight(expanded);
+    // }, []);
     function onRowClick() {
         if (!header) {
-            setRowHeight(!expanded);
+            // setRowHeight(!expanded);
             setExpanded(!expanded);
         }
     }

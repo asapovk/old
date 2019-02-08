@@ -72,17 +72,15 @@ exports.default = (function () {
             transform: 'rotate(90deg)',
         }); },
         expandRow: function (active) { return core_1.css({
-            opacity: 0,
             padding: '1.25rem',
             transition: 'all 0.2s ease-in-out',
             borderWidth: '0 0 1px 0',
             borderStyle: theme.borders.table.style,
             borderColor: theme.borders.table.color,
             backgroundColor: theme.background2.hex,
-            visibility: 'hidden'
+            display: 'none'
         }, active && {
-            visibility: 'visible',
-            opacity: 1
+            display: 'block'
         }); },
         groupRowContainer: core_1.css({
             position: 'relative',
