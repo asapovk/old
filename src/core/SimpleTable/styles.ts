@@ -73,7 +73,8 @@ export default (): TableStyles => {
                 borderColor: theme.borders.table.color,
                 borderStyle: theme.borders.table.style,
                 ...getBorders(borders),
-                textAlign: columnAlignment || 'left'
+                textAlign: columnAlignment || 'left',
+                alignItems: 'center'
             }
         ),
 
