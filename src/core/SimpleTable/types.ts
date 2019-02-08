@@ -3,7 +3,7 @@ import { CSSProperties } from "react";
 declare namespace SimpleTableTypes {
 
     export type Borders = "left" | "right" | "all"
-    export type ColumnAlignment = "left" | "right"
+    export type ColumnAlignment = "start" | "end"
 
     export interface Column {
         dataIndex: string

@@ -65,16 +65,20 @@ export default (): TableStyles => {
         }),
 
         cell: (width?: number, borders?: Types.Borders, columnAlignment?: Types.ColumnAlignment) => css(width
-            ? { flexBasis: width }
+            ? {
+                flexBasis: width,
+                flexShrink: 0
+            }
             : { flex: 1 },
             {
+                display: 'flex',
                 padding: '1.25rem',
                 overflow: 'hidden',
                 borderColor: theme.borders.table.color,
                 borderStyle: theme.borders.table.style,
+                justifyContent: 'flex-' + columnAlignment || 'flex-start',
+                alignItems: 'center',
                 ...getBorders(borders),
-                textAlign: columnAlignment || 'left',
-                alignItems: 'center'
             }
         ),
 
