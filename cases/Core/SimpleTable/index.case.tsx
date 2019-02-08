@@ -13,7 +13,7 @@ class TableStory extends React.Component {
 
     render() {
         const tableData = [] as any[];
-        for (let i = 0; i < 0; i++) {
+        for (let i = 0; i < 10; i++) {
             tableData.push({
                 id: i + 1,
                 name: fakerator.names.name(),
@@ -33,12 +33,12 @@ class TableStory extends React.Component {
         ]
 
         const tableColumns: SimpleTableTypes.Column[] = [
-            { title: '#', dataIndex: 'id', width: 1 },
-            { title: 'Fullname', dataIndex: 'name', render: (row, value) => <div style={{ fontSize: '1rem' }}>{value}</div> },
-            { title: 'Age', dataIndex: 'age', width: 40, borders: 'right', alignment: 'flex-end' },
-            { title: 'Passport ID', dataIndex: 'passport', borders: 'right', width: 200, alignment: 'flex-end' },
-            { title: 'uuid', dataIndex: 'uuid', borders: 'right', width: 200, alignment: 'flex-end' },
-            { title: 'uuidv2', dataIndex: 'uuidv2', width: 200, alignment: 'flex-end' }
+            // { title: '#', dataIndex: 'id', width: 1 },
+            // { title: 'Fullname', dataIndex: 'name', render: (row, value) => <div style={{ fontSize: '1rem' }}>{value}</div> },
+            // { title: 'Age', dataIndex: 'age', width: 40, borders: 'right', alignment: 'flex-end' },
+            { title: 'Passport ID', dataIndex: 'passport', alignment: 'flex-end' },
+            // { title: 'uuid', dataIndex: 'uuid', borders: 'right', width: 200, alignment: 'flex-end' },
+            // { title: 'uuidv2', dataIndex: 'uuidv2', width: 200, alignment: 'flex-end' }
         ]
 
         const expandForm = {
