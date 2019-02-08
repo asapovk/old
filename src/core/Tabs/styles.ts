@@ -9,7 +9,6 @@ export default ({ reverseContainer }) => {
             display: 'flex',
             flexDirection: 'row',
             alignItems: 'flex-start',
-            padding: '2rem'
         }, reverseContainer && {
             flexDirection: 'row-reverse'
         }),
@@ -64,7 +63,6 @@ export default ({ reverseContainer }) => {
             borderRadius: '0.25rem',
             padding: '1.25rem',
             marginBottom: '1.25rem',
-            height: '300px'
         })
 
     }
