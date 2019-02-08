@@ -175,7 +175,7 @@ export const HR = (props: Types.HRProps) => {
         className={props.className}
         css={css({
             width: '100%',
-            borderBottomWidth: props.bold ? '4px' : '0.5px',
+            borderBottomWidth: props.bold ? '4px' : '1px',
             borderBottomStyle: props.dotted ? 'dotted' : 'solid',
             borderBottomColor: theme[props.color ? props.color : 'pale'].rgb,
             padding: props.p,
