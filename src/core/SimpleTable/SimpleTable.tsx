@@ -20,6 +20,8 @@ export default (props: Types.Props) => {
         )
     }
 
+    console.log(currentPage);
+
     let pageData = data;
     if (pagination) {
         const { pageSize } = pagination;
@@ -30,7 +32,7 @@ export default (props: Types.Props) => {
     return (
         <div css={styles.tableContainer}>
             {!hideHeaders && (
-                <TableRow header={true} columns={columns} styles={styles} expandForm={expandForm} />
+                <TableRow last={false} header={true} columns={columns} styles={styles} expandForm={expandForm} />
             )}
             <TableBody {...props} data={pageData} styles={styles} />
             {pagination && (
