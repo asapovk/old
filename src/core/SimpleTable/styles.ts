@@ -6,11 +6,9 @@ export interface TableStyles {
     tableContainer: SerializedStyles
     groupRowContainer: ({ hideHeaders }) => SerializedStyles
     rowContainer: ({ header, hideHeaders }) => SerializedStyles
-    // rowsContainer: SerializedStyles
     paginationContainer: SerializedStyles
     paginationButton: (active: boolean) => SerializedStyles
     groupTitle: SerializedStyles,
-    // group: SerializedStyles,
     row: ({ header, groupHeader, last }) => SerializedStyles
     cell: (width?: number, borders?: Types.Borders, columnAlignment?: Types.ColumnAlignment) => SerializedStyles
     actionCell: SerializedStyles,
@@ -41,7 +39,7 @@ export default (): TableStyles => {
         }, header && {
             borderWidth: 0,
         }, hideHeaders && {
-            "&:first-child": {
+            "&:first-of-type": {
                 borderWidth: 0,
             }
         }),

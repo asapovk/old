@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useLayoutEffect } from 'react';
 import Types from './types';
 import createStyles from './styles';
 import TableBody from './components/TableBody';
@@ -22,11 +22,18 @@ export default (props: Types.Props) => {
         )
     }
 
+    useLayoutEffect(() => {
+        setCurrentPage(1);
+    }, [data]);
+
     let pageData = data;
     if (pagination) {
         const { pageSize } = pagination;
         pageData = data
-            .filter((_, i) => pageSize * currentPage >= (i + 1) && i >= pageSize * currentPage - pageSize);
+            .filter((_, i) => (
+                pageSize * currentPage >= (i + 1)
+                && i >= pageSize * currentPage - pageSize
+            ));
     }
 
     return (

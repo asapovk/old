@@ -3,19 +3,24 @@ import { Flexbox, SimpleTable, Button } from '../../../src';
 import { SimpleTableTypes } from '../../../src/core/types';
 
 export default () => {
-    const [items, setItems] = useState(1);
+    const [items, setItems] = useState(10);
 
     let data: any[] = [];
-    data = dt.filter(i => i.id >= items + 1);
+    data = dt.filter(i => i.id <= items + 1);
 
     function sliceData() {
-        setItems(items + 1);
+        setItems(Math.max(1, items - 10));
+    }
+
+    function addData() {
+        setItems(Math.min(100, items + 10));
     }
 
     return (
         <Flexbox>
-            <Flexbox mt={70} mb={20}>
-                <Button label='Change data' onClick={sliceData} />
+            <Flexbox mt={70} mb={20} column>
+                <Button label='Slice data' onClick={sliceData} />
+                <Button label='Add data' onClick={addData} />
             </Flexbox>
             <Table data={data} />
         </Flexbox>
@@ -29,10 +34,10 @@ const Table = (props: { data: any[] }) => {
                 data={props.data}
                 // groupKey='groupId'
                 // groups={groups}
-                // pagination={{
-                //     pageSize: 2,
-                //     pageNeighbours: 1
-                // }}
+                pagination={{
+                    pageSize: 5,
+                    pageNeighbours: 1
+                }}
                 // border='all'
                 noDataComponent={<Flexbox flex={1} p={20} justifyContent='center'>А Данных Нет!</Flexbox>}
                 columns={tableColumns}
