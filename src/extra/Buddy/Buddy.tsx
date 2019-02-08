@@ -3,8 +3,8 @@ import { jsx } from '@emotion/core'
 import useStyles from './useStyles';
 import React, { Component, CSSProperties, useEffect, useImperativeMethods, forwardRef } from 'react';
 
-require('./lib/TweenMax.min');
-require('./lib/MorphSVGPlugin.min');
+require('../lib/TweenMax.min');
+require('../lib/MorphSVGPlugin.min');
 
 declare const TweenMax: any
 declare const Power0: any
