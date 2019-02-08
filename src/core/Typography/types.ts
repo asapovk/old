@@ -31,7 +31,7 @@ declare namespace TypographyTypes {
         children?: string
         className?: string
         onClick?: (event) => void
-        format?: boolean | 'rub' | 'volume'
+        format?: boolean | 'rub' | 'volume' | 'power'
         color?: 'text' | 'highlight' | 'pale' | 'textOnAccent' | 'lowlight'
         quotes?: boolean
         ellipsis?: boolean
