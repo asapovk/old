@@ -25,6 +25,10 @@ exports.default = (function (props) {
             unit = core_1.jsx("span", null,
                 "\u043C",
                 core_1.jsx("sup", { key: 1 }, "3"));
+            break;
+        case 'power':
+            unit = 'кВт⋅ч';
+            break;
     }
     return (core_1.jsx(react_1.Fragment, null,
         integer,

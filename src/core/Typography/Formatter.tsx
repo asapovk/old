@@ -22,6 +22,10 @@ export default (props) => {
             break;
         case 'volume':
             unit = <span>м<sup key={1}>3</sup></span>
+            break;
+        case 'power':
+            unit = 'кВт⋅ч'
+            break;
     }
 
     return (
