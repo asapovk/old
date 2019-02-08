@@ -42,15 +42,6 @@ export default (): TableStyles => {
             borderWidth: 0,
         }),
 
-        // rowsContainer: css({
-        //     flex: 1,
-        //     "> :last-child": {
-        //         "> :first-of-type": {
-        //             borderWidth: 0
-        //         }
-        //     }
-        // }),
-
         row: ({ header, groupHeader, last }) => css({
             position: 'relative',
             display: 'flex',
@@ -135,16 +126,6 @@ export default (): TableStyles => {
             bottom: 0,
             right: 0,
         }),
-
-
-        // group: {
-        //     container: css({
-        //         backgroundColor: '#F2F0F5',
-        //         borderStyle: theme.borders.table.style,
-        //         borderWidth: '0 0 1px 0',
-        //         borderColor: theme.borders.table.color,
-        //     })
-        // },
 
         paginationContainer: css({
             display: 'flex',

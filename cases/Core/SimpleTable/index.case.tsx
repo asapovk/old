@@ -6,7 +6,7 @@ export default () => {
     const [items, setItems] = useState(1);
 
     let data: any[] = [];
-    data = dt.filter(i => i.id >= items + 1);
+    data = [] //dt.filter(i => i.id >= items + 1);
 
     function sliceData() {
         setItems(items + 1);
@@ -34,6 +34,7 @@ const Table = (props: { data: any[] }) => {
                 //     pageNeighbours: 1
                 // }}
                 // border='all'
+                noDataComponent={<Flexbox flex={1} p={20} justifyContent='center'>А Данных Нет!</Flexbox>}
                 columns={tableColumns}
                 expandForm={expandForm}
             />

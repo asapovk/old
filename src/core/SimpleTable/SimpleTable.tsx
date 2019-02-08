@@ -14,9 +14,11 @@ export default (props: Types.Props) => {
 
     if (!data || data.length <= 0) {
         return (
-            noDataComponent
-                ? noDataComponent
-                : <div css={styles.noDataContainer}>Нет данных</div>
+            <div css={styles.tableContainer}>
+                {noDataComponent
+                    ? noDataComponent
+                    : <div css={styles.noDataContainer}>Нет данных</div>}
+            </div>
         )
     }
 
