@@ -27,7 +27,7 @@ exports.default = (function () {
             overflow: 'hidden',
         }),
         rowContainer: function (_a) {
-            var header = _a.header;
+            var header = _a.header, hideHeaders = _a.hideHeaders;
             return core_1.css({
                 position: 'relative',
                 transition: 'all .25s ease',
@@ -37,6 +37,10 @@ exports.default = (function () {
                 borderColor: theme.borders.table.color
             }, header && {
                 borderWidth: 0,
+            }, hideHeaders && {
+                "&:first-child": {
+                    borderWidth: 0,
+                }
             });
         },
         row: function (_a) {
@@ -92,13 +96,18 @@ exports.default = (function () {
         }, active && {
             display: 'block'
         }); },
-        groupRowContainer: core_1.css({
-            position: 'relative',
-            backgroundColor: theme.background2.hex,
-            borderWidth: '1px 0 0 0',
-            borderStyle: theme.borders.table.style,
-            borderColor: theme.borders.table.color,
-        }),
+        groupRowContainer: function (_a) {
+            var hideHeaders = _a.hideHeaders;
+            return core_1.css({
+                position: 'relative',
+                backgroundColor: theme.background2.hex,
+                borderWidth: '1px 0 0 0',
+                borderStyle: theme.borders.table.style,
+                borderColor: theme.borders.table.color,
+            }, hideHeaders && {
+                borderWidth: 0
+            });
+        },
         groupTitle: core_1.css({
             display: 'flex',
             alignItems: 'center',

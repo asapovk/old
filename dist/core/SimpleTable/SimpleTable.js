@@ -30,7 +30,6 @@ exports.default = (function (props) {
             ? noDataComponent
             : core_1.jsx("div", { css: styles.noDataContainer }, "\u041D\u0435\u0442 \u0434\u0430\u043D\u043D\u044B\u0445")));
     }
-    console.log(currentPage);
     var pageData = data;
     if (pagination) {
         var pageSize_1 = pagination.pageSize;

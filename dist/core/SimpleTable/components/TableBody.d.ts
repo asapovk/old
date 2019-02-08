@@ -7,6 +7,7 @@ interface TableBodyProps {
     groupKey?: string;
     styles: TableStyles;
     expandForm?: Types.ExpandForm;
+    hideHeaders?: boolean;
 }
 declare const _default: (props: TableBodyProps) => JSX.Element;
 export default _default;

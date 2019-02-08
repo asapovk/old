@@ -7,6 +7,7 @@ interface DataRowsProps {
     columns: Types.Column[];
     styles: TableStyles;
     expandForm?: Types.ExpandForm;
+    hideHeaders?: boolean;
 }
 declare const _default: (props: DataRowsProps) => JSX.Element;
 export default _default;

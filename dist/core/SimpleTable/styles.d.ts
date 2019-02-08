@@ -2,9 +2,12 @@ import { SerializedStyles } from '@emotion/core';
 import Types from './types';
 export interface TableStyles {
     tableContainer: SerializedStyles;
-    groupRowContainer: SerializedStyles;
-    rowContainer: ({ header }: {
+    groupRowContainer: ({ hideHeaders }: {
+        hideHeaders: any;
+    }) => SerializedStyles;
+    rowContainer: ({ header, hideHeaders }: {
         header: any;
+        hideHeaders: any;
     }) => SerializedStyles;
     paginationContainer: SerializedStyles;
     paginationButton: (active: boolean) => SerializedStyles;
