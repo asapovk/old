@@ -13,10 +13,11 @@ interface DataRowsProps {
     styles: TableStyles
     expandForm?: Types.ExpandForm
     last: boolean
+    hideHeaders?: boolean
 }
 
 export default (props: DataRowsProps) => {
-    const { row, columns, styles, header, groupHeader, expandForm, last } = props;
+    const { row, columns, styles, header, groupHeader, expandForm, last, hideHeaders } = props;
     const [expanded, setExpanded] = useState(false);
     const rowRef = useRef<HTMLDivElement>(null);
 
@@ -43,7 +44,7 @@ export default (props: DataRowsProps) => {
     }
 
     return (
-        <div css={styles.rowContainer({ header })} ref={rowRef}>
+        <div css={styles.rowContainer({ header, hideHeaders })} ref={rowRef}>
             <Flexbox css={styles.row({ header, groupHeader, last })} onClick={onRowClick}>
                 {columns.map((col, keyIndex) => (
                     <div

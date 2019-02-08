@@ -9,13 +9,14 @@ interface GroupHeaderRowProps {
     title: string
     styles: TableStyles
     expandForm?: Types.ExpandForm
+    hideHeaders?: boolean
 }
 
 export default (props: GroupHeaderRowProps) => {
-    const { columns, title, styles, expandForm } = props;
+    const { columns, title, styles, expandForm, hideHeaders } = props;
 
     return (
-        <div css={styles.groupRowContainer}>
+        <div css={styles.groupRowContainer({ hideHeaders })}>
             <TableRow
                 last={false}
                 columns={columns}

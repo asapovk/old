@@ -22,8 +22,6 @@ export default (props: Types.Props) => {
         )
     }
 
-    console.log(currentPage);
-
     let pageData = data;
     if (pagination) {
         const { pageSize } = pagination;

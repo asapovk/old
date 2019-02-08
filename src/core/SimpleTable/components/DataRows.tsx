@@ -11,6 +11,7 @@ interface DataRowsProps {
     columns: Types.Column[],
     styles: TableStyles
     expandForm?: Types.ExpandForm
+    hideHeaders?: boolean
 }
 
 export default (props: DataRowsProps) => {

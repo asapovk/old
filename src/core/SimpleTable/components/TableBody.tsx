@@ -14,10 +14,11 @@ interface TableBodyProps {
     groupKey?: string
     styles: TableStyles
     expandForm?: Types.ExpandForm
+    hideHeaders?: boolean
 }
 
 export default (props: TableBodyProps) => {
-    const { data, columns, groupKey, groups, styles, expandForm } = props;
+    const { data, columns, groupKey, groups, styles, expandForm, hideHeaders } = props;
 
     const cols = columns.map(col => {
         if (!col.render) {
@@ -36,12 +37,14 @@ export default (props: TableBodyProps) => {
                             title={group.title}
                             styles={styles}
                             expandForm={expandForm}
+                            hideHeaders={hideHeaders}
                         />
                         <DataRows
                             data={data.filter(i => i[groupKey] === group.value)}
                             columns={cols}
                             styles={styles}
                             expandForm={expandForm}
+                            hideHeaders={hideHeaders}
                         />
                     </div>
                 ))}
@@ -55,6 +58,7 @@ export default (props: TableBodyProps) => {
             columns={cols}
             styles={styles}
             expandForm={expandForm}
+            hideHeaders={hideHeaders}
         />
     )
 }

@@ -4,8 +4,8 @@ import Types from './types';
 
 export interface TableStyles {
     tableContainer: SerializedStyles
-    groupRowContainer: SerializedStyles
-    rowContainer: ({ header }) => SerializedStyles
+    groupRowContainer: ({ hideHeaders }) => SerializedStyles
+    rowContainer: ({ header, hideHeaders }) => SerializedStyles
     // rowsContainer: SerializedStyles
     paginationContainer: SerializedStyles
     paginationButton: (active: boolean) => SerializedStyles
@@ -31,7 +31,7 @@ export default (): TableStyles => {
             overflow: 'hidden',
         }),
 
-        rowContainer: ({ header }) => css({
+        rowContainer: ({ header, hideHeaders }) => css({
             position: 'relative',
             transition: 'all .25s ease',
             flex: 1,
@@ -40,6 +40,10 @@ export default (): TableStyles => {
             borderColor: theme.borders.table.color
         }, header && {
             borderWidth: 0,
+        }, hideHeaders && {
+            "&:first-child": {
+                borderWidth: 0,
+            }
         }),
 
         row: ({ header, groupHeader, last }) => css({
@@ -108,12 +112,14 @@ export default (): TableStyles => {
             display: 'block'
         }),
 
-        groupRowContainer: css({
+        groupRowContainer: ({ hideHeaders }) => css({
             position: 'relative',
             backgroundColor: theme.background2.hex,
             borderWidth: '1px 0 0 0',
             borderStyle: theme.borders.table.style,
             borderColor: theme.borders.table.color,
+        }, hideHeaders && {
+            borderWidth: 0
         }),
 
         groupTitle: css({
