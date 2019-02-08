@@ -5,14 +5,15 @@ import Types from './types';
 export interface TableStyles {
     tableContainer: SerializedStyles
     groupRowContainer: SerializedStyles
-    rowContainer: SerializedStyles
-    rowsContainer: SerializedStyles
+    rowContainer: ({ header }) => SerializedStyles
+    // rowsContainer: SerializedStyles
     paginationContainer: SerializedStyles
     paginationButton: (active: boolean) => SerializedStyles
     groupTitle: SerializedStyles,
     // group: SerializedStyles,
-    row: (header?: boolean, groupHeader?: boolean) => SerializedStyles
+    row: ({ header, groupHeader, last }) => SerializedStyles
     cell: (width?: number, borders?: Types.Borders, columnAlignment?: Types.ColumnAlignment) => SerializedStyles
+    actionCell: SerializedStyles,
     actionIcon: (active?: boolean) => SerializedStyles
     expandRow: (active: boolean) => SerializedStyles
     noDataContainer: SerializedStyles
@@ -30,38 +31,31 @@ export default (): TableStyles => {
             overflow: 'hidden',
         }),
 
-        rowContainer: css({
+        rowContainer: ({ header }) => css({
             position: 'relative',
             transition: 'all .25s ease',
-            flex: 1
-        }),
-
-        rowsContainer: css({
             flex: 1,
-            "> :last-child": {
-                "> :first-of-type": {
-                    borderWidth: 0
-                }
-            }
+            borderWidth: '1px 0 0 0',
+            borderStyle: theme.borders.table.style,
+            borderColor: theme.borders.table.color
+        }, header && {
+            borderWidth: 0,
         }),
 
-        row: (header?: boolean, groupHeader?: boolean) => css({
+        row: ({ header, groupHeader, last }) => css({
             position: 'relative',
             display: 'flex',
             flexDirection: 'row',
             alignItems: 'stretch',
             backgroundColor: theme.background.hex,
-            borderWidth: '0 0 1px 0',
-            borderStyle: theme.borders.table.style,
-            borderColor: theme.borders.table.color
         }, header && {
-            backgroundColor: theme.background.rgba(0),
+            backgroundColor: 'transparent',
             color: '#908E91',
             fontWeight: 600,
             fontSize: '0.875rem',
-            alignItems: 'center'
-        }, groupHeader && {
-            borderWidth: 0
+            alignItems: 'center',
+        }, last && {
+            borderBottom: 0
         }),
 
         cell: (width?: number, borders?: Types.Borders, columnAlignment?: Types.ColumnAlignment) => css(width
@@ -82,10 +76,21 @@ export default (): TableStyles => {
             }
         ),
 
+        actionCell: css({
+            flexBasis: '1rem',
+            flexShrink: 0,
+            display: 'flex',
+            padding: '1.25rem',
+            paddingLeft: 0,
+            overflow: 'hidden',
+            justifyContent: 'center',
+            alignItems: 'center',
+        }),
+
         actionIcon: (active?: boolean) => css({
             transform: 'rotate(0)',
             willChange: 'transform',
-            transition: 'all .2s ease-in-out',
+            transition: 'all .15s ease-in-out',
             color: theme.background2.hex,
         }, active && {
             transform: 'rotate(90deg)',
@@ -94,7 +99,7 @@ export default (): TableStyles => {
         expandRow: (active: boolean) => css({
             padding: '1.25rem',
             transition: 'all 0.2s ease-in-out',
-            borderWidth: '0 0 1px 0',
+            borderWidth: '1px 0 0 0',
             borderStyle: theme.borders.table.style,
             borderColor: theme.borders.table.color,
             backgroundColor: theme.background2.hex,
@@ -106,7 +111,7 @@ export default (): TableStyles => {
         groupRowContainer: css({
             position: 'relative',
             backgroundColor: theme.background2.hex,
-            borderWidth: '1px 0 1px 0',
+            borderWidth: '1px 0 0 0',
             borderStyle: theme.borders.table.style,
             borderColor: theme.borders.table.color,
         }),
@@ -122,16 +127,6 @@ export default (): TableStyles => {
             right: 0,
         }),
 
-
-        // group: {
-        //     container: css({
-        //         backgroundColor: '#F2F0F5',
-        //         borderStyle: theme.borders.table.style,
-        //         borderWidth: '0 0 1px 0',
-        //         borderColor: theme.borders.table.color,
-        //     })
-        // },
-
         paginationContainer: css({
             display: 'flex',
             flex: 1,
@@ -141,6 +136,7 @@ export default (): TableStyles => {
             borderColor: theme.borders.table.color,
             borderStyle: theme.borders.table.style,
             borderWidth: '1px 0 0 0',
+            userSelect: 'none'
         }),
 
         paginationButton: (active: boolean) => css({

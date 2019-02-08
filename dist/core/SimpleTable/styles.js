@@ -26,47 +26,57 @@ exports.default = (function () {
             borderColor: theme.borders.table.color,
             overflow: 'hidden',
         }),
-        rowContainer: core_1.css({
-            position: 'relative',
-            transition: 'all .25s ease',
-            flex: 1
-        }),
-        rowsContainer: core_1.css({
-            flex: 1,
-            "> :last-child": {
-                "> :first-of-type": {
-                    borderWidth: 0
-                }
-            }
-        }),
-        row: function (header, groupHeader) { return core_1.css({
-            position: 'relative',
-            display: 'flex',
-            flexDirection: 'row',
-            alignItems: 'stretch',
-            backgroundColor: theme.background.hex,
-            borderWidth: '0 0 1px 0',
-            borderStyle: theme.borders.table.style,
-            borderColor: theme.borders.table.color
-        }, header && {
-            backgroundColor: theme.background.rgba(0),
-            color: '#908E91',
-            fontWeight: 600,
-            fontSize: '0.875rem',
-            alignItems: 'center'
-        }, groupHeader && {
-            borderWidth: 0
-        }); },
+        rowContainer: function (_a) {
+            var header = _a.header;
+            return core_1.css({
+                position: 'relative',
+                transition: 'all .25s ease',
+                flex: 1,
+                borderWidth: '1px 0 0 0',
+                borderStyle: theme.borders.table.style,
+                borderColor: theme.borders.table.color
+            }, header && {
+                borderWidth: 0,
+            });
+        },
+        row: function (_a) {
+            var header = _a.header, groupHeader = _a.groupHeader, last = _a.last;
+            return core_1.css({
+                position: 'relative',
+                display: 'flex',
+                flexDirection: 'row',
+                alignItems: 'stretch',
+                backgroundColor: theme.background.hex,
+            }, header && {
+                backgroundColor: 'transparent',
+                color: '#908E91',
+                fontWeight: 600,
+                fontSize: '0.875rem',
+                alignItems: 'center',
+            }, last && {
+                borderBottom: 0
+            });
+        },
         cell: function (width, borders, columnAlignment) { return core_1.css(width
             ? {
                 flexBasis: width,
                 flexShrink: 0
             }
             : { flex: 1 }, __assign({ display: 'flex', padding: '1.25rem', overflow: 'hidden', borderColor: theme.borders.table.color, borderStyle: theme.borders.table.style, justifyContent: columnAlignment || 'flex-start', alignItems: 'center' }, getBorders(borders))); },
+        actionCell: core_1.css({
+            flexBasis: '1rem',
+            flexShrink: 0,
+            display: 'flex',
+            padding: '1.25rem',
+            paddingLeft: 0,
+            overflow: 'hidden',
+            justifyContent: 'center',
+            alignItems: 'center',
+        }),
         actionIcon: function (active) { return core_1.css({
             transform: 'rotate(0)',
             willChange: 'transform',
-            transition: 'all .2s ease-in-out',
+            transition: 'all .15s ease-in-out',
             color: theme.background2.hex,
         }, active && {
             transform: 'rotate(90deg)',
@@ -74,7 +84,7 @@ exports.default = (function () {
         expandRow: function (active) { return core_1.css({
             padding: '1.25rem',
             transition: 'all 0.2s ease-in-out',
-            borderWidth: '0 0 1px 0',
+            borderWidth: '1px 0 0 0',
             borderStyle: theme.borders.table.style,
             borderColor: theme.borders.table.color,
             backgroundColor: theme.background2.hex,
@@ -85,7 +95,7 @@ exports.default = (function () {
         groupRowContainer: core_1.css({
             position: 'relative',
             backgroundColor: theme.background2.hex,
-            borderWidth: '1px 0 1px 0',
+            borderWidth: '1px 0 0 0',
             borderStyle: theme.borders.table.style,
             borderColor: theme.borders.table.color,
         }),
@@ -99,14 +109,6 @@ exports.default = (function () {
             bottom: 0,
             right: 0,
         }),
-        // group: {
-        //     container: css({
-        //         backgroundColor: '#F2F0F5',
-        //         borderStyle: theme.borders.table.style,
-        //         borderWidth: '0 0 1px 0',
-        //         borderColor: theme.borders.table.color,
-        //     })
-        // },
         paginationContainer: core_1.css({
             display: 'flex',
             flex: 1,
@@ -116,6 +118,7 @@ exports.default = (function () {
             borderColor: theme.borders.table.color,
             borderStyle: theme.borders.table.style,
             borderWidth: '1px 0 0 0',
+            userSelect: 'none'
         }),
         paginationButton: function (active) { return core_1.css({
             boxSizing: 'border-box',

@@ -17,6 +17,7 @@ export default (props: GroupHeaderRowProps) => {
     return (
         <div css={styles.groupRowContainer}>
             <TableRow
+                last={false}
                 columns={columns}
                 styles={styles}
                 header={true}

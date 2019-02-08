@@ -7,8 +7,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@emotion/core");
 var useStyles_1 = __importDefault(require("./useStyles"));
 var react_1 = require("react");
-require('./lib/TweenMax.min');
-require('./lib/MorphSVGPlugin.min');
+require('../lib/TweenMax.min');
+require('../lib/MorphSVGPlugin.min');
 exports.default = react_1.forwardRef(function (props, ref) {
     var styles = useStyles_1.default();
     var timeline;

@@ -34,7 +34,7 @@
   "scripts": {
     "build": "rm -fR dist/ && yarn build-sass && yarn build-ts && yarn build-copylib && cp package.json dist/",
     "build-ts": "tsc",
-    "build-copylib": "cp -R src/extra/Buddy/lib dist/extra/Buddy/lib",
+    "build-copylib": "cp -R src/extra/lib dist/extra/lib",
     "build-sass": "sass src/styles/scss/main.scss dist/styles.css",
     "showcase": "showcase",
     "testflight": "git subtree push --prefix dist origin testflight",

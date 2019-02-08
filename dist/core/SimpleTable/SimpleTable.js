@@ -26,10 +26,11 @@ exports.default = (function (props) {
     var styles = styles_1.default();
     var _a = react_1.useState(1), currentPage = _a[0], setCurrentPage = _a[1];
     if (!data || data.length <= 0) {
-        return (noDataComponent
+        return (core_1.jsx("div", { css: styles.tableContainer }, noDataComponent
             ? noDataComponent
-            : core_1.jsx("div", { css: styles.noDataContainer }, "\u041D\u0435\u0442 \u0434\u0430\u043D\u043D\u044B\u0445"));
+            : core_1.jsx("div", { css: styles.noDataContainer }, "\u041D\u0435\u0442 \u0434\u0430\u043D\u043D\u044B\u0445")));
     }
+    console.log(currentPage);
     var pageData = data;
     if (pagination) {
         var pageSize_1 = pagination.pageSize;
@@ -37,7 +38,7 @@ exports.default = (function (props) {
             .filter(function (_, i) { return pageSize_1 * currentPage >= (i + 1) && i >= pageSize_1 * currentPage - pageSize_1; });
     }
     return (core_1.jsx("div", { css: styles.tableContainer },
-        !hideHeaders && (core_1.jsx(TableRow_1.default, { header: true, columns: columns, styles: styles, expandForm: expandForm })),
+        !hideHeaders && (core_1.jsx(TableRow_1.default, { last: false, header: true, columns: columns, styles: styles, expandForm: expandForm })),
         core_1.jsx(TableBody_1.default, __assign({}, props, { data: pageData, styles: styles })),
         pagination && (core_1.jsx(TablePagination_1.default, { currentPage: currentPage, setCurrentPage: setCurrentPage, dataLength: data.length, styles: styles, pagination: pagination }))));
 });

@@ -15,12 +15,13 @@ interface DataRowsProps {
 
 export default (props: DataRowsProps) => {
     return (
-        <div css={props.styles.rowsContainer}>
+        <div>
             {props.data.map((row, index) => (
                 <TableRow
                     {...props}
                     key={index}
                     row={row}
+                    last={index === props.data.length - 1}
                 />
             ))}
         </div>

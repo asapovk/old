@@ -9,6 +9,7 @@ interface DataRowsProps {
     groupHeader?: boolean;
     styles: TableStyles;
     expandForm?: Types.ExpandForm;
+    last: boolean;
 }
 declare const _default: (props: DataRowsProps) => JSX.Element;
 export default _default;

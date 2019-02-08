@@ -14,11 +14,15 @@ export default (props: Types.Props) => {
 
     if (!data || data.length <= 0) {
         return (
-            noDataComponent
-                ? noDataComponent
-                : <div css={styles.noDataContainer}>Нет данных</div>
+            <div css={styles.tableContainer}>
+                {noDataComponent
+                    ? noDataComponent
+                    : <div css={styles.noDataContainer}>Нет данных</div>}
+            </div>
         )
     }
+
+    console.log(currentPage);
 
     let pageData = data;
     if (pagination) {
@@ -30,7 +34,7 @@ export default (props: Types.Props) => {
     return (
         <div css={styles.tableContainer}>
             {!hideHeaders && (
-                <TableRow header={true} columns={columns} styles={styles} expandForm={expandForm} />
+                <TableRow last={false} header={true} columns={columns} styles={styles} expandForm={expandForm} />
             )}
             <TableBody {...props} data={pageData} styles={styles} />
             {pagination && (
