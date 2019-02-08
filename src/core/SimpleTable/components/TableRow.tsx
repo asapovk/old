@@ -11,10 +11,7 @@ interface DataRowsProps {
     header?: boolean
     groupHeader?: boolean
     styles: TableStyles
-    expandForm?: {
-        key: string | number
-        render: (row: Object) => any
-    }
+    expandForm?: Types.ExpandForm
 }
 
 export default (props: DataRowsProps) => {
@@ -29,18 +26,16 @@ export default (props: DataRowsProps) => {
 
             row.style.height = (!expanded
                 ? nodes[0].offsetHeight
-                : nodes[0].offsetHeight + nodes[1].offsetHeight) + .5 + 'px';
+                : nodes[0].offsetHeight + nodes[1].offsetHeight) + 'px';
         }
     }
 
     useEffect(() => {
-        if (expandForm) {
-            setRowHeight(expanded);
-        }
+        setRowHeight(expanded);
     }, []);
 
     function onRowClick() {
-        if (expandForm) {
+        if (!header) {
             setRowHeight(!expanded);
             setExpanded(!expanded);
         }
@@ -60,9 +55,9 @@ export default (props: DataRowsProps) => {
                     <div
                         key={`rowcell-action`}
                         css={styles.cell(16)}
-                        children={(
+                        children={(!header && (
                             <Icon type='right' css={styles.actionIcon(expanded)} />
-                        )}
+                        ))}
                     />
                 )}
             </Flexbox>

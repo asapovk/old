@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Types from './types';
 import createStyles from './styles';
 import TableBody from './components/TableBody';
@@ -8,7 +8,7 @@ import TablePagination from './components/TablePagination';
 import TableRow from './components/TableRow';
 
 export default (props: Types.Props) => {
-    const { data, noDataComponent, pagination, hideHeaders, columns } = props;
+    const { data, noDataComponent, pagination, hideHeaders, columns, expandForm } = props;
     const styles = createStyles();
     const [currentPage, setCurrentPage] = useState(1);
 
@@ -20,8 +20,11 @@ export default (props: Types.Props) => {
         )
     }
 
-    let pageData = data;
+    useEffect(() => {
+        setCurrentPage(1);
+    }, [data]);
 
+    let pageData = data;
     if (pagination) {
         const { pageSize } = pagination;
         pageData = data
@@ -31,7 +34,7 @@ export default (props: Types.Props) => {
     return (
         <div css={styles.tableContainer}>
             {!hideHeaders && (
-                <TableRow header={true} columns={columns} styles={styles} />
+                <TableRow header={true} columns={columns} styles={styles} expandForm={expandForm} />
             )}
             <TableBody {...props} data={pageData} styles={styles} />
             {pagination && (

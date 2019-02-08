@@ -13,10 +13,7 @@ interface TableBodyProps {
     groups?: Types.Group[]
     groupKey?: string
     styles: TableStyles
-    expandForm?: {
-        key: string | number
-        render: (row: Object) => any
-    }
+    expandForm?: Types.ExpandForm
 }
 
 export default (props: TableBodyProps) => {
@@ -38,6 +35,7 @@ export default (props: TableBodyProps) => {
                             columns={cols}
                             title={group.title}
                             styles={styles}
+                            expandForm={expandForm}
                         />
                         <DataRows
                             data={data.filter(i => i[groupKey] === group.value)}
@@ -56,6 +54,7 @@ export default (props: TableBodyProps) => {
             data={data}
             columns={cols}
             styles={styles}
+            expandForm={expandForm}
         />
     )
 }

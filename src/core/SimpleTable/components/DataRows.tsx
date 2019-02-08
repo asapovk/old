@@ -6,15 +6,11 @@ import { Flexbox } from '../..'
 import TableRow from './TableRow';
 import { TableStyles } from '../styles';
 
-
 interface DataRowsProps {
     data: { [name: string]: any }[],
     columns: Types.Column[],
     styles: TableStyles
-    expandForm?: {
-        key: string | number
-        render: (row: Object) => any
-    }
+    expandForm?: Types.ExpandForm
 }
 
 export default (props: DataRowsProps) => {

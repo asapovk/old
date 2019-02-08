@@ -30,8 +30,6 @@ export default (props: Types.Props) => {
         ViewportHTML ? ViewportHTML : document.body
     );
 
-    console.log(1);
-
     useLayoutEffect(() => {
         const coord = triggerRef.current! && triggerRef.current!.getBoundingClientRect();
 
