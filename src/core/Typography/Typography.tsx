@@ -167,7 +167,6 @@ export const HR = (props: Types.HRProps) => {
     return <div
         className={props.className}
         css={css({
-            height: '1px',
             width: '100%',
             borderBottomWidth: props.bold ? '4px' : '0.5px',
             borderBottomStyle: props.dotted ? 'dotted' : 'solid',
