@@ -14,7 +14,7 @@ export default class Story extends React.Component {
                     action={<C1 link>Таблицей</C1>}
                     onChange={(value) => console.log(value)}
                 />
-                <D1 color='highlight'>sgdfsg</D1>
+                <D1 format='rub' color='highlight'>sgdfsg</D1>
             </Flexbox>
         )
     }

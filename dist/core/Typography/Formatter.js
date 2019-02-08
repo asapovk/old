@@ -30,5 +30,6 @@ exports.default = (function (props) {
         integer,
         core_1.jsx("span", { css: core_1.css({ fontSize: '0.75em', opacity: .5 }) },
             fraction && ',' + fraction,
-            '\u00a0' + unit)));
+            '\u00a0',
+            unit)));
 });
