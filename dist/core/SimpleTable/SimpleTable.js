@@ -41,7 +41,7 @@ exports.default = (function (props) {
             && i >= pageSize_1 * currentPage - pageSize_1); });
     }
     return (core_1.jsx("div", { css: styles.tableContainer },
-        !hideHeaders && (core_1.jsx(TableRow_1.default, { last: false, header: true, columns: columns, styles: styles, expandForm: expandForm })),
+        !hideHeaders && (core_1.jsx(TableRow_1.default, __assign({}, props, { last: false, header: true, styles: styles }))),
         core_1.jsx(TableBody_1.default, __assign({}, props, { data: pageData, styles: styles })),
         pagination && (core_1.jsx(TablePagination_1.default, { currentPage: currentPage, setCurrentPage: setCurrentPage, dataLength: data.length, styles: styles, pagination: pagination }))));
 });

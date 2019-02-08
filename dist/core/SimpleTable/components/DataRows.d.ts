@@ -9,5 +9,10 @@ interface DataRowsProps {
     expandForm?: Types.ExpandForm;
     hideHeaders?: boolean;
 }
+declare global {
+    interface String {
+        hashCode: () => number;
+    }
+}
 declare const _default: (props: DataRowsProps) => JSX.Element;
 export default _default;
