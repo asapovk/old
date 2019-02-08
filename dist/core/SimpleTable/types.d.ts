@@ -1,7 +1,7 @@
 import { CSSProperties } from "react";
 declare namespace SimpleTableTypes {
     type Borders = "left" | "right" | "all";
-    type ColumnAlignment = "left" | "right";
+    type ColumnAlignment = "flex-start" | "flex-end" | "center";
     interface Column {
         dataIndex: string;
         title?: string;

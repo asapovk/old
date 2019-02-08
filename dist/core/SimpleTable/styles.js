@@ -58,8 +58,11 @@ exports.default = (function () {
             borderWidth: 0
         }); },
         cell: function (width, borders, columnAlignment) { return core_1.css(width
-            ? { flexBasis: width }
-            : { flex: 1 }, __assign({ padding: '1.25rem', overflow: 'hidden', borderColor: theme.borders.table.color, borderStyle: theme.borders.table.style }, getBorders(borders), { textAlign: columnAlignment || 'left', alignItems: 'center' })); },
+            ? {
+                flexBasis: width,
+                flexShrink: 0
+            }
+            : { flex: 1 }, __assign({ display: 'flex', padding: '1.25rem', overflow: 'hidden', borderColor: theme.borders.table.color, borderStyle: theme.borders.table.style, justifyContent: columnAlignment || 'flex-start', alignItems: 'center' }, getBorders(borders))); },
         actionIcon: function (active) { return core_1.css({
             transform: 'rotate(0)',
             willChange: 'transform',
