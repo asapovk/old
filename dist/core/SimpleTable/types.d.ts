@@ -18,6 +18,10 @@ declare namespace SimpleTableTypes {
         pageSize: number;
         pageNeighbours: number;
     }
+    interface ExpandForm {
+        key: string | number;
+        render: (row: Object) => any;
+    }
     interface Props {
         style?: CSSProperties;
         className?: string;
@@ -34,10 +38,7 @@ declare namespace SimpleTableTypes {
         onSearch?: (value: any) => void;
         hideHeaders?: boolean;
         borders?: 'all' | 'external' | 'internal' | 'vertical' | 'horizontal';
-        expandForm?: {
-            key: string | number;
-            render: (row: Object) => any;
-        };
+        expandForm?: ExpandForm;
     }
 }
 export default SimpleTableTypes;

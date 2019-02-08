@@ -32,7 +32,6 @@ exports.default = (function (props) {
     var browser = hooks_1.useBrowser();
     var styles = styles_1.default(visible, props.position, targetCoord, popupRef);
     var Portal = react_dom_1.default.createPortal(core_1.jsx("div", { css: styles.popup, ref: popupRef, children: children }), ViewportHTML ? ViewportHTML : document.body);
-    console.log(1);
     react_1.useLayoutEffect(function () {
         var coord = triggerRef.current && triggerRef.current.getBoundingClientRect();
         coord && setTargetCoord({
