@@ -27,7 +27,7 @@ export default (props) => {
     return (
         <Fragment>
             {integer}
-            {fraction && <span css={css({ fontSize: '0.75em', opacity: .5 })}>{',' + fraction + '\u00a0'}{unit}</span>}
+            {<span css={css({ fontSize: '0.75em', opacity: .5 })}>{fraction && ',' + fraction}{'\u00a0' + unit}</span>}
         </Fragment>
     )
 }
