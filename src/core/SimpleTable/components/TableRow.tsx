@@ -56,13 +56,15 @@ export default (props: DataRowsProps) => {
                         children={row ? col.render!(row, row[col.dataIndex]) : groupHeader ? '' : col.title}
                     />
                 ))}
-                <div
-                    key={`rowcell-action`}
-                    css={styles.cell(16)}
-                    children={expandForm && (
-                        <Icon type='right' css={styles.actionIcon(expanded)} />
-                    )}
-                />
+                {expandForm && (
+                    <div
+                        key={`rowcell-action`}
+                        css={styles.cell(16)}
+                        children={(
+                            <Icon type='right' css={styles.actionIcon(expanded)} />
+                        )}
+                    />
+                )}
             </Flexbox>
             {expandForm && (
                 <div css={styles.expandRow(expanded)} children={row && expandForm.render(row)} />
