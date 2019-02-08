@@ -39,7 +39,7 @@ exports.default = (function () {
                 }
             }
         }),
-        row: function (header) { return core_1.css({
+        row: function (header, groupHeader) { return core_1.css({
             position: 'relative',
             display: 'flex',
             flexDirection: 'row',
@@ -50,11 +50,12 @@ exports.default = (function () {
             borderColor: theme.borders.table.color
         }, header && {
             backgroundColor: theme.background.rgba(0),
-            borderWidth: 0,
             color: '#908E91',
             fontWeight: 600,
             fontSize: '0.875rem',
             alignItems: 'center'
+        }, groupHeader && {
+            borderWidth: 0
         }); },
         cell: function (width, borders, columnAlignment) { return core_1.css(width
             ? { flexBasis: width }

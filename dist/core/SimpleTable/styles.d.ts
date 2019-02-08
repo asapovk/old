@@ -8,7 +8,7 @@ export interface TableStyles {
     paginationContainer: SerializedStyles;
     paginationButton: (active: boolean) => SerializedStyles;
     groupTitle: SerializedStyles;
-    row: (header?: boolean) => SerializedStyles;
+    row: (header?: boolean, groupHeader?: boolean) => SerializedStyles;
     cell: (width?: number, borders?: Types.Borders, columnAlignment?: Types.ColumnAlignment) => SerializedStyles;
     actionIcon: (active?: boolean) => SerializedStyles;
     expandRow: (active: boolean) => SerializedStyles;
