@@ -1,9 +1,10 @@
 /** @jsx jsx */
-import { jsx, SerializedStyles } from '@emotion/core';
-import { Fragment, Dispatch, SetStateAction } from 'react';
+import { jsx } from '@emotion/core';
+import { Dispatch, SetStateAction } from 'react';
 import { Flexbox, Icon } from '../..'
 import { TableStyles } from '../styles';
 import Types from '../types';
+import IconTypes from '../../Icon/types';
 
 interface PaginationProps {
     dataLength: number
@@ -22,55 +23,36 @@ export default (props: PaginationProps) => {
     }
 
     const pages = fetchPageNumbers(pagination.pageNeighbours, totalPages, currentPage);
+
     function setPage(page: number) {
-        if (page < 1) {
-            page = 1;
-        }
-        if (page > totalPages) {
-            page = 40;
-        }
-        setCurrentPage(page);
+        const currentPage = Math.max(1, Math.min(page, totalPages));
+        setCurrentPage(currentPage);
     }
 
     return (
         <Flexbox css={styles.paginationContainer}>
-            {pages.map((page, index) => {
-                if (page === LEFT_PAGE) {
-                    return (
-                        <div
-                            key={`pagination-${index}`}
-                            onClick={() => setPage(currentPage - (pagination.pageNeighbours * 2) - 1)}
-                            children={<Icon type='left' />}
-                            css={styles.paginationButton(false)}
-                        />
-                    )
-                };
-
-                if (page === RIGHT_PAGE) {
-                    return (
-                        <div
-                            key={`pagination-${index}`}
-                            onClick={() => setPage(currentPage + (pagination.pageNeighbours * 2) + 1)}
-                            children={<Icon type='right' />}
-                            css={styles.paginationButton(false)}
-                        />
-                    )
-                };
-
-                return (
-                    <div
-                        key={`pagination-${index}`}
-                        onClick={() => setPage(page as number)}
-                        children={page}
-                        css={styles.paginationButton(currentPage === page)}
-                    />
-                );
-
-            })}
+            {pages.map((page, index) => (
+                <div
+                    key={`pagination-${index}`}
+                    onClick={(event) => {
+                        event.preventDefault();
+                        typeof page === 'number'
+                            ? setPage(page as number)
+                            : page === LEFT_PAGE
+                                ? setPage(currentPage - (pagination.pageNeighbours * 2) - 1)
+                                : setPage(currentPage + (pagination.pageNeighbours * 2) + 1);
+                    }}
+                    children={(
+                        typeof page === 'number'
+                            ? page
+                            : <Icon type={page as IconTypes.Type} />
+                    )}
+                    css={styles.paginationButton(typeof page === 'number' ? (currentPage === page) : false)}
+                />
+            ))}
         </Flexbox>
     )
 }
-
 
 const range = (from: number, to: number, step = 1) => {
     let i = from;
@@ -85,7 +67,6 @@ const range = (from: number, to: number, step = 1) => {
 }
 
 const fetchPageNumbers = (pageNeighbours: number, totalPages: number, currentPage: number) => {
-
     /**
      * totalNumbers: the total page numbers to show on the control
      * totalBlocks: totalNumbers + 2 to cover for the left(<) and right(>) controls
@@ -136,5 +117,5 @@ const fetchPageNumbers = (pageNeighbours: number, totalPages: number, currentPag
     return range(1, totalPages);
 }
 
-const LEFT_PAGE = 'LEFT';
-const RIGHT_PAGE = 'RIGHT';
+const LEFT_PAGE = 'left';
+const RIGHT_PAGE = 'right';

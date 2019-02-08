@@ -15,6 +15,7 @@ export interface TableStyles {
     cell: (width?: number, borders?: Types.Borders, columnAlignment?: Types.ColumnAlignment) => SerializedStyles
     actionIcon: (active?: boolean) => SerializedStyles
     expandRow: (active: boolean) => SerializedStyles
+    noDataContainer: SerializedStyles
 }
 
 export default (): TableStyles => {
@@ -157,6 +158,11 @@ export default (): TableStyles => {
         }, active && {
             borderColor: theme.highlight.hex,
             color: theme.highlight.hex
+        }),
+
+        noDataContainer: css({
+            padding: '1.25rem',
+            textAlign: 'center'
         })
     }
 }
