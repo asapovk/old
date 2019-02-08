@@ -29,7 +29,7 @@ export default (props: TableBodyProps) => {
         return col;
     });
 
-    if (groupKey && (Array.isArray(groups) && groups.length > 1)) {
+    if (groupKey && (Array.isArray(groups) && groups.length > 0)) {
         return (
             <Fragment>
                 {groups.map((group, index) => (
