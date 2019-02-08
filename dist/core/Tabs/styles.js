@@ -13,7 +13,6 @@ exports.default = (function (_a) {
             display: 'flex',
             flexDirection: 'row',
             alignItems: 'flex-start',
-            padding: '2rem'
         }, reverseContainer && {
             flexDirection: 'row-reverse'
         }),
@@ -64,7 +63,6 @@ exports.default = (function (_a) {
             borderRadius: '0.25rem',
             padding: '1.25rem',
             marginBottom: '1.25rem',
-            height: '300px'
         })
     };
 });
