@@ -1,64 +1,67 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import createStyles from './styles';
 import Types from './types';
+import { C1 } from '../..';
 
 export default (props: Types.Props) => {
     const { tabs, reverseContainer } = props;
     const styles = createStyles({ reverseContainer });
+    const [currentId, setCurrentId] = useState('');
 
     useEffect(() => {
+        // isElementInViewport();
+        const viewport = document.querySelector('[data-viewport]')
+        viewport && viewport.addEventListener('scroll', onWindowScroll);
+
         removeHash();
         setSmoothAnimation();
 
-        // isElementInViewport();
-        // const viewport = document.querySelector('[data-viewport]')
-        // viewport && viewport.addEventListener('scroll', onWindowScroll);
-        // return () => viewport && document.removeEventListener('scroll', onWindowScroll);
+        return () => viewport && document.removeEventListener('scroll', onWindowScroll);
     }, []);
 
     function setSmoothAnimation() {
-        let anchorlinks = document.querySelectorAll('div[data-href]');
+        const anchorlinks = document.querySelectorAll('div[data-href]');
 
-        //@ts-ignore
-        for (let item of anchorlinks) { // relitere 
+        anchorlinks.forEach(item => {
             item.addEventListener('click', (event) => {
-                let hashval = item.getAttribute('data-href');
-                let target = document.querySelector(hashval);
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-                history.pushState(null, document.title, hashval);
-                event.preventDefault();
+                const hashval = item.getAttribute('data-href');
+                if (hashval) {
+                    const target = document.querySelector(hashval);
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+
+                        });
+                        event.preventDefault();
+                    }
+                }
             });
-        }
+        })
+
     }
 
-    // function onWindowScroll(event) {
-    //     let tabs = document.querySelectorAll('[data-tab-container]');
-    //     if (tabs) {
-    //         tabs.forEach(tab => {
-    //             if (isElementInViewport(tab)) {
-    //                 let hashval = tab.getAttribute('id');
-    //                 history.pushState(null, document.title, `#${hashval}`);
-    //                 event.preventDefault();
-    //             }
-    //         });
-    //     }
-    // }
-
-    // function isElementInViewport(el) {
-    //     const rect = el.getBoundingClientRect();
-    //     console.log(rect.bottom, window.innerHeight);
-    //     return (
-    //         rect.top >= 0 &&
-    //         rect.left >= 0 &&
-    //         rect.bottom >= (window.innerHeight || document.documentElement.clientHeight) &&
-    //         rect.right >= (window.innerWidth || document.documentElement.clientWidth)
-    //     );
-    // }
+    function onWindowScroll() {
+        let tabs = document.querySelectorAll('[data-tab-container]');
+        if (tabs) {
+            let active: any;
+            tabs.forEach(tab => {
+                const rect = tab.getBoundingClientRect();
+                if (!active && rect.height / 3 > -rect.top) {
+                    active = tab;
+                }
+            });
+            if (active) {
+                const id = active.getAttribute('id');
+                if (document.location.hash !== `${id}`) {
+                    // history.pushState(null, document.title, `#${id}`);
+                    setCurrentId(id);
+                }
+            }
+        }
+    }
 
     function removeHash() {
         let scrollV: number, scrollH: number, loc: Location = window.location;
@@ -88,7 +91,7 @@ export default (props: Types.Props) => {
             <div css={styles.menu}>
                 {tabs.map(tab => (
                     <div data-href={`#${tab.key}`} key={`tab-${tab.key}`} css={styles.menuItem(location.hash === `#${tab.key}`)} >
-                        {tab.title}
+                        <C1 bold={tab.key == currentId}>{tab.title}</C1>
                     </div>
                 ))}
             </div>
