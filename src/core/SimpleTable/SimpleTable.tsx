@@ -39,7 +39,12 @@ export default (props: Types.Props) => {
     return (
         <div css={styles.tableContainer}>
             {!hideHeaders && (
-                <TableRow last={false} header={true} columns={columns} styles={styles} expandForm={expandForm} />
+                <TableRow
+                    {...props}
+                    last={false}
+                    header={true}
+                    styles={styles}
+                />
             )}
             <TableBody {...props} data={pageData} styles={styles} />
             {pagination && (
