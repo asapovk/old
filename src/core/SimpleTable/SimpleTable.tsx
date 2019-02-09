@@ -8,15 +8,15 @@ import TablePagination from './components/TablePagination';
 import TableRow from './components/TableRow';
 
 export default (props: Types.Props) => {
-    const { data, noDataComponent, pagination, hideHeaders, columns, expandForm } = props;
+    const { data, NoDataComponent, pagination, hideHeaders, columns, expandForm } = props;
     const styles = createStyles();
     const [currentPage, setCurrentPage] = useState(1);
 
     if (!data || data.length <= 0) {
         return (
             <div css={styles.tableContainer}>
-                {noDataComponent
-                    ? noDataComponent
+                {NoDataComponent
+                    ? <NoDataComponent/>
                     : <div css={styles.noDataContainer}>Нет данных</div>}
             </div>
         )
