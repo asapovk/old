@@ -23,7 +23,7 @@ exports.default = react_1.forwardRef(function (props, ref) {
     var PATH_STATES = {};
     var cursorPos = { x: 0, y: 0 };
     var BUDDY_ID = "_" + (Math.random() * 10000000).toFixed(0);
-    react_1.useImperativeMethods(ref, function () { return ({
+    react_1.useImperativeHandle(ref, function () { return ({
         makeJumpy: function () {
             makeJumpy();
         },
