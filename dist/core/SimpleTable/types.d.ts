@@ -32,7 +32,7 @@ declare namespace SimpleTableTypes {
         groupKey?: string;
         groups?: Group[];
         pagination?: Pagination;
-        NoDataComponent?: React.SFC<{}>;
+        noDataComponent?: JSX.Element;
         onRowClick?: (row: Object) => any;
         search?: boolean;
         onSearch?: (value: any) => void;

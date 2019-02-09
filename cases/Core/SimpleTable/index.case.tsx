@@ -12,6 +12,10 @@ export default () => {
         setItems(Math.max(1, items - 10));
     }
 
+    function removeData() {
+        setItems(-1);
+    }
+
     function addData() {
         setItems(Math.min(100, items + 10));
     }
@@ -21,6 +25,7 @@ export default () => {
             <Flexbox mt={70} mb={20} column>
                 <Button label='Slice data' onClick={sliceData} />
                 <Button label='Add data' onClick={addData} />
+                <Button label='Remove data' onClick={removeData} />
             </Flexbox>
             <Table data={data} />
         </Flexbox>
