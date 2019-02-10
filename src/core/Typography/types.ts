@@ -36,6 +36,7 @@ declare namespace TypographyTypes {
         quotes?: boolean
         ellipsis?: boolean
         background?: 'text' | 'highlight' | 'pale' | 'textOnAccent' | 'lowlight'
+        toFixed?: number
     }
     interface HRProps extends PM {
         dotted?: boolean
