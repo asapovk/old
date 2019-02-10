@@ -7,6 +7,8 @@ export default (props) => {
 
     number = getPositions(props.children, props.toFixed);
 
+    if (!number) return props.children;
+
     switch (props.format) {
         case 'rub':
             number = getPositions(props.children, 2)
@@ -40,7 +42,7 @@ function getPositions(number, fixed?) {
         float = parseFloat(number.replace(/[^0-9.,]/g, "").replace(/,/g, "."));
     } else if (typeof number === 'number') {
         float = number
-    }
+    } else return null
 
     if (fixed) {
         float = float.toFixed(fixed)
