@@ -50,11 +50,10 @@ var HeadersMenu = function (props) {
         setValue(value);
         props.onChange && props.onChange(value);
     };
-    return (core_1.jsx(__1.Flexbox, null, props.menu.map(function (item) { return (core_1.jsx(Header, __assign({}, __assign({}, props, {
+    return (core_1.jsx(__1.Flexbox, null, props.menu.map(function (item) { return (core_1.jsx(Header, __assign({ key: item.value }, __assign({}, props, {
         children: item.text,
         onClick: function () { return onChange(item.value); },
         mr: '1.5rem',
-        key: item.value,
         css: value === item.value
             ? core_1.css({
                 color: props.theme.text.rgb,

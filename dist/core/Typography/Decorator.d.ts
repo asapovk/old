@@ -1,4 +1,3 @@
 import Types from './types';
-import React from 'react';
-declare const _default: React.ForwardRefExoticComponent<Types.DecoratorProps & React.RefAttributes<{}>>;
+declare const _default: import("react").ForwardRefExoticComponent<Types.DecoratorProps & import("react").RefAttributes<{}>>;
 export default _default;
