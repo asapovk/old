@@ -19,9 +19,9 @@ exports.default = (function (props) {
     var valueIndex = items.findIndex(function (item) { return item.value === value; });
     var visibleItems = barCapacity ? items.slice(0, barCapacity) : items;
     var moreItems = barCapacity ? items.slice(barCapacity) : [];
-    react_1.useLayoutEffect(function () {
-        setBarCapacity(getBarCapacity(containerRef, moreRef));
-    }, [browser.width]);
+    // useLayoutEffect(() => {
+    //     setBarCapacity(getBarCapacity(containerRef, moreRef));
+    // }, [browser.width]);
     function createItems(items) {
         if (items.length > 0)
             return items.map(function (item) {
@@ -30,10 +30,7 @@ exports.default = (function (props) {
         else
             return null;
     }
-    return (core_1.jsx(__1.Flexbox, { ref: containerRef, css: styles.holder },
-        createItems(visibleItems),
-        core_1.jsx("div", { css: styles.item(barCapacity && valueIndex >= barCapacity, !barCapacity || moreItems.length > 0), ref: moreRef, onClick: function () { return setMoreVisible(true); }, children: moreLabel ? moreLabel : core_1.jsx(__1.Icon, { type: 'more' }) }),
-        core_1.jsx(__1.Popup, { triggerRef: moreRef, visible: moreVisible, onClose: function () { return setMoreVisible(false); }, children: createItems(moreItems) })));
+    return (core_1.jsx(__1.Flexbox, { ref: containerRef, css: styles.holder }, createItems(visibleItems)));
 });
 function getBarCapacity(containerRef, moreRef) {
     var barsChilds = containerRef.current.childNodes;

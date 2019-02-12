@@ -21,15 +21,16 @@ exports.default = (function (props) {
         };
     }, []);
     function setSmoothAnimation() {
-        var anchorlinks = document.querySelectorAll('div[data-tab]');
-        anchorlinks.forEach(function (item) {
-            item.addEventListener('click', function (event) {
-                var tabId = item.getAttribute('data-tab');
-                if (tabId) {
-                    var target = document.querySelector(tabId);
+        var buttons = document.querySelectorAll('div[data-tab]');
+        buttons.forEach(function (button) {
+            button.addEventListener('click', function (event) {
+                var buttonId = button.getAttribute('data-tab');
+                if (buttonId) {
+                    var target = document.querySelector("[data-content-id=" + buttonId + "]");
                     if (target) {
                         target.scrollIntoView({
-                            behavior: 'smooth'
+                            behavior: 'smooth',
+                            block: 'start',
                         });
                         event.preventDefault();
                     }
@@ -38,24 +39,21 @@ exports.default = (function (props) {
         });
     }
     function onWindowScroll() {
-        var tabs = document.querySelectorAll('[data-tab-container]');
+        var tabs = document.querySelectorAll('[data-content-id]');
         if (tabs) {
-            var active_1;
+            var active_1 = false;
             tabs.forEach(function (tab) {
-                var rect = tab.getBoundingClientRect();
-                if (!active_1 && rect.height / 3 > -rect.top) {
-                    active_1 = tab;
+                if (!active_1) {
+                    var rect = tab.getBoundingClientRect();
+                    if (rect.height / 3 > -rect.top) {
+                        active_1 = true;
+                        setCurrentId(tab.getAttribute('data-content-id'));
+                    }
                 }
             });
-            if (active_1) {
-                var id = active_1.getAttribute('id');
-                if (document.location.hash !== "" + id) {
-                    setCurrentId(id);
-                }
-            }
         }
     }
     return (core_1.jsx("div", { css: styles.container },
-        core_1.jsx("div", { css: styles.content }, tabs.map(function (tab) { return (core_1.jsx("div", { "data-tab-container": true, id: tab.key, key: "tabcnt-" + tab.key, children: tab.content, css: styles.tab })); })),
-        core_1.jsx("div", { css: styles.menu }, tabs.map(function (tab) { return (core_1.jsx("div", { "data-tab": tab.key, key: "tab-" + tab.key, children: (core_1.jsx(__1.C1, null, tab.title)), css: styles.menuItem(tab.key == currentId) })); }))));
+        core_1.jsx("div", { css: styles.content }, tabs.map(function (tab) { return (core_1.jsx("div", { "data-content-id": tab.key, key: "tabcnt-" + tab.key, children: tab.content, css: styles.tab })); })),
+        core_1.jsx("div", { css: styles.menu }, tabs.map(function (tab) { return (core_1.jsx("div", { "data-tab": tab.key, key: "tab-" + tab.key, children: (core_1.jsx(__1.C1, { bold: tab.key == currentId }, tab.title)), css: styles.menuItem(tab.key == currentId) })); }))));
 });
