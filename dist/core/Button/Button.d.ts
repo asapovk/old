@@ -14,6 +14,7 @@ export interface ButtonProps {
     inversion?: boolean;
     children?: React.ReactNode;
     thin?: boolean;
+    type?: 'submit';
 }
 declare const _default: (props: ButtonProps) => JSX.Element;
 export default _default;

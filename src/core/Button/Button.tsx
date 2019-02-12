@@ -19,11 +19,12 @@ export interface ButtonProps {
     inversion?: boolean,
     children?: React.ReactNode
     thin?: boolean
+    type?: 'submit'
 }
 
 export default (props: ButtonProps) => {
 
-    const { labelCase, label, children, style, loading, decoration, disabled, size, inversion, className, thin } = props;
+    const { labelCase, label, children, style, loading, decoration, disabled, size, inversion, className, thin, type } = props;
     const styles = createStyles(size, loading, disabled, labelCase, decoration, inversion, thin);
 
     const onClick = (event) => {
@@ -34,7 +35,7 @@ export default (props: ButtonProps) => {
     }
 
     return (
-        <button css={styles} className={className} style={style} onClick={(event) => onClick(event)}>
+        <button css={styles} className={className} style={style} onClick={(event) => onClick(event)} type={type}>
             <span>{label || children}</span>
             {loading && (<Spin><Icon type="sync" /></Spin>)}
         </button>
