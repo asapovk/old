@@ -3,7 +3,7 @@ import { jsx, css } from '@emotion/core';
 import { forwardRef } from 'react';
 import { Flexbox, HR } from '..';
 import Types from './types';
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 export default forwardRef((props: Types.DecoratorProps, ref) => {
 
@@ -73,21 +73,23 @@ const HeadersMenu = (props) => {
     return (
         <Flexbox>
             {props.menu.map(item => (
-                <Header {...{
-                    ...props,
+                <Header
+                    key={item.value}
+                    {
                     ...{
-                        children: item.text,
-                        onClick: () => onChange(item.value),
-                        mr: '1.5rem',
-                        key: item.value,
-                        css: value === item.value
-                            ? css({
-                                color: props.theme.text.rgb,
-                                borderBottom: `3px solid ${props.theme.highlight.rgb}`
-                            })
-                            : css({ color: props.theme.lowlight.rgb })
-                    }
-                }} />
+                        ...props,
+                        ...{
+                            children: item.text,
+                            onClick: () => onChange(item.value),
+                            mr: '1.5rem',
+                            css: value === item.value
+                                ? css({
+                                    color: props.theme.text.rgb,
+                                    borderBottom: `3px solid ${props.theme.highlight.rgb}`
+                                })
+                                : css({ color: props.theme.lowlight.rgb })
+                        }
+                    }} />
             ))}
         </Flexbox>
     )
