@@ -4,6 +4,8 @@ import { SimpleTableTypes } from '../../../src/core/types';
 
 export default () => {
     const [items, setItems] = useState(10);
+    const [stateArray, setStateArray] = useState<any[]>(new Array(0));
+    const [toggleState, setToggleState] = useState(false);
 
     let data: any[] = [];
     data = dt.filter(i => i.id <= items + 1);
@@ -20,12 +22,20 @@ export default () => {
         setItems(Math.min(100, items + 10));
     }
 
+    function addRowToArray() {
+        const arr = new Array().concat(stateArray);
+        setStateArray(arr);
+    }
+
+    console.log(1);
+
     return (
         <Flexbox>
             <Flexbox mt={70} mb={20} column>
                 <Button label='Slice data' onClick={sliceData} />
                 <Button label='Add data' onClick={addData} />
                 <Button label='Remove data' onClick={removeData} />
+                <Button label='arr state' onClick={addRowToArray} />
             </Flexbox>
             <Table data={data} />
         </Flexbox>
