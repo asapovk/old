@@ -1,23 +1,13 @@
 import React from 'react';
 import { Viewport } from '../src';
 import { IPluginProps } from 'showcase-ui/types'
-
-function caseWrapper(props: IPluginProps) {
-    Wrapper.contextType = props.context;
-    props.wrapper(Wrapper);
-}
-
 class Wrapper extends React.Component {
     state = {
         theme: 'blackCurrant'
     }
 
-    constructor(props) {
-        super(props);
-        this.changeTheme = this.changeTheme.bind(this)
-    }
-
     componentWillMount() {
+        this.changeTheme = this.changeTheme.bind(this)
         const theme = localStorage.getItem('UItheme');
         if (theme) {
             this.setState({
@@ -27,7 +17,7 @@ class Wrapper extends React.Component {
         this.context.setContext({ changeTheme: this.changeTheme });
     }
 
-    changeTheme(theme) {
+    changeTheme(theme: string) {
         localStorage.setItem('UItheme', theme);
         this.setState({
             theme: theme
@@ -41,4 +31,7 @@ class Wrapper extends React.Component {
     }
 }
 
-export default caseWrapper;
+export default (props: IPluginProps) => {
+    Wrapper.contextType = props.context;
+    props.wrapper(Wrapper);
+};

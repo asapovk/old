@@ -20,9 +20,9 @@ export default (props: Types.NavBarProps) => {
     const visibleItems = barCapacity ? items.slice(0, barCapacity) : items;
     const moreItems = barCapacity ? items.slice(barCapacity) : [];
 
-    useLayoutEffect(() => {
-        setBarCapacity(getBarCapacity(containerRef, moreRef));
-    }, [browser.width]);
+    // useLayoutEffect(() => {
+    //     setBarCapacity(getBarCapacity(containerRef, moreRef));
+    // }, [browser.width]);
 
     function createItems(items) {
         if (items.length > 0)
@@ -40,7 +40,7 @@ export default (props: Types.NavBarProps) => {
     return (
         <Flexbox ref={containerRef} css={styles.holder}>
             {createItems(visibleItems)}
-            <div
+            {/* <div
                 css={styles.item(barCapacity && valueIndex >= barCapacity, !barCapacity || moreItems.length > 0)}
                 ref={moreRef}
                 onClick={() => setMoreVisible(true)}
@@ -51,7 +51,7 @@ export default (props: Types.NavBarProps) => {
                 visible={moreVisible}
                 onClose={() => setMoreVisible(false)}
                 children={createItems(moreItems)}
-            />
+            /> */}
         </Flexbox>
     )
 }

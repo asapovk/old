@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useReducer } from 'react';
 import Scene from '../../../src/scenes/LKMainScene';
 import useTheme from '../../../src/hooks/useTheme';
 import { MRG, ABR, Smorodina } from '../../../src/logos';

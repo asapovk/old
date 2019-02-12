@@ -22,16 +22,17 @@ export default (props: Types.Props) => {
     }, []);
 
     function setSmoothAnimation() {
-        const anchorlinks = document.querySelectorAll('div[data-tab]');
+        const buttons = document.querySelectorAll('div[data-tab]');
 
-        anchorlinks.forEach(item => {
-            item.addEventListener('click', (event) => {
-                const tabId = item.getAttribute('data-tab');
-                if (tabId) {
-                    const target = document.querySelector(tabId);
+        buttons.forEach(button => {
+            button.addEventListener('click', (event) => {
+                const buttonId = button.getAttribute('data-tab');
+                if (buttonId) {
+                    const target = document.querySelector(`[data-content-id=${buttonId}]`);
                     if (target) {
                         target.scrollIntoView({
-                            behavior: 'smooth'
+                            behavior: 'smooth',
+                            block: 'start',
                         });
                         event.preventDefault();
                     }
@@ -41,21 +42,21 @@ export default (props: Types.Props) => {
     }
 
     function onWindowScroll() {
-        let tabs = document.querySelectorAll('[data-tab-container]');
+        let tabs = document.querySelectorAll('[data-content-id]');
         if (tabs) {
-            let active: any;
+            let active: boolean = false;
+
             tabs.forEach(tab => {
-                const rect = tab.getBoundingClientRect();
-                if (!active && rect.height / 3 > -rect.top) {
-                    active = tab;
+                if (!active) {
+                    const rect = tab.getBoundingClientRect();
+                    if (rect.height / 3 > -rect.top) {
+                        active = true;
+                        setCurrentId(
+                            tab.getAttribute('data-content-id')!
+                        )
+                    }
                 }
             });
-            if (active) {
-                const id = active.getAttribute('id');
-                if (document.location.hash !== `${id}`) {
-                    setCurrentId(id);
-                }
-            }
         }
     }
 
@@ -64,8 +65,7 @@ export default (props: Types.Props) => {
             <div css={styles.content}>
                 {tabs.map(tab => (
                     <div
-                        data-tab-container
-                        id={tab.key}
+                        data-content-id={tab.key}
                         key={`tabcnt-${tab.key}`}
                         children={tab.content}
                         css={styles.tab}
@@ -78,7 +78,7 @@ export default (props: Types.Props) => {
                         data-tab={tab.key}
                         key={`tab-${tab.key}`}
                         children={(
-                            <C1>{tab.title}</C1>
+                            <C1 bold={tab.key == currentId}>{tab.title}</C1>
                         )}
                         css={styles.menuItem(tab.key == currentId)}
                     />
