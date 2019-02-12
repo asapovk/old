@@ -61,7 +61,7 @@ exports.default = (function (_a) {
             borderWidth: '1px',
             borderColor: theme.borders.table.color,
             borderRadius: '0.25rem',
-            padding: '1.25rem',
+            padding: '2rem',
             marginBottom: '1.25rem',
         })
     };
