@@ -25,7 +25,7 @@ exports.default = (function (_a) {
             borderStyle: 'solid',
             borderWidth: '1px',
             borderColor: theme.borders.table.color,
-            borderRadius: '0.25rem',
+            borderRadius: '0.5rem',
             position: 'sticky',
             top: 0,
             margin: '0 0 0 2.5rem',
@@ -60,8 +60,8 @@ exports.default = (function (_a) {
             borderStyle: 'solid',
             borderWidth: '1px',
             borderColor: theme.borders.table.color,
-            borderRadius: '0.25rem',
-            padding: '1.25rem',
+            borderRadius: '0.5rem',
+            padding: '2rem',
             marginBottom: '1.25rem',
         })
     };

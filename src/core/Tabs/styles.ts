@@ -1,4 +1,4 @@
-import { css, keyframes } from '@emotion/core';
+import { css } from '@emotion/core';
 import useTheme from '../../hooks/useTheme';
 
 export default ({ reverseContainer }) => {
@@ -22,9 +22,9 @@ export default ({ reverseContainer }) => {
             borderStyle: 'solid',
             borderWidth: '1px',
             borderColor: theme.borders.table.color,
-            borderRadius: '0.25rem',
+            borderRadius: '0.5rem',
             position: 'sticky',
-            top: 0, //TODO: 
+            top: 0,
             margin: '0 0 0 2.5rem',
             padding: '0 1.25rem',
         }, reverseContainer && {
@@ -60,8 +60,8 @@ export default ({ reverseContainer }) => {
             borderStyle: 'solid',
             borderWidth: '1px',
             borderColor: theme.borders.table.color,
-            borderRadius: '0.25rem',
-            padding: '1.25rem',
+            borderRadius: '0.5rem',
+            padding: '2rem',
             marginBottom: '1.25rem',
         })
 
