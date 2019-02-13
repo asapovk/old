@@ -8,6 +8,7 @@ declare namespace TextFieldTypes {
         loading?: true | undefined;
         decoration?: 'none' | 'borderless';
         size?: 'large' | 'small';
+        className?: string;
     }
     interface FieldProps {
         styles?: any;

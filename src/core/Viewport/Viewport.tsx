@@ -1,5 +1,6 @@
 import { StylesContext, createStyles, themeName } from '../../styles';
 import React, { Component, Fragment } from 'react';
+import { ThemeProvider } from 'emotion-theming'
 
 interface ViewportProps {
     children?: any
@@ -59,20 +60,22 @@ class Viewport extends Component<ViewportProps> {
         const uiStyles = createStyles(this.props.theme);
         return (
             <StylesContext.Provider value={uiStyles}>
-                <div
-                    data-viewport
-                    className={this.props.transparent ? 'ui-viewport' : 'ui-viewport ui-viewport-fit'}
-                    id='0cd82567-7684-4147-ab02-dd3c56332364'
-                    style={this.props.transparent ? { ...this.props.style } : { ...uiStyles.viewport.main, ...this.props.style }}
-                    children={(
-                        <Fragment>
-                            {this.props.children}
-                            {this.state.mountedActions.map((action, index) => {
-                                return <Fragment key={index}>{action.component}</Fragment>
-                            })}
-                        </Fragment>
-                    )}
-                />
+                <ThemeProvider theme={uiStyles}>
+                    <div
+                        data-viewport
+                        className={this.props.transparent ? 'ui-viewport' : 'ui-viewport ui-viewport-fit'}
+                        id='0cd82567-7684-4147-ab02-dd3c56332364'
+                        style={this.props.transparent ? { ...this.props.style } : { ...uiStyles.viewport.main, ...this.props.style }}
+                        children={(
+                            <Fragment>
+                                {this.props.children}
+                                {this.state.mountedActions.map((action, index) => {
+                                    return <Fragment key={index}>{action.component}</Fragment>
+                                })}
+                            </Fragment>
+                        )}
+                    />
+                </ThemeProvider>
             </StylesContext.Provider>
         )
     }

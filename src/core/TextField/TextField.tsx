@@ -27,7 +27,7 @@ export default forwardRef((props: Types.Props, ref) => {
         </Flexbox>
 
     if (!(props.decoration === 'none')) return (
-        <Flexbox css={styles.container} style={props.style} flexDirection='column'>
+        <Flexbox css={styles.container} className={props.className} style={props.style} flexDirection='column'>
             <Label />
             <Flexbox css={styles.wrapper} onClick={props.onClick} alignItems='center'>
                 <TextFieldIcon position='left' type={props.leftIcon} />

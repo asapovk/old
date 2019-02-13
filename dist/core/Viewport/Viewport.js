@@ -33,6 +33,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var styles_1 = require("../../styles");
 var react_1 = __importStar(require("react"));
+var emotion_theming_1 = require("emotion-theming");
 var Viewport = /** @class */ (function (_super) {
     __extends(Viewport, _super);
     function Viewport() {
@@ -78,11 +79,12 @@ var Viewport = /** @class */ (function (_super) {
     Viewport.prototype.render = function () {
         var uiStyles = styles_1.createStyles(this.props.theme);
         return (react_1.default.createElement(styles_1.StylesContext.Provider, { value: uiStyles },
-            react_1.default.createElement("div", { "data-viewport": true, className: this.props.transparent ? 'ui-viewport' : 'ui-viewport ui-viewport-fit', id: '0cd82567-7684-4147-ab02-dd3c56332364', style: this.props.transparent ? __assign({}, this.props.style) : __assign({}, uiStyles.viewport.main, this.props.style), children: (react_1.default.createElement(react_1.Fragment, null,
-                    this.props.children,
-                    this.state.mountedActions.map(function (action, index) {
-                        return react_1.default.createElement(react_1.Fragment, { key: index }, action.component);
-                    }))) })));
+            react_1.default.createElement(emotion_theming_1.ThemeProvider, { theme: uiStyles },
+                react_1.default.createElement("div", { "data-viewport": true, className: this.props.transparent ? 'ui-viewport' : 'ui-viewport ui-viewport-fit', id: '0cd82567-7684-4147-ab02-dd3c56332364', style: this.props.transparent ? __assign({}, this.props.style) : __assign({}, uiStyles.viewport.main, this.props.style), children: (react_1.default.createElement(react_1.Fragment, null,
+                        this.props.children,
+                        this.state.mountedActions.map(function (action, index) {
+                            return react_1.default.createElement(react_1.Fragment, { key: index }, action.component);
+                        }))) }))));
     };
     return Viewport;
 }(react_1.Component));
