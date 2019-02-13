@@ -19,6 +19,7 @@ export { Spinner as Spinner } from './core'
 export { Stories as Stories } from './core';
 export { Table as Table } from './core'
 export { SimpleTable as SimpleTable } from './core';
+export { SimpleModal as SimpleModal } from './core';
 export { Tabs as Tabs } from './core'
 // export { Tab as Tab } from './core'
 export { TextField as TextField } from './core'

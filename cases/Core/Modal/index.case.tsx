@@ -1,22 +1,23 @@
-import React, { Fragment } from 'react';
-import { Button, Flexbox, Modal } from '../../../src';
+import React, { useRef } from 'react';
+import { Button, Flexbox, Modal, SimpleModal } from '../../../src';
 import '../../../src/styles/scss/main.scss';
 
-export default class Story extends React.Component {
-    modal?: any = null;
+export default (props) => {
+    const modal = useRef<Modal>(null);
+    const simpleModal: any = useRef(null);
 
-    render() {
-        return (
-            
-                <Flexbox alignContent="center" justifyContent="center">
-                    <Modal title="Модальное окно" subtitle={"Нажмите close"} ref={ref => this.modal = ref}>
-                        <Flexbox justifyContent="center">
-                            <Button onClick={() => this.modal.close()}>Close</Button>
-                        </Flexbox>
-                    </Modal>
-                    <Button onClick={() => this.modal.open()}>Open</Button>
+    return (
+
+        <Flexbox alignContent="center" justifyContent="center">
+            <Modal title="Модальное окно" subtitle={"Нажмите close"} ref={modal}>
+                <Flexbox justifyContent="center">
+                    <Button onClick={() => modal.current!.close()}>Close</Button>
                 </Flexbox>
-            
-        )
-    }
+            </Modal>
+            <Button onClick={() => modal.current!.open()}>Open Modal</Button>
+            <Button onClick={() => simpleModal.current.open(<h1>hello</h1>)}>Open Simple Modal (without styles)</Button>
+            <SimpleModal ref={simpleModal} />
+        </Flexbox>
+
+    )
 }
