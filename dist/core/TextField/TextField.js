@@ -36,7 +36,7 @@ exports.default = react_1.forwardRef(function (props, ref) {
                 core_1.jsx(__1.Icon, { type: 'spin' })));
     };
     if (!(props.decoration === 'none'))
-        return (core_1.jsx(__1.Flexbox, { css: styles.container, style: props.style, flexDirection: 'column' },
+        return (core_1.jsx(__1.Flexbox, { css: styles.container, className: props.className, style: props.style, flexDirection: 'column' },
             core_1.jsx(Label, null),
             core_1.jsx(__1.Flexbox, { css: styles.wrapper, onClick: props.onClick, alignItems: 'center' },
                 core_1.jsx(TextFieldIcon, { position: 'left', type: props.leftIcon }),
