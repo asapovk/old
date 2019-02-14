@@ -9,9 +9,13 @@ var __1 = require("../../");
 var styles_1 = __importDefault(require("./styles"));
 var hooks_1 = require("../../hooks");
 var react_1 = require("react");
+var core_2 = require("../../core");
 exports.default = (function (props) {
     var styles = styles_1.default(props.displaySideBar);
     var browser = hooks_1.useBrowser();
+    if (props.preparing) {
+        return (core_1.jsx(core_2.Spinner, { spinning: true, center: true }));
+    }
     return (core_1.jsx(__1.Flexbox, { flexDirection: browser.isMobile ? 'column' : 'row' },
         (props.components.sidebar && props.displaySideBar) && (core_1.jsx("div", { css: styles.sidebar.container },
             core_1.jsx("div", { css: styles.sidebar.background }),
@@ -26,5 +30,7 @@ exports.default = (function (props) {
         core_1.jsx("div", { css: styles.main.container },
             core_1.jsx("div", { css: styles.main.holder },
                 core_1.jsx("div", { css: styles.main.menu }, props.components.menu),
-                props.components.main))));
+                core_1.jsx("div", null, props.pending
+                    ? core_1.jsx(__1.Flexbox, { justifyContent: 'center', mt: '10rem', children: core_1.jsx(core_2.Spinner, { spinning: true }) })
+                    : props.components.main)))));
 });
