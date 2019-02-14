@@ -8,6 +8,11 @@ const accentColors = {
     orange: getColors(245, 169, 0),
 }
 
+const brand = {
+    red: getColors(196, 13, 60),
+    purple: getColors(196, 13, 60),
+}
+
 export default {
     name: "abrTheme",
     background: getColors(247, 247, 247),
@@ -19,6 +24,7 @@ export default {
     textOnAccent: getColors(233, 233, 233),
     highlight: getColors(196, 13, 60),
     accents: accentColors,
+    brand: brand,
     shadow: getColors(220, 220, 220),
     shadows: {
         button: '0px 2px 6px 0px ' + getColors(0, 0, 0).rgba(0.2),

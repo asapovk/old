@@ -7,6 +7,10 @@ var accentColors = {
     blue: utilities_1.getColors(0, 122, 255),
     orange: utilities_1.getColors(255, 149, 0),
 };
+var brand = {
+    red: utilities_1.getColors(216, 15, 105),
+    purple: utilities_1.getColors(216, 15, 105),
+};
 exports.default = {
     name: "blackCurrant",
     background: utilities_1.getColors(36, 33, 38),
@@ -18,6 +22,7 @@ exports.default = {
     textOnAccent: utilities_1.getColors(233, 233, 233),
     highlight: utilities_1.getColors(216, 15, 105),
     accents: accentColors,
+    brand: brand,
     shadow: utilities_1.getColors(19, 20, 25),
     shadows: {
         button: '0px 2px 6px 0px ' + utilities_1.getColors(19, 20, 25).hex,

@@ -7,6 +7,10 @@ var accentColors = {
     blue: utilities_1.getColors(0, 58, 93),
     orange: utilities_1.getColors(245, 169, 0),
 };
+var brand = {
+    red: utilities_1.getColors(196, 13, 60),
+    purple: utilities_1.getColors(196, 13, 60),
+};
 exports.default = {
     name: "abrTheme",
     background: utilities_1.getColors(247, 247, 247),
@@ -18,6 +22,7 @@ exports.default = {
     textOnAccent: utilities_1.getColors(233, 233, 233),
     highlight: utilities_1.getColors(196, 13, 60),
     accents: accentColors,
+    brand: brand,
     shadow: utilities_1.getColors(220, 220, 220),
     shadows: {
         button: '0px 2px 6px 0px ' + utilities_1.getColors(0, 0, 0).rgba(0.2),

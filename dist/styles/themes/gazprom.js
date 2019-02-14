@@ -7,6 +7,10 @@ var accentColors = {
     blue: utilities_1.getColors(0, 122, 255),
     orange: utilities_1.getColors(255, 149, 0),
 };
+var brand = {
+    red: utilities_1.getColors(0, 106, 255),
+    purple: utilities_1.getColors(0, 106, 255),
+};
 exports.default = {
     name: "gazpromTheme",
     background: utilities_1.getColors(247, 247, 247),
@@ -18,6 +22,7 @@ exports.default = {
     textOnAccent: utilities_1.getColors(233, 233, 233),
     highlight: utilities_1.getColors(0, 106, 255),
     accents: accentColors,
+    brand: brand,
     shadow: utilities_1.getColors(220, 220, 220),
     shadows: {
         button: 'none',
