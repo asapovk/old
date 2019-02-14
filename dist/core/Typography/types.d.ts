@@ -24,7 +24,7 @@ declare namespace TypographyTypes {
         typography: any;
     }
     interface CoreProps extends PM {
-        children?: string;
+        children?: string | number | null;
         className?: string;
         onClick?: (event: any) => void;
         format?: boolean | 'rub' | 'volume' | 'power';
