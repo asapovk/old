@@ -7,6 +7,7 @@ declare namespace SpinnerTypes {
         children?: any;
         style?: CSSProperties;
         className?: string;
+        defaultElement?: boolean;
     }
 }
 export default SpinnerTypes;

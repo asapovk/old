@@ -7,8 +7,8 @@ export default class Story extends React.Component {
 
     render() {
         return (
-            <Flexbox alignContent="center" justifyContent="center">
-                <Spinner spinning />
+            <Flexbox flex="1" style={{ height: '100%' }} alignContent="center" justifyContent="center">
+                <Spinner spinning dark center />
             </Flexbox>
         )
     }

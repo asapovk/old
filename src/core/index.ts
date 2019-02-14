@@ -21,7 +21,8 @@ export { Table as Table } from './Table'
 export { SimpleTable as SimpleTable } from './SimpleTable';
 export { SimpleModal as SimpleModal } from './SimpleModal';
 export { Tabs as Tabs } from './Tabs'
-// export { Tab as Tab } from './Tabs'
+export { Plastic as Plastic } from './Plastic'
+export { PlasticStack as PlasticStack } from './Plastic';
 export { TextField as TextField } from './TextField'
 export { Timeline as Timeline } from './Timeline';
 export { Title as Title } from './Title'

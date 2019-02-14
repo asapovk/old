@@ -44,7 +44,10 @@ var SimpleTable_1 = require("./SimpleTable");
 exports.SimpleTable = SimpleTable_1.SimpleTable;
 var Tabs_1 = require("./Tabs");
 exports.Tabs = Tabs_1.Tabs;
-// export { Tab as Tab } from './Tabs'
+var Plastic_1 = require("./Plastic");
+exports.Plastic = Plastic_1.Plastic;
+var Plastic_2 = require("./Plastic");
+exports.PlasticStack = Plastic_2.PlasticStack;
 var TextField_1 = require("./TextField");
 exports.TextField = TextField_1.TextField;
 var Timeline_1 = require("./Timeline");

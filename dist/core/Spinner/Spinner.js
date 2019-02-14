@@ -18,16 +18,17 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@emotion/core");
 var styles_1 = __importDefault(require("./styles"));
 exports.default = (function (props) {
-    var spinning = props.spinning, center = props.center, className = props.className, dark = props.dark, children = props.children, style = props.style;
-    var styles = styles_1.default();
+    var spinning = props.spinning, center = props.center, className = props.className, dark = props.dark, children = props.children, style = props.style, defaultElement = props.defaultElement;
+    var styles = styles_1.default(dark);
     if (!spinning) {
         return children || null;
     }
+    var El = defaultElement ? core_1.jsx(Spin, __assign({}, props)) : core_1.jsx(Logo, null);
     if (center) {
         return (core_1.jsx("div", { css: styles.centeredContainer, style: style, className: className },
-            core_1.jsx("div", { children: core_1.jsx(Spin, __assign({}, props)) })));
+            core_1.jsx("div", { children: El })));
     }
-    return core_1.jsx(Spin, __assign({}, props));
+    return El;
 });
 var Spin = function (props) {
     var styles = styles_1.default();
@@ -38,4 +39,14 @@ var Spin = function (props) {
                 animationDelay: "-" + (startDelay - i / 10).toFixed(1) + "s !important"
             }) });
     })));
+};
+var Logo = function () {
+    var styles = styles_1.default();
+    return (core_1.jsx("div", { css: styles.container },
+        core_1.jsx("div", { css: styles.triangleContainer },
+            core_1.jsx("div", null, Array(3)
+                .fill("")
+                .map(function (_, i) {
+                return core_1.jsx("div", { key: i, css: styles.circle(i) });
+            })))));
 };

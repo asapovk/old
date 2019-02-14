@@ -27,6 +27,8 @@ export { Timeline as Timeline } from './core';
 export { Title as Title } from './core'
 export { Viewport as Viewport } from './core'
 export { Widget as Widget } from './core'
+export { Plastic as Plastic } from './core'
+export { PlasticStack as PlasticStack } from './core';
 
 export { default as Styles } from './styles'
 

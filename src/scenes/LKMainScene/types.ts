@@ -19,6 +19,8 @@ declare namespace LKMainSceneNew {
          * mains (only for mobile resolution)
          */
         displaySideBar?: boolean
+        preparing?: boolean
+        pending?: boolean
     }
 }
 

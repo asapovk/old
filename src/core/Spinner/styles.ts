@@ -1,13 +1,32 @@
 import { css, keyframes } from '@emotion/core';
 import useTheme from '../../hooks/useTheme';
+import { themes } from '../../styles';
 
-export default () => {
+export default (dark?: boolean) => {
+
     const theme = useTheme().theme;
+
+    const containerRadius = 30;
+    const circleRadius = 20;
+
+    const edge = containerRadius * Math.sin(2 * Math.PI / 3) / Math.sin(Math.PI / 6);
+    const height = edge * Math.sin(2 * Math.PI / 3);
 
     const spinnerAnimation = keyframes({
         "0%": { opacity: 1 },
         "100%": { opacity: 0 }
     });
+
+    const circleScale = keyframes({
+        "0%": { transform: `scale(1)` },
+        "40%": { transform: `scale(0.7)` },
+        "80%": { transform: `scale(1.2)` },
+        "100%": { transform: `scale(1)` },
+    });
+
+    const spin = keyframes({
+        to: { transform: 'rotate(360deg)' }
+    })
 
     return {
         spinner: css({
@@ -35,7 +54,7 @@ export default () => {
 
         centeredContainer: css({
             zIndex: 999999,
-            position: "fixed",
+            position: "absolute",
             top: 0,
             bottom: 0,
             left: 0,
@@ -47,6 +66,63 @@ export default () => {
                 marginLeft: "-2rem",
                 marginTop: "-2rem"
             }
+        }, dark && {
+            "&::before": {
+                content: `''`,
+                position: "absolute",
+                top: 0,
+                left: 0,
+                right: 0,
+                bottom: 0,
+                backgroundColor: 'rgba(0, 0, 0, .1)'
+            }
         }),
+
+        container: css({
+            height: containerRadius * 2,
+            width: containerRadius * 2
+        }),
+
+        circle: (index: number) => css({
+            position: 'absolute',
+            width: circleRadius * 2,
+            height: circleRadius * 2,
+            backgroundColor: 'red',
+            borderRadius: '50%',
+            animation: `${circleScale} 3s linear infinite`,
+            animationDelay: `${index * 2}s`
+        }),
+
+        triangleContainer: css({
+            position: 'relative',
+            height: containerRadius * 2,
+            width: containerRadius * 2,
+            animation: `${spin} 3s linear infinite`,
+            "> div": {
+                position: 'relative',
+                top: 0,
+                left: containerRadius - edge / 2,
+                height: 0,
+                width: 0,
+                borderStyle: 'solid',
+                borderWidth: `0 ${edge / 2}px ${height}px`,
+                borderColor: 'transparent',
+                "> :nth-of-type(1)": {
+                    top: -circleRadius,
+                    left: -circleRadius,
+                    backgroundColor: theme.brand.red.hex
+                },
+                "> :nth-of-type(2)": {
+                    top: Math.sqrt(3) * (edge / 2) - circleRadius,
+                    left: (edge / 2) - circleRadius,
+                    backgroundColor: theme.brand.purple.hex
+                },
+                "> :nth-of-type(3)": {
+                    top: Math.sqrt(3) * (edge / 2) - circleRadius,
+                    left: -(edge / 2) - circleRadius,
+                    backgroundColor: theme.brand.purple.hex
+                }
+            }
+        })
     }
 }

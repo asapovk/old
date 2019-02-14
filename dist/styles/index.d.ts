@@ -23,6 +23,7 @@ export interface ThemeInterface {
         blue: objectColor;
         orange: objectColor;
     };
+    brand: any;
     shadow: objectColor;
     shadows: {
         button: string;

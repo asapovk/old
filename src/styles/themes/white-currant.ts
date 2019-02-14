@@ -8,6 +8,11 @@ const accentColors = {
     orange: getColors(255, 149, 0),
 }
 
+const brand = {
+    red: getColors(233, 39, 107),
+    purple: getColors(96, 45, 144)
+}
+
 export default {
     name: "whiteCurrant",
     background: getColors(255, 255, 255),
@@ -20,6 +25,7 @@ export default {
     //highlight: getColors(127, 8, 191),
     highlight: getColors(107, 54, 143),
     accents: accentColors,
+    brand: brand,
     shadow: getColors(220, 220, 220),
     shadows: {
         button: '0px 2px 6px 0px ' + getColors(0, 0, 0).rgba(0.2),

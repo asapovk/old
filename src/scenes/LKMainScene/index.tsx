@@ -1,15 +1,22 @@
 /** @jsx jsx */
-import { jsx } from '@emotion/core';
+import { jsx, css } from '@emotion/core';
 import { Flexbox, C2, C1 } from '../../';
 import createStyles from './styles';
 import { useBrowser } from '../../hooks';
 import Types from './types';
 import { Fragment } from 'react';
+import { Spinner } from '../../core';
 
 export default (props: Types.Props) => {
 
     const styles = createStyles(props.displaySideBar);
     const browser = useBrowser();
+
+    if (props.preparing) {
+        return (
+            <Spinner spinning center />
+        )
+    }
 
     return (
         <Flexbox flexDirection={browser.isMobile ? 'column' : 'row'}>
@@ -53,11 +60,17 @@ export default (props: Types.Props) => {
                 </div>
             )}
 
+
             {/** Main Container */}
             <div css={styles.main.container}>
                 <div css={styles.main.holder}>
                     <div css={styles.main.menu}>{props.components.menu}</div>
-                    {props.components.main}
+                    <div>
+                        {props.pending
+                            ? <Flexbox justifyContent='center' mt={'10rem'} children={<Spinner spinning />} />
+                            : props.components.main
+                        }
+                    </div>
                 </div>
             </div>
         </Flexbox>

@@ -40,6 +40,8 @@ export default () => {
                 })
             }}
             displaySideBar={true}
+            pending={true}
+            preparing={false}
         />
     )
 }
