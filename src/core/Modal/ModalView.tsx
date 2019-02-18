@@ -1,5 +1,5 @@
 import React, { CSSProperties } from 'react';
-import { Flexbox, Styles } from '../../';
+import { Flexbox, Styles, D1 } from '../../';
 
 interface Props {
     loading?: boolean
@@ -24,10 +24,15 @@ class ModalView extends React.Component<Props> {
                             ...this.props.style
                         }} ref={this.props.wrapperReference}>
                             {this.props.title ? (
-                                <div className={`ui-modal-title`} style={{ color: styles.modal.view.titleColor }}>
-                                    {this.props.title}
-                                    {this.props.subtitle ? <span style={{ color: styles.modal.view.subtitleColor }}>{this.props.subtitle}</span> : null}
-                                </div>
+                                <D1
+                                    mb='2rem'
+                                    underline
+                                    children={this.props.title}
+                                />
+                                // <div className={`ui-modal-title`} style={{ color: styles.modal.view.titleColor }}>
+                                //     {this.props.title}
+                                //     {this.props.subtitle ? <span style={{ color: styles.modal.view.subtitleColor }}>{this.props.subtitle}</span> : null}
+                                // </div>
                             ) : null}
                             {this.props.children}
                         </div>
