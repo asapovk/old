@@ -28,12 +28,16 @@ exports.default = (function (multiline, size, disabled, decoration) {
             // textTransform: 'uppercase',
             marginBottom: '0.25rem', color: theme.lowlight.rgb })),
         wrapper: core_1.css({
-            border: decoration != 'borderless'
-                ? '1px solid ' + theme.pale.hex
-                : 'none',
+            border: '1px solid ' + theme.pale.hex,
             backgroundColor: theme.interface.rgb,
             borderRadius: theme.radius.default,
             overflow: 'hidden'
+        }, decoration === 'borderBottom' && {
+            border: 'none',
+            borderBottom: '1px solid ' + theme.pale.hex,
+            backgroundColor: 'none'
+        }, decoration === 'borderless' && {
+            border: 'none'
         }, multiline
             ? {
                 height: '100%',
@@ -65,7 +69,9 @@ function getSizes(size, decoration) {
                 inputHeight: decoration != 'borderless'
                     ? 'calc(2.75rem - 2px)'
                     : '2.75rem',
-                inputPadding: '0 0.75rem',
+                inputPadding: !decoration
+                    ? '0 0.75rem'
+                    : '0',
                 textareaPadding: '0.75rem',
                 iconSize: '1.25rem',
                 labelSize: 2,
@@ -77,7 +83,9 @@ function getSizes(size, decoration) {
                 inputHeight: decoration != 'borderless'
                     ? 'calc(1.75rem - 2px)'
                     : '1.75rem',
-                inputPadding: '0 0.5rem',
+                inputPadding: !decoration
+                    ? '0 0.5rem'
+                    : '0',
                 textareaPadding: '0.5rem',
                 iconSize: '0.75rem',
                 labelSize: 4,
@@ -89,7 +97,9 @@ function getSizes(size, decoration) {
                 inputHeight: decoration != 'borderless'
                     ? 'calc(2rem - 2px)'
                     : '2rem',
-                inputPadding: '0 0.5rem',
+                inputPadding: !decoration
+                    ? '0 0.5rem'
+                    : '0',
                 textareaPadding: '0.5rem',
                 iconSize: '1rem',
                 labelSize: 3,

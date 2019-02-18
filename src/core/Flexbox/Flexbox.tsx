@@ -43,6 +43,7 @@ export default forwardRef((props: Types.Props, ref) => {
                 flexFlow: props.flexFlow,
                 flexShrink: props.flexShrink,
                 flexGrow: props.flexGrow,
+                flexWrap: props.flexWrap,
                 ...props.style,
             }
         },
