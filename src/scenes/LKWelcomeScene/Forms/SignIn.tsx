@@ -28,17 +28,15 @@ export default (props: SignInProps) => {
                     decoration='borderBottom'
                 />
             </Flexbox>
-            {login.value && (
-                <Flexbox pt='1rem'>
-                    <TextField
-                        {...password}
-                        placeholder="Введите пароль"
-                        type="password"
-                        size='large'
-                        decoration='borderBottom'
-                    />
-                </Flexbox>
-            )}
+            <Flexbox pt='1rem'>
+                <TextField
+                    {...password}
+                    placeholder="Введите пароль"
+                    type="password"
+                    size='large'
+                    decoration='borderBottom'
+                />
+            </Flexbox>
             <Flexbox justifyContent='center' pt='.5rem' alignSelf='flex-end'>
                 <T1 link onClick={() => props.onSignUp('RECOVER')}>Забыли пароль?</T1>
             </Flexbox>
