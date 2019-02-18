@@ -26,6 +26,6 @@ exports.default = react_1.forwardRef(function (props, ref) {
         onMouseDown: props.onMouseDown,
         id: props.id,
         ref: ref,
-        css: __assign({ position: 'relative', display: props.inline ? 'inline-flex' : 'flex', flexDirection: props.column ? "column" : props.flexDirection, flex: props.flex, flexBasis: props.flexBasis, width: props.w, height: props.h, padding: props.p, paddingTop: props.pt, paddingLeft: props.pl, paddingRight: props.pr, paddingBottom: props.pb, margin: props.m, marginTop: props.mt, marginLeft: props.ml, marginRight: props.mr, marginBottom: props.mb, alignContent: props.alignContent, alignSelf: props.alignSelf, alignItems: props.alignItems, justifyContent: props.justifyContent, flexFlow: props.flexFlow, flexShrink: props.flexShrink, flexGrow: props.flexGrow }, props.style)
+        css: __assign({ position: 'relative', display: props.inline ? 'inline-flex' : 'flex', flexDirection: props.column ? "column" : props.flexDirection, flex: props.flex, flexBasis: props.flexBasis, width: props.w, height: props.h, padding: props.p, paddingTop: props.pt, paddingLeft: props.pl, paddingRight: props.pr, paddingBottom: props.pb, margin: props.m, marginTop: props.mt, marginLeft: props.ml, marginRight: props.mr, marginBottom: props.mb, alignContent: props.alignContent, alignSelf: props.alignSelf, alignItems: props.alignItems, justifyContent: props.justifyContent, flexFlow: props.flexFlow, flexShrink: props.flexShrink, flexGrow: props.flexGrow, flexWrap: props.flexWrap }, props.style)
     }, props.children);
 });

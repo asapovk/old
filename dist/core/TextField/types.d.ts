@@ -6,7 +6,7 @@ declare namespace TextFieldTypes {
         rightIcon?: IconTypes.Type;
         leftIcon?: IconTypes.Type;
         loading?: true | undefined;
-        decoration?: 'none' | 'borderless';
+        decoration?: 'none' | 'borderless' | 'borderBottom';
         size?: 'large' | 'small';
         className?: string;
     }
