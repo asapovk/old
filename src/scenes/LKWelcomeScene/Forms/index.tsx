@@ -6,9 +6,9 @@ import SignUp from './SignUp';
 import alert from '../../../utils/alert';
 
 import useLocalStorage from '../../../hooks/useLocalStorage';
-import { GuestSceneProps } from '../types'
+import Types from '../types'
 
-export default (props: GuestSceneProps) => {
+export default (props: Types.Props) => {
 
     const { value, setValue } = useLocalStorage("LOGIN_PAGE_INDEX", "SIGNIN")!;
 

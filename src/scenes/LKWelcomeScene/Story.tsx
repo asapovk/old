@@ -1,17 +1,16 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
-import createStyles from './styles';
 import { Flexbox } from '../..';
 import useBrowser from '../../hooks/useBrowser';
-import { GuestSceneProps } from './types'
+import Types from './types';
 
-export default (props: GuestSceneProps) => {
+export default (props: Types.Props) => {
 
     const size = useBrowser();
-    const styles = createStyles();
+    const styles = props.styles;
 
     return (
-        <div css={styles.story.main}>
+        <div css={styles.story.container}>
             {props.story}
         </div>
     );

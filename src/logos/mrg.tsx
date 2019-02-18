@@ -15,7 +15,7 @@ export default (props: { color?: string, style?: CSSProperties }) => {
 
     return (
         <div style={style.container}>
-            <svg role="img" style={style.svg} x="0px" y="0px" viewBox="0 0 200 99" xmlSpace="preserve">
+            <svg role="img" style={style.svg} x="0px" y="0px" viewBox="0 0 200 99" xmlSpace="preserve" preserveAspectRatio='xMinYMid meet'>
                 <g fill={props.color || "#0079C2"} fillRule="evenodd">
                     <path
                         d="M54.5 17.9C52.4 8.7 47.2 1.3 46.4.1c-1.1 1.7-5.3 8.3-7.4 15.6-2.3 8.1-2.7 15.3-1.9 22.5.8 7.1 3.8 14.4 3.8 14.4 1.6 3.8 4 7.9 5.5 9.9 2.3-3 7.5-11.8 9.2-23.4.9-6.4 1-12-1.1-21.2zm-8.1 42.3c-1-1.9-2.6-5.6-2.8-11.3 0-5.5 2.2-10.2 2.8-11.2.6 1 2.5 5.1 2.7 10.7.2 5.5-1.6 9.8-2.7 11.8zm7.5-26.8c-.1 3.5-.5 7.2-1 9.4.2-3.8-.3-9.2-1.1-13.3-.9-4.2-3.3-11.2-5.3-14.4-1.8 3.1-4.1 9.1-5.2 14.4-1.3 5.2-1.4 11.5-1.4 13.4-.3-1.6-1.1-7.3-.9-13.1.2-4.7 1.3-9.6 1.9-11.9 2.3-7.5 4.9-12.3 5.4-13 .5.8 3.8 6.6 5.5 12.8 1.8 6.3 2.2 12.2 2.1 15.7z"

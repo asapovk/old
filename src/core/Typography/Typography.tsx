@@ -43,6 +43,7 @@ const Typography = forwardRef((props: Types.Props, ref) => {
                     marginLeft: props.ml,
                     marginRight: props.mr,
                     marginBottom: props.mb,
+                    textAlign: props.align
                 },
                 props.color && {
                     color: theme[props.color].rgb

@@ -1,41 +1,68 @@
 import { css } from '@emotion/core';
-import { useTheme, useTypography } from '../../hooks';
+import { useTheme, useTypography, useBrowser } from '../../hooks';
 
 export default () => {
+
     const theme = useTheme().theme;
     const typography = useTypography();
     const context = getThemedStyles(theme);
-    const maxWidth = '1200px';
+
+    const breakpoints = [414, 768, 1024]
+
+    const mq = breakpoints.map(
+        bp => `@media (max-width: ${bp}px)`
+    )
 
     return {
+        container: css({
+            minHeight: '100%',
+            [mq[1]]: {
+                flexDirection: 'column'
+            }
+        }),
         login: {
             container: css({
-                minWidth: '36rem'
-            }),
-            wrapper: css({
-                position: 'fixed',
-                top: 0,
+                flexBasis: '36rem',
+                justifyContent: 'center',
+                height: 'fit-content',
+                minHeight: '100vh',
+                position: 'sticky',
                 bottom: 0,
-                left: 0,
-                minWidth: '36rem',
-                justifyContent: 'center'
-            }),
-            title: css({
-                color: context.titleColor,
-                marginBottom: '2.75rem',
-                ...typography.display[1]
-            }),
-            logo: css({
-                height: '4.5rem',
-                marginBottom: '2.75rem',
+                alignSelf: 'flex-end',
+                [mq[1]]: {
+                    flexBasis: 'auto',
+                    alignSelf: 'auto',
+                }
             }),
             welcome: css({
                 maxWidth: '26rem',
-                marginTop: '5rem'
+                minWidth: '17.5rem',
+                margin: '4rem',
+                [mq[0]]: {
+                    margin: '2.5rem 1.25rem',
+                },
+                [mq[1]]: {
+                    maxWidth: 'max-content',
+                }
+            }),
+            logo: css({
+                maxHeight: '4rem',
+                maxWidth: '12rem',
+            }),
+            title: css({
+                color: context.titleColor,
+                margin: '2.5rem 0',
+                ...typography.display[1]
             }),
             actions: {
                 container: css({
                     paddingTop: '4rem',
+                    flex: 1,
+                    alignItems: 'flex-end'
+                }),
+                wrapper: css({
+                    height: 'fit-content',
+                    width: '100%',
                     '> div:not(:last-child)': {
                         marginRight: '1.25rem',
                     }
@@ -59,12 +86,13 @@ export default () => {
             }
         },
         story: {
-            main: css({
+            container: css({
                 background: 'linear-gradient(45deg, #3023AE 0%, #C86DD7 100%)',
                 backgroundAttachment: 'fixed',
                 color: theme.textOnAccent.rgb,
                 padding: '5rem',
-                flex: 1
+                flex: 1,
+                minWidth: '24rem',
             }),
         },
         form: {
