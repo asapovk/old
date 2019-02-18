@@ -22,7 +22,7 @@ exports.default = (function (props) {
         }
     };
     return (react_1.default.createElement("div", { style: style.container },
-        react_1.default.createElement("svg", { style: style.svg, version: "1.1", xmlns: "http://www.w3.org/2000/svg", xmlnsXlink: "http://www.w3.org/1999/xlink", x: "0px", y: "0px", viewBox: "0 0 300 106.3", xmlSpace: "preserve" },
+        react_1.default.createElement("svg", { style: style.svg, version: "1.1", xmlns: "http://www.w3.org/2000/svg", xmlnsXlink: "http://www.w3.org/1999/xlink", x: "0px", y: "0px", viewBox: "0 0 300 106.3", xmlSpace: "preserve", preserveAspectRatio: 'xMinYMid meet' },
             react_1.default.createElement("path", { style: st0, d: "M31.7,30.4c0.3-0.4,0.5-0.8,0.5-1.3c0-1.2-1-2.1-2.1-2.1c-0.7,0-1.3,0.3-1.7,0.8c-2.3,3-5.8,4.9-9.8,4.9\n                    c-6.8,0-12.3-5.6-12.3-12.6c0-7,5.5-12.6,12.3-12.6c4,0,7.5,2,9.8,5c0.4,0.5,1,0.8,1.7,0.8c1.2,0,2.1-1,2.1-2.1c0-0.5-0.2-1-0.5-1.3\n            c-3-3.7-7.7-6.1-12.9-6.1C9.7,3.7,2.3,11,2.3,20.1c0,9,7.4,16.4,16.6,16.4C24.1,36.5,28.7,34.1,31.7,30.4L31.7,30.4z" }),
             react_1.default.createElement("path", { style: st0, d: "M54.6,24.2c-0.3,0-0.6-0.1-0.9-0.4L42.3,11.2v22.3c0,1.1-0.9,2.1-2.1,2.1c-1.1,0-2.1-0.9-2.1-2.1v-27\n                    c0-1.1,0.9-2.1,2.1-2.1c0.7,0,1.2,0.2,1.6,0.7l12.1,14c0.2,0.2,0.4,0.3,0.7,0.3c0.3,0,0.5-0.1,0.7-0.3l12.1-14\n            c0.4-0.5,0.9-0.7,1.6-0.7c1.1,0,2.1,0.9,2.1,2.1v27c0,1.1-0.9,2.1-2.1,2.1c-1.1,0-2.1-0.9-2.1-2.1V11.2L55.5,23.9\n            C55.2,24.1,54.9,24.2,54.6,24.2L54.6,24.2z" }),
             react_1.default.createElement("path", { style: st0, d: "M93,3.2c9.1,0,16.5,7.4,16.5,16.5c0,9.1-7.4,16.5-16.5,16.5s-16.5-7.4-16.5-16.5C76.5,10.6,83.9,3.2,93,3.2\n                    L93,3.2z" }),

@@ -33,6 +33,7 @@ declare namespace TypographyTypes {
         ellipsis?: boolean;
         background?: 'text' | 'highlight' | 'pale' | 'textOnAccent' | 'lowlight';
         toFixed?: number;
+        align?: 'left' | 'right' | 'center' | 'justify' | 'justify-all' | 'start' | 'end' | 'match-parent' | 'inherit' | 'initial' | 'unset';
     }
     interface HRProps extends PM {
         dotted?: boolean;
