@@ -58,6 +58,7 @@ const Table = (props: { data: any[] }) => {
                 columns={tableColumns}
                 expandForm={expandForm}
                 hideHeaders={true}
+                onRowClick={() => { console.log('row click') }}
             />
         </Flexbox>
     )

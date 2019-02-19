@@ -14,6 +14,7 @@ interface DataRowsProps {
     expandForm?: Types.ExpandForm
     last: boolean
     hideHeaders?: boolean
+    onRowClick?: (row: any) => void
 }
 
 export default (props: DataRowsProps) => {
@@ -45,7 +46,7 @@ export default (props: DataRowsProps) => {
 
     return (
         <div css={styles.rowContainer({ header, hideHeaders })} ref={rowRef}>
-            <Flexbox css={styles.row({ header, groupHeader, last })} onClick={onRowClick}>
+            <Flexbox css={styles.row({ header, groupHeader, last })} onClick={props.onRowClick ? props.onRowClick : onRowClick}>
                 {columns.map((col, keyIndex) => (
                     <div
                         key={`rowcell-${keyIndex}`}
