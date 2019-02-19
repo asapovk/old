@@ -27,7 +27,7 @@ exports.default = (function (props) {
         }
     }
     return (core_1.jsx("div", { css: styles.rowContainer({ header: header, hideHeaders: hideHeaders }), ref: rowRef },
-        core_1.jsx(__1.Flexbox, { css: styles.row({ header: header, groupHeader: groupHeader, last: last }), onClick: onRowClick },
+        core_1.jsx(__1.Flexbox, { css: styles.row({ header: header, groupHeader: groupHeader, last: last }), onClick: props.onRowClick ? props.onRowClick : onRowClick },
             columns.map(function (col, keyIndex) { return (core_1.jsx("div", { key: "rowcell-" + keyIndex, css: styles.cell(col.width, col.borders, col.alignment), children: row ? col.render(row, row[col.dataIndex]) : groupHeader ? '' : col.title })); }),
             expandForm && (core_1.jsx("div", { key: "rowcell-action", css: styles.actionCell, children: (!header && (core_1.jsx(__1.Icon, { type: 'right', css: styles.actionIcon(expanded) }))) }))),
         expandForm && (core_1.jsx("div", { css: styles.expandRow(expanded), children: row && expandForm.render(row) }))));

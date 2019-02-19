@@ -23,12 +23,12 @@ exports.default = (function (props) {
     return (core_1.jsx(__1.Flexbox, { css: styles.login.container },
         core_1.jsx(__1.Flexbox, { css: styles.login.welcome, flexDirection: "column" },
             props.logo && core_1.jsx("div", { css: styles.login.logo }, props.logo),
-            props.title && core_1.jsx("span", { css: styles.login.title }, props.title),
+            props.title && core_1.jsx(__1.D2, { css: styles.login.title }, props.title),
             core_1.jsx(Forms_1.default, __assign({}, props)),
             core_1.jsx(__1.Flexbox, { css: styles.login.actions.container },
                 core_1.jsx(__1.Flexbox, { css: styles.login.actions.wrapper }, props.actions.map(function (action, index) {
                     return core_1.jsx(__1.Flexbox, { key: index, css: styles.login.actions.item, onClick: action.onAction, flex: 1, flexDirection: "column", justifyContent: "center", alignItems: "center" },
                         core_1.jsx(__1.Icon, { css: styles.login.actions.icon, type: action.icon }),
-                        core_1.jsx(__1.C1, { link: true, align: 'center' }, action.title));
+                        core_1.jsx(__1.C2, { link: true, align: 'center' }, action.title));
                 }))))));
 });

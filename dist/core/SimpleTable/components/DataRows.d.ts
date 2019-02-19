@@ -8,6 +8,7 @@ interface DataRowsProps {
     styles: TableStyles;
     expandForm?: Types.ExpandForm;
     hideHeaders?: boolean;
+    onRowClick?: (row: any) => void;
 }
 declare global {
     interface String {

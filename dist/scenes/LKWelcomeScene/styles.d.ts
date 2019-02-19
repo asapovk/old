@@ -10,7 +10,6 @@ declare const _default: () => {
             wrapper: import("@emotion/utils").SerializedStyles;
             item: import("@emotion/utils").SerializedStyles;
             icon: import("@emotion/utils").SerializedStyles;
-            label: import("@emotion/utils").SerializedStyles;
         };
     };
     story: {
