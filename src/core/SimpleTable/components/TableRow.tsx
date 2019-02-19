@@ -18,7 +18,7 @@ interface DataRowsProps {
 }
 
 export default (props: DataRowsProps) => {
-    const { row, columns, styles, header, groupHeader, expandForm, last, hideHeaders } = props;
+    const { row, columns, styles, header, groupHeader, expandForm, last, hideHeaders, onRowClick } = props;
     const [expanded, setExpanded] = useState(false);
     const rowRef = useRef<HTMLDivElement>(null);
 
@@ -37,7 +37,7 @@ export default (props: DataRowsProps) => {
     //     setRowHeight(expanded);
     // }, []);
 
-    function onRowClick() {
+    function onClick() {
         if (!header) {
             // setRowHeight(!expanded);
             setExpanded(!expanded);
@@ -46,7 +46,7 @@ export default (props: DataRowsProps) => {
 
     return (
         <div css={styles.rowContainer({ header, hideHeaders })} ref={rowRef}>
-            <Flexbox css={styles.row({ header, groupHeader, last })} onClick={props.onRowClick ? props.onRowClick : onRowClick}>
+            <Flexbox css={styles.row({ header, groupHeader, last })} onClick={onRowClick ? () => onRowClick(row) : onClick}>
                 {columns.map((col, keyIndex) => (
                     <div
                         key={`rowcell-${keyIndex}`}

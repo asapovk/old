@@ -43,10 +43,15 @@ export default () => {
 }
 
 const Table = (props: { data: any[] }) => {
+    function onRowClick(row) {
+        console.log(row)
+    }
+
     return (
         <Flexbox pr={35} pl={50} pt={0} column flex={1}>
             <SimpleTable
                 data={props.data}
+                onRowClick={onRowClick}
                 // groupKey='groupId'
                 // groups={groups}
                 pagination={{
@@ -58,7 +63,6 @@ const Table = (props: { data: any[] }) => {
                 columns={tableColumns}
                 expandForm={expandForm}
                 hideHeaders={true}
-                onRowClick={() => { console.log('row click') }}
             />
         </Flexbox>
     )
