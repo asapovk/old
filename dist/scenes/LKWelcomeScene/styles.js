@@ -14,35 +14,61 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@emotion/core");
 var hooks_1 = require("../../hooks");
 exports.default = (function () {
+    var _a, _b, _c;
     var theme = hooks_1.useTheme().theme;
     var typography = hooks_1.useTypography();
     var context = getThemedStyles(theme);
-    var maxWidth = '1200px';
+    var breakpoints = [414, 768, 1024];
+    var mq = breakpoints.map(function (bp) { return "@media (max-width: " + bp + "px)"; });
     return {
+        container: core_1.css((_a = {
+                minHeight: '100%'
+            },
+            _a[mq[1]] = {
+                flexDirection: 'column'
+            },
+            _a)),
         login: {
-            container: core_1.css({
-                minWidth: '36rem'
-            }),
-            wrapper: core_1.css({
-                position: 'fixed',
-                top: 0,
-                bottom: 0,
-                left: 0,
-                minWidth: '36rem',
-                justifyContent: 'center'
-            }),
-            title: core_1.css(__assign({ color: context.titleColor, marginBottom: '2.75rem' }, typography.display[1])),
+            container: core_1.css((_b = {
+                    flexBasis: '36rem',
+                    justifyContent: 'center',
+                    height: 'fit-content',
+                    minHeight: '100vh',
+                    position: 'sticky',
+                    bottom: 0,
+                    alignSelf: 'flex-end'
+                },
+                _b[mq[1]] = {
+                    flexBasis: 'auto',
+                    alignSelf: 'auto',
+                },
+                _b)),
+            welcome: core_1.css((_c = {
+                    maxWidth: '26rem',
+                    minWidth: '17.5rem',
+                    margin: '4rem'
+                },
+                _c[mq[0]] = {
+                    margin: '2.5rem 1.25rem',
+                },
+                _c[mq[1]] = {
+                    maxWidth: 'max-content',
+                },
+                _c)),
             logo: core_1.css({
-                height: '4.5rem',
-                marginBottom: '2.75rem',
+                maxHeight: '4rem',
+                maxWidth: '12rem',
             }),
-            welcome: core_1.css({
-                maxWidth: '26rem',
-                marginTop: '5rem'
-            }),
+            title: core_1.css(__assign({ color: context.titleColor, margin: '2.5rem 0' }, typography.display[1])),
             actions: {
                 container: core_1.css({
                     paddingTop: '4rem',
+                    flex: 1,
+                    alignItems: 'flex-end'
+                }),
+                wrapper: core_1.css({
+                    height: 'fit-content',
+                    width: '100%',
                     '> div:not(:last-child)': {
                         marginRight: '1.25rem',
                     }
@@ -63,12 +89,13 @@ exports.default = (function () {
             }
         },
         story: {
-            main: core_1.css({
+            container: core_1.css({
                 background: 'linear-gradient(45deg, #3023AE 0%, #C86DD7 100%)',
                 backgroundAttachment: 'fixed',
                 color: theme.textOnAccent.rgb,
                 padding: '5rem',
-                flex: 1
+                flex: 1,
+                minWidth: '24rem',
             }),
         },
         form: {

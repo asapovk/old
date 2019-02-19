@@ -1,54 +1,58 @@
 import { IconTypes } from '../../core/types';
-export interface GuestSceneConfig {
-    title?: string;
-    /**
-     * Регулярка проверки пароля
-     */
-    newPasswordsPattern?: RegExp;
-    /**
-     * Минимальное количество знаков в пароле
-     */
-    newPasswordsMinLength?: number;
-    /**
-     * Локализация
-     */
-    locale?: {
-        /**
-         * Заголовок на форме входа
-         */
+declare namespace WelcomeSceneTypes {
+    interface Props {
+        title?: string;
+        logo?: any;
+        styles?: any;
+        story?: any;
+        config?: Config;
+        onLogin: (login: string, password: string) => Promise<OnLoginPromiseReturn>;
+        onRegister?: (login: string, password: string) => Promise<OnLoginPromiseReturn>;
+        onRecovery?: (login: string, password: string) => Promise<OnLoginPromiseReturn>;
+        onVerify?: (login: string, password: string, code: string) => Promise<OnLoginPromiseReturn>;
+        actions?: Actions[];
+    }
+    interface Actions {
+        title: string;
+        icon: IconTypes.Type;
+        onAction?: () => void;
+    }
+    interface Config {
         title?: string;
         /**
-         * Логин или пароль не верный
+         * Регулярка проверки пароля
          */
-        loginOrPasswordIncorrent?: string;
+        newPasswordsPattern?: RegExp;
         /**
-         * Пароли не совпадают
+         * Минимальное количество знаков в пароле
          */
-        passwordsNotMatch?: string;
+        newPasswordsMinLength?: number;
         /**
-         * Пароли не соответсвуют newPasswordsPattern
+         * Локализация
          */
-        passwordsNotMatchPattern?: string;
-    };
+        locale?: {
+            /**
+             * Заголовок на форме входа
+             */
+            title?: string;
+            /**
+             * Логин или пароль не верный
+             */
+            loginOrPasswordIncorrent?: string;
+            /**
+             * Пароли не совпадают
+             */
+            passwordsNotMatch?: string;
+            /**
+             * Пароли не соответсвуют newPasswordsPattern
+             */
+            passwordsNotMatchPattern?: string;
+        };
+    }
+    interface OnLoginPromiseReturn {
+        ok: boolean;
+        message?: string;
+        requireVerify?: boolean;
+    }
 }
-export interface OnLoginPromiseReturn {
-    ok: boolean;
-    message?: string;
-    requireVerify?: boolean;
-}
-export interface GuestSceneActions {
-    title: string;
-    icon: IconTypes.Type;
-    onAction?: () => void;
-}
-export interface GuestSceneProps {
-    title?: string;
-    logo?: any;
-    story?: any;
-    config?: GuestSceneConfig;
-    onLogin: (login: string, password: string) => Promise<OnLoginPromiseReturn>;
-    onRegister?: (login: string, password: string) => Promise<OnLoginPromiseReturn>;
-    onRecovery?: (login: string, password: string) => Promise<OnLoginPromiseReturn>;
-    onVerify?: (login: string, password: string, code: string) => Promise<OnLoginPromiseReturn>;
-    actions?: GuestSceneActions[];
-}
+export default WelcomeSceneTypes;
