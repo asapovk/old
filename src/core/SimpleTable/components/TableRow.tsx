@@ -37,16 +37,17 @@ export default (props: DataRowsProps) => {
     //     setRowHeight(expanded);
     // }, []);
 
-    function onClick() {
-        if (!header) {
-            // setRowHeight(!expanded);
+    function onClick(e, row) {
+        if (!header && expandForm) {
             setExpanded(!expanded);
         }
+        onRowClick && onRowClick(row);
     }
+
 
     return (
         <div css={styles.rowContainer({ header, hideHeaders })} ref={rowRef}>
-            <Flexbox css={styles.row({ header, groupHeader, last })} onClick={onRowClick ? () => onRowClick(row) : onClick}>
+            <Flexbox css={styles.row({ header, groupHeader, last })} onClick={(e) => onClick(e, row)}>
                 {columns.map((col, keyIndex) => (
                     <div
                         key={`rowcell-${keyIndex}`}

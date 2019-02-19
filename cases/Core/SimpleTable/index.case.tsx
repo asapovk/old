@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Flexbox, SimpleTable, Button } from '../../../src';
+import { Flexbox, SimpleTable, Button, TextField } from '../../../src';
 import { SimpleTableTypes } from '../../../src/core/types';
 
 export default () => {
@@ -47,10 +47,26 @@ const Table = (props: { data: any[] }) => {
         console.log(row)
     }
 
+    let data = props.data;
+
+    function onChange() {
+        data = data.map(d => d.id === '123');
+    }
+
+    const tableColumns: SimpleTableTypes.Column[] = [
+        { title: '#', dataIndex: 'id', width: 1 },
+        { title: 'Fullname', dataIndex: 'name', render: (row, value) => <div style={{ fontSize: '1rem' }}>{value}</div> },
+        { title: 'Age', dataIndex: 'age', width: 40, borders: 'right', alignment: 'flex-end' },
+        { title: 'Passport ID', dataIndex: 'passport', alignment: 'flex-end' },
+        { title: 'uuid', dataIndex: 'uuid', borders: 'right', width: 200, alignment: 'flex-end' },
+        { title: 'uuidv2', dataIndex: 'uuidv2', width: 200, alignment: 'flex-end' },
+        { title: 'texfield', dataIndex: 'uuidv2', width: 200, alignment: 'flex-end', render: () => <TextField onChange={onChange} /> }
+    ]
+
     return (
         <Flexbox pr={35} pl={50} pt={0} column flex={1}>
             <SimpleTable
-                data={props.data}
+                data={data}
                 onRowClick={onRowClick}
                 // groupKey='groupId'
                 // groups={groups}
@@ -74,14 +90,7 @@ const groups: SimpleTableTypes.Group[] = [
     { title: 'Третья группа', value: 2 }
 ]
 
-const tableColumns: SimpleTableTypes.Column[] = [
-    { title: '#', dataIndex: 'id', width: 1 },
-    { title: 'Fullname', dataIndex: 'name', render: (row, value) => <div style={{ fontSize: '1rem' }}>{value}</div> },
-    { title: 'Age', dataIndex: 'age', width: 40, borders: 'right', alignment: 'flex-end' },
-    { title: 'Passport ID', dataIndex: 'passport', alignment: 'flex-end' },
-    { title: 'uuid', dataIndex: 'uuid', borders: 'right', width: 200, alignment: 'flex-end' },
-    { title: 'uuidv2', dataIndex: 'uuidv2', width: 200, alignment: 'flex-end' }
-]
+
 
 const expandForm = {
     key: 'expandForm',
