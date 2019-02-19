@@ -7,7 +7,7 @@ export default () => {
     const typography = useTypography();
     const context = getThemedStyles(theme);
 
-    const breakpoints = [414, 768, 1024]
+    const breakpoints = [414, 960]
 
     const mq = breakpoints.map(
         bp => `@media (max-width: ${bp}px)`
@@ -22,7 +22,8 @@ export default () => {
         }),
         login: {
             container: css({
-                flexBasis: '36rem',
+                flexBasis: '32rem',
+                flexShrink: 0,
                 justifyContent: 'center',
                 height: 'fit-content',
                 minHeight: '100vh',
@@ -32,31 +33,35 @@ export default () => {
                 [mq[1]]: {
                     flexBasis: 'auto',
                     alignSelf: 'auto',
+                    minHeight: 'auto',
                 }
             }),
             welcome: css({
-                maxWidth: '26rem',
-                minWidth: '17.5rem',
-                margin: '4rem',
-                [mq[0]]: {
-                    margin: '2.5rem 1.25rem',
-                },
+                width: '100%',
+                maxWidth: '25rem',
+                padding: '4rem 4rem 2rem 4rem',
                 [mq[1]]: {
-                    maxWidth: 'max-content',
+                    padding: '4rem',
+                },
+                [mq[0]]: {
+                    padding: '2.5rem 1.25rem',
                 }
             }),
             logo: css({
-                maxHeight: '4rem',
+                maxHeight: '3.5rem',
                 maxWidth: '12rem',
+                [mq[1]]: {
+                    alignSelf: 'center',
+                }
             }),
             title: css({
                 color: context.titleColor,
-                margin: '2.5rem 0',
-                ...typography.display[1]
+                marginTop: '4rem',
+                marginBottom: '2rem'
             }),
             actions: {
                 container: css({
-                    paddingTop: '4rem',
+                    paddingTop: '2.5rem',
                     flex: 1,
                     alignItems: 'flex-end'
                 }),
@@ -74,14 +79,10 @@ export default () => {
                 }),
                 icon: css({
                     marginBottom: '1.5rem',
-                    fontSize: '4rem',
+                    fontSize: '2rem',
                     color: theme.pale.hex,
                     alignItems: 'center',
                     justifyContent: 'center',
-                }),
-                label: css({
-                    color: theme.highlight.hex,
-                    ...typography.text[1]
                 }),
             }
         },

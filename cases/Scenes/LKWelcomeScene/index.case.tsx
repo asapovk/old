@@ -24,7 +24,7 @@ export default () => {
 
     return (
         <Scene
-            title='Войти в личный кабинет'
+            title='Добро пожаловать!'
             story={<Hello />}
             logo={logo}
             config={{
