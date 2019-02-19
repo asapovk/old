@@ -9,6 +9,7 @@ interface DataRowsProps {
     expandForm?: Types.ExpandForm;
     hideHeaders?: boolean;
     onRowClick?: (row: any) => void;
+    currentPage: number;
 }
 declare global {
     interface String {
