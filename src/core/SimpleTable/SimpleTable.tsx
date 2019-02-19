@@ -46,7 +46,7 @@ export default (props: Types.Props) => {
                     styles={styles}
                 />
             )}
-            <TableBody {...props} data={pageData} styles={styles} />
+            <TableBody {...props} data={pageData} styles={styles} currentPage={currentPage} />
             {pagination && (
                 <TablePagination
                     currentPage={currentPage}

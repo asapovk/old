@@ -12,6 +12,7 @@ interface DataRowsProps {
     expandForm?: Types.ExpandForm
     hideHeaders?: boolean
     onRowClick?: (row: any) => void
+    currentPage: number
 }
 
 declare global {
@@ -39,7 +40,7 @@ export default (props: DataRowsProps) => {
             {props.data.map((row, index) => (
                 <TableRow
                     {...props}
-                    key={JSON.stringify(row).hashCode()}
+                    key={JSON.stringify(props.currentPage.toString() + index).hashCode()}
                     row={row}
                     last={index === props.data.length - 1}
                 />
