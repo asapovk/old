@@ -5,32 +5,27 @@ var hooks_1 = require("../../hooks");
 exports.default = (function () {
     var _a, _b, _c, _d;
     var theme = hooks_1.useTheme().theme;
-<<<<<<< HEAD
-=======
-    var typography = hooks_1.useTypography();
-    var context = getThemedStyles(theme);
->>>>>>> 0a8b9a59afb000c2219764df98a1b792d689da7c
     var breakpoints = [414, 960];
     var mq = breakpoints.map(function (bp) { return "@media (max-width: " + bp + "px)"; });
     return {
         container: core_1.css((_a = {
-                minHeight: '100%'
-            },
+            minHeight: '100%'
+        },
             _a[mq[1]] = {
                 flexDirection: 'column'
             },
             _a)),
         form: {
             container: core_1.css((_b = {
-                    flexBasis: '32rem',
-                    flexShrink: 0,
-                    justifyContent: 'center',
-                    height: 'fit-content',
-                    minHeight: '100vh',
-                    position: 'sticky',
-                    bottom: 0,
-                    alignSelf: 'flex-end'
-                },
+                flexBasis: '32rem',
+                flexShrink: 0,
+                justifyContent: 'center',
+                height: 'fit-content',
+                minHeight: '100vh',
+                position: 'sticky',
+                bottom: 0,
+                alignSelf: 'flex-end'
+            },
                 _b[mq[1]] = {
                     flexBasis: 'auto',
                     alignSelf: 'auto',
@@ -38,10 +33,10 @@ exports.default = (function () {
                 },
                 _b)),
             welcome: core_1.css((_c = {
-                    width: '100%',
-                    maxWidth: '25rem',
-                    padding: '4rem 4rem 2rem 4rem'
-                },
+                width: '100%',
+                maxWidth: '25rem',
+                padding: '4rem 4rem 2rem 4rem'
+            },
                 _c[mq[1]] = {
                     padding: '4rem',
                 },
@@ -50,14 +45,14 @@ exports.default = (function () {
                 },
                 _c)),
             logo: core_1.css((_d = {
-                    maxHeight: '3.5rem',
+                maxHeight: '3.5rem',
 <<<<<<< HEAD
-                    maxWidth: '12rem',
-                    marginBottom: '4rem'
+                maxWidth: '12rem',
+                marginBottom: '4rem'
 =======
                     maxWidth: '12rem'
 >>>>>>> 0a8b9a59afb000c2219764df98a1b792d689da7c
-                },
+            },
                 _d[mq[1]] = {
                     alignSelf: 'center',
                 },
