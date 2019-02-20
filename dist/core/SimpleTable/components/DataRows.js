@@ -31,5 +31,5 @@ String.prototype.hashCode = function () {
     return hash;
 };
 exports.default = (function (props) {
-    return (core_1.jsx(react_1.Fragment, null, props.data.map(function (row, index) { return (core_1.jsx(TableRow_1.default, __assign({}, props, { key: JSON.stringify(row).hashCode(), row: row, last: index === props.data.length - 1 }))); })));
+    return (core_1.jsx(react_1.Fragment, null, props.data.map(function (row, index) { return (core_1.jsx(TableRow_1.default, __assign({}, props, { key: JSON.stringify(props.currentPage.toString() + index).hashCode(), row: row, last: index === props.data.length - 1 }))); })));
 });

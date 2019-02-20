@@ -12,10 +12,6 @@ export default (props: Types.Props) => {
     const styles = createStyles();
     const [currentPage, setCurrentPage] = useState(1);
 
-    useLayoutEffect(() => {
-        setCurrentPage(1);
-    }, [data]);
-
     let pageData = data;
     if (pagination) {
         const { pageSize } = pagination;
@@ -25,6 +21,12 @@ export default (props: Types.Props) => {
                 && i >= pageSize * currentPage - pageSize
             ));
     }
+
+    useLayoutEffect(() => {
+        if (pagination) {
+            setCurrentPage(1);
+        }
+    }, [data]);
 
     if (!data || data.length <= 0) {
         return (
@@ -44,7 +46,7 @@ export default (props: Types.Props) => {
                     styles={styles}
                 />
             )}
-            <TableBody {...props} data={pageData} styles={styles} />
+            <TableBody {...props} data={pageData} styles={styles} currentPage={currentPage} />
             {pagination && (
                 <TablePagination
                     currentPage={currentPage}

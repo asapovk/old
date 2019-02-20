@@ -25,9 +25,6 @@ exports.default = (function (props) {
     var data = props.data, noDataComponent = props.noDataComponent, pagination = props.pagination, hideHeaders = props.hideHeaders, columns = props.columns, expandForm = props.expandForm;
     var styles = styles_1.default();
     var _a = react_1.useState(1), currentPage = _a[0], setCurrentPage = _a[1];
-    react_1.useLayoutEffect(function () {
-        setCurrentPage(1);
-    }, [data]);
     var pageData = data;
     if (pagination) {
         var pageSize_1 = pagination.pageSize;
@@ -35,6 +32,11 @@ exports.default = (function (props) {
             .filter(function (_, i) { return (pageSize_1 * currentPage >= (i + 1)
             && i >= pageSize_1 * currentPage - pageSize_1); });
     }
+    react_1.useLayoutEffect(function () {
+        if (pagination) {
+            setCurrentPage(1);
+        }
+    }, [data]);
     if (!data || data.length <= 0) {
         return (core_1.jsx("div", { css: styles.tableContainer }, noDataComponent
             ? noDataComponent
@@ -43,6 +45,6 @@ exports.default = (function (props) {
     else
         return (core_1.jsx("div", { css: styles.tableContainer },
             !hideHeaders && (core_1.jsx(TableRow_1.default, __assign({}, props, { last: false, header: true, styles: styles }))),
-            core_1.jsx(TableBody_1.default, __assign({}, props, { data: pageData, styles: styles })),
+            core_1.jsx(TableBody_1.default, __assign({}, props, { data: pageData, styles: styles, currentPage: currentPage })),
             pagination && (core_1.jsx(TablePagination_1.default, { currentPage: currentPage, setCurrentPage: setCurrentPage, dataLength: data.length, styles: styles, pagination: pagination }))));
 });

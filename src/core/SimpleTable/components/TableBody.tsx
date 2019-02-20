@@ -15,10 +15,12 @@ interface TableBodyProps {
     styles: TableStyles
     expandForm?: Types.ExpandForm
     hideHeaders?: boolean
+    onRowClick?: (row: any) => void
+    currentPage: number
 }
 
 export default (props: TableBodyProps) => {
-    const { data, columns, groupKey, groups, styles, expandForm, hideHeaders } = props;
+    const { data, columns, groupKey, groups, styles, expandForm, hideHeaders, onRowClick, currentPage } = props;
 
     const cols = columns.map(col => {
         if (!col.render) {
@@ -45,6 +47,8 @@ export default (props: TableBodyProps) => {
                             styles={styles}
                             expandForm={expandForm}
                             hideHeaders={hideHeaders}
+                            onRowClick={onRowClick}
+                            currentPage={currentPage}
                         />
                     </div>
                 ))}
@@ -59,6 +63,8 @@ export default (props: TableBodyProps) => {
             styles={styles}
             expandForm={expandForm}
             hideHeaders={hideHeaders}
+            onRowClick={onRowClick}
+            currentPage={currentPage}
         />
     )
 }

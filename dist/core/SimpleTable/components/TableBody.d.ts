@@ -8,6 +8,8 @@ interface TableBodyProps {
     styles: TableStyles;
     expandForm?: Types.ExpandForm;
     hideHeaders?: boolean;
+    onRowClick?: (row: any) => void;
+    currentPage: number;
 }
 declare const _default: (props: TableBodyProps) => JSX.Element;
 export default _default;

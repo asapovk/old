@@ -5,6 +5,11 @@ var hooks_1 = require("../../hooks");
 exports.default = (function () {
     var _a, _b, _c, _d;
     var theme = hooks_1.useTheme().theme;
+<<<<<<< HEAD
+=======
+    var typography = hooks_1.useTypography();
+    var context = getThemedStyles(theme);
+>>>>>>> 0a8b9a59afb000c2219764df98a1b792d689da7c
     var breakpoints = [414, 960];
     var mq = breakpoints.map(function (bp) { return "@media (max-width: " + bp + "px)"; });
     return {
@@ -46,13 +51,25 @@ exports.default = (function () {
                 _c)),
             logo: core_1.css((_d = {
                     maxHeight: '3.5rem',
+<<<<<<< HEAD
                     maxWidth: '12rem',
                     marginBottom: '4rem'
+=======
+                    maxWidth: '12rem'
+>>>>>>> 0a8b9a59afb000c2219764df98a1b792d689da7c
                 },
                 _d[mq[1]] = {
                     alignSelf: 'center',
                 },
                 _d)),
+<<<<<<< HEAD
+=======
+            title: core_1.css({
+                color: context.titleColor,
+                marginTop: '4rem',
+                marginBottom: '2rem'
+            }),
+>>>>>>> 0a8b9a59afb000c2219764df98a1b792d689da7c
             actions: {
                 container: core_1.css({
                     paddingTop: '2.5rem',
@@ -75,7 +92,11 @@ exports.default = (function () {
                 icon: core_1.css({
                     marginBottom: '1.5rem',
                     fontSize: '2rem',
+<<<<<<< HEAD
                     color: theme.light.hex,
+=======
+                    color: theme.pale.hex,
+>>>>>>> 0a8b9a59afb000c2219764df98a1b792d689da7c
                     alignItems: 'center',
                     justifyContent: 'center',
                 }),
