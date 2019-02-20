@@ -31,6 +31,7 @@ export interface ThemeInterface {
     background2: objectColor
     interface: objectColor
     pale: objectColor
+    light: objectColor
     lowlight: objectColor
     text: objectColor
     textOnAccent: objectColor

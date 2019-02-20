@@ -24,6 +24,7 @@ declare namespace IconTypes {
         'card' |
         'counter' |
         'text-right' |
+        'arrow-left' |
         'user' |
         'equal'
 
@@ -33,7 +34,10 @@ declare namespace IconTypes {
         type: Type
         onClick?: () => void,
         shape?: 'cirle' | 'oval',
-        backgroud?: string
+        backgroud?: string,
+        size?: string
+        color?: string
+        background?: string
     }
 
 }

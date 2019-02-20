@@ -19,6 +19,7 @@ export default {
     background2: getColors(29, 28, 30),
     interface: getColors(51, 47, 54),
     pale: getColors(80, 60, 70),
+    light: getColors(195, 192, 196),
     lowlight: getColors(175, 162, 182),
     text: getColors(233, 233, 233),
     textOnAccent: getColors(233, 233, 233),

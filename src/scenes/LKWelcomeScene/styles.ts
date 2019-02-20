@@ -4,8 +4,6 @@ import { useTheme, useTypography, useBrowser } from '../../hooks';
 export default () => {
 
     const theme = useTheme().theme;
-    const typography = useTypography();
-    const context = getThemedStyles(theme);
 
     const breakpoints = [414, 960]
 
@@ -20,7 +18,7 @@ export default () => {
                 flexDirection: 'column'
             }
         }),
-        login: {
+        form: {
             container: css({
                 flexBasis: '32rem',
                 flexShrink: 0,
@@ -50,14 +48,10 @@ export default () => {
             logo: css({
                 maxHeight: '3.5rem',
                 maxWidth: '12rem',
+                marginBottom: '4rem',
                 [mq[1]]: {
                     alignSelf: 'center',
                 }
-            }),
-            title: css({
-                color: context.titleColor,
-                marginTop: '4rem',
-                marginBottom: '2rem'
             }),
             actions: {
                 container: css({
@@ -76,11 +70,12 @@ export default () => {
                     padding: '1.5rem 0.5rem',
                     border: '1px solid ' + theme.pale.rgb,
                     borderRadius: theme.radius.card,
+                    cursor: 'pointer'
                 }),
                 icon: css({
                     marginBottom: '1.5rem',
                     fontSize: '2rem',
-                    color: theme.pale.hex,
+                    color: theme.light.hex,
                     alignItems: 'center',
                     justifyContent: 'center',
                 }),
@@ -95,41 +90,6 @@ export default () => {
                 flex: 1,
                 minWidth: '24rem',
             }),
-        },
-        form: {
-            submitButton: css({
-                width: "100%"
-            }),
-
-            secondaryButton: css({
-                width: "100%",
-                background: context.secondaryButtonBackground
-            }),
-
-            backButton: css({
-                position: "absolute",
-                left: "-2rem",
-                top: "0.4rem"
-            }),
-
-            backButtonIcon: css({
-                color: context.backButtonColor
-            }),
         }
     }
-}
-
-function getThemedStyles(theme) {
-    let backgroundColor = theme.background.hex;
-    let titleColor = theme.text.hex;
-    let backButtonColor = theme.text.hex;
-    let secondaryButtonBackground = theme.highlight.grayscale;
-
-    if (theme.name === "gazpromTheme") {
-    }
-
-    if (theme.name === "whiteCurrant") {
-    }
-
-    return { backgroundColor, titleColor, backButtonColor, secondaryButtonBackground }
 }

@@ -18,7 +18,7 @@ export default (props) => {
             <Button onClick={() => modal.current!.open()}>Open Modal</Button>
             <Button
                 onClick={() => {
-                    simpleModal.current.open(<h1>hello</h1>);
+                    simpleModal.current!.open(<h1>hello</h1>);
                 }}
             >
                 Open Simple Modal (without styles)

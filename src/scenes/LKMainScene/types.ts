@@ -15,10 +15,15 @@ declare namespace LKMainSceneNew {
         },
         user?: User
         /**
-         * Display side bar instead of 
-         * mains (only for mobile resolution)
+         * Back navigation button
          */
-        displaySideBar?: boolean
+        back?: boolean
+        onBack?: () => void
+        /**
+         * Sidebar control
+         */
+        showSidebar?: boolean
+        onSidebar?: (state: boolean) => void
         preparing?: boolean
         pending?: boolean
     }

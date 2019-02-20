@@ -28,6 +28,7 @@ exports.default = (function (forElka) {
                 alignItems: 'center',
                 borderBottom: '1px solid ' + theme.pale.rgb,
                 padding: '0 2.5rem',
+                justifyContent: 'space-between'
             }, forElka && {
                 backgroundColor: 'rgba(0, 0, 0, 0)',
                 borderBottom: 'none',

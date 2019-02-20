@@ -1,4 +1,4 @@
-import React, { useEffect, useReducer } from 'react';
+import React, { useState } from 'react';
 import Scene from '../../../src/scenes/LKMainScene';
 import useTheme from '../../../src/hooks/useTheme';
 import { MRG, ABR, Smorodina } from '../../../src/logos';
@@ -7,10 +7,11 @@ import '../../../src/styles/scss/main.scss';
 import Sidebar from './Sidebar';
 import Menu from './Menu';
 import Main from './Main';
-import MainTop from './MainTop';
 
 export default () => {
     const styles = useTheme();
+
+    const [open, setOpen] = useState<boolean>(false);
     let logo = <Smorodina color={styles.theme.text.hex} />;
 
     if (styles.theme.name === "gazpromTheme") {
@@ -22,25 +23,25 @@ export default () => {
     if (styles.theme.name === "whiteCurrant") {
         logo = <Smorodina />;
     }
+
     return (
         <Scene
             components={{
                 menu: <Menu />,
                 logo: logo,
-                sidebar: <Sidebar />,
-                mainTop: <MainTop />,
+                sidebar: <Sidebar setOpen={setOpen} />,
                 main: <Main />,
             }}
+            showSidebar={open}
+            onSidebar={(state) => setOpen(state)}
             user={{
-                //name: 'Рассул Абджахбумбамов',
                 name: 'Наталья Ростова',
-                shortname: 'qwe',
+                shortname: 'НР',
                 onLogout: async () => new Promise((res, rej) => {
                     console.log('logout');
                 })
             }}
-            displaySideBar={true}
-            pending={true}
+            pending={false}
             preparing={false}
         />
     )

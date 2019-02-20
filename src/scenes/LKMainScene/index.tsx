@@ -1,16 +1,17 @@
 /** @jsx jsx */
-import { jsx, css } from '@emotion/core';
-import { Flexbox, C2, C1 } from '../../';
+import { jsx } from '@emotion/core';
+import { Flexbox, C2, C1, Icon } from '../../';
 import createStyles from './styles';
 import { useBrowser } from '../../hooks';
 import Types from './types';
-import { Fragment } from 'react';
 import { Spinner } from '../../core';
 
 export default (props: Types.Props) => {
 
-    const styles = createStyles(props.displaySideBar);
+    const styles = createStyles();
     const browser = useBrowser();
+
+    const isMobile = browser.width <= 768;
 
     if (props.preparing) {
         return (
@@ -18,61 +19,89 @@ export default (props: Types.Props) => {
         )
     }
 
-    return (
-        <Flexbox flexDirection={browser.isMobile ? 'column' : 'row'}>
-            {/** Sidebar Container */}
-            {(props.components.sidebar && props.displaySideBar) && (
-                <div css={styles.sidebar.container}>
-                    <div css={styles.sidebar.background} />
-                    <Flexbox flexDirection='column' css={styles.sidebar.user.container}>
-                        {props.user ?
-                            <Fragment>
-                                <div
-                                    css={styles.sidebar.user.avatar}
-                                    children={(
-                                        <div children={props.user.shortname.slice(0, 2) || 'П'} />
-                                    )}
-                                />
-                                <C1
-                                    bold
-                                    css={styles.sidebar.user.name}
-                                    children={props.user.name}
-                                />
-                                <C2
-                                    onClick={props.user.onLogout}
-                                    children='Выйти'
-                                    pt='.25rem'
-                                />
-                            </Fragment>
-                            : (<div css={styles.sidebar.logo}>
-                                {props.components.logo}
-                            </div>)
-                        }
-                    </Flexbox>
-                    <div css={styles.sidebar.content}>
-                        {props.components.sidebar}
-                    </div>
-                    {props.user && (
-                        <div css={styles.sidebar.logo}>
-                            {props.components.logo}
-                        </div>
+    const Back = (label, onClick) => (
+        <Flexbox css={styles.main.back} onClick={onClick}>
+            <Icon type='arrow-left' shape='oval' size='1rem' color={styles.theme.highlight.rgb} />
+            <C1 children={label} ml='.75rem' />
+        </Flexbox>
+    )
+
+    const Menu = (
+        <Flexbox css={styles.main.menu}>
+            {props.back
+                ? Back('Назад', () => props.onBack && props.onBack())
+                : isMobile && Back('Счета', () => props.onSidebar && props.onSidebar(true))
+            }
+            {props.components.menu}
+        </Flexbox>
+    )
+
+    const Login = props.user && (
+        <Flexbox column css={styles.sidebar.user.container}>
+            {props.user.shortname
+                && <div
+                    css={styles.sidebar.user.avatar}
+                    children={(
+                        <div children={props.user.shortname.slice(0, 2)} />
                     )}
-                </div>
-            )}
+                />
+            }
+            <C1
+                bold
+                css={styles.sidebar.user.name}
+                children={props.user.name}
+            />
+            <C2
+                onClick={props.user.onLogout}
+                children='Выйти'
+                pt='.25rem'
+            />
+        </Flexbox>
+    )
 
+    const Sidebar = props.components.sidebar && (
+        <div css={styles.sidebar.container(!isMobile || (isMobile && props.showSidebar))}>
+            <div css={styles.sidebar.background} />
+            {Login}
+            <div css={styles.sidebar.content}>
+                {props.components.sidebar}
+            </div>
+            <div css={styles.sidebar.logo}>
+                {props.components.logo}
+            </div>
+        </div>
+    )
 
-            {/** Main Container */}
-            <div css={styles.main.container}>
-                <div css={styles.main.holder}>
-                    <div css={styles.main.menu}>{props.components.menu}</div>
-                    <div>
-                        {props.pending
-                            ? <Flexbox justifyContent='center' mt={'10rem'} children={<Spinner spinning />} />
-                            : props.components.main
-                        }
-                    </div>
+    const Main = (
+        <div css={styles.main.container}>
+            <div css={styles.main.holder}>
+                {Menu}
+                <div>
+                    {props.pending
+                        ? <Flexbox
+                            justifyContent='center'
+                            mt={'10rem'}
+                            children={<Spinner spinning />}
+                        />
+                        : props.components.main
+                    }
                 </div>
             </div>
+        </div>
+    )
+
+    const Mask = isMobile && props.showSidebar && (
+        <div
+            css={styles.mask}
+            onClick={() =>
+                props.onSidebar && props.onSidebar(false)
+            }
+        />
+    )
+
+    return (
+        <Flexbox css={styles.container}>
+            {Sidebar}{Mask}{Main}
         </Flexbox>
     );
 }

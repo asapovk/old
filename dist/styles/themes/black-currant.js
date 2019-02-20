@@ -17,6 +17,7 @@ exports.default = {
     background2: utilities_1.getColors(29, 28, 30),
     interface: utilities_1.getColors(51, 47, 54),
     pale: utilities_1.getColors(80, 60, 70),
+    light: utilities_1.getColors(195, 192, 196),
     lowlight: utilities_1.getColors(175, 162, 182),
     text: utilities_1.getColors(233, 233, 233),
     textOnAccent: utilities_1.getColors(233, 233, 233),

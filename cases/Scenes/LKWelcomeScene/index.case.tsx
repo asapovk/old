@@ -1,13 +1,15 @@
-import React, { Fragment } from 'react';
-import { Flexbox } from '../../../src';
+import React, { useState } from 'react';
 import { ABR, MRG, Smorodina } from '../../../src/logos'
 import { LKWelcomeScene as Scene } from '../../../src/scenes';
 import useStyles from '../../../src/hooks/useTheme';
+import SignIn from './Forms/SignIn';
+import SignUp from './Forms/SignUp';
 import '../../../src/styles/scss/main.scss';
 
 export default () => {
 
     const styles = useStyles();
+    const [form, setForm] = useState<string>('signIn');
     let logo: any = <Smorodina />;
 
     if (styles.theme.name === "gazpromTheme") {
@@ -22,36 +24,19 @@ export default () => {
         logo = <Smorodina color="#fff" />
     }
 
+    const SignInForm = (
+        <SignIn onRegister={() => setForm('signUp')} />
+    )
+
+    const SignUpForm = (
+        <SignUp onEnter={() => setForm('signIn')} />
+    )
+
     return (
         <Scene
-            title='Добро пожаловать!'
-            story={<Hello />}
             logo={logo}
-            config={{
-                newPasswordsMinLength: 8,
-            }}
-            onLogin={async (login, password) => {
-                return new Promise((resolve, reject) => {
-                    setTimeout(() => {
-                        reject({
-                            ok: false,
-                            message: "Неверный!"
-                        })
-                    }, 1000);
-                }) as any;
-            }}
-            onRegister={async (login, password) => {
-                return {
-                    ok: false,
-                    message: 'Данные: ' + login + ';' + password
-                }
-            }}
-            onVerify={async (login, password, code) => {
-                return {
-                    ok: false,
-                    message: 'Данные: ' + login + ';' + password + ';' + code
-                }
-            }}
+            form={form === 'signIn' ? SignInForm : SignUpForm}
+            story={<Hello />}
             actions={[
                 {
                     title: "Оплатить услуги",
@@ -62,6 +47,7 @@ export default () => {
                     icon: "counter"
                 }
             ]}
+            hideActions={form === 'signUp'}
         />
     )
 }

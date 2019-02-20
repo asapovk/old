@@ -16,7 +16,7 @@ const Sidebar = (props: any) => {
         { label: '95285-F', value: 3 },
         // { label: '95285-F', value: 3 },
         // { label: '95285-F', value: 3 },
-        { label: '95285-F', value: 3 }
+        // { label: '95285-F', value: 3 }
     ];
 
     const [activeID, setActiveID] = useState(0);
@@ -24,7 +24,7 @@ const Sidebar = (props: any) => {
     return (
         <Flexbox flexDirection='column' justifyContent='flex-start'>
             {accounts.map((account, index) =>
-                <Flexbox alignItems='center' css={css({ marginBottom: '1.25rem' })}>
+                <Flexbox alignItems='center' css={css({ marginBottom: '1.25rem' })} key={'card-' + index}>
                     <Flexbox
                         alignItems='center'
                         css={css({ ...styles.card.active }, { left: activeID === index ? '-1.5rem' : '-8rem' })}>
@@ -33,8 +33,10 @@ const Sidebar = (props: any) => {
                     <Card
                         animation={index % 2 ? 'circles' : 'waves'}
                         active={!browser.isMobile && activeID === index}
-                        onClick={() => { setActiveID(index) }}
-                        key={index}
+                        onClick={() => {
+                            setActiveID(index);
+                            props.setOpen(false)
+                        }}
                     />
                 </Flexbox>
             )}

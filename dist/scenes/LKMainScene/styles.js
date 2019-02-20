@@ -13,28 +13,85 @@ var __assign = (this && this.__assign) || function () {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@emotion/core");
 var hooks_1 = require("../../hooks");
-exports.default = (function (displaySideBar) {
+exports.default = (function () {
+    var _a, _b;
     var theme = hooks_1.useTheme().theme;
     var typography = hooks_1.useTypography();
+    var breakpoints = [414, 768, 1024];
+    var mq = breakpoints.map(function (bp) { return "@media (max-width: " + bp + "px)"; });
     return {
-        sidebar: {
-            container: core_1.css({
-                position: 'sticky',
-                display: 'flex',
-                flexDirection: 'column',
-                top: 0,
-                width: '15rem',
-                boxSizing: 'border-box',
-                padding: '2.75rem 0 2.75rem 2.75rem',
-                '@media (max-width: 768px)': {
-                    position: 'relative',
-                    width: '100%',
-                    padding: '2.75rem',
+        theme: theme,
+        container: core_1.css({}),
+        mask: core_1.css({
+            background: theme.background.rgba(.9),
+            position: 'fixed',
+            zIndex: 1,
+            top: 0,
+            bottom: 0,
+            left: 0,
+            right: 0
+        }),
+        main: {
+            container: core_1.css((_a = {
+                    display: 'flex',
+                    flex: 1,
+                    justifyContent: 'center',
+                    boxSizing: 'border-box',
+                    padding: '2.75rem 4.5rem'
                 },
-                maxHeight: 'max-content',
-                minHeight: '100vh',
-                justifyContent: 'space-between'
+                _a[mq[1]] = {
+                    padding: '2.5rem',
+                },
+                _a[mq[0]] = {
+                    padding: '1.25rem',
+                },
+                _a)),
+            holder: core_1.css((_b = {
+                    display: 'flex',
+                    flexBasis: 960,
+                    maxWidth: '960px',
+                    flexDirection: 'column'
+                },
+                _b[mq[1]] = {
+                    display: 'block',
+                    width: '100%'
+                },
+                _b)),
+            menu: core_1.css({
+                display: 'flex',
+                alignItems: 'center',
+                height: '4.5rem',
+                width: '100%',
+                marginBottom: '2.75rem',
             }),
+            back: core_1.css({
+                alignItems: 'center',
+                paddingRight: '1rem',
+                marginRight: '1rem',
+                borderRight: '1px solid ' + theme.pale.rgb,
+                cursor: 'pointer'
+            }),
+        },
+        sidebar: {
+            container: function (display) {
+                var _a;
+                return core_1.css((_a = {
+                        display: display ? 'flex' : 'none',
+                        position: 'sticky',
+                        flexDirection: 'column',
+                        top: 0,
+                        width: '15rem',
+                        boxSizing: 'border-box',
+                        padding: '2.75rem 0 2.75rem 2.75rem',
+                        maxHeight: 'max-content',
+                        minHeight: '100vh',
+                        justifyContent: 'space-between'
+                    },
+                    _a[mq[1]] = {
+                        position: 'absolute',
+                    },
+                    _a));
+            },
             background: core_1.css({
                 position: 'fixed',
                 top: 0,
@@ -45,11 +102,12 @@ exports.default = (function (displaySideBar) {
                 borderRightStyle: 'solid',
                 borderRightColor: theme.pale.hex,
                 background: 'linear-gradient(270deg, #F2F0F5 0%, #FAF7FC 100%)',
-                zIndex: -1
+                zIndex: 2
             }),
             user: {
                 container: core_1.css({
-                    position: 'absolute'
+                    position: 'absolute',
+                    zIndex: 3
                 }),
                 avatar: core_1.css({
                     display: 'flex',
@@ -74,37 +132,9 @@ exports.default = (function (displaySideBar) {
             logo: core_1.css({
                 paddingTop: '3.5rem',
                 width: '8rem',
-                marginLeft: '.75rem'
+                marginLeft: '.75rem',
+                zIndex: 3
             }),
         },
-        main: {
-            container: core_1.css({
-                display: 'flex',
-                flex: 1,
-                justifyContent: 'center',
-                boxSizing: 'border-box',
-                padding: '2.75rem 4.5rem',
-                '@media (max-width: 768px)': {
-                    marginLeft: '0',
-                }
-            }),
-            holder: core_1.css({
-                display: 'flex',
-                flexBasis: 960,
-                maxWidth: '960px',
-                flexDirection: 'column',
-                '@media (max-width: 768px)': {
-                    display: 'block',
-                    width: '100%'
-                }
-            }),
-            menu: core_1.css({
-                display: 'flex',
-                alignItems: 'center',
-                height: '4.5rem',
-                width: '100%',
-                marginBottom: '2.75rem'
-            }),
-        }
     };
 });

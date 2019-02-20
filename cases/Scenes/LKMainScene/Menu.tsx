@@ -6,7 +6,7 @@ const Menu$ = () => {
     const items = [
         { text: "Счет", value: 'ls' },
         { text: "История", value: 'hist' },
-        { text: "Поставщики", value: 'suppliers' },
+        { text: "Настройки", value: 'suppliers' },
         { text: "Поддержка", value: 'support' }
     ]
     return (
