@@ -2,8 +2,10 @@ declare namespace LKMainSceneNew {
 
     interface User {
         name?: string
-        shortname: string
-        onLogout: () => Promise<any>
+        shortname?: string
+        avatar?: string
+        onLogout?: () => Promise<any>
+        onAvatarChange?: () => void
     }
     interface Props {
         components: {

@@ -17,6 +17,7 @@ export default forwardRef((props: Types.FieldProps, ref) => {
             defaultValue: props.defaultValue,
             value: props.value,
             onChange: onChange,
+            onEnter: props.onEnter,
             disabled: props.disabled,
             placeholder: props.placeholder,
             css: props.styles.field,

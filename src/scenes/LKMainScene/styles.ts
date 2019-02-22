@@ -1,5 +1,6 @@
 import { css } from '@emotion/core'
 import { useTheme, useTypography } from '../../hooks';
+import { url } from 'inspector';
 
 export default () => {
     const theme = useTheme().theme
@@ -113,21 +114,51 @@ export default () => {
                     position: 'absolute',
                     zIndex: 3
                 }),
-                avatar: css({
-                    display: 'flex',
-                    color: '#FFFFFF',
-                    alignItems: 'center',
-                    width: '4.5rem',
-                    height: '4.5rem',
-                    borderRadius: '50%',
-                    background: 'linear-gradient(180deg, #A567C2 0%, #6B368F 100%)',
-                    "> div": {
-                        ...typography.display[2],
-                        width: 'inherit',
-                        textAlign: 'center',
-                        textTransform: 'uppercase'
-                    }
-                }),
+
+                avatar: {
+                    container: css({
+                        width: '4.5rem',
+                        height: '4.5rem',
+                        borderRadius: '50%',
+                        overflow: 'hidden'
+                    }),
+
+                    picture: (image) => css({
+                        display: 'flex',
+                        flex: 1,
+                        background: `url(${image}) no-repeat center center`,
+                        backgroundSize: 'cover',
+                    }),
+
+                    shortname: css({
+                        display: 'flex',
+                        flex: 1,
+                        color: '#FFFFFF',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        background: 'linear-gradient(180deg, #A567C2 0%, #6B368F 100%)',
+                        "> div": {
+                            ...typography.display[2],
+                            width: 'inherit',
+                            textAlign: 'center',
+                            textTransform: 'uppercase'
+                        }
+                    }),
+
+                    change: css({
+                        position: 'absolute',
+                        top: 0,
+                        bottom: 0,
+                        right: 0,
+                        left: 0,
+                        background: 'black',
+                        opacity: .8,
+                        color: 'white',
+                        fontSize: '2rem',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                    })
+                },
 
                 name: css({
                     display: 'block',

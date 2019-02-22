@@ -13,7 +13,12 @@ declare const _default: () => {
         background: import("@emotion/utils").SerializedStyles;
         user: {
             container: import("@emotion/utils").SerializedStyles;
-            avatar: import("@emotion/utils").SerializedStyles;
+            avatar: {
+                container: import("@emotion/utils").SerializedStyles;
+                picture: (image: any) => import("@emotion/utils").SerializedStyles;
+                shortname: import("@emotion/utils").SerializedStyles;
+                change: import("@emotion/utils").SerializedStyles;
+            };
             name: import("@emotion/utils").SerializedStyles;
         };
         content: import("@emotion/utils").SerializedStyles;

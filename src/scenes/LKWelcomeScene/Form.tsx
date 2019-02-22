@@ -21,7 +21,7 @@ export default (props: Types.Props) => {
                         alignItems="center"
                     >
                         <Icon css={styles.form.actions.icon} type={action.icon} shape='oval' />
-                        <C2 link align='center'>{action.title}</C2>
+                        <C2 link align='center' mt='1rem'>{action.title}</C2>
                     </Flexbox>
                 )}
             </Flexbox>

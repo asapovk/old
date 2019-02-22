@@ -70,10 +70,10 @@ export default () => {
                     padding: '1.5rem 0.5rem',
                     border: '1px solid ' + theme.pale.rgb,
                     borderRadius: theme.radius.card,
-                    cursor: 'pointer'
+                    cursor: 'pointer',
+                    justifyContent: 'flex-start'
                 }),
                 icon: css({
-                    marginBottom: '1.5rem',
                     fontSize: '2rem',
                     color: theme.light.hex,
                     alignItems: 'center',

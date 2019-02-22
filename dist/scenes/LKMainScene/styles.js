@@ -114,16 +114,42 @@ exports.default = (function () {
                     position: 'absolute',
                     zIndex: 3
                 }),
-                avatar: core_1.css({
-                    display: 'flex',
-                    color: '#FFFFFF',
-                    alignItems: 'center',
-                    width: '4.5rem',
-                    height: '4.5rem',
-                    borderRadius: '50%',
-                    background: 'linear-gradient(180deg, #A567C2 0%, #6B368F 100%)',
-                    "> div": __assign({}, typography.display[2], { width: 'inherit', textAlign: 'center', textTransform: 'uppercase' })
-                }),
+                avatar: {
+                    container: core_1.css({
+                        width: '4.5rem',
+                        height: '4.5rem',
+                        borderRadius: '50%',
+                        overflow: 'hidden'
+                    }),
+                    picture: function (image) { return core_1.css({
+                        display: 'flex',
+                        flex: 1,
+                        background: "url(" + image + ") no-repeat center center",
+                        backgroundSize: 'cover',
+                    }); },
+                    shortname: core_1.css({
+                        display: 'flex',
+                        flex: 1,
+                        color: '#FFFFFF',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        background: 'linear-gradient(180deg, #A567C2 0%, #6B368F 100%)',
+                        "> div": __assign({}, typography.display[2], { width: 'inherit', textAlign: 'center', textTransform: 'uppercase' })
+                    }),
+                    change: core_1.css({
+                        position: 'absolute',
+                        top: 0,
+                        bottom: 0,
+                        right: 0,
+                        left: 0,
+                        background: 'black',
+                        opacity: .8,
+                        color: 'white',
+                        fontSize: '2rem',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                    })
+                },
                 name: core_1.css({
                     display: 'block',
                     marginTop: '.75rem',
