@@ -9,7 +9,7 @@ export default () => {
         <Flexbox alignContent="center" justifyContent='center' p={40}>
             <Flexbox column flexBasis='640px'>
                 <Flexbox pb={40}>
-                    <TextField label='Just input' placeholder="Enter something" value={value} onChange={(event) => setValue(event.target.value)} />
+                    <TextField label='Just input' placeholder="Enter something" value={value} onEnter={() => console.log(1)} onChange={(event) => setValue(event.target.value)} />
                 </Flexbox>
                 <Flexbox pb={40} flexBasis='180px'>
                     <TextField multiline={true} label='Textarea' placeholder="You can place a lot of text here" />

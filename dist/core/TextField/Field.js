@@ -19,7 +19,7 @@ exports.default = react_1.forwardRef(function (props, ref) {
         props.onChange && props.onChange(event);
     }
     function onKeyPress(event) {
-        if (event.keyCode === 13) {
+        if (event.key === 'Enter') {
             props.onEnter && props.onEnter(event);
         }
     }

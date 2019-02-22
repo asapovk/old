@@ -10,7 +10,7 @@ export default forwardRef((props: Types.FieldProps, ref) => {
     }
 
     function onKeyPress(event: KeyboardEvent): void {
-        if (event.keyCode === 13) {
+        if (event.key === 'Enter') {
             props.onEnter && props.onEnter(event);
         }
     }
