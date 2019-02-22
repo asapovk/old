@@ -83,6 +83,13 @@ export default () => {
                 maxHeight: 'max-content',
                 minHeight: '100vh',
                 justifyContent: 'space-between',
+
+                /*
+                *  Chrome scroll lag repair   
+                */
+                WebkitBackfaceVisibility: 'hidden',
+                WebkitTransform: 'translateZ(0)',
+
                 [mq[1]]: {
                     position: 'absolute',
                 },

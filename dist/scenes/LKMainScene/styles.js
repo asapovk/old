@@ -85,7 +85,12 @@ exports.default = (function () {
                         padding: '2.75rem 0 2.75rem 2.75rem',
                         maxHeight: 'max-content',
                         minHeight: '100vh',
-                        justifyContent: 'space-between'
+                        justifyContent: 'space-between',
+                        /*
+                        *  Chrome scroll lag repair
+                        */
+                        WebkitBackfaceVisibility: 'hidden',
+                        WebkitTransform: 'translateZ(0)'
                     },
                     _a[mq[1]] = {
                         position: 'absolute',
