@@ -18,7 +18,12 @@ exports.default = react_1.forwardRef(function (props, ref) {
     function onChange(event) {
         props.onChange && props.onChange(event);
     }
-    return core_1.jsx(props.multiline ? 'textarea' : 'input', __assign({ onFocus: props.onFocus, onBlur: props.onBlur, defaultValue: props.defaultValue, value: props.value, onChange: onChange, onEnter: props.onEnter, disabled: props.disabled, placeholder: props.placeholder, css: props.styles.field, ref: ref, type: props.type }, props.multiline
+    function onKeyPress(event) {
+        if (event.keyCode === 13) {
+            props.onEnter && props.onEnter(event);
+        }
+    }
+    return core_1.jsx(props.multiline ? 'textarea' : 'input', __assign({ onFocus: props.onFocus, onBlur: props.onBlur, defaultValue: props.defaultValue, value: props.value, onChange: onChange, onKeyPress: onKeyPress, disabled: props.disabled, placeholder: props.placeholder, css: props.styles.field, ref: ref, type: props.type }, props.multiline
         ? props.singlerow && {
             onKeyDown: function (event) {
                 if (event.keyCode === 13) {
