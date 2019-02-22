@@ -44,7 +44,7 @@ export default (props: SignInProps) => {
                 <Flexbox flex={1} pr={'0.5rem'}>
                     <Button
                         label="Вход"
-                        decoration="highlight"
+                        color="highlight"
                         size='large'
                         loading={props.pending}
                         onClick={onSubmit}
@@ -57,7 +57,7 @@ export default (props: SignInProps) => {
                         <Button
                             label="Регистрация"
                             size='large'
-                            decoration="highlight"
+                            color="highlight"
                             disabled={props.pending}
                             onClick={() => props.onSignUp('SIGNUP')}
                             style={styles.form.secondaryButton}

@@ -50,7 +50,7 @@ exports.default = (function (props) {
                 react_1.default.createElement(__1.TextField, __assign({}, password2, { placeholder: "\u041F\u043E\u0432\u0442\u043E\u0440\u0438\u0442\u0435 \u043F\u0430\u0440\u043E\u043B\u044C", type: "password", decoration: 'borderless', size: 'large' })))),
             react_1.default.createElement(__1.Flexbox, { justifyContent: "space-around", pt: '1rem' },
                 react_1.default.createElement(__1.Flexbox, { flex: 1 },
-                    react_1.default.createElement(__1.Button, { label: "\u041F\u0440\u043E\u0434\u043E\u043B\u0436\u0438\u0442\u044C", decoration: "highlight", size: 'large', onClick: function () {
+                    react_1.default.createElement(__1.Button, { label: "\u041F\u0440\u043E\u0434\u043E\u043B\u0436\u0438\u0442\u044C", color: "highlight", size: 'large', onClick: function () {
                             onSignUp() && setNextStep(true);
                         }, style: styles.scenes.lkguest.submitButton })))));
     else
@@ -62,5 +62,5 @@ exports.default = (function (props) {
                     react_1.default.createElement(__1.TextField, __assign({}, code, { placeholder: "\u041A\u043E\u0434 \u043F\u043E\u0434\u0442\u0432\u0435\u0440\u0436\u0434\u0435\u043D\u0438\u044F", decoration: 'borderless', size: 'large' })))),
             react_1.default.createElement(__1.Flexbox, { justifyContent: "space-around", pt: '1rem' },
                 react_1.default.createElement(__1.Flexbox, { flex: 1 },
-                    react_1.default.createElement(__1.Button, { label: "\u0417\u0430\u0440\u0435\u0433\u0438\u0441\u0442\u0440\u0438\u0440\u043E\u0432\u0430\u0442\u044C\u0441\u044F", decoration: "highlight", size: 'large', onClick: onVerify, style: styles.scenes.lkguest.submitButton })))));
+                    react_1.default.createElement(__1.Button, { label: "\u0417\u0430\u0440\u0435\u0433\u0438\u0441\u0442\u0440\u0438\u0440\u043E\u0432\u0430\u0442\u044C\u0441\u044F", color: "highlight", size: 'large', onClick: onVerify, style: styles.scenes.lkguest.submitButton })))));
 });

@@ -37,9 +37,9 @@ exports.default = (function (props) {
             react_1.default.createElement(__1.TextField, __assign({}, password, { placeholder: "\u0412\u0432\u0435\u0434\u0438\u0442\u0435 \u043F\u0430\u0440\u043E\u043B\u044C", type: "password", size: 'large', decoration: 'borderless' })))),
         react_1.default.createElement(__1.Flexbox, { justifyContent: "space-around", pt: '1rem' },
             react_1.default.createElement(__1.Flexbox, { flex: 1, pr: '0.5rem' },
-                react_1.default.createElement(__1.Button, { label: "\u0412\u0445\u043E\u0434", decoration: "highlight", size: 'large', loading: props.pending, onClick: onSubmit, style: styles.form.submitButton })),
+                react_1.default.createElement(__1.Button, { label: "\u0412\u0445\u043E\u0434", color: "highlight", size: 'large', loading: props.pending, onClick: onSubmit, style: styles.form.submitButton })),
             props.allowSignUp && (react_1.default.createElement(__1.Flexbox, { flex: 1, pl: '0.5rem' },
-                react_1.default.createElement(__1.Button, { label: "\u0420\u0435\u0433\u0438\u0441\u0442\u0440\u0430\u0446\u0438\u044F", size: 'large', decoration: "highlight", disabled: props.pending, onClick: function () { return props.onSignUp('SIGNUP'); }, style: styles.form.secondaryButton })))),
+                react_1.default.createElement(__1.Button, { label: "\u0420\u0435\u0433\u0438\u0441\u0442\u0440\u0430\u0446\u0438\u044F", size: 'large', color: "highlight", disabled: props.pending, onClick: function () { return props.onSignUp('SIGNUP'); }, style: styles.form.secondaryButton })))),
         react_1.default.createElement(__1.Flexbox, { justifyContent: 'center', pt: '1rem' },
             react_1.default.createElement(__1.T1, { link: true, onClick: function () { return props.onSignUp('RECOVER'); } }, "\u0417\u0430\u0431\u044B\u043B\u0438 \u043F\u0430\u0440\u043E\u043B\u044C?"))));
 });

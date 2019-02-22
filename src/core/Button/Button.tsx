@@ -1,31 +1,34 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
-import createStyles from './styels';
+import createStyles from './styles';
 import React from 'react';
 import { Spin, Icon } from '../index';
+import { IconTypes } from '../types'
 
 export interface ButtonProps {
     label?: string
-    outline?: true | undefined
-    decoration?: 'none' | 'highlight' | 'red' | 'green' | 'orange' | 'blue' | 'grayscale' | 'inverse' | 'outline'
+    labelCase?: 'uppercase' | 'lowercase' | 'capitalize' | 'none'
+    labelSize?: 'small' | 'large' | 'normal'
+    labelWight?: string
+
+    type?: 'submit'
+
+    size?: 'small' | 'large'
+    decoration?: 'none' | 'inverse' | 'outline'
+    color?: 'highlight' | 'red' | 'green' | 'orange' | 'blue' | 'grayscale'
     loading?: boolean
-    icon?: React.Component
-    labelCase?: 'upper' | 'lower' | 'capitalize' | 'sentence'
+    disabled?: boolean
+
     onClick?: (MouseEvent?) => void
     className?: string
     style?: React.CSSProperties
-    disabled?: boolean
-    size?: 'small' | 'large'
-    inversion?: boolean,
     children?: React.ReactNode
-    thin?: boolean
-    type?: 'submit'
 }
 
 export default (props: ButtonProps) => {
 
-    const { labelCase, label, children, style, loading, decoration, disabled, size, inversion, className, thin, type } = props;
-    const styles = createStyles(size, loading, disabled, labelCase, decoration, inversion, thin);
+    const { label, children, style, loading, className, type } = props;
+    const styles = createStyles(props);
 
     const onClick = (event) => {
         if (!props.disabled && !props.loading) {
@@ -37,7 +40,7 @@ export default (props: ButtonProps) => {
     return (
         <button css={styles} className={className} style={style} onClick={(event) => onClick(event)} type={type}>
             <span>{label || children}</span>
-            {loading && (<Spin><Icon type="sync" /></Spin>)}
+            {loading && <Spin><Icon type="sync" /></Spin>}
         </button>
     );
 }

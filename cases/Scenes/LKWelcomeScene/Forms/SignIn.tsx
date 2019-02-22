@@ -34,13 +34,14 @@ export default (props: SignInProps) => {
                 <Flexbox column>
                     <Button
                         label="Вход"
-                        decoration="highlight"
+                        color="highlight"
                         size='large'
                         css={css({ marginBottom: '.75rem' })}
                     />
                     <Button
                         label="Регистрация"
                         size='large'
+                        color="highlight"
                         decoration="outline"
                         onClick={() => props.onRegister()}
                     />

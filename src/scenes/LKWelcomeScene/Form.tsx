@@ -10,7 +10,7 @@ export default (props: Types.Props) => {
     const Actions = (
         <Flexbox css={styles.form.actions.container}>
             <Flexbox css={styles.form.actions.wrapper}>
-                {props.actions!.map((action, index) =>
+                {props.actions && props.actions!.map((action, index) =>
                     <Flexbox
                         key={index}
                         css={styles.form.actions.item}

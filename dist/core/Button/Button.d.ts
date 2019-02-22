@@ -1,20 +1,19 @@
 import React from 'react';
 export interface ButtonProps {
     label?: string;
-    outline?: true | undefined;
-    decoration?: 'none' | 'highlight' | 'red' | 'green' | 'orange' | 'blue' | 'grayscale' | 'inverse' | 'outline';
+    labelCase?: 'uppercase' | 'lowercase' | 'capitalize' | 'none';
+    labelSize?: 'small' | 'large' | 'normal';
+    labelWight?: string;
+    type?: 'submit';
+    size?: 'small' | 'large';
+    decoration?: 'none' | 'inverse' | 'outline';
+    color?: 'highlight' | 'red' | 'green' | 'orange' | 'blue' | 'grayscale';
     loading?: boolean;
-    icon?: React.Component;
-    labelCase?: 'upper' | 'lower' | 'capitalize' | 'sentence';
+    disabled?: boolean;
     onClick?: (MouseEvent?: any) => void;
     className?: string;
     style?: React.CSSProperties;
-    disabled?: boolean;
-    size?: 'small' | 'large';
-    inversion?: boolean;
     children?: React.ReactNode;
-    thin?: boolean;
-    type?: 'submit';
 }
 declare const _default: (props: ButtonProps) => JSX.Element;
 export default _default;

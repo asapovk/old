@@ -80,7 +80,7 @@ export default (props: SignUpProps) => {
                 <Flexbox flex={1}>
                     <Button
                         label="Продолжить"
-                        decoration="highlight"
+                        color="highlight"
                         size='large'
                         onClick={() => {
                             onSignUp() && setNextStep(true);
@@ -114,7 +114,7 @@ export default (props: SignUpProps) => {
                 <Flexbox flex={1}>
                     <Button
                         label="Зарегистрироваться"
-                        decoration="highlight"
+                        color="highlight"
                         size='large'
                         onClick={onVerify}
                         style={styles.scenes.lkguest.submitButton}

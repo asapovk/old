@@ -40,7 +40,7 @@ export default (props: SignUpProps) => {
                 <Flexbox column>
                     <Button
                         label="Продолжить"
-                        decoration="highlight"
+                        color="highlight"
                         size='large'
                         css={css({ marginBottom: '.75rem' })}
                     />
