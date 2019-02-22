@@ -32,7 +32,7 @@ declare namespace TypographyTypes {
         className?: string
         onClick?: (event) => void
         format?: boolean | 'rub' | 'volume' | 'power'
-        color?: 'text' | 'highlight' | 'pale' | 'textOnAccent' | 'lowlight'
+        color?: 'text' | 'highlight' | 'pale' | 'textOnAccent' | 'lowlight' | 'light'
         quotes?: boolean
         ellipsis?: boolean
         background?: 'text' | 'highlight' | 'pale' | 'textOnAccent' | 'lowlight'
@@ -43,7 +43,7 @@ declare namespace TypographyTypes {
         dotted?: boolean
         bold?: boolean
         className?: string
-        color?: 'text' | 'highlight' | 'pale' | 'textOnAccent'
+        color?: 'text' | 'highlight' | 'pale' | 'textOnAccent' | 'lowlight' | 'light'
     }
     interface PM {
         p?: number | string

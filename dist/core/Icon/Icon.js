@@ -11,8 +11,9 @@ exports.default = react_1.forwardRef(function (props, ref) {
             display: 'inline-block',
             verticalAlign: 'middle',
             fontSize: props.size,
-            color: props.color,
             padding: props.shape ? '0.4em' : '',
+        }, props.color && {
+            color: theme[props.color].rgb,
         }), children: core_1.jsx("g", null,
             core_1.jsx("path", { d: exports.svgIconPath[props.type] })), onClick: props.onClick }));
     if (props.shape) {

@@ -17,13 +17,16 @@ export default forwardRef((props: IconTypes.Props, ref) => {
             width={'1em'}
             viewBox="0 0 128 128"
             style={props.style}
-            css={css({
-                display: 'inline-block',
-                verticalAlign: 'middle',
-                fontSize: props.size,
-                color: props.color,
-                padding: props.shape ? '0.4em' : '',
-            },
+            css={css(
+                {
+                    display: 'inline-block',
+                    verticalAlign: 'middle',
+                    fontSize: props.size,
+                    padding: props.shape ? '0.4em' : '',
+                },
+                props.color && {
+                    color: theme[props.color].rgb,
+                }
             )}
             children={<g><path d={svgIconPath[props.type]}></path></g>}
             onClick={props.onClick}

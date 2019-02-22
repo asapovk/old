@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { jsx } from '@emotion/core';
+import { jsx, css } from '@emotion/core';
 import { Flexbox, C2, C1, Icon } from '../../';
 import createStyles from './styles';
 import { useBrowser } from '../../hooks';
@@ -21,7 +21,7 @@ export default (props: Types.Props) => {
 
     const Back = (label, onClick) => (
         <Flexbox css={styles.main.back} onClick={onClick}>
-            <Icon type='arrow-left' shape='oval' size='1rem' color={styles.theme.highlight.rgb} />
+            <Icon type='arrow-left' shape='oval' size='1rem' color='highlight' />
             <C1 children={label} ml='.75rem' />
         </Flexbox>
     )
@@ -55,6 +55,7 @@ export default (props: Types.Props) => {
                 onClick={props.user.onLogout}
                 children='Выйти'
                 pt='.25rem'
+                css={css({ cursor: 'pointer' })}
             />
         </Flexbox>
     )

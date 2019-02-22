@@ -29,7 +29,7 @@ exports.default = (function (props) {
         textTransform: labelCase
     }, disabled && {
         opacity: 0.5,
-        cursor: 'not-allowed !important'
+        cursor: 'not-allowed !important',
     }, loading && core_1.css(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n            > span:first-child{\n                filter: blur(1px);\n                opacity: 0.4;\n            }\n            > span:last-child{\n                position: absolute;\n                left: 50%;\n                margin-left: -0.5rem;\n                > svg {\n                    font-size: 1rem;\n                }\n            }\n        "], ["\n            > span:first-child{\n                filter: blur(1px);\n                opacity: 0.4;\n            }\n            > span:last-child{\n                position: absolute;\n                left: 50%;\n                margin-left: -0.5rem;\n                > svg {\n                    font-size: 1rem;\n                }\n            }\n        "]))));
 });
 function getDecoration(decoration, color, size, labelSize) {

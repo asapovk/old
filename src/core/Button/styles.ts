@@ -14,7 +14,6 @@ export default (props) => {
             outline: 'none',
             cursor: 'pointer',
             userSelect: 'none',
-
         },
 
         labelWight && {
@@ -27,7 +26,7 @@ export default (props) => {
 
         disabled && {
             opacity: 0.5,
-            cursor: 'not-allowed !important'
+            cursor: 'not-allowed !important',
         },
 
         loading && css`

@@ -17,7 +17,7 @@ exports.default = (function (props) {
         return (core_1.jsx(core_2.Spinner, { spinning: true, center: true }));
     }
     var Back = function (label, onClick) { return (core_1.jsx(__1.Flexbox, { css: styles.main.back, onClick: onClick },
-        core_1.jsx(__1.Icon, { type: 'arrow-left', shape: 'oval', size: '1rem', color: styles.theme.highlight.rgb }),
+        core_1.jsx(__1.Icon, { type: 'arrow-left', shape: 'oval', size: '1rem', color: 'highlight' }),
         core_1.jsx(__1.C1, { children: label, ml: '.75rem' }))); };
     var Menu = (core_1.jsx(__1.Flexbox, { css: styles.main.menu },
         props.back
@@ -28,7 +28,7 @@ exports.default = (function (props) {
         props.user.shortname
             && core_1.jsx("div", { css: styles.sidebar.user.avatar, children: (core_1.jsx("div", { children: props.user.shortname.slice(0, 2) })) }),
         core_1.jsx(__1.C1, { bold: true, css: styles.sidebar.user.name, children: props.user.name }),
-        core_1.jsx(__1.C2, { onClick: props.user.onLogout, children: '\u0412\u044B\u0439\u0442\u0438', pt: '.25rem' })));
+        core_1.jsx(__1.C2, { onClick: props.user.onLogout, children: '\u0412\u044B\u0439\u0442\u0438', pt: '.25rem', css: core_1.css({ cursor: 'pointer' }) })));
     var Sidebar = props.components.sidebar && (core_1.jsx("div", { css: styles.sidebar.container(!isMobile || (isMobile && props.showSidebar)) },
         core_1.jsx("div", { css: styles.sidebar.background }),
         Login,

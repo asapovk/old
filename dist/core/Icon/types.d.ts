@@ -9,7 +9,7 @@ declare namespace IconTypes {
         shape?: 'cirle' | 'oval';
         backgroud?: string;
         size?: string;
-        color?: string;
+        color?: 'text' | 'highlight' | 'pale' | 'textOnAccent' | 'lowlight' | 'light';
         background?: string;
     }
 }
