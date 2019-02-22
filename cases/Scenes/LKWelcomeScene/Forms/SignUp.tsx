@@ -7,7 +7,6 @@ interface SignUpProps {
     onEnter: () => void
 }
 
-
 export default (props: SignUpProps) => {
 
     return (

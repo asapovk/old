@@ -9,6 +9,12 @@ export default forwardRef((props: Types.FieldProps, ref) => {
         props.onChange && props.onChange(event);
     }
 
+    function onKeyPress(event: KeyboardEvent): void {
+        if (event.keyCode === 13) {
+            props.onEnter && props.onEnter(event);
+        }
+    }
+
     return jsx(
         props.multiline ? 'textarea' : 'input',
         {
@@ -17,7 +23,7 @@ export default forwardRef((props: Types.FieldProps, ref) => {
             defaultValue: props.defaultValue,
             value: props.value,
             onChange: onChange,
-            onEnter: props.onEnter,
+            onKeyPress: onKeyPress,
             disabled: props.disabled,
             placeholder: props.placeholder,
             css: props.styles.field,
