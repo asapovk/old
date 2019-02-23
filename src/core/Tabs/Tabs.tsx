@@ -4,13 +4,11 @@ import { useEffect, useState } from 'react';
 import createStyles from './styles';
 import Types from './types';
 import { C1 } from '../..';
-import { useBrowser } from '../../hooks';
 
 export default (props: Types.Props) => {
     const { tabs, reverseContainer } = props;
     const styles = createStyles({ reverseContainer });
     const [currentId, setCurrentId] = useState('');
-    const { isDesktop } = useBrowser();
 
     useEffect(() => {
         setSmoothAnimation();
@@ -74,20 +72,18 @@ export default (props: Types.Props) => {
                     />
                 ))}
             </div>
-            {isDesktop && (
-                <div css={styles.menu}>
-                    {tabs.map(tab => (
-                        <div
-                            data-tab={tab.key}
-                            key={`tab-${tab.key}`}
-                            children={(
-                                <C1 bold={tab.key == currentId}>{tab.title}</C1>
-                            )}
-                            css={styles.menuItem(tab.key == currentId)}
-                        />
-                    ))}
-                </div>
-            )}
+            <div css={styles.menu}>
+                {tabs.map(tab => (
+                    <div
+                        data-tab={tab.key}
+                        key={`tab-${tab.key}`}
+                        children={(
+                            <C1 bold={tab.key == currentId}>{tab.title}</C1>
+                        )}
+                        css={styles.menuItem(tab.key == currentId)}
+                    />
+                ))}
+            </div>
         </div>
     )
 }

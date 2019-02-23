@@ -1,13 +1,11 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core';
-import React, { useRef, useState, useLayoutEffect } from 'react';
+import React, { useRef, useState } from 'react';
 import NavBarItem from './NavBarItem';
-import { Flexbox, Icon, Popup } from '..'
-import { useBrowser } from '../../hooks';
+import { Flexbox } from '..'
 import Types from './types';
 
 export default (props: Types.NavBarProps) => {
-    const browser = useBrowser();
     const { items, value, onChange, moreLabel, styles } = props;
 
     const [barCapacity, setBarCapacity] = useState<number | null>(null);

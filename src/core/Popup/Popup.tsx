@@ -30,16 +30,16 @@ export default (props: Types.Props) => {
         ViewportHTML ? ViewportHTML : document.body
     );
 
-    useLayoutEffect(() => {
-        const coord = triggerRef.current! && triggerRef.current!.getBoundingClientRect();
+    // useLayoutEffect(() => {
+    //     const coord = triggerRef.current! && triggerRef.current!.getBoundingClientRect();
 
-        coord && setTargetCoord({
-            top: coord.top + document.documentElement!.scrollTop,
-            bottom: coord.bottom + document.documentElement!.scrollTop,
-            left: coord.left + document.documentElement!.scrollLeft,
-            right: coord.right + document.documentElement!.scrollLeft,
-        });
-    }, [browser.width]);
+    //     coord && setTargetCoord({
+    //         top: coord.top + document.documentElement!.scrollTop,
+    //         bottom: coord.bottom + document.documentElement!.scrollTop,
+    //         left: coord.left + document.documentElement!.scrollLeft,
+    //         right: coord.right + document.documentElement!.scrollLeft,
+    //     });
+    // }, [browser.width]);
 
     useEffect(() => {
         if (typeof props.visible != 'undefined') setVisible(props.visible);

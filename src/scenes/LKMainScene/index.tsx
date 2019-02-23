@@ -11,9 +11,9 @@ import { userInfo } from 'os';
 export default (props: Types.Props) => {
 
     const styles = createStyles();
-    const browser = useBrowser();
+    const { isMobile } = useBrowser();
 
-    const isMobile = browser.width <= 768;
+    // const isMobile = browser.width <= 768;
 
     if (props.preparing) {
         return (

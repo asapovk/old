@@ -1,5 +1,5 @@
 import { css } from '@emotion/core';
-import { useTheme, useTypography, useBrowser } from '../../hooks';
+import { useTheme, useTypography } from '../../hooks';
 
 export default (active: number, position?: number, storyIndex?: number) => {
 

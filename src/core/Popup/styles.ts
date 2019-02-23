@@ -1,5 +1,5 @@
 import { css } from '@emotion/core';
-import { useTheme, useTypography, useBrowser } from '../../hooks';
+import { useTheme, useTypography } from '../../hooks';
 import Types from './types';
 
 export default (visible: boolean, position: Types.Position | undefined, targetCoord: Types.TargetCoordinates, popupRef: any) => {
@@ -41,15 +41,15 @@ export default (visible: boolean, position: Types.Position | undefined, targetCo
 }
 
 function getPosition(initialPosition: Types.Position | undefined, targetCoord: Types.TargetCoordinates, popupHeight: number, popupWidth: number) {
-    const browser = useBrowser();
-
     let position = {
         top: 0,
         left: 0
     };
 
-    const posTop = browser.height / 2 > targetCoord.top;
-    const posLeft = browser.width / 2 > targetCoord.left;
+    // const posTop = browser.height / 2 > targetCoord.top;
+    // const posLeft = browser.width / 2 > targetCoord.left;
+    const posTop = true;
+    const posLeft = true;
 
     switch (initialPosition) {
         case 'bottom-right':

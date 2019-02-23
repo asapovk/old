@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { jsx, css } from '@emotion/core';
 import React, { useState, useEffect, useRef } from 'react';
-import { Card, Flexbox, Stories, Icon } from '../../../src';
+import { Card, Flexbox, Icon } from '../../../src';
 import createStyles from './styles';
 import { useBrowser } from '../../../src/hooks';
 

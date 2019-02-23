@@ -1,5 +1,5 @@
 import { css } from '@emotion/core';
-import { useTheme, useTypography, useBrowser } from '../../hooks';
+import { useTheme } from '../../hooks';
 
 export default () => {
 

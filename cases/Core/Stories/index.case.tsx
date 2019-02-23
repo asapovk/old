@@ -1,11 +1,10 @@
 import React from 'react';
-import { Flexbox, Stories } from '../../../src';
+import { Flexbox } from '../../../src';
 import '../../../src/styles/scss/main.scss';
 
 export default () => {
     return (
         <Flexbox>
-            <Stories />
             {/* <Stories title='Рекомендуем' stories={[{
                     label: 'Лень передавать показания?',
                     image: 'http://jokesland.net/pic/1/eb30d9e46c.jpg',
