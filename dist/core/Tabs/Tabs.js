@@ -8,10 +8,12 @@ var core_1 = require("@emotion/core");
 var react_1 = require("react");
 var styles_1 = __importDefault(require("./styles"));
 var __1 = require("../..");
+var hooks_1 = require("../../hooks");
 exports.default = (function (props) {
     var tabs = props.tabs, reverseContainer = props.reverseContainer;
     var styles = styles_1.default({ reverseContainer: reverseContainer });
     var _a = react_1.useState(''), currentId = _a[0], setCurrentId = _a[1];
+    var isDesktop = hooks_1.useBrowser().isDesktop;
     react_1.useEffect(function () {
         setSmoothAnimation();
         var viewport = document.querySelector('[data-viewport]');
@@ -55,5 +57,5 @@ exports.default = (function (props) {
     }
     return (core_1.jsx("div", { css: styles.container },
         core_1.jsx("div", { css: styles.content }, tabs.map(function (tab) { return (core_1.jsx("div", { "data-content-id": tab.key, key: "tabcnt-" + tab.key, children: tab.content, css: styles.tab })); })),
-        core_1.jsx("div", { css: styles.menu }, tabs.map(function (tab) { return (core_1.jsx("div", { "data-tab": tab.key, key: "tab-" + tab.key, children: (core_1.jsx(__1.C1, { bold: tab.key == currentId }, tab.title)), css: styles.menuItem(tab.key == currentId) })); }))));
+        isDesktop && (core_1.jsx("div", { css: styles.menu }, tabs.map(function (tab) { return (core_1.jsx("div", { "data-tab": tab.key, key: "tab-" + tab.key, children: (core_1.jsx(__1.C1, { bold: tab.key == currentId }, tab.title)), css: styles.menuItem(tab.key == currentId) })); })))));
 });
