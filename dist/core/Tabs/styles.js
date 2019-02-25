@@ -30,6 +30,9 @@ exports.default = (function (_a) {
             top: 0,
             margin: '0 0 0 2.5rem',
             padding: '0 1.25rem',
+            "@media (max-width: 1024px)": {
+                display: 'none'
+            }
         }, reverseContainer && {
             margin: '0 2.5rem 0 0'
         }),

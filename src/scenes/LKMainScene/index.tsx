@@ -1,12 +1,11 @@
 /** @jsx jsx */
-import { jsx, css } from '@emotion/core';
-import { Flexbox, C2, C1, Icon } from '../../';
+import { jsx } from '@emotion/core';
+import { Flexbox, C1, Icon } from '../../';
 import createStyles from './styles';
 import { useBrowser } from '../../hooks';
 import Types from './types';
 import { Spinner } from '../../core';
-import { useState } from 'react';
-import { userInfo } from 'os';
+import Login from './Login';
 
 export default (props: Types.Props) => {
 
@@ -38,48 +37,10 @@ export default (props: Types.Props) => {
         </Flexbox>
     )
 
-    const Login = (props) => {
-        const [hovered, setHovered] = useState<boolean>(false);
-        return props.user && (
-            <Flexbox column css={styles.sidebar.user.container}>
-                <Flexbox css={styles.sidebar.user.avatar.container} onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)}>
-                    {hovered && (
-                        <Flexbox
-                            css={styles.sidebar.user.avatar.change}
-                            onClick={() => props.user.onAvatarChange && props.user.onAvatarChange()}
-                            children={<Icon type='photo' />}
-                        />
-                    )}
-                    {props.user.avatar
-                        ? <div css={styles.sidebar.user.avatar.picture(props.user.avatar)} />
-                        : props.user.shortname
-                        && <div
-                            css={styles.sidebar.user.avatar.shortname}
-                            children={(
-                                <div children={props.user.shortname.slice(0, 2)} />
-                            )}
-                        />
-                    }
-                </Flexbox>
-                <C1
-                    bold
-                    css={styles.sidebar.user.name}
-                    children={props.user.name}
-                />
-                <C2
-                    onClick={props.user.onLogout}
-                    children='Выйти'
-                    pt='.25rem'
-                    css={css({ cursor: 'pointer' })}
-                />
-            </Flexbox>
-        )
-    }
-
     const Sidebar = props.components.sidebar && (
         <div css={styles.sidebar.container(!isMobile || (isMobile && props.showSidebar))}>
             <div css={styles.sidebar.background} />
-            <Login {...props} />
+            <Login {...props} styles={styles}/>
             <div css={styles.sidebar.content}>
                 {props.components.sidebar}
             </div>

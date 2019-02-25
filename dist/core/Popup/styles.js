@@ -30,13 +30,14 @@ exports.default = (function (visible, position, targetCoord, popupRef) {
     };
 });
 function getPosition(initialPosition, targetCoord, popupHeight, popupWidth) {
-    var browser = hooks_1.useBrowser();
     var position = {
         top: 0,
         left: 0
     };
-    var posTop = browser.height / 2 > targetCoord.top;
-    var posLeft = browser.width / 2 > targetCoord.left;
+    // const posTop = browser.height / 2 > targetCoord.top;
+    // const posLeft = browser.width / 2 > targetCoord.left;
+    var posTop = true;
+    var posLeft = true;
     switch (initialPosition) {
         case 'bottom-right':
             position = { top: 0, left: 0 };

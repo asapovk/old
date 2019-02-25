@@ -32,15 +32,15 @@ exports.default = (function (props) {
     var browser = hooks_1.useBrowser();
     var styles = styles_1.default(visible, props.position, targetCoord, popupRef);
     var Portal = react_dom_1.default.createPortal(core_1.jsx("div", { css: styles.popup, ref: popupRef, children: children }), ViewportHTML ? ViewportHTML : document.body);
-    react_1.useLayoutEffect(function () {
-        var coord = triggerRef.current && triggerRef.current.getBoundingClientRect();
-        coord && setTargetCoord({
-            top: coord.top + document.documentElement.scrollTop,
-            bottom: coord.bottom + document.documentElement.scrollTop,
-            left: coord.left + document.documentElement.scrollLeft,
-            right: coord.right + document.documentElement.scrollLeft,
-        });
-    }, [browser.width]);
+    // useLayoutEffect(() => {
+    //     const coord = triggerRef.current! && triggerRef.current!.getBoundingClientRect();
+    //     coord && setTargetCoord({
+    //         top: coord.top + document.documentElement!.scrollTop,
+    //         bottom: coord.bottom + document.documentElement!.scrollTop,
+    //         left: coord.left + document.documentElement!.scrollLeft,
+    //         right: coord.right + document.documentElement!.scrollLeft,
+    //     });
+    // }, [browser.width]);
     react_1.useEffect(function () {
         if (typeof props.visible != 'undefined')
             setVisible(props.visible);

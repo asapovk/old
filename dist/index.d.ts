@@ -16,7 +16,6 @@ export { Popup as Popup } from './core';
 export { Select as Select } from './core';
 export { Spin as Spin } from './core';
 export { Spinner as Spinner } from './core';
-export { Stories as Stories } from './core';
 export { Table as Table } from './core';
 export { SimpleTable as SimpleTable } from './core';
 export { SimpleModal as SimpleModal } from './core';

@@ -16,7 +16,6 @@ export { Popup as Popup } from './Popup';
 export { Select as Select } from './Select';
 export { Spin as Spin } from './Spin';
 export { Spinner as Spinner } from './Spinner';
-export { Stories as Stories } from './Stories';
 export { Table as Table } from './Table';
 export { SimpleTable as SimpleTable } from './SimpleTable';
 export { SimpleModal as SimpleModal } from './SimpleModal';

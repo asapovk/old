@@ -41,7 +41,7 @@ export default () => {
                     console.log('logout');
                 }),
                 avatar: avatar,
-                onAvatarChange: () => console.log('change')
+                onAvatarChange: (link) => console.log(link)
             }}
             pending={false}
             preparing={false}

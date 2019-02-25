@@ -8,9 +8,7 @@ var core_1 = require("@emotion/core");
 var react_1 = require("react");
 var NavBarItem_1 = __importDefault(require("./NavBarItem"));
 var __1 = require("..");
-var hooks_1 = require("../../hooks");
 exports.default = (function (props) {
-    var browser = hooks_1.useBrowser();
     var items = props.items, value = props.value, onChange = props.onChange, moreLabel = props.moreLabel, styles = props.styles;
     var _a = react_1.useState(null), barCapacity = _a[0], setBarCapacity = _a[1];
     var _b = react_1.useState(false), moreVisible = _b[0], setMoreVisible = _b[1];
