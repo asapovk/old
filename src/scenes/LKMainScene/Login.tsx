@@ -45,6 +45,7 @@ export default (props) => {
                 css={props.styles.sidebar.user.avatar.container}
                 onMouseEnter={() => setHovered(true)}
                 onMouseLeave={() => setHovered(false)}
+                onTouchStart={() => imagePicker.current && imagePicker.current.click()}
             >
                 {Hover}
                 {Avatar}
