@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { jsx, css } from '@emotion/core';
 import { Flexbox, Icon, C1, C2 } from '../..';
-import { useState, useRef, Fragment } from 'react';
+import { useState, Fragment } from 'react';
 
 export default (props) => {
 

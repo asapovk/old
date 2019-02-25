@@ -1,6 +1,5 @@
 import { css } from '@emotion/core'
 import { useTheme, useTypography } from '../../hooks';
-import { url } from 'inspector';
 
 export default () => {
     const theme = useTheme().theme
