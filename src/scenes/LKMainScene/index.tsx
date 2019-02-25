@@ -40,7 +40,7 @@ export default (props: Types.Props) => {
     const Sidebar = props.components.sidebar && (
         <div css={styles.sidebar.container(!isMobile || (isMobile && props.showSidebar))}>
             <div css={styles.sidebar.background} />
-            <Login {...props} styles={styles} />
+            <Login {...props} styles={styles} isMobile={isMobile} />
             <div css={styles.sidebar.content}>
                 {props.components.sidebar}
             </div>

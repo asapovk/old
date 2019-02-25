@@ -17,7 +17,8 @@ declare const _default: () => {
                 container: import("@emotion/utils").SerializedStyles;
                 picture: (image: any) => import("@emotion/utils").SerializedStyles;
                 shortname: import("@emotion/utils").SerializedStyles;
-                change: import("@emotion/utils").SerializedStyles;
+                hover: import("@emotion/utils").SerializedStyles;
+                input: import("@emotion/utils").SerializedStyles;
             };
             name: import("@emotion/utils").SerializedStyles;
         };

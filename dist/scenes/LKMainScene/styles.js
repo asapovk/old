@@ -43,10 +43,10 @@ exports.default = (function () {
                     },
                     _a[mq[1]] = {
                         padding: '2.5rem',
+                        position: displaySidebar ? 'fixed' : 'relative'
                     },
                     _a[mq[0]] = {
                         padding: '1.25rem',
-                        position: displaySidebar ? 'fixed' : 'relative'
                     },
                     _a));
             },
@@ -117,7 +117,8 @@ exports.default = (function () {
                         width: '4.5rem',
                         height: '4.5rem',
                         borderRadius: '50%',
-                        overflow: 'hidden'
+                        overflow: 'hidden',
+                        cursor: 'pointer'
                     }),
                     picture: function (image) { return core_1.css({
                         display: 'flex',
@@ -134,7 +135,7 @@ exports.default = (function () {
                         background: 'linear-gradient(180deg, #A567C2 0%, #6B368F 100%)',
                         "> div": __assign({}, typography.display[2], { width: 'inherit', textAlign: 'center', textTransform: 'uppercase' })
                     }),
-                    change: core_1.css({
+                    hover: core_1.css({
                         position: 'absolute',
                         top: 0,
                         bottom: 0,
@@ -146,6 +147,16 @@ exports.default = (function () {
                         fontSize: '2rem',
                         alignItems: 'center',
                         justifyContent: 'center',
+                    }),
+                    input: core_1.css({
+                        opacity: 0,
+                        position: "absolute",
+                        right: 0,
+                        bottom: 0,
+                        fontSize: '1000px !important',
+                        height: '300px',
+                        cursor: 'inherit',
+                        zIndex: 5
                     })
                 },
                 name: core_1.css({

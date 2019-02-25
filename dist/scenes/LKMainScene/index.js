@@ -38,7 +38,7 @@ exports.default = (function (props) {
         props.components.menu));
     var Sidebar = props.components.sidebar && (core_1.jsx("div", { css: styles.sidebar.container(!isMobile || (isMobile && props.showSidebar)) },
         core_1.jsx("div", { css: styles.sidebar.background }),
-        core_1.jsx(Login_1.default, __assign({}, props, { styles: styles })),
+        core_1.jsx(Login_1.default, __assign({}, props, { styles: styles, isMobile: isMobile })),
         core_1.jsx("div", { css: styles.sidebar.content }, props.components.sidebar),
         core_1.jsx("div", { css: styles.sidebar.logo }, props.components.logo)));
     var Main = (core_1.jsx("div", { css: styles.main.container(isMobile && props.showSidebar) },

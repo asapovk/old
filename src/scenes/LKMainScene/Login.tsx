@@ -5,7 +5,6 @@ import { useState, useRef, Fragment } from 'react';
 
 export default (props) => {
 
-    const imagePicker = useRef<HTMLInputElement>(null);
     const [hovered, setHovered] = useState<boolean>(false);
 
     const Avatar = props.user.avatar
@@ -18,21 +17,24 @@ export default (props) => {
             )}
         />
 
+    const Input = (
+        <input
+            type='file'
+            role='button'
+            accept='image/png, image/jpeg'
+            css={props.styles.sidebar.user.avatar.input}
+            onChange={(event) => {
+                event.target.files && props.user.onAvatarChange(event.target.files[0]);
+            }}
+        />
+    )
+
     const Hover = props.user.onAvatarChange && (
         <Fragment>
-            <input
-                type='file'
-                ref={imagePicker}
-                accept='.png,.jpg'
-                css={css({ display: 'none' })}
-                onChange={(event) => {
-                    event.target.files && props.user.onAvatarChange(event.target.files[0]);
-                }}
-            />
+            {Input}
             {hovered && (
                 <Flexbox
-                    css={props.styles.sidebar.user.avatar.change}
-                    onClick={() => imagePicker.current && imagePicker.current.click()}
+                    css={props.styles.sidebar.user.avatar.hover}
                     children={<Icon type='photo' />}
                 />
             )}
@@ -45,8 +47,8 @@ export default (props) => {
                 css={props.styles.sidebar.user.avatar.container}
                 onMouseEnter={() => setHovered(true)}
                 onMouseLeave={() => setHovered(false)}
-                onTouchStart={() => imagePicker.current && imagePicker.current.click()}
             >
+                {props.isMobile && Input}
                 {Hover}
                 {Avatar}
             </Flexbox>

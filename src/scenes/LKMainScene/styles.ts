@@ -38,10 +38,10 @@ export default () => {
                 padding: '2.75rem 4.5rem',
                 [mq[1]]: {
                     padding: '2.5rem',
+                    position: displaySidebar ? 'fixed' : 'relative'
                 },
                 [mq[0]]: {
                     padding: '1.25rem',
-                    position: displaySidebar ? 'fixed' : 'relative'
                 },
             }),
 
@@ -118,7 +118,8 @@ export default () => {
                         width: '4.5rem',
                         height: '4.5rem',
                         borderRadius: '50%',
-                        overflow: 'hidden'
+                        overflow: 'hidden',
+                        cursor: 'pointer'
                     }),
 
                     picture: (image) => css({
@@ -143,7 +144,7 @@ export default () => {
                         }
                     }),
 
-                    change: css({
+                    hover: css({
                         position: 'absolute',
                         top: 0,
                         bottom: 0,
@@ -155,6 +156,17 @@ export default () => {
                         fontSize: '2rem',
                         alignItems: 'center',
                         justifyContent: 'center',
+                    }),
+
+                    input: css({
+                        opacity: 0,
+                        position: "absolute",
+                        right: 0,
+                        bottom: 0,
+                        fontSize: '1000px !important',
+                        height: '300px',
+                        cursor: 'inherit',
+                        zIndex: 5
                     })
                 },
 
