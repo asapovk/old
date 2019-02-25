@@ -18,8 +18,9 @@ exports.default = (function (props) {
         hovered && (core_1.jsx(__1.Flexbox, { css: props.styles.sidebar.user.avatar.hover, children: core_1.jsx(__1.Icon, { type: 'photo' }) }))));
     return props.user && (core_1.jsx(__1.Flexbox, { column: true, css: props.styles.sidebar.user.container },
         core_1.jsx(__1.Flexbox, { css: props.styles.sidebar.user.avatar.container, onMouseEnter: function () { return setHovered(true); }, onMouseLeave: function () { return setHovered(false); } },
-            props.isMobile && Input,
-            Hover,
+            props.isMobile
+                ? Input
+                : Hover,
             Avatar),
         core_1.jsx(__1.C1, { bold: true, css: props.styles.sidebar.user.name, children: props.user.name }),
         core_1.jsx(__1.C2, { onClick: props.user.onLogout, children: '\u0412\u044B\u0439\u0442\u0438', pt: '.25rem', css: core_1.css({ cursor: 'pointer' }) })));

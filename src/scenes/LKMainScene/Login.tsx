@@ -48,8 +48,10 @@ export default (props) => {
                 onMouseEnter={() => setHovered(true)}
                 onMouseLeave={() => setHovered(false)}
             >
-                {props.isMobile && Input}
-                {Hover}
+                {props.isMobile
+                    ? Input
+                    : Hover
+                }
                 {Avatar}
             </Flexbox>
             <C1
