@@ -12,7 +12,7 @@ exports.default = (function (props) {
             && core_1.jsx("div", { css: props.styles.sidebar.user.avatar.shortname, children: (core_1.jsx("div", { children: props.user.shortname.slice(0, 2) })) });
     var Input = (core_1.jsx("input", { type: 'file', role: 'button', accept: 'image/png, image/jpeg', css: props.styles.sidebar.user.avatar.input, onChange: function (event) {
             event.target.files && props.user.onAvatarChange(event.target.files[0]);
-        } }));
+        }, onClick: function (event) { return event.currentTarget.value = ''; } }));
     var Hover = props.user.onAvatarChange && (core_1.jsx(react_1.Fragment, null,
         Input,
         hovered && (core_1.jsx(__1.Flexbox, { css: props.styles.sidebar.user.avatar.hover, children: core_1.jsx(__1.Icon, { type: 'photo' }) }))));

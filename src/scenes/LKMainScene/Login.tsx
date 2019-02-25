@@ -26,6 +26,7 @@ export default (props) => {
             onChange={(event) => {
                 event.target.files && props.user.onAvatarChange(event.target.files[0]);
             }}
+            onClick={(event) => event.currentTarget.value = ''}
         />
     )
 
