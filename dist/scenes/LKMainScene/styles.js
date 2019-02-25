@@ -14,7 +14,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@emotion/core");
 var hooks_1 = require("../../hooks");
 exports.default = (function () {
-    var _a, _b;
+    var _a;
     var theme = hooks_1.useTheme().theme;
     var typography = hooks_1.useTypography();
     var breakpoints = [414, 768, 1024];
@@ -25,38 +25,42 @@ exports.default = (function () {
         mask: core_1.css({
             background: theme.background.rgba(.9),
             position: 'fixed',
-            zIndex: 1,
+            zIndex: 2,
             top: 0,
             bottom: 0,
             left: 0,
             right: 0
         }),
         main: {
-            container: core_1.css((_a = {
-                    display: 'flex',
-                    flex: 1,
-                    justifyContent: 'center',
-                    boxSizing: 'border-box',
-                    padding: '2.75rem 4.5rem'
-                },
-                _a[mq[1]] = {
-                    padding: '2.5rem',
-                },
-                _a[mq[0]] = {
-                    padding: '1.25rem',
-                },
-                _a)),
-            holder: core_1.css((_b = {
+            container: function (displaySidebar) {
+                var _a;
+                return core_1.css((_a = {
+                        display: 'flex',
+                        flex: 1,
+                        justifyContent: 'center',
+                        boxSizing: 'border-box',
+                        padding: '2.75rem 4.5rem'
+                    },
+                    _a[mq[1]] = {
+                        padding: '2.5rem',
+                    },
+                    _a[mq[0]] = {
+                        padding: '1.25rem',
+                        position: displaySidebar ? 'fixed' : 'relative'
+                    },
+                    _a));
+            },
+            holder: core_1.css((_a = {
                     display: 'flex',
                     flexBasis: 960,
                     maxWidth: '960px',
                     flexDirection: 'column'
                 },
-                _b[mq[1]] = {
+                _a[mq[1]] = {
                     display: 'block',
                     width: '100%'
                 },
-                _b)),
+                _a)),
             menu: core_1.css({
                 display: 'flex',
                 alignItems: 'center',
@@ -73,30 +77,24 @@ exports.default = (function () {
             }),
         },
         sidebar: {
-            container: function (display) {
-                var _a;
-                return core_1.css((_a = {
-                        display: display ? 'flex' : 'none',
-                        position: 'sticky',
-                        flexDirection: 'column',
-                        top: 0,
-                        width: '15rem',
-                        boxSizing: 'border-box',
-                        padding: '2.75rem 0 2.75rem 2.75rem',
-                        maxHeight: 'max-content',
-                        minHeight: '100vh',
-                        justifyContent: 'space-between',
-                        /*
-                        *  Chrome scroll lag repair
-                        */
-                        WebkitBackfaceVisibility: 'hidden',
-                        WebkitTransform: 'translateZ(0)'
-                    },
-                    _a[mq[1]] = {
-                        position: 'absolute',
-                    },
-                    _a));
-            },
+            container: function (display) { return core_1.css({
+                display: display ? 'flex' : 'none',
+                position: 'sticky',
+                flexDirection: 'column',
+                top: 0,
+                width: '15rem',
+                boxSizing: 'border-box',
+                padding: '2.75rem 0 2.75rem 2.75rem',
+                maxHeight: 'max-content',
+                minHeight: '100vh',
+                justifyContent: 'space-between',
+                zIndex: 3,
+                /*
+                *  Chrome scroll lag repair
+                */
+                WebkitBackfaceVisibility: 'hidden',
+                WebkitTransform: 'translateZ(0)',
+            }); },
             background: core_1.css({
                 position: 'fixed',
                 top: 0,
@@ -107,12 +105,12 @@ exports.default = (function () {
                 borderRightStyle: 'solid',
                 borderRightColor: theme.pale.hex,
                 background: 'linear-gradient(270deg, #F2F0F5 0%, #FAF7FC 100%)',
-                zIndex: 2
+                zIndex: 3
             }),
             user: {
                 container: core_1.css({
                     position: 'absolute',
-                    zIndex: 3
+                    zIndex: 4
                 }),
                 avatar: {
                     container: core_1.css({
@@ -157,14 +155,14 @@ exports.default = (function () {
                 })
             },
             content: core_1.css({
-                zIndex: 3,
+                zIndex: 4,
                 marginTop: '11.25rem'
             }),
             logo: core_1.css({
                 paddingTop: '3.5rem',
                 width: '8rem',
                 marginLeft: '.75rem',
-                zIndex: 3
+                zIndex: 4
             }),
         },
     };

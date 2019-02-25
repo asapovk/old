@@ -10,9 +10,9 @@ import Login from './Login';
 export default (props: Types.Props) => {
 
     const styles = createStyles();
-    const { isMobile } = useBrowser();
+    const browser = useBrowser();
 
-    // const isMobile = browser.width <= 768;
+    const isMobile = browser.width <= 768;
 
     if (props.preparing) {
         return (
@@ -40,7 +40,7 @@ export default (props: Types.Props) => {
     const Sidebar = props.components.sidebar && (
         <div css={styles.sidebar.container(!isMobile || (isMobile && props.showSidebar))}>
             <div css={styles.sidebar.background} />
-            <Login {...props} styles={styles}/>
+            <Login {...props} styles={styles} />
             <div css={styles.sidebar.content}>
                 {props.components.sidebar}
             </div>
@@ -51,7 +51,7 @@ export default (props: Types.Props) => {
     )
 
     const Main = (
-        <div css={styles.main.container}>
+        <div css={styles.main.container(isMobile && props.showSidebar)}>
             <div css={styles.main.holder}>
                 {Menu}
                 <div>

@@ -3,7 +3,7 @@ declare const _default: () => {
     container: import("@emotion/utils").SerializedStyles;
     mask: import("@emotion/utils").SerializedStyles;
     main: {
-        container: import("@emotion/utils").SerializedStyles;
+        container: (displaySidebar: any) => import("@emotion/utils").SerializedStyles;
         holder: import("@emotion/utils").SerializedStyles;
         menu: import("@emotion/utils").SerializedStyles;
         back: import("@emotion/utils").SerializedStyles;

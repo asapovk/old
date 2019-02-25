@@ -23,8 +23,8 @@ var core_2 = require("../../core");
 var Login_1 = __importDefault(require("./Login"));
 exports.default = (function (props) {
     var styles = styles_1.default();
-    var isMobile = hooks_1.useBrowser().isMobile;
-    // const isMobile = browser.width <= 768;
+    var browser = hooks_1.useBrowser();
+    var isMobile = browser.width <= 768;
     if (props.preparing) {
         return (core_1.jsx(core_2.Spinner, { spinning: true, center: true }));
     }
@@ -41,7 +41,7 @@ exports.default = (function (props) {
         core_1.jsx(Login_1.default, __assign({}, props, { styles: styles })),
         core_1.jsx("div", { css: styles.sidebar.content }, props.components.sidebar),
         core_1.jsx("div", { css: styles.sidebar.logo }, props.components.logo)));
-    var Main = (core_1.jsx("div", { css: styles.main.container },
+    var Main = (core_1.jsx("div", { css: styles.main.container(isMobile && props.showSidebar) },
         core_1.jsx("div", { css: styles.main.holder },
             Menu,
             core_1.jsx("div", null, props.pending

@@ -22,7 +22,7 @@ export default () => {
         mask: css({
             background: theme.background.rgba(.9),
             position: 'fixed',
-            zIndex: 1,
+            zIndex: 2,
             top: 0,
             bottom: 0,
             left: 0,
@@ -30,7 +30,7 @@ export default () => {
         }),
 
         main: {
-            container: css({
+            container: (displaySidebar) => css({
                 display: 'flex',
                 flex: 1,
                 justifyContent: 'center',
@@ -41,6 +41,7 @@ export default () => {
                 },
                 [mq[0]]: {
                     padding: '1.25rem',
+                    position: displaySidebar ? 'fixed' : 'relative'
                 },
             }),
 
@@ -84,16 +85,13 @@ export default () => {
                 maxHeight: 'max-content',
                 minHeight: '100vh',
                 justifyContent: 'space-between',
+                zIndex: 3,
 
                 /*
                 *  Chrome scroll lag repair   
                 */
                 WebkitBackfaceVisibility: 'hidden',
                 WebkitTransform: 'translateZ(0)',
-
-                [mq[1]]: {
-                    position: 'absolute',
-                },
             }),
 
             background: css({
@@ -106,13 +104,13 @@ export default () => {
                 borderRightStyle: 'solid',
                 borderRightColor: theme.pale.hex,
                 background: 'linear-gradient(270deg, #F2F0F5 0%, #FAF7FC 100%)',
-                zIndex: 2
+                zIndex: 3
             }),
 
             user: {
                 container: css({
                     position: 'absolute',
-                    zIndex: 3
+                    zIndex: 4
                 }),
 
                 avatar: {
@@ -168,7 +166,7 @@ export default () => {
             },
 
             content: css({
-                zIndex: 3,
+                zIndex: 4,
                 marginTop: '11.25rem'
             }),
 
@@ -176,7 +174,7 @@ export default () => {
                 paddingTop: '3.5rem',
                 width: '8rem',
                 marginLeft: '.75rem',
-                zIndex: 3
+                zIndex: 4
             }),
         },
     }
