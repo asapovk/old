@@ -1,10 +1,9 @@
-import React, { CSSProperties, forwardRef, useImperativeHandle } from 'react';
+import React, { CSSProperties } from 'react';
 import ReactDOM from 'react-dom';
 import { Portal } from 'react-portal';
 import { Spinner } from '../../';
 import ModalMask from './ModalMask';
 import ModalView from './ModalView';
-import types from './types';
 
 interface Props {
     onClose?: () => void
@@ -18,6 +17,7 @@ interface Props {
     subtitle?: string
     children?: any
 }
+
 interface Modal {
     visible: boolean
     view: any
@@ -91,12 +91,12 @@ class Modal extends React.Component<Props> {
         }, 50);
     }
 
-    close(onComplete?: () => void) {
+    close(_cb?) {
         this.props.onClose && this.props.onClose()
 
         window.removeEventListener('resize', this.setVetricalCenter);
 
-        function whichTransitionEvent(el: any) {
+        function whichTransitionEvent(el) {
 
             if (!el) return false;
 
@@ -114,20 +114,20 @@ class Modal extends React.Component<Props> {
                 }
             }
         }
-        const transitionEvent = whichTransitionEvent(this.view);
-        if (transitionEvent) {
-            this.view.addEventListener(transitionEvent, e => {
+        const t = whichTransitionEvent(this.view);
+        if (t) {
+            this.view.addEventListener(t, e => {
                 if (e.propertyName == "opacity") {
                     this.setActive(false);
                     this.props.onClose && this.props.onClose();
-                    typeof onComplete === "function" && onComplete();
+                    typeof _cb === "function" && _cb();
                 }
             });
         } else {
             setTimeout(_ => {
                 this.setActive(false);
                 this.props.onClose && this.props.onClose();
-                typeof onComplete === "function" && onComplete();
+                typeof _cb === "function" && _cb();
             }, 200);
         }
 
@@ -151,23 +151,18 @@ class Modal extends React.Component<Props> {
         if (!this.state.active) {
             return null;
         }
-        const loading = this.state.loading || this.props.loading || false;
-
+        const loading = this.state.loading || this.props.loading;
+        let loadingText = "";
+        if (typeof loading === "string") {
+            loadingText = loading;
+        }
         return (
             <Portal>
                 <ModalMask visible={this.state.visible} />
-                {/* <div className={`ui-modal ${this.state.visible && "ui-modal-visible"} ${this.state.hidding && "ui-modal-hidding"}`} ref={ref => this.view = ref}> */}
-                <ModalView
-                    {...this.props}
-                    center={this.state.center}
-                    visible={this.state.visible}
-                    hidding={this.state.hidding}
-                    loading={loading}
-                    modal={this}
-                    wrapperReference={ref => this.modal = ref}
-                />
-                {/* <Spinner center spinning={loading} /> */}
-                {/* </div> */}
+                <div className={`ui-modal ${this.state.visible && "ui-modal-visible"} ${this.state.hidding && "ui-modal-hidding"}`} ref={ref => this.view = ref}>
+                    <ModalView {...this.props} center={this.state.center} wrapperReference={ref => this.modal = ref} />
+                    <Spinner center spinning={loading} />
+                </div>
             </Portal>
         )
     }
