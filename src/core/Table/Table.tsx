@@ -148,22 +148,22 @@ class Table extends React.Component<Props> {
                 {styles => (
                     <div className='ui-table' ref={ref => this.table = ref} style={style}>
                         <div className='ui-table-content'>
-                            {/* {!isData && noDataLabelTSX} */}
+                            {!isData && noDataLabelTSX}
                             {!hideHeaders && <div className='ui-table-content-head-row' children={ColumnsTSX(styles.table.main)} style={actions && { marginRight: '32px' }} />}
-
-                            <div className='ui-table-content-body' style={{
-                                borderColor: styles.table.main.borderColor,
-                                borderRadius: styles.table.main.borderRadius,
-                                background: styles.table.main.backgroundColor,
-                                boxShadow: styles.table.main.boxShadow,
-                            }}>
-                                {SearchBarTSX(styles)}
-                                {addFormTSX}
-                                {RowsTSX}
-                                {(!isData && !search) && <div className='ui-table-content-body-nofound'>Пусто</div>}
-                                {(search && data.length === 0) && <div className='ui-table-content-body-nofound'>Ничего не найдено</div>}
-                            </div>
-
+                            {
+                                isData &&
+                                <div className='ui-table-content-body' style={{
+                                    borderColor: styles.table.main.borderColor,
+                                    borderRadius: styles.table.main.borderRadius,
+                                    background: styles.table.main.backgroundColor,
+                                    boxShadow: styles.table.main.boxShadow,
+                                }}>
+                                    {SearchBarTSX(styles)}
+                                    {addFormTSX}
+                                    {RowsTSX}
+                                    {(search && data.length === 0) && <div className='ui-table-content-body-nofound'>Ничего не найдено</div>}
+                                </div>
+                            }
                         </div>
                         {isData && data && (
                             <TablePagination
