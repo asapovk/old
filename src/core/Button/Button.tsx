@@ -3,7 +3,12 @@ import { jsx } from '@emotion/core'
 import createStyles from './styles';
 import React from 'react';
 import { Spin, Icon } from '../index';
-import { IconTypes } from '../types'
+import { IconTypes } from '../types';
+
+/**
+ * @deprecated не нужон он 
+ */
+type highlightDecoration = 'highlight'
 
 export interface ButtonProps {
     label?: string
@@ -14,7 +19,8 @@ export interface ButtonProps {
     type?: 'submit'
 
     size?: 'small' | 'large'
-    decoration?: 'none' | 'inverse' | 'outline'
+    decoration?: 'none' | 'inverse' | 'outline' | highlightDecoration
+
     color?: 'highlight' | 'red' | 'green' | 'orange' | 'blue' | 'grayscale'
     loading?: boolean
     disabled?: boolean
