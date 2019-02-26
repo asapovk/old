@@ -93,19 +93,18 @@ var Table = /** @class */ (function (_super) {
         var addFormTSX = typeof form != 'undefined' && typeof form.key === 'undefined' && TableForm_1.default(form.render, columns, {});
         return (react_1.default.createElement(__1.Styles, null, function (styles) { return (react_1.default.createElement("div", { className: 'ui-table', ref: function (ref) { return _this.table = ref; }, style: style },
             react_1.default.createElement("div", { className: 'ui-table-content' },
-                !isData && noDataLabelTSX,
                 !hideHeaders && react_1.default.createElement("div", { className: 'ui-table-content-head-row', children: ColumnsTSX(styles.table.main), style: actions && { marginRight: '32px' } }),
-                isData &&
-                    react_1.default.createElement("div", { className: 'ui-table-content-body', style: {
-                            borderColor: styles.table.main.borderColor,
-                            borderRadius: styles.table.main.borderRadius,
-                            background: styles.table.main.backgroundColor,
-                            boxShadow: styles.table.main.boxShadow,
-                        } },
-                        SearchBarTSX(styles),
-                        addFormTSX,
-                        RowsTSX,
-                        (search && data.length === 0) && react_1.default.createElement("div", { className: 'ui-table-content-body-nofound' }, "\u041D\u0438\u0447\u0435\u0433\u043E \u043D\u0435 \u043D\u0430\u0439\u0434\u0435\u043D\u043E"))),
+                react_1.default.createElement("div", { className: 'ui-table-content-body', style: {
+                        borderColor: styles.table.main.borderColor,
+                        borderRadius: styles.table.main.borderRadius,
+                        background: styles.table.main.backgroundColor,
+                        boxShadow: styles.table.main.boxShadow,
+                    } },
+                    SearchBarTSX(styles),
+                    addFormTSX,
+                    RowsTSX,
+                    (!isData && !search) && react_1.default.createElement("div", { className: 'ui-table-content-body-nofound' }, "\u041F\u0443\u0441\u0442\u043E"),
+                    (search && data.length === 0) && react_1.default.createElement("div", { className: 'ui-table-content-body-nofound' }, "\u041D\u0438\u0447\u0435\u0433\u043E \u043D\u0435 \u043D\u0430\u0439\u0434\u0435\u043D\u043E"))),
             isData && data && (react_1.default.createElement(TablePagination_1.default, { pagination: pagination, page: _this.state.page, searchActive: _this.state.searchBar || _this.state.searchValue.length > 0, search: _this.props.search, data: data, onChange: function (page, searchBar) { return _this.setState({ page: page, searchBar: searchBar }); } })))); }));
     };
     Table.defaultProps = {
