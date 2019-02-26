@@ -17,7 +17,7 @@ export default forwardRef((props: Types.DecoratorProps, ref) => {
         Content = (
             <Flexbox alignItems='baseline' justifyContent='space-between'>
                 {Content}
-                <div css={{ marginLeft: '2rem' }}>{props.action}</div>
+                <div css={{ marginLeft: '2rem', cursor: 'pointer' }}>{props.action}</div>
             </Flexbox>
         )
     }

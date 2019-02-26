@@ -23,7 +23,7 @@ exports.default = (function (props) {
     if (!spinning) {
         return children || null;
     }
-    var El = defaultElement ? core_1.jsx(Spin, __assign({}, props)) : core_1.jsx(Logo, null);
+    var El = defaultElement ? core_1.jsx(Spin, __assign({}, props)) : core_1.jsx(Logo, __assign({}, props));
     if (center) {
         return (core_1.jsx("div", { css: styles.centeredContainer, style: style, className: className },
             core_1.jsx("div", { children: El })));
@@ -40,9 +40,9 @@ var Spin = function (props) {
             }) });
     })));
 };
-var Logo = function () {
+var Logo = function (props) {
     var styles = styles_1.default();
-    return (core_1.jsx("div", { css: styles.container },
+    return (core_1.jsx("div", { css: styles.container, className: props.className },
         core_1.jsx("div", { css: styles.triangleContainer },
             core_1.jsx("div", null, Array(3)
                 .fill("")

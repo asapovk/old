@@ -12,7 +12,7 @@ export default (props: Types.ISpinner) => {
         return children || null;
     }
 
-    const El = defaultElement ? <Spin {...props} /> : <Logo />;
+    const El = defaultElement ? <Spin {...props} /> : <Logo {...props} />;
 
     if (center) {
         return (
@@ -44,11 +44,11 @@ const Spin = (props: Types.ISpinner) => {
     );
 }
 
-const Logo = () => {
+const Logo = (props: Types.ISpinner) => {
     const styles = createStyles();
 
     return (
-        <div css={styles.container}>
+        <div css={styles.container} className={props.className}>
             <div css={styles.triangleContainer}>
                 <div>
                     {Array(3)

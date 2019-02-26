@@ -24,7 +24,7 @@ exports.default = react_1.forwardRef(function (props, ref) {
     if (props.action) {
         Content = (core_1.jsx(__1.Flexbox, { alignItems: 'baseline', justifyContent: 'space-between' },
             Content,
-            core_1.jsx("div", { css: { marginLeft: '2rem' } }, props.action)));
+            core_1.jsx("div", { css: { marginLeft: '2rem', cursor: 'pointer' } }, props.action)));
     }
     return (core_1.jsx(__1.Flexbox, __assign({ flexDirection: 'column' }, props),
         Content,
