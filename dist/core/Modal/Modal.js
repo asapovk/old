@@ -30,7 +30,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importDefault(require("react"));
 var react_dom_1 = __importDefault(require("react-dom"));
 var react_portal_1 = require("react-portal");
-var __1 = require("../../");
 var ModalMask_1 = __importDefault(require("./ModalMask"));
 var ModalView_1 = __importDefault(require("./ModalView"));
 var Modal = /** @class */ (function (_super) {
@@ -94,7 +93,7 @@ var Modal = /** @class */ (function (_super) {
             _this.props.didOpen && _this.props.didOpen();
         }, 50);
     };
-    Modal.prototype.close = function (_cb) {
+    Modal.prototype.close = function (onComplete) {
         var _this = this;
         this.props.onClose && this.props.onClose();
         window.removeEventListener('resize', this.setVetricalCenter);
@@ -114,13 +113,13 @@ var Modal = /** @class */ (function (_super) {
                 }
             }
         }
-        var t = whichTransitionEvent(this.view);
-        if (t) {
-            this.view.addEventListener(t, function (e) {
+        var transitionEvent = whichTransitionEvent(this.view);
+        if (transitionEvent) {
+            this.view.addEventListener(transitionEvent, function (e) {
                 if (e.propertyName == "opacity") {
                     _this.setActive(false);
                     _this.props.onClose && _this.props.onClose();
-                    typeof _cb === "function" && _cb();
+                    typeof onComplete === "function" && onComplete();
                 }
             });
         }
@@ -128,7 +127,7 @@ var Modal = /** @class */ (function (_super) {
             setTimeout(function (_) {
                 _this.setActive(false);
                 _this.props.onClose && _this.props.onClose();
-                typeof _cb === "function" && _cb();
+                typeof onComplete === "function" && onComplete();
             }, 200);
         }
         this.setState({
@@ -149,16 +148,10 @@ var Modal = /** @class */ (function (_super) {
         if (!this.state.active) {
             return null;
         }
-        var loading = this.state.loading || this.props.loading;
-        var loadingText = "";
-        if (typeof loading === "string") {
-            loadingText = loading;
-        }
+        var loading = this.state.loading || this.props.loading || false;
         return (react_1.default.createElement(react_portal_1.Portal, null,
             react_1.default.createElement(ModalMask_1.default, { visible: this.state.visible }),
-            react_1.default.createElement("div", { className: "ui-modal " + (this.state.visible && "ui-modal-visible") + " " + (this.state.hidding && "ui-modal-hidding"), ref: function (ref) { return _this.view = ref; } },
-                react_1.default.createElement(ModalView_1.default, __assign({}, this.props, { center: this.state.center, wrapperReference: function (ref) { return _this.modal = ref; } })),
-                react_1.default.createElement(__1.Spinner, { center: true, spinning: loading }))));
+            react_1.default.createElement(ModalView_1.default, __assign({}, this.props, { center: this.state.center, visible: this.state.visible, hidding: this.state.hidding, loading: loading, modal: this, wrapperReference: function (ref) { return _this.modal = ref; } }))));
     };
     return Modal;
 }(react_1.default.Component));
