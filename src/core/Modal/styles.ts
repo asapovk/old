@@ -43,6 +43,7 @@ export default (props: ModalTypes.StyleProps) => {
         header: css({
             marginTop: '-0.5rem',
         }),
+
         cross: css({
             marginTop: '0.25rem',
             marginLeft: '2rem',

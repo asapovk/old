@@ -18,9 +18,9 @@ export default (props: ModalTypes.ModalHeaderProps) => {
 
     return (
         <div css={styles.header}>
-            <Flexbox alignItems='center'>
+            <Flexbox>
                 <Flexbox flex={1} column>
-                    <Typography.D1>{props.title}</Typography.D1>
+                    <Typography.D1 mt={'-0.5rem'}>{props.title}</Typography.D1>
                     <Typography.C1 color="lowlight">{props.subtitle}</Typography.C1>
                 </Flexbox>
                 <Icon
