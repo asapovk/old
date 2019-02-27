@@ -18,7 +18,6 @@ export { Spin as Spin } from './core';
 export { Spinner as Spinner } from './core';
 export { Table as Table } from './core';
 export { SimpleTable as SimpleTable } from './core';
-export { SimpleModal as SimpleModal } from './core';
 export { Tabs as Tabs } from './core';
 export { TextField as TextField } from './core';
 export { Timeline as Timeline } from './core';

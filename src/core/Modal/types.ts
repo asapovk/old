@@ -39,6 +39,7 @@ declare namespace ModalTypes {
         title?: string
         subtitle?: string
         visible: boolean
+        center: boolean
         hideHeader?: boolean
         children?: any
         onClosePressed: () => void

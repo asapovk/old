@@ -8,7 +8,7 @@ import ModalHeader from './ModalHeader';
 export default forwardRef((props: ModalTypes.ModalWindowProps, ref: any) => {
     const styles = createStyles({
         visible: props.visible,
-        center: true,
+        center: props.center,
     })
 
     return (

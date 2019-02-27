@@ -10,33 +10,51 @@ exports.default = (function (props) {
     var visible = props.visible, center = props.center;
     return {
         overlay: core_1.css({
-            visibility: visible ? 'visible' : 'hidden',
             opacity: visible ? 1 : 0,
             zIndex: 500,
             position: 'fixed',
             width: "100%",
             height: "100%",
-            backgroundColor: theme.text.rgba(0.2),
+            top: 0,
+            bottom: 0,
+            left: 0,
+            right: 0,
+            backgroundColor: "rgba(0,0,0,.5)",
             display: center ? "flex" : "block",
             justifyContent: "center",
             alignItems: "center",
             overflowY: 'auto',
+            backdropFilter: "blur(4px)",
+            transition: 'opacity 0.25s',
+            backfaceVisibility: "hidden",
         }),
         window: core_1.css({
-            visibility: visible ? 'visible' : 'hidden',
             opacity: visible ? 1 : 0,
             zIndex: 500,
             backgroundColor: theme.interface.hex,
-            minHeight: '10rem',
+            minHeight: '1rem',
             minWidth: '15rem',
             maxWidth: '40rem',
             padding: '1.25rem',
             margin: '0 auto',
+            borderRadius: center ? theme.radius.window : 0,
+            transition: 'all 0.5s',
+            transform: visible ? 'translateY(0)' : 'translateY(-20px)'
         }),
         header: core_1.css({
             marginTop: '-0.5rem',
         }),
-        title: core_1.css({}),
-        subtitle: core_1.css({}),
+        cross: core_1.css({
+            marginTop: '0.25rem',
+            cursor: 'pointer',
+            transition: 'all 0.25s',
+            transform: "scale(1)",
+            ':hover': {
+                transform: "scale(1.1)"
+            },
+            ':active': {
+                transform: "scale(1)"
+            }
+        })
     };
 });

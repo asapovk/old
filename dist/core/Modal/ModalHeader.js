@@ -29,6 +29,6 @@ exports.default = (function (props) {
             core_1.jsx(__1.Flexbox, { flex: 1, column: true },
                 core_1.jsx(Typography.D1, null, props.title),
                 core_1.jsx(Typography.C1, { color: "lowlight" }, props.subtitle)),
-            core_1.jsx(__2.Icon, { onClick: props.onClosePressed, type: "close", color: "light", size: "2rem" })),
+            core_1.jsx(__2.Icon, { css: styles.cross, onClick: props.onClosePressed, type: "close", color: "light", size: "2rem" })),
         core_1.jsx(Typography.HR, { pt: '0.5rem' })));
 });

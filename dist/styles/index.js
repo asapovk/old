@@ -9,7 +9,6 @@ var white_currant_1 = __importDefault(require("./themes/white-currant"));
 var abr_1 = __importDefault(require("./themes/abr"));
 var gazprom_1 = __importDefault(require("./themes/gazprom"));
 var Finder_1 = __importDefault(require("./jss/Finder"));
-var Modal_1 = __importDefault(require("./jss/Modal"));
 var Select_1 = __importDefault(require("./jss/Select"));
 var Table_1 = __importDefault(require("./jss/Table"));
 var Tabs_1 = __importDefault(require("./jss/Tabs"));
@@ -27,7 +26,6 @@ exports.createStyles = function (themeName) {
     return {
         theme: theme,
         finder: Finder_1.default(theme),
-        modal: Modal_1.default(theme),
         select: Select_1.default(theme),
         table: Table_1.default(theme),
         tabs: Tabs_1.default(theme),

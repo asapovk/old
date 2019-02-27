@@ -96,19 +96,6 @@ export declare const createStyles: (themeName?: string | undefined) => {
             badgeColor: string;
         };
     };
-    modal: {
-        main: {
-            backgroundColor: string;
-        };
-        view: {
-            textColor: string;
-            titleColor: string;
-            subtitleColor: string;
-            borderColor: string;
-            background: string;
-            borderRadius: string;
-        };
-    };
     select: {
         background: string;
         labelColor: string;
@@ -266,19 +253,6 @@ export declare const StylesContext: React.Context<{
             badgeColor: string;
         };
     };
-    modal: {
-        main: {
-            backgroundColor: string;
-        };
-        view: {
-            textColor: string;
-            titleColor: string;
-            subtitleColor: string;
-            borderColor: string;
-            background: string;
-            borderRadius: string;
-        };
-    };
     select: {
         background: string;
         labelColor: string;
@@ -434,19 +408,6 @@ declare const _default: React.ExoticComponent<React.ConsumerProps<{
         };
         nav: {
             badgeColor: string;
-        };
-    };
-    modal: {
-        main: {
-            backgroundColor: string;
-        };
-        view: {
-            textColor: string;
-            titleColor: string;
-            subtitleColor: string;
-            borderColor: string;
-            background: string;
-            borderRadius: string;
         };
     };
     select: {

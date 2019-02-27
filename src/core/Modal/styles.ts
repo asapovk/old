@@ -35,7 +35,7 @@ export default (props: ModalTypes.StyleProps) => {
             maxWidth: '40rem',
             padding: '1.25rem',
             margin: '0 auto',
-            borderRadius: theme.radius.window,
+            borderRadius: center ? theme.radius.window : 0,
             transition: 'all 0.5s',
             transform: visible ? 'translateY(0)' : 'translateY(-20px)'
         }),

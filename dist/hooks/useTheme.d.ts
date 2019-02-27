@@ -16,19 +16,6 @@ declare const _default: () => {
             badgeColor: string;
         };
     };
-    modal: {
-        main: {
-            backgroundColor: string;
-        };
-        view: {
-            textColor: string;
-            titleColor: string;
-            subtitleColor: string;
-            borderColor: string;
-            background: string;
-            borderRadius: string;
-        };
-    };
     select: {
         background: string;
         labelColor: string;

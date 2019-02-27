@@ -1,9 +1,10 @@
 import ReactDOM from 'react-dom';
 import React, { Fragment } from 'react';
 import ModalTypes from './types';
+import ModalPortal from './ModalPortal';
 import ModalOverlay from './ModalOverlay';
 import ModalWindow from './ModalWindow';
-import { Portal } from '../..';
+
 export default class Modal extends React.Component<ModalTypes.Props> {
 
     portalContainer: any;
@@ -72,17 +73,15 @@ export default class Modal extends React.Component<ModalTypes.Props> {
 
     private setVetricalCenter() {
         const overlay = ReactDOM.findDOMNode(this.overlay) as any;
-        const window = ReactDOM.findDOMNode(this.window) as any;
+        const modal = ReactDOM.findDOMNode(this.window) as any;
 
-        if (!overlay || !window) return;
+        if (!overlay || !modal) return;
 
-        let windowHeight = 0;
-
-        windowHeight = window.offsetHeight;
-
+        const modalWidth = modal.offsetWidth;
+        const modalHeight = modal.offsetHeight;
         const overlayHeight = overlay.offsetHeight;
 
-        if (windowHeight > overlayHeight) {
+        if (modalHeight > overlayHeight || modalWidth >= window.innerWidth) {
             if (!this.state.center) return;
             this.setState({
                 center: false
@@ -106,13 +105,13 @@ export default class Modal extends React.Component<ModalTypes.Props> {
         if (!active) {
             return null;
         }
-
-        return ReactDOM.createPortal(
-            (
+        return (
+            <ModalPortal>
                 <ModalOverlay visible={visible} center={this.state.center} ref={ref => this.overlay = ref}>
                     <ModalWindow
                         ref={ref => this.window = ref}
                         visible={visible}
+                        center={this.state.center}
                         title={title}
                         subtitle={subtitle}
                         hideHeader={hideHeader}
@@ -120,8 +119,7 @@ export default class Modal extends React.Component<ModalTypes.Props> {
                         children={customContent !== null ? customContent : this.props.children}
                     />
                 </ModalOverlay>
-            ),
-            document.getElementById('0cd82567-7684-4147-ab02-dd3c56332364') || document.body
-        );
+            </ModalPortal>
+        )
     }
 }

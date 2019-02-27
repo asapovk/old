@@ -3,7 +3,13 @@ declare namespace ModalTypes {
     interface Props {
         title?: string;
         subtitle?: string;
+        /**
+         * @deprecated
+         */
         loading?: boolean;
+        /**
+         * @deprecated
+         */
         center?: boolean;
         style?: CSSProperties;
         children?: any;
@@ -26,6 +32,7 @@ declare namespace ModalTypes {
         title?: string;
         subtitle?: string;
         visible: boolean;
+        center: boolean;
         hideHeader?: boolean;
         children?: any;
         onClosePressed: () => void;

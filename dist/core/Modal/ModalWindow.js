@@ -11,7 +11,7 @@ var ModalHeader_1 = __importDefault(require("./ModalHeader"));
 exports.default = react_1.forwardRef(function (props, ref) {
     var styles = styles_1.default({
         visible: props.visible,
-        center: true,
+        center: props.center,
     });
     return (core_1.jsx(react_1.Fragment, null,
         core_1.jsx("div", { ref: ref, css: styles.window },
