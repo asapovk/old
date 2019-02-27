@@ -6,9 +6,9 @@ import { Spin, Icon } from '../index';
 import { IconTypes } from '../types';
 
 /**
- * @deprecated не нужон он 
+ * @deprecated Для цветов следует использовать свойство color. Decoration управляет вариациями дизайна.
  */
-type highlightDecoration = 'highlight'
+type removed = 'highlight' | 'red' | 'green' | 'orange' | 'blue' | 'grayscale'
 
 export interface ButtonProps {
     label?: string
@@ -19,7 +19,7 @@ export interface ButtonProps {
     type?: 'submit'
 
     size?: 'small' | 'large'
-    decoration?: 'none' | 'inverse' | 'outline' | highlightDecoration
+    decoration?: 'none' | 'inverse' | 'outline' | removed
 
     color?: 'highlight' | 'red' | 'green' | 'orange' | 'blue' | 'grayscale'
     loading?: boolean
