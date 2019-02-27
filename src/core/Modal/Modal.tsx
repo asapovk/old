@@ -3,12 +3,15 @@ import React, { Fragment } from 'react';
 import ModalTypes from './types';
 import ModalOverlay from './ModalOverlay';
 import ModalWindow from './ModalWindow';
+import { Portal } from '../..';
 export default class Modal extends React.Component<ModalTypes.Props> {
 
+    portalContainer: any;
     overlay: any;
     window: any;
 
     state = {
+        active: false,
         visible: false,
         customContent: null,
         center: false,
@@ -19,9 +22,21 @@ export default class Modal extends React.Component<ModalTypes.Props> {
         this.setVetricalCenter = this.setVetricalCenter.bind(this);
     }
 
+    componentDidMount() {
+        window.addEventListener('resize', this.setVetricalCenter);
+    }
+    componentWillUnmount() {
+        window.removeEventListener('resize', this.setVetricalCenter);
+    }
+
+    private setActive(active: boolean) {
+        this.setState({ active });
+    }
+
     private setVisible(visible: boolean) {
         this.setState({ visible });
     }
+
     /**
      * Open
      */
@@ -32,19 +47,27 @@ export default class Modal extends React.Component<ModalTypes.Props> {
 
         this.props.onOpen && this.props.onOpen();
 
+        this.setActive(true);
+
         setTimeout(_ => {
-            this.setVisible(true);
+
             this.setVetricalCenter();
-            window.addEventListener('resize', this.setVetricalCenter);
+            this.setVisible(true);
 
             this.props.didOpen && this.props.didOpen();
         }, 50);
     }
 
-    public close(onClose?: () => void) {
+    public close(didClose?: () => void) {
         this.setVisible(false);
 
-        onClose && onClose();
+        setTimeout(() => {
+            this.setActive(false);
+            this.props.didClose && this.props.didClose();
+            didClose && didClose();
+        }, 500);
+
+        this.props.onClose && this.props.onClose();
     }
 
     private setVetricalCenter() {
@@ -78,10 +101,14 @@ export default class Modal extends React.Component<ModalTypes.Props> {
 
     render() {
         const { title, subtitle, hideHeader } = this.props;
-        const { visible, customContent } = this.state;
+        const { active, visible, customContent } = this.state;
 
-        return (
-            <Fragment>
+        if (!active) {
+            return null;
+        }
+
+        return ReactDOM.createPortal(
+            (
                 <ModalOverlay visible={visible} center={this.state.center} ref={ref => this.overlay = ref}>
                     <ModalWindow
                         ref={ref => this.window = ref}
@@ -93,7 +120,8 @@ export default class Modal extends React.Component<ModalTypes.Props> {
                         children={customContent !== null ? customContent : this.props.children}
                     />
                 </ModalOverlay>
-            </Fragment>
-        )
+            ),
+            document.getElementById('0cd82567-7684-4147-ab02-dd3c56332364') || document.body
+        );
     }
 }

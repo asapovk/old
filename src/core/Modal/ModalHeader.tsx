@@ -23,7 +23,13 @@ export default (props: ModalTypes.ModalHeaderProps) => {
                     <Typography.D1>{props.title}</Typography.D1>
                     <Typography.C1 color="lowlight">{props.subtitle}</Typography.C1>
                 </Flexbox>
-                <Icon onClick={props.onClosePressed} type="close" color="light" size="2rem" />
+                <Icon
+                    css={styles.cross}
+                    onClick={props.onClosePressed}
+                    type="close"
+                    color="light"
+                    size="2rem"
+                />
             </Flexbox>
             <Typography.HR pt={'0.5rem'} />
         </div>
