@@ -1,37 +1,21 @@
-import React, { CSSProperties } from 'react';
-interface Props {
-    onClose?: () => void;
-    didClose?: () => void;
-    onOpen?: () => void;
-    didOpen?: () => void;
-    loading?: boolean;
-    center?: boolean;
-    style?: CSSProperties;
-    title?: string;
-    subtitle?: string;
-    children?: any;
-}
-interface Modal {
-    visible: boolean;
-    view: any;
-    modal: any;
-}
-declare class Modal extends React.Component<Props> {
+import React from 'react';
+import ModalTypes from './types';
+export default class Modal extends React.Component<ModalTypes.Props> {
+    overlay: any;
+    window: any;
     state: {
-        active: boolean;
         visible: boolean;
-        hidding: boolean;
+        customContent: null;
         center: boolean;
-        loading: boolean;
     };
-    constructor(props: any);
-    private setActive;
-    private setBodyScroll;
+    constructor(props: ModalTypes.Props);
+    private setVisible;
+    /**
+     * Open
+     */
+    open(customContent?: React.Component | any): void;
+    close(onClose?: () => void): void;
     private setVetricalCenter;
     updateLayout(): void;
-    open(): void;
-    close(_cb?: any): void;
-    componentWillUnmount(): void;
-    render(): JSX.Element | null;
+    render(): JSX.Element;
 }
-export default Modal;
