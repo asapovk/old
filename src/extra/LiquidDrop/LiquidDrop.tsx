@@ -92,7 +92,7 @@ export default (props: Types.Props) => {
             <D3 css={styles.title}>{count}</D3>
 
             {!count && (
-                <Icon css={styles.icon} type="clock" />
+                <Icon css={styles.icon} type="bell" />
             )}
 
             <div css={styles.contentWrapper}>

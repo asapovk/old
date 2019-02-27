@@ -22,8 +22,8 @@ export default () => {
             userSelect: 'none',
             position: "absolute",
             right: 27,
-            top: 23,
-            height: 20,
+            top: 20,
+            height: 28,
             width: 40,
             textAlign: 'center',
             color: theme.textOnAccent.hex
