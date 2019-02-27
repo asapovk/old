@@ -8,7 +8,6 @@ import abrTheme from './themes/abr'
 import gazpromTheme from './themes/gazprom'
 
 import finderStyles from './jss/Finder'
-import modalStyles from './jss/Modal'
 import selectStyles from './jss/Select'
 import tableStyles from './jss/Table'
 import tabsStyles from './jss/Tabs'
@@ -102,7 +101,6 @@ export const createStyles = (themeName?: string) => {
     return {
         theme: theme,
         finder: finderStyles(theme),
-        modal: modalStyles(theme),
         select: selectStyles(theme),
         table: tableStyles(theme),
         tabs: tabsStyles(theme),

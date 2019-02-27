@@ -5,8 +5,13 @@ declare namespace ModalTypes {
     interface Props {
         title?: string
         subtitle?: string
-
+        /**
+         * @deprecated
+         */
         loading?: boolean
+        /**
+         * @deprecated
+         */
         center?: boolean
         style?: CSSProperties
         children?: any

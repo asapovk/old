@@ -19,7 +19,6 @@ export { Spinner as Spinner } from './Spinner'
 // export { Stories as Stories } from './Stories';
 export { Table as Table } from './Table'
 export { SimpleTable as SimpleTable } from './SimpleTable';
-export { SimpleModal as SimpleModal } from './SimpleModal';
 export { Tabs as Tabs } from './Tabs'
 export { Plastic as Plastic } from './Plastic'
 export { PlasticStack as PlasticStack } from './Plastic';
