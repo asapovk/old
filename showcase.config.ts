@@ -6,6 +6,6 @@ export default {
     plugins: [
         themeChanger,
         caseWrapper,
-        panelPlugin
+        // panelPlugin
     ]
 };
