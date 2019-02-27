@@ -35,7 +35,7 @@ exports.default = (function (props) {
             minHeight: '1rem',
             minWidth: '15rem',
             maxWidth: '40rem',
-            padding: '1.25rem',
+            padding: '2.25rem',
             margin: '0 auto',
             borderRadius: center ? theme.radius.window : 0,
             transition: 'all 0.5s',
