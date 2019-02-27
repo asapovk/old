@@ -27,7 +27,8 @@ declare namespace IconTypes {
         'arrow-left' |
         'user' |
         'equal' |
-        'photo'
+        'photo' |
+        'bell'
 
     interface Props {
         style?: React.CSSProperties
