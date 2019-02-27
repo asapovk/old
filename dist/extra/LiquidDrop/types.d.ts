@@ -8,6 +8,7 @@ declare namespace LiquidDropTypes {
         badge?: string;
         data: Item[];
         onRowClick?: (row: Item, index: number) => void;
+        className?: string;
     }
 }
 export default LiquidDropTypes;
