@@ -50,13 +50,12 @@ export default class Modal extends React.Component<ModalTypes.Props> {
 
         this.setActive(true);
 
-        setTimeout(_ => {
-
+        setTimeout(() => {
             this.setVetricalCenter();
             this.setVisible(true);
 
             this.props.didOpen && this.props.didOpen();
-        }, 50);
+        });
     }
 
     public close(didClose?: () => void) {
