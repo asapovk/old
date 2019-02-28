@@ -4,7 +4,7 @@ import Types from './types';
 
 export interface TableStyles {
     tableContainer: SerializedStyles
-    groupContainer: SerializedStyles
+    groupContainer: ({ hideHeaders }) => SerializedStyles
     groupRowContainer: ({ hideHeaders }) => SerializedStyles
     rowContainer: ({ header, hideHeaders }) => SerializedStyles
     paginationContainer: SerializedStyles
@@ -114,12 +114,16 @@ export default (): TableStyles => {
             display: 'block'
         }),
 
-        groupContainer: css({
+        groupContainer: ({ hideHeaders }) => css({
             borderWidth: '0 0 1px 0',
             borderStyle: theme.borders.table.style,
             borderColor: theme.borders.table.color,
             ":last-of-type": {
                 borderWidth: 0
+            }
+        }, !hideHeaders && {
+            ":first-of-type": {
+                borderWidth: '1px 0',
             }
         }),
 

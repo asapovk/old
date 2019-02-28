@@ -99,14 +99,21 @@ exports.default = (function () {
         }, active && {
             display: 'block'
         }); },
-        groupContainer: core_1.css({
-            borderWidth: '0 0 1px 0',
-            borderStyle: theme.borders.table.style,
-            borderColor: theme.borders.table.color,
-            ":last-of-type": {
-                borderWidth: 0
-            }
-        }),
+        groupContainer: function (_a) {
+            var hideHeaders = _a.hideHeaders;
+            return core_1.css({
+                borderWidth: '0 0 1px 0',
+                borderStyle: theme.borders.table.style,
+                borderColor: theme.borders.table.color,
+                ":last-of-type": {
+                    borderWidth: 0
+                }
+            }, !hideHeaders && {
+                ":first-of-type": {
+                    borderWidth: '1px 0',
+                }
+            });
+        },
         groupRowContainer: function (_a) {
             var hideHeaders = _a.hideHeaders;
             return core_1.css({
