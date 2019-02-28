@@ -1,3 +1,7 @@
+/**
+ * @deprecated Для юнитов используйте props unit
+ */
+declare type units = 'rub' | 'volume' | 'power';
 declare namespace TypographyTypes {
     interface Props extends HeadersProps, TextProps, CoreProps {
         type: string;
@@ -27,7 +31,8 @@ declare namespace TypographyTypes {
         children?: string | number | null;
         className?: string;
         onClick?: (event: any) => void;
-        format?: boolean | 'rub' | 'volume' | 'power';
+        format?: boolean | 'currency' | units;
+        unit?: 'rub' | 'volume' | 'power';
         color?: 'text' | 'highlight' | 'pale' | 'textOnAccent' | 'lowlight' | 'light';
         quotes?: boolean;
         ellipsis?: boolean;

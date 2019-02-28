@@ -50,8 +50,8 @@ var Typography = react_1.forwardRef(function (props, ref) {
             }, (props.underline || props.action) && {
                 lineHeight: typography.fontSize
             }),
-        }, props.format || props.toFixed
-            ? core_1.jsx(Formatter_1.default, { format: props.format, toFixed: props.toFixed, children: data })
+        }, props.format || props.toFixed || props.unit
+            ? core_1.jsx(Formatter_1.default, { format: props.format, unit: props.unit, toFixed: props.toFixed, children: data })
             : data);
 });
 /**

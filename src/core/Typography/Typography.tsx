@@ -68,9 +68,10 @@ const Typography = forwardRef((props: Types.Props, ref) => {
                 }
             ),
         },
-        props.format || props.toFixed
+        props.format || props.toFixed || props.unit
             ? <Formatter
                 format={props.format}
+                unit={props.unit}
                 toFixed={props.toFixed}
                 children={data}
             />

@@ -4,28 +4,30 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@emotion/core");
 var react_1 = require("react");
 exports.default = (function (props) {
-    var number, integer, fraction, unit;
+    var number, integer, fraction, unitSymbol;
     number = getPositions(props.children, props.toFixed);
     if (!number)
         return props.children;
     switch (props.format) {
-        case 'rub':
+        case 'currency':
             number = getPositions(props.children, 2);
             fraction = number.fraction ? number.fraction : '00';
-            unit = '₽';
+            break;
+        default:
+            fraction = number.fraction;
+    }
+    switch (props.unit) {
+        case 'rub':
+            unitSymbol = '₽';
             break;
         case 'volume':
-            fraction = number.fraction;
-            unit = core_1.jsx("span", null,
+            unitSymbol = core_1.jsx("span", null,
                 "\u043C",
                 core_1.jsx("sup", { key: 1 }, "3"));
             break;
         case 'power':
-            fraction = number.fraction;
-            unit = 'кВт⋅ч';
+            unitSymbol = 'кВт⋅ч';
             break;
-        default:
-            fraction = number.fraction;
     }
     integer = number.integer;
     return (core_1.jsx(react_1.Fragment, null,
@@ -33,7 +35,7 @@ exports.default = (function (props) {
         core_1.jsx("span", { css: core_1.css({ fontSize: '0.75em', opacity: .5 }) },
             fraction && ',' + fraction,
             '\u00a0',
-            unit)));
+            unitSymbol)));
 });
 function getPositions(number, fixed) {
     var float;

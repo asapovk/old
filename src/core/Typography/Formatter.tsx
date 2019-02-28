@@ -3,28 +3,31 @@ import { jsx, css } from '@emotion/core';
 import React, { Fragment } from 'react';
 
 export default (props) => {
-    let number, integer, fraction, unit
+    let number, integer, fraction, unitSymbol
 
     number = getPositions(props.children, props.toFixed);
 
     if (!number) return props.children;
 
     switch (props.format) {
-        case 'rub':
+        case 'currency':
             number = getPositions(props.children, 2)
             fraction = number.fraction ? number.fraction : '00';
-            unit = '₽'
-            break;
-        case 'volume':
-            fraction = number.fraction;
-            unit = <span>м<sup key={1}>3</sup></span>
-            break;
-        case 'power':
-            fraction = number.fraction;
-            unit = 'кВт⋅ч'
             break;
         default:
             fraction = number.fraction;
+    }
+
+    switch (props.unit) {
+        case 'rub':
+            unitSymbol = '₽'
+            break;
+        case 'volume':
+            unitSymbol = <span>м<sup key={1}>3</sup></span>
+            break;
+        case 'power':
+            unitSymbol = 'кВт⋅ч'
+            break;
     }
 
     integer = number.integer;
@@ -32,7 +35,7 @@ export default (props) => {
     return (
         <Fragment>
             {integer}
-            {<span css={css({ fontSize: '0.75em', opacity: .5 })}>{fraction && ',' + fraction}{'\u00a0'}{unit}</span>}
+            {<span css={css({ fontSize: '0.75em', opacity: .5 })}>{fraction && ',' + fraction}{'\u00a0'}{unitSymbol}</span>}
         </Fragment>
     )
 }

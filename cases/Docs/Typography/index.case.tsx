@@ -14,12 +14,12 @@ export default class Story extends React.Component {
                     action={<C1 link>Таблицей</C1>}
                     onChange={(value) => console.log(value)}
                 />
-                <D1 format='rub' color='highlight'>1.23</D1>
-                <D1 format='rub' color='highlight'>1.2</D1>
-                <D1 format='rub' color='highlight'>1</D1>
-                <D1 format='volume' color='highlight'>1.239</D1>
-                <D1 format='volume' color='highlight' toFixed={3}>1.2</D1>
-                <D1 format='volume' color='highlight'>1</D1>
+                <D1 format='currency' unit='rub' color='highlight'>1.23</D1>
+                <D1 format='currency' unit='rub' color='highlight'>1.2</D1>
+                <D1 format='currency' color='highlight'>1</D1>
+                <D1 format unit='volume' color='highlight'>1.239</D1>
+                <D1 format unit='volume' color='highlight' toFixed={3}>1.2</D1>
+                <D1 format unit='volume' color='highlight'>1</D1>
             </Flexbox>
         )
     }
