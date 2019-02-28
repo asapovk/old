@@ -13,7 +13,7 @@ export default forwardRef((props: ModalTypes.ModalWindowProps, ref: any) => {
 
     return (
         <Fragment>
-            <div ref={ref} css={styles.window}>
+            <div ref={ref} css={styles.window} style={props.style}>
                 <ModalHeader
                     onClosePressed={props.onClosePressed}
                     title={props.title}

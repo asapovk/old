@@ -98,7 +98,7 @@ export default class Modal extends React.Component<ModalTypes.Props> {
     }
 
     render() {
-        const { title, subtitle, hideHeader } = this.props;
+        const { title, subtitle, hideHeader, style } = this.props;
         const { active, visible, customContent } = this.state;
 
         if (!active) {
@@ -112,6 +112,7 @@ export default class Modal extends React.Component<ModalTypes.Props> {
                         visible={visible}
                         center={this.state.center}
                         title={title}
+                        style={style}
                         subtitle={subtitle}
                         hideHeader={hideHeader}
                         onClosePressed={() => this.close()}

@@ -7,11 +7,11 @@ export default () => {
 
     return (
         <Flexbox justifyContent="flex-start" p={40}>
-            <Modal title="Модальное окно" subtitle={"Нажмите крестик"} ref={modal}>
+            <Modal style={{ width: '40rem' }} title="Модальное окно" subtitle={"Нажмите крестик"} ref={modal}>
                 <Flexbox justifyContent="center">
-                    <div>It real sent your at. Amounted all shy set why followed declared. Repeated of endeavor mr position kindness offering ignorant so up. Simplicity are melancholy preference considered saw companions. Disposal on outweigh do speedily in on. Him ham although thoughts entirely drawings. Acceptance unreserved old admiration projection nay yet him. Lasted am so before on esteem vanity oh.
-
-Perceived end knowledge certainly day sweetness why cordially. Ask quick six seven offer see among. Handsome met debating sir dwelling age material. As style lived he worse dried. Offered related so visitor we private removed. Moderate do subjects to distance. </div>
+                    {/* <div>It real sent your at. Amounted all shy set why followed declared. Repeated of endeavor mr position kindness offering ignorant so up. Simplicity are melancholy preference considered saw companions. Disposal on outweigh do speedily in on. Him ham although thoughts entirely drawings. Acceptance unreserved old admiration projection nay yet him. Lasted am so before on esteem vanity oh. */}
+                    {/*  */}
+                    {/* Perceived end knowledge certainly day sweetness why cordially. Ask quick six seven offer see among. Handsome met debating sir dwelling age material. As style lived he worse dried. Offered related so visitor we private removed. Moderate do subjects to distance. </div> */}
                 </Flexbox>
             </Modal>
             <Modal ref={modal2} hideHeader />

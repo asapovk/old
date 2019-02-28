@@ -1,4 +1,4 @@
-import { CSSProperties } from "@emotion/serialize";
+import { CSSProperties } from "react";
 
 declare namespace ModalTypes {
 
@@ -43,6 +43,7 @@ declare namespace ModalTypes {
         hideHeader?: boolean
         children?: any
         onClosePressed: () => void
+        style?: CSSProperties
     }
 
     interface ModalHeaderProps {
