@@ -25,7 +25,7 @@ const sampleData: any = [
 
 export default class Story extends React.Component {
     state = {
-        data: []
+        data: sampleData
     }
     render() {
         return (

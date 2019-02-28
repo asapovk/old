@@ -95,7 +95,7 @@ export default (props: Types.Props) => {
                 <Icon css={styles.icon} type="bell" />
             )}
 
-            <div css={styles.contentWrapper}>
+            <div css={styles.contentWrapper} style={{ pointerEvents: open ? 'all' : 'none' }}>
                 <ScrollView displayScroll={false}>
                     <div css={styles.content}>
                         {props.data.map((item, index) => (
@@ -104,7 +104,7 @@ export default (props: Types.Props) => {
                                     <span css={styles.dot} />
                                 )}
                                 <C1 bold>{item.title}</C1>
-                                <T2 color={'lowlight'}>{item.message}</T2>
+                                <T2 mt={'0.25rem'} color={'lowlight'}>{item.message}</T2>
                             </div>
                         ))}
                     </div>

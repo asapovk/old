@@ -50,6 +50,7 @@ export default () => {
         }),
         row: (active: boolean) => css({
             cursor: 'pointer',
+            userSelect: 'none',
             border: 0,
             paddingTop: '1.25rem',
             paddingBottom: '1.25rem',
