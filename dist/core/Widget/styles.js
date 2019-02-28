@@ -9,6 +9,7 @@ exports.default = (function (clickable) {
     var theme = useTheme_1.default().theme;
     return {
         container: core_1.css({
+            position: 'relative',
             boxSizing: 'border-box',
             lineHeight: 1,
             padding: '1rem',

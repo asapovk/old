@@ -5,6 +5,7 @@ export default (clickable: boolean) => {
     const theme = useTheme().theme;
     return {
         container: css({
+            position: 'relative',
             boxSizing: 'border-box',
             lineHeight: 1,
             padding: '1rem',
