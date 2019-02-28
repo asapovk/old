@@ -8,9 +8,9 @@ export default () => {
         <Flexbox alignContent="center" justifyContent='center' p={40}>
             <Flexbox column flexBasis='640px'>
                 <Flexbox pb={40}>
-                    <TextField label='Just input' placeholder="Enter something" value={value} onChange={(event) => { console.log('sdfg', event.target.value); setValue(event.target.value) }} />
+                    <TextField label='Just input' placeholder="Enter something" value={value} onChange={(event) => { console.log(event.target.value); setValue(event.target.value) }} />
                 </Flexbox>
-                {/* <Flexbox pb={40} flexBasis='180px'>
+                <Flexbox pb={40} flexBasis='180px'>
                     <TextField multiline={true} label='Textarea' placeholder="You can place a lot of text here" />
                 </Flexbox>
                 <hr style={{ width: '100%', border: '1px solid', marginBottom: '40px' }} />
@@ -30,7 +30,7 @@ export default () => {
                     <TextField type='number' label='Number' placeholder="Write some numbers" />
                 </Flexbox>
                 <Flexbox pb={40}>
-                    <TextField type='tel' mask="+7\(999)-999-99-99" label='Phone' placeholder="Write your phone here" />
+                    <TextField type='tel' mask="+7\(999)999-99-99" label='Phone' placeholder="Write your phone here" onChange={(event) => { console.log(event.target.value); setValue(event.target.value) }} />
                 </Flexbox>
                 <Flexbox pb={40}>
                     <TextField multiline={true} singlerow={true} label='Singlerow textarea' placeholder="This is for long string wrap" />
@@ -50,7 +50,7 @@ export default () => {
                 </Flexbox>
                 <Flexbox pb={40}>
                     <TextField size='large' label='Large field' placeholder="Really big" />
-                </Flexbox> */}
+                </Flexbox>
             </Flexbox>
         </Flexbox>
 
