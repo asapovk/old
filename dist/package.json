@@ -45,7 +45,6 @@
     "chart.js": "^2.7.3",
     "emotion-theming": "^10.0.7",
     "react-chartjs-2": "^2.7.4",
-    "react-input-mask": "^2.0.4",
     "react-portal": "^4.2.0"
   }
 }
