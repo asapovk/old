@@ -24,6 +24,8 @@ exports.default = (function (props) {
             fraction = number.fraction;
             unit = 'кВт⋅ч';
             break;
+        default:
+            fraction = number.fraction;
     }
     integer = number.integer;
     return (core_1.jsx(react_1.Fragment, null,
