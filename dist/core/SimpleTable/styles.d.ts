@@ -2,7 +2,9 @@ import { SerializedStyles } from '@emotion/core';
 import Types from './types';
 export interface TableStyles {
     tableContainer: SerializedStyles;
-    groupContainer: SerializedStyles;
+    groupContainer: ({ hideHeaders }: {
+        hideHeaders: any;
+    }) => SerializedStyles;
     groupRowContainer: ({ hideHeaders }: {
         hideHeaders: any;
     }) => SerializedStyles;

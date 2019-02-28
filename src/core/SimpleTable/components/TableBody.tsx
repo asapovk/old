@@ -33,7 +33,7 @@ export default (props: TableBodyProps) => {
         return (
             <Fragment>
                 {groups.map((group, index) => (
-                    <div key={`group-${index}`} id={`group-${index}`} css={styles.groupContainer}>
+                    <div key={`group-${index}`} id={`group-${index}`} css={styles.groupContainer({ hideHeaders })}>
                         <GroupHeaderRow
                             columns={cols}
                             title={group.title}
