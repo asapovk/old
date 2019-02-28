@@ -63,6 +63,9 @@ export default () => {
             transformOrigin: '0 0',
             opacity: active ? 1 : 0,
             visibility: active ? 'visible' : 'hidden',
+            ':hover': {
+                background: `linear-gradient(90deg, ${theme.text.rgba(0)} 10%, ${theme.text.rgba(0.02)})`
+            }
         })
     }
 }
