@@ -31,6 +31,9 @@ export default () => {
                     <TextField type='number' label='Number' placeholder="Write some numbers" />
                 </Flexbox>
                 <Flexbox pb={40}>
+                    <TextField type='tel' mask="+7\(999)-999-99-99" label='Phone' placeholder="Write your phone here" />
+                </Flexbox>
+                <Flexbox pb={40}>
                     <TextField multiline={true} singlerow={true} label='Singlerow textarea' placeholder="This is for long string wrap" />
                 </Flexbox>
                 <hr style={{ width: '100%', border: '1px solid', marginBottom: '40px' }} />

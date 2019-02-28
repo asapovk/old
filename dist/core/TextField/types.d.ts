@@ -24,8 +24,9 @@ declare namespace TextFieldTypes {
         defaultValue?: string;
         value?: string;
         placeholder?: string;
+        mask?: string;
     }
-    type Type = 'password' | 'number';
+    type Type = 'color' | 'email' | 'hidden' | 'image' | 'month' | 'number' | 'password' | 'radio' | 'range' | 'reset' | 'search' | 'submit' | 'tel' | 'text' | 'time' | 'url' | 'week';
     interface IconProps {
         type?: IconTypes.Type;
         position: 'left' | 'right';

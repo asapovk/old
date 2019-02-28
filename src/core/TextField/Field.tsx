@@ -1,7 +1,8 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
 import { forwardRef } from 'react';
-import Types from './types'
+import Types from './types';
+import InputMask from 'react-input-mask';
 
 export default forwardRef((props: Types.FieldProps, ref) => {
 
@@ -15,29 +16,48 @@ export default forwardRef((props: Types.FieldProps, ref) => {
         }
     }
 
-    return jsx(
-        props.multiline ? 'textarea' : 'input',
-        {
-            onFocus: props.onFocus,
-            onBlur: props.onBlur,
-            defaultValue: props.defaultValue,
-            value: props.value,
-            onChange: onChange,
-            onKeyPress: onKeyPress,
-            disabled: props.disabled,
-            placeholder: props.placeholder,
-            css: props.styles.field,
-            ref: ref,
-            type: props.type,
-            ...props.multiline
-                ? props.singlerow && {
+    if (props.multiline) {
+        return jsx(
+            'textarea',
+            {
+                onFocus: props.onFocus,
+                onBlur: props.onBlur,
+                defaultValue: props.defaultValue,
+                value: props.value,
+                onChange: onChange,
+                onKeyPress: onKeyPress,
+                disabled: props.disabled,
+                placeholder: props.placeholder,
+                css: props.styles.field,
+                ref: ref,
+                type: props.type,
+                ...props.singlerow && {
                     onKeyDown: (event: React.KeyboardEvent<HTMLInputElement>) => {
                         if (event.keyCode === 13) {
                             event.preventDefault();
                         }
                     }
                 }
-                : { type: props.type }
-        }
+            }
+        )
+    }
+
+    return (
+        <InputMask mask={props.mask} value={props.value} onChange={onChange} disabled={props.disabled}>
+            {(inputProps) => jsx(
+                'input',
+                {
+                    ...inputProps,
+                    onFocus: props.onFocus,
+                    onBlur: props.onBlur,
+                    defaultValue: props.defaultValue,
+                    onKeyPress: onKeyPress,
+                    placeholder: props.placeholder,
+                    css: props.styles.field,
+                    ref: ref,
+                    type: props.type,
+                }
+            )}
+        </InputMask>
     )
 })

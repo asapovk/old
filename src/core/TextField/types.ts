@@ -31,9 +31,27 @@ declare namespace TextFieldTypes {
         defaultValue?: string
         value?: string
         placeholder?: string
+        mask?: string
     }
 
-    export type Type = 'password' | 'number';
+    export type Type =
+        'color' |
+        'email' |
+        'hidden' |
+        'image' |
+        'month' |
+        'number' |
+        'password' |
+        'radio' |
+        'range' |
+        'reset' |
+        'search' |
+        'submit' |
+        'tel' |
+        'text' |
+        'time' |
+        'url' |
+        'week';
 
     export interface IconProps {
         type?: IconTypes.Type,
