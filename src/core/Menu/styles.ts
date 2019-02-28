@@ -34,7 +34,6 @@ export default (forElka?: boolean) => {
             }),
             toolbar: css({
                 marginLeft: '1.5rem',
-                ...typography.display[2],
                 color: theme.highlight.rgb,
                 '> *': {
                     marginLeft: '1rem'

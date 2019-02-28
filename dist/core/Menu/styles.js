@@ -40,9 +40,13 @@ exports.default = (function (forElka) {
                 flexShrink: 0
             }),
             title: core_1.css(__assign({}, typography.display[2])),
-            toolbar: core_1.css(__assign({ marginLeft: '1.5rem' }, typography.display[2], { color: theme.highlight.rgb, '> *': {
+            toolbar: core_1.css({
+                marginLeft: '1.5rem',
+                color: theme.highlight.rgb,
+                '> *': {
                     marginLeft: '1rem'
-                } }))
+                }
+            })
         },
         navbar: {
             holder: core_1.css({
