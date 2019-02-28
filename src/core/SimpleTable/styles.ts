@@ -51,15 +51,15 @@ export default (): TableStyles => {
             flexDirection: 'row',
             alignItems: 'stretch',
             backgroundColor: theme.background.hex,
-            ":first-child": {
-                borderWidth: '0 !important'
-            }
         }, header && {
             backgroundColor: 'transparent',
             color: '#908E91',
             fontWeight: 600,
             fontSize: '0.875rem',
             alignItems: 'center',
+            // borderWidth: '0 0 1px 0',
+            // borderStyle: theme.borders.table.style,
+            // borderColor: theme.borders.table.color,
         }, last && {
             borderBottom: 0
         }),
@@ -114,18 +114,19 @@ export default (): TableStyles => {
             display: 'block'
         }),
 
-        groupContainer: ({ hideHeaders }) => css({
-            borderWidth: '0 0 1px 0',
-            borderStyle: theme.borders.table.style,
-            borderColor: theme.borders.table.color,
-            ":last-of-type": {
-                borderWidth: 0
-            }
-        }, !hideHeaders && {
-            ":first-of-type": {
-                borderWidth: '1px 0',
-            }
-        }),
+        groupContainer: ({ hideHeaders }) => {
+            console.log(hideHeaders);
+
+            return css({
+                borderWidth: '1px 0 0 0',
+                borderStyle: theme.borders.table.style,
+                borderColor: theme.borders.table.color,
+            }, hideHeaders && {
+                ":first-of-type": {
+                    borderWidth: 0
+                }
+            })
+        },
 
         groupRowContainer: ({ hideHeaders }) => css({
             position: 'relative',

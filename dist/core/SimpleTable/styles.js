@@ -51,9 +51,6 @@ exports.default = (function () {
                 flexDirection: 'row',
                 alignItems: 'stretch',
                 backgroundColor: theme.background.hex,
-                ":first-child": {
-                    borderWidth: '0 !important'
-                }
             }, header && {
                 backgroundColor: 'transparent',
                 color: '#908E91',
@@ -101,16 +98,14 @@ exports.default = (function () {
         }); },
         groupContainer: function (_a) {
             var hideHeaders = _a.hideHeaders;
+            console.log(hideHeaders);
             return core_1.css({
-                borderWidth: '0 0 1px 0',
+                borderWidth: '1px 0 0 0',
                 borderStyle: theme.borders.table.style,
                 borderColor: theme.borders.table.color,
-                ":last-of-type": {
-                    borderWidth: 0
-                }
-            }, !hideHeaders && {
+            }, hideHeaders && {
                 ":first-of-type": {
-                    borderWidth: '1px 0',
+                    borderWidth: 0
                 }
             });
         },
