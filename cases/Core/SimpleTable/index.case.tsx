@@ -4,10 +4,10 @@ import { SimpleTableTypes } from '../../../src/core/types';
 
 const initialState = {
     data: [
-        { "id": 1, "name": "Taylor Parisian", "age": 19, "passport": "13ad98544bdbe6a0", "uuid": "184eaebf1782c069", "uuidv2": "a2e3a86cd5a19a85", "groupId": 2 },
-        { "id": 2, "name": "Terence Paucek", "age": 16, "passport": "b81c6a2243677fdc", "uuid": "5f5ad1aa0f6f1dd0", "uuidv2": "5fbd003023cdf4dd", "groupId": 2 },
-        { "id": 3, "name": "Ella Blanda", "age": 27, "passport": "6ea471d330929cfb", "uuid": "166e65e27b6b1fa3", "uuidv2": "94ce01198be7e0d3", "groupId": 0 },
-        { "id": 4, "name": "Melody Ryan", "age": 46, "passport": "090616a5981bf3b9", "uuid": "ff43d199f8b173d3", "uuidv2": "2785b52f96c9169b", "groupId": 1 }
+        { "id": 1, "groupId": 0, "name": "Taylor Parisian", "age": 19, "passport": "13ad98544bdbe6a0", "uuid": "184eaebf1782c069", "uuidv2": "a2e3a86cd5a19a85" },
+        { "id": 2, "groupId": 1, "name": "Terence Paucek", "age": 16, "passport": "b81c6a2243677fdc", "uuid": "5f5ad1aa0f6f1dd0", "uuidv2": "5fbd003023cdf4dd" },
+        { "id": 3, "groupId": 2, "name": "Ella Blanda", "age": 27, "passport": "6ea471d330929cfb", "uuid": "166e65e27b6b1fa3", "uuidv2": "94ce01198be7e0d3" },
+        { "id": 4, "groupId": 3, "name": "Melody Ryan", "age": 46, "passport": "090616a5981bf3b9", "uuid": "ff43d199f8b173d3", "uuidv2": "2785b52f96c9169b" }
     ]
 }
 const reducer = (state, action) => {
@@ -105,8 +105,8 @@ const Table1 = () => {
         <Flexbox pr={35} pl={50} pt={0} column flex={1}>
             <SimpleTable
                 data={state.data}
-                // groupKey='groupId'
-                // groups={groups}
+                groupKey='groupId'
+                groups={groups}
                 // pagination={{
                 //     pageSize: 5,
                 //     pageNeighbours: 1
@@ -133,8 +133,8 @@ const expandForm = {
 }
 
 const dt = [
-    { "id": 1, "name": "Taylor Parisian", "age": 19, "passport": "13ad98544bdbe6a0", "uuid": "184eaebf1782c069", "uuidv2": "a2e3a86cd5a19a85", "groupId": 2 },
-    { "id": 2, "name": "Terence Paucek", "age": 16, "passport": "b81c6a2243677fdc", "uuid": "5f5ad1aa0f6f1dd0", "uuidv2": "5fbd003023cdf4dd", "groupId": 2 },
-    { "id": 3, "name": "Ella Blanda", "age": 27, "passport": "6ea471d330929cfb", "uuid": "166e65e27b6b1fa3", "uuidv2": "94ce01198be7e0d3", "groupId": 0 },
-    { "id": 4, "name": "Melody Ryan", "age": 46, "passport": "090616a5981bf3b9", "uuid": "ff43d199f8b173d3", "uuidv2": "2785b52f96c9169b", "groupId": 1 }
+    { "id": 1, "groupId": 0, "name": "Taylor Parisian", "age": 19, "passport": "13ad98544bdbe6a0", "uuid": "184eaebf1782c069", "uuidv2": "a2e3a86cd5a19a85" },
+    { "id": 2, "groupId": 1, "name": "Terence Paucek", "age": 16, "passport": "b81c6a2243677fdc", "uuid": "5f5ad1aa0f6f1dd0", "uuidv2": "5fbd003023cdf4dd" },
+    { "id": 3, "groupId": 2, "name": "Ella Blanda", "age": 27, "passport": "6ea471d330929cfb", "uuid": "166e65e27b6b1fa3", "uuidv2": "94ce01198be7e0d3" },
+    { "id": 4, "groupId": 3, "name": "Melody Ryan", "age": 46, "passport": "090616a5981bf3b9", "uuid": "ff43d199f8b173d3", "uuidv2": "2785b52f96c9169b" }
 ]
