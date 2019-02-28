@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { jsx } from '@emotion/core';
+import { jsx, css } from '@emotion/core';
 import { Fragment } from 'react';
 import Types from '../types';
 import { TableStyles } from '../styles';
@@ -33,7 +33,7 @@ export default (props: TableBodyProps) => {
         return (
             <Fragment>
                 {groups.map((group, index) => (
-                    <div key={`group-${index}`} id={`group-${index}`}>
+                    <div key={`group-${index}`} id={`group-${index}`} css={styles.groupContainer}>
                         <GroupHeaderRow
                             columns={cols}
                             title={group.title}

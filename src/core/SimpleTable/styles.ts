@@ -4,6 +4,7 @@ import Types from './types';
 
 export interface TableStyles {
     tableContainer: SerializedStyles
+    groupContainer: SerializedStyles
     groupRowContainer: ({ hideHeaders }) => SerializedStyles
     rowContainer: ({ header, hideHeaders }) => SerializedStyles
     paginationContainer: SerializedStyles
@@ -50,6 +51,9 @@ export default (): TableStyles => {
             flexDirection: 'row',
             alignItems: 'stretch',
             backgroundColor: theme.background.hex,
+            ":first-child": {
+                borderWidth: '0 !important'
+            }
         }, header && {
             backgroundColor: 'transparent',
             color: '#908E91',
@@ -110,14 +114,24 @@ export default (): TableStyles => {
             display: 'block'
         }),
 
+        groupContainer: css({
+            borderWidth: '0 0 1px 0',
+            borderStyle: theme.borders.table.style,
+            borderColor: theme.borders.table.color,
+            ":last-of-type": {
+                borderWidth: 0
+            }
+        }),
+
         groupRowContainer: ({ hideHeaders }) => css({
             position: 'relative',
             backgroundColor: theme.background2.hex,
-            borderWidth: '1px 0 0 0',
-            borderStyle: theme.borders.table.style,
-            borderColor: theme.borders.table.color,
-        }, hideHeaders && {
-            borderWidth: 0
+            fontSize: '0.875rem',
+            color: theme.lowlight.hex,
+            lineHeight: '1rem',
+            // borderWidth: '1px 0 0 0',
+            // borderStyle: theme.borders.table.style,
+            // borderColor: theme.borders.table.color,
         }),
 
         groupTitle: css({

@@ -17,7 +17,7 @@ exports.default = (function (props) {
         return col;
     });
     if (groupKey && (Array.isArray(groups) && groups.length > 0)) {
-        return (core_1.jsx(react_1.Fragment, null, groups.map(function (group, index) { return (core_1.jsx("div", { key: "group-" + index, id: "group-" + index },
+        return (core_1.jsx(react_1.Fragment, null, groups.map(function (group, index) { return (core_1.jsx("div", { key: "group-" + index, id: "group-" + index, css: styles.groupContainer },
             core_1.jsx(GroupHeaderRow_1.default, { columns: cols, title: group.title, styles: styles, expandForm: expandForm, hideHeaders: hideHeaders }),
             core_1.jsx(DataRows_1.default, { data: data.filter(function (i) { return i[groupKey] === group.value; }), columns: cols, styles: styles, expandForm: expandForm, hideHeaders: hideHeaders, onRowClick: onRowClick, currentPage: currentPage }))); })));
     }
