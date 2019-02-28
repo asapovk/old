@@ -37,13 +37,16 @@ export default (props: ModalTypes.StyleProps) => {
             margin: '0 auto',
             borderRadius: center ? theme.radius.window : 0,
             transition: 'all 0.5s',
-            transform: visible ? 'translateY(0)' : 'translateY(-20px)'
+            transform: visible ? 'translateY(0)' : 'translateY(-20px)',
+            boxSizing: 'border-box'
         }),
         header: css({
             marginTop: '-0.5rem',
         }),
+
         cross: css({
             marginTop: '0.25rem',
+            marginLeft: '2rem',
             cursor: 'pointer',
             transition: 'all 0.25s',
             transform: "scale(1)",

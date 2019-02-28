@@ -30,10 +30,23 @@ class ThemeSwitch extends React.Component {
         this.context.changeTheme(theme)
     }
 
-
     render() {
+
+        const selectStyle: any = {
+            background: "#fff",
+            border: "1px solid #eee",
+            borderRadius: "4px",
+            appearance: "none",
+            "-webkit-appearance": "none",
+            padding: 10,
+            fontSize: 12,
+            textTransform: "uppercase",
+            fontWeight: 600,
+            outline: "none",
+        }
         return (
             <select
+                style={selectStyle}
                 onChange={(event) => { this.changeTheme(event.target.value) }}
                 value={this.state.theme}
             >

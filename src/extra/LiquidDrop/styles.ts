@@ -10,9 +10,20 @@ export default () => {
             pointerEvents: 'none',
             userSelect: 'none',
             position: "absolute",
-            right: 39,
-            top: 16,
-            height: 40,
+            right: 27,
+            top: 21,
+            height: 20,
+            width: 40,
+            textAlign: 'center',
+            color: theme.textOnAccent.hex
+        }),
+        icon: css({
+            pointerEvents: 'none',
+            userSelect: 'none',
+            position: "absolute",
+            right: 27,
+            top: 20,
+            height: 28,
             width: 40,
             textAlign: 'center',
             color: theme.textOnAccent.hex
@@ -22,7 +33,7 @@ export default () => {
             height: 318,
             width: 320,
             top: 67,
-            right: 29,
+            right: 15,
             borderRadius: 5,
             overflow: 'hidden'
         }),
@@ -39,6 +50,7 @@ export default () => {
         }),
         row: (active: boolean) => css({
             cursor: 'pointer',
+            userSelect: 'none',
             border: 0,
             paddingTop: '1.25rem',
             paddingBottom: '1.25rem',

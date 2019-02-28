@@ -9,9 +9,20 @@ exports.default = (function () {
             pointerEvents: 'none',
             userSelect: 'none',
             position: "absolute",
-            right: 39,
-            top: 16,
-            height: 40,
+            right: 27,
+            top: 21,
+            height: 20,
+            width: 40,
+            textAlign: 'center',
+            color: theme.textOnAccent.hex
+        }),
+        icon: core_1.css({
+            pointerEvents: 'none',
+            userSelect: 'none',
+            position: "absolute",
+            right: 27,
+            top: 20,
+            height: 28,
             width: 40,
             textAlign: 'center',
             color: theme.textOnAccent.hex
@@ -21,7 +32,7 @@ exports.default = (function () {
             height: 318,
             width: 320,
             top: 67,
-            right: 29,
+            right: 15,
             borderRadius: 5,
             overflow: 'hidden'
         }),
@@ -38,6 +49,7 @@ exports.default = (function () {
         }),
         row: function (active) { return core_1.css({
             cursor: 'pointer',
+            userSelect: 'none',
             border: 0,
             paddingTop: '1.25rem',
             paddingBottom: '1.25rem',
