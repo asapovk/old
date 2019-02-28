@@ -7,7 +7,7 @@ var core_1 = require("@emotion/core");
 var useTheme_1 = __importDefault(require("../../hooks/useTheme"));
 exports.default = (function (props) {
     var theme = useTheme_1.default().theme;
-    var visible = props.visible, center = props.center;
+    var visible = props.visible, center = props.center, fullSize = props.fullSize;
     return {
         overlay: core_1.css({
             opacity: visible ? 1 : 0,
@@ -41,6 +41,8 @@ exports.default = (function (props) {
             transition: 'all 0.5s',
             transform: visible ? 'translateY(0)' : 'translateY(-20px)',
             boxSizing: 'border-box'
+        }, fullSize && {
+            width: '40rem'
         }),
         header: core_1.css({
             marginTop: '-0.5rem',

@@ -100,14 +100,14 @@ var Modal = /** @class */ (function (_super) {
     };
     Modal.prototype.render = function () {
         var _this = this;
-        var _a = this.props, title = _a.title, subtitle = _a.subtitle, hideHeader = _a.hideHeader, style = _a.style;
+        var _a = this.props, title = _a.title, subtitle = _a.subtitle, hideHeader = _a.hideHeader, fullSize = _a.fullSize;
         var _b = this.state, active = _b.active, visible = _b.visible, customContent = _b.customContent;
         if (!active) {
             return null;
         }
         return (react_1.default.createElement(ModalPortal_1.default, null,
-            react_1.default.createElement(ModalOverlay_1.default, { visible: visible, center: this.state.center, ref: function (ref) { return _this.overlay = ref; } },
-                react_1.default.createElement(ModalWindow_1.default, { ref: function (ref) { return _this.window = ref; }, visible: visible, center: this.state.center, title: title, style: style, subtitle: subtitle, hideHeader: hideHeader, onClosePressed: function () { return _this.close(); }, children: customContent !== null ? customContent : this.props.children }))));
+            react_1.default.createElement(ModalOverlay_1.default, { visible: visible, center: this.state.center, fullSize: fullSize, ref: function (ref) { return _this.overlay = ref; } },
+                react_1.default.createElement(ModalWindow_1.default, { ref: function (ref) { return _this.window = ref; }, visible: visible, center: this.state.center, title: title, fullSize: fullSize, subtitle: subtitle, hideHeader: hideHeader, onClosePressed: function () { return _this.close(); }, children: customContent !== null ? customContent : this.props.children }))));
     };
     return Modal;
 }(react_1.default.Component));

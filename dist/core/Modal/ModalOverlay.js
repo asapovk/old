@@ -11,6 +11,7 @@ exports.default = react_1.forwardRef(function (props, ref) {
     var styles = styles_1.default({
         visible: props.visible,
         center: props.center,
+        fullSize: props.fullSize
     });
     return (core_1.jsx("div", { ref: ref, css: styles.overlay, children: props.children }));
 });

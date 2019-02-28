@@ -8,6 +8,7 @@ export default forwardRef((props: ModalTypes.ModalOverlayProps, ref: any) => {
     const styles = createStyles({
         visible: props.visible,
         center: props.center,
+        fullSize: props.fullSize
     })
 
     return (

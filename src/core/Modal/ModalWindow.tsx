@@ -9,11 +9,12 @@ export default forwardRef((props: ModalTypes.ModalWindowProps, ref: any) => {
     const styles = createStyles({
         visible: props.visible,
         center: props.center,
-    })
+        fullSize: props.fullSize
+    });
 
     return (
         <Fragment>
-            <div ref={ref} css={styles.window} style={props.style}>
+            <div ref={ref} css={styles.window}>
                 <ModalHeader
                     onClosePressed={props.onClosePressed}
                     title={props.title}

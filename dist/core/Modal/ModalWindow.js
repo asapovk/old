@@ -12,9 +12,10 @@ exports.default = react_1.forwardRef(function (props, ref) {
     var styles = styles_1.default({
         visible: props.visible,
         center: props.center,
+        fullSize: props.fullSize
     });
     return (core_1.jsx(react_1.Fragment, null,
-        core_1.jsx("div", { ref: ref, css: styles.window, style: props.style },
+        core_1.jsx("div", { ref: ref, css: styles.window },
             core_1.jsx(ModalHeader_1.default, { onClosePressed: props.onClosePressed, title: props.title, subtitle: props.subtitle, hideHeader: props.hideHeader }),
             props.children)));
 });

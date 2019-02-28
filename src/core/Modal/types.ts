@@ -13,6 +13,7 @@ declare namespace ModalTypes {
          * @deprecated
          */
         center?: boolean
+        fullSize?: boolean
         style?: CSSProperties
         children?: any
 
@@ -27,11 +28,13 @@ declare namespace ModalTypes {
     interface StyleProps {
         visible: boolean
         center: boolean
+        fullSize?: boolean
     }
 
     interface ModalOverlayProps {
         visible: boolean
         center: boolean
+        fullSize?: boolean
         children?: any
     }
 
@@ -40,10 +43,10 @@ declare namespace ModalTypes {
         subtitle?: string
         visible: boolean
         center: boolean
+        fullSize?: boolean
         hideHeader?: boolean
         children?: any
         onClosePressed: () => void
-        style?: CSSProperties
     }
 
     interface ModalHeaderProps {

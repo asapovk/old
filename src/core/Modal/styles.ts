@@ -4,7 +4,7 @@ import ModalTypes from './types';
 
 export default (props: ModalTypes.StyleProps) => {
     const theme = useTheme().theme;
-    const { visible, center } = props;
+    const { visible, center, fullSize } = props;
 
     return {
         overlay: css({
@@ -39,6 +39,8 @@ export default (props: ModalTypes.StyleProps) => {
             transition: 'all 0.5s',
             transform: visible ? 'translateY(0)' : 'translateY(-20px)',
             boxSizing: 'border-box'
+        }, fullSize && {
+            width: '40rem'
         }),
         header: css({
             marginTop: '-0.5rem',

@@ -98,7 +98,7 @@ export default class Modal extends React.Component<ModalTypes.Props> {
     }
 
     render() {
-        const { title, subtitle, hideHeader, style } = this.props;
+        const { title, subtitle, hideHeader, fullSize } = this.props;
         const { active, visible, customContent } = this.state;
 
         if (!active) {
@@ -106,13 +106,13 @@ export default class Modal extends React.Component<ModalTypes.Props> {
         }
         return (
             <ModalPortal>
-                <ModalOverlay visible={visible} center={this.state.center} ref={ref => this.overlay = ref}>
+                <ModalOverlay visible={visible} center={this.state.center} fullSize={fullSize} ref={ref => this.overlay = ref}>
                     <ModalWindow
                         ref={ref => this.window = ref}
                         visible={visible}
                         center={this.state.center}
                         title={title}
-                        style={style}
+                        fullSize={fullSize}
                         subtitle={subtitle}
                         hideHeader={hideHeader}
                         onClosePressed={() => this.close()}
