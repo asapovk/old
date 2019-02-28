@@ -4,14 +4,13 @@ import '../../../src/styles/scss/main.scss';
 
 export default () => {
     const [value, setValue] = useState('');
-
     return (
         <Flexbox alignContent="center" justifyContent='center' p={40}>
             <Flexbox column flexBasis='640px'>
                 <Flexbox pb={40}>
-                    <TextField label='Just input' placeholder="Enter something" value={value} onEnter={() => console.log(1)} onChange={(event) => setValue(event.target.value)} />
+                    <TextField label='Just input' placeholder="Enter something" value={value} onChange={(event) => { console.log('sdfg', event.target.value); setValue(event.target.value) }} />
                 </Flexbox>
-                <Flexbox pb={40} flexBasis='180px'>
+                {/* <Flexbox pb={40} flexBasis='180px'>
                     <TextField multiline={true} label='Textarea' placeholder="You can place a lot of text here" />
                 </Flexbox>
                 <hr style={{ width: '100%', border: '1px solid', marginBottom: '40px' }} />
@@ -51,7 +50,7 @@ export default () => {
                 </Flexbox>
                 <Flexbox pb={40}>
                     <TextField size='large' label='Large field' placeholder="Really big" />
-                </Flexbox>
+                </Flexbox> */}
             </Flexbox>
         </Flexbox>
 
