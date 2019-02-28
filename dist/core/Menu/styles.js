@@ -42,7 +42,6 @@ exports.default = (function (forElka) {
             title: core_1.css(__assign({}, typography.display[2])),
             toolbar: core_1.css({
                 marginLeft: '1.5rem',
-                color: theme.highlight.rgb,
                 '> *': {
                     marginLeft: '1rem'
                 }
