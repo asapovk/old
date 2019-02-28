@@ -23,6 +23,8 @@ export default (props) => {
             fraction = number.fraction;
             unit = 'кВт⋅ч'
             break;
+        default:
+            fraction = number.fraction;
     }
 
     integer = number.integer;
