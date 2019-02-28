@@ -71,10 +71,10 @@ exports.default = (function (props) {
             core_1.jsx("circle", { onClick: toggle, fill: theme.theme.highlight.hex, fillRule: "nonzero", cx: "305", cy: "33.5", r: "23.5" })),
         core_1.jsx(core_2.D3, { css: styles.title }, count),
         !count && (core_1.jsx(core_2.Icon, { css: styles.icon, type: "bell" })),
-        core_1.jsx("div", { css: styles.contentWrapper },
+        core_1.jsx("div", { css: styles.contentWrapper, style: { pointerEvents: open ? 'all' : 'none' } },
             core_1.jsx(ScrollView_1.ScrollView, { displayScroll: false },
                 core_1.jsx("div", { css: styles.content }, props.data.map(function (item, index) { return (core_1.jsx("div", { css: styles.row(open), key: index, onClick: function () { return onRowClick(item, index); } },
                     item.active && (core_1.jsx("span", { css: styles.dot })),
                     core_1.jsx(core_2.C1, { bold: true }, item.title),
-                    core_1.jsx(core_2.T2, { color: 'lowlight' }, item.message))); }))))));
+                    core_1.jsx(core_2.T2, { mt: '0.25rem', color: 'lowlight' }, item.message))); }))))));
 });

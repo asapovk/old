@@ -56,11 +56,11 @@ var Modal = /** @class */ (function (_super) {
         }
         this.props.onOpen && this.props.onOpen();
         this.setActive(true);
-        setTimeout(function (_) {
+        setTimeout(function () {
             _this.setVetricalCenter();
             _this.setVisible(true);
             _this.props.didOpen && _this.props.didOpen();
-        }, 50);
+        });
     };
     Modal.prototype.close = function (didClose) {
         var _this = this;

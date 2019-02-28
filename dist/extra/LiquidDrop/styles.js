@@ -49,6 +49,7 @@ exports.default = (function () {
         }),
         row: function (active) { return core_1.css({
             cursor: 'pointer',
+            userSelect: 'none',
             border: 0,
             paddingTop: '1.25rem',
             paddingBottom: '1.25rem',
