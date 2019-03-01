@@ -44,6 +44,15 @@ export default (props: DataRowsProps) => {
         onRowClick && onRowClick(row);
     }
 
+    if (groupHeader) {
+        return (
+            <div css={styles.rowContainer({ header, hideHeaders })} ref={rowRef}>
+                <Flexbox css={styles.row({ header, groupHeader, last })} onClick={(e) => onClick(e, row)}>
+                    <div css={styles.cell()} />
+                </Flexbox>
+            </div>
+        )
+    }
 
     return (
         <div css={styles.rowContainer({ header, hideHeaders })} ref={rowRef}>

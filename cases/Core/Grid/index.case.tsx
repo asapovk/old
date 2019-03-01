@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useReducer } from 'react';
-import { Flexbox, SimpleTable, Table, Button, TextField } from '../../../src';
-import { SimpleTableTypes } from '../../../src/core/types';
+import { Flexbox, Grid, Button, TextField } from '../../../src';
+import { GridTypes } from '../../../src/core/types';
 
 const initialState = {
     data: [
@@ -101,22 +101,61 @@ function TFRow(props: { row: any, dispatch: any }) {
 const Table1 = () => {
     const [state, dispatch] = useReducer(reducer, initialState);
 
-    const tableColumns: SimpleTableTypes.Column[] = [
-        { title: '#', dataIndex: 'id', width: 1 },
-        { title: 'Fullname', dataIndex: 'name', render: (row, value) => <div style={{ fontSize: '1rem' }}>{value}</div> },
-        { title: 'Age', dataIndex: 'age', width: 40, borders: 'right', alignment: 'flex-end' },
-        { title: 'Passport ID', dataIndex: 'passport', alignment: 'flex-end' },
-        { title: 'uuid', dataIndex: 'uuid', borders: 'right', width: 200, alignment: 'flex-end' },
-        { title: 'uuidv2', dataIndex: 'uuidv2', width: 200, alignment: 'flex-end' },
-        { title: 'texfield', dataIndex: 'texfield', width: 200, alignment: 'flex-end', render: (row, value) => <TFRow row={row} dispatch={dispatch} /> }
+    const tableColumns: GridTypes.Column[] = [
+        {
+            title: '#',
+            dataIndex: 'id',
+            width: 1
+        },
+        {
+            title: 'Fullname',
+            dataIndex: 'name',
+            borders: 'right',
+            alignment: 'right',
+            render: (row, value) => <div style={{ fontSize: '1rem' }}>{value}</div>
+        },
+        {
+            title: 'Age',
+            dataIndex: 'age',
+            width: 40,
+            borders: 'right',
+            alignment: 'right'
+        },
+        {
+            title: 'Passport ID',
+            dataIndex: 'passport',
+            alignment: 'right',
+            borders: 'right',
+        },
+        {
+            title: 'uuid',
+            dataIndex: 'uuid',
+            borders: 'right',
+            width: 200,
+            alignment: 'right'
+        },
+        {
+            title: 'uuidv2',
+            dataIndex: 'uuidv2',
+            width: 200,
+            alignment: 'right',
+            borders: 'right',
+        },
+        {
+            title: 'texfield',
+            dataIndex: 'texfield',
+            width: 200,
+            alignment: 'right',
+            render: (row, value) => <TFRow row={row} dispatch={dispatch} />
+        }
     ]
 
     return (
-        <Flexbox pr={35} pl={50} pt={0} column flex={1}>
-            <SimpleTable
+        <Flexbox pr={35} pl={50} pt={100} pb={100} column flex={1}>
+            <Grid
                 data={state.data}
-                groupKey='groupId'
-                groups={groups}
+                // groupKey='groupId'
+                // groups={groups}
                 pagination={{
                     pageSize: 5,
                     pageNeighbours: 1
@@ -124,14 +163,14 @@ const Table1 = () => {
                 // border='all'
                 // noDataComponent={<Flexbox flex={1} p={20} justifyContent='center'>А Данных Нет!</Flexbox>}
                 columns={tableColumns}
-                // expandForm={expandForm}
-                hideHeaders={false}
+                expandForm={expandForm}
+                hideHeaders={true}
             />
         </Flexbox>
     )
 }
 
-const groups: SimpleTableTypes.Group[] = [
+const groups: GridTypes.Group[] = [
     { title: 'Первая группа', value: 0 },
     { title: 'Вторая группа', value: 1 },
     { title: 'Третья группа', value: 2 }
