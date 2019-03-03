@@ -1,24 +1,36 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core';
-import { useState, useLayoutEffect, Fragment } from 'react';
+import { useState, useLayoutEffect } from 'react';
 import Types from './types';
-import createStyles from './styles';
-import Pagination from './components/Pagination';
+import mainStyles from './styles';
+
+import { Pagination, Header, DataRows } from './components';
+
+declare global {
+    interface String {
+        hashCode: () => number
+    }
+}
+
+String.prototype.hashCode = function () {
+    var hash = 0;
+    if (this.length == 0) {
+        return hash;
+    }
+    for (var i = 0; i < this.length; i++) {
+        var char = this.charCodeAt(i);
+        hash = ((hash << 5) - hash) + char;
+        hash = hash & hash; // Convert to 32bit integer
+    }
+    return hash;
+}
 
 export default (props: Types.Props) => {
-    const { data, noDataComponent, pagination, hideHeaders, columns, expandForm, groupKey, groups } = props;
-    const styles = createStyles({ hideHeaders, columns: columns.length });
-    const [currentPage, setCurrentPage] = useState(1);
+    const { data, noDataComponent, pagination, hideHeaders } = props;
+    const { columns, gridTemplateColumns } = getColumns(props.columns, props.expandForm);
+    const styles = mainStyles({ gridTemplateColumns });
 
-    let pageData = data;
-    if (pagination) {
-        const { pageSize } = pagination;
-        pageData = data
-            .filter((_, i) => (
-                pageSize * currentPage >= (i + 1)
-                && i >= pageSize * currentPage - pageSize
-            ));
-    }
+    const [currentPage, setCurrentPage] = useState(1);
 
     useLayoutEffect(() => {
         if (pagination) {
@@ -36,72 +48,26 @@ export default (props: Types.Props) => {
         )
     }
 
-    const cols = columns.map(col => {
-        if (!col.render) {
-            col.render = (row: Object, value: string) => value;
-        }
-        return col;
-    });
-
-    const Header = () => (
-        <div css={styles.headerWrapper}>
-            {cols.map(column => (
-                <div
-                    css={styles.headerCell({
-                        alignment: column.alignment,
-                        borders: column.borders
-                    })}
-                    children={column.title}
-                />
-            ))}
-        </div>
-    )
-
-    const Row = ({ columns, row }) => {
-        const [expanded, setExpanded] = useState(false);
-
-        return (
-            <div css={styles.rowWrapper} onClick={() => setExpanded(!expanded)}>
-                {columns.map((column, keyIndex) => (
-                    <div
-                        key={`rowcell-${keyIndex}`}
-                        css={styles.cell({ borders: column.borders, alignment: column.alignment })}
-                        children={row[column.dataIndex]}
-                    />
-                ))}
-                <div
-                    css={styles.expand({ expanded })}
-                    children={(row && expandForm) && expandForm.render(row)}
-                />
-            </div>
-        )
-    }
-
-    const DataRows = () => {
-        if (groupKey && (Array.isArray(groups) && groups.length > 0)) {
-            return (
-                <Fragment>
-                    {groups.map((group, index) => (
-                        <Fragment>
-                            <div css={styles.subheader} children={group.title} />
-                            {pageData.map(row => <Row row={row} columns={columns} />)}
-                        </Fragment>
-                    ))}
-                </Fragment>
-            )
-        }
-        return (
-            <Fragment>
-                {pageData.map(row => <Row row={row} columns={columns} />)}
-            </Fragment>
-        )
+    let pageData = data;
+    if (pagination) {
+        const { pageSize } = pagination;
+        pageData = data
+            .filter((_, i) => (
+                pageSize * currentPage >= (i + 1)
+                && i >= pageSize * currentPage - pageSize
+            ));
     }
 
     return (
         <div css={styles.wrapper}>
             <div css={styles.container}>
-                {!hideHeaders && <Header />}
-                <DataRows />
+                {!hideHeaders && <Header columns={columns} />}
+                <DataRows
+                    {...props}
+                    currentPage={currentPage}
+                    data={pageData}
+                    columns={columns}
+                />
             </div>
             {pagination && (
                 <Pagination
@@ -113,4 +79,30 @@ export default (props: Types.Props) => {
             )}
         </div>
     )
+}
+
+const getColumns = (columns: Types.Column[], expandForm) => {
+    const mappedColumns = columns.map((column: Types.Column) => {
+        if (!column.render) {
+            return {
+                ...column,
+                render: (row: Object, value: string) => value
+            }
+        }
+        return column;
+    });
+
+    if (expandForm) {
+        mappedColumns.push({
+            alignment: 'flex-end',
+            dataIndex: 'actionColumn',
+            width: 64
+        });
+    }
+
+    const gridTemplateColumns = mappedColumns
+        .map(col => col.width ? Math.max(col.width, 64) + 'px' : 'auto')
+        .join(' ');
+
+    return { columns: mappedColumns, gridTemplateColumns };
 }

@@ -4,7 +4,7 @@ import { Dispatch, SetStateAction } from 'react';
 import { Flexbox, Icon } from '../..'
 import Types from '../types';
 import IconTypes from '../../Icon/types';
-import { useTheme } from '../../../hooks';
+import { paginationStyles } from '../styles';
 
 interface PaginationProps {
     dataLength: number
@@ -16,7 +16,7 @@ interface PaginationProps {
 export default (props: PaginationProps) => {
     const { dataLength, pagination, currentPage, setCurrentPage } = props;
     const totalPages = Math.ceil(dataLength / pagination.pageSize);
-    const styles = createStyles();
+    const styles = paginationStyles();
 
     if (totalPages <= 1) {
         return null;
@@ -119,42 +119,3 @@ const fetchPageNumbers = (pageNeighbours: number, totalPages: number, currentPag
 
 const LEFT_PAGE = 'left';
 const RIGHT_PAGE = 'right';
-
-const createStyles = () => {
-    const theme = useTheme().theme;
-
-    return {
-        paginationContainer: css({
-            display: 'flex',
-            flex: 1,
-            alignItems: 'center',
-            justifyContent: 'center',
-            padding: '1.25rem',
-            borderColor: theme.borders.table.color,
-            borderStyle: theme.borders.table.style,
-            borderWidth: '1px 0 0 0',
-            userSelect: 'none'
-        }),
-
-        paginationButton: (active: boolean) => css({
-            boxSizing: 'border-box',
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            overflow: 'hidden',
-            borderColor: theme.borders.table.color,
-            borderStyle: theme.borders.table.style,
-            borderWidth: '1px',
-            borderRadius: '0.25rem',
-            width: '2rem',
-            height: '2rem',
-            margin: '0 0.25rem',
-            cursor: 'pointer',
-            color: theme.lowlight.hex,
-            transition: 'all .25s ease-in-out'
-        }, active && {
-            borderColor: theme.highlight.hex,
-            color: theme.highlight.hex
-        }),
-    }
-}

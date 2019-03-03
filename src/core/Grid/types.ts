@@ -3,7 +3,12 @@ import { CSSProperties } from "react";
 declare namespace GridTypes {
 
     export type Borders = "left" | "right" | "all" | "none"
-    export type ColumnAlignment = "right" | "left" | "center"
+    export type ColumnAlignment = "flex-start" | "flex-end" | "center"
+
+    export interface Row {
+        groupId?: number
+        [name: string]: any
+    }
 
     export interface Column {
         dataIndex: string
@@ -35,7 +40,7 @@ declare namespace GridTypes {
         children?: any
 
         indexKey?: string
-        data: Object[]
+        data: Row[]
         columns: Column[]
         groupKey?: string
         groups?: Group[]
@@ -45,8 +50,24 @@ declare namespace GridTypes {
         search?: boolean
         onSearch?: (value: any) => void,
         hideHeaders?: boolean
-        borders?: 'all' | 'external' | 'internal' | 'vertical' | 'horizontal'
         expandForm?: ExpandForm
+    }
+
+    export interface HeaderProps {
+        columns: Column[]
+    }
+
+    export interface SubHeaderProps {
+        title: string
+        columnsLength: number
+        hideHeaders?: boolean
+    }
+
+    export interface RowProps {
+        columns: Column[]
+        row: Row
+        expandForm?: ExpandForm
+        onRowClick?: (row: Object) => any
     }
 }
 

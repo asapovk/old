@@ -124,7 +124,7 @@ const Table1 = () => {
                 // border='all'
                 // noDataComponent={<Flexbox flex={1} p={20} justifyContent='center'>А Данных Нет!</Flexbox>}
                 columns={tableColumns}
-                // expandForm={expandForm}
+                expandForm={expandForm}
                 hideHeaders={false}
             />
         </Flexbox>

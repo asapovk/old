@@ -111,7 +111,7 @@ const Table1 = () => {
             title: 'Fullname',
             dataIndex: 'name',
             borders: 'right',
-            alignment: 'right',
+            alignment: 'flex-end',
             render: (row, value) => <div style={{ fontSize: '1rem' }}>{value}</div>
         },
         {
@@ -119,12 +119,12 @@ const Table1 = () => {
             dataIndex: 'age',
             width: 40,
             borders: 'right',
-            alignment: 'right'
+            alignment: 'flex-end'
         },
         {
             title: 'Passport ID',
             dataIndex: 'passport',
-            alignment: 'right',
+            alignment: 'flex-end',
             borders: 'right',
         },
         {
@@ -132,20 +132,20 @@ const Table1 = () => {
             dataIndex: 'uuid',
             borders: 'right',
             width: 200,
-            alignment: 'right'
+            alignment: 'flex-end'
         },
         {
             title: 'uuidv2',
             dataIndex: 'uuidv2',
             width: 200,
-            alignment: 'right',
+            alignment: 'flex-end',
             borders: 'right',
         },
         {
             title: 'texfield',
             dataIndex: 'texfield',
             width: 200,
-            alignment: 'right',
+            alignment: 'flex-end',
             render: (row, value) => <TFRow row={row} dispatch={dispatch} />
         }
     ]
@@ -154,17 +154,17 @@ const Table1 = () => {
         <Flexbox pr={35} pl={50} pt={100} pb={100} column flex={1}>
             <Grid
                 data={state.data}
-                // groupKey='groupId'
-                // groups={groups}
-                pagination={{
-                    pageSize: 5,
-                    pageNeighbours: 1
-                }}
+                groupKey='groupId'
+                groups={groups}
+                // pagination={{
+                //     pageSize: 5,
+                //     pageNeighbours: 1
+                // }}
                 // border='all'
                 // noDataComponent={<Flexbox flex={1} p={20} justifyContent='center'>А Данных Нет!</Flexbox>}
                 columns={tableColumns}
                 expandForm={expandForm}
-                hideHeaders={true}
+                hideHeaders={false}
             />
         </Flexbox>
     )
