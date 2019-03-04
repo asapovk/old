@@ -24,6 +24,7 @@ export default (props: Types.Props & { currentPage: number }) => {
                                 row={row}
                                 columns={columns}
                                 expandForm={expandForm}
+                                onRowClick={props.onRowClick}
                             />
                         ))}
                     </Fragment>
@@ -40,6 +41,7 @@ export default (props: Types.Props & { currentPage: number }) => {
                     row={row}
                     columns={columns}
                     expandForm={expandForm}
+                    onRowClick={props.onRowClick}
                 />
             ))}
         </Fragment>
