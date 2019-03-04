@@ -8,7 +8,9 @@ declare const _default: ({ gridTemplateColumns }: {
 export default _default;
 export declare const rowStyles: () => {
     rowWrapper: import("@emotion/utils").SerializedStyles;
-    rowCellsWrapper: import("@emotion/utils").SerializedStyles;
+    rowCellsWrapper: ({ expandForm }: {
+        expandForm: any;
+    }) => import("@emotion/utils").SerializedStyles;
     rowCell: ({ borders, alignment, expanded, expandForm }: {
         borders: any;
         alignment: any;

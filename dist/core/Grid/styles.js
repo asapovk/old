@@ -44,14 +44,18 @@ exports.rowStyles = function () {
                 }
             }
         }),
-        rowCellsWrapper: core_1.css({
-            display: 'contents',
-            ':last-of-type': {
-                "> div": {
-                    borderBottomWidth: 0,
+        rowCellsWrapper: function (_a) {
+            var expandForm = _a.expandForm;
+            return core_1.css({
+                display: 'contents',
+            }, expandForm && {
+                ':last-of-type': {
+                    "> div": {
+                        borderBottomWidth: 0,
+                    }
                 }
-            }
-        }),
+            });
+        },
         rowCell: function (_a) {
             var borders = _a.borders, alignment = _a.alignment, expanded = _a.expanded, expandForm = _a.expandForm;
             return core_1.css({

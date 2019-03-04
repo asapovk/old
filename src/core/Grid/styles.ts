@@ -46,8 +46,9 @@ export const rowStyles = () => {
             }
         }),
 
-        rowCellsWrapper: css({
+        rowCellsWrapper: ({ expandForm }) => css({
             display: 'contents',
+        }, expandForm && {
             ':last-of-type': {
                 "> div": {
                     borderBottomWidth: 0,

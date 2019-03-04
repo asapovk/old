@@ -12,12 +12,12 @@ export default (props: Types.RowProps) => {
     const onRowClick = () => {
         props.onRowClick
             ? props.onRowClick(props.row)
-            : setExpanded(!expanded);
+            : props.expandForm && setExpanded(!expanded);
     }
 
     return (
         <div css={styles.rowWrapper}>
-            <div css={styles.rowCellsWrapper} onClick={onRowClick}>
+            <div css={styles.rowCellsWrapper({ expandForm: props.expandForm })} onClick={onRowClick}>
                 {props.columns.map((column, index) => (
                     <div
                         key={`rc-${index}`}

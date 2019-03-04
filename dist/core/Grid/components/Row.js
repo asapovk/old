@@ -11,10 +11,10 @@ exports.default = (function (props) {
     var onRowClick = function () {
         props.onRowClick
             ? props.onRowClick(props.row)
-            : setExpanded(!expanded);
+            : props.expandForm && setExpanded(!expanded);
     };
     return (core_1.jsx("div", { css: styles.rowWrapper },
-        core_1.jsx("div", { css: styles.rowCellsWrapper, onClick: onRowClick }, props.columns.map(function (column, index) { return (core_1.jsx("div", { key: "rc-" + index, css: styles.rowCell({ expanded: expanded, borders: column.borders, alignment: column.alignment, expandForm: props.expandForm }), children: (column.dataIndex === 'actionColumn'
+        core_1.jsx("div", { css: styles.rowCellsWrapper({ expandForm: props.expandForm }), onClick: onRowClick }, props.columns.map(function (column, index) { return (core_1.jsx("div", { key: "rc-" + index, css: styles.rowCell({ expanded: expanded, borders: column.borders, alignment: column.alignment, expandForm: props.expandForm }), children: (column.dataIndex === 'actionColumn'
                 ? core_1.jsx(__1.Icon, { type: 'right', css: styles.icon({ expanded: expanded }) })
                 : column.render(props.row, props.row[column.dataIndex])) })); })),
         props.expandForm && (core_1.jsx("div", { css: styles.expandForm({ expanded: expanded, columnsLength: props.columns.length }), children: props.expandForm.render(props.row) }))));
