@@ -76,3 +76,5 @@ exports.C2 = Typography_1.C2;
 exports.C3 = Typography_1.C3;
 exports.C4 = Typography_1.C4;
 exports.HR = Typography_1.HR;
+var Grid_1 = require("./Grid");
+exports.Grid = Grid_1.Grid;

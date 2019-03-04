@@ -20,11 +20,11 @@ exports.default = (function () {
     var theme = useTheme_1.default().theme;
     return {
         tableContainer: core_1.css({
+            position: 'relative',
             borderRadius: theme.radius.table,
             borderWidth: theme.borders.table.width,
             borderStyle: theme.borders.table.style,
             borderColor: theme.borders.table.color,
-            overflow: 'hidden',
         }),
         rowContainer: function (_a) {
             var header = _a.header, hideHeaders = _a.hideHeaders;
@@ -37,6 +37,9 @@ exports.default = (function () {
                 borderColor: theme.borders.table.color
             }, header && {
                 borderWidth: 0,
+                position: 'sticky',
+                top: 0,
+                zIndex: 2,
             }, hideHeaders && {
                 "&:first-of-type": {
                     borderWidth: 0,
@@ -57,8 +60,16 @@ exports.default = (function () {
                 fontWeight: 600,
                 fontSize: '0.875rem',
                 alignItems: 'center',
+                borderWidth: '1px 0 0 0',
+                borderStyle: theme.borders.table.style,
+                borderColor: theme.borders.table.color,
+                "&:first-of-type": {
+                    borderWidth: 0,
+                }
             }, last && {
                 borderBottom: 0
+            }, !groupHeader && {
+                backgroundColor: theme.background.hex,
             });
         },
         cell: function (width, borders, columnAlignment) { return core_1.css(width
@@ -88,9 +99,9 @@ exports.default = (function () {
         expandRow: function (active) { return core_1.css({
             padding: '1.25rem',
             transition: 'all 0.2s ease-in-out',
-            borderWidth: '1px 0 0 0',
-            borderStyle: theme.borders.table.style,
-            borderColor: theme.borders.table.color,
+            // borderWidth: '1px 0 0 0',
+            // borderStyle: theme.borders.table.style,
+            // borderColor: theme.borders.table.color,
             backgroundColor: theme.background2.hex,
             display: 'none'
         }, active && {
@@ -100,9 +111,9 @@ exports.default = (function () {
             var hideHeaders = _a.hideHeaders;
             console.log(hideHeaders);
             return core_1.css({
-                borderWidth: '1px 0 0 0',
-                borderStyle: theme.borders.table.style,
-                borderColor: theme.borders.table.color,
+            // borderWidth: '1px 0 0 0',
+            // borderStyle: theme.borders.table.style,
+            // borderColor: theme.borders.table.color,
             }, hideHeaders && {
                 ":first-of-type": {
                     borderWidth: 0
@@ -112,11 +123,16 @@ exports.default = (function () {
         groupRowContainer: function (_a) {
             var hideHeaders = _a.hideHeaders;
             return core_1.css({
-                position: 'relative',
                 backgroundColor: theme.background2.hex,
                 fontSize: '0.875rem',
                 color: theme.lowlight.hex,
                 lineHeight: '1rem',
+                position: 'sticky',
+                top: hideHeaders ? 0 : '4rem',
+                zIndex: 1
+                // borderWidth: '1px 0 0 0',
+                // borderStyle: theme.borders.table.style,
+                // borderColor: theme.borders.table.color,
             });
         },
         groupTitle: core_1.css({
@@ -135,9 +151,9 @@ exports.default = (function () {
             alignItems: 'center',
             justifyContent: 'center',
             padding: '1.25rem',
-            borderColor: theme.borders.table.color,
-            borderStyle: theme.borders.table.style,
-            borderWidth: '1px 0 0 0',
+            // borderColor: theme.borders.table.color,
+            // borderStyle: theme.borders.table.style,
+            // borderWidth: '1px 0 0 0',
             userSelect: 'none'
         }),
         paginationButton: function (active) { return core_1.css({

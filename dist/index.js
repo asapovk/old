@@ -83,3 +83,5 @@ exports.C2 = core_29.C2;
 exports.C3 = core_29.C3;
 exports.C4 = core_29.C4;
 exports.HR = core_29.HR;
+var core_30 = require("./core");
+exports.Grid = core_30.Grid;
