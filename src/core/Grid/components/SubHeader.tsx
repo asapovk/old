@@ -1,6 +1,5 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core';
-
 import { subHeaderStyles } from '../styles';
 import Types from '../types';
 
