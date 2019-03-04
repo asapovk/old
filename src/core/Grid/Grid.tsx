@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core';
-import { useState, useLayoutEffect } from 'react';
+import { Fragment, useState, useLayoutEffect } from 'react';
 import Types from './types';
 import mainStyles from './styles';
 
@@ -59,15 +59,17 @@ export default (props: Types.Props) => {
     }
 
     return (
-        <div css={styles.wrapper}>
-            <div css={styles.container}>
-                {!hideHeaders && <Header columns={columns} />}
-                <DataRows
-                    {...props}
-                    currentPage={currentPage}
-                    data={pageData}
-                    columns={columns}
-                />
+        <Fragment>
+            <div css={styles.wrapper}>
+                <div css={styles.container}>
+                    {!hideHeaders && <Header columns={columns} />}
+                    <DataRows
+                        {...props}
+                        currentPage={currentPage}
+                        data={pageData}
+                        columns={columns}
+                    />
+                </div>
             </div>
             {pagination && (
                 <Pagination
@@ -77,7 +79,7 @@ export default (props: Types.Props) => {
                     pagination={pagination}
                 />
             )}
-        </div>
+        </Fragment>
     )
 }
 

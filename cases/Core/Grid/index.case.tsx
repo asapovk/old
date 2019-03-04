@@ -156,10 +156,10 @@ const Table1 = () => {
                 data={state.data}
                 groupKey='groupId'
                 groups={groups}
-                // pagination={{
-                //     pageSize: 5,
-                //     pageNeighbours: 1
-                // }}
+                pagination={{
+                    pageSize: 5,
+                    pageNeighbours: 1
+                }}
                 // border='all'
                 // noDataComponent={<Flexbox flex={1} p={20} justifyContent='center'>А Данных Нет!</Flexbox>}
                 columns={tableColumns}

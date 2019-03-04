@@ -53,10 +53,11 @@ exports.default = (function (props) {
             .filter(function (_, i) { return (pageSize_1 * currentPage >= (i + 1)
             && i >= pageSize_1 * currentPage - pageSize_1); });
     }
-    return (core_1.jsx("div", { css: styles.wrapper },
-        core_1.jsx("div", { css: styles.container },
-            !hideHeaders && core_1.jsx(components_1.Header, { columns: columns }),
-            core_1.jsx(components_1.DataRows, __assign({}, props, { currentPage: currentPage, data: pageData, columns: columns }))),
+    return (core_1.jsx(react_1.Fragment, null,
+        core_1.jsx("div", { css: styles.wrapper },
+            core_1.jsx("div", { css: styles.container },
+                !hideHeaders && core_1.jsx(components_1.Header, { columns: columns }),
+                core_1.jsx(components_1.DataRows, __assign({}, props, { currentPage: currentPage, data: pageData, columns: columns })))),
         pagination && (core_1.jsx(components_1.Pagination, { currentPage: currentPage, setCurrentPage: setCurrentPage, dataLength: data.length, pagination: pagination }))));
 });
 var getColumns = function (columns, expandForm) {
