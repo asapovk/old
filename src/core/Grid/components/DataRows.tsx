@@ -20,7 +20,7 @@ export default (props: Types.Props & { currentPage: number }) => {
                         />
                         {data.filter(row => row.groupId === group.value).map((row, index) => (
                             <Row
-                                key={JSON.stringify(group.value.toString() + currentPage.toString() + index).hashCode()}
+                                key={(JSON.stringify(columns) + group.value.toString() + currentPage.toString() + index).hashCode()}
                                 row={row}
                                 columns={columns}
                                 expandForm={expandForm}
@@ -36,7 +36,7 @@ export default (props: Types.Props & { currentPage: number }) => {
         <Fragment>
             {data.map((row, index) => (
                 <Row
-                    key={JSON.stringify(currentPage.toString() + index).hashCode()}
+                    key={(JSON.stringify(columns) + currentPage.toString() + index).hashCode()}
                     row={row}
                     columns={columns}
                     expandForm={expandForm}
