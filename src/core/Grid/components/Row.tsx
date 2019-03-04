@@ -21,7 +21,7 @@ export default (props: Types.RowProps) => {
                 {props.columns.map((column, index) => (
                     <div
                         key={`rc-${index}`}
-                        css={styles.cell({ expanded, borders: column.borders, alignment: column.alignment, expandForm: props.expandForm })}
+                        css={styles.rowCell({ expanded, borders: column.borders, alignment: column.alignment, expandForm: props.expandForm })}
                         children={(
                             column.dataIndex === 'actionColumn'
                                 ? <Icon type='right' css={styles.icon({ expanded })} />

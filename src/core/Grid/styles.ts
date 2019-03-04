@@ -55,7 +55,7 @@ export const rowStyles = () => {
             }
         }),
 
-        cell: ({ borders, alignment, expanded, expandForm }) => css({
+        rowCell: ({ borders, alignment, expanded, expandForm }) => css({
             display: 'flex',
             alignItems: 'center',
             padding: '1.25rem',
@@ -85,7 +85,7 @@ export const rowStyles = () => {
         }),
 
         icon: ({ expanded }) => css({
-            transition: 'all .3s ease-in-out',
+            transition: 'all .15s ease-in-out',
             transform: 'rotate(0)'
         }, expanded && {
             transform: 'rotate(90deg)'

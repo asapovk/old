@@ -1,4 +1,4 @@
-import { CSSProperties } from "react";
+import { CSSProperties, Dispatch, SetStateAction } from "react";
 
 declare namespace GridTypes {
 
@@ -69,6 +69,14 @@ declare namespace GridTypes {
         expandForm?: ExpandForm
         onRowClick?: (row: Object) => any
     }
+
+    export interface PaginationProps {
+        dataLength: number
+        currentPage: number
+        setCurrentPage: Dispatch<SetStateAction<number>>
+        pagination: Pagination
+    }
+
 }
 
 export default GridTypes;

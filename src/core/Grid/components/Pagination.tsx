@@ -1,19 +1,12 @@
 /** @jsx jsx */
-import { jsx, css } from '@emotion/core';
-import { Dispatch, SetStateAction } from 'react';
-import { Flexbox, Icon } from '../..'
+import { jsx } from '@emotion/core';
+import { Icon } from '../..'
 import Types from '../types';
 import IconTypes from '../../Icon/types';
 import { paginationStyles } from '../styles';
 
-interface PaginationProps {
-    dataLength: number
-    currentPage: number
-    setCurrentPage: Dispatch<SetStateAction<number>>
-    pagination: Types.Pagination
-}
 
-export default (props: PaginationProps) => {
+export default (props: Types.PaginationProps) => {
     const { dataLength, pagination, currentPage, setCurrentPage } = props;
     const totalPages = Math.ceil(dataLength / pagination.pageSize);
     const styles = paginationStyles();
@@ -30,7 +23,7 @@ export default (props: PaginationProps) => {
     }
 
     return (
-        <Flexbox css={styles.paginationContainer}>
+        <div css={styles.paginationContainer}>
             {pages.map((page, index) => (
                 <div
                     key={`pagination-${index}`}
@@ -50,7 +43,7 @@ export default (props: PaginationProps) => {
                     css={styles.paginationButton(typeof page === 'number' ? (currentPage === page) : false)}
                 />
             ))}
-        </Flexbox>
+        </div>
     )
 }
 
