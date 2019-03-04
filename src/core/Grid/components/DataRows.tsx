@@ -18,15 +18,17 @@ export default (props: Types.Props & { currentPage: number }) => {
                             columnsLength={columns.length}
                             hideHeaders={hideHeaders}
                         />
-                        {data.filter(row => row.groupId === group.value).map((row, index) => (
-                            <Row
-                                key={(JSON.stringify(columns) + group.value.toString() + currentPage.toString() + index).hashCode()}
-                                row={row}
-                                columns={columns}
-                                expandForm={expandForm}
-                                onRowClick={props.onRowClick}
-                            />
-                        ))}
+                        {data
+                            .filter(row => row.groupId === group.value)
+                            .map((row, index) => (
+                                <Row
+                                    key={(JSON.stringify(columns) + group.value.toString() + currentPage.toString() + index).hashCode()}
+                                    row={row}
+                                    columns={columns}
+                                    expandForm={expandForm}
+                                    onRowClick={props.onRowClick}
+                                />
+                            ))}
                     </Fragment>
                 ))}
             </Fragment>
