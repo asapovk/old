@@ -2,21 +2,29 @@
 import { jsx } from '@emotion/core';
 import { Fragment } from 'react';
 import Types from '../types';
-import { SubHeader, Row } from '.';
+import { Row } from '.';
+import { subHeaderStyles } from '../styles';
 
 export default (props: Types.Props & { currentPage: number }) => {
     const { groups, groupKey, columns, hideHeaders, data, currentPage, expandForm } = props;
 
-    if (groupKey && (Array.isArray(groups) && groups.length > 0)) {
+    const styles = subHeaderStyles({
+        columnsLength: props.columns.length,
+        hideHeaders: props.hideHeaders
+    });
+
+    if (groupKey && Array.isArray(groups)) {
+        const uniqueDataGroups = data.filter((v, i, a) => a.indexOf(v) === i);
+        const currentGroups = groups.filter(group => uniqueDataGroups.some(udg => udg.groupId === group.value));
+
         return (
             <Fragment>
-                {groups.map((group, index) => (
+                {currentGroups && currentGroups.map((group, index) => (
                     <Fragment key={`${group.value}-${index}`}>
-                        <SubHeader
+                        <div
                             key={`sh-${group.value}-${index}`}
-                            title={group.title}
-                            columnsLength={columns.length}
-                            hideHeaders={hideHeaders}
+                            css={styles.subheader}
+                            children={group.title}
                         />
                         {data
                             .filter(row => row.groupId === group.value)
