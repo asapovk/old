@@ -19,8 +19,9 @@ var randomColors = function (luminosity, count) {
     if (luminosity === void 0) { luminosity = 'bright'; }
     if (count === void 0) { count = 10; }
     return randomcolor_1.default({
-        hue: utilities_1.getColors(0, 106, 255).rgba,
+        hue: 'blue',
         format: 'hex',
+        alpha: 1,
         luminosity: luminosity,
         count: count
     });

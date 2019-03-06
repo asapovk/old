@@ -18,8 +18,9 @@ var brand = {
 var randomColors = function (luminosity, count) {
     if (count === void 0) { count = 10; }
     return randomcolor_1.default({
-        hue: utilities_1.getColors(107, 54, 143).rgba,
+        hue: 'purple',
         format: 'hex',
+        alpha: 1,
         luminosity: luminosity,
         count: count
     });

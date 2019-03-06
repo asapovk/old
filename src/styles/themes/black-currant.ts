@@ -15,8 +15,9 @@ const brand = {
 }
 
 const randomColors = (luminosity: colorsLuminosity = 'bright', count: number = 10) => randomColor({
-    hue: getColors(216, 15, 105).rgba,
+    hue: 'purple',
     format: 'hex',
+    alpha: 1,
     luminosity,
     count
 })
