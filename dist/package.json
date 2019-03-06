@@ -19,7 +19,6 @@
     "fakerator": "^0.3.0",
     "mini-css-extract-plugin": "^0.4.5",
     "node-sass": "^4.11.0",
-    "randomcolor": "^0.5.4",
     "react": "16.8.1",
     "react-dom": "16.8.1",
     "react-scripts": "^2.1.1",
@@ -47,6 +46,7 @@
     "emotion-theming": "^10.0.7",
     "react-chartjs-2": "^2.7.4",
     "react-input-mask": "^2.0.4",
-    "react-portal": "^4.2.0"
+    "react-portal": "^4.2.0",
+    "randomcolor": "^0.5.4"
   }
 }
