@@ -1,6 +1,8 @@
 import React, { Fragment } from 'react';
 import { Button, Flexbox, D1 } from '../../../src';
 import '../../../src/styles/scss/main.scss';
+import css from '@emotion/css';
+import { ThemeInterface } from '../../../src/styles';
 
 export default class Story extends React.Component {
     render() {

@@ -1,5 +1,6 @@
 import { getColors } from '../utilities';
-import { ThemeInterface } from '../';
+import { ThemeInterface, colorsLuminosity } from '../';
+import randomColor from 'randomcolor';
 
 const accentColors = {
     red: getColors(255, 25, 25),
@@ -12,6 +13,13 @@ const brand = {
     red: getColors(216, 15, 105),
     purple: getColors(216, 15, 105),
 }
+
+const randomColors = (luminosity: colorsLuminosity = 'bright', count: number = 10) => randomColor({
+    hue: getColors(216, 15, 105).rgba,
+    format: 'hex',
+    luminosity,
+    count
+})
 
 export default {
     name: "blackCurrant",
@@ -26,6 +34,7 @@ export default {
     highlight: getColors(216, 15, 105),
     accents: accentColors,
     brand: brand,
+    randomColors: randomColors,
     shadow: getColors(19, 20, 25),
     shadows: {
         button: '0px 2px 6px 0px ' + getColors(19, 20, 25).hex,

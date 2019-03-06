@@ -1,6 +1,9 @@
-import React, { useState, useEffect, useReducer } from 'react';
+/** @jsx jsx */
+import { jsx, css } from '@emotion/core';
+import { useState, useReducer } from 'react';
 import { Flexbox, Grid, Button, TextField } from '../../../src';
 import { GridTypes } from '../../../src/core/types';
+import { ThemeInterface } from '../../../src/styles';
 
 const initialState = {
     data: [
@@ -94,7 +97,14 @@ function TFRow(props: { row: any, dispatch: any }) {
     }
 
     return (
-        <TextField value={props.row.uuidv2} onChange={onChange} />
+        <div css={(theme: { theme: ThemeInterface }) => {
+            const colors = theme.theme.randomColors('dark', 10);
+            return css({
+                backgroundColor: colors[0],
+                padding: '1rem 2rem',
+                color: theme.theme.textOnAccent.hex
+            })
+        }}>123</div>
     )
 }
 

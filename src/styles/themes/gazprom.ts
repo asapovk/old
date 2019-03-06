@@ -1,5 +1,6 @@
 import { getColors } from '../utilities';
-import { ThemeInterface } from '../';
+import { ThemeInterface, colorsLuminosity } from '../';
+import randomColor from 'randomcolor';
 
 const accentColors = {
     red: getColors(255, 25, 25),
@@ -12,6 +13,14 @@ const brand = {
     red: getColors(0, 106, 255),
     purple: getColors(0, 106, 255),
 }
+
+const randomColors = (luminosity: colorsLuminosity = 'bright', count: number = 10) => randomColor({
+    hue: getColors(0, 106, 255).rgba,
+    format: 'hex',
+    luminosity,
+    count
+})
+
 
 export default {
     name: "gazpromTheme",
@@ -26,6 +35,7 @@ export default {
     highlight: getColors(0, 106, 255),
     accents: accentColors,
     brand: brand,
+    randomColors: randomColors,
     shadow: getColors(220, 220, 220),
     shadows: {
         button: 'none',

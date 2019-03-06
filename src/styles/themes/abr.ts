@@ -1,5 +1,6 @@
 import { getColors } from '../utilities';
-import { ThemeInterface } from '../';
+import { ThemeInterface, colorsLuminosity } from '../';
+import randomColor from 'randomcolor';
 
 const accentColors = {
     red: getColors(240, 45, 35),
@@ -13,6 +14,13 @@ const brand = {
     purple: getColors(196, 13, 60),
 }
 
+const randomColors = (luminosity: colorsLuminosity = 'bright', count: number = 10) => randomColor({
+    hue: getColors(196, 13, 60).rgba,
+    format: 'hex',
+    luminosity,
+    count
+})
+
 export default {
     name: "abrTheme",
     background: getColors(247, 247, 247),
@@ -25,6 +33,7 @@ export default {
     textOnAccent: getColors(233, 233, 233),
     highlight: getColors(196, 13, 60),
     accents: accentColors,
+    randomColors: randomColors,
     brand: brand,
     shadow: getColors(220, 220, 220),
     shadows: {
