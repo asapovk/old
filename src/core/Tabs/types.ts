@@ -10,13 +10,13 @@ declare namespace TabsTypes {
     }
 
     export interface Props {
-        style?: CSSProperties,
+        style?: CSSProperties
         className?: string
         children?: any
 
         tabs: Tab[]
         reverseContainer?: boolean
-
+        noDataComponent?: JSX.Element
     }
 }
 

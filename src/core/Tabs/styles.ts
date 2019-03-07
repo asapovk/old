@@ -70,6 +70,11 @@ export default ({ reverseContainer }) => {
             borderColor: theme.borders.table.color,
         }, activeItem && {
             boxShadow: '0px .75rem .75rem 0px rgba(0, 0, 0, 0.14)',
+        }),
+
+        noDataContainer: css({
+            padding: '1.25rem',
+            textAlign: 'center'
         })
 
     }

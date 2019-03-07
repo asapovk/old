@@ -70,6 +70,10 @@ exports.default = (function (_a) {
             borderColor: theme.borders.table.color,
         }, activeItem && {
             boxShadow: '0px .75rem .75rem 0px rgba(0, 0, 0, 0.14)',
-        }); }
+        }); },
+        noDataContainer: core_1.css({
+            padding: '1.25rem',
+            textAlign: 'center'
+        })
     };
 });

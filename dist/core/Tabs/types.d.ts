@@ -13,6 +13,7 @@ declare namespace TabsTypes {
         children?: any;
         tabs: Tab[];
         reverseContainer?: boolean;
+        noDataComponent?: JSX.Element;
     }
 }
 export default TabsTypes;

@@ -12,7 +12,7 @@ var Icon_1 = require("../Icon");
 var manualSettedTabKey;
 var timer;
 exports.default = (function (props) {
-    var tabs = props.tabs, reverseContainer = props.reverseContainer;
+    var tabs = props.tabs, reverseContainer = props.reverseContainer, noDataComponent = props.noDataComponent;
     var styles = styles_1.default({ reverseContainer: reverseContainer });
     var _a = react_1.useState(''), currentId = _a[0], setCurrentId = _a[1];
     react_1.useEffect(function () {
@@ -64,13 +64,17 @@ exports.default = (function (props) {
             });
         }
     }
+    if (!tabs || tabs.length <= 0) {
+        return (core_1.jsx("div", { css: styles.container }, noDataComponent
+            ? noDataComponent
+            : core_1.jsx("div", { css: styles.noDataContainer, children: '\u041D\u0435\u0442 \u0434\u0430\u043D\u043D\u044B\u0445' })));
+    }
     return (core_1.jsx("div", { css: styles.container },
         core_1.jsx("div", { css: styles.content }, tabs.map(function (tab) { return (core_1.jsx("div", { "data-content-id": tab.key, key: "tabcnt-" + tab.key, children: tab.content, css: styles.tab(tab.key == currentId) })); })),
         core_1.jsx("div", { css: styles.menu }, tabs.map(function (tab, index) { return (core_1.jsx(__1.Flexbox, { key: index, onClick: function () {
                 manualSettedTabKey = tab.key;
                 setCurrentId(tab.key);
             } },
-            core_1.jsx(__1.Flexbox, { justifyContent: 'center', alignItems: 'center', css: core_1.css({ marginRight: '.75rem' }) },
-                core_1.jsx(Icon_1.Icon, { shape: 'oval', size: '1.5rem', type: tab.icon, color: tab.key === currentId ? 'highlight' : 'light' })),
+            core_1.jsx(__1.Flexbox, { justifyContent: 'center', alignItems: 'center', css: core_1.css({ marginRight: '.75rem' }), children: (core_1.jsx(Icon_1.Icon, { shape: 'oval', size: '1.5rem', type: tab.icon, color: tab.key === currentId ? 'highlight' : 'light' })) }),
             core_1.jsx("div", { "data-tab": tab.key, key: "tab-" + tab.key, children: tab.title, css: styles.menuItem(tab.key == currentId) }))); }))));
 });

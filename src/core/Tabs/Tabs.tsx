@@ -10,7 +10,7 @@ let manualSettedTabKey: string;
 let timer: any;
 
 export default (props: Types.Props) => {
-    const { tabs, reverseContainer } = props;
+    const { tabs, reverseContainer, noDataComponent } = props;
     const styles = createStyles({ reverseContainer });
     const [currentId, setCurrentId] = useState('');
 
@@ -70,6 +70,16 @@ export default (props: Types.Props) => {
         }
     }
 
+    if (!tabs || tabs.length <= 0) {
+        return (
+            <div css={styles.container}>
+                {noDataComponent
+                    ? noDataComponent
+                    : <div css={styles.noDataContainer} children='Нет данных' />}
+            </div>
+        )
+    }
+
     return (
         <div css={styles.container}>
             <div css={styles.content}>
@@ -91,9 +101,19 @@ export default (props: Types.Props) => {
                             setCurrentId(tab.key);
                         }}
                     >
-                        <Flexbox justifyContent='center' alignItems='center' css={css({ marginRight: '.75rem' })}>
-                            <Icon shape='oval' size='1.5rem' type={tab.icon} color={tab.key === currentId ? 'highlight' : 'light'} />
-                        </Flexbox>
+                        <Flexbox
+                            justifyContent='center'
+                            alignItems='center'
+                            css={css({ marginRight: '.75rem' })}
+                            children={(
+                                <Icon
+                                    shape='oval'
+                                    size='1.5rem'
+                                    type={tab.icon}
+                                    color={tab.key === currentId ? 'highlight' : 'light'}
+                                />
+                            )}
+                        />
                         <div
                             data-tab={tab.key}
                             key={`tab-${tab.key}`}
