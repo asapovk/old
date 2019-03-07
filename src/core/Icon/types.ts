@@ -23,12 +23,26 @@ declare namespace IconTypes {
         'clock' |
         'card' |
         'counter' |
+        'counter_gas' |
+        'counter_water' |
+        'counter_electricity' |
         'text-right' |
         'arrow-left' |
         'user' |
         'equal' |
         'photo' |
-        'bell'
+        'bell' |
+        'water' |
+        'tv' |
+        'repair' |
+        'electricity' |
+        'incurance' |
+        'other' |
+        'intercom' |
+        'garbage' |
+        'gas' |
+        'heat'
+
 
     interface Props {
         style?: React.CSSProperties
