@@ -25,9 +25,9 @@ export default ({ reverseContainer }) => {
             borderColor: theme.borders.table.color,
             borderRadius: '0.5rem',
             position: 'sticky',
-            top: 0,
+            top: '1.25rem',
             margin: '0 0 0 2.5rem',
-            padding: '1.25rem 0 0 1.25rem',
+            padding: '0 0 0 1.25rem',
             "@media (max-width: 1024px)": {
                 display: 'none'
             }
@@ -44,9 +44,9 @@ export default ({ reverseContainer }) => {
             borderColor: theme.borders.table.color,
             borderStyle: 'solid',
             padding: '1.25rem 0',
-            // "&:last-of-type": {
-            //     borderWidth: '0',
-            // }
+            "&:last-of-type": {
+                borderWidth: '0',
+            }
         }, activeItem && {
             color: theme.highlight.hex
         }),
