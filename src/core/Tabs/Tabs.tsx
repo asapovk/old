@@ -83,8 +83,8 @@ export default (props: Types.Props) => {
                 ))}
             </div>
             <div css={styles.menu}>
-                {tabs.map(tab => (
-                    <Flexbox onClick={() => {
+                {tabs.map((tab, index) => (
+                    <Flexbox key={index} onClick={() => {
                         manualSettedTabKey = tab.key;
                         setCurrentId(tab.key);
                     }}>

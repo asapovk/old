@@ -66,7 +66,7 @@ exports.default = (function (props) {
     }
     return (core_1.jsx("div", { css: styles.container },
         core_1.jsx("div", { css: styles.content }, tabs.map(function (tab) { return (core_1.jsx("div", { "data-content-id": tab.key, key: "tabcnt-" + tab.key, children: tab.content, css: styles.tab(tab.key == currentId) })); })),
-        core_1.jsx("div", { css: styles.menu }, tabs.map(function (tab) { return (core_1.jsx(__1.Flexbox, { onClick: function () {
+        core_1.jsx("div", { css: styles.menu }, tabs.map(function (tab, index) { return (core_1.jsx(__1.Flexbox, { key: index, onClick: function () {
                 manualSettedTabKey = tab.key;
                 setCurrentId(tab.key);
             } },

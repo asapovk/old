@@ -23,9 +23,9 @@ exports.default = (function (_a) {
             flexShrink: 0,
             flexWrap: 'wrap',
             boxSizing: 'border-box',
-            // borderStyle: 'solid',
-            // borderWidth: '1px',
-            // borderColor: theme.borders.table.color,
+            borderStyle: 'solid',
+            borderWidth: '1px',
+            borderColor: theme.borders.table.color,
             borderRadius: '0.5rem',
             position: 'sticky',
             top: 0,
@@ -60,13 +60,13 @@ exports.default = (function (_a) {
             boxSizing: 'border-box',
             borderRadius: '0.5rem',
             padding: '2rem',
-            marginBottom: '1.25rem',
+            marginBottom: '2.5rem',
             transition: 'all .25s ease-in-out',
             borderStyle: 'solid',
             borderWidth: '1px',
             borderColor: theme.borders.table.color,
         }, activeItem && {
-            boxShadow: '0px 0.5rem 0.5rem 0px rgba(0, 0, 0, 0.2)',
+            boxShadow: '0px .75rem .75rem 0px rgba(0, 0, 0, 0.14)',
         }); }
     };
 });

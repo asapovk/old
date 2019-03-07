@@ -20,9 +20,9 @@ export default ({ reverseContainer }) => {
             flexShrink: 0,
             flexWrap: 'wrap',
             boxSizing: 'border-box',
-            // borderStyle: 'solid',
-            // borderWidth: '1px',
-            // borderColor: theme.borders.table.color,
+            borderStyle: 'solid',
+            borderWidth: '1px',
+            borderColor: theme.borders.table.color,
             borderRadius: '0.5rem',
             position: 'sticky',
             top: 0,
@@ -44,7 +44,7 @@ export default ({ reverseContainer }) => {
             borderColor: theme.borders.table.color,
             borderStyle: 'solid',
             padding: '1.25rem 0',
-            // "&:last-child": {
+            // "&:last-of-type": {
             //     borderWidth: '0',
             // }
         }, activeItem && {
@@ -63,13 +63,13 @@ export default ({ reverseContainer }) => {
             boxSizing: 'border-box',
             borderRadius: '0.5rem',
             padding: '2rem',
-            marginBottom: '1.25rem',
+            marginBottom: '2.5rem',
             transition: 'all .25s ease-in-out',
             borderStyle: 'solid',
             borderWidth: '1px',
             borderColor: theme.borders.table.color,
         }, activeItem && {
-            boxShadow: '0px 0.5rem 0.5rem 0px rgba(0, 0, 0, 0.2)',
+            boxShadow: '0px .75rem .75rem 0px rgba(0, 0, 0, 0.14)',
         })
 
     }
