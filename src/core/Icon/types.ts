@@ -36,7 +36,7 @@ declare namespace IconTypes {
         'tv' |
         'repair' |
         'electricity' |
-        'incurance' |
+        'insurance' |
         'other' |
         'intercom' |
         'garbage' |
