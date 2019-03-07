@@ -1,9 +1,13 @@
 /** @jsx jsx */
-import { jsx } from '@emotion/core';
+import { jsx, css } from '@emotion/core';
 import { useEffect, useState } from 'react';
 import createStyles from './styles';
 import Types from './types';
-import { C1 } from '../..';
+import { Flexbox } from '..';
+import { Icon } from '../Icon';
+
+let manualSettedTabKey: string;
+let timer: any;
 
 export default (props: Types.Props) => {
     const { tabs, reverseContainer } = props;
@@ -48,12 +52,18 @@ export default (props: Types.Props) => {
 
             tabs.forEach(tab => {
                 if (!active) {
+                    if (manualSettedTabKey) {
+                        if (timer) {
+                            clearTimeout(timer);
+                        }
+                        timer = setTimeout(() => { manualSettedTabKey = '' }, 100);
+                    }
                     const rect = tab.getBoundingClientRect();
                     if (rect.height / 3 > -rect.top) {
                         active = true;
-                        setCurrentId(
-                            tab.getAttribute('data-content-id')!
-                        )
+                        if (!manualSettedTabKey) {
+                            setCurrentId(tab.getAttribute('data-content-id')!)
+                        }
                     }
                 }
             });
@@ -68,20 +78,26 @@ export default (props: Types.Props) => {
                         data-content-id={tab.key}
                         key={`tabcnt-${tab.key}`}
                         children={tab.content}
-                        css={styles.tab}
+                        css={styles.tab(tab.key == currentId)}
                     />
                 ))}
             </div>
             <div css={styles.menu}>
                 {tabs.map(tab => (
-                    <div
-                        data-tab={tab.key}
-                        key={`tab-${tab.key}`}
-                        children={(
-                            <C1 bold={tab.key == currentId}>{tab.title}</C1>
-                        )}
-                        css={styles.menuItem(tab.key == currentId)}
-                    />
+                    <Flexbox onClick={() => {
+                        manualSettedTabKey = tab.key;
+                        setCurrentId(tab.key);
+                    }}>
+                        <Flexbox justifyContent='center' alignItems='center' css={css({ marginRight: '.75rem' })}>
+                            <Icon shape='oval' size='1.5rem' type={tab.icon} color={tab.key === currentId ? 'highlight' : 'light'} />
+                        </Flexbox>
+                        <div
+                            data-tab={tab.key}
+                            key={`tab-${tab.key}`}
+                            children={tab.title}
+                            css={styles.menuItem(tab.key == currentId)}
+                        />
+                    </Flexbox>
                 ))}
             </div>
         </div>

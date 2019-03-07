@@ -1,6 +1,10 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 var utilities_1 = require("../utilities");
+var randomcolor_1 = __importDefault(require("randomcolor"));
 var accentColors = {
     red: utilities_1.getColors(240, 45, 35),
     green: utilities_1.getColors(28, 151, 82),
@@ -10,6 +14,17 @@ var accentColors = {
 var brand = {
     red: utilities_1.getColors(196, 13, 60),
     purple: utilities_1.getColors(196, 13, 60),
+};
+var randomColors = function (luminosity, count) {
+    if (luminosity === void 0) { luminosity = 'bright'; }
+    if (count === void 0) { count = 10; }
+    return randomcolor_1.default({
+        hue: 'red',
+        format: 'hex',
+        alpha: 1,
+        luminosity: luminosity,
+        count: count
+    });
 };
 exports.default = {
     name: "abrTheme",
@@ -23,6 +38,7 @@ exports.default = {
     textOnAccent: utilities_1.getColors(233, 233, 233),
     highlight: utilities_1.getColors(196, 13, 60),
     accents: accentColors,
+    randomColors: randomColors,
     brand: brand,
     shadow: utilities_1.getColors(220, 220, 220),
     shadows: {

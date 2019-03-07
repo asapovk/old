@@ -7,6 +7,7 @@ export declare const themes: {
     gazpromTheme: ThemeInterface;
 };
 export declare type themeName = 'blackCurrant' | 'whiteCurrant' | 'abrTheme' | 'gazpromTheme';
+export declare type colorsLuminosity = 'bright' | 'light' | 'dark' | 'random';
 export interface ThemeInterface {
     name: string;
     background: objectColor;
@@ -24,6 +25,7 @@ export interface ThemeInterface {
         blue: objectColor;
         orange: objectColor;
     };
+    randomColors: (luminosity: colorsLuminosity, count: number) => any;
     brand: any;
     shadow: objectColor;
     shadows: {

@@ -41,7 +41,7 @@ exports.default = (function (props) {
             transition: 'all 0.5s',
             transform: visible ? 'translateY(0)' : 'translateY(-20px)',
             boxSizing: 'border-box'
-        }, fullSize && {
+        }, (center && fullSize) && {
             width: '40rem'
         }),
         header: core_1.css({

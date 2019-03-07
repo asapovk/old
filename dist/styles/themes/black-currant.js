@@ -1,6 +1,10 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 var utilities_1 = require("../utilities");
+var randomcolor_1 = __importDefault(require("randomcolor"));
 var accentColors = {
     red: utilities_1.getColors(255, 25, 25),
     green: utilities_1.getColors(8, 191, 52),
@@ -10,6 +14,17 @@ var accentColors = {
 var brand = {
     red: utilities_1.getColors(216, 15, 105),
     purple: utilities_1.getColors(216, 15, 105),
+};
+var randomColors = function (luminosity, count) {
+    if (luminosity === void 0) { luminosity = 'bright'; }
+    if (count === void 0) { count = 10; }
+    return randomcolor_1.default({
+        hue: 'purple',
+        format: 'hex',
+        alpha: 1,
+        luminosity: luminosity,
+        count: count
+    });
 };
 exports.default = {
     name: "blackCurrant",
@@ -24,6 +39,7 @@ exports.default = {
     highlight: utilities_1.getColors(216, 15, 105),
     accents: accentColors,
     brand: brand,
+    randomColors: randomColors,
     shadow: utilities_1.getColors(19, 20, 25),
     shadows: {
         button: '0px 2px 6px 0px ' + utilities_1.getColors(19, 20, 25).hex,

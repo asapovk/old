@@ -1,18 +1,59 @@
 import React from 'react';
-import { Flexbox, Tabs } from '../../../src';
+import { Flexbox, Tabs, Icon, C1, C3 } from '../../../src';
+import { TabsTypes } from '../../../src/core/types';
 
 class TabsStory extends React.Component {
 
     render() {
-        const tabs = [
-            { key: 'profile', title: 'Профиль', content: <div style={{ height: 500 }}>Профиль</div>, icon: '' },
-            { key: 'accounts', title: 'Лицевые счета', content: <div style={{ height: 500 }}>Лицевые счета</div>, icon: '' },
-            { key: 'payinfo', title: 'Платежная информация', content: <div style={{ height: 500 }}>Платежная информация</div>, icon: '' },
-            { key: 'notifications', title: 'Уведомления', content: <div style={{ height: 500 }}>Уведомления</div>, icon: '' }
+        const tabs: TabsTypes.Tab[] = [
+            {
+                key: 'profile',
+                title: (
+                    <Flexbox column>
+                        <C1 children='Профиль' />
+                        <C3 color='lowlight' children='Ваш профиль' />
+                    </Flexbox>
+                ),
+                content: <div style={{ height: 200 }}>Профиль</div>,
+                icon: 'smorodina'
+            },
+            {
+                key: 'accounts',
+                title: (
+                    <Flexbox column>
+                        <C1 children='Лицевые счета' />
+                        <C3 color='lowlight' children='Ваши лицевые счета' />
+                    </Flexbox>
+                ),
+                content: <div style={{ height: 200 }}>Лицевые счета</div>,
+                icon: 'counter'
+            },
+            {
+                key: 'payinfo',
+                title: (
+                    <Flexbox column>
+                        <C1 children='Платежная информация' />
+                        <C3 color='lowlight' children='Ваша платежная информация' />
+                    </Flexbox>
+                ),
+                content: <div style={{ height: 200 }}>Платежная информация</div>,
+                icon: 'settings'
+            },
+            {
+                key: 'notifications',
+                title: (
+                    <Flexbox column>
+                        <C1 children='Уведомления' />
+                        <C3 color='lowlight' children='Ваши уведомления' />
+                    </Flexbox>
+                ),
+                content: <div style={{ height: 200 }}>Уведомления</div>,
+                icon: 'photo'
+            }
         ]
         return (
             <Flexbox p={50} column flex={1}>
-                <div style={{ height: '200px', width: '100%' }}></div>
+                <div style={{ height: '100px', width: '100%' }}></div>
                 <Tabs tabs={tabs} />
             </Flexbox>
         )

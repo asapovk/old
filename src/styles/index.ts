@@ -23,6 +23,7 @@ export const themes = {
 }
 
 export type themeName = 'blackCurrant' | 'whiteCurrant' | 'abrTheme' | 'gazpromTheme'
+export type colorsLuminosity = 'bright' | 'light' | 'dark' | 'random';
 
 export interface ThemeInterface {
     name: string
@@ -41,6 +42,7 @@ export interface ThemeInterface {
         blue: objectColor
         orange: objectColor
     },
+    randomColors: (luminosity: colorsLuminosity, count: number) => any
     brand: any,
     shadow: objectColor
     shadows: {

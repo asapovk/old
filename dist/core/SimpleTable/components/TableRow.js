@@ -26,6 +26,11 @@ exports.default = (function (props) {
         }
         onRowClick && onRowClick(row);
     }
+    if (groupHeader) {
+        return (core_1.jsx("div", { css: styles.rowContainer({ header: header, hideHeaders: hideHeaders }), ref: rowRef },
+            core_1.jsx(__1.Flexbox, { css: styles.row({ header: header, groupHeader: groupHeader, last: last }), onClick: function (e) { return onClick(e, row); } },
+                core_1.jsx("div", { css: styles.cell() }))));
+    }
     return (core_1.jsx("div", { css: styles.rowContainer({ header: header, hideHeaders: hideHeaders }), ref: rowRef },
         core_1.jsx(__1.Flexbox, { css: styles.row({ header: header, groupHeader: groupHeader, last: last }), onClick: function (e) { return onClick(e, row); } },
             columns.map(function (col, keyIndex) { return (core_1.jsx("div", { key: "rowcell-" + keyIndex, css: styles.cell(col.width, col.borders, col.alignment), children: row ? col.render(row, row[col.dataIndex]) : groupHeader ? '' : col.title })); }),
