@@ -30,9 +30,12 @@ exports.default = (function (_a) {
             position: 'sticky',
             top: '1.25rem',
             margin: '0 0 0 2.5rem',
-            padding: '0 0 0 1.25rem',
+            padding: '0.25rem 0 0.25rem 1.25rem',
             "@media (max-width: 1024px)": {
                 display: 'none'
+            },
+            "> div:last-of-type > div": {
+                borderWidth: '0',
             }
         }, reverseContainer && {
             margin: '0 2.5rem 0 0'
@@ -46,9 +49,6 @@ exports.default = (function (_a) {
             borderColor: theme.borders.table.color,
             borderStyle: 'solid',
             padding: '1.25rem 0',
-            "&:last-of-type": {
-                borderWidth: '0',
-            }
         }, activeItem && {
             color: theme.highlight.hex
         }); },

@@ -84,10 +84,13 @@ export default (props: Types.Props) => {
             </div>
             <div css={styles.menu}>
                 {tabs.map((tab, index) => (
-                    <Flexbox key={index} onClick={() => {
-                        manualSettedTabKey = tab.key;
-                        setCurrentId(tab.key);
-                    }}>
+                    <Flexbox
+                        key={index}
+                        onClick={() => {
+                            manualSettedTabKey = tab.key;
+                            setCurrentId(tab.key);
+                        }}
+                    >
                         <Flexbox justifyContent='center' alignItems='center' css={css({ marginRight: '.75rem' })}>
                             <Icon shape='oval' size='1.5rem' type={tab.icon} color={tab.key === currentId ? 'highlight' : 'light'} />
                         </Flexbox>
