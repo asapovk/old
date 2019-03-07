@@ -37,7 +37,7 @@ class ThemeSwitch extends React.Component {
             border: "1px solid #eee",
             borderRadius: "4px",
             appearance: "none",
-            "-webkit-appearance": "none",
+            WebkitAppearance: "none",
             padding: 10,
             fontSize: 12,
             textTransform: "uppercase",

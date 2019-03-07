@@ -30,11 +30,11 @@ export default (props) => {
         },
 
         loading && css`
-            > span:first-child{
+            > span:first-of-type{
                 filter: blur(1px);
                 opacity: 0.4;
             }
-            > span:last-child{
+            > span:last-of-type{
                 position: absolute;
                 left: 50%;
                 margin-left: -0.5rem;

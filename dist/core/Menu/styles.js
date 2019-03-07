@@ -104,10 +104,10 @@ exports.default = (function (forElka) {
                 },
             }, active && {
                 transform: 'translate3d(0, 0px, 0) rotate(45deg)',
-                '> :first-child': {
+                '> :first-of-type': {
                     opacity: 0
                 },
-                '> :last-child': {
+                '> :last-of-type': {
                     transform: 'translate3d(0, -7px, 0) rotate(-90deg)'
                 },
             }); },
