@@ -2,7 +2,7 @@ import React from 'react';
 
 declare namespace IconTypes {
 
-    type Type =
+    export type Type =
         'add' |
         'more' |
         'pin' |

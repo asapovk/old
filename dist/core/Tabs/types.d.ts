@@ -1,10 +1,11 @@
 import { CSSProperties } from "react";
+import { IconTypes } from "../../types";
 declare namespace TabsTypes {
     interface Tab {
         key: string;
-        title: string;
+        title: React.ReactNode;
         content: React.ReactNode;
-        icon: any;
+        icon: IconTypes.IconTypes.Type;
     }
     interface Props {
         style?: CSSProperties;

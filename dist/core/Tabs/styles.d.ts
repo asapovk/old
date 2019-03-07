@@ -5,6 +5,6 @@ declare const _default: ({ reverseContainer }: {
     menu: import("@emotion/utils").SerializedStyles;
     menuItem: (activeItem: boolean) => import("@emotion/utils").SerializedStyles;
     content: import("@emotion/utils").SerializedStyles;
-    tab: import("@emotion/utils").SerializedStyles;
+    tab: (activeItem: boolean) => import("@emotion/utils").SerializedStyles;
 };
 export default _default;

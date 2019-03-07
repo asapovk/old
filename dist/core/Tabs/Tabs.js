@@ -7,7 +7,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@emotion/core");
 var react_1 = require("react");
 var styles_1 = __importDefault(require("./styles"));
-var __1 = require("../..");
+var __1 = require("..");
+var Icon_1 = require("../Icon");
+var manualSettedTabKey;
+var timer;
 exports.default = (function (props) {
     var tabs = props.tabs, reverseContainer = props.reverseContainer;
     var styles = styles_1.default({ reverseContainer: reverseContainer });
@@ -44,16 +47,30 @@ exports.default = (function (props) {
             var active_1 = false;
             tabs.forEach(function (tab) {
                 if (!active_1) {
+                    if (manualSettedTabKey) {
+                        if (timer) {
+                            clearTimeout(timer);
+                        }
+                        timer = setTimeout(function () { manualSettedTabKey = ''; }, 100);
+                    }
                     var rect = tab.getBoundingClientRect();
                     if (rect.height / 3 > -rect.top) {
                         active_1 = true;
-                        setCurrentId(tab.getAttribute('data-content-id'));
+                        if (!manualSettedTabKey) {
+                            setCurrentId(tab.getAttribute('data-content-id'));
+                        }
                     }
                 }
             });
         }
     }
     return (core_1.jsx("div", { css: styles.container },
-        core_1.jsx("div", { css: styles.content }, tabs.map(function (tab) { return (core_1.jsx("div", { "data-content-id": tab.key, key: "tabcnt-" + tab.key, children: tab.content, css: styles.tab })); })),
-        core_1.jsx("div", { css: styles.menu }, tabs.map(function (tab) { return (core_1.jsx("div", { "data-tab": tab.key, key: "tab-" + tab.key, children: (core_1.jsx(__1.C1, { bold: tab.key == currentId }, tab.title)), css: styles.menuItem(tab.key == currentId) })); }))));
+        core_1.jsx("div", { css: styles.content }, tabs.map(function (tab) { return (core_1.jsx("div", { "data-content-id": tab.key, key: "tabcnt-" + tab.key, children: tab.content, css: styles.tab(tab.key == currentId) })); })),
+        core_1.jsx("div", { css: styles.menu }, tabs.map(function (tab) { return (core_1.jsx(__1.Flexbox, { onClick: function () {
+                manualSettedTabKey = tab.key;
+                setCurrentId(tab.key);
+            } },
+            core_1.jsx(__1.Flexbox, { justifyContent: 'center', alignItems: 'center', css: core_1.css({ marginRight: '.75rem' }) },
+                core_1.jsx(Icon_1.Icon, { shape: 'oval', size: '1.5rem', type: tab.icon, color: tab.key === currentId ? 'highlight' : 'light' })),
+            core_1.jsx("div", { "data-tab": tab.key, key: "tab-" + tab.key, children: tab.title, css: styles.menuItem(tab.key == currentId) }))); }))));
 });
