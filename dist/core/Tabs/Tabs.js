@@ -75,6 +75,6 @@ exports.default = (function (props) {
                 manualSettedTabKey = tab.key;
                 setCurrentId(tab.key);
             } },
-            core_1.jsx(__1.Flexbox, { justifyContent: 'center', alignItems: 'center', css: core_1.css({ marginRight: '.75rem' }), children: (core_1.jsx(Icon_1.Icon, { shape: 'oval', size: '2rem', type: tab.icon, color: tab.key === currentId ? 'highlight' : 'light' })) }),
+            core_1.jsx(__1.Flexbox, { justifyContent: 'center', alignItems: 'center', css: core_1.css({ marginRight: '.75rem' }), children: (core_1.jsx(Icon_1.Icon, { shape: 'oval', size: '1.5rem', type: tab.icon, color: tab.key === currentId ? 'highlight' : 'light' })) }),
             core_1.jsx("div", { "data-tab": tab.key, key: "tab-" + tab.key, children: tab.title, css: styles.menuItem(tab.key == currentId) }))); }))));
 });

@@ -108,7 +108,7 @@ export default (props: Types.Props) => {
                             children={(
                                 <Icon
                                     shape='oval'
-                                    size='2rem'
+                                    size='1.5rem'
                                     type={tab.icon}
                                     color={tab.key === currentId ? 'highlight' : 'light'}
                                 />
