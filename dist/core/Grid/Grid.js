@@ -71,11 +71,11 @@ var getColumns = function (columns, expandForm) {
         mappedColumns.push({
             alignment: 'flex-end',
             dataIndex: 'actionColumn',
-            width: 64
+            width: 32
         });
     }
     var gridTemplateColumns = mappedColumns
-        .map(function (col) { return col.width ? Math.max(col.width, 64) + 'px' : 'auto'; })
+        .map(function (col) { return col.width ? col.width + 'px' : 'auto'; })
         .join(' ');
     return { columns: mappedColumns, gridTemplateColumns: gridTemplateColumns };
 };

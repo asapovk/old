@@ -57,7 +57,7 @@ exports.rowStyles = function () {
             });
         },
         rowCell: function (_a) {
-            var borders = _a.borders, alignment = _a.alignment, expanded = _a.expanded, expandForm = _a.expandForm;
+            var action = _a.action, borders = _a.borders, alignment = _a.alignment, expanded = _a.expanded, expandForm = _a.expandForm;
             return core_1.css({
                 display: 'flex',
                 alignItems: 'center',
@@ -73,6 +73,9 @@ exports.rowStyles = function () {
                 borderBottom: 0
             }, expandForm && {
                 cursor: 'pointer'
+            }, action && {
+                justifyContent: 'flex-start',
+                padding: '0'
             });
         },
         expandForm: function (_a) {
@@ -151,7 +154,7 @@ exports.headerStyles = function () {
             }
         }),
         headerCell: function (_a) {
-            var borders = _a.borders, alignment = _a.alignment;
+            var action = _a.action, borders = _a.borders, alignment = _a.alignment;
             return core_1.css({
                 display: 'flex',
                 alignItems: 'center',
@@ -169,6 +172,8 @@ exports.headerStyles = function () {
                 color: theme.lowlight.hex,
                 fontWeight: 600,
                 lineHeight: '1rem'
+            }, action && {
+                padding: 0
             });
         },
     };

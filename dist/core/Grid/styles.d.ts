@@ -11,7 +11,8 @@ export declare const rowStyles: () => {
     rowCellsWrapper: ({ expandForm }: {
         expandForm: any;
     }) => import("@emotion/utils").SerializedStyles;
-    rowCell: ({ borders, alignment, expanded, expandForm }: {
+    rowCell: ({ action, borders, alignment, expanded, expandForm }: {
+        action: any;
         borders: any;
         alignment: any;
         expanded: any;
@@ -31,7 +32,8 @@ export declare const paginationStyles: () => {
 };
 export declare const headerStyles: () => {
     headerWrapper: import("@emotion/utils").SerializedStyles;
-    headerCell: ({ borders, alignment }: {
+    headerCell: ({ action, borders, alignment }: {
+        action: any;
         borders: any;
         alignment: any;
     }) => import("@emotion/utils").SerializedStyles;
