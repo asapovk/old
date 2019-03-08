@@ -4,7 +4,7 @@ declare namespace LKMainSceneNew {
         name?: string
         shortname?: string
         avatar?: string
-        onLogout?: () => Promise<any>
+        onLogout?: () => void
         onAvatarChange?: (file: File) => void
     }
     interface Props {
