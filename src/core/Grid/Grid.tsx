@@ -98,12 +98,12 @@ const getColumns = (columns: Types.Column[], expandForm) => {
         mappedColumns.push({
             alignment: 'flex-end',
             dataIndex: 'actionColumn',
-            width: 64
+            width: 32
         });
     }
 
     const gridTemplateColumns = mappedColumns
-        .map(col => col.width ? Math.max(col.width, 64) + 'px' : 'auto')
+        .map(col => col.width ? col.width + 'px' : 'auto')
         .join(' ');
 
     return { columns: mappedColumns, gridTemplateColumns };

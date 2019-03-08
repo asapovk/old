@@ -56,7 +56,7 @@ export const rowStyles = () => {
             }
         }),
 
-        rowCell: ({ borders, alignment, expanded, expandForm }) => css({
+        rowCell: ({ action, borders, alignment, expanded, expandForm }) => css({
             display: 'flex',
             alignItems: 'center',
             padding: '1.25rem',
@@ -71,6 +71,9 @@ export const rowStyles = () => {
             borderBottom: 0
         }, expandForm && {
             cursor: 'pointer'
+        }, action && {
+            justifyContent: 'flex-start',
+            padding: '0'
         }),
 
         expandForm: ({ expanded, columnsLength }) => css({
@@ -151,7 +154,7 @@ export const headerStyles = () => {
             }
         }),
 
-        headerCell: ({ borders, alignment }) => css({
+        headerCell: ({ action, borders, alignment }) => css({
             display: 'flex',
             alignItems: 'center',
             position: 'sticky',
@@ -168,6 +171,8 @@ export const headerStyles = () => {
             color: theme.lowlight.hex,
             fontWeight: 600,
             lineHeight: '1rem'
+        }, action && {
+            padding: 0
         }),
     }
 }

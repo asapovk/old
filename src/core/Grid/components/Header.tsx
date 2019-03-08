@@ -12,6 +12,7 @@ export default (props: Types.HeaderProps) => {
                 <div
                     key={`HC-${column.dataIndex}-${index}`}
                     css={styles.headerCell({
+                        action: column.dataIndex === 'actionColumn',
                         alignment: column.alignment,
                         borders: column.borders
                     })}

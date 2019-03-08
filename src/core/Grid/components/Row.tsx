@@ -21,10 +21,10 @@ export default (props: Types.RowProps) => {
                 {props.columns.map((column, index) => (
                     <div
                         key={`rc-${index}`}
-                        css={styles.rowCell({ expanded, borders: column.borders, alignment: column.alignment, expandForm: props.expandForm })}
+                        css={styles.rowCell({ action: column.dataIndex === 'actionColumn', expanded, borders: column.borders, alignment: column.alignment, expandForm: props.expandForm })}
                         children={(
                             column.dataIndex === 'actionColumn'
-                                ? <Icon type='right' css={styles.icon({ expanded })} />
+                                ? <Icon size='1.25rem' color='highlight' type='right' css={styles.icon({ expanded })} />
                                 : column.render!(props.row, props.row[column.dataIndex])
                         )}
                     />
