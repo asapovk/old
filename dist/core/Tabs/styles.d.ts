@@ -1,6 +1,6 @@
 declare const _default: ({ reverseContainer }: {
     reverseContainer: any;
-}) => {
+}, bp: any) => {
     container: import("@emotion/utils").SerializedStyles;
     menu: import("@emotion/utils").SerializedStyles;
     menuItem: (activeItem: boolean) => import("@emotion/utils").SerializedStyles;

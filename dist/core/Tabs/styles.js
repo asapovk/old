@@ -5,11 +5,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@emotion/core");
 var useTheme_1 = __importDefault(require("../../hooks/useTheme"));
-exports.default = (function (_a) {
+exports.default = (function (_a, bp) {
     var reverseContainer = _a.reverseContainer;
     var _b;
     var theme = useTheme_1.default().theme;
-    var breakpoints = [414, 768, 1024];
+    var breakpoints = bp ? bp : [414, 768, 1024];
     var mq = breakpoints.map(function (bp) { return "@media (max-width: " + bp + "px)"; });
     return {
         container: core_1.css({
@@ -77,6 +77,7 @@ exports.default = (function (_a) {
                 },
                 _a[mq[0]] = {
                     padding: '1.25rem',
+                    marginBottom: '1.25rem',
                 },
                 _a), activeItem && {
                 boxShadow: '0px .75rem .75rem 0px rgba(0, 0, 0, 0.14)',

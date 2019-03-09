@@ -13,6 +13,7 @@ declare namespace TabsTypes {
         style?: CSSProperties
         className?: string
         children?: any
+        bp?: number[]
 
         tabs: Tab[]
         reverseContainer?: boolean

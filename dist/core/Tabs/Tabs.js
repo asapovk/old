@@ -12,8 +12,8 @@ var Icon_1 = require("../Icon");
 var manualSettedTabKey;
 var timer;
 exports.default = (function (props) {
-    var tabs = props.tabs, reverseContainer = props.reverseContainer, noDataComponent = props.noDataComponent;
-    var styles = styles_1.default({ reverseContainer: reverseContainer });
+    var tabs = props.tabs, reverseContainer = props.reverseContainer, noDataComponent = props.noDataComponent, bp = props.bp;
+    var styles = styles_1.default({ reverseContainer: reverseContainer }, bp);
     var _a = react_1.useState(''), currentId = _a[0], setCurrentId = _a[1];
     react_1.useEffect(function () {
         setSmoothAnimation();

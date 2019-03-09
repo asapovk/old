@@ -1,10 +1,11 @@
 import { css } from '@emotion/core';
 import useTheme from '../../hooks/useTheme';
 
-export default ({ reverseContainer }) => {
+export default ({ reverseContainer }, bp) => {
     const theme = useTheme().theme;
 
-    const breakpoints = [414, 768, 1024];
+    const breakpoints = bp ? bp : [414, 768, 1024];
+
 
     const mq = breakpoints.map(
         bp => `@media (max-width: ${bp}px)`
@@ -76,6 +77,7 @@ export default ({ reverseContainer }) => {
             borderColor: theme.borders.table.color,
             [mq[0]]: {
                 padding: '1.25rem',
+                marginBottom: '1.25rem',
             },
         }, activeItem && {
             boxShadow: '0px .75rem .75rem 0px rgba(0, 0, 0, 0.14)',

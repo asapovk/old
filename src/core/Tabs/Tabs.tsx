@@ -10,8 +10,8 @@ let manualSettedTabKey: string;
 let timer: any;
 
 export default (props: Types.Props) => {
-    const { tabs, reverseContainer, noDataComponent } = props;
-    const styles = createStyles({ reverseContainer });
+    const { tabs, reverseContainer, noDataComponent, bp } = props;
+    const styles = createStyles({ reverseContainer }, bp);
     const [currentId, setCurrentId] = useState('');
 
     useEffect(() => {
