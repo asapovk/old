@@ -1,6 +1,6 @@
 {
   "name": "ui",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "main": "index.js",
   "repository": {
     "type": "git",
@@ -37,8 +37,8 @@
     "build-copylib": "cp -R src/extra/lib dist/extra/lib",
     "build-sass": "sass src/styles/scss/main.scss dist/styles.css",
     "showcase": "showcase",
-    "testflight": "git subtree push --prefix dist origin testflight",
-    "deploy": "git subtree push --prefix dist origin build"
+    "testflight": "npm version patch && git subtree push --prefix dist origin testflight",
+    "deploy": "npm version minor && git subtree push --prefix dist origin build"
   },
   "dependencies": {
     "@emotion/core": "^10.0.6",
