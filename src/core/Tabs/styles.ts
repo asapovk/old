@@ -34,7 +34,7 @@ export default ({ reverseContainer }) => {
             top: '1.25rem',
             margin: '0 0 0 2.5rem',
             padding: '0.25rem 0 0.25rem 1.25rem',
-            [mq[3]]: {
+            [mq[2]]: {
                 display: 'none'
             },
             "> div:last-of-type > div": {

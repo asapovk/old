@@ -35,7 +35,7 @@ exports.default = (function (_a) {
                 margin: '0 0 0 2.5rem',
                 padding: '0.25rem 0 0.25rem 1.25rem'
             },
-            _b[mq[3]] = {
+            _b[mq[2]] = {
                 display: 'none'
             },
             _b["> div:last-of-type > div"] = {
