@@ -4,6 +4,12 @@ import useTheme from '../../hooks/useTheme';
 export default ({ reverseContainer }) => {
     const theme = useTheme().theme;
 
+    const breakpoints = [414, 768, 1024];
+
+    const mq = breakpoints.map(
+        bp => `@media (max-width: ${bp}px)`
+    )
+
     return {
         container: css({
             display: 'flex',
@@ -28,7 +34,7 @@ export default ({ reverseContainer }) => {
             top: '1.25rem',
             margin: '0 0 0 2.5rem',
             padding: '0.25rem 0 0.25rem 1.25rem',
-            "@media (max-width: 1024px)": {
+            [mq[3]]: {
                 display: 'none'
             },
             "> div:last-of-type > div": {
@@ -40,7 +46,7 @@ export default ({ reverseContainer }) => {
 
         menuItem: (activeItem: boolean) => css({
             display: 'block',
-            width: '100%',
+            //width: '100%',
             boxSizing: 'border-box',
             cursor: 'pointer',
             borderWidth: '0 0 1px 0',
@@ -68,6 +74,9 @@ export default ({ reverseContainer }) => {
             borderStyle: 'solid',
             borderWidth: '1px',
             borderColor: theme.borders.table.color,
+            [mq[0]]: {
+                padding: '1.25rem',
+            },
         }, activeItem && {
             boxShadow: '0px .75rem .75rem 0px rgba(0, 0, 0, 0.14)',
         }),
