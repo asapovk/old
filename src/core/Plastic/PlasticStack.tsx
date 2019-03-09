@@ -7,9 +7,11 @@ import { Flexbox } from '..';
 import { useState } from 'react';
 
 export default (props: types.PlasticStackProps) => {
-
-    const [mouseOver, setMouseOver] = useState(0);
-    const [current, setCurrent] = useState(0);
+    let defaultValue = 0;
+    if (typeof props.defaultValue === 'number') {
+        defaultValue = props.defaultValue;
+    }
+    const [current, setCurrent] = useState(defaultValue);
     const styles = createStyles({
         stackCount: props.cards.length,
         stackDirection: props.direction

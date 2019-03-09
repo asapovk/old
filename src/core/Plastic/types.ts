@@ -26,6 +26,7 @@ declare namespace PlasticTypes {
     }
 
     interface PlasticStackProps {
+        defaultValue?: number
         direction?: PlasticStackDirection
         offset?: number
         cards: {
