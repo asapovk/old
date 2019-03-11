@@ -5,5 +5,6 @@ declare const _default: () => {
     content: import("@emotion/utils").SerializedStyles;
     dot: import("@emotion/utils").SerializedStyles;
     row: (active: boolean) => import("@emotion/utils").SerializedStyles;
+    empty: (active: boolean) => import("@emotion/utils").SerializedStyles;
 };
 export default _default;

@@ -1,6 +1,6 @@
 {
   "name": "ui",
-  "version": "0.3.4",
+  "version": "0.3.5",
   "main": "index.js",
   "repository": {
     "type": "git",
@@ -32,7 +32,7 @@
     "webpack-cli": "^3.1.2"
   },
   "scripts": {
-    "build": "rm -fR dist/ && yarn build-sass && yarn build-ts && yarn build-copylib && cp package.json dist/",
+    "build": "rm -fR dist/ && yarn build-sass && yarn build-ts && yarn build-copylib && cp package.json dist/ && git add . && git commit -m 'build' && yarn testflight",
     "build-ts": "tsc",
     "build-copylib": "cp -R src/extra/lib dist/extra/lib",
     "build-sass": "sass src/styles/scss/main.scss dist/styles.css",
