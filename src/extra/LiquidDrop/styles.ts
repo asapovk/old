@@ -66,6 +66,26 @@ export default () => {
             ':hover': {
                 background: `linear-gradient(90deg, ${theme.text.rgba(0)} 10%, ${theme.text.rgba(0.02)})`
             }
+        }),
+        empty: (active: boolean) => css({
+            cursor: 'pointer',
+            userSelect: 'none',
+            border: 0,
+            paddingTop: '1.25rem',
+            paddingBottom: '1.25rem',
+            transition: active ? '0.15s' : '0.05s',
+            transitionDelay: active ? '0.15s' : '0',
+            transform: `translateY(${!active ? '30px' : '0px'}) scale(${!active ? '0.7' : '1'})`,
+            transformOrigin: '0 0',
+            opacity: active ? 1 : 0,
+            visibility: active ? 'visible' : 'hidden',
+            height: 280,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            flexDirection: "column",
+            paddingRight: '1.25rem',
+
         })
     }
 }

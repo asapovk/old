@@ -12,6 +12,10 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
+var __makeTemplateObject = (this && this.__makeTemplateObject) || function (cooked, raw) {
+    if (Object.defineProperty) { Object.defineProperty(cooked, "raw", { value: raw }); } else { cooked.raw = raw; }
+    return cooked;
+};
 var __assign = (this && this.__assign) || function () {
     __assign = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
@@ -31,6 +35,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = require("@emotion/core");
 var styles_1 = require("../../styles");
 var react_1 = __importStar(require("react"));
 var emotion_theming_1 = require("emotion-theming");
@@ -84,8 +89,10 @@ var Viewport = /** @class */ (function (_super) {
                         this.props.children,
                         this.state.mountedActions.map(function (action, index) {
                             return react_1.default.createElement(react_1.Fragment, { key: index }, action.component);
-                        }))) }))));
+                        }),
+                        react_1.default.createElement(core_1.Global, { styles: core_1.css(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n                                        input {\n                                            :-webkit-autofill,\n                                            :-webkit-autofill:hover,\n                                            :-webkit-autofill:focus,\n                                            :-webkit-autofill:active {\n                                                transition: background-color 999999s ease-in-out 0s;\n                                                background: rgba(0, 0, 0, 0.0);\n                                            }\n                                        }\n                                    "], ["\n                                        input {\n                                            :-webkit-autofill,\n                                            :-webkit-autofill:hover,\n                                            :-webkit-autofill:focus,\n                                            :-webkit-autofill:active {\n                                                transition: background-color 999999s ease-in-out 0s;\n                                                background: rgba(0, 0, 0, 0.0);\n                                            }\n                                        }\n                                    "]))) }))) }))));
     };
     return Viewport;
 }(react_1.Component));
 exports.default = Viewport;
+var templateObject_1;

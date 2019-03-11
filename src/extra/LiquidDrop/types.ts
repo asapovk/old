@@ -9,6 +9,7 @@ declare namespace LiquidDropTypes {
         data: Item[]
         onRowClick?: (row: Item, index: number) => void
         className?: string
+        noDataText?: string
     }
 }
 

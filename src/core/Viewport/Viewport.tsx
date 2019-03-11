@@ -1,3 +1,4 @@
+import { Global, css } from '@emotion/core'
 import { StylesContext, createStyles, themeName } from '../../styles';
 import React, { Component, Fragment } from 'react';
 import { ThemeProvider } from 'emotion-theming'
@@ -72,6 +73,19 @@ class Viewport extends Component<ViewportProps> {
                                 {this.state.mountedActions.map((action, index) => {
                                     return <Fragment key={index}>{action.component}</Fragment>
                                 })}
+                                <Global
+                                    styles={css`
+                                        input {
+                                            :-webkit-autofill,
+                                            :-webkit-autofill:hover,
+                                            :-webkit-autofill:focus,
+                                            :-webkit-autofill:active {
+                                                transition: background-color 999999s ease-in-out 0s;
+                                                background: rgba(0, 0, 0, 0.0);
+                                            }
+                                        }
+                                    `}
+                                />
                             </Fragment>
                         )}
                     />
