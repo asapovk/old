@@ -28,7 +28,7 @@ const Typography = forwardRef((props: Types.Props, ref) => {
         {
             ref: ref,
             className: props.className,
-            onClick: !props.disabled && props.onClick,
+            onClick: !props.disabled ? props.onClick : undefined,
             css: css(
                 {
                     ...typography,
