@@ -31,6 +31,9 @@ export default class Story extends React.Component {
                         <Button decoration='inverse'>Inverse</Button>
                     </Flexbox>
                     <Flexbox pb={20}>
+                        <Button decoration='blur' color='highlight'>Blur</Button>
+                    </Flexbox>
+                    <Flexbox pb={20}>
                         <Button decoration="none">Without decoration</Button>
                     </Flexbox>
                 </Flexbox>

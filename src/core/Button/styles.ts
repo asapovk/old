@@ -60,6 +60,7 @@ function getDecoration(decoration, color, size, labelSize) {
     let textColor = theme.text.rgb;
     let outlineColor = theme.text.rgb;
     let border = theme.borders.button.width + ' ' + theme.borders.button.style + ' ' + theme.pale.rgb;
+    let filter;
 
     switch (color) {
         case 'highlight':
@@ -110,6 +111,12 @@ function getDecoration(decoration, color, size, labelSize) {
             boxShadow = 'none';
             background = 'unset';
             break;
+        case 'blur':
+            textColor = theme.highlight.rgb;
+            background = theme.background2.rgb;
+            border = 'none';
+            boxShadow = 'none';
+            break;
         case 'none':
             background = 'none';
             border = 'none';
@@ -151,7 +158,7 @@ function getDecoration(decoration, color, size, labelSize) {
     }
 
     return {
-        padding, background, boxShadow, borderRadius, color: textColor, border, height, ...textStyles, ...pseudo
+        filter, padding, background, boxShadow, borderRadius, color: textColor, border, height, ...textStyles, ...pseudo
     }
 
 }
