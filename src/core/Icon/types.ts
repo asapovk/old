@@ -41,7 +41,8 @@ declare namespace IconTypes {
         'intercom' |
         'garbage' |
         'gas' |
-        'heat'
+        'heat' |
+        'minus'
 
 
     interface Props {
