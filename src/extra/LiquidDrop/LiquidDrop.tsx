@@ -29,9 +29,6 @@ export default (props: Types.Props) => {
     }
 
     const toggle = () => {
-        if (!props.data.length && !open) {
-            return;
-        }
         const main = window.document.getElementById("main")!;
         let steps = [0.03, 0.03, 0.03, 0.03, 0.05, 0.05];
         let anim = new TimelineMax();
@@ -107,6 +104,12 @@ export default (props: Types.Props) => {
                                 <T2 mt={'0.25rem'} color={'lowlight'}>{item.message}</T2>
                             </div>
                         ))}
+                        {props.data.length === 0 && (
+                            <div css={styles.empty(open)}>
+                                <Icon type="bell" color="light" size={"4rem"} />
+                                <C1 color="lowlight">{props.noDataText || "It's empty :)"}</C1>
+                            </div>
+                        )}
                     </div>
                 </ScrollView>
             </div>

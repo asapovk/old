@@ -24,9 +24,6 @@ exports.default = (function (props) {
         count = '';
     }
     var toggle = function () {
-        if (!props.data.length && !open) {
-            return;
-        }
         var main = window.document.getElementById("main");
         var steps = [0.03, 0.03, 0.03, 0.03, 0.05, 0.05];
         var anim = new TimelineMax();
@@ -73,8 +70,12 @@ exports.default = (function (props) {
         !count && (core_1.jsx(core_2.Icon, { css: styles.icon, type: "bell" })),
         core_1.jsx("div", { css: styles.contentWrapper },
             core_1.jsx(ScrollView_1.ScrollView, { displayScroll: false },
-                core_1.jsx("div", { css: styles.content }, props.data.map(function (item, index) { return (core_1.jsx("div", { css: styles.row(open), key: index, onClick: function () { return onRowClick(item, index); } },
-                    item.active && (core_1.jsx("span", { css: styles.dot })),
-                    core_1.jsx(core_2.C1, { bold: true }, item.title),
-                    core_1.jsx(core_2.T2, { mt: '0.25rem', color: 'lowlight' }, item.message))); }))))));
+                core_1.jsx("div", { css: styles.content },
+                    props.data.map(function (item, index) { return (core_1.jsx("div", { css: styles.row(open), key: index, onClick: function () { return onRowClick(item, index); } },
+                        item.active && (core_1.jsx("span", { css: styles.dot })),
+                        core_1.jsx(core_2.C1, { bold: true }, item.title),
+                        core_1.jsx(core_2.T2, { mt: '0.25rem', color: 'lowlight' }, item.message))); }),
+                    props.data.length === 0 && (core_1.jsx("div", { css: styles.empty(open) },
+                        core_1.jsx(core_2.Icon, { type: "bell", color: "light", size: "4rem" }),
+                        core_1.jsx(core_2.C1, { color: "lowlight" }, props.noDataText || "It's empty :)"))))))));
 });
