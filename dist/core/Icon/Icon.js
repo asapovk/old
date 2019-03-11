@@ -11,7 +11,7 @@ exports.default = react_1.forwardRef(function (props, ref) {
             display: 'inline-block',
             verticalAlign: 'middle',
             fontSize: props.size,
-            padding: props.shape ? '0.4em' : '',
+            margin: props.shape ? '0.4em' : '',
         }, props.color && {
             color: theme[props.color].rgb,
         }), children: core_1.jsx("g", null,

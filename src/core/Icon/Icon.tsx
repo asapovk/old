@@ -22,7 +22,7 @@ export default forwardRef((props: IconTypes.Props, ref) => {
                     display: 'inline-block',
                     verticalAlign: 'middle',
                     fontSize: props.size,
-                    padding: props.shape ? '0.4em' : '',
+                    margin: props.shape ? '0.4em' : '',
                 },
                 props.color && {
                     color: theme[props.color].rgb,
