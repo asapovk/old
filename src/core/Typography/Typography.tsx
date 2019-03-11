@@ -28,7 +28,7 @@ const Typography = forwardRef((props: Types.Props, ref) => {
         {
             ref: ref,
             className: props.className,
-            onClick: props.onClick,
+            onClick: !props.disabled && props.onClick,
             css: css(
                 {
                     ...typography,
@@ -65,10 +65,19 @@ const Typography = forwardRef((props: Types.Props, ref) => {
                 },
                 (props.underline || props.action) && {
                     lineHeight: typography.fontSize
+                },
+                props.disabled && {
+                    opacity: .5
+                },
+                props.onClick && {
+                    cursor: 'pointer'
+                },
+                props.disabled && (props.onClick || props.link) && {
+                    cursor: 'not-allowed !important'
                 }
             ),
         },
-        props.format || props.toFixed || props.unit
+        (props.format || props.toFixed || props.unit || props.toFixed === 0)
             ? <Formatter
                 format={props.format}
                 unit={props.unit}

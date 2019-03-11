@@ -49,7 +49,7 @@ function getPositions(number, fixed?) {
         float = number
     } else return null
 
-    if (fixed) {
+    if (fixed || fixed === 0) {
         float = float.toFixed(fixed)
     }
 
