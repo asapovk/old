@@ -46,7 +46,7 @@ exports.default = (function (_a, bp) {
         }),
         menuItem: function (activeItem) { return core_1.css({
             display: 'block',
-            //width: '100%',
+            width: '100%',
             boxSizing: 'border-box',
             cursor: 'pointer',
             borderWidth: '0 0 1px 0',

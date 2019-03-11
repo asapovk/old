@@ -22,6 +22,7 @@ export default () => {
                 <Title>STACK</Title>
                 <Flexbox pb={20} pt={20}>
                     <PlasticStack
+                        defaultValue={1}
                         cards={[{
                             pan: "4611 0000 0000 1234",
                             type: "MASTERCARD",

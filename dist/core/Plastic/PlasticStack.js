@@ -21,8 +21,11 @@ var Plastic_1 = __importDefault(require("./Plastic"));
 var __1 = require("..");
 var react_1 = require("react");
 exports.default = (function (props) {
-    var _a = react_1.useState(0), mouseOver = _a[0], setMouseOver = _a[1];
-    var _b = react_1.useState(0), current = _b[0], setCurrent = _b[1];
+    var defaultValue = 0;
+    if (typeof props.defaultValue === 'number') {
+        defaultValue = props.defaultValue;
+    }
+    var _a = react_1.useState(defaultValue), current = _a[0], setCurrent = _a[1];
     var styles = styles_1.default({
         stackCount: props.cards.length,
         stackDirection: props.direction
