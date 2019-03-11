@@ -42,7 +42,9 @@ declare namespace IconTypes {
         'garbage' |
         'gas' |
         'heat' |
-        'minus'
+        'minus' |
+        'grid' |
+        'list'
 
 
     interface Props {
