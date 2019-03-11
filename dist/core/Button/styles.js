@@ -44,6 +44,7 @@ function getDecoration(decoration, color, size, labelSize) {
     var textColor = theme.text.rgb;
     var outlineColor = theme.text.rgb;
     var border = theme.borders.button.width + ' ' + theme.borders.button.style + ' ' + theme.pale.rgb;
+    var filter;
     switch (color) {
         case 'highlight':
             background = theme.highlight.rgb;
@@ -92,6 +93,12 @@ function getDecoration(decoration, color, size, labelSize) {
             boxShadow = 'none';
             background = 'unset';
             break;
+        case 'blur':
+            textColor = theme.highlight.rgb;
+            background = theme.background2.rgb;
+            border = 'none';
+            boxShadow = 'none';
+            break;
         case 'none':
             background = 'none';
             border = 'none';
@@ -128,6 +135,6 @@ function getDecoration(decoration, color, size, labelSize) {
             border: border
         }
     };
-    return __assign({ padding: padding, background: background, boxShadow: boxShadow, borderRadius: borderRadius, color: textColor, border: border, height: height }, textStyles, pseudo);
+    return __assign({ filter: filter, padding: padding, background: background, boxShadow: boxShadow, borderRadius: borderRadius, color: textColor, border: border, height: height }, textStyles, pseudo);
 }
 var templateObject_1;
