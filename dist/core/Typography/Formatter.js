@@ -47,7 +47,7 @@ function getPositions(number, fixed) {
     }
     else
         return null;
-    if (fixed) {
+    if (fixed || fixed === 0) {
         float = float.toFixed(fixed);
     }
     float = float.toString().split('.');

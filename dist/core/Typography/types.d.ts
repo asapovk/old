@@ -8,10 +8,20 @@ declare namespace TypographyTypes {
         size?: number;
         tag: string;
     }
-    type Menu = {
-        text: string;
-        value: string;
-    }[];
+    interface CoreProps extends PM {
+        children?: string | number | null;
+        className?: string;
+        disabled?: boolean;
+        onClick?: (event: any) => void;
+        format?: boolean | 'currency' | units;
+        unit?: 'rub' | 'volume' | 'power';
+        color?: 'text' | 'highlight' | 'pale' | 'textOnAccent' | 'lowlight' | 'light';
+        quotes?: boolean;
+        ellipsis?: boolean;
+        background?: 'text' | 'highlight' | 'pale' | 'textOnAccent' | 'lowlight';
+        toFixed?: number;
+        align?: 'left' | 'right' | 'center' | 'justify' | 'justify-all' | 'start' | 'end' | 'match-parent' | 'inherit' | 'initial' | 'unset';
+    }
     interface HeadersProps extends CoreProps {
         underline?: boolean;
         action?: React.ReactElement<any>;
@@ -27,25 +37,16 @@ declare namespace TypographyTypes {
         theme: any;
         typography: any;
     }
-    interface CoreProps extends PM {
-        children?: string | number | null;
-        className?: string;
-        onClick?: (event: any) => void;
-        format?: boolean | 'currency' | units;
-        unit?: 'rub' | 'volume' | 'power';
-        color?: 'text' | 'highlight' | 'pale' | 'textOnAccent' | 'lowlight' | 'light';
-        quotes?: boolean;
-        ellipsis?: boolean;
-        background?: 'text' | 'highlight' | 'pale' | 'textOnAccent' | 'lowlight';
-        toFixed?: number;
-        align?: 'left' | 'right' | 'center' | 'justify' | 'justify-all' | 'start' | 'end' | 'match-parent' | 'inherit' | 'initial' | 'unset';
-    }
     interface HRProps extends PM {
         dotted?: boolean;
         bold?: boolean;
         className?: string;
         color?: 'text' | 'highlight' | 'pale' | 'textOnAccent' | 'lowlight' | 'light';
     }
+    type Menu = {
+        text: string;
+        value: string;
+    }[];
     interface PM {
         p?: number | string;
         pr?: number | string;

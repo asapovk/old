@@ -33,7 +33,7 @@ var Typography = react_1.forwardRef(function (props, ref) {
         return core_1.jsx(props.tag, {
             ref: ref,
             className: props.className,
-            onClick: props.onClick,
+            onClick: !props.disabled && props.onClick,
             css: core_1.css(__assign({}, typography, { display: props.type === 'caption' ? 'inline-block' : 'block', padding: props.p, paddingTop: props.pt, paddingLeft: props.pl, paddingRight: props.pr, paddingBottom: props.pb, margin: props.m, marginTop: props.mt, marginLeft: props.ml, marginRight: props.mr, marginBottom: props.mb, textAlign: props.align }), props.color && {
                 color: theme[props.color].rgb
             }, props.background && {
@@ -49,8 +49,14 @@ var Typography = react_1.forwardRef(function (props, ref) {
                 textOverflow: 'ellipsis',
             }, (props.underline || props.action) && {
                 lineHeight: typography.fontSize
+            }, props.disabled && {
+                opacity: .5
+            }, props.onClick && {
+                cursor: 'pointer'
+            }, props.disabled && (props.onClick || props.link) && {
+                cursor: 'not-allowed !important'
             }),
-        }, props.format || props.toFixed || props.unit
+        }, (props.format || props.toFixed || props.unit || props.toFixed === 0)
             ? core_1.jsx(Formatter_1.default, { format: props.format, unit: props.unit, toFixed: props.toFixed, children: data })
             : data);
 });
