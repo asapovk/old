@@ -60,7 +60,7 @@ class Viewport extends Component<ViewportProps> {
         const uiStyles = createStyles(this.props.theme);
         return (
             <StylesContext.Provider value={uiStyles}>
-                <ThemeProvider theme={uiStyles}>
+                <ThemeProvider theme={uiStyles.theme}>
                     <div
                         data-viewport
                         className={this.props.transparent ? 'ui-viewport' : 'ui-viewport ui-viewport-fit'}
