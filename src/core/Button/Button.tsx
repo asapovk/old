@@ -19,7 +19,7 @@ export interface ButtonProps {
     type?: 'submit'
 
     size?: 'small' | 'large'
-    decoration?: 'none' | 'inverse' | 'outline' | removed
+    decoration?: 'none' | 'inverse' | 'outline' | 'blur' | removed
 
     color?: 'highlight' | 'red' | 'green' | 'orange' | 'blue' | 'grayscale'
     loading?: boolean
