@@ -196,9 +196,6 @@
   padding: 30px 20px;
   margin: -0.5px;
 }
-.ui-table-content .blur {
-  filter: blur(2px);
-}
 .ui-table-content .hover:hover .ui-table-content-body-row-select {
   display: flex;
 }
