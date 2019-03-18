@@ -14,6 +14,8 @@ exports.default = react_1.forwardRef(function (props, ref) {
             margin: props.shape ? '0.4em' : '',
         }, props.color && {
             color: theme[props.color].rgb,
+        }, props.onClick && {
+            cursor: 'pointer',
         }), children: core_1.jsx("g", null,
             core_1.jsx("path", { d: exports.svgIconPath[props.type] })), onClick: props.onClick }));
     if (props.shape) {

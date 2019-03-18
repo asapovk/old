@@ -28,7 +28,7 @@ var randomColors = function (luminosity, count) {
 exports.default = {
     name: "whiteCurrant",
     background: utilities_1.getColors(255, 255, 255),
-    background2: utilities_1.getColors(244, 241, 246),
+    background2: utilities_1.getColors(246, 245, 247),
     interface: utilities_1.getColors(255, 255, 255),
     pale: utilities_1.getColors(224, 223, 225),
     light: utilities_1.getColors(195, 192, 196),

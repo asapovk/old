@@ -26,6 +26,7 @@ export { Viewport as Viewport } from './core';
 export { Widget as Widget } from './core';
 export { Plastic as Plastic } from './core';
 export { PlasticStack as PlasticStack } from './core';
+export { Leaflet as Leaflet } from './core';
 export { default as Styles } from './styles';
 export { Portal as Portal } from 'react-portal';
 export { default as utils } from './utils';

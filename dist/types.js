@@ -12,3 +12,5 @@ var types_5 = require("./core/types");
 exports.MenuTypes = types_5.default;
 var types_6 = require("./core/types");
 exports.TabsTypes = types_6.default;
+var types_7 = require("./core/types");
+exports.LeafletTypes = types_7.default;
