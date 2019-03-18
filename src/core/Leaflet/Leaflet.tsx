@@ -13,7 +13,7 @@ const reducer = (state: Types.State, action: Types.Action) => {
             return { ...state }
         case 'addItem':
             state.items.push(action.payload);
-            state.showMenu = false
+            state.showMenu = false;
             return { ...state }
         case 'setItem':
             state.items = [action.payload];
@@ -67,7 +67,7 @@ export default (props: Types.Props) => {
                     />}
                 {state.items.map(index => (
                     <div
-                        key={index}
+                        key={'li-' + index}
                         children={props.data[index].render}
                         css={styles.item}
                     />

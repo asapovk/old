@@ -9,7 +9,7 @@ export default (props: Types.MenuProps) => {
 
     const items = data.map((item, index) => (
         <T1
-            key={index}
+            key={'lmi-' + index}
             css={styles.menu.item(index === active, groups)}
             children={item.label}
             onClick={() => onChoose(index)}
