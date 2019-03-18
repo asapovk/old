@@ -26,7 +26,7 @@ const randomColors = (luminosity: colorsLuminosity, count: number = 10) => rando
 export default {
     name: "whiteCurrant",
     background: getColors(255, 255, 255),
-    background2: getColors(244, 241, 246),
+    background2: getColors(246, 245, 247),
     interface: getColors(255, 255, 255),
     pale: getColors(224, 223, 225),
     light: getColors(195, 192, 196),

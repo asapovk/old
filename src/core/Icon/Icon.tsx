@@ -26,6 +26,9 @@ export default forwardRef((props: IconTypes.Props, ref) => {
                 },
                 props.color && {
                     color: theme[props.color].rgb,
+                },
+                props.onClick && {
+                    cursor: 'pointer',
                 }
             )}
             children={<g><path d={svgIconPath[props.type]}></path></g>}
