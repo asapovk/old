@@ -151,7 +151,7 @@ exports.HR = function (props) {
         }, props.dotted && {
             border: 'none',
             backgroundImage: "linear-gradient(to right,\n                    " + theme[props.color ? props.color : 'pale'].rgb + " " + width + "px, \n                    " + theme.background.rgba(0) + " " + width + "px \n                )",
-            backgroundPosition: 'bottom',
+            backgroundPosition: 'left bottom',
             backgroundSize: gap + width + "px " + width + "px",
             backgroundRepeat: 'repeat-x',
             height: width + "px"
