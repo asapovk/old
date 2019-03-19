@@ -1,5 +1,5 @@
 import React from 'react';
-import { Flexbox, D1, C1 } from '../../../src';
+import { Flexbox, D1, C1, HR } from '../../../src';
 import '../../../src/styles/scss/main.scss';
 
 export default (props) => {
@@ -20,6 +20,7 @@ export default (props) => {
             <D1 format unit='volume' color='highlight'>1.239</D1>
             <D1 format unit='volume' color='highlight' toFixed={3}>1.2</D1>
             <D1 format unit='volume' color='highlight'>1</D1>
+            <HR dotted color='highlight' />
         </Flexbox>
     )
 }
