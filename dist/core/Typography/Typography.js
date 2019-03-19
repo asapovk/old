@@ -131,10 +131,12 @@ exports.C4 = react_1.forwardRef(function (props, ref) {
  */
 exports.HR = function (props) {
     var theme = hooks_1.useTheme().theme;
+    var gap = props.gap || 3;
+    var width = props.width || 1;
     return core_1.jsx("div", { className: props.className, css: core_1.css({
             width: '100%',
-            borderBottomWidth: props.bold ? '4px' : '1px',
-            borderBottomStyle: props.dotted ? 'dotted' : 'solid',
+            borderBottomWidth: width + "px",
+            borderBottomStyle: 'solid',
             borderBottomColor: theme[props.color ? props.color : 'pale'].rgb,
             padding: props.p,
             paddingTop: props.pt,
@@ -146,5 +148,12 @@ exports.HR = function (props) {
             marginLeft: props.ml,
             marginRight: props.mr,
             marginBottom: props.mb,
+        }, props.dotted && {
+            border: 'none',
+            backgroundImage: "linear-gradient(to right,\n                    " + theme[props.color ? props.color : 'pale'].rgb + " " + width + "px, \n                    " + theme.background.rgba(0) + " " + width + "px \n                )",
+            backgroundPosition: 'bottom',
+            backgroundSize: gap + width + "px " + width + "px",
+            backgroundRepeat: 'repeat-x',
+            height: width + "px"
         }) });
 };

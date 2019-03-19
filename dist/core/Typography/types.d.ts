@@ -39,8 +39,9 @@ declare namespace TypographyTypes {
     }
     interface HRProps extends PM {
         dotted?: boolean;
-        bold?: boolean;
+        width?: number;
         className?: string;
+        gap?: number;
         color?: 'text' | 'highlight' | 'pale' | 'textOnAccent' | 'lowlight' | 'light';
     }
     type Menu = {
