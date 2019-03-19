@@ -97,17 +97,19 @@ const LeftBar = (props) => {
     return (
         <Flexbox css={props.styles.leftBar} column>
             <Icon
-                type='left'
+                type='arrow-left'
                 shape='oval'
                 background='#fff'
                 color='highlight'
                 onClick={() => props.onBack()}
+                size='1.25rem'
             />
             <Icon
                 type='close'
                 shape='oval'
                 background='#fff'
                 color='highlight'
+                size='1.25rem'
                 onClick={() => props.onClose()}
             />
         </Flexbox>
