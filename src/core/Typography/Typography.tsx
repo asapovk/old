@@ -210,7 +210,7 @@ export const HR = (props: Types.HRProps) => {
                     ${theme[props.color ? props.color : 'pale'].rgb} ${width}px, 
                     ${theme.background.rgba(0)} ${width}px 
                 )`,
-                backgroundPosition: 'bottom',
+                backgroundPosition: 'left bottom',
                 backgroundSize: `${gap + width}px ${width}px`,
                 backgroundRepeat: 'repeat-x',
                 height: `${width}px`
