@@ -58,13 +58,14 @@ exports.default = (function () {
                 padding: '1.25rem'
             }),
             item: function (active, groups) { return core_1.css({
-                cursor: 'pointer'
+                cursor: 'pointer',
+                lineHeight: '2rem'
             }, active && {
                 background: theme.highlight.rgb,
                 color: theme.textOnAccent.rgb,
                 marginRight: '-1.25rem',
-                marginLeft: groups ? '-2rem' : '-1.25rem',
-                paddingLeft: groups ? '2rem' : '1.25rem'
+                marginLeft: groups ? '-1.75rem' : '-1.25rem',
+                paddingLeft: groups ? '1.75rem' : '1.25rem'
             }); },
             group: core_1.css({
                 ':not(:first-of-type)': {
@@ -76,7 +77,7 @@ exports.default = (function () {
                 marginBottom: '0.25rem'
             }),
             groupBody: core_1.css({
-                paddingLeft: '.75rem'
+                paddingLeft: '.5rem'
             }),
         }
     };
