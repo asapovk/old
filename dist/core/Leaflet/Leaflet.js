@@ -68,8 +68,8 @@ exports.default = (function (props) {
 });
 var LeftBar = function (props) {
     return (core_1.jsx(index_1.Flexbox, { css: props.styles.leftBar, column: true },
-        core_1.jsx(index_1.Icon, { type: 'left', shape: 'oval', background: '#fff', color: 'highlight', onClick: function () { return props.onBack(); } }),
-        core_1.jsx(index_1.Icon, { type: 'close', shape: 'oval', background: '#fff', color: 'highlight', onClick: function () { return props.onClose(); } })));
+        core_1.jsx(index_1.Icon, { type: 'arrow-left', shape: 'oval', background: '#fff', color: 'highlight', onClick: function () { return props.onBack(); }, size: '1.25rem' }),
+        core_1.jsx(index_1.Icon, { type: 'close', shape: 'oval', background: '#fff', color: 'highlight', size: '1.25rem', onClick: function () { return props.onClose(); } })));
 };
 var RightBar = function (props) {
     return (core_1.jsx(index_1.Flexbox, { css: props.styles.rightBar, column: true },

@@ -57,14 +57,15 @@ export default () => {
             }),
             item: (active, groups) => css(
                 {
-                    cursor: 'pointer'
+                    cursor: 'pointer',
+                    lineHeight: '2rem'
                 },
                 active && {
                     background: theme.highlight.rgb,
                     color: theme.textOnAccent.rgb,
                     marginRight: '-1.25rem',
-                    marginLeft: groups ? '-2rem' : '-1.25rem',
-                    paddingLeft: groups ? '2rem' : '1.25rem'
+                    marginLeft: groups ? '-1.75rem' : '-1.25rem',
+                    paddingLeft: groups ? '1.75rem' : '1.25rem'
                 }
             ),
             group: css({
@@ -77,7 +78,7 @@ export default () => {
                 marginBottom: '0.25rem'
             }),
             groupBody: css({
-                paddingLeft: '.75rem'
+                paddingLeft: '.5rem'
             }),
         }
     }
