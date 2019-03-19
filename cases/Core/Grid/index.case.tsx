@@ -97,12 +97,10 @@ function TFRow(props: { row: any, dispatch: any }) {
     }
 
     return (
-        <div css={(theme: { theme: ThemeInterface }) => {
-            const colors = theme.theme.randomColors('dark', 10);
+        <div css={(theme: ThemeInterface) => {
             return css({
-                backgroundColor: colors[0],
                 padding: '1rem 2rem',
-                color: theme.theme.textOnAccent.hex
+                color: theme.textOnAccent.hex
             })
         }}>123</div>
     )
