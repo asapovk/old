@@ -183,23 +183,38 @@ export const C4 = forwardRef((props: Types.TextProps, ref) => {
 
 export const HR = (props: Types.HRProps) => {
     const theme = useTheme().theme;
+    const gap = props.gap || 3;
+    const width = props.width || 1;
     return <div
         className={props.className}
-        css={css({
-            width: '100%',
-            borderBottomWidth: props.bold ? '4px' : '1px',
-            borderBottomStyle: props.dotted ? 'dotted' : 'solid',
-            borderBottomColor: theme[props.color ? props.color : 'pale'].rgb,
-            padding: props.p,
-            paddingTop: props.pt,
-            paddingLeft: props.pl,
-            paddingRight: props.pr,
-            paddingBottom: props.pb,
-            margin: props.m,
-            marginTop: props.mt,
-            marginLeft: props.ml,
-            marginRight: props.mr,
-            marginBottom: props.mb,
-        })}
+        css={css(
+            {
+                width: '100%',
+                borderBottomWidth: `${width}px`,
+                borderBottomStyle: 'solid',
+                borderBottomColor: theme[props.color ? props.color : 'pale'].rgb,
+                padding: props.p,
+                paddingTop: props.pt,
+                paddingLeft: props.pl,
+                paddingRight: props.pr,
+                paddingBottom: props.pb,
+                margin: props.m,
+                marginTop: props.mt,
+                marginLeft: props.ml,
+                marginRight: props.mr,
+                marginBottom: props.mb,
+            },
+            props.dotted && {
+                border: 'none',
+                backgroundImage: `linear-gradient(to right,
+                    ${theme[props.color ? props.color : 'pale'].rgb} ${width}px, 
+                    ${theme.background.rgba(0)} ${width}px 
+                )`,
+                backgroundPosition: 'left bottom',
+                backgroundSize: `${gap + width}px ${width}px`,
+                backgroundRepeat: 'repeat-x',
+                height: `${width}px`
+            }
+        )}
     />
 }
