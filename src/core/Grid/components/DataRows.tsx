@@ -52,7 +52,7 @@ export default (props: Types.Props & { currentPage: number }) => {
                     ? null
                     : { rowId, rowElement, rowOffsetHeight: rowElement.offsetHeight };
 
-                setExpandedRowId(rowId);
+                setExpandedRowId(rowId === expandedRowId ? '' : rowId);
             }
         }
     }
