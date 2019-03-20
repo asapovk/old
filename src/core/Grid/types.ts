@@ -29,6 +29,13 @@ declare namespace GridTypes {
         pageNeighbours: number
     }
 
+    export interface PaginationProps {
+        dataLength: number
+        currentPage: number
+        setCurrentPage: Dispatch<SetStateAction<number>>
+        pagination: Pagination
+    }
+
     export interface ExpandForm {
         key: string | number
         render: (row: Object) => any
@@ -38,7 +45,6 @@ declare namespace GridTypes {
         style?: CSSProperties,
         className?: string
         children?: any
-
         indexKey?: string
         data: Row[]
         columns: Column[]
@@ -68,13 +74,8 @@ declare namespace GridTypes {
         row: Row
         expandForm?: ExpandForm
         onRowClick?: (row: Object) => any
-    }
-
-    export interface PaginationProps {
-        dataLength: number
-        currentPage: number
-        setCurrentPage: Dispatch<SetStateAction<number>>
-        pagination: Pagination
+        expandedRowId: string | null
+        rowId: string
     }
 
 }

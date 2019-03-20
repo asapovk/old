@@ -9,26 +9,27 @@ import { Pagination, Header, DataRows } from './components';
 declare global {
     interface String {
         hashCode: () => number
+        stringHashCode: () => string
     }
 }
 
-String.prototype.hashCode = function () {
+String.prototype.stringHashCode = function () {
     var hash = 0;
     if (this.length == 0) {
-        return hash;
+        return hash.toString();
     }
     for (var i = 0; i < this.length; i++) {
         var char = this.charCodeAt(i);
         hash = ((hash << 5) - hash) + char;
         hash = hash & hash; // Convert to 32bit integer
     }
-    return hash;
+    return hash.toString();
 }
 
 export default (props: Types.Props) => {
     const { data, noDataComponent, pagination, hideHeaders } = props;
-    const { columns, gridTemplateColumns } = getColumns(props.columns, props.expandForm);
-    const styles = mainStyles({ gridTemplateColumns });
+    const columns = getColumns(props.columns, props.expandForm);
+    const styles = mainStyles();
 
     const [currentPage, setCurrentPage] = useState(1);
 
@@ -41,9 +42,14 @@ export default (props: Types.Props) => {
     if (!data || data.length <= 0) {
         return (
             <div css={styles.wrapper}>
-                {noDataComponent
-                    ? noDataComponent
-                    : <div css={styles.noDataContainer}>Нет данных</div>}
+                {
+                    noDataComponent
+                        ? noDataComponent
+                        : <div
+                            css={styles.noDataContainer}
+                            children='Нет данных'
+                        />
+                }
             </div>
         )
     }
@@ -98,13 +104,9 @@ const getColumns = (columns: Types.Column[], expandForm) => {
         mappedColumns.push({
             alignment: 'flex-end',
             dataIndex: 'actionColumn',
-            width: 32
+            width: 40
         });
     }
 
-    const gridTemplateColumns = mappedColumns
-        .map(col => col.width ? col.width + 'px' : 'auto')
-        .join(' ');
-
-    return { columns: mappedColumns, gridTemplateColumns };
+    return mappedColumns;
 }

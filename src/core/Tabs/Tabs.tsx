@@ -21,7 +21,7 @@ export default (props: Types.Props) => {
 
         viewport && viewport.addEventListener('scroll', onWindowScroll);
         return () => {
-            viewport && document.removeEventListener('scroll', onWindowScroll);
+            viewport && viewport.removeEventListener('scroll', onWindowScroll);
         }
     }, []);
 
