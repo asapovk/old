@@ -48,6 +48,9 @@ export default (props: Types.Props & { currentPage: number }) => {
         if (props.expandForm) {
             const rowElement = document.getElementById(rowId);
             if (rowElement) {
+                const rect = rowElement.getBoundingClientRect();
+                if (!expandedRowId && (rect.height > rect.top)) return;
+
                 lastExpandedRow = rowId === expandedRowId
                     ? null
                     : { rowId, rowElement, rowOffsetHeight: rowElement.offsetHeight };
