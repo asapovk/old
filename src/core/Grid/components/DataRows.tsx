@@ -1,25 +1,71 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core';
-import { Fragment } from 'react';
+import { Fragment, useState, useEffect } from 'react';
 import Types from '../types';
 import { Row } from '.';
 import { subHeaderStyles } from '../styles';
 
-export default (props: Types.Props & { currentPage: number }) => {
-    const { groups, groupKey, columns, hideHeaders, data, currentPage, expandForm } = props;
+interface LastExpandedRow {
+    rowElement: HTMLElement
+    rowId: string
+    rowOffsetHeight: number
+}
 
-    const styles = subHeaderStyles({
-        columnsLength: props.columns.length,
-        hideHeaders: props.hideHeaders
-    });
+let lastExpandedRow: LastExpandedRow | null
+
+export default (props: Types.Props & { currentPage: number }) => {
+    const { groups, groupKey, columns, data, currentPage, expandForm, hideHeaders } = props;
+    const [expandedRowId, setExpandedRowId] = useState<string>('');
+
+    const styles = subHeaderStyles({ hideHeaders });
+
+    useEffect(() => {
+        const onWindowScroll = () => {
+            if (!lastExpandedRow) return;
+
+            const { rowId, rowElement, rowOffsetHeight } = lastExpandedRow;
+            const rect = rowElement.getBoundingClientRect();
+
+            if (rect) {
+                rowOffsetHeight >= rect.top
+                    ? expandedRowId && setExpandedRowId('')
+                    : !expandedRowId && setExpandedRowId(rowId)
+            }
+        }
+
+        const viewport = document.querySelector('[data-viewport]');
+        viewport && viewport.addEventListener('scroll', onWindowScroll);
+        return () => {
+            viewport && viewport.removeEventListener('scroll', onWindowScroll);
+        }
+    }, [expandedRowId]);
+
+    const onRowClick = (rowId: string, row: Types.Row) => {
+        if (props.onRowClick) {
+            return props.onRowClick(row)
+        };
+
+        if (props.expandForm) {
+            const rowElement = document.getElementById(rowId);
+            if (rowElement) {
+                lastExpandedRow = rowId === expandedRowId
+                    ? null
+                    : { rowId, rowElement, rowOffsetHeight: rowElement.offsetHeight };
+
+                setExpandedRowId(rowId);
+            }
+        }
+    }
 
     if (groupKey && Array.isArray(groups)) {
         const uniqueDataGroups = data.filter((v, i, a) => a.indexOf(v) === i);
-        const currentGroups = groups.filter(group => uniqueDataGroups.some(udg => udg.groupId === group.value));
+        const currentGroups = groups
+            .filter(group => uniqueDataGroups
+                .some(udg => udg.groupId === group.value));
 
         return (
             <Fragment>
-                {currentGroups && currentGroups.map((group, index) => (
+                {currentGroups.map((group, index) => (
                     <Fragment key={`${group.value}-${index}`}>
                         <div
                             key={`sh-${group.value}-${index}`}
@@ -28,15 +74,20 @@ export default (props: Types.Props & { currentPage: number }) => {
                         />
                         {data
                             .filter(row => row.groupId === group.value)
-                            .map((row, index) => (
-                                <Row
-                                    key={(JSON.stringify(columns) + group.value.toString() + currentPage.toString() + index).hashCode()}
-                                    row={row}
-                                    columns={columns}
-                                    expandForm={expandForm}
-                                    onRowClick={props.onRowClick}
-                                />
-                            ))}
+                            .map((row, index) => {
+                                const rowId = (JSON.stringify(columns) + group.value.toString() + currentPage.toString() + index).stringHashCode();
+                                return (
+                                    <Row
+                                        key={rowId}
+                                        rowId={rowId}
+                                        row={row}
+                                        columns={columns}
+                                        expandForm={expandForm}
+                                        onRowClick={() => onRowClick(rowId, row)}
+                                        expandedRowId={expandedRowId}
+                                    />
+                                )
+                            })}
                     </Fragment>
                 ))}
             </Fragment>
@@ -45,15 +96,20 @@ export default (props: Types.Props & { currentPage: number }) => {
 
     return (
         <Fragment>
-            {data.map((row, index) => (
-                <Row
-                    key={(JSON.stringify(columns) + currentPage.toString() + index).hashCode()}
-                    row={row}
-                    columns={columns}
-                    expandForm={expandForm}
-                    onRowClick={props.onRowClick}
-                />
-            ))}
+            {data.map((row, index) => {
+                const rowId = (JSON.stringify(columns) + currentPage.toString() + index).stringHashCode();
+                return (
+                    <Row
+                        key={rowId}
+                        rowId={rowId}
+                        row={row}
+                        columns={columns}
+                        expandForm={expandForm}
+                        onRowClick={() => onRowClick(rowId, row)}
+                        expandedRowId={expandedRowId}
+                    />
+                )
+            })}
         </Fragment>
     )
 }

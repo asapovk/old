@@ -1,30 +1,39 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core';
-import { useState } from 'react';
 import { rowStyles } from '../styles';
 import Types from '../types';
 import { Icon } from '../..';
+import { useEffect } from 'react';
 
 export default (props: Types.RowProps) => {
-    const [expanded, setExpanded] = useState(false);
     const styles = rowStyles();
 
-    const onRowClick = () => {
-        props.onRowClick
-            ? props.onRowClick(props.row)
-            : props.expandForm && setExpanded(!expanded);
-    }
+    const withOpacity = props.expandedRowId && props.expandedRowId !== props.rowId;
+    const expanded = props.expandedRowId === props.rowId;
 
     return (
-        <div css={styles.rowWrapper}>
-            <div css={styles.rowCellsWrapper({ expandForm: props.expandForm })} onClick={onRowClick}>
+        <div id={props.rowId.toString()} css={styles.rowWrapper({ expanded, withOpacity })}>
+            <div css={styles.rowCellsWrapper} onClick={props.onRowClick}>
                 {props.columns.map((column, index) => (
                     <div
                         key={`rc-${index}`}
-                        css={styles.rowCell({ action: column.dataIndex === 'actionColumn', expanded, borders: column.borders, alignment: column.alignment, expandForm: props.expandForm })}
+                        css={styles.rowCell({
+                            action: column.dataIndex === 'actionColumn',
+                            borders: column.borders,
+                            alignment: column.alignment,
+                            width: column.width,
+                            expanded
+                        })}
                         children={(
                             column.dataIndex === 'actionColumn'
-                                ? <Icon size='1.25rem' color='highlight' type='right' css={styles.icon({ expanded })} />
+                                ? (
+                                    <Icon
+                                        size='1.25rem'
+                                        color='lowlight'
+                                        type='right'
+                                        css={styles.icon({ expanded })}
+                                    />
+                                )
                                 : column.render!(props.row, props.row[column.dataIndex])
                         )}
                     />
@@ -32,7 +41,7 @@ export default (props: Types.RowProps) => {
             </div>
             {props.expandForm && (
                 <div
-                    css={styles.expandForm({ expanded, columnsLength: props.columns.length })}
+                    css={styles.expandForm({ expanded })}
                     children={props.expandForm.render(props.row)}
                 />
             )}

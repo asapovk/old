@@ -2,22 +2,21 @@ import { css } from '@emotion/core';
 import useTheme from '../../hooks/useTheme';
 import Types from './types';
 
-export default ({ gridTemplateColumns }) => {
+export default () => {
     const theme = useTheme().theme;
 
     return {
         wrapper: css({
             position: 'relative',
             borderRadius: theme.radius.table,
-            borderWidth: theme.borders.table.width,
-            borderStyle: theme.borders.table.style,
-            borderColor: theme.borders.table.color,
+            borderColor: 'transparent',
+            boxShadow: '0 1px 6px 0 rgba(32,33,36,0.28)',
         }),
 
         container: css({
             position: 'relative',
-            display: 'grid',
-            gridTemplateColumns: gridTemplateColumns,
+            display: 'flex',
+            flexDirection: 'column'
         }),
 
         noDataContainer: css({
@@ -31,24 +30,40 @@ export const rowStyles = () => {
     const theme = useTheme().theme;
 
     return {
-        rowWrapper: css({
-            display: 'contents',
+        rowWrapper: ({ expanded, withOpacity }) => css({
+            boxSizing: 'border-box',
+            display: 'flex',
+            flex: 1,
+            flexDirection: 'column',
+            backgroundColor: theme.background.hex,
             ':last-of-type': {
+                borderBottomWidth: 0,
+                borderRadius: '0 0 .5rem .5rem',
                 "> div": {
-                    borderBottomWidth: 0,
-                    borderRadius: '0 0 .5rem .5rem',
                     ':first-of-type': {
                         "> div": {
-                            borderBottomWidth: 0,
+                            borderBottomWidth: 0
                         }
                     },
                 }
             }
+        }, expanded && {
+            margin: '0 -0.75rem -2px -0.75rem',
+            borderRadius: '0.5rem',
+            padding: '0 0.75rem',
+            zIndex: 6,
+            // boxShadow: '0 1px 6px 0 rgba(32,33,36,0.28)',
+            boxShadow: '0 2px 16px 0 rgba(0,0,0,.25)',
+            ':last-of-type': {
+                borderRadius: '.5rem'
+            }
+        }, withOpacity && {
+            opacity: .7
         }),
 
-        rowCellsWrapper: ({ expandForm }) => css({
-            display: 'contents',
-        }, expandForm && {
+        rowCellsWrapper: css({
+            display: 'flex',
+            flex: 1,
             ':last-of-type': {
                 "> div": {
                     borderBottomWidth: 0,
@@ -56,41 +71,42 @@ export const rowStyles = () => {
             }
         }),
 
-        rowCell: ({ action, borders, alignment, expanded, expandForm }) => css({
+        rowCell: ({ action, borders, alignment, width, expanded }) => css({
             display: 'flex',
+            boxSizing: 'border-box',
             alignItems: 'center',
             padding: '1.25rem',
             overflow: 'hidden',
+            justifyContent: alignment,
+            fontSize: '1rem',
             borderStyle: 'solid',
             borderColor: theme.pale.hex,
             borderWidth: getBorders(borders),
-            justifyContent: alignment,
-            fontSize: '1rem',
-            lineHeight: '1rem'
-        }, expanded && {
-            borderBottom: 0
-        }, expandForm && {
-            cursor: 'pointer'
+            flexBasis: width ? width + 'px' : 0
         }, action && {
             justifyContent: 'flex-start',
             padding: '0'
+        }, !width && {
+            flex: 1
+        }, expanded && {
+            borderBottomWidth: 0
         }),
 
-        expandForm: ({ expanded, columnsLength }) => css({
+        expandForm: ({ expanded }) => css({
             display: 'none',
-            gridColumn: `span ${columnsLength}`,
-            backgroundColor: theme.background2.hex,
             padding: '1.25rem',
+            borderWidth: '1px 0 0 0',
             borderStyle: 'solid',
-            borderColor: theme.pale.hex,
-            borderWidth: '1px 0',
+            borderColor: theme.pale.hex
         }, expanded && {
-            display: 'block'
+            display: 'block',
+            backgroundColor: theme.background.hex,
         }),
 
         icon: ({ expanded }) => css({
             transition: 'all .15s ease-in-out',
-            transform: 'rotate(0)'
+            transform: 'rotate(0)',
+            cursor: 'pointer'
         }, expanded && {
             transform: 'rotate(90deg)'
         })
@@ -108,9 +124,6 @@ export const paginationStyles = () => {
             alignItems: 'center',
             justifyContent: 'center',
             padding: '1.25rem',
-            // borderColor: theme.borders.table.color,
-            // borderStyle: theme.borders.table.style,
-            // borderWidth: '1px 0 0 0',
             userSelect: 'none'
         }),
 
@@ -120,8 +133,8 @@ export const paginationStyles = () => {
             justifyContent: 'center',
             alignItems: 'center',
             overflow: 'hidden',
-            borderColor: theme.borders.table.color,
-            borderStyle: theme.borders.table.style,
+            borderColor: theme.pale.hex,
+            borderStyle: 'solid',
             borderWidth: '1px',
             borderRadius: '0.25rem',
             width: '2rem',
@@ -143,7 +156,11 @@ export const headerStyles = () => {
 
     return {
         headerWrapper: css({
-            display: 'contents',
+            display: 'flex',
+            flex: 1,
+            top: 0,
+            position: 'sticky',
+            zIndex: 1,
             '> div': {
                 ':first-of-type': {
                     borderRadius: '8px 0 0 0'
@@ -154,11 +171,10 @@ export const headerStyles = () => {
             }
         }),
 
-        headerCell: ({ action, borders, alignment }) => css({
+        headerCell: ({ isAction, borders, alignment, width }) => css({
+            boxSizing: 'border-box',
             display: 'flex',
             alignItems: 'center',
-            position: 'sticky',
-            top: 0,
             backgroundColor: theme.background.hex,
             padding: '1.25rem',
             overflow: 'hidden',
@@ -166,23 +182,25 @@ export const headerStyles = () => {
             borderColor: theme.pale.hex,
             justifyContent: alignment,
             borderWidth: getBorders(borders),
-            zIndex: 1,
             fontSize: '0.875rem',
             color: theme.lowlight.hex,
             fontWeight: 600,
-            lineHeight: '1rem'
-        }, action && {
+            lineHeight: '1rem',
+        }, isAction && {
             padding: 0
+        }, width && {
+            flexBasis: width + 'px'
+        }, !width && {
+            flex: 1
         }),
     }
 }
 
-export const subHeaderStyles = ({ columnsLength, hideHeaders }) => {
+export const subHeaderStyles = ({ hideHeaders }) => {
     const theme = useTheme().theme;
 
     return {
         subheader: css({
-            gridColumn: `span ${columnsLength}`,
             backgroundColor: theme.background2.hex,
             padding: '.5rem 1.25rem',
             borderStyle: 'solid',

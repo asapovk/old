@@ -4,23 +4,25 @@ import { headerStyles } from '../styles';
 import Types from '../types';
 
 export default (props: Types.HeaderProps) => {
-    const styles = headerStyles();
+    const { headerWrapper, headerCell } = headerStyles();
+    const { columns } = props;
 
     return (
-        <div css={styles.headerWrapper}>
-            {props.columns.map((column, index) => (
-                <div
-                    key={`HC-${column.dataIndex}-${index}`}
-                    css={styles.headerCell({
-                        action: column.dataIndex === 'actionColumn',
-                        alignment: column.alignment,
-                        borders: column.borders
-                    })}
-                    children={(
-                        column.dataIndex !== 'actionColumn' && column.title
-                    )}
-                />
-            ))}
+        <div css={headerWrapper}>
+            {columns.map((column, index) => {
+                const { alignment, borders, width, dataIndex, title } = column;
+                const isAction = dataIndex === 'actionColumn';
+
+                return (
+                    <div
+                        key={`HC-${dataIndex}-${index}`}
+                        css={headerCell({ isAction, alignment, borders, width })}
+                        children={(
+                            !isAction && title
+                        )}
+                    />
+                )
+            })}
         </div>
     )
 }

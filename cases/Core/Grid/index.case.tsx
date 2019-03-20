@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { jsx, css } from '@emotion/core';
 import { useState, useReducer } from 'react';
-import { Flexbox, Grid, Button, TextField } from '../../../src';
+import { Flexbox, Grid, Button } from '../../../src';
 import { GridTypes } from '../../../src/core/types';
 import { ThemeInterface } from '../../../src/styles';
 
@@ -122,13 +122,14 @@ const Table1 = () => {
             alignment: 'flex-end',
             render: (row, value) => <div style={{ fontSize: '1rem' }}>{value}</div>
         },
-        {
-            title: 'Age',
-            dataIndex: 'age',
-            width: 40,
-            borders: 'right',
-            alignment: 'flex-end'
-        },
+        // 1px auto auto 200px 200px 200px 32px
+        // {
+        //     title: 'Age',
+        //     dataIndex: 'age',
+        //     width: 40,
+        //     borders: 'right',
+        //     alignment: 'flex-end'
+        // },
         {
             title: 'Passport ID',
             dataIndex: 'passport',
@@ -164,10 +165,10 @@ const Table1 = () => {
                 data={state.data}
                 groupKey='groupId'
                 groups={groups}
-                pagination={{
-                    pageSize: 5,
-                    pageNeighbours: 1
-                }}
+                // pagination={{
+                //     pageSize: 5,
+                //     pageNeighbours: 1
+                // }}
                 // border='all'
                 // noDataComponent={<Flexbox flex={1} p={20} justifyContent='center'>А Данных Нет!</Flexbox>}
                 columns={tableColumns}
