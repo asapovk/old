@@ -62,6 +62,7 @@ const Typography = forwardRef((props: Types.Props, ref) => {
                     whiteSpace: 'nowrap',
                     overflow: 'hidden',
                     textOverflow: 'ellipsis',
+                    minWidth: 0,
                 },
                 (props.underline || props.action) && {
                     lineHeight: typography.fontSize

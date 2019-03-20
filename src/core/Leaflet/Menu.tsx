@@ -5,13 +5,13 @@ import Types from './types';
 
 export default (props: Types.MenuProps) => {
 
-    const { groups, data, styles, active, onChoose } = props;
+    const { groups, data, styles, active, onChoose, nameKey } = props;
 
     const items = data.map((item, index) => (
         <T1
             key={'lmi-' + index}
             css={styles.menu.item(index === active, groups)}
-            children={item.label}
+            children={item[nameKey]}
             onClick={() => onChoose(index)}
         />
     ))
@@ -21,12 +21,12 @@ export default (props: Types.MenuProps) => {
             {groups
                 ? groups.map(group => {
                     return (
-                        <Flexbox css={styles.menu.group} column key={group.id}>
+                        <Flexbox css={styles.menu.group} column key={group.value}>
                             <C2 css={styles.menu.groupName}>
                                 {group.label}
                             </C2>
                             <div css={styles.menu.groupBody}>
-                                {items.filter((item, index) => data[index].groupId === group.id)}
+                                {items.filter((item, index) => data[index].groupId === group.value)}
                             </div>
                         </Flexbox>
                     )

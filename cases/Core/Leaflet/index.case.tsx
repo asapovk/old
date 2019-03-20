@@ -4,156 +4,367 @@ import { Leaflet, Flexbox, H1 } from '../../../src';
 
 export default () => {
 
-    return (
-        <Flexbox p={50}>
-            <Leaflet
-                css={css({ flex: 1 })}
-                groups={[
-                    {
-                        label: 'Fruits',
-                        id: 'fr'
-                    },
-                    {
-                        label: 'Vegetables',
-                        id: 'veg'
-                    },
-                    {
-                        label: 'Array methods',
-                        id: 'arr'
-                    },
-                ]}
-                data={[
-                    {
-                        label: 'Apple',
-                        render: (
-                            <div>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Justo laoreet sit amet cursus sit amet dictum sit amet. Egestas congue quisque egestas diam. Vulputate mi sit amet mauris commodo quis. Pretium vulputate sapien nec sagittis aliquam malesuada bibendum arcu vitae. Augue neque gravida in fermentum et sollicitudin ac orci phasellus. A condimentum vitae sapien pellentesque. Faucibus vitae aliquet nec ullamcorper. Sagittis id consectetur purus ut faucibus pulvinar elementum. Suspendisse potenti nullam ac tortor vitae purus faucibus ornare suspendisse. Justo laoreet sit amet cursus sit amet dictum. Egestas purus viverra accumsan in nisl. Egestas pretium aenean pharetra magna ac. Sed cras ornare arcu dui vivamus arcu felis. Venenatis lectus magna fringilla urna porttitor rhoncus dolor purus. Rutrum quisque non tellus orci ac auctor augue mauris. Massa tempor nec feugiat nisl pretium fusce id velit. Bibendum enim facilisis gravida neque.</p>
-                                <p>Potenti nullam ac tortor vitae purus faucibus ornare. Pretium fusce id velit ut. Nunc congue nisi vitae suscipit tellus mauris a diam. Iaculis urna id volutpat lacus laoreet. Quam id leo in vitae turpis massa sed. Condimentum mattis pellentesque id nibh tortor id. Elementum nisi quis eleifend quam adipiscing. Neque laoreet suspendisse interdum consectetur libero id faucibus. Proin sed libero enim sed faucibus turpis in. Adipiscing tristique risus nec feugiat. Feugiat in fermentum posuere urna nec tincidunt praesent semper feugiat. Lectus arcu bibendum at varius vel pharetra vel. Sagittis vitae et leo duis. Tellus at urna condimentum mattis pellentesque id nibh tortor id.</p>
-                            </div>
-                        ),
-                        groupId: 'fr'
-                    },
-                    {
-                        label: 'Orange',
-                        render: (
-                            <div css={css({ color: 'red' })}>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Justo laoreet sit amet cursus sit amet dictum sit amet. Egestas congue quisque egestas diam. Vulputate mi sit amet mauris commodo quis. Pretium vulputate sapien nec sagittis aliquam malesuada bibendum arcu vitae. Augue neque gravida in fermentum et sollicitudin ac orci phasellus. A condimentum vitae sapien pellentesque. Faucibus vitae aliquet nec ullamcorper. Sagittis id consectetur purus ut faucibus pulvinar elementum. Suspendisse potenti nullam ac tortor vitae purus faucibus ornare suspendisse. Justo laoreet sit amet cursus sit amet dictum. Egestas purus viverra accumsan in nisl. Egestas pretium aenean pharetra magna ac. Sed cras ornare arcu dui vivamus arcu felis. Venenatis lectus magna fringilla urna porttitor rhoncus dolor purus. Rutrum quisque non tellus orci ac auctor augue mauris. Massa tempor nec feugiat nisl pretium fusce id velit. Bibendum enim facilisis gravida neque.</p>
-                                <p>Potenti nullam ac tortor vitae purus faucibus ornare. Pretium fusce id velit ut. Nunc congue nisi vitae suscipit tellus mauris a diam. Iaculis urna id volutpat lacus laoreet. Quam id leo in vitae turpis massa sed. Condimentum mattis pellentesque id nibh tortor id. Elementum nisi quis eleifend quam adipiscing. Neque laoreet suspendisse interdum consectetur libero id faucibus. Proin sed libero enim sed faucibus turpis in. Adipiscing tristique risus nec feugiat. Feugiat in fermentum posuere urna nec tincidunt praesent semper feugiat. Lectus arcu bibendum at varius vel pharetra vel. Sagittis vitae et leo duis. Tellus at urna condimentum mattis pellentesque id nibh tortor id.</p>
-                            </div>
-                        ),
-                        groupId: 'fr'
-                    },
-                    {
-                        label: 'Grape',
-                        render: (
-                            <div css={css({ color: 'green' })}>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Justo laoreet sit amet cursus sit amet dictum sit amet. Egestas congue quisque egestas diam. Vulputate mi sit amet mauris commodo quis. Pretium vulputate sapien nec sagittis aliquam malesuada bibendum arcu vitae. Augue neque gravida in fermentum et sollicitudin ac orci phasellus. A condimentum vitae sapien pellentesque. Faucibus vitae aliquet nec ullamcorper. Sagittis id consectetur purus ut faucibus pulvinar elementum. Suspendisse potenti nullam ac tortor vitae purus faucibus ornare suspendisse. Justo laoreet sit amet cursus sit amet dictum. Egestas purus viverra accumsan in nisl. Egestas pretium aenean pharetra magna ac. Sed cras ornare arcu dui vivamus arcu felis. Venenatis lectus magna fringilla urna porttitor rhoncus dolor purus. Rutrum quisque non tellus orci ac auctor augue mauris. Massa tempor nec feugiat nisl pretium fusce id velit. Bibendum enim facilisis gravida neque.</p>
-                                <p>Potenti nullam ac tortor vitae purus faucibus ornare. Pretium fusce id velit ut. Nunc congue nisi vitae suscipit tellus mauris a diam. Iaculis urna id volutpat lacus laoreet. Quam id leo in vitae turpis massa sed. Condimentum mattis pellentesque id nibh tortor id. Elementum nisi quis eleifend quam adipiscing. Neque laoreet suspendisse interdum consectetur libero id faucibus. Proin sed libero enim sed faucibus turpis in. Adipiscing tristique risus nec feugiat. Feugiat in fermentum posuere urna nec tincidunt praesent semper feugiat. Lectus arcu bibendum at varius vel pharetra vel. Sagittis vitae et leo duis. Tellus at urna condimentum mattis pellentesque id nibh tortor id.</p>
-                            </div>
-                        ),
-                        groupId: 'fr'
-                    },
-                    {
-                        label: 'Potato',
-                        render: (
-                            <div>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Justo laoreet sit amet cursus sit amet dictum sit amet. Egestas congue quisque egestas diam. Vulputate mi sit amet mauris commodo quis. Pretium vulputate sapien nec sagittis aliquam malesuada bibendum arcu vitae. Augue neque gravida in fermentum et sollicitudin ac orci phasellus. A condimentum vitae sapien pellentesque. Faucibus vitae aliquet nec ullamcorper. Sagittis id consectetur purus ut faucibus pulvinar elementum. Suspendisse potenti nullam ac tortor vitae purus faucibus ornare suspendisse. Justo laoreet sit amet cursus sit amet dictum. Egestas purus viverra accumsan in nisl. Egestas pretium aenean pharetra magna ac. Sed cras ornare arcu dui vivamus arcu felis. Venenatis lectus magna fringilla urna porttitor rhoncus dolor purus. Rutrum quisque non tellus orci ac auctor augue mauris. Massa tempor nec feugiat nisl pretium fusce id velit. Bibendum enim facilisis gravida neque.</p>
-                                <p>Potenti nullam ac tortor vitae purus faucibus ornare. Pretium fusce id velit ut. Nunc congue nisi vitae suscipit tellus mauris a diam. Iaculis urna id volutpat lacus laoreet. Quam id leo in vitae turpis massa sed. Condimentum mattis pellentesque id nibh tortor id. Elementum nisi quis eleifend quam adipiscing. Neque laoreet suspendisse interdum consectetur libero id faucibus. Proin sed libero enim sed faucibus turpis in. Adipiscing tristique risus nec feugiat. Feugiat in fermentum posuere urna nec tincidunt praesent semper feugiat. Lectus arcu bibendum at varius vel pharetra vel. Sagittis vitae et leo duis. Tellus at urna condimentum mattis pellentesque id nibh tortor id.</p>
-                            </div>
-                        ),
-                        groupId: 'veg'
-                    },
-                    {
-                        label: 'Tomato',
-                        render: (
-                            <div css={css({ color: 'red' })}>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Justo laoreet sit amet cursus sit amet dictum sit amet. Egestas congue quisque egestas diam. Vulputate mi sit amet mauris commodo quis. Pretium vulputate sapien nec sagittis aliquam malesuada bibendum arcu vitae. Augue neque gravida in fermentum et sollicitudin ac orci phasellus. A condimentum vitae sapien pellentesque. Faucibus vitae aliquet nec ullamcorper. Sagittis id consectetur purus ut faucibus pulvinar elementum. Suspendisse potenti nullam ac tortor vitae purus faucibus ornare suspendisse. Justo laoreet sit amet cursus sit amet dictum. Egestas purus viverra accumsan in nisl. Egestas pretium aenean pharetra magna ac. Sed cras ornare arcu dui vivamus arcu felis. Venenatis lectus magna fringilla urna porttitor rhoncus dolor purus. Rutrum quisque non tellus orci ac auctor augue mauris. Massa tempor nec feugiat nisl pretium fusce id velit. Bibendum enim facilisis gravida neque.</p>
-                                <p>Potenti nullam ac tortor vitae purus faucibus ornare. Pretium fusce id velit ut. Nunc congue nisi vitae suscipit tellus mauris a diam. Iaculis urna id volutpat lacus laoreet. Quam id leo in vitae turpis massa sed. Condimentum mattis pellentesque id nibh tortor id. Elementum nisi quis eleifend quam adipiscing. Neque laoreet suspendisse interdum consectetur libero id faucibus. Proin sed libero enim sed faucibus turpis in. Adipiscing tristique risus nec feugiat. Feugiat in fermentum posuere urna nec tincidunt praesent semper feugiat. Lectus arcu bibendum at varius vel pharetra vel. Sagittis vitae et leo duis. Tellus at urna condimentum mattis pellentesque id nibh tortor id.</p>
-                            </div>
-                        ),
-                        groupId: 'veg'
-                    },
-                    {
-                        label: 'Carrot',
-                        render: (
-                            <div css={css({ color: 'yellow' })}>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Justo laoreet sit amet cursus sit amet dictum sit amet. Egestas congue quisque egestas diam. Vulputate mi sit amet mauris commodo quis. Pretium vulputate sapien nec sagittis aliquam malesuada bibendum arcu vitae. Augue neque gravida in fermentum et sollicitudin ac orci phasellus. A condimentum vitae sapien pellentesque. Faucibus vitae aliquet nec ullamcorper. Sagittis id consectetur purus ut faucibus pulvinar elementum. Suspendisse potenti nullam ac tortor vitae purus faucibus ornare suspendisse. Justo laoreet sit amet cursus sit amet dictum. Egestas purus viverra accumsan in nisl. Egestas pretium aenean pharetra magna ac. Sed cras ornare arcu dui vivamus arcu felis. Venenatis lectus magna fringilla urna porttitor rhoncus dolor purus. Rutrum quisque non tellus orci ac auctor augue mauris. Massa tempor nec feugiat nisl pretium fusce id velit. Bibendum enim facilisis gravida neque.</p>
-                                <p>Potenti nullam ac tortor vitae purus faucibus ornare. Pretium fusce id velit ut. Nunc congue nisi vitae suscipit tellus mauris a diam. Iaculis urna id volutpat lacus laoreet. Quam id leo in vitae turpis massa sed. Condimentum mattis pellentesque id nibh tortor id. Elementum nisi quis eleifend quam adipiscing. Neque laoreet suspendisse interdum consectetur libero id faucibus. Proin sed libero enim sed faucibus turpis in. Adipiscing tristique risus nec feugiat. Feugiat in fermentum posuere urna nec tincidunt praesent semper feugiat. Lectus arcu bibendum at varius vel pharetra vel. Sagittis vitae et leo duis. Tellus at urna condimentum mattis pellentesque id nibh tortor id.</p>
-                            </div>
-                        ),
-                        groupId: 'veg'
-                    },
-                    {
-                        label: 'map',
-                        render: (
-                            <div>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Justo laoreet sit amet cursus sit amet dictum sit amet. Egestas congue quisque egestas diam. Vulputate mi sit amet mauris commodo quis. Pretium vulputate sapien nec sagittis aliquam malesuada bibendum arcu vitae. Augue neque gravida in fermentum et sollicitudin ac orci phasellus. A condimentum vitae sapien pellentesque. Faucibus vitae aliquet nec ullamcorper. Sagittis id consectetur purus ut faucibus pulvinar elementum. Suspendisse potenti nullam ac tortor vitae purus faucibus ornare suspendisse. Justo laoreet sit amet cursus sit amet dictum. Egestas purus viverra accumsan in nisl. Egestas pretium aenean pharetra magna ac. Sed cras ornare arcu dui vivamus arcu felis. Venenatis lectus magna fringilla urna porttitor rhoncus dolor purus. Rutrum quisque non tellus orci ac auctor augue mauris. Massa tempor nec feugiat nisl pretium fusce id velit. Bibendum enim facilisis gravida neque.</p>
-                                <p>Potenti nullam ac tortor vitae purus faucibus ornare. Pretium fusce id velit ut. Nunc congue nisi vitae suscipit tellus mauris a diam. Iaculis urna id volutpat lacus laoreet. Quam id leo in vitae turpis massa sed. Condimentum mattis pellentesque id nibh tortor id. Elementum nisi quis eleifend quam adipiscing. Neque laoreet suspendisse interdum consectetur libero id faucibus. Proin sed libero enim sed faucibus turpis in. Adipiscing tristique risus nec feugiat. Feugiat in fermentum posuere urna nec tincidunt praesent semper feugiat. Lectus arcu bibendum at varius vel pharetra vel. Sagittis vitae et leo duis. Tellus at urna condimentum mattis pellentesque id nibh tortor id.</p>
-                            </div>
-                        ),
-                        groupId: 'arr'
-                    },
-                    {
-                        label: 'slice',
-                        render: (
-                            <div css={css({ color: 'red' })}>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Justo laoreet sit amet cursus sit amet dictum sit amet. Egestas congue quisque egestas diam. Vulputate mi sit amet mauris commodo quis. Pretium vulputate sapien nec sagittis aliquam malesuada bibendum arcu vitae. Augue neque gravida in fermentum et sollicitudin ac orci phasellus. A condimentum vitae sapien pellentesque. Faucibus vitae aliquet nec ullamcorper. Sagittis id consectetur purus ut faucibus pulvinar elementum. Suspendisse potenti nullam ac tortor vitae purus faucibus ornare suspendisse. Justo laoreet sit amet cursus sit amet dictum. Egestas purus viverra accumsan in nisl. Egestas pretium aenean pharetra magna ac. Sed cras ornare arcu dui vivamus arcu felis. Venenatis lectus magna fringilla urna porttitor rhoncus dolor purus. Rutrum quisque non tellus orci ac auctor augue mauris. Massa tempor nec feugiat nisl pretium fusce id velit. Bibendum enim facilisis gravida neque.</p>
-                                <p>Potenti nullam ac tortor vitae purus faucibus ornare. Pretium fusce id velit ut. Nunc congue nisi vitae suscipit tellus mauris a diam. Iaculis urna id volutpat lacus laoreet. Quam id leo in vitae turpis massa sed. Condimentum mattis pellentesque id nibh tortor id. Elementum nisi quis eleifend quam adipiscing. Neque laoreet suspendisse interdum consectetur libero id faucibus. Proin sed libero enim sed faucibus turpis in. Adipiscing tristique risus nec feugiat. Feugiat in fermentum posuere urna nec tincidunt praesent semper feugiat. Lectus arcu bibendum at varius vel pharetra vel. Sagittis vitae et leo duis. Tellus at urna condimentum mattis pellentesque id nibh tortor id.</p>
-                            </div>
-                        ),
-                        groupId: 'arr'
-                    },
-                    {
-                        label: 'pop',
-                        render: (
-                            <div css={css({ color: 'yellow' })}>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Justo laoreet sit amet cursus sit amet dictum sit amet. Egestas congue quisque egestas diam. Vulputate mi sit amet mauris commodo quis. Pretium vulputate sapien nec sagittis aliquam malesuada bibendum arcu vitae. Augue neque gravida in fermentum et sollicitudin ac orci phasellus. A condimentum vitae sapien pellentesque. Faucibus vitae aliquet nec ullamcorper. Sagittis id consectetur purus ut faucibus pulvinar elementum. Suspendisse potenti nullam ac tortor vitae purus faucibus ornare suspendisse. Justo laoreet sit amet cursus sit amet dictum. Egestas purus viverra accumsan in nisl. Egestas pretium aenean pharetra magna ac. Sed cras ornare arcu dui vivamus arcu felis. Venenatis lectus magna fringilla urna porttitor rhoncus dolor purus. Rutrum quisque non tellus orci ac auctor augue mauris. Massa tempor nec feugiat nisl pretium fusce id velit. Bibendum enim facilisis gravida neque.</p>
-                                <p>Potenti nullam ac tortor vitae purus faucibus ornare. Pretium fusce id velit ut. Nunc congue nisi vitae suscipit tellus mauris a diam. Iaculis urna id volutpat lacus laoreet. Quam id leo in vitae turpis massa sed. Condimentum mattis pellentesque id nibh tortor id. Elementum nisi quis eleifend quam adipiscing. Neque laoreet suspendisse interdum consectetur libero id faucibus. Proin sed libero enim sed faucibus turpis in. Adipiscing tristique risus nec feugiat. Feugiat in fermentum posuere urna nec tincidunt praesent semper feugiat. Lectus arcu bibendum at varius vel pharetra vel. Sagittis vitae et leo duis. Tellus at urna condimentum mattis pellentesque id nibh tortor id.</p>
-                            </div>
-                        ),
-                        groupId: 'arr'
-                    }
-                ]}
-            />
-        </Flexbox>
-    )
+  return (
+    <Flexbox p={50}>
+      <Leaflet
+        css={css({ flex: 1 })}
+        groupKey='groupId'
+        nameKey='serviceName'
+        capacity={10}
+        groups={[
+          {
+            label: 'Содержание жилого помещения',
+            value: 1
+          },
+          {
+            label: 'Коммунальные услуги',
+            value: 2
+          },
+          {
+            label: 'Иные услуги',
+            value: 3
+          },
+        ]}
+        grids={[
+          {
+            titleKey: 'serviceName',
+            rows: [
+              {
+                name: 'Долг/Аванс',
+                dataKey: 'amountBalance',
+              },
+              {
+                name: 'Тариф',
+                dataKey: 'tariff',
+              },
+              {
+                name: 'Начислено',
+                dataKey: 'amountCharged',
+              },
+              {
+                name: 'Оплачено',
+                dataKey: 'amountPaidPrevPeriod',
+              },
+              {
+                name: 'К оплате',
+                dataKey: 'amountToPay',
+              },
+            ]
+          },
+          {
+            title: 'Поставщик',
+            rows: [
+              {
+                dataKey: ''
+              }
+            ]
+          }
+        ]}
+        data={info}
+      />
+    </Flexbox>
+  )
 }
 
-// export default () => {
-
-//     return (
-//         <Flexbox p={50}>
-//             <Leaflet
-//                 css={css({ flex: 1 })}
-//                 data={[
-//                     {
-//                         label: 'Apple',
-//                         render: (
-//                             <div>
-//                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Justo laoreet sit amet cursus sit amet dictum sit amet. Egestas congue quisque egestas diam. Vulputate mi sit amet mauris commodo quis. Pretium vulputate sapien nec sagittis aliquam malesuada bibendum arcu vitae. Augue neque gravida in fermentum et sollicitudin ac orci phasellus. A condimentum vitae sapien pellentesque. Faucibus vitae aliquet nec ullamcorper. Sagittis id consectetur purus ut faucibus pulvinar elementum. Suspendisse potenti nullam ac tortor vitae purus faucibus ornare suspendisse. Justo laoreet sit amet cursus sit amet dictum. Egestas purus viverra accumsan in nisl. Egestas pretium aenean pharetra magna ac. Sed cras ornare arcu dui vivamus arcu felis. Venenatis lectus magna fringilla urna porttitor rhoncus dolor purus. Rutrum quisque non tellus orci ac auctor augue mauris. Massa tempor nec feugiat nisl pretium fusce id velit. Bibendum enim facilisis gravida neque.</p>
-//                                 <p>Potenti nullam ac tortor vitae purus faucibus ornare. Pretium fusce id velit ut. Nunc congue nisi vitae suscipit tellus mauris a diam. Iaculis urna id volutpat lacus laoreet. Quam id leo in vitae turpis massa sed. Condimentum mattis pellentesque id nibh tortor id. Elementum nisi quis eleifend quam adipiscing. Neque laoreet suspendisse interdum consectetur libero id faucibus. Proin sed libero enim sed faucibus turpis in. Adipiscing tristique risus nec feugiat. Feugiat in fermentum posuere urna nec tincidunt praesent semper feugiat. Lectus arcu bibendum at varius vel pharetra vel. Sagittis vitae et leo duis. Tellus at urna condimentum mattis pellentesque id nibh tortor id.</p>
-//                             </div>
-//                         )
-//                     },
-//                     {
-//                         label: 'Orange',
-//                         render: (
-//                             <div css={css({ color: 'red' })}>
-//                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Justo laoreet sit amet cursus sit amet dictum sit amet. Egestas congue quisque egestas diam. Vulputate mi sit amet mauris commodo quis. Pretium vulputate sapien nec sagittis aliquam malesuada bibendum arcu vitae. Augue neque gravida in fermentum et sollicitudin ac orci phasellus. A condimentum vitae sapien pellentesque. Faucibus vitae aliquet nec ullamcorper. Sagittis id consectetur purus ut faucibus pulvinar elementum. Suspendisse potenti nullam ac tortor vitae purus faucibus ornare suspendisse. Justo laoreet sit amet cursus sit amet dictum. Egestas purus viverra accumsan in nisl. Egestas pretium aenean pharetra magna ac. Sed cras ornare arcu dui vivamus arcu felis. Venenatis lectus magna fringilla urna porttitor rhoncus dolor purus. Rutrum quisque non tellus orci ac auctor augue mauris. Massa tempor nec feugiat nisl pretium fusce id velit. Bibendum enim facilisis gravida neque.</p>
-//                                 <p>Potenti nullam ac tortor vitae purus faucibus ornare. Pretium fusce id velit ut. Nunc congue nisi vitae suscipit tellus mauris a diam. Iaculis urna id volutpat lacus laoreet. Quam id leo in vitae turpis massa sed. Condimentum mattis pellentesque id nibh tortor id. Elementum nisi quis eleifend quam adipiscing. Neque laoreet suspendisse interdum consectetur libero id faucibus. Proin sed libero enim sed faucibus turpis in. Adipiscing tristique risus nec feugiat. Feugiat in fermentum posuere urna nec tincidunt praesent semper feugiat. Lectus arcu bibendum at varius vel pharetra vel. Sagittis vitae et leo duis. Tellus at urna condimentum mattis pellentesque id nibh tortor id.</p>
-//                             </div>
-//                         )
-//                     },
-//                     {
-//                         label: 'Grape',
-//                         render: (
-//                             <div css={css({ color: 'green' })}>
-//                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Justo laoreet sit amet cursus sit amet dictum sit amet. Egestas congue quisque egestas diam. Vulputate mi sit amet mauris commodo quis. Pretium vulputate sapien nec sagittis aliquam malesuada bibendum arcu vitae. Augue neque gravida in fermentum et sollicitudin ac orci phasellus. A condimentum vitae sapien pellentesque. Faucibus vitae aliquet nec ullamcorper. Sagittis id consectetur purus ut faucibus pulvinar elementum. Suspendisse potenti nullam ac tortor vitae purus faucibus ornare suspendisse. Justo laoreet sit amet cursus sit amet dictum. Egestas purus viverra accumsan in nisl. Egestas pretium aenean pharetra magna ac. Sed cras ornare arcu dui vivamus arcu felis. Venenatis lectus magna fringilla urna porttitor rhoncus dolor purus. Rutrum quisque non tellus orci ac auctor augue mauris. Massa tempor nec feugiat nisl pretium fusce id velit. Bibendum enim facilisis gravida neque.</p>
-//                                 <p>Potenti nullam ac tortor vitae purus faucibus ornare. Pretium fusce id velit ut. Nunc congue nisi vitae suscipit tellus mauris a diam. Iaculis urna id volutpat lacus laoreet. Quam id leo in vitae turpis massa sed. Condimentum mattis pellentesque id nibh tortor id. Elementum nisi quis eleifend quam adipiscing. Neque laoreet suspendisse interdum consectetur libero id faucibus. Proin sed libero enim sed faucibus turpis in. Adipiscing tristique risus nec feugiat. Feugiat in fermentum posuere urna nec tincidunt praesent semper feugiat. Lectus arcu bibendum at varius vel pharetra vel. Sagittis vitae et leo duis. Tellus at urna condimentum mattis pellentesque id nibh tortor id.</p>
-//                             </div>
-//                         )
-//                     }
-//             />
-//         </Flexbox>
-//     )
-// }
+const info = [
+  {
+    "amountBalance": "536.04",
+    "amountCharged": "536.04",
+    "amountPaid": "0.00",
+    "amountPaidPrevPeriod": "527.15",
+    "amountRecount": "0.00",
+    "amountToPay": "544.93",
+    "feePercent": 0,
+    "feeType": 0,
+    "glyph": "REPAIR",
+    "groupId": 1,
+    "groupName": "Начисления за содержание жилого помещения, взнос на капитальный ремонт",
+    "isFixed": false,
+    "puAccount": null,
+    "puId": "10001",
+    "serviceCode": "701",
+    "serviceName": "Взнос на кап.ремонт",
+    "tariff": "9.07",
+    "type": 0
+  },
+  {
+    "amountBalance": "1650.07",
+    "amountCharged": "1650.07",
+    "amountPaid": "0.00",
+    "amountPaidPrevPeriod": "1622.70",
+    "amountRecount": "0.00",
+    "amountToPay": "1677.44",
+    "feePercent": 0,
+    "feeType": 0,
+    "glyph": "OTHER",
+    "groupId": 1,
+    "groupName": "Начисления за содержание жилого помещения, взнос на капитальный ремонт",
+    "isFixed": false,
+    "puAccount": null,
+    "puId": "10001",
+    "serviceCode": "225",
+    "serviceName": "Содержание жилого помещения",
+    "tariff": "27.92",
+    "type": 0
+  },
+  {
+    "amountBalance": "15.18",
+    "amountCharged": "15.18",
+    "amountPaid": "0.00",
+    "amountPaidPrevPeriod": "14.93",
+    "amountRecount": "0.00",
+    "amountToPay": "15.43",
+    "feePercent": 0,
+    "feeType": 0,
+    "glyph": "OTHER",
+    "groupId": 1,
+    "groupName": "Начисления за содержание жилого помещения, взнос на капитальный ремонт",
+    "isFixed": false,
+    "puAccount": null,
+    "puId": "10001",
+    "serviceCode": "702",
+    "serviceName": "Тепловая энергия ОДН",
+    "tariff": "2599.94",
+    "type": 0
+  },
+  {
+    "amountBalance": "2.25",
+    "amountCharged": "2.25",
+    "amountPaid": "4.50",
+    "amountPaidPrevPeriod": "2.21",
+    "amountRecount": "0.00",
+    "amountToPay": "0.00",
+    "feePercent": 0,
+    "feeType": 0,
+    "glyph": "OTHER",
+    "groupId": 1,
+    "groupName": "Начисления за содержание жилого помещения, взнос на капитальный ремонт",
+    "isFixed": false,
+    "puAccount": null,
+    "puId": "10001",
+    "serviceCode": "703",
+    "serviceName": "Теплоноситель ОДН",
+    "tariff": "22.53",
+    "type": 0
+  },
+  {
+    "amountBalance": "2.23",
+    "amountCharged": "2.23",
+    "amountPaid": "4.46",
+    "amountPaidPrevPeriod": "2.19",
+    "amountRecount": "0.00",
+    "amountToPay": "0.00",
+    "feePercent": 0,
+    "feeType": 0,
+    "glyph": "WATER_COLD",
+    "groupId": 1,
+    "groupName": "Начисления за содержание жилого помещения, взнос на капитальный ремонт",
+    "isFixed": false,
+    "puAccount": null,
+    "puId": "10001",
+    "serviceCode": "226",
+    "serviceName": "Холодное водоснабжение ОДН",
+    "tariff": "22.28",
+    "type": 0
+  },
+  {
+    "amountBalance": "24.83",
+    "amountCharged": "24.83",
+    "amountPaid": "0.00",
+    "amountPaidPrevPeriod": "24.42",
+    "amountRecount": "0.00",
+    "amountToPay": "25.24",
+    "feePercent": 0,
+    "feeType": 0,
+    "glyph": "ELECTRICITY",
+    "groupId": 1,
+    "groupName": "Начисления за содержание жилого помещения, взнос на капитальный ремонт",
+    "isFixed": false,
+    "puAccount": null,
+    "puId": "10001",
+    "serviceCode": "53",
+    "serviceName": "Электроснабжение ОДН",
+    "tariff": "5.29",
+    "type": 0
+  },
+  {
+    "amountBalance": "560.46",
+    "amountCharged": "469.54",
+    "amountPaid": "66.00",
+    "amountPaidPrevPeriod": "551.16",
+    "amountRecount": "0.00",
+    "amountToPay": "412.84",
+    "feePercent": 0,
+    "feeType": 0,
+    "glyph": "OTHER",
+    "groupId": 2,
+    "groupName": "Начисления за коммунальные услуги",
+    "isFixed": false,
+    "puAccount": null,
+    "puId": "10001",
+    "serviceCode": "54",
+    "serviceName": "Водоотведение",
+    "tariff": "27.62",
+    "type": 0
+  },
+  {
+    "amountBalance": "254.00",
+    "amountCharged": "254.00",
+    "amountPaid": "0.00",
+    "amountPaidPrevPeriod": "249.79",
+    "amountRecount": "0.00",
+    "amountToPay": "258.21",
+    "feePercent": 0,
+    "feeType": 0,
+    "glyph": "GAS",
+    "groupId": 2,
+    "groupName": "Начисления за коммунальные услуги",
+    "isFixed": false,
+    "puAccount": null,
+    "puId": "10001",
+    "serviceCode": "82",
+    "serviceName": "Газоснабжение",
+    "tariff": "63.5",
+    "type": 0
+  },
+  {
+    "amountBalance": "2765.82",
+    "amountCharged": "2765.82",
+    "amountPaid": "0.00",
+    "amountPaidPrevPeriod": "2719.94",
+    "amountRecount": "0.00",
+    "amountToPay": "2811.70",
+    "feePercent": 0,
+    "feeType": 0,
+    "glyph": "OTHER",
+    "groupId": 2,
+    "groupName": "Начисления за коммунальные услуги",
+    "isFixed": false,
+    "puAccount": null,
+    "puId": "10001",
+    "serviceCode": "57",
+    "serviceName": "Отопление",
+    "tariff": "2599.94",
+    "type": 0
+  },
+  {
+    "amountBalance": "777.95",
+    "amountCharged": "303.67",
+    "amountPaid": "0.00",
+    "amountPaidPrevPeriod": "765.05",
+    "amountRecount": "0.00",
+    "amountToPay": "316.57",
+    "feePercent": 0,
+    "feeType": 0,
+    "glyph": "OTHER",
+    "groupId": 2,
+    "groupName": "Начисления за коммунальные услуги",
+    "isFixed": false,
+    "puAccount": null,
+    "puId": "10001",
+    "serviceCode": "704",
+    "serviceName": "Тепловая энергия",
+    "tariff": "2599.94",
+    "type": 0
+  },
+  {
+    "amountBalance": "115.44",
+    "amountCharged": "45.06",
+    "amountPaid": "0.00",
+    "amountPaidPrevPeriod": "113.53",
+    "amountRecount": "0.00",
+    "amountToPay": "46.97",
+    "feePercent": 0,
+    "feeType": 0,
+    "glyph": "OTHER",
+    "groupId": 2,
+    "groupName": "Начисления за коммунальные услуги",
+    "isFixed": false,
+    "puAccount": null,
+    "puId": "10001",
+    "serviceCode": "705",
+    "serviceName": "Теплоноситель",
+    "tariff": "22.53",
+    "type": 1
+  },
+  {
+    "amountBalance": "337.95",
+    "amountCharged": "334.20",
+    "amountPaid": "0.00",
+    "amountPaidPrevPeriod": "332.34",
+    "amountRecount": "0.00",
+    "amountToPay": "339.81",
+    "feePercent": 0,
+    "feeType": 0,
+    "glyph": "WATER_COLD",
+    "groupId": 2,
+    "groupName": "Начисления за коммунальные услуги",
+    "isFixed": false,
+    "puAccount": null,
+    "puId": "10001",
+    "serviceCode": "227",
+    "serviceName": "Холодное водоснабжение",
+    "tariff": "22.28",
+    "type": 1
+  },
+  {
+    "amountBalance": "1052.71",
+    "amountCharged": "529.00",
+    "amountPaid": "0.00",
+    "amountPaidPrevPeriod": "1035.25",
+    "amountRecount": "0.00",
+    "amountToPay": "546.46",
+    "feePercent": 0,
+    "feeType": 0,
+    "glyph": "ELECTRICITY",
+    "groupId": 2,
+    "groupName": "Начисления за коммунальные услуги",
+    "isFixed": false,
+    "puAccount": null,
+    "puId": "10001",
+    "serviceCode": "105",
+    "serviceName": "Электроснабжение",
+    "tariff": "5.29",
+    "type": 1
+  },
+  {
+    "amountBalance": "40.00",
+    "amountCharged": "40.00",
+    "amountPaid": "80.00",
+    "amountPaidPrevPeriod": "39.34",
+    "amountRecount": "0.00",
+    "amountToPay": "0.00",
+    "feePercent": 0,
+    "feeType": 0,
+    "glyph": "GAS",
+    "groupId": 3,
+    "groupName": "Начисления за иные услуги",
+    "isFixed": false,
+    "puAccount": null,
+    "puId": "10001",
+    "serviceCode": "229",
+    "serviceName": "ТО газового оборудования",
+    "tariff": "40",
+    "type": 1
+  },
+  {
+    "amountBalance": "0.00",
+    "amountCharged": "106.38",
+    "amountPaid": "0.00",
+    "amountPaidPrevPeriod": "0.00",
+    "amountRecount": "0.00",
+    "amountToPay": "106.38",
+    "feePercent": 0,
+    "feeType": 0,
+    "glyph": "INSURANCE",
+    "groupId": 3,
+    "groupName": "Начисления за иные услуги",
+    "isFixed": true,
+    "puAccount": null,
+    "puId": "10001",
+    "serviceCode": "164",
+    "serviceName": "Добровольное страхование",
+    "tariff": "1.8",
+    "type": 1
+  }
+]

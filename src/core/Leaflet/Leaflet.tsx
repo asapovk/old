@@ -1,7 +1,7 @@
 /** @jsx jsx */
-import { jsx } from '@emotion/core'
-import { useReducer } from 'react';
-import { Flexbox, Icon, C2 } from '../index';
+import { jsx, css } from '@emotion/core'
+import { useReducer, Fragment } from 'react';
+import { Flexbox, Icon, C2, D3, T1, HR } from '../index';
 import createStyles from './styles';
 import Types from './types';
 import Menu from './Menu';
@@ -40,6 +40,7 @@ export default (props: Types.Props) => {
 
     const [state, dispatch] = useReducer(reducer, initialState);
     const styles = createStyles();
+    const capacity = props.capacity || 5;
 
     if (!props.data) {
         return <div>{props.noData || 'Нет данных'}</div>
@@ -64,25 +65,27 @@ export default (props: Types.Props) => {
                         onChoose={(i) => dispatch({ type: 'setItem', payload: i })}
                         active={state.items[0]}
                         styles={styles}
-                    />}
-                {state.items.map(index => (
-                    <div
-                        key={'li-' + index}
-                        children={props.data[index].render}
-                        css={styles.item}
+                        nameKey={props.nameKey}
                     />
-                ))}
+                }
+                {<ItemsGrid
+                    items={state.items}
+                    data={props.data}
+                    grids={props.grids}
+                    styles={styles}
+                />}
                 {state.showMenu &&
                     <Menu
                         data={props.data}
                         groups={props.groups}
                         onChoose={(i) => dispatch({ type: 'addItem', payload: i })}
                         styles={styles}
+                        nameKey={props.nameKey}
                     />
                 }
             </Flexbox>
 
-            {state.items.length < 3 &&
+            {state.items.length < capacity &&
                 <RightBar
                     styles={styles}
                     onAdd={() => dispatch({ type: 'openMenu' })}
@@ -136,4 +139,40 @@ const RightBar = (props) => {
             </Flexbox>
         </Flexbox>
     )
+}
+
+const ItemsGrid = (props) => {
+    return props.items.map((key, index) => (
+        <Flexbox key={'li-' + index} css={props.styles.item} column>
+            {props.grids.map((grid, gi) => (
+                <Flexbox key={'li-gr-' + gi} column mb='2rem'>
+                    <D3 ellipsis underline>
+                        {grid.title
+                            ? grid.title
+                            : grid.titleKey
+                            && props.data[key][grid.titleKey]
+                        }
+                    </D3>
+                    {grid.rows.filter(row => props.data[key][row.dataKey]).map((row, ri) => (
+                        <Flexbox key={'li-gr-row-' + ri} css={props.styles.grid}>
+                            {(props.items.length < 4 || index === 0)
+                                && row.name
+                                && <T1
+                                    color='lowlight'
+                                    css={css({ flexShrink: 0 })}
+                                    children={row.name}
+                                />
+                            }
+                            <HR
+                                dotted
+                                color='light'
+                                css={css({ margin: '0.35rem 0.5rem', flex: 1 })}
+                            />
+                            <T1>{props.data[key][row.dataKey]}</T1>
+                        </Flexbox>
+                    ))}
+                </Flexbox>
+            ))}
+        </Flexbox>
+    ))
 }

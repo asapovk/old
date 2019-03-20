@@ -1,26 +1,24 @@
-import React from 'react';
+/** @jsx jsx */
+import { jsx, css } from '@emotion/core';
 import { Flexbox, D1, C1, HR } from '../../../src';
 import '../../../src/styles/scss/main.scss';
 
 export default (props) => {
     return (
-        <Flexbox flexDirection='column'>
+        <Flexbox flexDirection='column' p={80}>
             <D1
                 menu={[
-                    { text: 'Услуги', value: 'services' },
-                    { text: 'Приборы учета', value: 'counters' },
+                    { text: 'Item', value: 'item' },
+                    { text: '🤷🏻‍', value: '🤷🏻‍' },
                 ]}
-                action={<C1 link>Таблицей</C1>}
+                action={<C1 link>Action</C1>}
                 onChange={(value) => console.log(value)}
             />
-            <D1 format='currency' unit='rub' color='highlight'>1.23</D1>
-            <D1 toFixed={0} disabled>1.23</D1>
-            <D1 format='currency' unit='rub' color='highlight'>1.2</D1>
-            <D1 format='currency' color='highlight'>1</D1>
-            <D1 format unit='volume' color='highlight'>1.239</D1>
-            <D1 format unit='volume' color='highlight' toFixed={3}>1.2</D1>
-            <D1 format unit='volume' color='highlight'>1</D1>
-            <HR dotted color='highlight' />
+            <Flexbox p='1rem' mt='3rem' css={css({ border: '1px solid black' })}>
+                <C1 ellipsis css={css({ flex: 1 })}>Very very long text frame with lot of information</C1>
+                <Flexbox flex={1} css={css({ background: 'red' })} />
+                <Flexbox flex={1} flexShrink={0} css={css({ background: 'lightgreen' })} />
+            </Flexbox>
         </Flexbox>
     )
 }

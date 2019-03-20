@@ -8,9 +8,11 @@ export default () => {
     return {
         container: css({
             background: theme.background2.rgb,
-            borderRadius: theme.radius.card
+            borderRadius: theme.radius.card,
+            overflow: 'hidden'
         }),
         items: css({
+            overflow: 'hidden',
             '> div:first-of-type': {
                 borderTopLeftRadius: theme.radius.card,
                 borderBottomLeftRadius: theme.radius.card,
@@ -23,11 +25,18 @@ export default () => {
                 marginLeft: '-1px'
             },
         }),
+        grid: css({
+            paddingTop: '.75rem',
+            alignItems: 'flex-end',
+            flex: 1,
+            overflow: 'hidden'
+        }),
         item: css({
             background: theme.interface.rgb,
             border: '1px solid ' + theme.pale.rgb,
             flex: 1,
-            padding: '2.5rem'
+            padding: '2.5rem',
+            overflow: 'hidden'
         }),
         leftBar: css({
             paddingTop: '2.5rem',

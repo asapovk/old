@@ -52,7 +52,13 @@ const Header = (props) => jsx(
             },
             props.menu && {
                 cursor: 'pointer'
-            }
+            },
+            props.ellipsis && {
+                whiteSpace: 'nowrap',
+                overflow: 'hidden',
+                textOverflow: 'ellipsis',
+                minWidth: 0,
+            },
         ),
     },
     props.children
