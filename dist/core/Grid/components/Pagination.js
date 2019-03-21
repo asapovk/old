@@ -7,25 +7,30 @@ var styles_1 = require("../styles");
 exports.default = (function (props) {
     var dataLength = props.dataLength, pagination = props.pagination, currentPage = props.currentPage, setCurrentPage = props.setCurrentPage;
     var totalPages = Math.ceil(dataLength / pagination.pageSize);
-    var styles = styles_1.paginationStyles();
+    var ps = styles_1.paginationStyles();
     if (totalPages <= 1) {
         return null;
     }
     var pages = fetchPageNumbers(pagination.pageNeighbours, totalPages, currentPage);
-    function setPage(page) {
+    var setPage = function (page) {
         var currentPage = Math.max(1, Math.min(page, totalPages));
         setCurrentPage(currentPage);
-    }
-    return (core_1.jsx("div", { css: styles.paginationContainer }, pages.map(function (page, index) { return (core_1.jsx("div", { key: "pagination-" + index, onClick: function (event) {
-            event.preventDefault();
-            typeof page === 'number'
-                ? setPage(page)
-                : page === LEFT_PAGE
-                    ? setPage(currentPage - (pagination.pageNeighbours * 2) - 1)
-                    : setPage(currentPage + (pagination.pageNeighbours * 2) + 1);
-        }, children: (typeof page === 'number'
+    };
+    var onPageButtonClick = function (event, page) {
+        event.preventDefault();
+        typeof page === 'number'
+            ? setPage(page)
+            : page === LEFT_PAGE
+                ? setPage(currentPage - (pagination.pageNeighbours * 2) - 1)
+                : setPage(currentPage + (pagination.pageNeighbours * 2) + 1);
+    };
+    return (core_1.jsx("div", { css: ps.paginationContainer }, pages.map(function (page, index) {
+        var css = ps.paginationButton(typeof page === 'number' ? (currentPage === page) : false);
+        var children = typeof page === 'number'
             ? page
-            : core_1.jsx(__1.Icon, { type: page })), css: styles.paginationButton(typeof page === 'number' ? (currentPage === page) : false) })); })));
+            : core_1.jsx(__1.Icon, { type: page });
+        return (core_1.jsx("div", { key: "pagination-" + index, css: css, onClick: function (event) { return onPageButtonClick(event, page); }, children: children }));
+    })));
 });
 var range = function (from, to, step) {
     if (step === void 0) { step = 1; }

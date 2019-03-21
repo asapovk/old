@@ -20,7 +20,7 @@ exports.default = (function (props) {
         var viewport = document.querySelector('[data-viewport]');
         viewport && viewport.addEventListener('scroll', onWindowScroll);
         return function () {
-            viewport && document.removeEventListener('scroll', onWindowScroll);
+            viewport && viewport.removeEventListener('scroll', onWindowScroll);
         };
     }, []);
     function setSmoothAnimation() {

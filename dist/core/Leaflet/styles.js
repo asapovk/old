@@ -10,9 +10,11 @@ exports.default = (function () {
     return {
         container: core_1.css({
             background: theme.background2.rgb,
-            borderRadius: theme.radius.card
+            borderRadius: theme.radius.card,
+            overflow: 'hidden'
         }),
         items: core_1.css({
+            overflow: 'hidden',
             '> div:first-of-type': {
                 borderTopLeftRadius: theme.radius.card,
                 borderBottomLeftRadius: theme.radius.card,
@@ -25,11 +27,18 @@ exports.default = (function () {
                 marginLeft: '-1px'
             },
         }),
+        grid: core_1.css({
+            paddingTop: '.75rem',
+            alignItems: 'flex-end',
+            flex: 1,
+            overflow: 'hidden'
+        }),
         item: core_1.css({
             background: theme.interface.rgb,
             border: '1px solid ' + theme.pale.rgb,
             flex: 1,
-            padding: '2.5rem'
+            padding: '2.5rem',
+            overflow: 'hidden'
         }),
         leftBar: core_1.css({
             paddingTop: '2.5rem',
