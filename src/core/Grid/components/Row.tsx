@@ -5,41 +5,41 @@ import { rowStyles } from '../styles';
 import Types from '../types';
 
 export default (props: Types.RowProps) => {
-    const rs = rowStyles();
     const { expandedRowId, rowId, onRowClick, columns, row, expandForm } = props;
-
-    const withOpacity = expandedRowId && (expandedRowId !== rowId);
-    const expanded = expandedRowId === rowId;
+    const rs = rowStyles({
+        expanded: expandedRowId === rowId,
+        withOpacity: expandedRowId && (expandedRowId !== rowId)
+    });
 
     const ExpandIcon = () => (
         <Icon
             size='1.25rem'
             color='lowlight'
             type='right'
-            css={rs.icon({ expanded })}
+            css={rs.icon}
         />
     );
 
     return (
-        <div id={rowId} css={rs.rowWrapper({ expanded, withOpacity })}>
+        <div id={rowId} css={rs.rowWrapper}>
             <div
                 css={rs.rowCellsWrapper}
                 onClick={onRowClick}
                 children={(
                     columns.map((column, index) => {
                         const { borders, alignment, width, dataIndex, render } = column;
-                        const action = dataIndex === 'actionColumn';
+                        const isAction = dataIndex === 'actionColumn';
 
-                        const cellStyle = rs.rowCell({
-                            action, borders, alignment, width, expanded
+                        const css = rs.rowCell({
+                            isAction, borders, alignment, width
                         });
 
                         return (
                             <div
                                 key={`rc-${index}`}
-                                css={cellStyle}
+                                css={css}
                                 children={(
-                                    action
+                                    isAction
                                         ? <ExpandIcon />
                                         : render!(row, row[dataIndex])
                                 )}
@@ -50,7 +50,7 @@ export default (props: Types.RowProps) => {
             />
             {expandForm && (
                 <div
-                    css={rs.expandForm({ expanded })}
+                    css={rs.expandForm}
                     children={expandForm.render(row)}
                 />
             )}
