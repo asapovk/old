@@ -21,7 +21,7 @@ export default () => ({
     })
 })
 
-export const rowStyles = ({ expanded, withOpacity }) => {
+export const rowStyles = ({ expanded, withOpacity, withoutHeaders }) => {
     const theme = useTheme().theme;
 
     return {
@@ -35,6 +35,10 @@ export const rowStyles = ({ expanded, withOpacity }) => {
             borderWidth: '0 0 1px 0',
             borderStyle: 'solid',
             borderColor: theme.pale.hex,
+            opacity: withOpacity ? 0.5 : 1,
+            ':first-of-type': {
+                borderRadius: withoutHeaders ? '0.5rem 0.5rem 0 0' : 0
+            },
             ':last-of-type': {
                 borderWidth: 0,
                 borderRadius: '0 0 .5rem .5rem',
@@ -48,9 +52,10 @@ export const rowStyles = ({ expanded, withOpacity }) => {
             boxShadow: '0 2px 16px 0 rgba(0,0,0,.25)',
             ':last-of-type': {
                 borderRadius: '.5rem'
-            }
-        }, withOpacity && {
-            opacity: .5
+            },
+            ':first-of-type': {
+                borderRadius: '.5rem'
+            },
         }),
 
         rowCellsWrapper: css({

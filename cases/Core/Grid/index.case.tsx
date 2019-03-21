@@ -163,8 +163,8 @@ const Table1 = () => {
         <Flexbox pr={35} pl={50} pt={100} pb={100} column flex={1}>
             <Grid
                 data={state.data}
-                groupKey='groupId'
-                groups={groups}
+                // groupKey='groupId'
+                // groups={groups}
                 pagination={{
                     pageSize: 5,
                     pageNeighbours: 1
@@ -173,7 +173,7 @@ const Table1 = () => {
                 // noDataComponent={<Flexbox flex={1} p={20} justifyContent='center'>А Данных Нет!</Flexbox>}
                 columns={tableColumns}
                 expandForm={expandForm}
-                hideHeaders={false}
+                hideHeaders={true}
             />
         </Flexbox>
     )

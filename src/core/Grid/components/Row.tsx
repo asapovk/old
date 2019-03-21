@@ -5,10 +5,11 @@ import { rowStyles } from '../styles';
 import Types from '../types';
 
 export default (props: Types.RowProps) => {
-    const { expandedRowId, rowId, onRowClick, columns, row, expandForm } = props;
+    const { expandedRowId, rowId, onRowClick, columns, row, expandForm, withoutHeaders } = props;
     const rs = rowStyles({
         expanded: expandedRowId === rowId,
-        withOpacity: expandedRowId && (expandedRowId !== rowId)
+        withOpacity: expandedRowId && (expandedRowId !== rowId),
+        withoutHeaders
     });
 
     const ExpandIcon = () => (

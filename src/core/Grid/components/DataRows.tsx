@@ -111,6 +111,7 @@ export default (props: Types.Props & { currentPage: number, containerId: string 
                                         expandForm={expandForm}
                                         onRowClick={() => onClick(rowId, row)}
                                         expandedRowId={expandedRowId}
+                                        withoutHeaders={!groupKey && hideHeaders}
                                     />
                                 )
                             })}
@@ -133,6 +134,7 @@ export default (props: Types.Props & { currentPage: number, containerId: string 
                         expandForm={expandForm}
                         onRowClick={() => onClick(rowId, row)}
                         expandedRowId={expandedRowId}
+                        withoutHeaders={!groupKey && hideHeaders}
                     />
                 )
             })}
