@@ -1,50 +1,59 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core';
+import { Icon } from '../..';
 import { rowStyles } from '../styles';
 import Types from '../types';
-import { Icon } from '../..';
-import { useEffect } from 'react';
 
 export default (props: Types.RowProps) => {
-    const styles = rowStyles();
+    const rs = rowStyles();
+    const { expandedRowId, rowId, onRowClick, columns, row, expandForm } = props;
 
-    const withOpacity = props.expandedRowId && props.expandedRowId !== props.rowId;
-    const expanded = props.expandedRowId === props.rowId;
+    const withOpacity = expandedRowId && (expandedRowId !== rowId);
+    const expanded = expandedRowId === rowId;
+
+    const ExpandIcon = () => (
+        <Icon
+            size='1.25rem'
+            color='lowlight'
+            type='right'
+            css={rs.icon({ expanded })}
+        />
+    );
 
     return (
-        <div id={props.rowId.toString()} css={styles.rowWrapper({ expanded, withOpacity })}>
-            <div css={styles.rowCellsWrapper} onClick={props.onRowClick}>
-                {props.columns.map((column, index) => (
-                    <div
-                        key={`rc-${index}`}
-                        css={styles.rowCell({
-                            action: column.dataIndex === 'actionColumn',
-                            borders: column.borders,
-                            alignment: column.alignment,
-                            width: column.width,
-                            expanded
-                        })}
-                        children={(
-                            column.dataIndex === 'actionColumn'
-                                ? (
-                                    <Icon
-                                        size='1.25rem'
-                                        color='lowlight'
-                                        type='right'
-                                        css={styles.icon({ expanded })}
-                                    />
-                                )
-                                : column.render!(props.row, props.row[column.dataIndex])
-                        )}
-                    />
-                ))}
-            </div>
-            {props.expandForm && (
+        <div id={rowId} css={rs.rowWrapper({ expanded, withOpacity })}>
+            <div
+                css={rs.rowCellsWrapper}
+                onClick={onRowClick}
+                children={(
+                    columns.map((column, index) => {
+                        const { borders, alignment, width, dataIndex, render } = column;
+                        const action = dataIndex === 'actionColumn';
+
+                        const cellStyle = rs.rowCell({
+                            action, borders, alignment, width, expanded
+                        });
+
+                        return (
+                            <div
+                                key={`rc-${index}`}
+                                css={cellStyle}
+                                children={(
+                                    action
+                                        ? <ExpandIcon />
+                                        : render!(row, row[dataIndex])
+                                )}
+                            />
+                        )
+                    })
+                )}
+            />
+            {expandForm && (
                 <div
-                    css={styles.expandForm({ expanded })}
-                    children={props.expandForm.render(props.row)}
+                    css={rs.expandForm({ expanded })}
+                    children={expandForm.render(row)}
                 />
             )}
-        </ div>
+        </div>
     )
 }

@@ -9,7 +9,7 @@ import { paginationStyles } from '../styles';
 export default (props: Types.PaginationProps) => {
     const { dataLength, pagination, currentPage, setCurrentPage } = props;
     const totalPages = Math.ceil(dataLength / pagination.pageSize);
-    const styles = paginationStyles();
+    const ps = paginationStyles();
 
     if (totalPages <= 1) {
         return null;
@@ -17,32 +17,37 @@ export default (props: Types.PaginationProps) => {
 
     const pages = fetchPageNumbers(pagination.pageNeighbours, totalPages, currentPage);
 
-    function setPage(page: number) {
+    const setPage = (page: number) => {
         const currentPage = Math.max(1, Math.min(page, totalPages));
         setCurrentPage(currentPage);
     }
 
+    const onPageButtonClick = (event, page: number | string) => {
+        event.preventDefault();
+        typeof page === 'number'
+            ? setPage(page as number)
+            : page === LEFT_PAGE
+                ? setPage(currentPage - (pagination.pageNeighbours * 2) - 1)
+                : setPage(currentPage + (pagination.pageNeighbours * 2) + 1);
+    }
+
     return (
-        <div css={styles.paginationContainer}>
-            {pages.map((page, index) => (
-                <div
-                    key={`pagination-${index}`}
-                    onClick={(event) => {
-                        event.preventDefault();
-                        typeof page === 'number'
-                            ? setPage(page as number)
-                            : page === LEFT_PAGE
-                                ? setPage(currentPage - (pagination.pageNeighbours * 2) - 1)
-                                : setPage(currentPage + (pagination.pageNeighbours * 2) + 1);
-                    }}
-                    children={(
-                        typeof page === 'number'
-                            ? page
-                            : <Icon type={page as IconTypes.Type} />
-                    )}
-                    css={styles.paginationButton(typeof page === 'number' ? (currentPage === page) : false)}
-                />
-            ))}
+        <div css={ps.paginationContainer}>
+            {pages.map((page, index) => {
+                const css = ps.paginationButton(typeof page === 'number' ? (currentPage === page) : false);
+                const children = typeof page === 'number'
+                    ? page
+                    : <Icon type={page as IconTypes.Type} />
+
+                return (
+                    <div
+                        key={`pagination-${index}`}
+                        css={css}
+                        onClick={(event) => onPageButtonClick(event, page)}
+                        children={children}
+                    />
+                )
+            })}
         </div>
     )
 }

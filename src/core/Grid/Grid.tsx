@@ -8,7 +8,6 @@ import { Pagination, Header, DataRows } from './components';
 
 declare global {
     interface String {
-        hashCode: () => number
         stringHashCode: () => string
     }
 }

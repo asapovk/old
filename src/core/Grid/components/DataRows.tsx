@@ -6,9 +6,8 @@ import { Row } from '.';
 import { subHeaderStyles } from '../styles';
 
 interface LastExpandedRow {
-    rowElement: HTMLElement
+    rect: DOMRect | ClientRect
     rowId: string
-    rowOffsetHeight: number
 }
 
 let lastExpandedRow: LastExpandedRow | null
@@ -16,6 +15,7 @@ let lastExpandedRow: LastExpandedRow | null
 export default (props: Types.Props & { currentPage: number }) => {
     const { groups, groupKey, columns, data, currentPage, expandForm, hideHeaders } = props;
     const [expandedRowId, setExpandedRowId] = useState<string>('');
+    const minHeight = (hideHeaders ? 0 : 56) + (groupKey ? 33 : 0);
 
     const styles = subHeaderStyles({ hideHeaders });
 
@@ -23,14 +23,10 @@ export default (props: Types.Props & { currentPage: number }) => {
         const onWindowScroll = () => {
             if (!lastExpandedRow) return;
 
-            const { rowId, rowElement, rowOffsetHeight } = lastExpandedRow;
-            const rect = rowElement.getBoundingClientRect();
-
-            if (rect) {
-                rowOffsetHeight >= rect.top
-                    ? expandedRowId && setExpandedRowId('')
-                    : !expandedRowId && setExpandedRowId(rowId)
-            }
+            const { rowId, rect } = lastExpandedRow;
+            rect.top <= minHeight
+                ? expandedRowId && setExpandedRowId('')
+                : !expandedRowId && setExpandedRowId(rowId)
         }
 
         const viewport = document.querySelector('[data-viewport]');
@@ -49,11 +45,11 @@ export default (props: Types.Props & { currentPage: number }) => {
             const rowElement = document.getElementById(rowId);
             if (rowElement) {
                 const rect = rowElement.getBoundingClientRect();
-                if (!expandedRowId && (rect.height > rect.top)) return;
+                if (rect.top <= minHeight) return;
 
                 lastExpandedRow = rowId === expandedRowId
                     ? null
-                    : { rowId, rowElement, rowOffsetHeight: rowElement.offsetHeight };
+                    : { rowId, rect };
 
                 setExpandedRowId(rowId === expandedRowId ? '' : rowId);
             }
