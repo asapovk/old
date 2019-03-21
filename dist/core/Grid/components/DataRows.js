@@ -87,12 +87,12 @@ exports.default = (function (props) {
                 .filter(function (row) { return row.groupId === group.value; })
                 .map(function (row, index) {
                 var rowId = (JSON.stringify(columns) + group.value.toString() + currentPage.toString() + index).stringHashCode();
-                return (core_1.jsx(_1.Row, { key: rowId, rowId: rowId, row: row, columns: columns, expandForm: expandForm, onRowClick: function () { return onClick(rowId, row); }, expandedRowId: expandedRowId }));
+                return (core_1.jsx(_1.Row, { key: rowId, rowId: rowId, row: row, columns: columns, expandForm: expandForm, onRowClick: function () { return onClick(rowId, row); }, expandedRowId: expandedRowId, withoutHeaders: !groupKey && hideHeaders }));
             }))); })));
     }
     return (core_1.jsx(react_1.Fragment, null, data.map(function (row, index) {
         var rowId = (JSON.stringify(columns) + currentPage.toString() + index).stringHashCode();
-        return (core_1.jsx(_1.Row, { key: rowId, rowId: rowId, row: row, columns: columns, expandForm: expandForm, onRowClick: function () { return onClick(rowId, row); }, expandedRowId: expandedRowId }));
+        return (core_1.jsx(_1.Row, { key: rowId, rowId: rowId, row: row, columns: columns, expandForm: expandForm, onRowClick: function () { return onClick(rowId, row); }, expandedRowId: expandedRowId, withoutHeaders: !groupKey && hideHeaders }));
     })));
 });
 /**

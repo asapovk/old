@@ -4,9 +4,10 @@ declare const _default: () => {
     noDataContainer: import("@emotion/utils").SerializedStyles;
 };
 export default _default;
-export declare const rowStyles: ({ expanded, withOpacity }: {
+export declare const rowStyles: ({ expanded, withOpacity, withoutHeaders }: {
     expanded: any;
     withOpacity: any;
+    withoutHeaders: any;
 }) => {
     rowWrapper: import("@emotion/utils").SerializedStyles;
     rowCellsWrapper: import("@emotion/utils").SerializedStyles;
