@@ -5,12 +5,7 @@ import Types from '../types';
 import { Row } from '.';
 import { subHeaderStyles } from '../styles';
 
-interface LastExpandedRow {
-    rect: DOMRect | ClientRect
-    rowId: string
-}
-
-let lastExpandedRow: LastExpandedRow | null
+let ERI: string
 
 export default (props: Types.Props & { currentPage: number }) => {
     const { groups, groupKey, columns, data, currentPage, expandForm, hideHeaders } = props;
@@ -21,12 +16,16 @@ export default (props: Types.Props & { currentPage: number }) => {
 
     useEffect(() => {
         const onWindowScroll = () => {
-            if (!lastExpandedRow) return;
+            if (!ERI) return;
 
-            const { rowId, rect } = lastExpandedRow;
-            rect.top <= minHeight
-                ? expandedRowId && setExpandedRowId('')
-                : !expandedRowId && setExpandedRowId(rowId)
+            const row = document.getElementById(ERI);
+            if (row) {
+                const rect = row.getBoundingClientRect();
+                rect.top <= minHeight
+                    ? expandedRowId && setExpandedRowId('')
+                    : !expandedRowId && setExpandedRowId(ERI)
+            }
+
         }
 
         const viewport = document.querySelector('[data-viewport]');
@@ -42,15 +41,12 @@ export default (props: Types.Props & { currentPage: number }) => {
         };
 
         if (props.expandForm) {
-            const rowElement = document.getElementById(rowId);
-            if (rowElement) {
-                const rect = rowElement.getBoundingClientRect();
+            const el = document.getElementById(rowId);
+            if (el) {
+                const rect = el.getBoundingClientRect();
                 if (rect.top <= minHeight) return;
 
-                lastExpandedRow = rowId === expandedRowId
-                    ? null
-                    : { rowId, rect };
-
+                ERI = rowId === expandedRowId ? '' : rowId;
                 setExpandedRowId(rowId === expandedRowId ? '' : rowId);
             }
         }
