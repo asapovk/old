@@ -12,12 +12,13 @@ export default (clickable: boolean) => {
             minWidth: '16rem',
             overflow: 'hidden',
             background: theme.interface.rgb,
-            borderRadius: theme.borders.widget.radius,
-            borderColor: theme.borders.widget.color,
-            borderStyle: theme.borders.widget.style,
-            borderWidth: theme.borders.widget.width,
+            borderRadius: '0.5rem',
+            // borderColor: theme.borders.widget.color,
+            // borderStyle: theme.borders.widget.style,
+            // borderWidth: theme.borders.widget.width,
             transition: 'all .2s ease',
-            userSelect: 'none'
+            userSelect: 'none',
+            boxShadow: '0 1px 6px 0 rgba(32,33,36,0.28)',
         }, clickable && {
             "&:hover": {
                 transform: 'scale(1.05)'
