@@ -16,3 +16,5 @@ var useTheme_1 = require("./useTheme");
 exports.useTheme = useTheme_1.default;
 var useTypography_1 = require("./useTypography");
 exports.useTypography = useTypography_1.default;
+var useSpacing_1 = require("./useSpacing");
+exports.useSpacing = useSpacing_1.default;

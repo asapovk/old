@@ -1,3 +1,4 @@
+import { SpacingProps } from '../types';
 /**
  * @deprecated Для юнитов используйте props unit
  */
@@ -8,7 +9,7 @@ declare namespace TypographyTypes {
         size?: number;
         tag: string;
     }
-    interface CoreProps extends PM {
+    interface CoreProps extends SpacingProps {
         children?: string | number | null;
         className?: string;
         disabled?: boolean;
@@ -21,6 +22,7 @@ declare namespace TypographyTypes {
         background?: 'text' | 'highlight' | 'pale' | 'textOnAccent' | 'lowlight';
         toFixed?: number;
         align?: 'left' | 'right' | 'center' | 'justify' | 'justify-all' | 'start' | 'end' | 'match-parent' | 'inherit' | 'initial' | 'unset';
+        icon?: string;
     }
     interface HeadersProps extends CoreProps {
         underline?: boolean;
@@ -37,7 +39,7 @@ declare namespace TypographyTypes {
         theme: any;
         typography: any;
     }
-    interface HRProps extends PM {
+    interface HRProps extends SpacingProps {
         dotted?: boolean;
         width?: number;
         className?: string;
@@ -48,17 +50,5 @@ declare namespace TypographyTypes {
         text: string;
         value: string;
     }[];
-    interface PM {
-        p?: number | string;
-        pr?: number | string;
-        pl?: number | string;
-        pt?: number | string;
-        pb?: number | string;
-        m?: number | string;
-        mr?: number | string;
-        ml?: number | string;
-        mt?: number | string;
-        mb?: number | string;
-    }
 }
 export default TypographyTypes;

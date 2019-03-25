@@ -1,4 +1,15 @@
 "use strict";
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 /** @jsx jsx */
 var core_1 = require("@emotion/core");
@@ -7,26 +18,37 @@ var __1 = require("..");
 var hooks_1 = require("../../hooks");
 exports.default = react_1.forwardRef(function (props, ref) {
     var theme = hooks_1.useTheme().theme;
-    var Icon = (core_1.jsx("svg", { className: !props.shape ? props.className : '', fill: "currentColor", height: '1em', width: '1em', viewBox: "0 0 128 128", style: props.style, css: core_1.css({
+    var providedProps = {
+        className: props.className,
+        onClick: props.onClick
+    };
+    var spacingStyles = hooks_1.useSpacing(props);
+    if (!exports.svgIconPath[props.type])
+        return null;
+    var Icon = core_1.jsx('svg', __assign({ fill: "currentColor", height: '1em', width: '1em', viewBox: "0 0 128 128", style: props.style, css: core_1.css({
             display: 'inline-block',
             verticalAlign: 'middle',
             fontSize: props.size,
             margin: props.shape ? '0.4em' : '',
+            flexShrink: 0,
+            flexGrow: 0,
         }, props.color && {
             color: theme[props.color].rgb,
         }, props.onClick && {
             cursor: 'pointer',
-        }), children: core_1.jsx("g", null,
-            core_1.jsx("path", { d: exports.svgIconPath[props.type] })), onClick: props.onClick }));
+        }, spacingStyles), children: core_1.jsx("g", null,
+            core_1.jsx("path", { d: exports.svgIconPath[props.type] })) }, (!props.shape && providedProps)));
     if (props.shape) {
         switch (props.shape) {
             case 'oval':
-                return (core_1.jsx(__1.Flexbox, { className: props.className, css: core_1.css({
+                return (core_1.jsx(__1.Flexbox, __assign({}, providedProps, { css: core_1.css({
                         borderRadius: '999px',
-                        background: props.background ? props.background : theme.background2.rgb,
+                        background: props.background ? theme[props.background].rgb : theme.background2.rgb,
                         flexShrink: 0,
                         flexGrow: 0,
-                    }), children: Icon, alignItems: 'center', justifyContent: 'center' }));
+                    }, props.onClick && {
+                        cursor: 'pointer',
+                    }, spacingStyles), children: Icon, alignItems: 'center', justifyContent: 'center' })));
                 break;
         }
     }

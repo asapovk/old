@@ -26,8 +26,16 @@ exports.default = react_1.forwardRef(function (props, ref) {
             Content,
             core_1.jsx("div", { css: { marginLeft: '2rem', cursor: 'pointer' } }, props.action)));
     }
-    return (core_1.jsx(__1.Flexbox, __assign({ flexDirection: 'column' }, props),
-        Content,
+    return (core_1.jsx(__1.Flexbox, __assign({ flexDirection: 'column' }, props, { css: core_1.css(props.ellipsis && {
+            overflow: 'hidden',
+            minWidth: 0,
+            width: '100%'
+        }) }),
+        props.icon
+            ? core_1.jsx(__1.Flexbox, null,
+                core_1.jsx(__1.Icon, { type: props.icon, pr: '.5rem', size: props.typography.fontSize }),
+                Content)
+            : Content,
         core_1.jsx(__1.HR, { css: core_1.css({
                 marginTop: props.typography.marginBottom &&
                     '-' + props.typography.marginBottom
