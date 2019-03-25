@@ -10,9 +10,12 @@ exports.default = (function (props) {
         isMobile && core_1.jsx(index_1.Icon, { type: 'right', color: 'light' }))); });
     return (core_1.jsx(index_1.Flexbox, { css: styles.menu.container, column: true }, groups
         ? groups.map(function (group) {
+            var Content = items.filter(function (item, index) { return data[index].groupId === group.value; });
+            if (!Content.length)
+                return null;
             return (core_1.jsx(index_1.Flexbox, { css: styles.menu.group, column: true, key: group.value },
                 core_1.jsx(index_1.C2, { css: styles.menu.groupName }, group.label),
-                core_1.jsx("div", { css: styles.menu.groupBody }, items.filter(function (item, index) { return data[index].groupId === group.value; }))));
+                core_1.jsx("div", { css: styles.menu.groupBody }, Content)));
         })
         : items));
 });

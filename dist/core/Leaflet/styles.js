@@ -52,7 +52,8 @@ exports.default = (function (mobile) {
                 flexShrink: 1,
                 flexGrow: 0,
             }, mobile && {
-                flex: 1
+                flex: 1,
+                padding: 0,
             }),
             item: function (active, groups) { return core_1.css({
                 cursor: 'pointer',

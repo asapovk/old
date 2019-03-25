@@ -60,7 +60,7 @@ exports.default = react_1.forwardRef(function (props, ref) {
     var styles = styles_1.default(browser.isMobile);
     var capacity = browser.isDesktop
         ? (props.capacity && props.capacity[0]) || 5
-        : (props.capacity && props.capacity[1]) || 1;
+        : (browser.isTablet && props.capacity && props.capacity[1]) || 1;
     var initialState = {
         opened: browser.isMobile ? [] : [0],
         choose: false
