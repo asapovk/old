@@ -50,7 +50,7 @@ export default forwardRef((props: Types.Props, ref) => {
 
     const capacity = browser.isDesktop
         ? (props.capacity && props.capacity[0]) || 5
-        : (props.capacity && props.capacity[1]) || 1
+        : (browser.isTablet && props.capacity && props.capacity[1]) || 1
 
     const initialState = {
         opened: browser.isMobile ? [] : [0],

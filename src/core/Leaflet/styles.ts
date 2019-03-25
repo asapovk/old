@@ -55,7 +55,8 @@ export default (mobile) => {
                     flexGrow: 0,
                 },
                 mobile && {
-                    flex: 1
+                    flex: 1,
+                    padding: 0,
                 }
             ),
             item: (active, groups) => css(

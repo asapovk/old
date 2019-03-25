@@ -25,13 +25,15 @@ export default (props: Types.MenuProps) => {
         <Flexbox css={styles.menu.container} column>
             {groups
                 ? groups.map(group => {
+                    const Content = items.filter((item, index) => data[index].groupId === group.value)
+                    if (!Content.length) return null
                     return (
                         <Flexbox css={styles.menu.group} column key={group.value}>
                             <C2 css={styles.menu.groupName}>
                                 {group.label}
                             </C2>
                             <div css={styles.menu.groupBody}>
-                                {items.filter((item, index) => data[index].groupId === group.value)}
+                                {Content}
                             </div>
                         </Flexbox>
                     )
