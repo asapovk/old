@@ -76,6 +76,7 @@ declare namespace GridTypes {
         onRowClick?: (row: Object) => any
         expandedRowId: string | null
         rowId: string
+        withoutHeaders?: boolean
     }
 
 }

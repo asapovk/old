@@ -19,32 +19,33 @@ var core_1 = require("@emotion/core");
 var react_1 = require("react");
 var styles_1 = __importDefault(require("./styles"));
 var components_1 = require("./components");
-String.prototype.hashCode = function () {
+String.prototype.stringHashCode = function () {
     var hash = 0;
     if (this.length == 0) {
-        return hash;
+        return hash.toString();
     }
     for (var i = 0; i < this.length; i++) {
         var char = this.charCodeAt(i);
         hash = ((hash << 5) - hash) + char;
         hash = hash & hash; // Convert to 32bit integer
     }
-    return hash;
+    return hash.toString();
 };
+var id = "GRID-" + Math.trunc(Math.random() * 10000000);
 exports.default = (function (props) {
-    var data = props.data, noDataComponent = props.noDataComponent, pagination = props.pagination, hideHeaders = props.hideHeaders;
-    var _a = getColumns(props.columns, props.expandForm), columns = _a.columns, gridTemplateColumns = _a.gridTemplateColumns;
-    var styles = styles_1.default({ gridTemplateColumns: gridTemplateColumns });
-    var _b = react_1.useState(1), currentPage = _b[0], setCurrentPage = _b[1];
+    var data = props.data, noDataComponent = props.noDataComponent, pagination = props.pagination, hideHeaders = props.hideHeaders, groupKey = props.groupKey;
+    var columns = react_1.useMemo(function () { return getColumns(props.columns, props.expandForm); }, []);
+    var styles = styles_1.default();
+    var _a = react_1.useState(1), currentPage = _a[0], setCurrentPage = _a[1];
     react_1.useLayoutEffect(function () {
         if (pagination) {
             setCurrentPage(1);
         }
     }, [data]);
     if (!data || data.length <= 0) {
-        return (core_1.jsx("div", { css: styles.wrapper }, noDataComponent
-            ? noDataComponent
-            : core_1.jsx("div", { css: styles.noDataContainer }, "\u041D\u0435\u0442 \u0434\u0430\u043D\u043D\u044B\u0445")));
+        return (core_1.jsx("div", { css: styles.wrapper, children: (noDataComponent
+                ? noDataComponent
+                : core_1.jsx("div", { css: styles.noDataContainer, children: '\u041D\u0435\u0442 \u0434\u0430\u043D\u043D\u044B\u0445' })) }));
     }
     var pageData = data;
     if (pagination) {
@@ -55,27 +56,19 @@ exports.default = (function (props) {
     }
     return (core_1.jsx(react_1.Fragment, null,
         core_1.jsx("div", { css: styles.wrapper },
-            core_1.jsx("div", { css: styles.container },
+            core_1.jsx("div", { css: styles.container, id: id },
                 !hideHeaders && core_1.jsx(components_1.Header, { columns: columns }),
-                core_1.jsx(components_1.DataRows, __assign({}, props, { currentPage: currentPage, data: pageData, columns: columns })))),
+                core_1.jsx(components_1.DataRows, __assign({}, props, { currentPage: currentPage, data: pageData, columns: columns, containerId: id })))),
         pagination && (core_1.jsx(components_1.Pagination, { currentPage: currentPage, setCurrentPage: setCurrentPage, dataLength: data.length, pagination: pagination }))));
 });
 var getColumns = function (columns, expandForm) {
-    var mappedColumns = columns.map(function (column) {
-        if (!column.render) {
-            return __assign({}, column, { render: function (row, value) { return value; } });
-        }
-        return column;
-    });
+    var mappedColumns = columns.map(function (column) { return (__assign({}, column, { render: column.render || (function (row, value) { return value; }) })); });
     if (expandForm) {
         mappedColumns.push({
             alignment: 'flex-end',
             dataIndex: 'actionColumn',
-            width: 32
+            width: 40
         });
     }
-    var gridTemplateColumns = mappedColumns
-        .map(function (col) { return col.width ? col.width + 'px' : 'auto'; })
-        .join(' ');
-    return { columns: mappedColumns, gridTemplateColumns: gridTemplateColumns };
+    return mappedColumns;
 };

@@ -6,6 +6,10 @@ declare namespace LeafletTypes {
         data: Data[];
         groups?: Group[];
         noData?: React.ReactNode;
+        capacity?: number;
+        grids?: Grid[];
+        groupKey?: string;
+        nameKey: string;
     }
     interface MenuProps extends Props {
         onChoose: (i: number) => void;
@@ -13,13 +17,20 @@ declare namespace LeafletTypes {
         active?: number;
     }
     type Data = {
-        label: string;
-        render: React.ReactNode;
-        groupId?: number | string;
+        [key: string]: any;
     };
     type Group = {
         label: string;
-        id: number | string;
+        value: number | string;
+    };
+    type Grid = {
+        title?: string;
+        titleKey?: string;
+        rows: GridRow[];
+    };
+    type GridRow = {
+        name?: string;
+        dataKey?: string;
     };
     interface State {
         items: number[];

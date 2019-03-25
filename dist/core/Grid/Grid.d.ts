@@ -1,7 +1,7 @@
 import Types from './types';
 declare global {
     interface String {
-        hashCode: () => number;
+        stringHashCode: () => string;
     }
 }
 declare const _default: (props: Types.Props) => JSX.Element;

@@ -40,6 +40,11 @@ var Header = function (props) { return core_1.jsx(props.tag, {
         color: props.theme[props.color].rgb
     }, props.menu && {
         cursor: 'pointer'
+    }, props.ellipsis && {
+        whiteSpace: 'nowrap',
+        overflow: 'hidden',
+        textOverflow: 'ellipsis',
+        minWidth: 0,
     }),
 }, props.children); };
 var HeadersMenu = function (props) {

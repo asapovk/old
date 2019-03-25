@@ -1,6 +1,7 @@
 declare const _default: () => {
     container: import("@emotion/utils").SerializedStyles;
     items: import("@emotion/utils").SerializedStyles;
+    grid: import("@emotion/utils").SerializedStyles;
     item: import("@emotion/utils").SerializedStyles;
     leftBar: import("@emotion/utils").SerializedStyles;
     rightBar: import("@emotion/utils").SerializedStyles;

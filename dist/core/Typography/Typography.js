@@ -47,6 +47,7 @@ var Typography = react_1.forwardRef(function (props, ref) {
                 whiteSpace: 'nowrap',
                 overflow: 'hidden',
                 textOverflow: 'ellipsis',
+                minWidth: 0,
             }, (props.underline || props.action) && {
                 lineHeight: typography.fontSize
             }, props.disabled && {
