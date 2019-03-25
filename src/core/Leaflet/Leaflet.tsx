@@ -50,7 +50,7 @@ export default forwardRef((props: Types.Props, ref) => {
 
     const capacity = browser.isDesktop
         ? (props.capacity && props.capacity[0]) || 5
-        : (browser.isTablet && props.capacity && props.capacity[1]) || 1
+        : (props.capacity && props.capacity[1]) || 1
 
     const initialState = {
         opened: browser.isMobile ? [] : [0],
@@ -123,6 +123,7 @@ export default forwardRef((props: Types.Props, ref) => {
             {/* Right bar to compare action if not exceeded */}
             {state.opened.length < capacity
                 && !browser.isMobile
+                && props.data.length > 1
                 && <RightBar
                     styles={styles}
                     onAdd={() => dispatch({ type: 'openMenu' })}
