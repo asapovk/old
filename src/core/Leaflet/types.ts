@@ -2,21 +2,31 @@ import { CSSProperties } from "react";
 
 declare namespace LeafletTypes {
     interface Props {
-        style?: CSSProperties,
+        style?: CSSProperties
         className?: string
-        data: Data[]
         groups?: Group[]
         noData?: React.ReactNode
-        capacity?: number
-        grids?: Grid[]
+        capacity?: [number, number]
+        breakpoints?: [number, number]
         groupKey?: string
         nameKey: string
+        data: Data[]
+        items?: Item[]
     }
 
     interface MenuProps extends Props {
         onChoose: (i: number) => void
         styles: any
         active?: number
+        isMobile: boolean
+    }
+
+    interface ItemsProps {
+        styles: any
+        data: Data[]
+        items: Item[]
+        opened: number[]
+        breakpoints?: [number, number]
     }
 
     type Data = {
@@ -28,24 +38,27 @@ declare namespace LeafletTypes {
         value: number | string
     }
 
-    type Grid = {
+    type Item = {
         title?: string
         titleKey?: string
+        iconKey?: string
         rows: GridRow[]
     }
 
     type GridRow = {
         name?: string
-        dataKey?: string
+        dataKey: string
+        format?: boolean | 'currency'
+        unit?: 'rub' | 'volume' | 'power'
     }
 
     interface State {
-        items: number[]
-        showMenu: boolean
+        opened: number[]
+        choose: boolean
     }
 
     interface Action {
-        type: 'openMenu' | 'setItem' | 'addItem' | 'back' | 'close'
+        type: 'openMenu' | 'setItem' | 'addItem' | 'back' | 'close' | 'exit'
         payload?: any
     }
 }

@@ -3,37 +3,49 @@ import { jsx, css } from '@emotion/core'
 import React, { CSSProperties, forwardRef } from 'react';
 import { Flexbox } from '..';
 import IconTypes from './types'
-import { useTheme } from '../../hooks'
+import { useTheme, useSpacing } from '../../hooks'
 
 export default forwardRef((props: IconTypes.Props, ref) => {
 
     const theme = useTheme().theme;
 
-    const Icon = (
-        <svg
-            className={!props.shape ? props.className : ''}
-            fill="currentColor"
-            height={'1em'}
-            width={'1em'}
-            viewBox="0 0 128 128"
-            style={props.style}
-            css={css(
+    const providedProps = {
+        className: props.className,
+        onClick: props.onClick
+    }
+
+    const spacingStyles = useSpacing(props);
+
+    if (!svgIconPath[props.type]) return null
+
+    const Icon = jsx(
+        'svg',
+        {
+            fill: "currentColor",
+            height: '1em',
+            width: '1em',
+            viewBox: "0 0 128 128",
+            style: props.style,
+            css: css(
                 {
                     display: 'inline-block',
                     verticalAlign: 'middle',
                     fontSize: props.size,
                     margin: props.shape ? '0.4em' : '',
+                    flexShrink: 0,
+                    flexGrow: 0,
                 },
                 props.color && {
                     color: theme[props.color].rgb,
                 },
                 props.onClick && {
                     cursor: 'pointer',
-                }
-            )}
-            children={<g><path d={svgIconPath[props.type]}></path></g>}
-            onClick={props.onClick}
-        />
+                },
+                spacingStyles
+            ),
+            children: <g><path d={svgIconPath[props.type]}></path></g>,
+            ...(!props.shape && providedProps),
+        }
     )
 
     if (props.shape) {
@@ -41,13 +53,19 @@ export default forwardRef((props: IconTypes.Props, ref) => {
             case 'oval':
                 return (
                     <Flexbox
-                        className={props.className}
-                        css={css({
-                            borderRadius: '999px',
-                            background: props.background ? props.background : theme.background2.rgb,
-                            flexShrink: 0,
-                            flexGrow: 0,
-                        })}
+                        {...providedProps}
+                        css={css(
+                            {
+                                borderRadius: '999px',
+                                background: props.background ? theme[props.background].rgb : theme.background2.rgb,
+                                flexShrink: 0,
+                                flexGrow: 0,
+                            },
+                            props.onClick && {
+                                cursor: 'pointer',
+                            },
+                            spacingStyles
+                        )}
                         children={Icon}
                         alignItems='center'
                         justifyContent='center'

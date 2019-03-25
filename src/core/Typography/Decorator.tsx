@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { jsx, css } from '@emotion/core';
 import { forwardRef } from 'react';
-import { Flexbox, HR } from '..';
+import { Flexbox, HR, Icon } from '..';
 import Types from './types';
 import { useState } from 'react';
 
@@ -23,8 +23,24 @@ export default forwardRef((props: Types.DecoratorProps, ref) => {
     }
 
     return (
-        <Flexbox flexDirection='column' {...props}>
-            {Content}
+        <Flexbox
+            flexDirection='column'
+            {...props}
+            css={css(
+                props.ellipsis && {
+                    overflow: 'hidden',
+                    minWidth: 0,
+                    width: '100%'
+                }
+            )}
+        >
+            {props.icon
+                ? <Flexbox>
+                    <Icon type={props.icon} pr='.5rem' size={props.typography.fontSize} />
+                    {Content}
+                </Flexbox>
+                : Content
+            }
             <HR css={css({
                 marginTop: props.typography.marginBottom &&
                     '-' + props.typography.marginBottom

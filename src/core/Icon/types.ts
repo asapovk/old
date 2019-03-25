@@ -1,4 +1,5 @@
 import React from 'react';
+import { SpacingProps } from '../types';
 
 declare namespace IconTypes {
 
@@ -44,10 +45,11 @@ declare namespace IconTypes {
         'heat' |
         'minus' |
         'grid' |
-        'list'
+        'list' |
+        string
 
 
-    interface Props {
+    interface Props extends SpacingProps {
         style?: React.CSSProperties
         className?: string
         type: Type
@@ -56,7 +58,7 @@ declare namespace IconTypes {
         backgroud?: string,
         size?: string
         color?: 'text' | 'highlight' | 'pale' | 'textOnAccent' | 'lowlight' | 'light'
-        background?: string
+        background?: 'text' | 'highlight' | 'pale' | 'textOnAccent' | 'lowlight' | 'light' | 'background' | 'background2'
     }
 
 }

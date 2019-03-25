@@ -1,92 +1,129 @@
 /** @jsx jsx */
-import { jsx, css } from '@emotion/core'
-import { useReducer, Fragment } from 'react';
-import { Flexbox, Icon, C2, D3, T1, HR } from '../index';
+import { jsx } from '@emotion/core'
+import { useReducer, useImperativeHandle, useLayoutEffect, forwardRef } from 'react';
+import { Flexbox } from '../index';
 import createStyles from './styles';
 import Types from './types';
 import Menu from './Menu';
+import { useBrowser } from '../../hooks'
+import Items from './Items';
+import { RightBar, LeftBar } from './Bars';
 
 const reducer = (state: Types.State, action: Types.Action) => {
     switch (action.type) {
         case 'openMenu':
-            state.showMenu = true
+            state.choose = true
             return { ...state }
         case 'addItem':
-            state.items.push(action.payload);
-            state.showMenu = false;
+            state.opened.push(action.payload);
+            state.choose = false;
             return { ...state }
         case 'setItem':
-            state.items = [action.payload];
+            state.opened = [action.payload];
             return { ...state }
         case 'back':
-            state.showMenu
-                ? state.showMenu = false
-                : state.items.pop();
+            state.choose
+                ? state.choose = false
+                : state.opened.pop();
             return { ...state }
         case 'close':
-            state.items = state.items.slice(0, 1);
+            state.choose = false;
+            state.opened = state.opened.slice(0, 1);
+            return { ...state }
+        case 'exit':
+            state.choose = false;
+            state.opened = [];
             return { ...state }
         default:
             return state;
     }
 }
 
-export default (props: Types.Props) => {
-
-    const initialState = {
-        items: [0],
-        showMenu: false
-    }
-
-    const [state, dispatch] = useReducer(reducer, initialState);
-    const styles = createStyles();
-    const capacity = props.capacity || 5;
+export default forwardRef((props: Types.Props, ref) => {
 
     if (!props.data) {
         return <div>{props.noData || 'Нет данных'}</div>
     }
 
+    const browser = useBrowser();
+    const styles = createStyles(browser.isMobile);
+
+    const capacity = browser.isDesktop
+        ? (props.capacity && props.capacity[0]) || 5
+        : (props.capacity && props.capacity[1]) || 1
+
+    const initialState = {
+        opened: browser.isMobile ? [] : [0],
+        choose: false
+    }
+
+    const [state, dispatch] = useReducer(reducer, initialState);
+
+    useLayoutEffect(() => {
+        if (browser.isMobile) {
+            dispatch({ type: 'exit' });
+        } else if (!state.opened.length) {
+            dispatch({ type: 'setItem', payload: 0 })
+        }
+    }, [browser]);
+
+    useImperativeHandle(ref, () => ({
+        exit: () => {
+            dispatch({ type: 'exit' });
+        }
+    }));
+
     return (
         <Flexbox css={styles.container} className={props.className}>
 
-            {state.items.length > 1 &&
-                <LeftBar
+            {/* Left bar user compare something */}
+            {state.opened.length > 1
+                && !browser.isMobile
+                && <LeftBar
                     styles={styles}
                     onBack={() => dispatch({ type: 'back' })}
                     onClose={() => dispatch({ type: 'close' })}
                 />
             }
 
+            {/* Menu shows on mobile if nothing opened. 
+            On other screens shows right if opened only one
+            and left in compare mode after choose action  */}
             <Flexbox flex={1} css={styles.items}>
-                {(state.items.length === 1 && !state.showMenu)
+                {(browser.isMobile
+                    ? !state.opened.length
+                    : (state.opened.length === 1 && !state.choose)
+                )
                     && <Menu
-                        data={props.data}
-                        groups={props.groups}
+                        {...props}
                         onChoose={(i) => dispatch({ type: 'setItem', payload: i })}
-                        active={state.items[0]}
+                        active={state.opened[0]}
                         styles={styles}
-                        nameKey={props.nameKey}
+                        isMobile={browser.isMobile}
                     />
                 }
-                {<ItemsGrid
-                    items={state.items}
-                    data={props.data}
-                    grids={props.grids}
-                    styles={styles}
-                />}
-                {state.showMenu &&
-                    <Menu
+                {props.items &&
+                    <Items
+                        opened={state.opened}
                         data={props.data}
-                        groups={props.groups}
+                        items={props.items}
+                        styles={styles}
+                        breakpoints={props.breakpoints}
+                    />}
+                {state.choose &&
+                    <Menu
+                        {...props}
                         onChoose={(i) => dispatch({ type: 'addItem', payload: i })}
                         styles={styles}
-                        nameKey={props.nameKey}
+                        isMobile={browser.isMobile}
                     />
                 }
             </Flexbox>
 
-            {state.items.length < capacity &&
-                <RightBar
+            {/* Right bar to compare action if not exceeded */}
+            {state.opened.length < capacity
+                && !browser.isMobile
+                && <RightBar
                     styles={styles}
                     onAdd={() => dispatch({ type: 'openMenu' })}
                 />
@@ -94,85 +131,4 @@ export default (props: Types.Props) => {
 
         </Flexbox>
     );
-}
-
-const LeftBar = (props) => {
-    return (
-        <Flexbox css={props.styles.leftBar} column>
-            <Icon
-                type='arrow-left'
-                shape='oval'
-                background='#fff'
-                color='highlight'
-                onClick={() => props.onBack()}
-                size='1.25rem'
-            />
-            <Icon
-                type='close'
-                shape='oval'
-                background='#fff'
-                color='highlight'
-                size='1.25rem'
-                onClick={() => props.onClose()}
-            />
-        </Flexbox>
-    )
-}
-
-const RightBar = (props) => {
-    return (
-        <Flexbox css={props.styles.rightBar} column>
-            <Flexbox alignItems='center' column onClick={() => props.onAdd()}>
-                <Icon
-                    type='add'
-                    size='2rem'
-                    shape='oval'
-                    background='#fff'
-                    color='lowlight'
-                />
-                <C2
-                    color='lowlight'
-                    pt='1rem'
-                    align='center'
-                    children='Добавить к сравнению'
-                />
-            </Flexbox>
-        </Flexbox>
-    )
-}
-
-const ItemsGrid = (props) => {
-    return props.items.map((key, index) => (
-        <Flexbox key={'li-' + index} css={props.styles.item} column>
-            {props.grids.map((grid, gi) => (
-                <Flexbox key={'li-gr-' + gi} column mb='2rem'>
-                    <D3 ellipsis underline>
-                        {grid.title
-                            ? grid.title
-                            : grid.titleKey
-                            && props.data[key][grid.titleKey]
-                        }
-                    </D3>
-                    {grid.rows.filter(row => props.data[key][row.dataKey]).map((row, ri) => (
-                        <Flexbox key={'li-gr-row-' + ri} css={props.styles.grid}>
-                            {(props.items.length < 4 || index === 0)
-                                && row.name
-                                && <T1
-                                    color='lowlight'
-                                    css={css({ flexShrink: 0 })}
-                                    children={row.name}
-                                />
-                            }
-                            <HR
-                                dotted
-                                color='light'
-                                css={css({ margin: '0.35rem 0.5rem', flex: 1 })}
-                            />
-                            <T1>{props.data[key][row.dataKey]}</T1>
-                        </Flexbox>
-                    ))}
-                </Flexbox>
-            ))}
-        </Flexbox>
-    ))
-}
+})

@@ -5,12 +5,12 @@ import { Leaflet, Flexbox, H1 } from '../../../src';
 export default () => {
 
   return (
-    <Flexbox p={50}>
+    <Flexbox p={20}>
       <Leaflet
         css={css({ flex: 1 })}
         groupKey='groupId'
         nameKey='serviceName'
-        capacity={10}
+        capacity={[10, 2]}
         groups={[
           {
             label: 'Содержание жилого помещения',
@@ -25,29 +25,40 @@ export default () => {
             value: 3
           },
         ]}
-        grids={[
+        items={[
           {
             titleKey: 'serviceName',
+            iconKey: 'glyph',
             rows: [
               {
                 name: 'Долг/Аванс',
                 dataKey: 'amountBalance',
+                format: 'currency',
+                unit: 'rub'
               },
               {
                 name: 'Тариф',
                 dataKey: 'tariff',
+                format: 'currency',
+                unit: 'rub'
               },
               {
                 name: 'Начислено',
                 dataKey: 'amountCharged',
+                format: 'currency',
+                unit: 'rub'
               },
               {
                 name: 'Оплачено',
                 dataKey: 'amountPaidPrevPeriod',
+                format: 'currency',
+                unit: 'rub'
               },
               {
                 name: 'К оплате',
                 dataKey: 'amountToPay',
+                format: 'currency',
+                unit: 'rub'
               },
             ]
           },
@@ -76,7 +87,7 @@ const info = [
     "amountToPay": "544.93",
     "feePercent": 0,
     "feeType": 0,
-    "glyph": "REPAIR",
+    "glyph": "repair",
     "groupId": 1,
     "groupName": "Начисления за содержание жилого помещения, взнос на капитальный ремонт",
     "isFixed": false,
@@ -96,14 +107,14 @@ const info = [
     "amountToPay": "1677.44",
     "feePercent": 0,
     "feeType": 0,
-    "glyph": "OTHER",
+    "glyph": "other",
     "groupId": 1,
     "groupName": "Начисления за содержание жилого помещения, взнос на капитальный ремонт",
     "isFixed": false,
     "puAccount": null,
     "puId": "10001",
     "serviceCode": "225",
-    "serviceName": "Содержание жилого помещения",
+    "serviceName": "Содержание жилого помещения и вся хурма",
     "tariff": "27.92",
     "type": 0
   },
@@ -116,7 +127,7 @@ const info = [
     "amountToPay": "15.43",
     "feePercent": 0,
     "feeType": 0,
-    "glyph": "OTHER",
+    "glyph": "other",
     "groupId": 1,
     "groupName": "Начисления за содержание жилого помещения, взнос на капитальный ремонт",
     "isFixed": false,
@@ -136,7 +147,7 @@ const info = [
     "amountToPay": "0.00",
     "feePercent": 0,
     "feeType": 0,
-    "glyph": "OTHER",
+    "glyph": "other",
     "groupId": 1,
     "groupName": "Начисления за содержание жилого помещения, взнос на капитальный ремонт",
     "isFixed": false,
@@ -156,7 +167,7 @@ const info = [
     "amountToPay": "0.00",
     "feePercent": 0,
     "feeType": 0,
-    "glyph": "WATER_COLD",
+    "glyph": "water_cold",
     "groupId": 1,
     "groupName": "Начисления за содержание жилого помещения, взнос на капитальный ремонт",
     "isFixed": false,
@@ -176,7 +187,7 @@ const info = [
     "amountToPay": "25.24",
     "feePercent": 0,
     "feeType": 0,
-    "glyph": "ELECTRICITY",
+    "glyph": "electricity",
     "groupId": 1,
     "groupName": "Начисления за содержание жилого помещения, взнос на капитальный ремонт",
     "isFixed": false,
@@ -196,7 +207,7 @@ const info = [
     "amountToPay": "412.84",
     "feePercent": 0,
     "feeType": 0,
-    "glyph": "OTHER",
+    "glyph": "other",
     "groupId": 2,
     "groupName": "Начисления за коммунальные услуги",
     "isFixed": false,
@@ -216,7 +227,7 @@ const info = [
     "amountToPay": "258.21",
     "feePercent": 0,
     "feeType": 0,
-    "glyph": "GAS",
+    "glyph": "gas",
     "groupId": 2,
     "groupName": "Начисления за коммунальные услуги",
     "isFixed": false,
@@ -236,7 +247,7 @@ const info = [
     "amountToPay": "2811.70",
     "feePercent": 0,
     "feeType": 0,
-    "glyph": "OTHER",
+    "glyph": "other",
     "groupId": 2,
     "groupName": "Начисления за коммунальные услуги",
     "isFixed": false,
@@ -256,7 +267,7 @@ const info = [
     "amountToPay": "316.57",
     "feePercent": 0,
     "feeType": 0,
-    "glyph": "OTHER",
+    "glyph": "other",
     "groupId": 2,
     "groupName": "Начисления за коммунальные услуги",
     "isFixed": false,
@@ -296,7 +307,7 @@ const info = [
     "amountToPay": "339.81",
     "feePercent": 0,
     "feeType": 0,
-    "glyph": "WATER_COLD",
+    "glyph": "water_cold",
     "groupId": 2,
     "groupName": "Начисления за коммунальные услуги",
     "isFixed": false,
@@ -316,7 +327,7 @@ const info = [
     "amountToPay": "546.46",
     "feePercent": 0,
     "feeType": 0,
-    "glyph": "ELECTRICITY",
+    "glyph": "electricity",
     "groupId": 2,
     "groupName": "Начисления за коммунальные услуги",
     "isFixed": false,
@@ -336,7 +347,7 @@ const info = [
     "amountToPay": "0.00",
     "feePercent": 0,
     "feeType": 0,
-    "glyph": "GAS",
+    "glyph": "gas",
     "groupId": 3,
     "groupName": "Начисления за иные услуги",
     "isFixed": false,
@@ -356,7 +367,7 @@ const info = [
     "amountToPay": "106.38",
     "feePercent": 0,
     "feeType": 0,
-    "glyph": "INSURANCE",
+    "glyph": "insurance",
     "groupId": 3,
     "groupName": "Начисления за иные услуги",
     "isFixed": true,

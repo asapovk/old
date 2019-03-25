@@ -1,19 +1,24 @@
 /** @jsx jsx */
-import { jsx } from '@emotion/core'
-import { Flexbox, C2, T1 } from '../index';
+import { jsx, css } from '@emotion/core'
+import { Flexbox, C2, T1, Icon } from '../index';
 import Types from './types';
 
 export default (props: Types.MenuProps) => {
 
-    const { groups, data, styles, active, onChoose, nameKey } = props;
+    const { groups, data, styles, active, onChoose, nameKey, isMobile } = props;
 
     const items = data.map((item, index) => (
-        <T1
-            key={'lmi-' + index}
-            css={styles.menu.item(index === active, groups)}
-            children={item[nameKey]}
+        <Flexbox
+            justifyContent='space-between'
+            alignItems='center'
             onClick={() => onChoose(index)}
-        />
+            key={'lmi-' + index}
+            flex={1}
+            css={styles.menu.item(index === active, groups)}
+        >
+            <T1 ellipsis>{item[nameKey]}</T1>
+            {isMobile && <Icon type='right' color='light' />}
+        </Flexbox>
     ))
 
     return (
