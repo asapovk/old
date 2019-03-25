@@ -60,7 +60,7 @@ exports.default = react_1.forwardRef(function (props, ref) {
     var styles = styles_1.default(browser.isMobile);
     var capacity = browser.isDesktop
         ? (props.capacity && props.capacity[0]) || 5
-        : (browser.isTablet && props.capacity && props.capacity[1]) || 1;
+        : (props.capacity && props.capacity[1]) || 1;
     var initialState = {
         opened: browser.isMobile ? [] : [0],
         choose: false
@@ -94,5 +94,6 @@ exports.default = react_1.forwardRef(function (props, ref) {
                 core_1.jsx(Menu_1.default, __assign({}, props, { onChoose: function (i) { return dispatch({ type: 'addItem', payload: i }); }, styles: styles, isMobile: browser.isMobile }))),
         state.opened.length < capacity
             && !browser.isMobile
+            && props.data.length > 1
             && core_1.jsx(Bars_1.RightBar, { styles: styles, onAdd: function () { return dispatch({ type: 'openMenu' }); } })));
 });

@@ -24,7 +24,7 @@ var Login_1 = __importDefault(require("./Login"));
 exports.default = (function (props) {
     var styles = styles_1.default();
     var browser = hooks_1.useBrowser();
-    var isMobile = browser.width <= 768;
+    var isMobile = browser.width <= 1024;
     if (props.preparing) {
         return (core_1.jsx(core_2.Spinner, { spinning: true, center: true }));
     }
