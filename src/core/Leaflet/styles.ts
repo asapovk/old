@@ -7,25 +7,33 @@ export default (mobile) => {
     const border = !mobile ? '1px solid ' + theme.pale.rgb : 'unset';
 
     return {
-        container: css({
-            background: theme.background2.rgb,
-            borderRadius: theme.radius.card,
-            overflow: 'hidden',
-        }),
-        items: css({
-            overflow: 'hidden',
-            '> div:first-of-type': {
-                borderTopLeftRadius: theme.radius.card,
-                borderBottomLeftRadius: theme.radius.card,
+        container: css(
+            {
+                background: theme.background2.rgb,
+                overflow: 'hidden',
             },
-            '> div:last-of-type': {
-                borderTopRightRadius: theme.radius.card,
-                borderBottomRightRadius: theme.radius.card,
+            !mobile && {
+                borderRadius: theme.radius.card,
+            }
+        ),
+        items: css(
+            {
+                overflow: 'hidden',
             },
-            '> div:not(:first-of-type)': {
-                marginLeft: '-1px'
-            },
-        }),
+            !mobile && {
+                '> div:first-of-type': {
+                    borderTopLeftRadius: theme.radius.card,
+                    borderBottomLeftRadius: theme.radius.card,
+                },
+                '> div:last-of-type': {
+                    borderTopRightRadius: theme.radius.card,
+                    borderBottomRightRadius: theme.radius.card,
+                },
+                '> div:not(:first-of-type)': {
+                    marginLeft: '-1px'
+                },
+            }
+        ),
         item: (narrow) => css(
             {
                 background: theme.interface.rgb,
@@ -34,7 +42,10 @@ export default (mobile) => {
                 padding: '2.5rem',
             },
             narrow && {
-                padding: '1.5rem 1rem',
+                padding: '2.5rem 1rem',
+            },
+            mobile && {
+                padding: 0
             }
         ),
         grid: css({
