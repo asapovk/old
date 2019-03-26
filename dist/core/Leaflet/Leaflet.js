@@ -87,14 +87,14 @@ exports.default = react_1.forwardRef(function (props, ref) {
             (browser.isMobile
                 ? !state.opened.length
                 : (state.opened.length === 1 && !state.choose))
-                && core_1.jsx(Menu_1.default, __assign({}, props, { onChoose: function (i) { return dispatch({ type: 'setItem', payload: i }); }, active: state.opened[0], styles: styles, isMobile: browser.isMobile })),
+                && core_1.jsx(Menu_1.default, __assign({}, props, { onChoose: function (i) {
+                        dispatch({ type: 'setItem', payload: i });
+                        browser.isMobile && props.onEnterMobile && props.onEnterMobile(i);
+                    }, active: state.opened[0], styles: styles, isMobile: browser.isMobile })),
             props.items &&
                 core_1.jsx(Items_1.default, { opened: state.opened, data: props.data, items: props.items, styles: styles, breakpoints: props.breakpoints }),
             state.choose &&
-                core_1.jsx(Menu_1.default, __assign({}, props, { onChoose: function (i) {
-                        dispatch({ type: 'addItem', payload: i });
-                        props.onEnterMobile && props.onEnterMobile(i);
-                    }, styles: styles, isMobile: browser.isMobile }))),
+                core_1.jsx(Menu_1.default, __assign({}, props, { onChoose: function (i) { return dispatch({ type: 'addItem', payload: i }); }, styles: styles, isMobile: browser.isMobile }))),
         state.opened.length < capacity
             && !browser.isMobile
             && props.data.length > 1
