@@ -113,7 +113,10 @@ export default forwardRef((props: Types.Props, ref) => {
                 {state.choose &&
                     <Menu
                         {...props}
-                        onChoose={(i) => dispatch({ type: 'addItem', payload: i })}
+                        onChoose={(i) => {
+                            dispatch({ type: 'addItem', payload: i });
+                            props.onEnterMobile && props.onEnterMobile(i);
+                        }}
                         styles={styles}
                         isMobile={browser.isMobile}
                     />
