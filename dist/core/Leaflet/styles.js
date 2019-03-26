@@ -11,11 +11,13 @@ exports.default = (function (mobile) {
     return {
         container: core_1.css({
             background: theme.background2.rgb,
-            borderRadius: theme.radius.card,
             overflow: 'hidden',
+        }, !mobile && {
+            borderRadius: theme.radius.card,
         }),
         items: core_1.css({
             overflow: 'hidden',
+        }, !mobile && {
             '> div:first-of-type': {
                 borderTopLeftRadius: theme.radius.card,
                 borderBottomLeftRadius: theme.radius.card,
@@ -34,7 +36,9 @@ exports.default = (function (mobile) {
             flex: 1,
             padding: '2.5rem',
         }, narrow && {
-            padding: '1.5rem 1rem',
+            padding: '2.5rem 1rem',
+        }, mobile && {
+            padding: 0
         }); },
         grid: core_1.css({
             paddingTop: '.75rem',
