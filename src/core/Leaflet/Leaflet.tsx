@@ -96,7 +96,10 @@ export default forwardRef((props: Types.Props, ref) => {
                 )
                     && <Menu
                         {...props}
-                        onChoose={(i) => dispatch({ type: 'setItem', payload: i })}
+                        onChoose={(i) => {
+                            dispatch({ type: 'setItem', payload: i });
+                            browser.isMobile && props.onEnterMobile && props.onEnterMobile(i);
+                        }}
                         active={state.opened[0]}
                         styles={styles}
                         isMobile={browser.isMobile}
@@ -113,10 +116,7 @@ export default forwardRef((props: Types.Props, ref) => {
                 {state.choose &&
                     <Menu
                         {...props}
-                        onChoose={(i) => {
-                            dispatch({ type: 'addItem', payload: i });
-                            props.onEnterMobile && props.onEnterMobile(i);
-                        }}
+                        onChoose={(i) => dispatch({ type: 'addItem', payload: i })}
                         styles={styles}
                         isMobile={browser.isMobile}
                     />
