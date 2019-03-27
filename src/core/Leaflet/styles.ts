@@ -40,6 +40,7 @@ export default (mobile) => {
                 border: border,
                 flex: 1,
                 padding: '2.5rem',
+                overflow: 'hidden',
             },
             narrow && {
                 padding: '2.5rem 1rem',
