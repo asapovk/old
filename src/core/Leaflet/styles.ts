@@ -10,6 +10,8 @@ export default (mobile) => {
         container: css(
             {
                 background: theme.background2.rgb,
+                width: '100%',
+                overflow: 'hidden'
             },
             !mobile && {
                 borderRadius: theme.radius.card,
@@ -17,7 +19,8 @@ export default (mobile) => {
         ),
         items: css(
             {
-                overflow: 'hidden',
+                flex: 1,
+                overflow: 'hidden'
             },
             !mobile && {
                 '> div:first-of-type': {
@@ -37,9 +40,9 @@ export default (mobile) => {
             {
                 background: theme.interface.rgb,
                 border: border,
-                flex: 1,
                 padding: '2.5rem',
                 overflow: 'hidden',
+                flex: 1
             },
             narrow && {
                 padding: '2.5rem 1rem',

@@ -89,7 +89,7 @@ export default forwardRef((props: Types.Props, ref) => {
             {/* Menu shows on mobile if nothing opened. 
             On other screens shows right if opened only one item
             and left in compare mode after choose action  */}
-            <Flexbox flex={1} css={styles.items}>
+            <Flexbox css={styles.items}>
                 {(browser.isMobile
                     ? !state.opened.length
                     : (state.opened.length === 1 && !state.choose)

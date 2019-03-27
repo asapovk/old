@@ -7,7 +7,6 @@ export default () => {
   return (
     <Flexbox p={20}>
       <Leaflet
-        css={css({ flex: 1 })}
         groupKey='groupId'
         nameKey='serviceName'
         capacity={[10, 2]}
@@ -73,6 +72,7 @@ export default () => {
         ]}
         data={info}
       />
+      <div css={css({ flexBasis: '4rem' })} />
     </Flexbox>
   )
 }

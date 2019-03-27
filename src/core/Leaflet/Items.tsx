@@ -17,8 +17,8 @@ export default (props: Types.ItemsProps) => {
                     css={styles.item(opened.length > breakpoints[0])}
                     children={
                         items.map((item, gi) => (
-                            <Flexbox key={'li-gr-' + gi} column mb='1.5rem'>
-                                <Flexbox>
+                            <Flexbox key={'li-gr-' + gi} column pb='2.5rem'>
+                                <Flexbox css={css({ width: '100%', overflow: 'hidden', minWidth: '0 !important' })}>
                                     <D3
                                         ellipsis
                                         underline
