@@ -18,6 +18,7 @@ declare namespace LeafletTypes {
         styles: any;
         active?: number;
         isMobile: boolean;
+        side?: boolean;
     }
     interface ItemsProps {
         styles: any;

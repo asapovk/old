@@ -50,7 +50,7 @@ exports.default = (function (mobile) {
             justifyContent: 'space-between'
         }),
         menu: {
-            container: core_1.css({
+            container: function (active) { return core_1.css({
                 background: theme.interface.rgb,
                 border: border,
                 flexBasis: '18rem',
@@ -61,7 +61,10 @@ exports.default = (function (mobile) {
             }, mobile && {
                 flex: 1,
                 padding: 0,
-            }),
+            }, active && {
+                position: 'absolute',
+                right: 0
+            }); },
             item: function (active, groups) { return core_1.css({
                 cursor: 'pointer',
                 '> span': {
