@@ -11,7 +11,6 @@ exports.default = (function (mobile) {
     return {
         container: core_1.css({
             background: theme.background2.rgb,
-            overflow: 'hidden',
         }, !mobile && {
             borderRadius: theme.radius.card,
         }),
