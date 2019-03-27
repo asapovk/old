@@ -83,7 +83,7 @@ exports.default = react_1.forwardRef(function (props, ref) {
         state.opened.length > 1
             && !browser.isMobile
             && core_1.jsx(Bars_1.LeftBar, { styles: styles, onBack: function () { return dispatch({ type: 'back' }); }, onClose: function () { return dispatch({ type: 'close' }); } }),
-        core_1.jsx(index_1.Flexbox, { flex: 1, css: styles.items },
+        core_1.jsx(index_1.Flexbox, { css: styles.items },
             (browser.isMobile
                 ? !state.opened.length
                 : (state.opened.length === 1 && !state.choose))

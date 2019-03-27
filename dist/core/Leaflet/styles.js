@@ -11,11 +11,14 @@ exports.default = (function (mobile) {
     return {
         container: core_1.css({
             background: theme.background2.rgb,
+            width: '100%',
+            overflow: 'hidden'
         }, !mobile && {
             borderRadius: theme.radius.card,
         }),
         items: core_1.css({
-            overflow: 'hidden',
+            flex: 1,
+            overflow: 'hidden'
         }, !mobile && {
             '> div:first-of-type': {
                 borderTopLeftRadius: theme.radius.card,
@@ -32,9 +35,9 @@ exports.default = (function (mobile) {
         item: function (narrow) { return core_1.css({
             background: theme.interface.rgb,
             border: border,
-            flex: 1,
             padding: '2.5rem',
             overflow: 'hidden',
+            flex: 1
         }, narrow && {
             padding: '2.5rem 1rem',
         }, mobile && {

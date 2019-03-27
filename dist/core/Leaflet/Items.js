@@ -7,8 +7,8 @@ var index_1 = require("../index");
 exports.default = (function (props) {
     var data = props.data, styles = props.styles, items = props.items, opened = props.opened;
     var breakpoints = props.breakpoints || [4, 6];
-    return (core_1.jsx(react_1.Fragment, null, opened.map(function (dataIndex, index) { return (core_1.jsx("div", { key: 'li-' + index, css: styles.item(opened.length > breakpoints[0]), children: items.map(function (item, gi) { return (core_1.jsx(index_1.Flexbox, { key: 'li-gr-' + gi, column: true, mb: '1.5rem' },
-            core_1.jsx(index_1.Flexbox, null,
+    return (core_1.jsx(react_1.Fragment, null, opened.map(function (dataIndex, index) { return (core_1.jsx("div", { key: 'li-' + index, css: styles.item(opened.length > breakpoints[0]), children: items.map(function (item, gi) { return (core_1.jsx(index_1.Flexbox, { key: 'li-gr-' + gi, column: true, pb: '2.5rem' },
+            core_1.jsx(index_1.Flexbox, { css: core_1.css({ width: '100%', overflow: 'hidden', minWidth: '0 !important' }) },
                 core_1.jsx(index_1.D3, { ellipsis: true, underline: true, children: item.title
                         ? item.title
                         : item.titleKey
