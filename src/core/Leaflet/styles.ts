@@ -10,7 +10,6 @@ export default (mobile) => {
         container: css(
             {
                 background: theme.background2.rgb,
-                overflow: 'hidden',
             },
             !mobile && {
                 borderRadius: theme.radius.card,
