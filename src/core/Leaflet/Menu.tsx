@@ -5,7 +5,7 @@ import Types from './types';
 
 export default (props: Types.MenuProps) => {
 
-    const { groups, data, styles, active, onChoose, nameKey, isMobile } = props;
+    const { groups, data, styles, active, onChoose, nameKey, isMobile, side } = props;
 
     const items = data.map((item, index) => (
         <Flexbox
@@ -22,7 +22,7 @@ export default (props: Types.MenuProps) => {
     ))
 
     return (
-        <Flexbox css={styles.menu.container} column>
+        <Flexbox css={styles.menu.container(side)} column>
             {groups
                 ? groups.map(group => {
                     const Content = items.filter((item, index) => data[index].groupId === group.value)

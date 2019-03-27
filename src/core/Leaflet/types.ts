@@ -19,7 +19,8 @@ declare namespace LeafletTypes {
         onChoose: (i: number) => void
         styles: any
         active?: number
-        isMobile: boolean
+        isMobile: boolean,
+        side?: boolean
     }
 
     interface ItemsProps {

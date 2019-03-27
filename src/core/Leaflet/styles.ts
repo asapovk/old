@@ -58,7 +58,7 @@ export default (mobile) => {
             justifyContent: 'space-between'
         }),
         menu: {
-            container: css(
+            container: (active) => css(
                 {
                     background: theme.interface.rgb,
                     border: border,
@@ -71,6 +71,10 @@ export default (mobile) => {
                 mobile && {
                     flex: 1,
                     padding: 0,
+                },
+                active && {
+                    position: 'absolute',
+                    right: 0
                 }
             ),
             item: (active, groups) => css(

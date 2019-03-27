@@ -77,7 +77,7 @@ export default forwardRef((props: Types.Props, ref) => {
         <Flexbox css={styles.container} className={props.className}>
 
             {/* Left bar user compare something */}
-            {state.opened.length > 1
+            {(state.opened.length > 1 || state.choose)
                 && !browser.isMobile
                 && <LeftBar
                     styles={styles}
@@ -118,6 +118,7 @@ export default forwardRef((props: Types.Props, ref) => {
                         {...props}
                         onChoose={(i) => dispatch({ type: 'addItem', payload: i })}
                         styles={styles}
+                        side={state.opened.length > 1}
                         isMobile={browser.isMobile}
                     />
                 }
@@ -127,6 +128,7 @@ export default forwardRef((props: Types.Props, ref) => {
             {state.opened.length < capacity
                 && !browser.isMobile
                 && props.data.length > 1
+                && !state.choose
                 && <RightBar
                     styles={styles}
                     onAdd={() => dispatch({ type: 'openMenu' })}
