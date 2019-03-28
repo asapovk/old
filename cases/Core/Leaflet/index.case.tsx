@@ -72,7 +72,6 @@ export default () => {
         ]}
         data={info}
       />
-      <div css={css({ flexBasis: '4rem' })} />
     </Flexbox>
   )
 }

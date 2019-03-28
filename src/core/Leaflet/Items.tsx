@@ -12,32 +12,35 @@ export default (props: Types.ItemsProps) => {
     return (
         <Fragment>
             {opened.map((dataIndex, index) => (
-                <div
+                <Flexbox
+                    column
                     key={'li-' + index}
-                    css={styles.item(opened.length > breakpoints[0])}
+                    css={styles.item.container(opened.length > breakpoints[0])}
                     children={
                         items.map((item, gi) => (
-                            <Flexbox key={'li-gr-' + gi} column pb='2.5rem'>
-                                <Flexbox css={css({ width: '100%', overflow: 'hidden', minWidth: '0 !important' })}>
-                                    <D3
-                                        ellipsis
-                                        underline
-                                        children={
-                                            item.title
-                                                ? item.title
-                                                : item.titleKey
-                                                && data[dataIndex][item.titleKey]
-                                        }
-                                        icon={
-                                            (item.iconKey
-                                                && data[dataIndex][item.iconKey]
-                                                && opened.length > 1
-                                            )
-                                                ? data[dataIndex][item.iconKey]
-                                                : undefined
-                                        }
-                                    />
-                                </Flexbox>
+                            <Fragment key={'li-gr-' + gi}>
+                                <div css={styles.item.header(gi)}>
+                                    <div>
+                                        <D3
+                                            ellipsis
+                                            underline
+                                            children={
+                                                item.title
+                                                    ? item.title
+                                                    : item.titleKey
+                                                    && data[dataIndex][item.titleKey]
+                                            }
+                                            icon={
+                                                (item.iconKey
+                                                    && data[dataIndex][item.iconKey]
+                                                    && opened.length > 1
+                                                )
+                                                    ? data[dataIndex][item.iconKey]
+                                                    : undefined
+                                            }
+                                        />
+                                    </div>
+                                </div>
                                 <Grid
                                     rows={item.rows}
                                     data={data}
@@ -47,7 +50,7 @@ export default (props: Types.ItemsProps) => {
                                     opened={opened}
                                     breakpoints={breakpoints}
                                 />
-                            </Flexbox>
+                            </Fragment>
                         ))
                     }
                 />
@@ -63,7 +66,7 @@ const Grid = (props) => {
     return rows
         .filter(row => data[dataIndex][row.dataKey])
         .map((row, ri) => (
-            <Flexbox key={'li-gr-row-' + ri} css={styles.grid}>
+            <Flexbox key={'li-gr-row-' + ri} css={styles.item.grid}>
 
                 {(opened.length < breakpoints[0] || isFirst)
                     && row.name

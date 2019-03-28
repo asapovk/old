@@ -76,7 +76,7 @@ export default forwardRef((props: Types.Props, ref) => {
     return (
         <Flexbox css={styles.container} className={props.className}>
 
-            {/* Left bar user compare something */}
+            {/* Left bar shows then user compare something */}
             {(state.opened.length > 1 || state.choose)
                 && !browser.isMobile
                 && <LeftBar
@@ -90,21 +90,22 @@ export default forwardRef((props: Types.Props, ref) => {
             On other screens shows right if opened only one item
             and left in compare mode after choose action  */}
             <Flexbox css={styles.items}>
-                {(browser.isMobile
-                    ? !state.opened.length
-                    : (state.opened.length === 1 && !state.choose)
-                )
-                    && <Menu
-                        {...props}
-                        onChoose={(i) => {
-                            dispatch({ type: 'setItem', payload: i });
-                            browser.isMobile && props.onEnterMobile && props.onEnterMobile(i);
-                        }}
-                        active={state.opened[0]}
-                        styles={styles}
-                        isMobile={browser.isMobile}
-                    />
-                }
+                <Menu
+                    {...props}
+                    onChoose={(i) => {
+                        dispatch({ type: 'setItem', payload: i });
+                        browser.isMobile && props.onEnterMobile && props.onEnterMobile(i);
+                    }}
+                    active={state.opened[0]}
+                    left={
+                        (browser.isMobile
+                            ? !state.opened.length
+                            : (state.opened.length === 1 && !state.choose)
+                        )
+                    }
+                    styles={styles}
+                    isMobile={browser.isMobile}
+                />
                 {props.items &&
                     <Items
                         opened={state.opened}
