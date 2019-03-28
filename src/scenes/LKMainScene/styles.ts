@@ -35,6 +35,7 @@ export default () => {
                 justifyContent: 'center',
                 boxSizing: 'border-box',
                 padding: '2.75rem 4.5rem',
+                overflow: 'hidden',
                 [mq[1]]: {
                     padding: '2.5rem',
                     position: displaySidebar ? 'fixed' : 'relative'
@@ -46,8 +47,9 @@ export default () => {
 
             holder: css({
                 display: 'flex',
-                flexBasis: 960,
+                flex: '1 1 960px',
                 maxWidth: '960px',
+                minWidth: 0,
                 flexDirection: 'column',
                 [mq[1]]: {
                     display: 'block',
