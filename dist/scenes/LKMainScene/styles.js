@@ -39,7 +39,8 @@ exports.default = (function () {
                         flex: 1,
                         justifyContent: 'center',
                         boxSizing: 'border-box',
-                        padding: '2.75rem 4.5rem'
+                        padding: '2.75rem 4.5rem',
+                        overflow: 'hidden'
                     },
                     _a[mq[1]] = {
                         padding: '2.5rem',
@@ -52,8 +53,9 @@ exports.default = (function () {
             },
             holder: core_1.css((_a = {
                     display: 'flex',
-                    flexBasis: 960,
+                    flex: '1 1 960px',
                     maxWidth: '960px',
+                    minWidth: 0,
                     flexDirection: 'column'
                 },
                 _a[mq[1]] = {
