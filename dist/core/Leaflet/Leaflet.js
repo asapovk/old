@@ -84,12 +84,11 @@ exports.default = react_1.forwardRef(function (props, ref) {
             && !browser.isMobile
             && core_1.jsx(Bars_1.LeftBar, { styles: styles, onBack: function () { return dispatch({ type: 'back' }); }, onClose: function () { return dispatch({ type: 'close' }); } }),
         core_1.jsx(index_1.Flexbox, { css: styles.items },
-            core_1.jsx(Menu_1.default, __assign({}, props, { onChoose: function (i) {
-                    dispatch({ type: 'setItem', payload: i });
-                    browser.isMobile && props.onEnterMobile && props.onEnterMobile(i);
-                }, active: state.opened[0], left: (browser.isMobile
-                    ? !state.opened.length
-                    : (state.opened.length === 1 && !state.choose)), styles: styles, isMobile: browser.isMobile })),
+            (!browser.isMobile || !state.opened.length) &&
+                core_1.jsx(Menu_1.default, __assign({}, props, { onChoose: function (i) {
+                        dispatch({ type: 'setItem', payload: i });
+                        browser.isMobile && props.onEnterMobile && props.onEnterMobile(i);
+                    }, active: state.opened[0], left: browser.isMobile || (state.opened.length === 1 && !state.choose), styles: styles, isMobile: browser.isMobile })),
             props.items &&
                 core_1.jsx(Items_1.default, { opened: state.opened, data: props.data, items: props.items, styles: styles, breakpoints: props.breakpoints }),
             state.choose &&
