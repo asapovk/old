@@ -58,11 +58,14 @@ exports.default = react_1.forwardRef(function (props, ref) {
     }
     var browser = hooks_1.useBrowser();
     var styles = styles_1.default(browser.isMobile);
+    var isDefaultExist = props.default && props.data[props.default];
     var capacity = browser.isDesktop
         ? (props.capacity && props.capacity[0]) || 5
         : (props.capacity && props.capacity[1]) || 1;
     var initialState = {
-        opened: browser.isMobile ? [] : [0],
+        opened: props.default && isDefaultExist
+            ? [props.default]
+            : (browser.isMobile) ? [] : [0],
         choose: false
     };
     var _a = react_1.useReducer(reducer, initialState), state = _a[0], dispatch = _a[1];

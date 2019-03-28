@@ -11,6 +11,7 @@ declare namespace LeafletTypes {
         nameKey: string;
         data: Data[];
         items?: Item[];
+        default?: number;
         onEnterMobile?: (index: number) => void;
     }
     interface MenuProps extends Props {
