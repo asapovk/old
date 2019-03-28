@@ -118,7 +118,7 @@ export default (mobile) => {
                     color: theme.textOnAccent.rgb,
                     marginRight: '-1.25rem',
                     marginLeft: (groups && !mobile) ? '-1.75rem' : '-1.25rem',
-                    padding: (groups && !mobile) ? '0 1.75rem 0 1.25rem' : '0 1.25rem'
+                    padding: (groups && !mobile) ? '0 1.25rem 0 1.75rem' : '0 1.25rem'
                 }
             ),
             group: css({

@@ -47,13 +47,16 @@ export default forwardRef((props: Types.Props, ref) => {
 
     const browser = useBrowser();
     const styles = createStyles(browser.isMobile);
+    const isDefaultExist = props.default && props.data[props.default];
 
     const capacity = browser.isDesktop
         ? (props.capacity && props.capacity[0]) || 5
         : (props.capacity && props.capacity[1]) || 1
 
     const initialState = {
-        opened: browser.isMobile ? [] : [0],
+        opened: props.default && isDefaultExist
+            ? [props.default]
+            : (browser.isMobile) ? [] : [0],
         choose: false
     }
 
