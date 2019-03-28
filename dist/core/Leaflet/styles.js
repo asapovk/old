@@ -18,52 +18,76 @@ exports.default = (function (mobile) {
         }),
         items: core_1.css({
             flex: 1,
-            overflow: 'hidden'
-        }, !mobile && {
-            '> div:first-of-type': {
-                borderTopLeftRadius: theme.radius.card,
-                borderBottomLeftRadius: theme.radius.card,
-            },
-            '> div:last-of-type': {
-                borderTopRightRadius: theme.radius.card,
-                borderBottomRightRadius: theme.radius.card,
-            },
-            '> div:not(:first-of-type)': {
-                marginLeft: '-1px'
-            },
-        }),
-        item: function (narrow) { return core_1.css({
-            background: theme.interface.rgb,
-            border: border,
-            padding: '2.5rem',
             overflow: 'hidden',
-            flex: 1
-        }, narrow && {
-            padding: '2.5rem 1rem',
+            borderRadius: theme.radius.card,
+            border: border,
+            '> div:last-of-type': {
+                borderRight: 'none'
+            },
         }, mobile && {
-            padding: 0
-        }); },
-        grid: core_1.css({
-            paddingTop: '.75rem',
-            alignItems: 'flex-end',
-            flex: 1,
-            justifyContent: 'space-between'
+            border: 'none',
+            borderRadius: 'none'
         }),
-        menu: {
-            container: function (active) { return core_1.css({
+        item: {
+            container: function (narrow) { return core_1.css({
                 background: theme.interface.rgb,
-                border: border,
+                padding: '2.5rem',
+                flex: '1 1 auto',
+                minWidth: 0,
+                borderRight: '1px solid ' + theme.pale.rgb
+            }, narrow && {
+                padding: '2.5rem 1rem',
+            }, mobile && {
+                padding: 0
+            }); },
+            grid: core_1.css({
+                paddingTop: '.75rem',
+                alignItems: 'flex-end',
+                flex: '0 0 initial',
+                minWidth: 'max-content',
+                justifyContent: 'space-between'
+            }),
+            header: function (index) { return core_1.css({
+                position: 'relative',
+                height: '1.5rem',
+                marginBottom: '0.5rem',
+                '> div': {
+                    position: 'absolute',
+                    right: '0',
+                    left: '0'
+                }
+            }, index > 0 && {
+                marginTop: '2.5rem'
+            }); },
+        },
+        menu: {
+            container: function (side, left) { return core_1.css({
+                background: theme.interface.rgb,
                 flexBasis: '18rem',
                 padding: '1.25rem',
                 overflow: 'hidden',
                 flexShrink: 1,
                 flexGrow: 0,
+                borderRight: '1px solid ' + theme.pale.rgb
             }, mobile && {
                 flex: 1,
                 padding: 0,
-            }, active && {
+            }, side && {
                 position: 'absolute',
-                right: 0
+                right: 0,
+                bottom: 0,
+                top: 0,
+                borderRight: 'none',
+                borderLeft: '1px solid ' + theme.pale.rgb
+            }, left === false && !side && {
+                flexBasis: 0,
+                padding: '1.25rem 0',
+                overflow: 'hidden',
+                border: 'none',
+                '> *': {
+                    width: '18rem',
+                    flexShrink: 0
+                }
             }); },
             item: function (active, groups) { return core_1.css({
                 cursor: 'pointer',
@@ -75,7 +99,7 @@ exports.default = (function (mobile) {
                 color: theme.textOnAccent.rgb,
                 marginRight: '-1.25rem',
                 marginLeft: (groups && !mobile) ? '-1.75rem' : '-1.25rem',
-                paddingLeft: (groups && !mobile) ? '1.75rem' : '1.25rem'
+                padding: (groups && !mobile) ? '0 1.75rem 0 1.25rem' : '0 1.25rem'
             }); },
             group: core_1.css({
                 ':not(:first-of-type)': {
