@@ -76,6 +76,7 @@ export default (mobile) => {
                 {
                     background: theme.interface.rgb,
                     flexBasis: '18rem',
+                    width: '18rem',
                     padding: '1.25rem',
                     overflow: 'hidden',
                     flexShrink: 1,
