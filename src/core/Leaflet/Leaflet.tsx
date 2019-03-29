@@ -47,15 +47,18 @@ export default forwardRef((props: Types.Props, ref) => {
 
     const browser = useBrowser();
     const styles = createStyles(browser.isMobile);
-    const isDefaultExist = props.default && props.data[props.default];
+    const defaultItem: number | false =
+        (props.default || props.default === 0)
+            ? props.data[props.default] && props.default
+            : false;
 
     const capacity = browser.isDesktop
         ? (props.capacity && props.capacity[0]) || 5
         : (props.capacity && props.capacity[1]) || 1
 
     const initialState = {
-        opened: props.default && isDefaultExist
-            ? [props.default]
+        opened: defaultItem
+            ? [defaultItem]
             : (browser.isMobile) ? [] : [0],
         choose: false
     }
@@ -64,8 +67,8 @@ export default forwardRef((props: Types.Props, ref) => {
 
     useLayoutEffect(() => {
         if (browser.isMobile) {
-            isDefaultExist
-                ? dispatch({ type: 'setItem', payload: props.default })
+            defaultItem
+                ? dispatch({ type: 'setItem', payload: defaultItem })
                 : dispatch({ type: 'exit' });
         } else if (!state.opened.length) {
             dispatch({ type: 'setItem', payload: 0 })
