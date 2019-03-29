@@ -60,12 +60,12 @@ exports.default = react_1.forwardRef(function (props, ref) {
     var styles = styles_1.default(browser.isMobile);
     var defaultItem = (props.default || props.default === 0)
         ? props.data[props.default] && props.default
-        : false;
+        : null;
     var capacity = browser.isDesktop
         ? (props.capacity && props.capacity[0]) || 5
         : (props.capacity && props.capacity[1]) || 1;
     var initialState = {
-        opened: defaultItem
+        opened: defaultItem != null
             ? [defaultItem]
             : (browser.isMobile) ? [] : [0],
         choose: false
@@ -73,7 +73,7 @@ exports.default = react_1.forwardRef(function (props, ref) {
     var _a = react_1.useReducer(reducer, initialState), state = _a[0], dispatch = _a[1];
     react_1.useLayoutEffect(function () {
         if (browser.isMobile) {
-            defaultItem
+            defaultItem != null
                 ? dispatch({ type: 'setItem', payload: defaultItem })
                 : dispatch({ type: 'exit' });
         }
