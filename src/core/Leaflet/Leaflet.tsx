@@ -64,7 +64,9 @@ export default forwardRef((props: Types.Props, ref) => {
 
     useLayoutEffect(() => {
         if (browser.isMobile) {
-            dispatch({ type: 'exit' });
+            isDefaultExist
+                ? dispatch({ type: 'setItem', payload: props.default })
+                : dispatch({ type: 'exit' });
         } else if (!state.opened.length) {
             dispatch({ type: 'setItem', payload: 0 })
         }

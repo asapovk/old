@@ -10,6 +10,7 @@ export default () => {
         groupKey='groupId'
         nameKey='serviceName'
         capacity={[10, 2]}
+        default={2}
         groups={[
           {
             label: 'Содержание жилого помещения',
