@@ -71,7 +71,9 @@ exports.default = react_1.forwardRef(function (props, ref) {
     var _a = react_1.useReducer(reducer, initialState), state = _a[0], dispatch = _a[1];
     react_1.useLayoutEffect(function () {
         if (browser.isMobile) {
-            dispatch({ type: 'exit' });
+            isDefaultExist
+                ? dispatch({ type: 'setItem', payload: props.default })
+                : dispatch({ type: 'exit' });
         }
         else if (!state.opened.length) {
             dispatch({ type: 'setItem', payload: 0 });
