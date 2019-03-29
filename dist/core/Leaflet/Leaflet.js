@@ -58,21 +58,23 @@ exports.default = react_1.forwardRef(function (props, ref) {
     }
     var browser = hooks_1.useBrowser();
     var styles = styles_1.default(browser.isMobile);
-    var isDefaultExist = props.default && props.data[props.default];
+    var defaultItem = (props.default || props.default === 0)
+        ? props.data[props.default] && props.default
+        : false;
     var capacity = browser.isDesktop
         ? (props.capacity && props.capacity[0]) || 5
         : (props.capacity && props.capacity[1]) || 1;
     var initialState = {
-        opened: props.default && isDefaultExist
-            ? [props.default]
+        opened: defaultItem
+            ? [defaultItem]
             : (browser.isMobile) ? [] : [0],
         choose: false
     };
     var _a = react_1.useReducer(reducer, initialState), state = _a[0], dispatch = _a[1];
     react_1.useLayoutEffect(function () {
         if (browser.isMobile) {
-            isDefaultExist
-                ? dispatch({ type: 'setItem', payload: props.default })
+            defaultItem
+                ? dispatch({ type: 'setItem', payload: defaultItem })
                 : dispatch({ type: 'exit' });
         }
         else if (!state.opened.length) {
