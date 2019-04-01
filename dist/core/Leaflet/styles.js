@@ -73,6 +73,9 @@ exports.default = (function (mobile) {
             }, mobile && {
                 flex: 1,
                 padding: 0,
+                '> div:last-of-type': {
+                    borderBottom: '1px solid ' + theme.pale.rgb,
+                }
             }, side && {
                 position: 'absolute',
                 right: 0,
@@ -101,6 +104,8 @@ exports.default = (function (mobile) {
                 marginRight: '-1.25rem',
                 marginLeft: (groups && !mobile) ? '-1.75rem' : '-1.25rem',
                 padding: (groups && !mobile) ? '0 1.25rem 0 1.75rem' : '0 1.25rem'
+            }, mobile && {
+                borderTop: '1px solid ' + theme.pale.rgb
             }); },
             group: core_1.css({
                 ':not(:first-of-type)': {
@@ -113,13 +118,6 @@ exports.default = (function (mobile) {
             }),
             groupBody: core_1.css({
                 paddingLeft: !mobile ? '.5rem' : 'unset'
-            }, mobile && {
-                '> div': {
-                    borderTop: '1px solid ' + theme.pale.rgb,
-                },
-                '> div:last-of-type': {
-                    borderBottom: '1px solid ' + theme.pale.rgb,
-                }
             }),
         },
         leftBar: core_1.css({
