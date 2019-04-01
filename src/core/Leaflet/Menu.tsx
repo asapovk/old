@@ -9,11 +9,9 @@ export default (props: Types.MenuProps) => {
 
     const items = data.map((item, index) => (
         <Flexbox
-            justifyContent='space-between'
             alignItems='center'
             onClick={() => onChoose(index)}
             key={'lmi-' + index}
-            flex={1}
             css={styles.menu.item(index === active, groups)}
         >
             <T1 ellipsis>{item[nameKey]}</T1>

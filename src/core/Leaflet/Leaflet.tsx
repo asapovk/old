@@ -132,7 +132,8 @@ export default forwardRef((props: Types.Props, ref) => {
             </Flexbox>
 
             {/* Right bar to compare action if not exceeded */}
-            {state.opened.length < capacity
+            {!props.hideCompare
+                && state.opened.length < capacity
                 && !browser.isMobile
                 && props.data.length > 1
                 && !state.choose

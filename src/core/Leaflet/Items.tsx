@@ -76,7 +76,7 @@ const Grid = (props) => {
                         children={row.name}
                     />
                 }
-                {(opened.length < breakpoints[1] || isFirst)
+                {row.name && (opened.length < breakpoints[1] || isFirst)
                     && <HR
                         dotted
                         color='light'
