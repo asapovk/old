@@ -29,7 +29,7 @@ var Grid = function (props) {
         (opened.length < breakpoints[0] || isFirst)
             && row.name
             && core_1.jsx(index_1.T1, { color: 'lowlight', css: core_1.css({ flexShrink: 0 }), children: row.name }),
-        (opened.length < breakpoints[1] || isFirst)
+        row.name && (opened.length < breakpoints[1] || isFirst)
             && core_1.jsx(index_1.HR, { dotted: true, color: 'light', css: core_1.css({ margin: '0.35rem 0.5rem', flex: 1 }) }),
         core_1.jsx(index_1.T1, { css: core_1.css({ flexShrink: 0 }), children: data[dataIndex][row.dataKey], format: row.format, unit: row.unit }))); });
 };

@@ -13,6 +13,7 @@ declare namespace LeafletTypes {
         items?: Item[];
         default?: number;
         onEnterMobile?: (index: number) => void;
+        hideCompare?: boolean;
     }
     interface MenuProps extends Props {
         onChoose: (i: number) => void;

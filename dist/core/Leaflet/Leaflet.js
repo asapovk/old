@@ -100,7 +100,8 @@ exports.default = react_1.forwardRef(function (props, ref) {
                 core_1.jsx(Items_1.default, { opened: state.opened, data: props.data, items: props.items, styles: styles, breakpoints: props.breakpoints }),
             state.choose &&
                 core_1.jsx(Menu_1.default, __assign({}, props, { onChoose: function (i) { return dispatch({ type: 'addItem', payload: i }); }, styles: styles, side: state.opened.length > 1, isMobile: browser.isMobile }))),
-        state.opened.length < capacity
+        !props.hideCompare
+            && state.opened.length < capacity
             && !browser.isMobile
             && props.data.length > 1
             && !state.choose
