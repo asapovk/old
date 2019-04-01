@@ -86,6 +86,9 @@ export default (mobile) => {
                 mobile && {
                     flex: 1,
                     padding: 0,
+                    '> div:last-of-type': {
+                        borderBottom: '1px solid ' + theme.pale.rgb,
+                    }
                 },
                 side && {
                     position: 'absolute',
@@ -119,6 +122,9 @@ export default (mobile) => {
                     marginRight: '-1.25rem',
                     marginLeft: (groups && !mobile) ? '-1.75rem' : '-1.25rem',
                     padding: (groups && !mobile) ? '0 1.25rem 0 1.75rem' : '0 1.25rem'
+                },
+                mobile && {
+                    borderTop: '1px solid ' + theme.pale.rgb
                 }
             ),
             group: css({
@@ -133,14 +139,6 @@ export default (mobile) => {
             groupBody: css(
                 {
                     paddingLeft: !mobile ? '.5rem' : 'unset'
-                },
-                mobile && {
-                    '> div': {
-                        borderTop: '1px solid ' + theme.pale.rgb,
-                    },
-                    '> div:last-of-type': {
-                        borderBottom: '1px solid ' + theme.pale.rgb,
-                    }
                 }
             ),
         },

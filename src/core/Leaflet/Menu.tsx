@@ -10,6 +10,7 @@ export default (props: Types.MenuProps) => {
     const items = data.map((item, index) => (
         <Flexbox
             alignItems='center'
+            justifyContent='space-between'
             onClick={() => onChoose(index)}
             key={'lmi-' + index}
             css={styles.menu.item(index === active, groups)}

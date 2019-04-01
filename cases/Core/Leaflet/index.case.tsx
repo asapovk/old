@@ -10,21 +10,21 @@ export default () => {
         groupKey='groupId'
         nameKey='serviceName'
         capacity={[10, 2]}
-        default={0}
-        // groups={[
-        //   {
-        //     label: 'Содержание жилого помещения',
-        //     value: 1
-        //   },
-        //   {
-        //     label: 'Коммунальные услуги',
-        //     value: 2
-        //   },
-        //   {
-        //     label: 'Иные услуги',
-        //     value: 3
-        //   },
-        // ]}
+        // default={0}
+        groups={[
+          {
+            label: 'Содержание жилого помещения',
+            value: 1
+          },
+          {
+            label: 'Коммунальные услуги',
+            value: 2
+          },
+          {
+            label: 'Иные услуги',
+            value: 3
+          },
+        ]}
         items={[
           {
             titleKey: 'serviceName',
