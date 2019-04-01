@@ -5,7 +5,7 @@ declare namespace TabsTypes {
         key: string;
         title: React.ReactNode;
         content: React.ReactNode;
-        icon: IconTypes.IconTypes.Type;
+        icon: IconTypes.Type;
     }
     interface Props {
         style?: CSSProperties;
