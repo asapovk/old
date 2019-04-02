@@ -20,7 +20,7 @@ export default forwardRef((props: IconTypes.Props, ref) => {
     ...(props.onClick && {
       cursor: "pointer"
     }),
-    spacingStyles
+    ...spacingStyles
   };
 
   const Icon = jsx("svg", {
@@ -34,9 +34,7 @@ export default forwardRef((props: IconTypes.Props, ref) => {
         display: "inline-block",
         verticalAlign: "middle",
         fontSize: props.size,
-        margin: props.shape ? "0.4em" : "",
-        flexShrink: 0,
-        flexGrow: 0
+        margin: props.shape ? "0.4em" : ""
       },
       props.color && {
         color: theme[props.color].rgb
@@ -63,8 +61,6 @@ export default forwardRef((props: IconTypes.Props, ref) => {
                 background: props.background
                   ? theme[props.background].rgb
                   : theme.background2.rgb,
-                flexShrink: 0,
-                flexGrow: 0,
                 height: "min-content",
                 width: "min-content"
               },
