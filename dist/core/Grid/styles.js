@@ -9,8 +9,7 @@ exports.default = (function () { return ({
     wrapper: core_1.css({
         position: "relative",
         borderRadius: "0.5rem",
-        boxShadow: "0 1px 6px 0 rgba(32,33,36,0.28)",
-        overflow: "hidden"
+        boxShadow: "0 1px 6px 0 rgba(32,33,36,0.28)"
     }),
     container: core_1.css({
         position: "relative",
@@ -38,11 +37,13 @@ exports.rowStyles = function (_a) {
             borderColor: theme.pale.hex,
             opacity: withOpacity ? 0.5 : 1,
             ":first-of-type": {
-                borderRadius: withoutHeaders ? "0.5rem 0.5rem 0 0" : 0
+                borderTopLeftRadius: withoutHeaders ? ".5rem" : 0,
+                borderTopRightRadius: withoutHeaders ? ".5rem" : 0
             },
             ":last-of-type": {
                 borderWidth: 0,
-                borderRadius: "0 0 .5rem .5rem"
+                borderBottomLeftRadius: ".5rem",
+                borderBottomRightRadius: ".5rem"
             }
         }, expanded && {
             // boxShadow: '0 1px 6px 0 rgba(32,33,36,0.28)', //google shadow

@@ -22,43 +22,40 @@ exports.default = react_1.forwardRef(function (props, ref) {
         Content = core_1.jsx(HeadersMenu, __assign({}, props));
     }
     if (props.action) {
-        Content = (core_1.jsx(__1.Flexbox, { alignItems: 'baseline', justifyContent: 'space-between' },
+        Content = (core_1.jsx(__1.Flexbox, { alignItems: "baseline", justifyContent: "space-between" },
             Content,
-            core_1.jsx("div", { css: { marginLeft: '2rem', cursor: 'pointer' } }, props.action)));
+            core_1.jsx("div", { css: { marginLeft: "2rem", cursor: "pointer" } }, props.action)));
     }
-    return (core_1.jsx(__1.Flexbox, __assign({ flexDirection: 'column' }, props, { css: core_1.css(props.ellipsis && {
-            overflow: 'hidden',
+    return (core_1.jsx(__1.Flexbox, __assign({ flexDirection: "column" }, props, { css: core_1.css(props.ellipsis && {
+            overflow: "hidden",
             minWidth: 0,
-            width: '100%'
+            width: "100%"
         }) }),
-        props.icon
-            ? core_1.jsx(__1.Flexbox, null,
-                core_1.jsx(__1.Icon, { type: props.icon, pr: '.5rem', size: props.typography.fontSize }),
-                Content)
-            : Content,
+        props.icon ? (core_1.jsx(__1.Flexbox, null,
+            core_1.jsx(__1.Icon, { type: props.icon, pr: ".5rem", size: props.typography.fontSize, css: core_1.css({ flexShrink: 0 }) }),
+            Content)) : (Content),
         core_1.jsx(__1.HR, { css: core_1.css({
-                marginTop: props.typography.marginBottom &&
-                    '-' + props.typography.marginBottom
+                marginTop: props.typography.marginBottom && "-" + props.typography.marginBottom
             }) })));
 });
-var Header = function (props) { return core_1.jsx(props.tag, {
-    className: props.className,
-    onClick: props.onClick,
-    css: core_1.css(__assign({}, props.typography, { display: props.type === 'caption' ? 'inline-block' : 'block', lineHeight: props.typography.fontSize, marginRight: props.mr, paddingBottom: 'calc(0.625rem + 1px)', marginBottom: '-1px' }), props.color && {
-        color: props.theme[props.color].rgb
-    }, props.menu && {
-        cursor: 'pointer'
-    }, props.ellipsis && {
-        whiteSpace: 'nowrap',
-        overflow: 'hidden',
-        textOverflow: 'ellipsis',
-        minWidth: 0,
-    }),
-}, props.children); };
+var Header = function (props) {
+    return core_1.jsx(props.tag, {
+        className: props.className,
+        onClick: props.onClick,
+        css: core_1.css(__assign({}, props.typography, { display: props.type === "caption" ? "inline-block" : "block", lineHeight: props.typography.fontSize, marginRight: props.mr, paddingBottom: "calc(0.625rem + 1px)", marginBottom: "-1px" }), props.color && {
+            color: props.theme[props.color].rgb
+        }, props.menu && {
+            cursor: "pointer"
+        }, props.ellipsis && {
+            whiteSpace: "nowrap",
+            overflow: "hidden",
+            textOverflow: "ellipsis",
+            minWidth: 0
+        })
+    }, props.children);
+};
 var HeadersMenu = function (props) {
-    var _a = react_2.useState(props.value
-        ? props.value
-        : props.menu[0].value), value = _a[0], setValue = _a[1];
+    var _a = react_2.useState(props.value ? props.value : props.menu[0].value), value = _a[0], setValue = _a[1];
     var onChange = function (value) {
         setValue(value);
         props.onChange && props.onChange(value);
@@ -66,7 +63,7 @@ var HeadersMenu = function (props) {
     return (core_1.jsx(__1.Flexbox, null, props.menu.map(function (item) { return (core_1.jsx(Header, __assign({ key: item.value }, __assign({}, props, {
         children: item.text,
         onClick: function () { return onChange(item.value); },
-        mr: '1.5rem',
+        mr: "1.5rem",
         css: value === item.value
             ? core_1.css({
                 color: props.theme.text.rgb,
