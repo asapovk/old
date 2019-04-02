@@ -30,6 +30,9 @@ exports.default = (function (props) {
         stackCount: props.cards.length,
         stackDirection: props.direction
     });
+    if (!props.cards) {
+        return null;
+    }
     return (core_1.jsx(__1.Flexbox, { css: styles.stack, flexDirection: 'row' }, props.cards.map(function (card, index) { return (core_1.jsx(Plastic_1.default, __assign({}, card, { key: index, active: current === index, onClick: function () {
             setCurrent(index);
             props.onChange && props.onChange(index);
