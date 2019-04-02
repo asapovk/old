@@ -16,7 +16,9 @@ export default (props: types.PlasticStackProps) => {
         stackCount: props.cards.length,
         stackDirection: props.direction
     });
-
+    if (!props.cards) {
+        return null;
+    }
     return (
         <Flexbox css={styles.stack} flexDirection='row' >
             {
