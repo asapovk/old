@@ -25,26 +25,24 @@ var Items_1 = __importDefault(require("./Items"));
 var Bars_1 = require("./Bars");
 var reducer = function (state, action) {
     switch (action.type) {
-        case 'openMenu':
+        case "openMenu":
             state.choose = true;
             return __assign({}, state);
-        case 'addItem':
+        case "addItem":
             state.opened.push(action.payload);
             state.choose = false;
             return __assign({}, state);
-        case 'setItem':
+        case "setItem":
             state.opened = [action.payload];
             return __assign({}, state);
-        case 'back':
-            state.choose
-                ? state.choose = false
-                : state.opened.pop();
+        case "back":
+            state.choose ? (state.choose = false) : state.opened.pop();
             return __assign({}, state);
-        case 'close':
+        case "close":
             state.choose = false;
             state.opened = state.opened.slice(0, 1);
             return __assign({}, state);
-        case 'exit':
+        case "exit":
             state.choose = false;
             state.opened = [];
             return __assign({}, state);
@@ -54,56 +52,48 @@ var reducer = function (state, action) {
 };
 exports.default = react_1.forwardRef(function (props, ref) {
     if (!props.data) {
-        return core_1.jsx("div", null, props.noData || 'Нет данных');
+        return core_1.jsx("div", null, props.noData || "Нет данных");
     }
     var browser = hooks_1.useBrowser();
     var styles = styles_1.default(browser.isMobile);
-    var defaultItem = (props.default || props.default === 0)
-        ? props.data[props.default] && props.default
+    var defaultItem = (props.default || props.default === 0) && props.data[props.default]
+        ? props.default
         : null;
     var capacity = browser.isDesktop
         ? (props.capacity && props.capacity[0]) || 5
         : (props.capacity && props.capacity[1]) || 1;
     var initialState = {
-        opened: defaultItem != null
-            ? [defaultItem]
-            : (browser.isMobile) ? [] : [0],
+        opened: defaultItem != null ? [defaultItem] : browser.isMobile ? [] : [0],
         choose: false
     };
     var _a = react_1.useReducer(reducer, initialState), state = _a[0], dispatch = _a[1];
     react_1.useLayoutEffect(function () {
         if (browser.isMobile) {
             defaultItem != null
-                ? dispatch({ type: 'setItem', payload: defaultItem })
-                : dispatch({ type: 'exit' });
+                ? dispatch({ type: "setItem", payload: defaultItem })
+                : dispatch({ type: "exit" });
         }
         else if (!state.opened.length) {
-            dispatch({ type: 'setItem', payload: 0 });
+            dispatch({ type: "setItem", payload: 0 });
         }
     }, [browser]);
     react_1.useImperativeHandle(ref, function () { return ({
         exit: function () {
-            dispatch({ type: 'exit' });
+            dispatch({ type: "exit" });
         }
     }); });
     return (core_1.jsx(index_1.Flexbox, { css: styles.container, className: props.className },
-        (state.opened.length > 1 || state.choose)
-            && !browser.isMobile
-            && core_1.jsx(Bars_1.LeftBar, { styles: styles, onBack: function () { return dispatch({ type: 'back' }); }, onClose: function () { return dispatch({ type: 'close' }); } }),
+        (state.opened.length > 1 || state.choose) && !browser.isMobile && (core_1.jsx(Bars_1.LeftBar, { styles: styles, onBack: function () { return dispatch({ type: "back" }); }, onClose: function () { return dispatch({ type: "close" }); } })),
         core_1.jsx(index_1.Flexbox, { css: styles.items },
-            (!browser.isMobile || !state.opened.length) &&
-                core_1.jsx(Menu_1.default, __assign({}, props, { onChoose: function (i) {
-                        dispatch({ type: 'setItem', payload: i });
-                        browser.isMobile && props.onEnterMobile && props.onEnterMobile(i);
-                    }, active: state.opened[0], left: browser.isMobile || (state.opened.length === 1 && !state.choose), styles: styles, isMobile: browser.isMobile })),
-            props.items &&
-                core_1.jsx(Items_1.default, { opened: state.opened, data: props.data, items: props.items, styles: styles, breakpoints: props.breakpoints }),
-            state.choose &&
-                core_1.jsx(Menu_1.default, __assign({}, props, { onChoose: function (i) { return dispatch({ type: 'addItem', payload: i }); }, styles: styles, side: state.opened.length > 1, isMobile: browser.isMobile }))),
-        !props.hideCompare
-            && state.opened.length < capacity
-            && !browser.isMobile
-            && props.data.length > 1
-            && !state.choose
-            && core_1.jsx(Bars_1.RightBar, { styles: styles, onAdd: function () { return dispatch({ type: 'openMenu' }); } })));
+            (!browser.isMobile || !state.opened.length) && (core_1.jsx(Menu_1.default, __assign({}, props, { onChoose: function (i) {
+                    dispatch({ type: "setItem", payload: i });
+                    browser.isMobile && props.onEnterMobile && props.onEnterMobile(i);
+                }, active: state.opened[0], left: browser.isMobile || (state.opened.length === 1 && !state.choose), styles: styles, isMobile: browser.isMobile }))),
+            props.items && (core_1.jsx(Items_1.default, { opened: state.opened, data: props.data, items: props.items, styles: styles, breakpoints: props.breakpoints })),
+            state.choose && (core_1.jsx(Menu_1.default, __assign({}, props, { onChoose: function (i) { return dispatch({ type: "addItem", payload: i }); }, styles: styles, side: state.opened.length > 1, isMobile: browser.isMobile })))),
+        !props.hideCompare &&
+            state.opened.length < capacity &&
+            !browser.isMobile &&
+            props.data.length > 1 &&
+            !state.choose && (core_1.jsx(Bars_1.RightBar, { styles: styles, onAdd: function () { return dispatch({ type: "openMenu" }); } }))));
 });
