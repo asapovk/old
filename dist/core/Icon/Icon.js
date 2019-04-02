@@ -27,14 +27,12 @@ exports.default = react_1.forwardRef(function (props, ref) {
     };
     var containerStyles = __assign({}, (props.onClick && {
         cursor: "pointer"
-    }), { spacingStyles: spacingStyles });
+    }), spacingStyles);
     var Icon = core_1.jsx("svg", __assign({ fill: "currentColor", height: "1em", width: "1em", viewBox: "0 0 128 128", style: props.style, css: core_1.css({
             display: "inline-block",
             verticalAlign: "middle",
             fontSize: props.size,
-            margin: props.shape ? "0.4em" : "",
-            flexShrink: 0,
-            flexGrow: 0
+            margin: props.shape ? "0.4em" : ""
         }, props.color && {
             color: theme[props.color].rgb
         }, !props.shape && containerStyles), children: (core_1.jsx("g", null,
@@ -47,8 +45,6 @@ exports.default = react_1.forwardRef(function (props, ref) {
                         background: props.background
                             ? theme[props.background].rgb
                             : theme.background2.rgb,
-                        flexShrink: 0,
-                        flexGrow: 0,
                         height: "min-content",
                         width: "min-content"
                     }, props.onClick && {
