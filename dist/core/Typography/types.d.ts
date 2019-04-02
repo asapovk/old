@@ -1,8 +1,8 @@
-import { SpacingProps } from '../types';
+import { SpacingProps } from "../types";
 /**
  * @deprecated Для юнитов используйте props unit
  */
-declare type units = 'rub' | 'volume' | 'power';
+declare type units = "rub" | "volume" | "power";
 declare namespace TypographyTypes {
     interface Props extends HeadersProps, TextProps, CoreProps {
         type: string;
@@ -10,18 +10,18 @@ declare namespace TypographyTypes {
         tag: string;
     }
     interface CoreProps extends SpacingProps {
-        children?: string | number | null;
+        children?: React.ReactNode;
         className?: string;
         disabled?: boolean;
         onClick?: (event: any) => void;
-        format?: boolean | 'currency' | units;
-        unit?: 'rub' | 'volume' | 'power';
-        color?: 'text' | 'highlight' | 'pale' | 'textOnAccent' | 'lowlight' | 'light';
+        format?: boolean | "currency" | units;
+        unit?: "rub" | "volume" | "power";
+        color?: "text" | "highlight" | "pale" | "textOnAccent" | "lowlight" | "light";
         quotes?: boolean;
         ellipsis?: boolean;
-        background?: 'text' | 'highlight' | 'pale' | 'textOnAccent' | 'lowlight';
+        background?: "text" | "highlight" | "pale" | "textOnAccent" | "lowlight";
         toFixed?: number;
-        align?: 'left' | 'right' | 'center' | 'justify' | 'justify-all' | 'start' | 'end' | 'match-parent' | 'inherit' | 'initial' | 'unset';
+        align?: "left" | "right" | "center" | "justify" | "justify-all" | "start" | "end" | "match-parent" | "inherit" | "initial" | "unset";
         icon?: string;
     }
     interface HeadersProps extends CoreProps {
@@ -44,7 +44,7 @@ declare namespace TypographyTypes {
         width?: number;
         className?: string;
         gap?: number;
-        color?: 'text' | 'highlight' | 'pale' | 'textOnAccent' | 'lowlight' | 'light';
+        color?: "text" | "highlight" | "pale" | "textOnAccent" | "lowlight" | "light";
     }
     type Menu = {
         text: string;
