@@ -51,7 +51,7 @@ var reducer = function (state, action) {
     }
 };
 exports.default = react_1.forwardRef(function (props, ref) {
-    if (!props.data) {
+    if (!props.data || !props.data.length) {
         return core_1.jsx("div", null, props.noData || "Нет данных");
     }
     var browser = hooks_1.useBrowser();
