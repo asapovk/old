@@ -43,7 +43,7 @@ const reducer = (state: Types.State, action: Types.Action) => {
 };
 
 export default forwardRef((props: Types.Props, ref) => {
-  if (!props.data) {
+  if (!props.data || !props.data.length) {
     return <div>{props.noData || "Нет данных"}</div>;
   }
 
