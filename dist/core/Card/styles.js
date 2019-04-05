@@ -15,7 +15,7 @@ exports.default = (function (active) {
             boxShadow: "0 0 0 rgba(0,0,0,0)",
             borderRadius: theme.radius.card,
             color: theme.text.rgb,
-            border: "1px solid",
+            border: "0.5px solid",
             borderColor: theme.light.rgb,
             userSelect: "none",
             padding: "1.25rem",
