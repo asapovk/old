@@ -15,20 +15,124 @@ const initialState = {
       passport: "13ad98544bdbe6a0",
       uuid: "184eaebf1782c069",
       uuidv2: "a2e3a86cd5a19a85"
+    },
+    {
+      id: 10,
+      groupId: 1,
+      name: "Terence Paucek",
+      age: 16,
+      passport: "b81c6a2243677fdc",
+      uuid: "5f5ad1aa0f6f1dd0",
+      uuidv2: "5fbd003023cdf4dd"
+    },
+    {
+      id: 11,
+      groupId: 1,
+      name: "Terence Paucek",
+      age: 16,
+      passport: "b81c6a2243677fdc",
+      uuid: "5f5ad1aa0f6f1dd0",
+      uuidv2: "5fbd003023cdf4dd"
+    },
+    {
+      id: 12,
+      groupId: 1,
+      name: "Terence Paucek",
+      age: 16,
+      passport: "b81c6a2243677fdc",
+      uuid: "5f5ad1aa0f6f1dd0",
+      uuidv2: "5fbd003023cdf4dd"
+    },
+    {
+      id: 13,
+      groupId: 1,
+      name: "Terence Paucek",
+      age: 16,
+      passport: "b81c6a2243677fdc",
+      uuid: "5f5ad1aa0f6f1dd0",
+      uuidv2: "5fbd003023cdf4dd"
+    },
+    {
+      id: 14,
+      groupId: 1,
+      name: "Terence Paucek",
+      age: 16,
+      passport: "b81c6a2243677fdc",
+      uuid: "5f5ad1aa0f6f1dd0",
+      uuidv2: "5fbd003023cdf4dd"
+    },
+    {
+      id: 15,
+      groupId: 1,
+      name: "Terence Paucek",
+      age: 16,
+      passport: "b81c6a2243677fdc",
+      uuid: "5f5ad1aa0f6f1dd0",
+      uuidv2: "5fbd003023cdf4dd"
+    },
+    {
+      id: 16,
+      groupId: 1,
+      name: "Terence Paucek",
+      age: 16,
+      passport: "b81c6a2243677fdc",
+      uuid: "5f5ad1aa0f6f1dd0",
+      uuidv2: "5fbd003023cdf4dd"
+    },
+    {
+      id: 17,
+      groupId: 1,
+      name: "Terence Paucek",
+      age: 16,
+      passport: "b81c6a2243677fdc",
+      uuid: "5f5ad1aa0f6f1dd0",
+      uuidv2: "5fbd003023cdf4dd"
+    },
+    {
+      id: 18,
+      groupId: 1,
+      name: "Terence Paucek",
+      age: 16,
+      passport: "b81c6a2243677fdc",
+      uuid: "5f5ad1aa0f6f1dd0",
+      uuidv2: "5fbd003023cdf4dd"
+    },
+    {
+      id: 19,
+      groupId: 1,
+      name: "Terence Paucek",
+      age: 16,
+      passport: "b81c6a2243677fdc",
+      uuid: "5f5ad1aa0f6f1dd0",
+      uuidv2: "5fbd003023cdf4dd"
+    },
+    {
+      id: 20,
+      groupId: 1,
+      name: "Terence Paucek",
+      age: 16,
+      passport: "b81c6a2243677fdc",
+      uuid: "5f5ad1aa0f6f1dd0",
+      uuidv2: "5fbd003023cdf4dd"
+    },
+    {
+      id: 3,
+      groupId: 2,
+      name: "Ella Blanda",
+      age: 27,
+      passport: "6ea471d330929cfb",
+      uuid: "166e65e27b6b1fa3",
+      uuidv2: "94ce01198be7e0d3"
+    },
+    {
+      id: 4,
+      groupId: 3,
+      name: "Melody Ryan",
+      age: 46,
+      passport: "090616a5981bf3b9",
+      uuid: "ff43d199f8b173d3",
+      uuidv2: "2785b52f96c9169b"
     }
-    // { "id": 10, "groupId": 1, "name": "Terence Paucek", "age": 16, "passport": "b81c6a2243677fdc", "uuid": "5f5ad1aa0f6f1dd0", "uuidv2": "5fbd003023cdf4dd" },
-    // { "id": 11, "groupId": 1, "name": "Terence Paucek", "age": 16, "passport": "b81c6a2243677fdc", "uuid": "5f5ad1aa0f6f1dd0", "uuidv2": "5fbd003023cdf4dd" },
-    // { "id": 12, "groupId": 1, "name": "Terence Paucek", "age": 16, "passport": "b81c6a2243677fdc", "uuid": "5f5ad1aa0f6f1dd0", "uuidv2": "5fbd003023cdf4dd" },
-    // { "id": 13, "groupId": 1, "name": "Terence Paucek", "age": 16, "passport": "b81c6a2243677fdc", "uuid": "5f5ad1aa0f6f1dd0", "uuidv2": "5fbd003023cdf4dd" },
-    // { "id": 14, "groupId": 1, "name": "Terence Paucek", "age": 16, "passport": "b81c6a2243677fdc", "uuid": "5f5ad1aa0f6f1dd0", "uuidv2": "5fbd003023cdf4dd" },
-    // { "id": 15, "groupId": 1, "name": "Terence Paucek", "age": 16, "passport": "b81c6a2243677fdc", "uuid": "5f5ad1aa0f6f1dd0", "uuidv2": "5fbd003023cdf4dd" },
-    // { "id": 16, "groupId": 1, "name": "Terence Paucek", "age": 16, "passport": "b81c6a2243677fdc", "uuid": "5f5ad1aa0f6f1dd0", "uuidv2": "5fbd003023cdf4dd" },
-    // { "id": 17, "groupId": 1, "name": "Terence Paucek", "age": 16, "passport": "b81c6a2243677fdc", "uuid": "5f5ad1aa0f6f1dd0", "uuidv2": "5fbd003023cdf4dd" },
-    // { "id": 18, "groupId": 1, "name": "Terence Paucek", "age": 16, "passport": "b81c6a2243677fdc", "uuid": "5f5ad1aa0f6f1dd0", "uuidv2": "5fbd003023cdf4dd" },
-    // { "id": 19, "groupId": 1, "name": "Terence Paucek", "age": 16, "passport": "b81c6a2243677fdc", "uuid": "5f5ad1aa0f6f1dd0", "uuidv2": "5fbd003023cdf4dd" },
-    // { "id": 20, "groupId": 1, "name": "Terence Paucek", "age": 16, "passport": "b81c6a2243677fdc", "uuid": "5f5ad1aa0f6f1dd0", "uuidv2": "5fbd003023cdf4dd" },
-    // { "id": 3, "groupId": 2, "name": "Ella Blanda", "age": 27, "passport": "6ea471d330929cfb", "uuid": "166e65e27b6b1fa3", "uuidv2": "94ce01198be7e0d3" },
-    // { "id": 4, "groupId": 3, "name": "Melody Ryan", "age": 46, "passport": "090616a5981bf3b9", "uuid": "ff43d199f8b173d3", "uuidv2": "2785b52f96c9169b" }
   ]
 };
 const reducer = (state, action) => {

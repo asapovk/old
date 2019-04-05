@@ -2,24 +2,29 @@ import { css } from "@emotion/core";
 import useTheme from "../../hooks/useTheme";
 import Types from "./types";
 
-export default () => ({
-  wrapper: css({
-    position: "relative",
-    borderRadius: "0.5rem",
-    boxShadow: "0 1px 6px 0 rgba(32,33,36,0.28)"
-  }),
+export default () => {
+  const theme = useTheme().theme;
 
-  container: css({
-    position: "relative",
-    display: "flex",
-    flexDirection: "column"
-  }),
+  return {
+    wrapper: css({
+      position: "relative",
+      borderRadius: "0.5rem",
+      // boxShadow: "0 1px 6px 0 rgba(32,33,36,0.28)",
+      border: "1px solid " + theme.pale.rgb
+    }),
 
-  noDataContainer: css({
-    padding: "1.25rem",
-    textAlign: "center"
-  })
-});
+    container: css({
+      position: "relative",
+      display: "flex",
+      flexDirection: "column"
+    }),
+
+    noDataContainer: css({
+      padding: "1.25rem",
+      textAlign: "center"
+    })
+  };
+};
 
 export const rowStyles = ({ expanded, withOpacity, withoutHeaders }) => {
   const theme = useTheme().theme;
@@ -49,12 +54,14 @@ export const rowStyles = ({ expanded, withOpacity, withoutHeaders }) => {
       },
       expanded && {
         // boxShadow: '0 1px 6px 0 rgba(32,33,36,0.28)', //google shadow
-        borderWidth: "0",
-        margin: "0 -0.75rem -2px -0.75rem",
+        border: "1px solid " + theme.pale.rgb,
+        marginTop: "-1px",
+        margin: "-1px -0.75rem",
         borderRadius: "0.5rem",
         zIndex: 6,
-        boxShadow: "0 2px 16px 0 rgba(0,0,0,.25)",
+        boxShadow: theme.shadows.card,
         ":last-of-type": {
+          borderWidth: "1px",
           borderRadius: ".5rem"
         },
         ":first-of-type": {
@@ -69,7 +76,7 @@ export const rowStyles = ({ expanded, withOpacity, withoutHeaders }) => {
         flex: 1
       },
       expanded && {
-        padding: "0 0.75rem"
+        padding: "0 calc(0.75rem - 1px)"
       }
     ),
 
