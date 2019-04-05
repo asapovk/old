@@ -14,7 +14,7 @@ export default (clickable: boolean) => {
         overflow: "hidden",
         background: theme.interface.rgb,
         borderRadius: "0.5rem",
-        border: "0.5px solid " + theme.pale.rgb,
+        border: "1px solid " + theme.pale.rgb,
         transition: "all .2s ease",
         userSelect: "none",
         boxShadow: theme.shadows.card
