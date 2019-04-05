@@ -9,7 +9,7 @@ var accentColors = {
     red: utilities_1.getColors(255, 25, 25),
     green: utilities_1.getColors(8, 191, 52),
     blue: utilities_1.getColors(0, 122, 255),
-    orange: utilities_1.getColors(255, 149, 0),
+    orange: utilities_1.getColors(255, 149, 0)
 };
 var brand = {
     red: utilities_1.getColors(233, 39, 107),
@@ -18,8 +18,8 @@ var brand = {
 var randomColors = function (luminosity, count) {
     if (count === void 0) { count = 10; }
     return randomcolor_1.default({
-        hue: 'purple',
-        format: 'hex',
+        hue: "purple",
+        format: "hex",
         alpha: 1,
         luminosity: luminosity,
         count: count
@@ -41,47 +41,41 @@ exports.default = {
     randomColors: randomColors,
     shadow: utilities_1.getColors(220, 220, 220),
     shadows: {
-        button: '0px 2px 6px 0px ' + utilities_1.getColors(0, 0, 0).rgba(0.2),
-        table: 'none',
-        card: '0rem .5rem .5rem 0px ' + utilities_1.getColors(0, 0, 0).rgba(0.15),
+        button: "0px 2px 6px 0px " + utilities_1.getColors(0, 0, 0).rgba(0.2),
+        table: "none",
+        card: "0rem 8px 8px 0px " + utilities_1.getColors(0, 0, 0).rgba(0.14)
     },
     borders: {
         button: {
-            width: '1px',
-            style: 'solid'
+            width: "1px",
+            style: "solid"
         },
         table: {
-            width: '1px',
-            style: 'solid',
-            color: utilities_1.getColors(217, 217, 217).hex,
+            width: "1px",
+            style: "solid",
+            color: utilities_1.getColors(217, 217, 217).hex
         },
         widget: {
-            width: '1px',
-            style: 'solid',
-            radius: '0.5rem',
-            color: utilities_1.getColors(217, 217, 217).hex,
+            width: "1px",
+            style: "solid",
+            radius: "0.5rem",
+            color: utilities_1.getColors(217, 217, 217).hex
         }
     },
     radius: {
-        default: '2px',
-        window: '0.25rem',
-        button: '0.25rem',
-        card: '0.5rem',
-        table: '0.5rem',
+        default: "2px",
+        window: "0.25rem",
+        button: "0.25rem",
+        card: "0.5rem",
+        table: "0.5rem"
     },
     gradient: {
         default: [
             utilities_1.getColors(127, 8, 191).rgba(1.0),
             utilities_1.getColors(127, 8, 191).rgba(0.8)
         ],
-        buddy: [
-            "#FFFFFF",
-            utilities_1.getColors(127, 8, 191).hex,
-        ],
-        card: [
-            utilities_1.getColors(127, 8, 191).hex,
-            utilities_1.getColors(156, 58, 216).hex,
-        ],
+        buddy: ["#FFFFFF", utilities_1.getColors(127, 8, 191).hex],
+        card: [utilities_1.getColors(127, 8, 191).hex, utilities_1.getColors(156, 58, 216).hex]
     },
     scrollbar: {
         thumb: {
@@ -89,12 +83,12 @@ exports.default = {
             color: utilities_1.getColors(127, 8, 191).rgba(0.7),
             borderWidth: 0,
             borderRadius: 8,
-            borderColor: utilities_1.getColors(0, 0, 0).rgba(0),
+            borderColor: utilities_1.getColors(0, 0, 0).rgba(0)
         },
         backgroundColor: utilities_1.getColors(217, 217, 217).rgba(0.3),
         borderWidth: 0,
         borderRadius: 8,
         borderColor: utilities_1.getColors(217, 217, 217).rgba(0),
-        offsetPosition: 2,
+        offsetPosition: 2
     }
 };

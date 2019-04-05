@@ -5,22 +5,26 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@emotion/core");
 var useTheme_1 = __importDefault(require("../../hooks/useTheme"));
-exports.default = (function () { return ({
-    wrapper: core_1.css({
-        position: "relative",
-        borderRadius: "0.5rem",
-        boxShadow: "0 1px 6px 0 rgba(32,33,36,0.28)"
-    }),
-    container: core_1.css({
-        position: "relative",
-        display: "flex",
-        flexDirection: "column"
-    }),
-    noDataContainer: core_1.css({
-        padding: "1.25rem",
-        textAlign: "center"
-    })
-}); });
+exports.default = (function () {
+    var theme = useTheme_1.default().theme;
+    return {
+        wrapper: core_1.css({
+            position: "relative",
+            borderRadius: "0.5rem",
+            // boxShadow: "0 1px 6px 0 rgba(32,33,36,0.28)",
+            border: "1px solid " + theme.pale.rgb
+        }),
+        container: core_1.css({
+            position: "relative",
+            display: "flex",
+            flexDirection: "column"
+        }),
+        noDataContainer: core_1.css({
+            padding: "1.25rem",
+            textAlign: "center"
+        })
+    };
+});
 exports.rowStyles = function (_a) {
     var expanded = _a.expanded, withOpacity = _a.withOpacity, withoutHeaders = _a.withoutHeaders;
     var theme = useTheme_1.default().theme;
@@ -47,12 +51,14 @@ exports.rowStyles = function (_a) {
             }
         }, expanded && {
             // boxShadow: '0 1px 6px 0 rgba(32,33,36,0.28)', //google shadow
-            borderWidth: "0",
-            margin: "0 -0.75rem -2px -0.75rem",
+            border: "1px solid " + theme.pale.rgb,
+            marginTop: "-1px",
+            margin: "-1px -0.75rem",
             borderRadius: "0.5rem",
             zIndex: 6,
-            boxShadow: "0 2px 16px 0 rgba(0,0,0,.25)",
+            boxShadow: theme.shadows.card,
             ":last-of-type": {
+                borderWidth: "1px",
                 borderRadius: ".5rem"
             },
             ":first-of-type": {
@@ -63,7 +69,7 @@ exports.rowStyles = function (_a) {
             display: "flex",
             flex: 1
         }, expanded && {
-            padding: "0 0.75rem"
+            padding: "0 calc(0.75rem - 1px)"
         }),
         rowCell: function (_a) {
             var isAction = _a.isAction, borders = _a.borders, alignment = _a.alignment, width = _a.width;
