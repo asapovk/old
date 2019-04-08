@@ -44,6 +44,24 @@ const initialState = {
       uuidv2: "5fbd003023cdf4dd"
     },
     {
+      id: 121,
+      groupId: 1,
+      name: "Terence Paucek",
+      age: 16,
+      passport: "b81c6a2243677fdc",
+      uuid: "5f5ad1aa0f6f1dd0",
+      uuidv2: "5fbd003023cdf4dd"
+    },
+    {
+      id: 122,
+      groupId: 1,
+      name: "Terence Paucek",
+      age: 16,
+      passport: "b81c6a2243677fdc",
+      uuid: "5f5ad1aa0f6f1dd0",
+      uuidv2: "5fbd003023cdf4dd"
+    },
+    {
       id: 13,
       groupId: 1,
       name: "Terence Paucek",
@@ -132,6 +150,60 @@ const initialState = {
       passport: "090616a5981bf3b9",
       uuid: "ff43d199f8b173d3",
       uuidv2: "2785b52f96c9169b"
+    },
+    {
+      id: 31,
+      groupId: 2,
+      name: "Ella Blanda",
+      age: 27,
+      passport: "6ea471d330929cfb",
+      uuid: "166e65e27b6b1fa3",
+      uuidv2: "94ce01198be7e0d3"
+    },
+    {
+      id: 41,
+      groupId: 3,
+      name: "Melody Ryan",
+      age: 46,
+      passport: "090616a5981bf3b9",
+      uuid: "ff43d199f8b173d3",
+      uuidv2: "2785b52f96c9169b"
+    },
+    {
+      id: 32,
+      groupId: 2,
+      name: "Ella Blanda",
+      age: 27,
+      passport: "6ea471d330929cfb",
+      uuid: "166e65e27b6b1fa3",
+      uuidv2: "94ce01198be7e0d3"
+    },
+    {
+      id: 42,
+      groupId: 3,
+      name: "Melody Ryan",
+      age: 46,
+      passport: "090616a5981bf3b9",
+      uuid: "ff43d199f8b173d3",
+      uuidv2: "2785b52f96c9169b"
+    },
+    {
+      id: 33,
+      groupId: 2,
+      name: "Ella Blanda",
+      age: 27,
+      passport: "6ea471d330929cfb",
+      uuid: "166e65e27b6b1fa3",
+      uuidv2: "94ce01198be7e0d3"
+    },
+    {
+      id: 43,
+      groupId: 3,
+      name: "Melody Ryan",
+      age: 46,
+      passport: "090616a5981bf3b9",
+      uuid: "ff43d199f8b173d3",
+      uuidv2: "2785b52f96c9169b"
     }
   ]
 };
@@ -158,7 +230,7 @@ const reducer = (state, action) => {
 };
 
 export default () => {
-  const [items, setItems] = useState(10);
+  const [items, setItems] = useState(100);
   const [stateArray, setStateArray] = useState<any[]>(new Array(0));
   const [toggleState, setToggleState] = useState(false);
 
@@ -281,7 +353,7 @@ const Table1 = () => {
         // groupKey='groupId'
         // groups={groups}
         pagination={{
-          pageSize: 5,
+          pageSize: 10,
           pageNeighbours: 1
         }}
         // border='all'

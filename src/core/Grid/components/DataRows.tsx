@@ -19,12 +19,9 @@ export default (props: Types.Props & { currentPage: number, containerId: string 
     const styles = subHeaderStyles({ hideHeaders });
 
     /**
-     * Scroll to top and clear previous expand flag when currentPage has changed
+     * Clear previous expand flag when currentPage has changed
      */
     useEffect(() => {
-        const viewport = document.querySelector('[data-viewport]');
-        viewport && viewport.scrollTo({ top: 0, behavior: 'smooth' });
-
         setRowExpand('');
     }, [currentPage]);
 
@@ -168,5 +165,4 @@ const getMinHeight = (containerId: string, hideHeaders, groupKey) => {
     }
 
     return minHeight;
-    // (hideHeaders ? 0 : 56) + (groupKey ? 33 : 0);
 }

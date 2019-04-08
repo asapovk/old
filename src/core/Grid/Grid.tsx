@@ -40,6 +40,13 @@ export default (props: Types.Props) => {
         }
     }, [data]);
 
+    const setPage = (page: number) => {
+        const viewport = document.querySelector('[data-viewport]');
+        viewport && viewport.scrollTo({ top: 0, behavior: 'smooth' });
+
+        setCurrentPage(page);
+    }
+
     if (!data || data.length <= 0) {
         return (
             <div
@@ -83,7 +90,7 @@ export default (props: Types.Props) => {
             {pagination && (
                 <Pagination
                     currentPage={currentPage}
-                    setCurrentPage={setCurrentPage}
+                    setCurrentPage={setPage}
                     dataLength={data.length}
                     pagination={pagination}
                 />
