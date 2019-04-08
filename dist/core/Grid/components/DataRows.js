@@ -16,11 +16,9 @@ exports.default = (function (props) {
     var minHeight = getMinHeight(containerId, hideHeaders, groupKey);
     var styles = styles_1.subHeaderStyles({ hideHeaders: hideHeaders });
     /**
-     * Scroll to top and clear previous expand flag when currentPage has changed
+     * Clear previous expand flag when currentPage has changed
      */
     react_1.useEffect(function () {
-        var viewport = document.querySelector('[data-viewport]');
-        viewport && viewport.scrollTo({ top: 0, behavior: 'smooth' });
         setRowExpand('');
     }, [currentPage]);
     /**
@@ -117,5 +115,4 @@ var getMinHeight = function (containerId, hideHeaders, groupKey) {
         }
     }
     return minHeight;
-    // (hideHeaders ? 0 : 56) + (groupKey ? 33 : 0);
 };

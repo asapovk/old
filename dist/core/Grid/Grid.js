@@ -42,6 +42,11 @@ exports.default = (function (props) {
             setCurrentPage(1);
         }
     }, [data]);
+    var setPage = function (page) {
+        var viewport = document.querySelector('[data-viewport]');
+        viewport && viewport.scrollTo({ top: 0, behavior: 'smooth' });
+        setCurrentPage(page);
+    };
     if (!data || data.length <= 0) {
         return (core_1.jsx("div", { css: styles.wrapper, children: (noDataComponent
                 ? noDataComponent
@@ -59,7 +64,7 @@ exports.default = (function (props) {
             core_1.jsx("div", { css: styles.container, id: id },
                 !hideHeaders && core_1.jsx(components_1.Header, { columns: columns }),
                 core_1.jsx(components_1.DataRows, __assign({}, props, { currentPage: currentPage, data: pageData, columns: columns, containerId: id })))),
-        pagination && (core_1.jsx(components_1.Pagination, { currentPage: currentPage, setCurrentPage: setCurrentPage, dataLength: data.length, pagination: pagination }))));
+        pagination && (core_1.jsx(components_1.Pagination, { currentPage: currentPage, setCurrentPage: setPage, dataLength: data.length, pagination: pagination }))));
 });
 var getColumns = function (columns, expandForm) {
     var mappedColumns = columns.map(function (column) { return (__assign({}, column, { render: column.render || (function (row, value) { return value; }) })); });
