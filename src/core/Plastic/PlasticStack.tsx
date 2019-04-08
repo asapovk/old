@@ -16,8 +16,18 @@ export default (props: types.PlasticStackProps) => {
         stackCount: props.cards.length,
         stackDirection: props.direction
     });
-    if (!props.cards) {
-        return null;
+    if (!props.cards.length) {
+        return <Plastic
+            pan=""
+            background="#fff"
+            color="#333"
+            type="EMPTY"
+            key={0}
+            active={true}
+            __stackPosition={1}
+            __stackOffset={props.offset}
+            __stackDirection={props.direction}
+        />;
     }
     return (
         <Flexbox css={styles.stack} flexDirection='row' >

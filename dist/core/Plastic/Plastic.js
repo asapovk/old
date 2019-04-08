@@ -22,12 +22,13 @@ exports.default = (function (props) {
     if (pan.length > 4) {
         pan = pan.slice(pan.length - 4, pan.length);
     }
-    pan = "\u2022\u2022\u2022\u2022 " + pan;
+    pan = (pan != "") ? "\u2022\u2022\u2022\u2022 " + pan : '';
     return (core_1.jsx("div", { css: style.card, onClick: props.onClick },
         core_1.jsx("span", { css: style.type },
             props.type === 'VISA' && core_1.jsx(visa_1.default, null),
             props.type === 'MASTERCARD' && core_1.jsx(mc_1.default, null),
             props.type === 'MAESTRO' && core_1.jsx(mc_1.default, null),
             props.type === 'MIR' && core_1.jsx(mir_1.default, null)),
-        core_1.jsx("span", { css: style.pan }, pan)));
+        core_1.jsx("span", { css: style.pan }, pan),
+        props.type === 'EMPTY' && (core_1.jsx("div", { css: style.emptyText }, "\u041D\u0435\u0442"))));
 });

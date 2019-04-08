@@ -75,6 +75,16 @@ export default (props: types.StyleProps) => {
             bottom: '0.15rem',
             right: '0.35rem',
         }),
+        emptyText: css({
+            display: 'block',
+            position: 'absolute',
+            fontWeight: 600,
+            fontSize: '0.85rem',
+            color: props.cardColor || theme.textOnAccent.hex,
+            width: '100%',
+            textAlign: 'center',
+            bottom: '0.8rem',
+        }),
         type: css({
             display: 'block',
             position: 'absolute',

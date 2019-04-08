@@ -7,6 +7,16 @@ export default () => {
     return (
         <Flexbox justifyContent="flex-start" p={40}>
             <Flexbox flexDirection='column' pr={40}>
+                <Title>EMPTY</Title>
+                <Flexbox pb={20} pt={20}>
+                    <PlasticStack
+                        defaultValue={1}
+                        cards={[]}
+                        onChange={(index: number) => { }}
+                    />
+                </Flexbox>
+            </Flexbox>
+            <Flexbox flexDirection='column' pr={40}>
                 <Title>PLASTIC</Title>
                 <Flexbox pb={20} pt={20}>
                     <Plastic

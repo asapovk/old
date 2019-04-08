@@ -1,5 +1,5 @@
 declare namespace PlasticTypes {
-    type PlasticType = 'VISA' | 'MASTERCARD' | 'MIR' | 'MAESTRO';
+    type PlasticType = 'EMPTY' | 'VISA' | 'MASTERCARD' | 'MIR' | 'MAESTRO';
     type PlasticStackDirection = 'left' | 'right' | 'top' | 'bottom';
     interface StyleProps {
         isActive?: boolean;

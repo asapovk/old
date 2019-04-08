@@ -19,7 +19,9 @@ export default (props: types.PlasticProps) => {
     if (pan.length > 4) {
         pan = pan.slice(pan.length - 4, pan.length);
     }
-    pan = `•••• ${pan}`;
+
+    pan = (pan != "") ? `•••• ${pan}` : '';
+
     return (
         <div css={style.card} onClick={props.onClick}>
             <span css={style.type}>
@@ -29,6 +31,9 @@ export default (props: types.PlasticProps) => {
                 {props.type === 'MIR' && <Mir />}
             </span>
             <span css={style.pan}>{pan}</span>
+            {props.type === 'EMPTY' && (
+                <div css={style.emptyText}>Нет</div>
+            )}
         </div>
     );
 }

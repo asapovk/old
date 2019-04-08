@@ -30,8 +30,8 @@ exports.default = (function (props) {
         stackCount: props.cards.length,
         stackDirection: props.direction
     });
-    if (!props.cards) {
-        return null;
+    if (!props.cards.length) {
+        return core_1.jsx(Plastic_1.default, { pan: "", background: "#fff", color: "#333", type: "EMPTY", key: 0, active: true, __stackPosition: 1, __stackOffset: props.offset, __stackDirection: props.direction });
     }
     return (core_1.jsx(__1.Flexbox, { css: styles.stack, flexDirection: 'row' }, props.cards.map(function (card, index) { return (core_1.jsx(Plastic_1.default, __assign({}, card, { key: index, active: current === index, onClick: function () {
             setCurrent(index);
