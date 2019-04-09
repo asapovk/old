@@ -65,12 +65,24 @@ export default () => {
                 marginBottom: '2.75rem',
             }),
 
-            back: css({
+            back: (needDisplay: boolean) => css({
+                display: 'flex',
                 alignItems: 'center',
+                cursor: 'pointer',
+                width: 0,
+                margin: 0,
+                padding: 0,
+                border: 'none',
+                transition: 'all .2s ease-out',
+                opacity: 0,
+                transform: 'translateX(-40px)'
+            }, needDisplay && {
+                transform: 'translateX(0px)',
+                opacity: 1,
+                width: '6.25rem',
                 paddingRight: '1rem',
                 marginRight: '1rem',
                 borderRight: '1px solid ' + theme.pale.rgb,
-                cursor: 'pointer'
             }),
         },
 

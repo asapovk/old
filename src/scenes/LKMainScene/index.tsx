@@ -25,19 +25,9 @@ export default (props: Types.Props) => {
         )
     }
 
-    const Back = (label, onClick) => (
-        <Flexbox css={styles.main.back} onClick={onClick}>
-            <Icon type='arrow-left' shape='oval' size='1rem' color='highlight' />
-            <C1 children={label} ml='.75rem' />
-        </Flexbox>
-    )
-
     const Menu = (
         <Flexbox css={styles.main.menu}>
-            {props.back
-                ? Back('Назад', () => props.onBack && props.onBack())
-                : isMobile && Back('Счета', () => props.onSidebar && props.onSidebar(true))
-            }
+            <Back {...props} styles={styles} isMobile={isMobile} />
             {props.components.menu}
         </Flexbox>
     )
@@ -78,15 +68,32 @@ export default (props: Types.Props) => {
     const Mask = isMobile && props.showSidebar && (
         <div
             css={styles.mask}
-            onClick={() =>
-                props.onSidebar && props.onSidebar(false)
-            }
+            onClick={() => props.onSidebar && props.onSidebar(false)}
         />
     )
 
     return (
         <Flexbox css={styles.container}>
-            {Sidebar}{Mask}{Main}
+            {Sidebar}
+            {Mask}
+            {Main}
         </Flexbox>
     );
+}
+
+const Back = (props: Types.Props & { styles: any, isMobile: any }) => {
+    let onClick = () => props.onBack && props.onBack();
+    let label = 'Назад';
+
+    if (props.isMobile && !props.back) {
+        onClick = () => props.onSidebar && props.onSidebar(true);
+        label = 'Счета';
+    }
+
+    return (
+        <Flexbox css={props.styles.main.back(props.back || props.isMobile)} onClick={onClick}>
+            <Icon type='arrow-left' shape='oval' size='1rem' color='highlight' />
+            <C1 children={label} ml='.75rem' />
+        </Flexbox>
+    )
 }

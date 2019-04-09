@@ -12,6 +12,7 @@ export default () => {
     const styles = useTheme();
 
     const [open, setOpen] = useState<boolean>(false);
+    const [back, setBack] = useState<boolean>(false);
     let logo = <Smorodina color={styles.theme.text.hex} />;
 
     if (styles.theme.name === "gazpromTheme") {
@@ -30,7 +31,7 @@ export default () => {
                 menu: <Menu />,
                 logo: logo,
                 sidebar: <Sidebar setOpen={setOpen} />,
-                main: <Main />,
+                main: <Main onClick={() => setBack(!back)} />,
             }}
 
             showSidebar={open}
@@ -44,8 +45,9 @@ export default () => {
                 avatar: avatar,
                 onAvatarChange: (link) => console.log(link)
             }}
-            pending={"Загрузка чего-то..."}
+            pending={false}
             preparing={false}
+            back={back}
         />
     )
 }
