@@ -30,13 +30,8 @@ exports.default = (function (props) {
             core_1.jsx(core_2.Spinner, { spinning: true }),
             typeof props.preparing === "string" && (core_1.jsx(__1.C2, { bold: true, color: "lowlight", css: core_1.css({ marginTop: "2rem" }) }, props.preparing))));
     }
-    var Back = function (label, onClick) { return (core_1.jsx(__1.Flexbox, { css: styles.main.back, onClick: onClick },
-        core_1.jsx(__1.Icon, { type: 'arrow-left', shape: 'oval', size: '1rem', color: 'highlight' }),
-        core_1.jsx(__1.C1, { children: label, ml: '.75rem' }))); };
     var Menu = (core_1.jsx(__1.Flexbox, { css: styles.main.menu },
-        props.back
-            ? Back('Назад', function () { return props.onBack && props.onBack(); })
-            : isMobile && Back('Счета', function () { return props.onSidebar && props.onSidebar(true); }),
+        core_1.jsx(Back, __assign({}, props, { styles: styles, isMobile: isMobile })),
         props.components.menu));
     var Sidebar = props.components.sidebar && (core_1.jsx("div", { css: styles.sidebar.container(!isMobile || (isMobile && props.showSidebar)) },
         core_1.jsx("div", { css: styles.sidebar.background }),
@@ -52,11 +47,20 @@ exports.default = (function (props) {
                         core_1.jsx(core_2.Spinner, { spinning: true }),
                         typeof props.pending === "string" && (core_1.jsx(__1.C2, { bold: true, color: "lowlight", css: core_1.css({ marginTop: "2rem" }) }, props.pending)))
                 : props.components.main))));
-    var Mask = isMobile && props.showSidebar && (core_1.jsx("div", { css: styles.mask, onClick: function () {
-            return props.onSidebar && props.onSidebar(false);
-        } }));
+    var Mask = isMobile && props.showSidebar && (core_1.jsx("div", { css: styles.mask, onClick: function () { return props.onSidebar && props.onSidebar(false); } }));
     return (core_1.jsx(__1.Flexbox, { css: styles.container },
         Sidebar,
         Mask,
         Main));
 });
+var Back = function (props) {
+    var onClick = function () { return props.onBack && props.onBack(); };
+    var label = 'Назад';
+    if (props.isMobile && !props.back) {
+        onClick = function () { return props.onSidebar && props.onSidebar(true); };
+        label = 'Счета';
+    }
+    return (core_1.jsx(__1.Flexbox, { css: props.styles.main.back(props.back || props.isMobile), onClick: onClick },
+        core_1.jsx(__1.Icon, { type: 'arrow-left', shape: 'oval', size: '1rem', color: 'highlight' }),
+        core_1.jsx(__1.C1, { children: label, ml: '.75rem' })));
+};

@@ -6,7 +6,7 @@ declare const _default: () => {
         container: (displaySidebar: any) => import("@emotion/utils").SerializedStyles;
         holder: import("@emotion/utils").SerializedStyles;
         menu: import("@emotion/utils").SerializedStyles;
-        back: import("@emotion/utils").SerializedStyles;
+        back: (needDisplay: boolean) => import("@emotion/utils").SerializedStyles;
     };
     sidebar: {
         container: (display: any) => import("@emotion/utils").SerializedStyles;
