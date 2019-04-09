@@ -1,6 +1,6 @@
 /** @jsx jsx */
-import { jsx } from '@emotion/core';
-import { Flexbox, C1, Icon } from '../../';
+import { jsx, css } from '@emotion/core';
+import { Flexbox, C1, C2, Icon } from '../../';
 import createStyles from './styles';
 import { useBrowser } from '../../hooks';
 import Types from './types';
@@ -16,7 +16,12 @@ export default (props: Types.Props) => {
 
     if (props.preparing) {
         return (
-            <Spinner spinning center />
+            <Flexbox css={css({ height: "100%" })} column justifyContent="center" alignContent="center" alignItems="center">
+                <Spinner spinning />
+                {typeof props.preparing === "string" && (
+                    <C2 bold color="lowlight" css={css({ marginTop: "2rem" })}>{props.preparing}</C2>
+                )}
+            </Flexbox>
         )
     }
 
@@ -56,11 +61,13 @@ export default (props: Types.Props) => {
                 {Menu}
                 <div>
                     {props.pending
-                        ? <Flexbox
-                            justifyContent='center'
-                            mt={'10rem'}
-                            children={<Spinner spinning />}
-                        />
+                        ?
+                        <Flexbox css={css({ height: "100%" })} column alignItems="center" mt={'10rem'}>
+                            <Spinner spinning />
+                            {typeof props.pending === "string" && (
+                                <C2 bold color="lowlight" css={css({ marginTop: "2rem" })}>{props.pending}</C2>
+                            )}
+                        </Flexbox>
                         : props.components.main
                     }
                 </div>

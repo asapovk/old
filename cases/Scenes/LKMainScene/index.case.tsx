@@ -32,6 +32,7 @@ export default () => {
                 sidebar: <Sidebar setOpen={setOpen} />,
                 main: <Main />,
             }}
+
             showSidebar={open}
             onSidebar={(state) => setOpen(state)}
             user={{
@@ -43,7 +44,7 @@ export default () => {
                 avatar: avatar,
                 onAvatarChange: (link) => console.log(link)
             }}
-            pending={false}
+            pending={"Загрузка чего-то..."}
             preparing={false}
         />
     )
