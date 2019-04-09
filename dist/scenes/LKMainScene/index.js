@@ -26,7 +26,9 @@ exports.default = (function (props) {
     var browser = hooks_1.useBrowser();
     var isMobile = browser.width <= 1024;
     if (props.preparing) {
-        return (core_1.jsx(core_2.Spinner, { spinning: true, center: true }));
+        return (core_1.jsx(__1.Flexbox, { css: core_1.css({ height: "100%" }), column: true, justifyContent: "center", alignContent: "center", alignItems: "center" },
+            core_1.jsx(core_2.Spinner, { spinning: true }),
+            typeof props.preparing === "string" && (core_1.jsx(__1.C2, { bold: true, color: "lowlight", css: core_1.css({ marginTop: "2rem" }) }, props.preparing))));
     }
     var Back = function (label, onClick) { return (core_1.jsx(__1.Flexbox, { css: styles.main.back, onClick: onClick },
         core_1.jsx(__1.Icon, { type: 'arrow-left', shape: 'oval', size: '1rem', color: 'highlight' }),
@@ -45,7 +47,10 @@ exports.default = (function (props) {
         core_1.jsx("div", { css: styles.main.holder },
             Menu,
             core_1.jsx("div", null, props.pending
-                ? core_1.jsx(__1.Flexbox, { justifyContent: 'center', mt: '10rem', children: core_1.jsx(core_2.Spinner, { spinning: true }) })
+                ?
+                    core_1.jsx(__1.Flexbox, { css: core_1.css({ height: "100%" }), column: true, alignItems: "center", mt: '10rem' },
+                        core_1.jsx(core_2.Spinner, { spinning: true }),
+                        typeof props.pending === "string" && (core_1.jsx(__1.C2, { bold: true, color: "lowlight", css: core_1.css({ marginTop: "2rem" }) }, props.pending)))
                 : props.components.main))));
     var Mask = isMobile && props.showSidebar && (core_1.jsx("div", { css: styles.mask, onClick: function () {
             return props.onSidebar && props.onSidebar(false);
