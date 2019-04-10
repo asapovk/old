@@ -93,7 +93,7 @@ export default () => {
         },
 
         sidebar: {
-            container: (display) => css({
+            container: (isMobile, display) => css({
                 // display: display ? 'flex' : 'none',
                 display: 'flex',
                 position: 'sticky',
@@ -106,20 +106,21 @@ export default () => {
                 minHeight: '100vh',
                 justifyContent: 'space-between',
                 zIndex: 3,
-                transition: 'padding, transform .25s ease-out',
-                willChange: 'padding, transform',
 
                 /*
                 *  Chrome scroll lag repair   
                 */
                 WebkitBackfaceVisibility: 'hidden',
                 WebkitTransform: 'translateZ(0)',
-            }, !display && {
-                position: 'absolute',
+            }, isMobile && {
+                position: 'fixed',
                 top: 0,
                 left: 0,
-                padding: '2.75rem 0 2.75rem 0',
+                transition: 'transform .25s ease-out',
+                willChange: 'transform',
                 transform: 'translateX(-20rem)'
+            }, display && {
+                transform: 'translateX(0)'
             }),
 
             background: css({
