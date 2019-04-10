@@ -65,9 +65,9 @@ export default (props: Types.Props) => {
         </div>
     )
 
-    const Mask = isMobile && props.showSidebar && (
+    const Mask = props.components.sidebar && (
         <div
-            css={styles.mask}
+            css={styles.mask(!isMobile || (isMobile && props.showSidebar)!)}
             onClick={() => props.onSidebar && props.onSidebar(false)}
         />
     )

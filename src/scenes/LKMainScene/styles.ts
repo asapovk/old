@@ -18,14 +18,20 @@ export default () => {
 
         }),
 
-        mask: css({
-            background: theme.background.rgba(.9),
+        mask: (display: boolean) => css({
+            background: 'rgba(0,0,0,.3)',
             position: 'fixed',
             zIndex: 2,
             top: 0,
             bottom: 0,
             left: 0,
-            right: 0
+            right: 0,
+            opacity: 1,
+            transition: 'all .25s ease-out',
+            visibility: 'visible',
+        }, !display && {
+            visibility: 'hidden',
+            opacity: 0,
         }),
 
         main: {
@@ -88,7 +94,8 @@ export default () => {
 
         sidebar: {
             container: (display) => css({
-                display: display ? 'flex' : 'none',
+                // display: display ? 'flex' : 'none',
+                display: 'flex',
                 position: 'sticky',
                 flexDirection: 'column',
                 top: 0,
@@ -99,12 +106,20 @@ export default () => {
                 minHeight: '100vh',
                 justifyContent: 'space-between',
                 zIndex: 3,
+                transition: 'padding, transform .25s ease-out',
+                willChange: 'padding, transform',
 
                 /*
                 *  Chrome scroll lag repair   
                 */
                 WebkitBackfaceVisibility: 'hidden',
                 WebkitTransform: 'translateZ(0)',
+            }, !display && {
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                padding: '2.75rem 0 2.75rem 0',
+                transform: 'translateX(-20rem)'
             }),
 
             background: css({
