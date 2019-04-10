@@ -3,6 +3,8 @@ import { jsx, css } from '@emotion/core';
 import { Fragment } from 'react';
 import createStyles from './styles';
 import Types from './types';
+import { C2 } from '../..';
+import { Flexbox } from '../Flexbox';
 
 export default (props: Types.ISpinner) => {
     const { spinning, center, className, dark, children, style, defaultElement } = props;
@@ -12,7 +14,14 @@ export default (props: Types.ISpinner) => {
         return children || null;
     }
 
-    const El = defaultElement ? <Spin {...props} /> : <Logo {...props} />;
+    const El = (
+        <Flexbox column justifyContent='center' alignItems='center'>
+            {defaultElement ? <Spin {...props} /> : <Logo {...props} />}
+            {props.loadingText && (
+                <C2 bold color="lowlight" css={css({ marginTop: "2.5rem" })}>{props.loadingText}</C2>
+            )}
+        </Flexbox>
+    )
 
     if (center) {
         return (
