@@ -47,7 +47,7 @@ exports.default = (function (props) {
                         core_1.jsx(core_2.Spinner, { spinning: true }),
                         typeof props.pending === "string" && (core_1.jsx(__1.C2, { bold: true, color: "lowlight", css: core_1.css({ marginTop: "2rem" }) }, props.pending)))
                 : props.components.main))));
-    var Mask = isMobile && props.showSidebar && (core_1.jsx("div", { css: styles.mask, onClick: function () { return props.onSidebar && props.onSidebar(false); } }));
+    var Mask = props.components.sidebar && (core_1.jsx("div", { css: styles.mask(!isMobile || (isMobile && props.showSidebar)), onClick: function () { return props.onSidebar && props.onSidebar(false); } }));
     return (core_1.jsx(__1.Flexbox, { css: styles.container },
         Sidebar,
         Mask,

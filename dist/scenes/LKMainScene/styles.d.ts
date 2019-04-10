@@ -1,7 +1,7 @@
 declare const _default: () => {
     theme: import("../../styles").ThemeInterface;
     container: import("@emotion/utils").SerializedStyles;
-    mask: import("@emotion/utils").SerializedStyles;
+    mask: (display: boolean) => import("@emotion/utils").SerializedStyles;
     main: {
         container: (displaySidebar: any) => import("@emotion/utils").SerializedStyles;
         holder: import("@emotion/utils").SerializedStyles;

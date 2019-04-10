@@ -22,15 +22,21 @@ exports.default = (function () {
     return {
         theme: theme,
         container: core_1.css({}),
-        mask: core_1.css({
-            background: theme.background.rgba(.9),
+        mask: function (display) { return core_1.css({
+            background: 'rgba(0,0,0,.3)',
             position: 'fixed',
             zIndex: 2,
             top: 0,
             bottom: 0,
             left: 0,
-            right: 0
-        }),
+            right: 0,
+            opacity: 1,
+            transition: 'all .25s ease-out',
+            visibility: 'visible',
+        }, !display && {
+            visibility: 'hidden',
+            opacity: 0,
+        }); },
         main: {
             container: function (displaySidebar) {
                 var _a;
@@ -92,7 +98,8 @@ exports.default = (function () {
         },
         sidebar: {
             container: function (display) { return core_1.css({
-                display: display ? 'flex' : 'none',
+                // display: display ? 'flex' : 'none',
+                display: 'flex',
                 position: 'sticky',
                 flexDirection: 'column',
                 top: 0,
@@ -103,11 +110,19 @@ exports.default = (function () {
                 minHeight: '100vh',
                 justifyContent: 'space-between',
                 zIndex: 3,
+                transition: 'padding, transform .25s ease-out',
+                willChange: 'padding, transform',
                 /*
                 *  Chrome scroll lag repair
                 */
                 WebkitBackfaceVisibility: 'hidden',
                 WebkitTransform: 'translateZ(0)',
+            }, !display && {
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                padding: '2.75rem 0 2.75rem 0',
+                transform: 'translateX(-20rem)'
             }); },
             background: core_1.css({
                 position: 'fixed',
