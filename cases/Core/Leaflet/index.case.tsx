@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx, css } from '@emotion/core';
-import { Leaflet, Flexbox, H1 } from '../../../src';
+import { Leaflet, Flexbox, H1, T2 } from '../../../src';
 
 export default () => {
 
@@ -9,6 +9,7 @@ export default () => {
       <Leaflet
         groupKey='groupId'
         nameKey='serviceName'
+        nameRender={(row) => <Flexbox><T2 children={row.serviceName} /><T2 children={row.serviceName} /></Flexbox>}
         capacity={[10, 2]}
         // default={0}
         groups={[

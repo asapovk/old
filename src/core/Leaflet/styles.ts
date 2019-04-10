@@ -112,8 +112,13 @@ export default (mobile) => {
             item: (active, groups) => css(
                 {
                     cursor: 'pointer',
-                    '> span': {
-                        lineHeight: mobile ? '2.5rem' : '2rem'
+                    '> div': {
+                        overflow: 'hidden',
+                        textOverflow: 'ellipsis',
+                        whiteSpace: 'nowrap',
+                        '> span': {
+                            lineHeight: mobile ? '2.5rem' : '2rem',
+                        }
                     }
                 },
                 active && {
