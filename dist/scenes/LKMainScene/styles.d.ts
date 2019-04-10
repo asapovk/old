@@ -9,7 +9,7 @@ declare const _default: () => {
         back: (needDisplay: boolean) => import("@emotion/utils").SerializedStyles;
     };
     sidebar: {
-        container: (display: any) => import("@emotion/utils").SerializedStyles;
+        container: (isMobile: any, display: any) => import("@emotion/utils").SerializedStyles;
         background: import("@emotion/utils").SerializedStyles;
         user: {
             container: import("@emotion/utils").SerializedStyles;

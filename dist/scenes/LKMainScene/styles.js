@@ -97,7 +97,7 @@ exports.default = (function () {
             }); },
         },
         sidebar: {
-            container: function (display) { return core_1.css({
+            container: function (isMobile, display) { return core_1.css({
                 // display: display ? 'flex' : 'none',
                 display: 'flex',
                 position: 'sticky',
@@ -110,19 +110,20 @@ exports.default = (function () {
                 minHeight: '100vh',
                 justifyContent: 'space-between',
                 zIndex: 3,
-                transition: 'padding, transform .25s ease-out',
-                willChange: 'padding, transform',
                 /*
                 *  Chrome scroll lag repair
                 */
                 WebkitBackfaceVisibility: 'hidden',
                 WebkitTransform: 'translateZ(0)',
-            }, !display && {
-                position: 'absolute',
+            }, isMobile && {
+                position: 'fixed',
                 top: 0,
                 left: 0,
-                padding: '2.75rem 0 2.75rem 0',
+                transition: 'transform .25s ease-out',
+                willChange: 'transform',
                 transform: 'translateX(-20rem)'
+            }, display && {
+                transform: 'translateX(0)'
             }); },
             background: core_1.css({
                 position: 'fixed',

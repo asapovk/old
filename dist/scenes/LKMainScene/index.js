@@ -33,7 +33,7 @@ exports.default = (function (props) {
     var Menu = (core_1.jsx(__1.Flexbox, { css: styles.main.menu },
         core_1.jsx(Back, __assign({}, props, { styles: styles, isMobile: isMobile })),
         props.components.menu));
-    var Sidebar = props.components.sidebar && (core_1.jsx("div", { css: styles.sidebar.container(!isMobile || (isMobile && props.showSidebar)) },
+    var Sidebar = props.components.sidebar && (core_1.jsx("div", { css: styles.sidebar.container(isMobile, !isMobile || (isMobile && props.showSidebar)) },
         core_1.jsx("div", { css: styles.sidebar.background }),
         core_1.jsx(Login_1.default, __assign({}, props, { styles: styles, isMobile: isMobile })),
         core_1.jsx("div", { css: styles.sidebar.content }, props.components.sidebar),
