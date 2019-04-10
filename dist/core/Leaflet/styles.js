@@ -95,8 +95,13 @@ exports.default = (function (mobile) {
             }); },
             item: function (active, groups) { return core_1.css({
                 cursor: 'pointer',
-                '> span': {
-                    lineHeight: mobile ? '2.5rem' : '2rem'
+                '> div': {
+                    overflow: 'hidden',
+                    textOverflow: 'ellipsis',
+                    whiteSpace: 'nowrap',
+                    '> span': {
+                        lineHeight: mobile ? '2.5rem' : '2rem',
+                    }
                 }
             }, active && {
                 background: theme.highlight.rgb,

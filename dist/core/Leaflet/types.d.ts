@@ -9,6 +9,9 @@ declare namespace LeafletTypes {
         breakpoints?: [number, number];
         groupKey?: string;
         nameKey: string;
+        nameRender?: (row: {
+            [key: string]: any;
+        }, value: any) => any;
         data: Data[];
         items?: Item[];
         default?: number;
