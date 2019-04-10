@@ -25,7 +25,7 @@ exports.default = (function () {
         mask: function (display) { return core_1.css({
             background: 'rgba(0,0,0,.3)',
             position: 'fixed',
-            zIndex: 2,
+            zIndex: 3,
             top: 0,
             bottom: 0,
             left: 0,
@@ -109,7 +109,7 @@ exports.default = (function () {
                 maxHeight: 'max-content',
                 minHeight: '100vh',
                 justifyContent: 'space-between',
-                zIndex: 3,
+                zIndex: 4,
                 /*
                 *  Chrome scroll lag repair
                 */
@@ -119,6 +119,7 @@ exports.default = (function () {
                 position: 'fixed',
                 top: 0,
                 left: 0,
+                bottom: 0,
                 transition: 'transform .25s ease-out',
                 willChange: 'transform',
                 transform: 'translateX(-20rem)'
