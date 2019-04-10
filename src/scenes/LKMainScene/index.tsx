@@ -84,15 +84,17 @@ export default (props: Types.Props) => {
 const Back = (props: Types.Props & { styles: any, isMobile: any }) => {
     let onClick = () => props.onBack && props.onBack();
     let label = 'Назад';
+    let iconType = 'arrow-left'
 
     if (props.isMobile && !props.back) {
         onClick = () => props.onSidebar && props.onSidebar(true);
         label = 'Счета';
+        iconType = 'other';
     }
 
     return (
         <Flexbox css={props.styles.main.back(props.back || props.isMobile)} onClick={onClick}>
-            <Icon type='arrow-left' shape='oval' size='1rem' color='highlight' />
+            <Icon type={iconType} shape='oval' size='1rem' color='highlight' />
             <C1 children={label} ml='.75rem' />
         </Flexbox>
     )
