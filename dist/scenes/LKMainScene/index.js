@@ -56,11 +56,13 @@ exports.default = (function (props) {
 var Back = function (props) {
     var onClick = function () { return props.onBack && props.onBack(); };
     var label = 'Назад';
+    var iconType = 'arrow-left';
     if (props.isMobile && !props.back) {
         onClick = function () { return props.onSidebar && props.onSidebar(true); };
         label = 'Счета';
+        iconType = 'other';
     }
     return (core_1.jsx(__1.Flexbox, { css: props.styles.main.back(props.back || props.isMobile), onClick: onClick },
-        core_1.jsx(__1.Icon, { type: 'arrow-left', shape: 'oval', size: '1rem', color: 'highlight' }),
+        core_1.jsx(__1.Icon, { type: iconType, shape: 'oval', size: '1rem', color: 'highlight' }),
         core_1.jsx(__1.C1, { children: label, ml: '.75rem' })));
 };
