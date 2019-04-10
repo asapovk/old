@@ -17,13 +17,17 @@ Object.defineProperty(exports, "__esModule", { value: true });
 /** @jsx jsx */
 var core_1 = require("@emotion/core");
 var styles_1 = __importDefault(require("./styles"));
+var __1 = require("../..");
+var Flexbox_1 = require("../Flexbox");
 exports.default = (function (props) {
     var spinning = props.spinning, center = props.center, className = props.className, dark = props.dark, children = props.children, style = props.style, defaultElement = props.defaultElement;
     var styles = styles_1.default(dark);
     if (!spinning) {
         return children || null;
     }
-    var El = defaultElement ? core_1.jsx(Spin, __assign({}, props)) : core_1.jsx(Logo, __assign({}, props));
+    var El = (core_1.jsx(Flexbox_1.Flexbox, { column: true, justifyContent: 'center', alignItems: 'center' },
+        defaultElement ? core_1.jsx(Spin, __assign({}, props)) : core_1.jsx(Logo, __assign({}, props)),
+        props.loadingText && (core_1.jsx(__1.C2, { bold: true, color: "lowlight", css: core_1.css({ marginTop: "2.5rem" }) }, props.loadingText))));
     if (center) {
         return (core_1.jsx("div", { css: styles.centeredContainer, style: style, className: className },
             core_1.jsx("div", { children: El })));

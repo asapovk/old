@@ -8,6 +8,7 @@ declare namespace SpinnerTypes {
         style?: CSSProperties;
         className?: string;
         defaultElement?: boolean;
+        loadingText?: string;
     }
 }
 export default SpinnerTypes;
