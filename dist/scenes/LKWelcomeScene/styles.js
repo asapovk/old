@@ -5,7 +5,7 @@ var hooks_1 = require("../../hooks");
 exports.default = (function () {
     var _a, _b, _c, _d, _e;
     var theme = hooks_1.useTheme().theme;
-    var breakpoints = [414, 960];
+    var breakpoints = [414, 960, 1280];
     var mq = breakpoints.map(function (bp) { return "@media (max-width: " + bp + "px)"; });
     return {
         container: core_1.css((_a = {
@@ -89,6 +89,9 @@ exports.default = (function () {
                     padding: '5rem',
                     flex: 1,
                     minWidth: '24rem'
+                },
+                _e[mq[2]] = {
+                    padding: '5rem 2rem 2rem 2rem'
                 },
                 _e[mq[0]] = {
                     padding: 0
