@@ -35,7 +35,7 @@ export default () => {
         }),
 
         main: {
-            container: (displaySidebar) => css({
+            container: css({
                 display: 'flex',
                 flex: 1,
                 justifyContent: 'center',
@@ -44,7 +44,8 @@ export default () => {
                 overflow: 'hidden',
                 [mq[1]]: {
                     padding: '2.5rem',
-                    position: displaySidebar ? 'fixed' : 'relative'
+                    // position: displaySidebar ? 'fixed' : 'relative'
+                    position: 'relative',
                 },
                 [mq[0]]: {
                     padding: '1.25rem',

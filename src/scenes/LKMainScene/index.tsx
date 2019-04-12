@@ -46,7 +46,7 @@ export default (props: Types.Props) => {
     )
 
     const Main = (
-        <div css={styles.main.container(isMobile && props.showSidebar)}>
+        <div css={styles.main.container}>
             <div css={styles.main.holder}>
                 {Menu}
                 <div>
