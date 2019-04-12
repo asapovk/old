@@ -5,7 +5,7 @@ export default () => {
 
     const theme = useTheme().theme;
 
-    const breakpoints = [414, 960]
+    const breakpoints = [414, 960, 1280]
 
     const mq = breakpoints.map(
         bp => `@media (max-width: ${bp}px)`
@@ -89,9 +89,12 @@ export default () => {
                 padding: '5rem',
                 flex: 1,
                 minWidth: '24rem',
+                [mq[2]]: {
+                    padding: '5rem 2rem 2rem 2rem'
+                },
                 [mq[0]]: {
                     padding: 0
-                }
+                },
             }),
         }
     }
