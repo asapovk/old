@@ -38,7 +38,7 @@ exports.default = (function (props) {
         core_1.jsx(Login_1.default, __assign({}, props, { styles: styles, isMobile: isMobile })),
         core_1.jsx("div", { css: styles.sidebar.content }, props.components.sidebar),
         core_1.jsx("div", { css: styles.sidebar.logo }, props.components.logo)));
-    var Main = (core_1.jsx("div", { css: styles.main.container(isMobile && props.showSidebar) },
+    var Main = (core_1.jsx("div", { css: styles.main.container },
         core_1.jsx("div", { css: styles.main.holder },
             Menu,
             core_1.jsx("div", null, props.pending

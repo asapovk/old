@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@emotion/core");
 var hooks_1 = require("../../hooks");
 exports.default = (function () {
-    var _a, _b, _c, _d;
+    var _a, _b, _c, _d, _e;
     var theme = hooks_1.useTheme().theme;
     var breakpoints = [414, 960];
     var mq = breakpoints.map(function (bp) { return "@media (max-width: " + bp + "px)"; });
@@ -82,14 +82,21 @@ exports.default = (function () {
             }
         },
         story: {
-            container: core_1.css({
-                background: 'linear-gradient(45deg, #3023AE 0%, #C86DD7 100%)',
-                backgroundAttachment: 'fixed',
-                color: theme.textOnAccent.rgb,
-                padding: '5rem',
-                flex: 1,
-                minWidth: '24rem',
-            }),
+            container: core_1.css((_e = {
+                    background: 'linear-gradient(45deg, #3023AE 0%, #C86DD7 100%)',
+                    backgroundAttachment: 'fixed',
+                    color: theme.textOnAccent.rgb,
+                    padding: '5rem',
+                    flex: 1,
+                    minWidth: '24rem'
+                },
+                _e[mq[0]] = {
+                    borderTopWidth: '1px',
+                    borderTopStyle: 'solid',
+                    borderTopColor: theme.pale.hex,
+                    padding: 0
+                },
+                _e)),
         }
     };
 });

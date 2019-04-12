@@ -14,7 +14,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@emotion/core");
 var hooks_1 = require("../../hooks");
 exports.default = (function () {
-    var _a;
+    var _a, _b;
     var theme = hooks_1.useTheme().theme;
     var typography = hooks_1.useTypography();
     var breakpoints = [414, 768, 1024];
@@ -38,37 +38,35 @@ exports.default = (function () {
             opacity: 0,
         }); },
         main: {
-            container: function (displaySidebar) {
-                var _a;
-                return core_1.css((_a = {
-                        display: 'flex',
-                        flex: 1,
-                        justifyContent: 'center',
-                        boxSizing: 'border-box',
-                        padding: '2.75rem 4.5rem',
-                        overflow: 'hidden'
-                    },
-                    _a[mq[1]] = {
-                        padding: '2.5rem',
-                        position: displaySidebar ? 'fixed' : 'relative'
-                    },
-                    _a[mq[0]] = {
-                        padding: '1.25rem',
-                    },
-                    _a));
-            },
-            holder: core_1.css((_a = {
+            container: core_1.css((_a = {
+                    display: 'flex',
+                    flex: 1,
+                    justifyContent: 'center',
+                    boxSizing: 'border-box',
+                    padding: '2.75rem 4.5rem',
+                    overflow: 'hidden'
+                },
+                _a[mq[1]] = {
+                    padding: '2.5rem',
+                    // position: displaySidebar ? 'fixed' : 'relative'
+                    position: 'relative',
+                },
+                _a[mq[0]] = {
+                    padding: '1.25rem',
+                },
+                _a)),
+            holder: core_1.css((_b = {
                     display: 'flex',
                     flex: '1 1 960px',
                     maxWidth: '960px',
                     minWidth: 0,
                     flexDirection: 'column'
                 },
-                _a[mq[1]] = {
+                _b[mq[1]] = {
                     display: 'block',
                     width: '100%'
                 },
-                _a)),
+                _b)),
             menu: core_1.css({
                 display: 'flex',
                 alignItems: 'center',
