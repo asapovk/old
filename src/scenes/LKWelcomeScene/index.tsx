@@ -11,9 +11,19 @@ export default (props: Types.Props) => {
 
     const styles = createStyles();
 
+    const onStoryClick = () => {
+        const story = document.querySelector('[data-story]');
+        if (story) {
+            story.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start',
+            });
+        }
+    }
+
     return (
         <Flexbox css={styles.container}>
-            <Form {...{ ...props, styles: styles }} />
+            <Form onStoryClick={onStoryClick} {...{ ...props, styles: styles }} />
             <Story {...{ ...props, styles: styles }} />
         </Flexbox>
     );

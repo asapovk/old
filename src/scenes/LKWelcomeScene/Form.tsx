@@ -3,7 +3,7 @@ import { jsx } from '@emotion/core'
 import { Flexbox, Icon, C2 } from '../..';
 import Types from './types';
 
-export default (props: Types.Props) => {
+export default (props: Types.Props & { onStoryClick: () => void }) => {
 
     const styles = props.styles;
 
@@ -14,7 +14,12 @@ export default (props: Types.Props) => {
                     <Flexbox
                         key={index}
                         css={styles.form.actions.item}
-                        onClick={action.onAction}
+                        onClick={() => {
+                            if (action.onAction) {
+                                action.onAction();
+                                props.onStoryClick();
+                            }
+                        }}
                         flex={1}
                         flexDirection="column"
                         justifyContent="center"
