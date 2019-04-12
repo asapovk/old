@@ -85,13 +85,15 @@ exports.default = (function () {
             container: core_1.css((_e = {
                     background: 'linear-gradient(45deg, #3023AE 0%, #C86DD7 100%)',
                     backgroundAttachment: 'fixed',
-                    color: theme.textOnAccent.rgb,
                     padding: '5rem',
                     flex: 1,
                     minWidth: '24rem'
                 },
                 _e[mq[2]] = {
                     padding: '5rem 2rem 2rem 2rem'
+                },
+                _e[mq[1]] = {
+                    padding: '5rem'
                 },
                 _e[mq[3]] = {
                     padding: 0
