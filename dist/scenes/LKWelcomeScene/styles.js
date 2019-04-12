@@ -91,9 +91,6 @@ exports.default = (function () {
                     minWidth: '24rem'
                 },
                 _e[mq[0]] = {
-                    borderTopWidth: '1px',
-                    borderTopStyle: 'solid',
-                    borderTopColor: theme.pale.hex,
                     padding: 0
                 },
                 _e)),
