@@ -90,9 +90,6 @@ export default () => {
                 flex: 1,
                 minWidth: '24rem',
                 [mq[0]]: {
-                    borderTopWidth: '1px',
-                    borderTopStyle: 'solid',
-                    borderTopColor: theme.pale.hex,
                     padding: 0
                 }
             }),
