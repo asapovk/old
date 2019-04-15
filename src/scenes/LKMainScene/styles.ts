@@ -15,6 +15,7 @@ export default () => {
         theme: theme,
 
         container: (isMobile: boolean, showSideBar: boolean) => isMobile && css({
+            minHeight: '100%',
             overflow: 'hidden',
         }, showSideBar && {
             overflow: 'visible'
