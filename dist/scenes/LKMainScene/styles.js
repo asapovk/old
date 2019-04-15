@@ -105,7 +105,8 @@ exports.default = (function () {
                 boxSizing: 'border-box',
                 padding: '2.75rem 0 2.75rem 2.75rem',
                 // maxHeight: 'max-content',
-                minHeight: '100vh',
+                // minHeight: '100vh',
+                height: '100%',
                 justifyContent: 'space-between',
                 zIndex: 4,
                 /*
