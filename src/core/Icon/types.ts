@@ -1,5 +1,6 @@
 import React from 'react';
 import { SpacingProps } from '../types';
+import { ThemeInterface } from '../../styles';
 
 declare namespace IconTypes {
 
@@ -55,10 +56,10 @@ declare namespace IconTypes {
         type: Type
         onClick?: () => void,
         shape?: 'cirle' | 'oval',
-        backgroud?: string,
         size?: string
         color?: 'text' | 'highlight' | 'pale' | 'textOnAccent' | 'lowlight' | 'light'
-        background?: 'text' | 'highlight' | 'pale' | 'textOnAccent' | 'lowlight' | 'light' | 'background' | 'background2'
+        // background?: 'text' | 'highlight' | 'pale' | 'textOnAccent' | 'lowlight' | 'light' | 'background' | 'background2'
+        background?: string
     }
 
 }
