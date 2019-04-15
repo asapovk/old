@@ -1,9 +1,9 @@
 declare const _default: () => {
     theme: import("../../styles").ThemeInterface;
-    container: import("@emotion/utils").SerializedStyles;
+    container: (isMobile: boolean, showSideBar: boolean) => false | import("@emotion/utils").SerializedStyles;
     mask: (display: boolean) => import("@emotion/utils").SerializedStyles;
     main: {
-        container: import("@emotion/utils").SerializedStyles;
+        container: (displaySidebar: boolean) => import("@emotion/utils").SerializedStyles;
         holder: import("@emotion/utils").SerializedStyles;
         menu: import("@emotion/utils").SerializedStyles;
         back: (needDisplay: boolean) => import("@emotion/utils").SerializedStyles;

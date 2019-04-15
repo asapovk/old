@@ -48,7 +48,7 @@ exports.default = (function (props) {
                         typeof props.pending === "string" && (core_1.jsx(__1.C2, { bold: true, color: "lowlight", css: core_1.css({ marginTop: "2rem" }) }, props.pending)))
                 : props.components.main))));
     var Mask = props.components.sidebar && (core_1.jsx("div", { css: styles.mask(isMobile && props.showSidebar), onClick: function () { return props.onSidebar && props.onSidebar(false); } }));
-    return (core_1.jsx(__1.Flexbox, { css: styles.container },
+    return (core_1.jsx(__1.Flexbox, { css: styles.container(isMobile, isMobile && props.showSidebar) },
         Sidebar,
         Mask,
         Main));
