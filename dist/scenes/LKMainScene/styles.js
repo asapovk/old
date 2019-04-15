@@ -104,7 +104,7 @@ exports.default = (function () {
                 width: '15rem',
                 boxSizing: 'border-box',
                 padding: '2.75rem 0 2.75rem 2.75rem',
-                maxHeight: 'max-content',
+                // maxHeight: 'max-content',
                 minHeight: '100vh',
                 justifyContent: 'space-between',
                 zIndex: 4,
@@ -114,7 +114,7 @@ exports.default = (function () {
                 WebkitBackfaceVisibility: 'hidden',
                 WebkitTransform: 'translateZ(0)',
             }, isMobile && {
-                position: 'fixed',
+                position: 'absolute',
                 top: 0,
                 left: 0,
                 bottom: 0,
