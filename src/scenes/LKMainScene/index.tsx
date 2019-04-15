@@ -53,13 +53,11 @@ export default (props: Types.Props) => {
     )
 
     return (
-        <Fragment>
+        <Flexbox css={styles.container(isMobile, isMobile && props.showSidebar!)}>
             {Sidebar}
-            <Flexbox css={styles.container(isMobile, isMobile && props.showSidebar!)}>
-                {Mask}
-                {Main}
-            </Flexbox>
-        </Fragment>
+            {Mask}
+            {Main}
+        </Flexbox>
     );
 }
 

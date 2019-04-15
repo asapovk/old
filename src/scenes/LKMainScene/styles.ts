@@ -38,7 +38,7 @@ export default () => {
 
         main: {
             container: (isMobile: boolean) => css({
-                marginLeft: '15rem',
+                // marginLeft: '15rem',
                 display: 'flex',
                 flex: 1,
                 justifyContent: 'center',
@@ -100,7 +100,7 @@ export default () => {
 
         sidebar: {
             container: (isMobile, display) => css({
-                position: 'absolute',
+                position: 'sticky',
                 top: 0,
                 left: 0,
                 minHeight: '100%',
@@ -118,6 +118,7 @@ export default () => {
                 WebkitBackfaceVisibility: 'hidden',
                 WebkitTransform: 'translateZ(0)',
             }, isMobile && {
+                position: 'absolute',
                 transition: 'transform .25s ease-out',
                 willChange: 'transform',
                 transform: 'translateX(-20rem)'
