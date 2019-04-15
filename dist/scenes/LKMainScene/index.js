@@ -16,7 +16,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 /** @jsx jsx */
 var core_1 = require("@emotion/core");
-var react_1 = require("react");
 var __1 = require("../../");
 var hooks_1 = require("../../hooks");
 var Login_1 = __importDefault(require("./Login"));
@@ -38,11 +37,10 @@ exports.default = (function (props) {
             Menu,
             core_1.jsx("div", null, props.components.main))));
     var Mask = props.components.sidebar && (core_1.jsx("div", { css: styles.mask(isMobile && props.showSidebar), onClick: function () { return props.onSidebar && props.onSidebar(false); } }));
-    return (core_1.jsx(react_1.Fragment, null,
+    return (core_1.jsx(__1.Flexbox, { css: styles.container(isMobile, isMobile && props.showSidebar) },
         Sidebar,
-        core_1.jsx(__1.Flexbox, { css: styles.container(isMobile, isMobile && props.showSidebar) },
-            Mask,
-            Main)));
+        Mask,
+        Main));
 });
 var Back = function (props) {
     var onClick = function () { return props.onBack && props.onBack(); };

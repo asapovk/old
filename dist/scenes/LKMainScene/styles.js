@@ -45,7 +45,7 @@ exports.default = (function () {
             container: function (isMobile) {
                 var _a;
                 return core_1.css((_a = {
-                        marginLeft: '15rem',
+                        // marginLeft: '15rem',
                         display: 'flex',
                         flex: 1,
                         justifyContent: 'center',
@@ -106,7 +106,7 @@ exports.default = (function () {
         },
         sidebar: {
             container: function (isMobile, display) { return core_1.css({
-                position: 'absolute',
+                position: 'sticky',
                 top: 0,
                 left: 0,
                 minHeight: '100%',
@@ -123,6 +123,7 @@ exports.default = (function () {
                 WebkitBackfaceVisibility: 'hidden',
                 WebkitTransform: 'translateZ(0)',
             }, isMobile && {
+                position: 'absolute',
                 transition: 'transform .25s ease-out',
                 willChange: 'transform',
                 transform: 'translateX(-20rem)'
