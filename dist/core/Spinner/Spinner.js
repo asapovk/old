@@ -26,11 +26,12 @@ exports.default = (function (props) {
         return children || null;
     }
     var El = (core_1.jsx(Flexbox_1.Flexbox, { column: true, justifyContent: 'center', alignItems: 'center' },
-        defaultElement ? core_1.jsx(Spin, __assign({}, props)) : core_1.jsx(Logo, __assign({}, props)),
-        props.loadingText && (core_1.jsx(__1.C2, { bold: true, color: "lowlight", css: core_1.css({ marginTop: "2.5rem" }) }, props.loadingText))));
+        defaultElement
+            ? core_1.jsx(Spin, __assign({}, props))
+            : core_1.jsx(Logo, __assign({}, props)),
+        props.loadingText && (core_1.jsx(__1.C2, { bold: true, color: "lowlight", css: core_1.css({ marginTop: "2.5rem" }), children: props.loadingText }))));
     if (center) {
-        return (core_1.jsx("div", { css: styles.centeredContainer, style: style, className: className },
-            core_1.jsx("div", { children: El })));
+        return (core_1.jsx("div", { css: styles.centeredContainer, style: style, className: className }, El));
     }
     return El;
 });
