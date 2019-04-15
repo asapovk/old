@@ -115,9 +115,9 @@ export default () => {
                 WebkitTransform: 'translateZ(0)',
             }, isMobile && {
                 position: 'absolute',
-                top: 0,
-                left: 0,
-                bottom: 0,
+                // top: 0,
+                // left: 0,
+                // bottom: 0,
                 transition: 'transform .25s ease-out',
                 willChange: 'transform',
                 transform: 'translateX(-20rem)'
