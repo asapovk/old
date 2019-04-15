@@ -82,7 +82,7 @@ var Viewport = /** @class */ (function (_super) {
             color: uiStyles.theme.text.rgb
         });
         var fitStyle = core_1.css({
-            position: 'relative',
+            position: 'absolute',
             top: 0,
             left: 0,
             bottom: 0,
