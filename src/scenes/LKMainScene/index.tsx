@@ -73,7 +73,7 @@ export default (props: Types.Props) => {
     )
 
     return (
-        <Flexbox css={styles.container}>
+        <Flexbox css={styles.container(isMobile, isMobile && props.showSidebar!)}>
             {Sidebar}
             {Mask}
             {Main}

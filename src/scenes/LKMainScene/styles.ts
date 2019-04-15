@@ -14,8 +14,10 @@ export default () => {
     return {
         theme: theme,
 
-        container: css({
-
+        container: (isMobile: boolean, showSideBar: boolean) => isMobile && css({
+            overflow: 'hidden'
+        }, showSideBar && {
+            overflow: 'visible'
         }),
 
         mask: (display: boolean) => css({
@@ -35,7 +37,7 @@ export default () => {
         }),
 
         main: {
-            container: css({
+            container: (displaySidebar: boolean) => css({
                 display: 'flex',
                 flex: 1,
                 justifyContent: 'center',
@@ -50,6 +52,8 @@ export default () => {
                 [mq[0]]: {
                     padding: '1.25rem',
                 },
+            }, displaySidebar && {
+
             }),
 
             holder: css({
