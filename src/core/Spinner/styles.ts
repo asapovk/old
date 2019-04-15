@@ -53,19 +53,15 @@ export default (dark?: boolean) => {
         }),
 
         centeredContainer: css({
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
             zIndex: 999999,
             position: "absolute",
             top: 0,
             bottom: 0,
             left: 0,
             right: 0,
-            "> div": {
-                position: "absolute",
-                left: "50%",
-                top: "50%",
-                marginLeft: "-2rem",
-                marginTop: "-2rem"
-            }
         }, dark && {
             "&::before": {
                 content: `''`,

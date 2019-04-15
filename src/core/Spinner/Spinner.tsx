@@ -16,9 +16,16 @@ export default (props: Types.ISpinner) => {
 
     const El = (
         <Flexbox column justifyContent='center' alignItems='center'>
-            {defaultElement ? <Spin {...props} /> : <Logo {...props} />}
+            {defaultElement
+                ? <Spin {...props} />
+                : <Logo {...props} />}
             {props.loadingText && (
-                <C2 bold color="lowlight" css={css({ marginTop: "2.5rem" })}>{props.loadingText}</C2>
+                <C2
+                    bold
+                    color="lowlight"
+                    css={css({ marginTop: "2.5rem" })}
+                    children={props.loadingText}
+                />
             )}
         </Flexbox>
     )
@@ -26,7 +33,7 @@ export default (props: Types.ISpinner) => {
     if (center) {
         return (
             <div css={styles.centeredContainer} style={style} className={className}>
-                <div children={El} />
+                {El}
             </div>
         )
     }
