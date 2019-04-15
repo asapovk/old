@@ -106,7 +106,6 @@ export default () => {
                 // maxHeight: 'max-content',
                 // minHeight: '100vh',
                 minHeight: '100%',
-                height: 'fit-content',
                 justifyContent: 'space-between',
                 zIndex: 4,
 
