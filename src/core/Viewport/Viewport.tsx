@@ -1,7 +1,8 @@
-import { Global, css } from '@emotion/core'
-import { StylesContext, createStyles, themeName } from '../../styles';
-import React, { Component, Fragment } from 'react';
-import { ThemeProvider } from 'emotion-theming'
+/** @jsx jsx */
+import { css, Global, jsx } from '@emotion/core';
+import { ThemeProvider } from 'emotion-theming';
+import { Component, Fragment } from 'react';
+import { createStyles, StylesContext } from '../../styles';
 
 interface ViewportProps {
     children?: any
@@ -59,20 +60,37 @@ class Viewport extends Component<ViewportProps> {
 
     render() {
         const uiStyles = createStyles(this.props.theme);
+
+        const mainStyle = css({
+            background: uiStyles.theme.background.rgb,
+            color: uiStyles.theme.text.rgb
+        });
+
+        const fitStyle = css({
+            position: 'relative',
+            top: 0,
+            left: 0,
+            bottom: 0,
+            right: 0,
+            overflow: 'auto'
+        });
+
         return (
             <StylesContext.Provider value={uiStyles}>
                 <ThemeProvider theme={uiStyles.theme}>
                     <div
                         data-viewport
-                        className={this.props.transparent ? 'ui-viewport' : 'ui-viewport ui-viewport-fit'}
                         id='0cd82567-7684-4147-ab02-dd3c56332364'
-                        style={this.props.transparent ? { ...this.props.style } : { ...uiStyles.viewport.main, ...this.props.style }}
+                        className='ui-viewport'
+                        css={this.props.transparent
+                            ? { ...this.props.style, ...mainStyle }
+                            : { ...mainStyle, ...fitStyle, ...this.props.style }}
                         children={(
                             <Fragment>
                                 {this.props.children}
-                                {this.state.mountedActions.map((action, index) => {
-                                    return <Fragment key={index}>{action.component}</Fragment>
-                                })}
+                                {this.state.mountedActions.map((action, index) => (
+                                    <Fragment key={index}>{action.component}</Fragment>
+                                ))}
                                 <Global
                                     styles={css`
                                         input {

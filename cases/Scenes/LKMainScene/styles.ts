@@ -1,7 +1,7 @@
 import { css } from '@emotion/core';
 import useTheme from '../../../src/hooks/useTheme';
 
-export default (cardActive?: boolean) => {
+export default () => {
     const theme = useTheme().theme;
     return {
         card: {

@@ -1,11 +1,11 @@
 /** @jsx jsx */
-import { jsx, css } from '@emotion/core';
-import { Flexbox, C1, C2, Icon } from '../../';
-import createStyles from './styles';
+import { jsx } from '@emotion/core';
+import { Fragment } from 'react';
+import { C1, Flexbox, Icon } from '../../';
 import { useBrowser } from '../../hooks';
-import Types from './types';
-import { Spinner } from '../../core';
 import Login from './Login';
+import createStyles from './styles';
+import Types from './types';
 
 export default (props: Types.Props) => {
 
@@ -13,17 +13,6 @@ export default (props: Types.Props) => {
     const browser = useBrowser();
 
     const isMobile = browser.width <= 1024;
-
-    if (props.preparing) {
-        return (
-            <Flexbox css={css({ height: "100%" })} column justifyContent="center" alignContent="center" alignItems="center">
-                <Spinner spinning />
-                {typeof props.preparing === "string" && (
-                    <C2 bold color="lowlight" css={css({ marginTop: "2rem" })}>{props.preparing}</C2>
-                )}
-            </Flexbox>
-        )
-    }
 
     const Menu = (
         <Flexbox css={styles.main.menu}>
@@ -46,20 +35,11 @@ export default (props: Types.Props) => {
     )
 
     const Main = (
-        <div css={styles.main.container}>
+        <div css={styles.main.container(isMobile)}>
             <div css={styles.main.holder}>
                 {Menu}
                 <div>
-                    {props.pending
-                        ?
-                        <Flexbox css={css({ height: "100%" })} column alignItems="center" mt={'10rem'}>
-                            <Spinner spinning />
-                            {typeof props.pending === "string" && (
-                                <C2 bold color="lowlight" css={css({ marginTop: "2rem" })}>{props.pending}</C2>
-                            )}
-                        </Flexbox>
-                        : props.components.main
-                    }
+                    {props.components.main}
                 </div>
             </div>
         </div>
@@ -73,11 +53,13 @@ export default (props: Types.Props) => {
     )
 
     return (
-        <Flexbox css={styles.container(isMobile, isMobile && props.showSidebar!)}>
+        <Fragment>
             {Sidebar}
-            {Mask}
-            {Main}
-        </Flexbox>
+            <Flexbox css={styles.container(isMobile, isMobile && props.showSidebar!)}>
+                {Mask}
+                {Main}
+            </Flexbox>
+        </Fragment>
     );
 }
 
