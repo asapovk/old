@@ -8,10 +8,9 @@ declare namespace IconTypes {
         type: Type;
         onClick?: () => void;
         shape?: 'cirle' | 'oval';
-        backgroud?: string;
         size?: string;
         color?: 'text' | 'highlight' | 'pale' | 'textOnAccent' | 'lowlight' | 'light';
-        background?: 'text' | 'highlight' | 'pale' | 'textOnAccent' | 'lowlight' | 'light' | 'background' | 'background2';
+        background?: string;
     }
 }
 export default IconTypes;
