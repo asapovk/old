@@ -2,7 +2,7 @@ import React from 'react';
 /**
  * @deprecated Для цветов следует использовать свойство color. Decoration управляет вариациями дизайна.
  */
-declare type removed = 'highlight' | 'red' | 'green' | 'orange' | 'blue' | 'grayscale';
+declare type removed = 'highlight' | 'brand-red' | 'brand-purple' | 'red' | 'green' | 'orange' | 'blue' | 'grayscale';
 export interface ButtonProps {
     label?: string;
     labelCase?: 'uppercase' | 'lowercase' | 'capitalize' | 'none';
@@ -11,7 +11,7 @@ export interface ButtonProps {
     type?: 'submit';
     size?: 'small' | 'large';
     decoration?: 'none' | 'inverse' | 'outline' | 'blur' | removed;
-    color?: 'highlight' | 'red' | 'green' | 'orange' | 'blue' | 'grayscale';
+    color?: 'highlight' | 'brand-red' | 'brand-purple' | 'red' | 'green' | 'orange' | 'blue' | 'grayscale';
     loading?: boolean;
     disabled?: boolean;
     onClick?: (MouseEvent?: any) => void;
