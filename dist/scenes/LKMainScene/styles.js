@@ -22,6 +22,7 @@ exports.default = (function () {
     return {
         theme: theme,
         container: function (isMobile, showSideBar) { return isMobile && core_1.css({
+            minHeight: '100%',
             overflow: 'hidden',
         }, showSideBar && {
             overflow: 'visible'
