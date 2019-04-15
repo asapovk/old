@@ -22,7 +22,7 @@ exports.default = (function () {
     return {
         theme: theme,
         container: function (isMobile, showSideBar) { return isMobile && core_1.css({
-            overflow: 'hidden'
+            overflow: 'hidden',
         }, showSideBar && {
             overflow: 'visible'
         }); },
@@ -42,9 +42,10 @@ exports.default = (function () {
             opacity: 0,
         }); },
         main: {
-            container: function (displaySidebar) {
+            container: function (isMobile) {
                 var _a;
                 return core_1.css((_a = {
+                        marginLeft: '15rem',
                         display: 'flex',
                         flex: 1,
                         justifyContent: 'center',
@@ -60,7 +61,9 @@ exports.default = (function () {
                     _a[mq[0]] = {
                         padding: '1.25rem',
                     },
-                    _a), displaySidebar && {});
+                    _a), isMobile && {
+                    margin: 0,
+                });
             },
             holder: core_1.css((_a = {
                     display: 'flex',
@@ -103,29 +106,23 @@ exports.default = (function () {
         },
         sidebar: {
             container: function (isMobile, display) { return core_1.css({
-                // display: display ? 'flex' : 'none',
-                display: 'flex',
-                position: 'sticky',
-                flexDirection: 'column',
+                position: 'absolute',
                 top: 0,
+                left: 0,
+                minHeight: '100%',
+                zIndex: 4,
+                display: 'flex',
+                flexDirection: 'column',
                 width: '15rem',
                 boxSizing: 'border-box',
                 padding: '2.75rem 0 2.75rem 2.75rem',
-                // maxHeight: 'max-content',
-                // minHeight: '100vh',
-                minHeight: '100%',
                 justifyContent: 'space-between',
-                zIndex: 4,
                 /*
                 *  Chrome scroll lag repair
                 */
                 WebkitBackfaceVisibility: 'hidden',
                 WebkitTransform: 'translateZ(0)',
             }, isMobile && {
-                position: 'absolute',
-                // top: 0,
-                // left: 0,
-                // bottom: 0,
                 transition: 'transform .25s ease-out',
                 willChange: 'transform',
                 transform: 'translateX(-20rem)'

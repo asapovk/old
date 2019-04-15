@@ -105,12 +105,6 @@ declare const _default: () => {
             color: string;
         };
     };
-    viewport: {
-        main: {
-            background: string;
-            color: string;
-        };
-    };
     widgetStat: {
         titleStyle: {
             color: string;

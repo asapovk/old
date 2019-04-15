@@ -50,15 +50,6 @@
   opacity: 0.5;
 }
 
-.ui-viewport-fit {
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  overflow: auto;
-}
-
 .ui-notifications {
   position: fixed;
   right: 0;

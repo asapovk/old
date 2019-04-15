@@ -16,20 +16,15 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 /** @jsx jsx */
 var core_1 = require("@emotion/core");
+var react_1 = require("react");
 var __1 = require("../../");
-var styles_1 = __importDefault(require("./styles"));
 var hooks_1 = require("../../hooks");
-var core_2 = require("../../core");
 var Login_1 = __importDefault(require("./Login"));
+var styles_1 = __importDefault(require("./styles"));
 exports.default = (function (props) {
     var styles = styles_1.default();
     var browser = hooks_1.useBrowser();
     var isMobile = browser.width <= 1024;
-    if (props.preparing) {
-        return (core_1.jsx(__1.Flexbox, { css: core_1.css({ height: "100%" }), column: true, justifyContent: "center", alignContent: "center", alignItems: "center" },
-            core_1.jsx(core_2.Spinner, { spinning: true }),
-            typeof props.preparing === "string" && (core_1.jsx(__1.C2, { bold: true, color: "lowlight", css: core_1.css({ marginTop: "2rem" }) }, props.preparing))));
-    }
     var Menu = (core_1.jsx(__1.Flexbox, { css: styles.main.menu },
         core_1.jsx(Back, __assign({}, props, { styles: styles, isMobile: isMobile })),
         props.components.menu));
@@ -38,20 +33,16 @@ exports.default = (function (props) {
         core_1.jsx(Login_1.default, __assign({}, props, { styles: styles, isMobile: isMobile })),
         core_1.jsx("div", { css: styles.sidebar.content }, props.components.sidebar),
         core_1.jsx("div", { css: styles.sidebar.logo }, props.components.logo)));
-    var Main = (core_1.jsx("div", { css: styles.main.container },
+    var Main = (core_1.jsx("div", { css: styles.main.container(isMobile) },
         core_1.jsx("div", { css: styles.main.holder },
             Menu,
-            core_1.jsx("div", null, props.pending
-                ?
-                    core_1.jsx(__1.Flexbox, { css: core_1.css({ height: "100%" }), column: true, alignItems: "center", mt: '10rem' },
-                        core_1.jsx(core_2.Spinner, { spinning: true }),
-                        typeof props.pending === "string" && (core_1.jsx(__1.C2, { bold: true, color: "lowlight", css: core_1.css({ marginTop: "2rem" }) }, props.pending)))
-                : props.components.main))));
+            core_1.jsx("div", null, props.components.main))));
     var Mask = props.components.sidebar && (core_1.jsx("div", { css: styles.mask(isMobile && props.showSidebar), onClick: function () { return props.onSidebar && props.onSidebar(false); } }));
-    return (core_1.jsx(__1.Flexbox, { css: styles.container(isMobile, isMobile && props.showSidebar) },
+    return (core_1.jsx(react_1.Fragment, null,
         Sidebar,
-        Mask,
-        Main));
+        core_1.jsx(__1.Flexbox, { css: styles.container(isMobile, isMobile && props.showSidebar) },
+            Mask,
+            Main)));
 });
 var Back = function (props) {
     var onClick = function () { return props.onBack && props.onBack(); };

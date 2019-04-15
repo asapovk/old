@@ -187,12 +187,6 @@ export declare const createStyles: (themeName?: string | undefined) => {
             color: string;
         };
     };
-    viewport: {
-        main: {
-            background: string;
-            color: string;
-        };
-    };
     widgetStat: {
         titleStyle: {
             color: string;
@@ -344,12 +338,6 @@ export declare const StylesContext: React.Context<{
             color: string;
         };
     };
-    viewport: {
-        main: {
-            background: string;
-            color: string;
-        };
-    };
     widgetStat: {
         titleStyle: {
             color: string;
@@ -498,12 +486,6 @@ declare const _default: React.ExoticComponent<React.ConsumerProps<{
     };
     title: {
         active: {
-            color: string;
-        };
-    };
-    viewport: {
-        main: {
-            background: string;
             color: string;
         };
     };

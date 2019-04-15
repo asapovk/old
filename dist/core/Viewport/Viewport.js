@@ -27,18 +27,12 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
-var __importStar = (this && this.__importStar) || function (mod) {
-    if (mod && mod.__esModule) return mod;
-    var result = {};
-    if (mod != null) for (var k in mod) if (Object.hasOwnProperty.call(mod, k)) result[k] = mod[k];
-    result["default"] = mod;
-    return result;
-};
 Object.defineProperty(exports, "__esModule", { value: true });
+/** @jsx jsx */
 var core_1 = require("@emotion/core");
-var styles_1 = require("../../styles");
-var react_1 = __importStar(require("react"));
 var emotion_theming_1 = require("emotion-theming");
+var react_1 = require("react");
+var styles_1 = require("../../styles");
 var Viewport = /** @class */ (function (_super) {
     __extends(Viewport, _super);
     function Viewport() {
@@ -83,14 +77,25 @@ var Viewport = /** @class */ (function (_super) {
     };
     Viewport.prototype.render = function () {
         var uiStyles = styles_1.createStyles(this.props.theme);
-        return (react_1.default.createElement(styles_1.StylesContext.Provider, { value: uiStyles },
-            react_1.default.createElement(emotion_theming_1.ThemeProvider, { theme: uiStyles.theme },
-                react_1.default.createElement("div", { "data-viewport": true, className: this.props.transparent ? 'ui-viewport' : 'ui-viewport ui-viewport-fit', id: '0cd82567-7684-4147-ab02-dd3c56332364', style: this.props.transparent ? __assign({}, this.props.style) : __assign({}, uiStyles.viewport.main, this.props.style), children: (react_1.default.createElement(react_1.Fragment, null,
+        var mainStyle = core_1.css({
+            background: uiStyles.theme.background.rgb,
+            color: uiStyles.theme.text.rgb
+        });
+        var fitStyle = core_1.css({
+            position: 'relative',
+            top: 0,
+            left: 0,
+            bottom: 0,
+            right: 0,
+            overflow: 'auto'
+        });
+        return (core_1.jsx(styles_1.StylesContext.Provider, { value: uiStyles },
+            core_1.jsx(emotion_theming_1.ThemeProvider, { theme: uiStyles.theme },
+                core_1.jsx("div", { "data-viewport": true, id: '0cd82567-7684-4147-ab02-dd3c56332364', className: 'ui-viewport', css: this.props.transparent
+                        ? __assign({}, this.props.style, mainStyle) : __assign({}, mainStyle, fitStyle, this.props.style), children: (core_1.jsx(react_1.Fragment, null,
                         this.props.children,
-                        this.state.mountedActions.map(function (action, index) {
-                            return react_1.default.createElement(react_1.Fragment, { key: index }, action.component);
-                        }),
-                        react_1.default.createElement(core_1.Global, { styles: core_1.css(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n                                        input {\n                                            :-webkit-autofill,\n                                            :-webkit-autofill:hover,\n                                            :-webkit-autofill:focus,\n                                            :-webkit-autofill:active {\n                                                transition: background-color 999999s ease-in-out 0s;\n                                                background: rgba(0, 0, 0, 0.0);\n                                            }\n                                        }\n                                    "], ["\n                                        input {\n                                            :-webkit-autofill,\n                                            :-webkit-autofill:hover,\n                                            :-webkit-autofill:focus,\n                                            :-webkit-autofill:active {\n                                                transition: background-color 999999s ease-in-out 0s;\n                                                background: rgba(0, 0, 0, 0.0);\n                                            }\n                                        }\n                                    "]))) }))) }))));
+                        this.state.mountedActions.map(function (action, index) { return (core_1.jsx(react_1.Fragment, { key: index }, action.component)); }),
+                        core_1.jsx(core_1.Global, { styles: core_1.css(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n                                        input {\n                                            :-webkit-autofill,\n                                            :-webkit-autofill:hover,\n                                            :-webkit-autofill:focus,\n                                            :-webkit-autofill:active {\n                                                transition: background-color 999999s ease-in-out 0s;\n                                                background: rgba(0, 0, 0, 0.0);\n                                            }\n                                        }\n                                    "], ["\n                                        input {\n                                            :-webkit-autofill,\n                                            :-webkit-autofill:hover,\n                                            :-webkit-autofill:focus,\n                                            :-webkit-autofill:active {\n                                                transition: background-color 999999s ease-in-out 0s;\n                                                background: rgba(0, 0, 0, 0.0);\n                                            }\n                                        }\n                                    "]))) }))) }))));
     };
     return Viewport;
 }(react_1.Component));

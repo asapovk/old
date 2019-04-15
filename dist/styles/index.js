@@ -14,7 +14,6 @@ var Table_1 = __importDefault(require("./jss/Table"));
 var Tabs_1 = __importDefault(require("./jss/Tabs"));
 var TextField_1 = __importDefault(require("./jss/TextField"));
 var Title_1 = __importDefault(require("./jss/Title"));
-var Viewport_1 = __importDefault(require("./jss/Viewport"));
 var WidgetStat_1 = __importDefault(require("./jss/WidgetStat"));
 var Notifications_1 = __importDefault(require("./jss/Notifications"));
 var LKGuestScene_1 = __importDefault(require("./jss/LKGuestScene"));
@@ -31,7 +30,6 @@ exports.createStyles = function (themeName) {
         tabs: Tabs_1.default(theme),
         textField: TextField_1.default(theme),
         title: Title_1.default(theme),
-        viewport: Viewport_1.default(theme),
         widgetStat: WidgetStat_1.default(theme),
         notifications: Notifications_1.default(theme),
         scenes: {
