@@ -114,7 +114,7 @@ export default () => {
                 WebkitBackfaceVisibility: 'hidden',
                 WebkitTransform: 'translateZ(0)',
             }, isMobile && {
-                position: 'fixed',
+                position: 'absolute',
                 top: 0,
                 left: 0,
                 bottom: 0,
