@@ -67,7 +67,7 @@ class Viewport extends Component<ViewportProps> {
         });
 
         const fitStyle = css({
-            position: 'relative',
+            position: 'absolute',
             top: 0,
             left: 0,
             bottom: 0,
