@@ -1,5 +1,5 @@
 import React from 'react';
-import { Icon, Flexbox } from '../../../src';
+import { Flexbox, Icon } from '../../../src';
 import { svgIconPath } from '../../../src/core/Icon/Icon';
 import '../../../src/styles/scss/main.scss';
 
