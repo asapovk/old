@@ -106,7 +106,7 @@ exports.default = (function () {
                 padding: '2.75rem 0 2.75rem 2.75rem',
                 // maxHeight: 'max-content',
                 // minHeight: '100vh',
-                height: '100%',
+                minHeight: '100%',
                 justifyContent: 'space-between',
                 zIndex: 4,
                 /*
