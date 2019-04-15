@@ -8,7 +8,7 @@ import { IconTypes } from '../types';
 /**
  * @deprecated Для цветов следует использовать свойство color. Decoration управляет вариациями дизайна.
  */
-type removed = 'highlight' | 'red' | 'green' | 'orange' | 'blue' | 'grayscale'
+type removed = 'highlight' | 'brand-red' | 'brand-purple' | 'red' | 'green' | 'orange' | 'blue' | 'grayscale'
 
 export interface ButtonProps {
     label?: string
@@ -21,7 +21,7 @@ export interface ButtonProps {
     size?: 'small' | 'large'
     decoration?: 'none' | 'inverse' | 'outline' | 'blur' | removed
 
-    color?: 'highlight' | 'red' | 'green' | 'orange' | 'blue' | 'grayscale'
+    color?: 'highlight' | 'brand-red' | 'brand-purple' | 'red' | 'green' | 'orange' | 'blue' | 'grayscale'
     loading?: boolean
     disabled?: boolean
 

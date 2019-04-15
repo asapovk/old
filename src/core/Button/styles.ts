@@ -69,6 +69,18 @@ function getDecoration(decoration, color, size, labelSize) {
             outlineColor = background;
             border = 'none';
             break;
+        case 'brand-red':
+            background = theme.brand.red.hex;
+            textColor = theme.textOnAccent.rgb;
+            outlineColor = background;
+            border = 'none';
+            break;
+        case 'brand-purple':
+            background = theme.brand.purple.hex;
+            textColor = theme.textOnAccent.rgb;
+            outlineColor = background;
+            border = 'none';
+            break;
         case 'red':
             background = theme.accents.red.rgb;
             textColor = theme.textOnAccent.rgb;
