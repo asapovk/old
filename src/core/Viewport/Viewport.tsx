@@ -61,19 +61,19 @@ class Viewport extends Component<ViewportProps> {
     render() {
         const uiStyles = createStyles(this.props.theme);
 
-        const mainStyle = css({
+        const mainStyle = {
             background: uiStyles.theme.background.rgb,
             color: uiStyles.theme.text.rgb
-        });
+        };
 
-        const fitStyle = css({
+        const fitStyle = {
             position: 'absolute',
             top: 0,
             left: 0,
             bottom: 0,
             right: 0,
             overflow: 'auto'
-        });
+        };
 
         return (
             <StylesContext.Provider value={uiStyles}>
@@ -83,8 +83,8 @@ class Viewport extends Component<ViewportProps> {
                         id='0cd82567-7684-4147-ab02-dd3c56332364'
                         className='ui-viewport'
                         css={this.props.transparent
-                            ? { ...this.props.style, ...mainStyle }
-                            : { ...mainStyle, ...fitStyle, ...this.props.style }}
+                            ? css({ ...this.props.style, ...mainStyle })
+                            : css({ ...mainStyle, ...fitStyle, ...this.props.style })}
                         children={(
                             <Fragment>
                                 {this.props.children}
