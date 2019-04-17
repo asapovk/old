@@ -13,6 +13,7 @@
     "@types/react-dom": "^16.8.2",
     "@types/react-portal": "^4.0.2",
     "@types/react-router-dom": "^4.3.1",
+    "@types/react-transition-group": "^2.9.0",
     "@types/webpack-env": "^1.13.9",
     "awesome-typescript-loader": "^5.2.1",
     "css-loader": "^1.0.1",
@@ -45,9 +46,10 @@
     "@emotion/core": "^10.0.9",
     "chart.js": "^2.7.3",
     "emotion-theming": "^10.0.9",
+    "randomcolor": "^0.5.4",
     "react-chartjs-2": "^2.7.4",
     "react-input-mask": "^2.0.4",
     "react-portal": "^4.2.0",
-    "randomcolor": "^0.5.4"
+    "react-transition-group": "^3.0.0"
   }
 }

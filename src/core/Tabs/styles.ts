@@ -1,102 +1,44 @@
-import { css } from "@emotion/core";
+import { css, keyframes } from "@emotion/core";
 import useTheme from "../../hooks/useTheme";
 
-export default ({ reverseContainer }, bp) => {
-  const theme = useTheme().theme;
+export default (bp?: number[]) => {
+	const theme = useTheme().theme;
 
-  const breakpoints = bp ? bp : [414, 768, 1024];
+	const breakpoints = bp ? bp : [414, 768, 1024];
 
-  const mq = breakpoints.map(bp => `@media (max-width: ${bp}px)`);
+	const mq = breakpoints.map(bp => `@media (max-width: ${bp}px)`);
 
-  return {
-    container: css(
-      {
-        display: "flex",
-        flexDirection: "row",
-        alignItems: "flex-start"
-      },
-      reverseContainer && {
-        flexDirection: "row-reverse"
-      }
-    ),
+	return {
+		menu: {
+			elementContainer: css({
+				":not(:last-child)": {
+					":after": {
+						content: `'•'`,
+						display: 'flex',
+						alignItems: 'center',
+						justifyContent: 'center',
+						margin: '0 1rem',
+						fontSize: '1.75rem',
+						color: theme.brand.red.rgba(.5),
+					}
+				}
+			}),
 
-    menu: css(
-      {
-        display: "flex",
-        flexDirection: "column",
-        flexBasis: "20rem",
-        flexShrink: 0,
-        flexWrap: "wrap",
-        boxSizing: "border-box",
-        borderStyle: "solid",
-        borderWidth: "1px",
-        borderColor: theme.borders.table.color,
-        borderRadius: "0.5rem",
-        position: "sticky",
-        top: "1.25rem",
-        margin: "0 0 0 2.5rem",
-        padding: "0.25rem 0 0.25rem 1.25rem",
-        [mq[2]]: {
-          display: "none"
-        },
-        "> div:last-of-type > div": {
-          borderWidth: "0"
-        }
-      },
-      reverseContainer && {
-        margin: "0 2.5rem 0 0"
-      }
-    ),
-
-    menuItem: (activeItem: boolean) =>
-      css(
-        {
-          display: "block",
-          width: "100%",
-          boxSizing: "border-box",
-          cursor: "pointer",
-          borderWidth: "0 0 1px 0",
-          borderColor: theme.borders.table.color,
-          borderStyle: "solid",
-          padding: "1.25rem 0"
-        },
-        activeItem && {
-          color: theme.highlight.hex
-        }
-      ),
-
-    content: css({
-      display: "flex",
-      flex: 1,
-      flexWrap: "wrap"
-    }),
-
-    tab: (activeItem: boolean) =>
-      css(
-        {
-          display: "block",
-          width: "100%",
-          boxSizing: "border-box",
-          borderRadius: "0.5rem",
-          padding: "2rem",
-          marginBottom: "2.5rem",
-          transition: "all .25s ease-in-out",
-          borderStyle: "solid",
-          borderWidth: "1px",
-          borderColor: theme.borders.table.color,
-          [mq[0]]: {
-            padding: "1.25rem",
-            marginBottom: "1.25rem"
-          }
-        },
-        activeItem && {
-          boxShadow: theme.shadows.card
-        }
-      ),
-
-    noDataContainer: css({
-      padding: "1.25rem",
-      textAlign: "center"
-    })
-  };
+			itemContent: (props: { isActive: boolean }) => css({
+				alignItems: 'center',
+				fontSize: '1.375rem',
+				fontWeight: 'normal',
+				textTransform: 'uppercase',
+				color: theme.brand.red.hex,
+				cursor: 'pointer',
+				lineHeight: '2.5rem',
+				transition: 'font-size .15s linear',
+				willChange: 'font-size',
+			}, props.isActive && {
+				fontSize: '2.75rem',
+				fontWeight: 900,
+				color: theme.text.hex
+			})
+		}
+	}
 };

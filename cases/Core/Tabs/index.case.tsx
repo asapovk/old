@@ -1,60 +1,20 @@
 import React from 'react';
-import { Flexbox, Tabs, Icon, C1, C3 } from '../../../src';
-import { TabsTypes } from '../../../src/core/types';
+import { Flexbox, Tabs } from '../../../src';
+import { StickyTabsTypes } from '../../../src/core/types';
+
+const menuElements = [
+    { title: 'Счет' },
+    { title: 'История' },
+    { title: 'Поддержка' },
+    { title: 'Настройки' }
+];
 
 class TabsStory extends React.Component {
-
     render() {
-        const tabs: TabsTypes.Tab[] = [
-            {
-                key: 'profile',
-                title: (
-                    <Flexbox column>
-                        <C1 children='Профиль' />
-                        <C3 color='lowlight' children='Ваш профиль' />
-                    </Flexbox>
-                ),
-                content: <div style={{ height: 200 }}>Профиль</div>,
-                icon: 'smorodina'
-            },
-            {
-                key: 'accounts',
-                title: (
-                    <Flexbox column>
-                        <C1 children='Лицевые счета' />
-                        <C3 color='lowlight' children='Ваши лицевые счета' />
-                    </Flexbox>
-                ),
-                content: <div style={{ height: 200 }}>Лицевые счета</div>,
-                icon: 'counter'
-            },
-            {
-                key: 'payinfo',
-                title: (
-                    <Flexbox column>
-                        <C1 children='Платежная информация' />
-                        <C3 color='lowlight' children='Ваша платежная информация' />
-                    </Flexbox>
-                ),
-                content: <div style={{ height: 200 }}>Платежная информация</div>,
-                icon: 'settings'
-            },
-            {
-                key: 'notifications',
-                title: (
-                    <Flexbox column>
-                        <C1 children='Уведомления' />
-                        <C3 color='lowlight' children='Ваши уведомления' />
-                    </Flexbox>
-                ),
-                content: <div style={{ height: 200 }}>Уведомления</div>,
-                icon: 'photo'
-            }
-        ]
         return (
             <Flexbox p={50} column flex={1}>
                 <div style={{ height: '100px', width: '100%' }}></div>
-                <Tabs tabs={tabs} />
+                <Tabs menuItems={menuElements} activeMenuItem={0} />
             </Flexbox>
         )
     }
