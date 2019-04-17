@@ -8,7 +8,7 @@ export { default as GridTypes } from './Grid/types';
 export { default as CheckboxTypes } from './Checkbox/types';
 export { default as DatePickerTypes } from './DatePicker/types';
 export { default as TypographyTypes } from './Typography/types';
-export { default as TabsTypes } from './Tabs/types';
+export { default as StickyTabsTypes } from './StickyTabs/types';
 export { default as LeafletTypes } from './Leaflet/types';
 export declare type SizeTypes = 'extra-large' | 'large' | 'small' | 'default';
 export declare type DecorationTypes = 'none' | 'highlight' | 'red' | 'green' | 'orange' | 'blue' | 'grayscale';

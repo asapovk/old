@@ -18,6 +18,7 @@ export { Spin as Spin } from './Spin';
 export { Spinner as Spinner } from './Spinner';
 export { Table as Table } from './Table';
 export { SimpleTable as SimpleTable } from './SimpleTable';
+export { StickyTabs as StickyTabs } from './StickyTabs';
 export { Tabs as Tabs } from './Tabs';
 export { Plastic as Plastic } from './Plastic';
 export { PlasticStack as PlasticStack } from './Plastic';
