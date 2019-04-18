@@ -26,9 +26,6 @@ declare namespace LKMainSceneNew {
          */
         showSidebar?: boolean
         onSidebar?: (state: boolean) => void
-        preparing?: boolean | string
-        pending?: boolean | string
-
     }
 }
 

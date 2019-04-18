@@ -1,59 +1,233 @@
-import React, { useState } from 'react';
-import { TextField, Flexbox } from '../../../src';
+/** @jsx jsx */
+import { css, jsx } from '@emotion/core';
+import { useState } from 'react';
+import { Flexbox, TextField, Title } from '../../../src';
 import '../../../src/styles/scss/main.scss';
 
 export default () => {
-    const [value, setValue] = useState('');
+    const [value, setValue] = useState('1233123');
+
     return (
-        <Flexbox alignContent="center" justifyContent='center' p={40}>
-            <Flexbox column flexBasis='640px'>
-                <Flexbox pb={40}>
-                    <TextField label='Just input' placeholder="Enter something" value={value} onChange={(event) => { console.log(event.target.value); setValue(event.target.value) }} />
+        <Flexbox alignContent="center" column justifyContent='center' p={40}>
+            <Flexbox mb='2rem'>
+                <Flexbox column flex={1} mr='2rem'>
+                    <Title children='Small Fields' />
+                    <Flexbox mt='1rem' mb='1rem'>
+                        <TextField
+                            size='small'
+                            label='Just input'
+                            placeholder="Enter something"
+                        />
+                    </Flexbox>
+                    <Flexbox mb='1rem'>
+                        <TextField
+                            size='small'
+                            decoration='borderBottom'
+                            placeholder="Enter something"
+                        />
+                    </Flexbox>
+                    <Flexbox mb='1rem'>
+                        <TextField
+                            size='small'
+                            decoration='borderless'
+                            placeholder="Enter something"
+                        />
+                    </Flexbox>
+                    <Flexbox mb='1rem'>
+                        <TextField
+                            size='small'
+                            decoration='none'
+                            placeholder="Enter something"
+                        />
+                    </Flexbox>
+                    <Flexbox mb='1rem'>
+                        <TextField
+                            size='small'
+                            placeholder="Textfield with icons"
+                            leftIcon='add'
+                            loading={true}
+                        />
+                    </Flexbox>
                 </Flexbox>
-                <Flexbox pb={40} flexBasis='180px'>
-                    <TextField multiline={true} label='Textarea' placeholder="You can place a lot of text here" />
+                <Flexbox column flex={1}>
+                    <Title children='Normal Fields' />
+                    <Flexbox mt='1rem' mb='1rem'>
+                        <TextField
+                            label='Just input'
+                            placeholder="Enter something"
+                        />
+                    </Flexbox>
+                    <Flexbox mb='1rem'>
+                        <TextField
+                            decoration='borderBottom'
+                            placeholder="Enter something"
+                        />
+                    </Flexbox>
+                    <Flexbox mb='1rem'>
+                        <TextField
+                            decoration='borderless'
+                            placeholder="Enter something"
+                        />
+                    </Flexbox>
+                    <Flexbox mb='1rem'>
+                        <TextField
+                            decoration='none'
+                            placeholder="Enter something"
+                        />
+                    </Flexbox>
+                    <Flexbox mb='1rem'>
+                        <TextField
+                            placeholder="Textfield with icons"
+                            leftIcon='add'
+                            loading={true}
+                        />
+                    </Flexbox>
                 </Flexbox>
-                <hr style={{ width: '100%', border: '1px solid', marginBottom: '40px' }} />
-                <Flexbox pb={40}>
-                    <TextField leftIcon="add" label='With amazing icons' placeholder="Yaaaaaaaaaaaay" rightIcon="clock" />
+            </Flexbox>
+
+            <Flexbox>
+                <Flexbox column flex={1} mr='2rem'>
+                    <Title children='Large Fields' />
+                    <Flexbox mt='1rem' mb='1rem'>
+                        <TextField
+                            size='large'
+                            label='Just input'
+                            placeholder="Enter something"
+                        />
+                        <TextField
+                            css={css({ marginLeft: '1rem' })}
+                            size='large'
+                            label='Just input'
+                            floatingLabel="Enter something"
+                        />
+                    </Flexbox>
+                    <Flexbox mb='1rem'>
+                        <TextField
+                            size='large'
+                            decoration='borderBottom'
+                            placeholder="Enter something"
+                        />
+                        <TextField
+                            css={css({ marginLeft: '1rem' })}
+                            size='large'
+                            decoration='borderBottom'
+                            floatingLabel="Enter something"
+                        />
+                    </Flexbox>
+                    <Flexbox mb='1rem'>
+                        <TextField
+                            size='large'
+                            decoration='borderless'
+                            placeholder="Enter something"
+                        />
+                        <TextField
+                            css={css({ marginLeft: '1rem' })}
+                            size='large'
+                            decoration='borderless'
+                            floatingLabel="Enter something"
+                        />
+                    </Flexbox>
+                    <Flexbox mb='1rem'>
+                        <TextField
+                            size='large'
+                            decoration='none'
+                            placeholder="Enter something"
+                        />
+                        <TextField
+                            css={css({ marginLeft: '1rem' })}
+                            size='large'
+                            decoration='none'
+                            floatingLabel="Enter something"
+                        />
+                    </Flexbox>
+                    <Flexbox mb='1rem'>
+                        <TextField
+                            size='large'
+                            placeholder="Enter something"
+                            leftIcon='add'
+                            loading={true}
+                        />
+                        <TextField
+                            css={css({ marginLeft: '1rem' })}
+                            size='large'
+                            floatingLabel="Enter something"
+                            leftIcon='add'
+                            loading={true}
+                        />
+                    </Flexbox>
                 </Flexbox>
-                <Flexbox pb={40}>
-                    <TextField disabled label='Disabled' placeholder="You can't change this. Ha-ha" />
-                </Flexbox>
-                <Flexbox pb={40}>
-                    <TextField loading label='Loading' placeholder="Whait a minute..." />
-                </Flexbox>
-                <Flexbox pb={40}>
-                    <TextField type='password' label='Password' placeholder="Enter password" />
-                </Flexbox>
-                <Flexbox pb={40}>
-                    <TextField type='number' label='Number' placeholder="Write some numbers" />
-                </Flexbox>
-                <Flexbox pb={40}>
-                    <TextField type='tel' mask="+7\(999)999-99-99" label='Phone' placeholder="Write your phone here" onChange={(event) => { console.log(event.target.value); setValue(event.target.value) }} />
-                </Flexbox>
-                <Flexbox pb={40}>
-                    <TextField multiline={true} singlerow={true} label='Singlerow textarea' placeholder="This is for long string wrap" />
-                </Flexbox>
-                <hr style={{ width: '100%', border: '1px solid', marginBottom: '40px' }} />
-                <Flexbox pb={40}>
-                    <TextField decoration='none' placeholder="Without decoration" />
-                </Flexbox>
-                <Flexbox pb={40}>
-                    <TextField decoration='borderless' label='Without border' placeholder="Enter something" />
-                </Flexbox>
-                <Flexbox pb={40}>
-                    <TextField decoration='borderBottom' label='Border bottom' placeholder="Enter something" />
-                </Flexbox>
-                <Flexbox pb={40}>
-                    <TextField size='small' label='Small field' placeholder="Write secret here" />
-                </Flexbox>
-                <Flexbox pb={40}>
-                    <TextField size='large' label='Large field' placeholder="Really big" />
+                <Flexbox column flex={1}>
+                    <Title children='Extra Large Fields' />
+                    <Flexbox mt='1rem' mb='1rem'>
+                        <TextField
+                            size='extra-large'
+                            label='Just input'
+                            placeholder="Enter something"
+                        />
+                        <TextField
+                            css={css({ marginLeft: '1rem' })}
+                            label='Just input'
+                            size='extra-large'
+                            floatingLabel="Enter something"
+                        />
+                    </Flexbox>
+                    <Flexbox mb='1rem'>
+                        <TextField
+                            size='extra-large'
+                            decoration='borderBottom'
+                            placeholder="Enter something"
+                        />
+                        <TextField
+                            css={css({ marginLeft: '1rem' })}
+                            size='extra-large'
+                            decoration='borderBottom'
+                            floatingLabel="Enter something"
+                        />
+                    </Flexbox>
+                    <Flexbox mb='1rem'>
+                        <TextField
+                            size='extra-large'
+                            decoration='borderless'
+                            placeholder="Enter something"
+                        />
+                        <TextField
+                            css={css({ marginLeft: '1rem' })}
+                            size='extra-large'
+                            decoration='borderless'
+                            floatingLabel="Enter something"
+                        />
+                    </Flexbox>
+                    <Flexbox mb='1rem'>
+                        <TextField
+                            size='extra-large'
+                            decoration='none'
+                            placeholder="Enter something"
+                        />
+                        <TextField
+                            css={css({ marginLeft: '1rem' })}
+                            size='extra-large'
+                            decoration='none'
+                            floatingLabel="Enter something"
+                        />
+                    </Flexbox>
+                    <Flexbox mb='1rem'>
+                        <TextField
+                            size='extra-large'
+                            placeholder="Enter something"
+                            leftIcon='add'
+                            loading={true}
+                        />
+                        <TextField
+                            css={css({ marginLeft: '1rem' })}
+                            size='extra-large'
+                            floatingLabel="Enter something"
+                            leftIcon='add'
+                            loading={true}
+                        />
+                    </Flexbox>
                 </Flexbox>
             </Flexbox>
         </Flexbox>
-
     )
 }
 

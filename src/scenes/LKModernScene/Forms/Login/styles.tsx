@@ -1,5 +1,5 @@
 import { css } from '@emotion/core'
-import { useTheme, useTypography } from '../../hooks';
+import { useTheme, useTypography } from '../../../../hooks';
 
 export default () => {
     const theme = useTheme().theme
@@ -12,19 +12,23 @@ export default () => {
     )
 
     return {
-        theme: theme,
-
         container: css({
+            flexBasis: '36rem',
+            flexShrink: 0,
             minHeight: '100%',
+            padding: '2.5rem 4rem',
+            boxSizing: 'border-box',
+            justifyContent: 'space-between'
         }),
 
         background: css({
+            width: '42rem',
+            backgroundColor: theme.background.hex,
             position: 'absolute',
             top: 0,
-            left: 0,
-            right: 0,
+            left: '-6rem',
             bottom: 0,
-            background: 'linear-gradient(30deg, #552785 0%, #6b3792 30%, #c91e62 100%)'
-        })
+            right: 0,
+        }),
     }
 }

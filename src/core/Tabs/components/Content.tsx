@@ -1,14 +1,14 @@
 /** @jsx jsx */
 import { css, jsx } from '@emotion/core';
 import { useState } from 'react';
-import { Transition } from 'react-transition-group';
+import { CSSTransition } from 'react-transition-group';
 import { Flexbox } from '../..';
 import TabsTypes from '../types';
 
-export default (props: { items: any[], activeItemIndex: number }) => {
+export default (props: { items: TabsTypes.MenuItemProps[], activeItemIndex: number }) => {
     const { items, activeItemIndex } = props;
     const [prevIndex, setPrevIndex] = useState(activeItemIndex || 0);
-    const duration = 500;
+    const duration = 300;
 
     const transitionStyles = {
         entering: {
@@ -35,14 +35,16 @@ export default (props: { items: any[], activeItemIndex: number }) => {
 
     return (
         <Flexbox alignItems='center'>
-            {items.map((_, index) => {
+            {items.map((item, index) => {
                 const isActive = index === activeItemIndex;
 
+                if (!item.content) return null;
+
                 return (
-                    <Transition
+                    <CSSTransition
                         key={index}
                         timeout={{
-                            enter: duration / 5,
+                            enter: 0,
                             exit: duration
                         }}
                         in={isActive}
@@ -53,19 +55,15 @@ export default (props: { items: any[], activeItemIndex: number }) => {
                             return (
                                 <div css={css({
                                     transition: `all ${duration}ms ease-in-out`,
-                                    opacity: 0,
-                                    position: 'absolute',
                                     willChange: 'transform',
-                                    fontSize: '10rem',
-                                    padding: '10rem',
                                     ...transitionStyles[state]
                                 })}
                                 >
-                                    {index}
+                                    {state}
                                 </div>
                             )
                         }}
-                    </Transition>
+                    </CSSTransition>
                 )
             })}
         </Flexbox>

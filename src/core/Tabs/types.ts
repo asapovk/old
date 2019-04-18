@@ -1,4 +1,4 @@
-import { CSSProperties, Dispatch, SetStateAction } from "react";
+import { CSSProperties, Dispatch, SetStateAction, ReactNode } from "react";
 
 declare namespace TabsTypes {
 
@@ -9,6 +9,7 @@ declare namespace TabsTypes {
         bp?: number[]
 
         menuItems: MenuItemProps[]
+        withoutRouter?: boolean
         activeMenuItem: number
     }
 
@@ -21,10 +22,11 @@ declare namespace TabsTypes {
     export interface MenuItemProps {
         title: string
         value: string | number
+        content?: ReactNode
     }
 
     export interface ContentProps {
-        
+
     }
 }
 

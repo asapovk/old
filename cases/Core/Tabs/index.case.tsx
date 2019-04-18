@@ -1,12 +1,11 @@
 import React from 'react';
 import { Flexbox, Tabs } from '../../../src';
-import { StickyTabsTypes } from '../../../src/core/types';
 
 const menuElements = [
-    { title: 'Счет' },
-    { title: 'История' },
-    { title: 'Поддержка' },
-    { title: 'Настройки' }
+    { title: 'Счет', value: 0 },
+    { title: 'История', value: 1 },
+    { title: 'Поддержка', value: 2 },
+    { title: 'Настройки', value: 3 }
 ];
 
 class TabsStory extends React.Component {
