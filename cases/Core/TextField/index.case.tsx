@@ -48,6 +48,14 @@ export default () => {
                             loading={true}
                         />
                     </Flexbox>
+                    <Flexbox mb='1rem'>
+                        <TextField
+                            size='small'
+                            placeholder="Textfield with icons"
+                            leftIcon='add'
+                            multiline
+                        />
+                    </Flexbox>
                 </Flexbox>
                 <Flexbox column flex={1}>
                     <Title children='Normal Fields' />
@@ -80,6 +88,13 @@ export default () => {
                             placeholder="Textfield with icons"
                             leftIcon='add'
                             loading={true}
+                        />
+                    </Flexbox>
+                    <Flexbox mb='1rem'>
+                        <TextField
+                            placeholder="Textfield with icons"
+                            leftIcon='add'
+                            multiline
                         />
                     </Flexbox>
                 </Flexbox>
@@ -155,6 +170,21 @@ export default () => {
                             loading={true}
                         />
                     </Flexbox>
+                    <Flexbox mb='1rem'>
+                        <TextField
+                            size='large'
+                            placeholder="Enter something"
+                            leftIcon='add'
+                            multiline
+                        />
+                        <TextField
+                            css={css({ marginLeft: '1rem' })}
+                            size='large'
+                            floatingLabel="Enter something"
+                            leftIcon='add'
+                            multiline
+                        />
+                    </Flexbox>
                 </Flexbox>
                 <Flexbox column flex={1}>
                     <Title children='Extra Large Fields' />
@@ -223,6 +253,34 @@ export default () => {
                             floatingLabel="Enter something"
                             leftIcon='add'
                             loading={true}
+                        />
+                    </Flexbox>
+                    <Flexbox mb='1rem'>
+                        <TextField
+                            size='extra-large'
+                            placeholder="Enter something"
+                            leftIcon='add'
+                            disabled={true}
+                        />
+                        <TextField
+                            css={css({ marginLeft: '1rem' })}
+                            size='extra-large'
+                            floatingLabel="Enter something"
+                            leftIcon='add'
+                            disabled={true}
+                        />
+                    </Flexbox>
+                    <Flexbox mb='1rem'>
+                        <TextField
+                            size='extra-large'
+                            placeholder="Enter something"
+                            multiline
+                        />
+                        <TextField
+                            css={css({ marginLeft: '1rem' })}
+                            size='extra-large'
+                            floatingLabel="Enter something"
+                            multiline
                         />
                     </Flexbox>
                 </Flexbox>

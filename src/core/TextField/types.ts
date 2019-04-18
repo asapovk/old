@@ -18,6 +18,7 @@ declare namespace TextFieldTypes {
         singlerow?: true | undefined
         multiline?: boolean
         disabled?: boolean
+        loading?: boolean
         type?: Type
         onChange?: (event: any, value: string) => void
         onClick?: (event: any) => void

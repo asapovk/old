@@ -1,8 +1,8 @@
 /** @jsx jsx */
-import { jsx } from '@emotion/core'
-import { forwardRef, Fragment } from 'react';
-import Types from './types'
+import { jsx } from '@emotion/core';
+import { forwardRef } from 'react';
 import InputMask from 'react-input-mask';
+import Types from './types';
 
 export default forwardRef((props: Types.FieldProps, ref) => {
 
@@ -32,7 +32,7 @@ export default forwardRef((props: Types.FieldProps, ref) => {
                 value: props.value,
                 onChange: props.onChange,
                 onKeyPress: onKeyPress,
-                disabled: props.disabled,
+                disabled: props.disabled || props.loading,
                 placeholder: props.placeholder,
                 css: props.styles.field,
                 ref: ref,
@@ -54,8 +54,8 @@ export default forwardRef((props: Types.FieldProps, ref) => {
                 value: props.value,
                 onChange: (e) => props.onChange && props.onChange(e, e.currentTarget.value),
                 onKeyPress: onKeyPress,
-                disabled: props.disabled,
-                placeholder: props.placeholder || " ",
+                disabled: props.disabled || props.loading,
+                placeholder: props.placeholder,
                 css: props.styles.field,
                 ref: ref,
                 type: props.type,

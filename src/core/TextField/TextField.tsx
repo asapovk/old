@@ -18,7 +18,14 @@ export default forwardRef((props: Types.Props, ref) => {
         props.onChange && props.onChange(e, newValue);
     }
 
-    const styles = createStyles(props.multiline, props.size, props.disabled, props.decoration, props.floatingLabel, props.leftIcon);
+    const styles = createStyles({
+        multiline: props.multiline,
+        size: props.size,
+        disabled: props.disabled || props.loading,
+        decoration: props.decoration,
+        floatingLabel: props.floatingLabel,
+        leftIcon: props.leftIcon
+    });
 
     return (
         <Flexbox css={styles.container} className={props.className} style={props.style} flexDirection='column'>
@@ -28,7 +35,7 @@ export default forwardRef((props: Types.Props, ref) => {
             <Flexbox css={styles.wrapper} onClick={props.onClick} alignItems='center'>
                 {props.floatingLabel && (
                     <label
-                        css={styles.floatingLabel(focused, !focused && !!value)}
+                        css={styles.floatingLabel(focused || !!value)}
                         children={props.floatingLabel}
                     />
                 )}
@@ -52,6 +59,7 @@ export default forwardRef((props: Types.Props, ref) => {
                     }}
                     onEnter={props.onEnter}
                     disabled={props.disabled}
+                    loading={props.loading}
                     placeholder={props.floatingLabel ? '' : props.placeholder}
                     type={props.type}
                     singlerow={props.singlerow}

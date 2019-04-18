@@ -1,7 +1,7 @@
 import { css } from '@emotion/core';
-import { useTheme, useTypography } from '../../hooks';
+import { useTheme } from '../../hooks';
 
-export default (multiline, size, disabled, decoration, floatingLabel, leftIcon) => {
+export default ({ multiline, size, disabled, decoration, floatingLabel, leftIcon }) => {
 
     const theme = useTheme().theme;
     const extraParams = getExtraParams(size, decoration, leftIcon);
@@ -21,7 +21,7 @@ export default (multiline, size, disabled, decoration, floatingLabel, leftIcon) 
             color: theme.lowlight.rgb
         }),
 
-        floatingLabel: (focused: boolean, minified: boolean) => css({
+        floatingLabel: (minified: boolean) => css({
             position: 'absolute',
             pointerEvents: 'none',
             top: 0,
@@ -32,9 +32,6 @@ export default (multiline, size, disabled, decoration, floatingLabel, leftIcon) 
             transformOrigin: 'top left',
             fontSize: extraParams.textSize,
             lineHeight: extraParams.textLineHeight,
-        }, focused && {
-            color: theme.highlight.rgb,
-            transform: `translate(${extraParams.floatingLabelTranslate.end}) scale(0.75)`,
         }, minified && {
             color: theme.lowlight.rgb,
             transform: `translate(${extraParams.floatingLabelTranslate.end}) scale(0.75)`,
@@ -42,7 +39,7 @@ export default (multiline, size, disabled, decoration, floatingLabel, leftIcon) 
 
         wrapper: css({
             border: '1px solid ' + theme.pale.hex,
-            // backgroundColor: theme.interface.rgb,
+            backgroundColor: theme.interface.rgb,
             borderRadius: theme.radius.default,
             overflow: 'hidden',
             boxSizing: 'border-box'
@@ -55,7 +52,7 @@ export default (multiline, size, disabled, decoration, floatingLabel, leftIcon) 
         }, multiline
                 ? {
                     height: '100%',
-                    padding: `0 ${extraParams.textareaPadding}`
+                    padding: `${extraParams.textareaPadding}`
                 }
                 : {
                     height: extraParams.inputHeight,
@@ -108,7 +105,7 @@ function getExtraParams(size, decoration, leftIcon) {
             return {
                 inputHeight: '5rem',
                 inputPadding: !decoration ? '1.25rem' : '0',
-                textareaPadding: '1.25rem',
+                textareaPadding: '1.75rem 1.25rem',
                 iconSize: '2rem',
                 loadingSize: '1.5rem',
                 labelSize: '1rem',
@@ -126,7 +123,7 @@ function getExtraParams(size, decoration, leftIcon) {
             return {
                 inputHeight: '2.75rem',
                 inputPadding: !decoration ? '0.75rem' : '0',
-                textareaPadding: '0.75rem',
+                textareaPadding: '0.5rem 0.75rem',
                 iconSize: '1.25rem',
                 loadingSize: '1.25rem',
                 labelSize: '0.875rem',
