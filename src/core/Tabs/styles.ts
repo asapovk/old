@@ -19,7 +19,7 @@ export default (bp?: number[]) => {
 						justifyContent: 'center',
 						margin: '0 1rem',
 						fontSize: '1.75rem',
-						color: theme.brand.red.rgba(.5),
+						color: theme.highlight.rgba(.5),
 					}
 				}
 			}),
@@ -29,7 +29,7 @@ export default (bp?: number[]) => {
 				fontSize: '1.375rem',
 				fontWeight: 'normal',
 				textTransform: 'uppercase',
-				color: theme.brand.red.hex,
+				color: theme.highlight.hex,
 				cursor: 'pointer',
 				lineHeight: '2.5rem',
 				transition: 'font-size .15s linear',

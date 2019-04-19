@@ -68,10 +68,9 @@ export default () => {
                 }),
                 item: css({
                     padding: '1.5rem 0.5rem',
-                    border: '1px solid ' + theme.pale.rgb,
-                    borderRadius: theme.radius.card,
                     cursor: 'pointer',
-                    justifyContent: 'flex-start'
+                    justifyContent: 'flex-start',
+                    ...theme.borders.card
                 }),
                 icon: css({
                     fontSize: '2rem',

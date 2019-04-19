@@ -26,7 +26,7 @@ export default (dark?: boolean) => {
 
     const spin = keyframes({
         to: { transform: 'rotate(360deg)' }
-    })
+    });
 
     return {
         spinner: css({
@@ -106,17 +106,17 @@ export default (dark?: boolean) => {
                 "> :nth-of-type(1)": {
                     top: -circleRadius,
                     left: -circleRadius,
-                    backgroundColor: theme.brand.red.hex
+                    backgroundColor: theme.brandColors.red.hex
                 },
                 "> :nth-of-type(2)": {
                     top: Math.sqrt(3) * (edge / 2) - circleRadius,
                     left: (edge / 2) - circleRadius,
-                    backgroundColor: theme.brand.purple.hex
+                    backgroundColor: theme.brandColors.purple.hex
                 },
                 "> :nth-of-type(3)": {
                     top: Math.sqrt(3) * (edge / 2) - circleRadius,
                     left: -(edge / 2) - circleRadius,
-                    backgroundColor: theme.brand.purple.hex
+                    backgroundColor: theme.brandColors.purple.hex
                 }
             }
         })

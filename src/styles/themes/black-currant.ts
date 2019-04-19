@@ -1,26 +1,5 @@
+import { ThemeInterface } from '../';
 import { getColors } from '../utilities';
-import { ThemeInterface, colorsLuminosity } from '../';
-import randomColor from 'randomcolor';
-
-const accentColors = {
-    red: getColors(255, 25, 25),
-    green: getColors(8, 191, 52),
-    blue: getColors(0, 122, 255),
-    orange: getColors(255, 149, 0),
-}
-
-const brand = {
-    red: getColors(216, 15, 105),
-    purple: getColors(216, 15, 105),
-}
-
-const randomColors = (luminosity: colorsLuminosity = 'bright', count: number = 10) => randomColor({
-    hue: 'purple',
-    format: 'hex',
-    alpha: 1,
-    luminosity,
-    count
-})
 
 export default {
     name: "blackCurrant",
@@ -33,40 +12,84 @@ export default {
     text: getColors(233, 233, 233),
     textOnAccent: getColors(233, 233, 233),
     highlight: getColors(216, 15, 105),
-    accents: accentColors,
-    brand: brand,
-    randomColors: randomColors,
-    shadow: getColors(19, 20, 25),
+    highlightSecondary: getColors(216, 15, 105),
+    defaultShadow: getColors(19, 20, 25),
+    defaultBorderRadius: '0.25rem',
+    accents: {
+        red: getColors(255, 25, 25),
+        green: getColors(8, 191, 52),
+        blue: getColors(0, 122, 255),
+        orange: getColors(255, 149, 0),
+    },
+    brandColors: {
+        red: getColors(216, 15, 105),
+        purple: getColors(216, 15, 105),
+    },
     shadows: {
-        button: '0px 2px 6px 0px ' + getColors(19, 20, 25).hex,
+        button: {
+            default: '0px 0.125rem 0.375rem 0px ' + getColors(19, 20, 25).hex,
+            active: '0px 0.125rem 0.375rem 0px ' + getColors(19, 20, 25).rgba(0)
+        },
+        card: {
+            default: '0px 0.0625rem 0.0625rem 0px ' + getColors(19, 20, 25).hex,
+            active: '0px 0.0625rem 0.0625rem 0px ' + getColors(19, 20, 25).hex,
+        },
         table: 'none',
-        card: '0px 1rem 1rem 0px ' + getColors(19, 20, 25).hex,
+        widget: 'none',
+        modal: 'none',
+        textfield: 'none'
     },
     borders: {
         button: {
-            width: '1px',
-            style: 'solid',
-            color: getColors(80, 60, 70).hex
+            borderWidth: '1px',
+            borderStyle: 'solid',
+            borderColor: getColors(80, 60, 70).hex,
+            borderRadius: '0.25rem'
         },
         table: {
-            width: '1px',
-            style: 'solid',
-            color: getColors(80, 60, 70).hex
+            borderWidth: '1px',
+            borderStyle: 'solid',
+            borderColor: getColors(80, 60, 70).hex,
+            borderRadius: '0.25rem'
+        },
+        card: {
+            borderWidth: '1px',
+            borderStyle: 'solid',
+            borderColor: getColors(80, 60, 70).hex,
+            borderRadius: '0.5rem'
         },
         widget: {
-            width: '1px',
-            style: 'solid',
-            radius: '0.25rem',
-            color: getColors(80, 60, 70).hex
-        }
+            borderWidth: '1px',
+            borderStyle: 'solid',
+            borderColor: getColors(80, 60, 70).hex,
+            borderRadius: '0.25rem'
+        },
+        modal: {
+            borderWidth: "0px",
+            borderStyle: "solid",
+            borderColor: 'transparent',
+            borderRadius: '0.25rem'
+        },
+        textfield: {
+            borderWidth: '1px',
+            borderStyle: 'solid',
+            borderColor: getColors(80, 60, 70).hex,
+            borderRadius: '0.25rem'
+        },
+        checkbox: {
+            borderWidth: '1px',
+            borderStyle: 'solid',
+            borderColor: getColors(80, 60, 70).hex,
+            borderRadius: '0.25rem'
+        },
+        datepicker: {
+            borderWidth: '1px',
+            borderStyle: 'solid',
+            borderColor: getColors(80, 60, 70).hex,
+            borderRadius: '0.25rem'
+        },
     },
-    radius: {
-        default: '2px',
-        window: '0.25rem',
-        button: '0.25rem',
-        card: '0.5rem',
-    },
-    gradient: {
+    gradients: {
         default: [
             getColors(216, 15, 105).rgba(1.0),
             getColors(216, 15, 105).rgba(0.8)

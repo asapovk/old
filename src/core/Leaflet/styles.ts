@@ -14,14 +14,14 @@ export default (mobile) => {
                 overflow: 'hidden'
             },
             !mobile && {
-                borderRadius: theme.radius.card,
+                borderRadius: theme.defaultBorderRadius,
             }
         ),
         items: css(
             {
                 flex: 1,
                 overflow: 'hidden',
-                borderRadius: theme.radius.card,
+                borderRadius: theme.defaultBorderRadius,
                 border: border,
                 '> div:last-of-type': {
                     borderRight: 'none'
@@ -114,10 +114,11 @@ export default (mobile) => {
                     cursor: 'pointer',
                     '> div': {
                         overflow: 'hidden',
-                        textOverflow: 'ellipsis',
-                        whiteSpace: 'nowrap',
                         '> span': {
                             lineHeight: mobile ? '2.5rem' : '2rem',
+                            overflow: 'hidden',
+                            textOverflow: 'ellipsis',
+                            whiteSpace: 'nowrap',
                         }
                     }
                 },

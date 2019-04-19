@@ -34,7 +34,7 @@ export default () => {
                 return (
                     <div css={(theme: ThemeInterface) => css({
                         width: '42rem',
-                        backgroundColor: theme.background.hex,
+                        backgroundColor: theme.background2.hex,
                         position: 'fixed',
                         top: 0,
                         left: 0,

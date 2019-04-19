@@ -1,28 +1,61 @@
 import React from 'react';
-
+import finderStyles from './jss/Finder';
+import lkGuestSceneStyles from './jss/LKGuestScene';
+import notificationsStyles from './jss/Notifications';
+import selectStyles from './jss/Select';
+import tableStyles from './jss/Table';
+import tabsStyles from './jss/Tabs';
+import titleStyles from './jss/Title';
+import widgetStatStyles from './jss/WidgetStat';
+import abrTheme from './themes/abr';
+import blackCurrant from './themes/black-currant';
+import gazpromTheme from './themes/gazprom';
+import whiteCurrant from './themes/white-currant';
+import whiteCurrantModern from './themes/white-currant-modern';
 import { objectColor } from './utilities';
 
-import blackCurrant from './themes/black-currant'
-import whiteCurrant from './themes/white-currant'
-import abrTheme from './themes/abr'
-import gazpromTheme from './themes/gazprom'
-
-import finderStyles from './jss/Finder'
-import selectStyles from './jss/Select'
-import tableStyles from './jss/Table'
-import tabsStyles from './jss/Tabs'
-import textFieldStyles from './jss/TextField'
-import titleStyles from './jss/Title'
-import widgetStatStyles from './jss/WidgetStat'
-import notificationsStyles from './jss/Notifications'
-import lkGuestSceneStyles from './jss/LKGuestScene'
-
 export const themes = {
-    blackCurrant, whiteCurrant, abrTheme, gazpromTheme
+    blackCurrant,
+    whiteCurrant,
+    whiteCurrantModern,
+    abrTheme,
+    gazpromTheme,
 }
 
-export type themeName = 'blackCurrant' | 'whiteCurrant' | 'abrTheme' | 'gazpromTheme'
-export type colorsLuminosity = 'bright' | 'light' | 'dark' | 'random';
+export type themeName = 'blackCurrant' | 'whiteCurrant' | 'whiteCurrantModern' | 'abrTheme' | 'gazpromTheme'
+
+export interface borderStyle {
+    borderWidth: string
+    borderStyle: string
+    borderColor: string
+    borderRadius: string
+}
+
+export interface shadowsObject {
+    button: {
+        default: string
+        active: string
+    }
+    card: {
+        default: string
+        active: string
+    }
+    table: string
+    widget: string
+    textfield: string
+    modal: string
+}
+
+export interface bordersObject {
+    button: borderStyle
+    table: borderStyle
+    card: borderStyle
+    widget: borderStyle
+    modal: borderStyle
+    textfield: borderStyle
+    checkbox: borderStyle
+    datepicker: borderStyle
+}
 
 export interface ThemeInterface {
     name: string
@@ -35,48 +68,21 @@ export interface ThemeInterface {
     text: objectColor
     textOnAccent: objectColor
     highlight: objectColor
+    highlightSecondary: objectColor
+    defaultShadow: objectColor
+    defaultBorderRadius: string
     accents: {
         red: objectColor
         green: objectColor
         blue: objectColor
         orange: objectColor
     },
-    randomColors: (luminosity: colorsLuminosity, count: number) => any
-    brand: any,
-    shadow: objectColor
-    shadows: {
-        button: string
-        table: string
-        card: string
-    }
-    borders: {
-        button: {
-            width: string
-            style: string
-            color: string
-            radius: string
-        }
-        table: {
-            width: string
-            style: string
-            color: string
-            radius: string
-        }
-        widget: {
-            width: string
-            style: string
-            color: string
-            radius: string
-        }
+    brandColors: {
+        [key: string]: objectColor
     },
-    radius: {
-        default: string
-        window: string
-        button: string
-        card: string
-        table: string
-    }
-    gradient: {
+    shadows: shadowsObject
+    borders: bordersObject
+    gradients: {
         default: string[]
         buddy: string[]
         card: string[]
@@ -105,7 +111,6 @@ export const createStyles = (themeName?: string) => {
         select: selectStyles(theme),
         table: tableStyles(theme),
         tabs: tabsStyles(theme),
-        textField: textFieldStyles(theme),
         title: titleStyles(theme),
         widgetStat: widgetStatStyles(theme),
         notifications: notificationsStyles(theme),

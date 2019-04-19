@@ -61,11 +61,11 @@ export default () => {
                                 <TextField css={css({ padding: '0 1rem', height: '5rem' })} decoration='borderless' size='extra-large' floatingLabel='Пароль' />
                             </Flexbox>
                             <Flexbox mt='1.5rem' justifyContent='space-between'>
-                                <C2 css={css({ color: '#777777' })}>Нет учетной записи? <C2 link css={(theme: ThemeInterface) => css({ color: theme.highlight.hex })}>Зарегистрироваться</C2></C2>
-                                <C2 link css={(theme: ThemeInterface) => css({ color: theme.brand.red.hex })}>Забыли пароль?</C2>
+                                <C2 css={css({ color: '#777777' })}>Нет учетной записи? <C2 link css={(theme: ThemeInterface) => css({ color: theme.highlightSecondary.hex })}>Зарегистрироваться</C2></C2>
+                                <C2 link css={(theme: ThemeInterface) => css({ color: theme.highlight.hex })}>Забыли пароль?</C2>
                             </Flexbox>
                             <Flexbox mt='2.75rem'>
-                                <Button label='Войти' color='highlight' size='large' css={(theme: ThemeInterface) => css({ width: '8rem', borderRadius: '0.25rem', backgroundColor: theme.brand.red.hex, color: theme.textOnAccent.hex })} />
+                                <Button label='Войти' color='highlight' size='large' css={(theme: ThemeInterface) => css({ width: '8rem', borderRadius: '0.25rem', backgroundColor: theme.highlight.hex, color: theme.textOnAccent.hex })} />
                             </Flexbox>
                         </Flexbox>
                     )
@@ -98,10 +98,9 @@ const style = {
         borderWidth: '1px',
         borderStyle: 'solid',
         overflow: 'hidden',
-        backgroundColor: theme.background.hex,
+        backgroundColor: theme.interface.hex,
         marginTop: '4rem',
         boxShadow: '0 20px 40px rgba(0,0,0,.1)',
-        border: '1px solid #E5E5E5'
     }),
 
 }

@@ -38,17 +38,20 @@ export default ({ multiline, size, disabled, decoration, floatingLabel, leftIcon
         }),
 
         wrapper: css({
-            border: '1px solid ' + theme.pale.hex,
             backgroundColor: theme.interface.rgb,
-            borderRadius: theme.radius.default,
             overflow: 'hidden',
-            boxSizing: 'border-box'
+            boxSizing: 'border-box',
+            ...theme.borders.textfield
         }, decoration === 'borderBottom' && {
-            border: 'none',
-            borderBottom: '1px solid ' + theme.pale.hex,
+            borderRadius: '0',
+            borderWidth: '0 0 1px 0',
             backgroundColor: 'none'
         }, decoration === 'borderless' && {
-            border: 'none'
+            border: 'none',
+        }, decoration === 'none' && {
+            borderRadius: '0',
+            border: 'none',
+            backgroundColor: 'none'
         }, multiline
                 ? {
                     height: '100%',
@@ -100,11 +103,13 @@ export default ({ multiline, size, disabled, decoration, floatingLabel, leftIcon
 }
 
 function getExtraParams(size, decoration, leftIcon) {
+    const withoutDecoration = decoration === 'none';
+
     switch (size) {
         case 'extra-large':
             return {
                 inputHeight: '5rem',
-                inputPadding: !decoration ? '1.25rem' : '0',
+                inputPadding: withoutDecoration ? '0' : '1.25rem',
                 textareaPadding: '1.75rem 1.25rem',
                 iconSize: '2rem',
                 loadingSize: '1.5rem',
@@ -115,14 +120,14 @@ function getExtraParams(size, decoration, leftIcon) {
                 iconMargin: '1rem',
                 inputMargin: '0.75rem',
                 floatingLabelTranslate: {
-                    start: `calc(${!decoration ? '1.25rem' : '0px'} + ${leftIcon ? '2.5rem' : '0px'}), 1.75rem`,
-                    end: `calc(${!decoration ? '1.25rem' : '0px'} + ${leftIcon ? '2.5rem' : '0px'}), 0.75rem`,
+                    start: `calc(${withoutDecoration ? '0px' : '1.25rem'} + ${leftIcon ? '2.5rem' : '0px'}), 1.75rem`,
+                    end: `calc(${withoutDecoration ? '0px' : '1.25rem'} + ${leftIcon ? '2.5rem' : '0px'}), 0.75rem`,
                 },
             };
         case 'large':
             return {
                 inputHeight: '2.75rem',
-                inputPadding: !decoration ? '0.75rem' : '0',
+                inputPadding: withoutDecoration ? '0' : '0.75rem',
                 textareaPadding: '0.5rem 0.75rem',
                 iconSize: '1.25rem',
                 loadingSize: '1.25rem',
@@ -133,14 +138,14 @@ function getExtraParams(size, decoration, leftIcon) {
                 iconMargin: '0.75rem',
                 inputMargin: '0.75rem',
                 floatingLabelTranslate: {
-                    start: `calc(${!decoration ? '0.75rem' : '0px'} + ${leftIcon ? '1.75rem' : '0px'}), 0.5rem`,
-                    end: `calc(${!decoration ? '0.75rem' : '0px'} + ${leftIcon ? '1.75rem' : '0px'}), 0rem`,
+                    start: `calc(${withoutDecoration ? '0px' : '0.75rem'} + ${leftIcon ? '1.75rem' : '0px'}), 0.5rem`,
+                    end: `calc(${withoutDecoration ? '0px' : '0.75rem'} + ${leftIcon ? '1.75rem' : '0px'}), 0rem`,
                 },
             };
         case 'small':
             return {
                 inputHeight: '1.75rem',
-                inputPadding: !decoration ? '0.5rem' : '0',
+                inputPadding: withoutDecoration ? '0' : '0.5rem',
                 textareaPadding: '0.5rem',
                 iconSize: '0.75rem',
                 loadingSize: '0.75rem',
@@ -151,14 +156,14 @@ function getExtraParams(size, decoration, leftIcon) {
                 iconMargin: '0.5rem',
                 inputMargin: '0.25rem',
                 floatingLabelTranslate: {
-                    start: `${!decoration ? '1.25rem' : '0'}, 1.75rem`,
-                    end: `${!decoration ? '1.25rem' : '0'}, 1.75rem`,
+                    start: `${withoutDecoration ? '0px' : '1.25rem'}, 1.75rem`,
+                    end: `${withoutDecoration ? '0px' : '1.25rem'}, 1.75rem`,
                 },
             };
         default:
             return {
                 inputHeight: '2rem',
-                inputPadding: !decoration ? '0.5rem' : '0',
+                inputPadding: withoutDecoration ? '0' : '0.5rem',
                 textareaPadding: '0.5rem',
                 iconSize: '1rem',
                 loadingSize: '1rem',
@@ -169,8 +174,8 @@ function getExtraParams(size, decoration, leftIcon) {
                 iconMargin: '0.5rem',
                 inputMargin: '0.25rem',
                 floatingLabelTranslate: {
-                    start: `${!decoration ? '1.25rem' : '0'}, 1.75rem`,
-                    end: `${!decoration ? '1.25rem' : '0'}, 1.75rem`,
+                    start: `${withoutDecoration ? '0px' : '1.25rem'}, 1.75rem`,
+                    end: `${withoutDecoration ? '0px' : '1.25rem'}, 1.75rem`,
                 },
             }
     }

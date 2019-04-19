@@ -23,21 +23,21 @@ export default () => {
                         <TextField
                             size='small'
                             decoration='borderBottom'
-                            placeholder="Enter something"
+                            placeholder="Input with borderBottom"
                         />
                     </Flexbox>
                     <Flexbox mb='1rem'>
                         <TextField
                             size='small'
                             decoration='borderless'
-                            placeholder="Enter something"
+                            placeholder="Borderless input"
                         />
                     </Flexbox>
                     <Flexbox mb='1rem'>
                         <TextField
                             size='small'
                             decoration='none'
-                            placeholder="Enter something"
+                            placeholder="Input without decoration"
                         />
                     </Flexbox>
                     <Flexbox mb='1rem'>
@@ -68,19 +68,19 @@ export default () => {
                     <Flexbox mb='1rem'>
                         <TextField
                             decoration='borderBottom'
-                            placeholder="Enter something"
+                            placeholder="Input with borderBottom"
                         />
                     </Flexbox>
                     <Flexbox mb='1rem'>
                         <TextField
                             decoration='borderless'
-                            placeholder="Enter something"
+                            placeholder="Borderless input"
                         />
                     </Flexbox>
                     <Flexbox mb='1rem'>
                         <TextField
                             decoration='none'
-                            placeholder="Enter something"
+                            placeholder="Input without decoration"
                         />
                     </Flexbox>
                     <Flexbox mb='1rem'>
@@ -120,39 +120,39 @@ export default () => {
                         <TextField
                             size='large'
                             decoration='borderBottom'
-                            placeholder="Enter something"
+                            placeholder="Input with borderBottom"
                         />
                         <TextField
                             css={css({ marginLeft: '1rem' })}
                             size='large'
                             decoration='borderBottom'
-                            floatingLabel="Enter something"
+                            floatingLabel="Input with borderBottom"
                         />
                     </Flexbox>
                     <Flexbox mb='1rem'>
                         <TextField
                             size='large'
                             decoration='borderless'
-                            placeholder="Enter something"
+                            placeholder="Borderless input"
                         />
                         <TextField
                             css={css({ marginLeft: '1rem' })}
                             size='large'
                             decoration='borderless'
-                            floatingLabel="Enter something"
+                            floatingLabel="Borderless input"
                         />
                     </Flexbox>
                     <Flexbox mb='1rem'>
                         <TextField
                             size='large'
                             decoration='none'
-                            placeholder="Enter something"
+                            placeholder="Input without decoration"
                         />
                         <TextField
                             css={css({ marginLeft: '1rem' })}
                             size='large'
                             decoration='none'
-                            floatingLabel="Enter something"
+                            floatingLabel="Input without decoration"
                         />
                     </Flexbox>
                     <Flexbox mb='1rem'>
@@ -205,39 +205,39 @@ export default () => {
                         <TextField
                             size='extra-large'
                             decoration='borderBottom'
-                            placeholder="Enter something"
+                            placeholder="Input with borderBottom"
                         />
                         <TextField
                             css={css({ marginLeft: '1rem' })}
                             size='extra-large'
                             decoration='borderBottom'
-                            floatingLabel="Enter something"
+                            floatingLabel="Input with borderBottom"
                         />
                     </Flexbox>
                     <Flexbox mb='1rem'>
                         <TextField
                             size='extra-large'
                             decoration='borderless'
-                            placeholder="Enter something"
+                            placeholder="Borderless input"
                         />
                         <TextField
                             css={css({ marginLeft: '1rem' })}
                             size='extra-large'
                             decoration='borderless'
-                            floatingLabel="Enter something"
+                            floatingLabel="Borderless input"
                         />
                     </Flexbox>
                     <Flexbox mb='1rem'>
                         <TextField
                             size='extra-large'
                             decoration='none'
-                            placeholder="Enter something"
+                            placeholder="Input without decoration"
                         />
                         <TextField
                             css={css({ marginLeft: '1rem' })}
                             size='extra-large'
                             decoration='none'
-                            floatingLabel="Enter something"
+                            floatingLabel="Input without decoration"
                         />
                     </Flexbox>
                     <Flexbox mb='1rem'>

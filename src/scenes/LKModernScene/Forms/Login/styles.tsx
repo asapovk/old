@@ -23,7 +23,7 @@ export default () => {
 
         background: css({
             width: '42rem',
-            backgroundColor: theme.background.hex,
+            backgroundColor: theme.background2.hex,
             position: 'absolute',
             top: 0,
             left: '-6rem',

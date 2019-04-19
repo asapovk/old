@@ -84,11 +84,11 @@ export default () => {
                         <span className='t1' style={colorNameStyles}>accents.blue</span>
                         <span className='t1'>Синий акцент</span>
                     </Flexbox>
-                    <Flexbox alignItems='center' mb={'1rem'}>
+                    {/* <Flexbox alignItems='center' mb={'1rem'}>
                         <span style={colorStyles(theme.shadow.rgb, theme.pale.rgb)} />
                         <span className='t1' style={colorNameStyles}>shadow</span>
                         <span className='t1'>Тени</span>
-                    </Flexbox>
+                    </Flexbox> */}
                 </Flexbox>
                 <h2>Методы</h2>
                 <Flexbox column alignItems='flex-start'>

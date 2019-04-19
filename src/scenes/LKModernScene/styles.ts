@@ -1,9 +1,8 @@
-import { css } from '@emotion/core'
+import { css } from '@emotion/core';
 import { useTheme, useTypography } from '../../hooks';
 
 export default () => {
     const theme = useTheme().theme
-    const typography = useTypography();
 
     const breakpoints = [414, 768, 1024]
 

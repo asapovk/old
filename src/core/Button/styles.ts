@@ -55,11 +55,11 @@ function getDecoration(decoration, color, size, labelSize) {
     let padding = '0 1rem';
     let textStyles = typography.caption[2];
     let background = theme.interface.rgb;
-    let boxShadow = theme.shadows.button;
-    let borderRadius = theme.radius.button;
+    let boxShadow = theme.shadows.button.default;
+    let borderRadius = theme.borders.button.borderRadius;
     let textColor = theme.text.rgb;
     let outlineColor = theme.text.rgb;
-    let border = theme.borders.button.width + ' ' + theme.borders.button.style + ' ' + theme.pale.rgb;
+    let border = `${theme.borders.button.borderWidth} ${theme.borders.button.borderStyle} ${theme.borders.button.borderColor}`;
     let filter;
 
     switch (color) {
@@ -70,13 +70,13 @@ function getDecoration(decoration, color, size, labelSize) {
             border = 'none';
             break;
         case 'brand-red':
-            background = theme.brand.red.hex;
+            background = theme.brandColors.red.hex;
             textColor = theme.textOnAccent.rgb;
             outlineColor = background;
             border = 'none';
             break;
         case 'brand-purple':
-            background = theme.brand.purple.hex;
+            background = theme.brandColors.purple.hex;
             textColor = theme.textOnAccent.rgb;
             outlineColor = background;
             border = 'none';
@@ -163,8 +163,11 @@ function getDecoration(decoration, color, size, labelSize) {
     }
 
     let pseudo = {
+        transition: 'all .1s ease-in-out',
+        willChange: 'box-shadow',
         '&:active': {
-            boxShadow: 'none !important',
+            // boxShadow: 'none !important',
+            boxShadow: !decoration ? theme.shadows.button.active : 'none',
             border
         }
     }

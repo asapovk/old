@@ -57,7 +57,7 @@ export default (forElka?: boolean) => {
                 flexShrink: 0,
                 color: active ? theme.textOnAccent.rgb : theme.text.rgb,
                 background: active ? theme.highlight.rgb : 'transparent',
-                borderRadius: theme.radius.button,
+                borderRadius: theme.borders.button.borderRadius,
                 display: visible ? 'block' : 'none'
             }),
 
@@ -71,7 +71,7 @@ export default (forElka?: boolean) => {
                 boxShadow: '0px 0.5rem 0.5rem 0px rgba(0, 0, 0, 0.2)',
                 zIndex: 1,
                 backgroundColor: theme.background.hex,
-                borderRadius: theme.radius.default
+                borderRadius: theme.defaultBorderRadius
             }),
 
             mobile: (active) => css({

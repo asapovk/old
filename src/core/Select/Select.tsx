@@ -239,7 +239,7 @@ class Select extends Component<SelectProps> {
                             style={{
                                 background: styles.select.background,
                                 borderColor: styles.select.borderColor,
-                                borderRadius: styles.theme.radius.default
+                                borderRadius: styles.theme.defaultBorderRadius
                             }}
                             key={'search'}
                         >
@@ -251,7 +251,7 @@ class Select extends Component<SelectProps> {
                             <span className='ui-select-holder-down' style={{ color: styles.select.labelColor }}>
                                 <Icon type={menuVisible ? 'up' : 'down'} />
                             </span>
-                            <div className={'ui-select-menu' + (menuVisible ? ' visible' : '')} style={{ borderColor: styles.select.borderColor, background: styles.select.background }}>{MenuItemsTSX(styles.select)}</div>
+                            <div className={'ui-select-menu' + (menuVisible ? ' visible' : '')} style={{ borderRadius: `0 0 ${styles.theme.defaultBorderRadius} ${styles.theme.defaultBorderRadius}`, borderColor: styles.select.borderColor, background: styles.select.background }}>{MenuItemsTSX(styles.select)}</div>
                         </div>
                     </div>
                 )}

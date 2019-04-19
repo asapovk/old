@@ -21,10 +21,7 @@ export default (checked: boolean, isRadio?: boolean, uppercase?: boolean, size?:
             justifyContent: "center",
             color: theme.highlight.hex,
             backgroundColor: theme.interface.hex,
-            borderWidth: "1px",
-            borderStyle: "solid",
-            borderRadius: theme.radius.default,
-            borderColor: theme.pale.hex,
+            ...theme.borders.checkbox,
             "> svg": {
                 width: "100%",
                 height: "100%"

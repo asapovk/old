@@ -24,11 +24,7 @@ export default (): TableStyles => {
     return {
         tableContainer: css({
             position: 'relative',
-            borderRadius: theme.radius.table,
-            borderWidth: theme.borders.table.width,
-            borderStyle: theme.borders.table.style,
-            borderColor: theme.borders.table.color,
-            // overflow: 'hidden',
+            ...theme.borders.table
         }),
 
         rowContainer: ({ header, hideHeaders }) => css({
@@ -36,8 +32,8 @@ export default (): TableStyles => {
             transition: 'all .25s ease',
             flex: 1,
             borderWidth: '1px 0 0 0',
-            borderStyle: theme.borders.table.style,
-            borderColor: theme.borders.table.color
+            borderStyle: theme.borders.table.borderStyle,
+            borderColor: theme.borders.table.borderColor
         }, header && {
             borderWidth: 0,
             position: 'sticky',
@@ -62,8 +58,8 @@ export default (): TableStyles => {
             fontSize: '0.875rem',
             alignItems: 'center',
             borderWidth: '1px 0 0 0',
-            borderStyle: theme.borders.table.style,
-            borderColor: theme.borders.table.color,
+            borderStyle: theme.borders.table.borderStyle,
+            borderColor: theme.borders.table.borderColor,
             "&:first-of-type": {
                 borderWidth: 0,
             }
@@ -71,9 +67,6 @@ export default (): TableStyles => {
             borderBottom: 0
         }, !groupHeader && {
             backgroundColor: theme.background.hex,
-            // borderWidth: '0 0 1px 0',
-            // borderStyle: theme.borders.table.style,
-            // borderColor: theme.borders.table.color,
         }),
 
         cell: (width?: number, borders?: Types.Borders, columnAlignment?: Types.ColumnAlignment) => css(width
@@ -86,8 +79,8 @@ export default (): TableStyles => {
                 display: 'flex',
                 padding: '1.25rem',
                 overflow: 'hidden',
-                borderColor: theme.borders.table.color,
-                borderStyle: theme.borders.table.style,
+                borderColor: theme.borders.table.borderColor,
+                borderStyle: theme.borders.table.borderStyle,
                 justifyContent: columnAlignment || 'flex-start',
                 alignItems: 'center',
                 ...getBorders(borders),
@@ -117,28 +110,18 @@ export default (): TableStyles => {
         expandRow: (active: boolean) => css({
             padding: '1.25rem',
             transition: 'all 0.2s ease-in-out',
-            // borderWidth: '1px 0 0 0',
-            // borderStyle: theme.borders.table.style,
-            // borderColor: theme.borders.table.color,
             backgroundColor: theme.background2.hex,
             display: 'none'
         }, active && {
             display: 'block'
         }),
 
-        groupContainer: ({ hideHeaders }) => {
-            console.log(hideHeaders);
-
-            return css({
-                // borderWidth: '1px 0 0 0',
-                // borderStyle: theme.borders.table.style,
-                // borderColor: theme.borders.table.color,
-            }, hideHeaders && {
-                ":first-of-type": {
-                    borderWidth: 0
-                }
-            })
-        },
+        groupContainer: ({ hideHeaders }) => css({
+        }, hideHeaders && {
+            ":first-of-type": {
+                borderWidth: 0
+            }
+        }),
 
         groupRowContainer: ({ hideHeaders }) => css({
             backgroundColor: theme.background2.hex,
@@ -148,10 +131,6 @@ export default (): TableStyles => {
             position: 'sticky',
             top: hideHeaders ? 0 : '4rem',
             zIndex: 1
-
-            // borderWidth: '1px 0 0 0',
-            // borderStyle: theme.borders.table.style,
-            // borderColor: theme.borders.table.color,
         }),
 
         groupTitle: css({
@@ -171,9 +150,6 @@ export default (): TableStyles => {
             alignItems: 'center',
             justifyContent: 'center',
             padding: '1.25rem',
-            // borderColor: theme.borders.table.color,
-            // borderStyle: theme.borders.table.style,
-            // borderWidth: '1px 0 0 0',
             userSelect: 'none'
         }),
 
@@ -183,16 +159,13 @@ export default (): TableStyles => {
             justifyContent: 'center',
             alignItems: 'center',
             overflow: 'hidden',
-            borderColor: theme.borders.table.color,
-            borderStyle: theme.borders.table.style,
-            borderWidth: '1px',
-            borderRadius: '0.25rem',
             width: '2rem',
             height: '2rem',
             margin: '0 0.25rem',
             cursor: 'pointer',
             color: theme.lowlight.hex,
-            transition: 'all .25s ease-in-out'
+            transition: 'all .25s ease-in-out',
+            ...theme.borders.table,
         }, active && {
             borderColor: theme.highlight.hex,
             color: theme.highlight.hex

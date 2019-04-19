@@ -1,8 +1,8 @@
 
 import { css } from '@emotion/core';
+import { CSSProperties } from '@emotion/serialize';
 import useTheme from '../../hooks/useTheme';
 import types from './types';
-import { CSSProperties } from '@emotion/serialize';
 
 export default (props: types.StyleProps) => {
 
@@ -60,7 +60,7 @@ export default (props: types.StyleProps) => {
             borderRadius: '0.25rem',
             background: props.cardBackground || theme.highlight.hex,
             cursor: props.isActive ? 'default' : 'pointer',
-            boxShadow: (props.isActive ? `${stackShadow} 0.2rem 0rem ` : `0, 0, 0, 0 `) + theme.shadow.hex,
+            boxShadow: (props.isActive ? `${stackShadow} 0.2rem 0rem ` : `0, 0, 0, 0 `) + theme.defaultShadow.hex,
             transition: 'all 0.25s',
             ...stackCss
         }),

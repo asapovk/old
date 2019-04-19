@@ -33,7 +33,7 @@ export default forwardRef((props: Types.Props, ref) => {
                 <span css={styles.label} children={props.label} />
             )}
             <Flexbox css={styles.wrapper} onClick={props.onClick} alignItems='center'>
-                {props.floatingLabel && (
+                {(props.floatingLabel && (props.size && props.size !== 'small')) && (
                     <label
                         css={styles.floatingLabel(focused || !!value)}
                         children={props.floatingLabel}

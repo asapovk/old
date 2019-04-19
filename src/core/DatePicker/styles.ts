@@ -11,15 +11,13 @@ export default () => {
     const typography = useTypography();
 
     return {
-
         textFieldWrapper: css({
             padding: '0.25rem',
             background: theme.interface.hex,
-            borderRadius: theme.radius.default,
-            border: '0.5px solid ' + theme.pale.hex,
+            ...theme.borders.datepicker,
             borderTop: 0,
             position: 'relative',
-            top: "-" + theme.radius.default,
+            top: "-" + theme.borders.datepicker.borderRadius,
         }),
 
         textFieldOkButton: css({
@@ -32,7 +30,7 @@ export default () => {
             position: "relative",
             background: theme.background.hex,
             color: theme.text.hex,
-            borderRadius: theme.radius.button,
+            borderRadius: theme.borders.datepicker.borderRadius,
         }),
 
         weekDay: css({
@@ -44,7 +42,7 @@ export default () => {
         title: css({
             background: theme.background.hex,
             color: theme.text.hex,
-            borderRadius: theme.radius.button,
+            borderRadius: theme.borders.datepicker.borderRadius,
             padding: '0.25rem'
         }),
 
@@ -65,14 +63,13 @@ export default () => {
         day: (isActive: Boolean, isCurrent: boolean, isDisabled: boolean, isCurrentMonth: boolean) => {
             const st = {
                 transition: "all 0.3s",
-                border: "0.5px solid",
                 fontWeight: 500,
                 width: '2rem',
                 height: '2rem',
                 cursor: "pointer",
                 opacity: 1,
-                borderRadius: theme.radius.default,
                 background: theme.interface.hex,
+                ...theme.borders.datepicker,
                 borderColor: theme.background.hex,
                 color: theme.text.hex,
                 userSelect: "none" as "none",
