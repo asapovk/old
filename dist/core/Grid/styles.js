@@ -56,7 +56,7 @@ exports.rowStyles = function (_a) {
             margin: "-1px -0.75rem",
             borderRadius: "0.5rem",
             zIndex: 6,
-            boxShadow: theme.shadows.card,
+            boxShadow: theme.shadows.card.default,
             ":last-of-type": {
                 borderWidth: "1px",
                 borderRadius: ".5rem"
@@ -119,28 +119,26 @@ exports.paginationStyles = function () {
             padding: "1.25rem",
             userSelect: "none"
         }),
-        paginationButton: function (active) {
-            return core_1.css({
-                boxSizing: "border-box",
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                overflow: "hidden",
-                borderColor: theme.pale.hex,
-                borderStyle: "solid",
-                borderWidth: "1px",
-                borderRadius: "0.5rem",
-                width: "2rem",
-                height: "2rem",
-                margin: "0 0.25rem",
-                cursor: "pointer",
-                color: theme.lowlight.hex,
-                transition: "all .25s ease-in-out"
-            }, active && {
-                borderColor: theme.highlight.hex,
-                color: theme.highlight.hex
-            });
-        }
+        paginationButton: function (active) { return core_1.css({
+            boxSizing: "border-box",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            overflow: "hidden",
+            borderColor: theme.pale.hex,
+            borderStyle: "solid",
+            borderWidth: "1px",
+            borderRadius: "0.5rem",
+            width: "2rem",
+            height: "2rem",
+            margin: "0 0.25rem",
+            cursor: "pointer",
+            color: theme.lowlight.hex,
+            transition: "all .25s ease-in-out"
+        }, active && {
+            borderColor: theme.highlight.hex,
+            color: theme.highlight.hex
+        }); }
     };
 };
 exports.headerStyles = function () {

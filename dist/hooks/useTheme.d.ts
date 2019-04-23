@@ -75,31 +75,6 @@ declare const _default: () => {
             background: string;
         };
     };
-    textField: {
-        textColor: string;
-        backgroundColor: string;
-        borderColor: string;
-        iconColor: string;
-        label: {
-            color: string;
-        };
-        singleline: {
-            field: {
-                borderColor: string;
-                backgroundColor: string;
-                borderRadius: string;
-            };
-            input: {
-                color: string;
-            };
-            placeholder: {
-                color: string;
-            };
-        };
-        hint: {
-            color: string;
-        };
-    };
     title: {
         active: {
             color: string;

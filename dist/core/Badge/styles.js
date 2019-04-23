@@ -28,7 +28,7 @@ exports.default = (function (decoration, top, right, left) {
             position: 'relative',
             display: 'inline-block'
         }),
-        counter: core_1.css(__assign({}, typography.caption[3], { position: "absolute", zIndex: 10, top: top, right: right, left: left, padding: '0 0.5rem', minWidth: '1.5rem', minHeight: '1.5rem', boxSizing: "border-box", display: "flex", justifyContent: 'center', alignItems: 'center', background: getBackground(decoration), boxShadow: '0px 2px 6px 0px ' + theme.shadow.rgb, borderRadius: 24, color: theme.textOnAccent.hex, fontWeight: 600, borderColor: theme.pale.rgba(0) }))
+        counter: core_1.css(__assign({}, typography.caption[3], { position: "absolute", zIndex: 10, top: top, right: right, left: left, padding: '0 0.5rem', minWidth: '1.5rem', minHeight: '1.5rem', boxSizing: "border-box", display: "flex", justifyContent: 'center', alignItems: 'center', background: getBackground(decoration), boxShadow: '0px 2px 6px 0px ' + theme.defaultShadow.hex, borderRadius: 24, color: theme.textOnAccent.hex, fontWeight: 600, borderColor: theme.pale.rgba(0) }))
     };
 });
 function getBackground(decoration) {

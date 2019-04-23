@@ -1,31 +1,6 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 var utilities_1 = require("../utilities");
-var randomcolor_1 = __importDefault(require("randomcolor"));
-var accentColors = {
-    red: utilities_1.getColors(240, 45, 35),
-    green: utilities_1.getColors(28, 151, 82),
-    blue: utilities_1.getColors(0, 58, 93),
-    orange: utilities_1.getColors(245, 169, 0),
-};
-var brand = {
-    red: utilities_1.getColors(196, 13, 60),
-    purple: utilities_1.getColors(196, 13, 60),
-};
-var randomColors = function (luminosity, count) {
-    if (luminosity === void 0) { luminosity = 'bright'; }
-    if (count === void 0) { count = 10; }
-    return randomcolor_1.default({
-        hue: 'red',
-        format: 'hex',
-        alpha: 1,
-        luminosity: luminosity,
-        count: count
-    });
-};
 exports.default = {
     name: "abrTheme",
     background: utilities_1.getColors(247, 247, 247),
@@ -37,39 +12,84 @@ exports.default = {
     text: utilities_1.getColors(38, 36, 38),
     textOnAccent: utilities_1.getColors(233, 233, 233),
     highlight: utilities_1.getColors(196, 13, 60),
-    accents: accentColors,
-    randomColors: randomColors,
-    brand: brand,
-    shadow: utilities_1.getColors(220, 220, 220),
+    highlightSecondary: utilities_1.getColors(196, 13, 60),
+    defaultShadow: utilities_1.getColors(220, 220, 220),
+    defaultBorderRadius: '0.25rem',
+    accents: {
+        red: utilities_1.getColors(240, 45, 35),
+        green: utilities_1.getColors(28, 151, 82),
+        blue: utilities_1.getColors(0, 58, 93),
+        orange: utilities_1.getColors(245, 169, 0),
+    },
+    brandColors: {
+        red: utilities_1.getColors(196, 13, 60),
+        purple: utilities_1.getColors(196, 13, 60),
+    },
     shadows: {
-        button: '0px 2px 6px 0px ' + utilities_1.getColors(0, 0, 0).rgba(0.2),
+        button: {
+            default: '0px 0.125rem 0.375rem 0px ' + utilities_1.getColors(0, 0, 0).rgba(0.2),
+            active: '0px 0.125rem 0.375rem 0px ' + utilities_1.getColors(0, 0, 0).rgba(0),
+        },
+        card: {
+            default: '0px 1.25rem 2.5rem ' + utilities_1.getColors(0, 0, 0).rgba(0.1),
+            active: '0px 1.25rem 2.5rem ' + utilities_1.getColors(0, 0, 0).rgba(0.1)
+        },
         table: 'none',
-        card: '0px 1rem 1rem 0px ' + utilities_1.getColors(0, 0, 0).rgba(0.2),
+        widget: 'none',
+        modal: 'none',
+        textfield: 'none'
     },
     borders: {
         button: {
-            width: '1px',
-            style: 'solid'
+            borderWidth: '1px',
+            borderStyle: 'solid',
+            borderColor: utilities_1.getColors(217, 217, 217).hex,
+            borderRadius: '0.25rem'
         },
         table: {
-            width: '1px',
-            style: 'solid',
-            color: utilities_1.getColors(217, 217, 217).hex,
+            borderWidth: '1px',
+            borderStyle: 'solid',
+            borderColor: utilities_1.getColors(217, 217, 217).hex,
+            borderRadius: '0.25rem'
+        },
+        card: {
+            borderWidth: '1px',
+            borderStyle: 'solid',
+            borderColor: utilities_1.getColors(217, 217, 217).hex,
+            borderRadius: '0.5rem'
         },
         widget: {
-            width: '1px',
-            style: 'solid',
-            radius: '0.25rem',
-            color: utilities_1.getColors(217, 217, 217).hex
-        }
+            borderWidth: '1px',
+            borderStyle: 'solid',
+            borderColor: utilities_1.getColors(217, 217, 217).hex,
+            borderRadius: '0.25rem'
+        },
+        modal: {
+            borderWidth: "0px",
+            borderStyle: "solid",
+            borderColor: 'transparent',
+            borderRadius: '0.25rem'
+        },
+        textfield: {
+            borderWidth: '1px',
+            borderStyle: 'solid',
+            borderColor: utilities_1.getColors(217, 217, 217).hex,
+            borderRadius: '0.25rem'
+        },
+        checkbox: {
+            borderWidth: '1px',
+            borderStyle: 'solid',
+            borderColor: utilities_1.getColors(217, 217, 217).hex,
+            borderRadius: '0.25rem'
+        },
+        datepicker: {
+            borderWidth: '1px',
+            borderStyle: 'solid',
+            borderColor: utilities_1.getColors(217, 217, 217).hex,
+            borderRadius: '0.25rem'
+        },
     },
-    radius: {
-        default: '2px',
-        window: '18px',
-        button: '4px',
-        card: '8px',
-    },
-    gradient: {
+    gradients: {
         default: [
             utilities_1.getColors(196, 13, 60).rgba(1.0),
             utilities_1.getColors(196, 13, 60).rgba(0.8)

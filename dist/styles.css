@@ -534,12 +534,6 @@
   overflow: scroll;
   overflow-x: hidden;
   border: 1px solid;
-  -webkit-border-radius: 0 0 2px 2px;
-  -khtml-border-radius: 0 0 2px 2px;
-  -moz-border-radius: 0 0 2px 2px;
-  -ms-border-radius: 0 0 2px 2px;
-  -o-border-radius: 0 0 2px 2px;
-  border-radius: 0 0 2px 2px;
   top: 100%;
   width: 100%;
   z-index: 11;

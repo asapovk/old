@@ -19,7 +19,7 @@ var __1 = require("../..");
 exports.default = (function (props) {
     var items = props.items, activeItemIndex = props.activeItemIndex;
     var _a = react_1.useState(activeItemIndex || 0), prevIndex = _a[0], setPrevIndex = _a[1];
-    var duration = 500;
+    var duration = 300;
     var transitionStyles = {
         entering: {
             opacity: 0,
@@ -42,13 +42,15 @@ exports.default = (function (props) {
             transform: 'translateX(0)'
         },
     };
-    return (core_1.jsx(__1.Flexbox, { alignItems: 'center' }, items.map(function (_, index) {
+    return (core_1.jsx(__1.Flexbox, { alignItems: 'center' }, items.map(function (item, index) {
         var isActive = index === activeItemIndex;
-        return (core_1.jsx(react_transition_group_1.Transition, { key: index, timeout: {
-                enter: duration / 5,
+        if (!item.component)
+            return null;
+        return (core_1.jsx(react_transition_group_1.CSSTransition, { key: index, timeout: {
+                enter: 0,
                 exit: duration
             }, in: isActive, onExit: function () { return setPrevIndex(index); }, unmountOnExit: true }, function (state) {
-            return (core_1.jsx("div", { css: core_1.css(__assign({ transition: "all " + duration + "ms ease-in-out", opacity: 0, position: 'absolute', willChange: 'transform', fontSize: '10rem', padding: '10rem' }, transitionStyles[state])) }, index));
+            return (core_1.jsx("div", { css: core_1.css(__assign({ transition: "all " + duration + "ms ease-in-out", willChange: 'transform' }, transitionStyles[state])) }, item.component));
         }));
     })));
 });

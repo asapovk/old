@@ -15,14 +15,13 @@ var core_1 = require("@emotion/core");
 var hooks_1 = require("../../hooks");
 exports.default = (function (visible, position, targetCoord, popupRef) {
     var theme = hooks_1.useTheme().theme;
-    var typography = hooks_1.useTypography();
     var popupHeight = popupRef.current && popupRef.current.offsetHeight || 0;
     var popupWidth = popupRef.current && popupRef.current.offsetWidth || 0;
     return {
         wrapper: core_1.css({
             pointerEvents: visible ? "none" : "auto"
         }),
-        popup: core_1.css(__assign({ background: theme.interface.rgb, boxShadow: "0px 2px 4px 0px " + theme.shadow.rgb, position: "absolute", borderWidth: "0.5px", borderStyle: "solid", borderColor: theme.pale.rgb, padding: "0.5rem 1rem", color: theme.text.rgb, fontSize: ".875rem", borderRadius: "0.25rem", visibility: "hidden", opacity: 0, pointerEvents: "none", transition: "all .2s ease-in-out" }, getPosition(position, targetCoord, popupHeight, popupWidth)), visible && {
+        popup: core_1.css(__assign({ background: theme.interface.rgb, boxShadow: "0px 2px 4px 0px " + theme.defaultShadow.rgb, position: "absolute", borderWidth: "0.5px", borderStyle: "solid", borderColor: theme.pale.rgb, padding: "0.5rem 1rem", color: theme.text.rgb, fontSize: ".875rem", borderRadius: "0.25rem", visibility: "hidden", opacity: 0, pointerEvents: "none", transition: "all .2s ease-in-out" }, getPosition(position, targetCoord, popupHeight, popupWidth)), visible && {
             opacity: 1,
             visibility: "visible",
             pointerEvents: "auto"

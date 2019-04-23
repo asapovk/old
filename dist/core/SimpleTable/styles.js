@@ -19,13 +19,7 @@ var useTheme_1 = __importDefault(require("../../hooks/useTheme"));
 exports.default = (function () {
     var theme = useTheme_1.default().theme;
     return {
-        tableContainer: core_1.css({
-            position: 'relative',
-            borderRadius: theme.radius.table,
-            borderWidth: theme.borders.table.width,
-            borderStyle: theme.borders.table.style,
-            borderColor: theme.borders.table.color,
-        }),
+        tableContainer: core_1.css(__assign({ position: 'relative' }, theme.borders.table)),
         rowContainer: function (_a) {
             var header = _a.header, hideHeaders = _a.hideHeaders;
             return core_1.css({
@@ -33,8 +27,8 @@ exports.default = (function () {
                 transition: 'all .25s ease',
                 flex: 1,
                 borderWidth: '1px 0 0 0',
-                borderStyle: theme.borders.table.style,
-                borderColor: theme.borders.table.color
+                borderStyle: theme.borders.table.borderStyle,
+                borderColor: theme.borders.table.borderColor
             }, header && {
                 borderWidth: 0,
                 position: 'sticky',
@@ -61,8 +55,8 @@ exports.default = (function () {
                 fontSize: '0.875rem',
                 alignItems: 'center',
                 borderWidth: '1px 0 0 0',
-                borderStyle: theme.borders.table.style,
-                borderColor: theme.borders.table.color,
+                borderStyle: theme.borders.table.borderStyle,
+                borderColor: theme.borders.table.borderColor,
                 "&:first-of-type": {
                     borderWidth: 0,
                 }
@@ -77,7 +71,7 @@ exports.default = (function () {
                 flexBasis: width,
                 flexShrink: 0
             }
-            : { flex: 1 }, __assign({ display: 'flex', padding: '1.25rem', overflow: 'hidden', borderColor: theme.borders.table.color, borderStyle: theme.borders.table.style, justifyContent: columnAlignment || 'flex-start', alignItems: 'center' }, getBorders(borders))); },
+            : { flex: 1 }, __assign({ display: 'flex', padding: '1.25rem', overflow: 'hidden', borderColor: theme.borders.table.borderColor, borderStyle: theme.borders.table.borderStyle, justifyContent: columnAlignment || 'flex-start', alignItems: 'center' }, getBorders(borders))); },
         actionCell: core_1.css({
             flexBasis: '1rem',
             flexShrink: 0,
@@ -99,9 +93,6 @@ exports.default = (function () {
         expandRow: function (active) { return core_1.css({
             padding: '1.25rem',
             transition: 'all 0.2s ease-in-out',
-            // borderWidth: '1px 0 0 0',
-            // borderStyle: theme.borders.table.style,
-            // borderColor: theme.borders.table.color,
             backgroundColor: theme.background2.hex,
             display: 'none'
         }, active && {
@@ -109,12 +100,7 @@ exports.default = (function () {
         }); },
         groupContainer: function (_a) {
             var hideHeaders = _a.hideHeaders;
-            console.log(hideHeaders);
-            return core_1.css({
-            // borderWidth: '1px 0 0 0',
-            // borderStyle: theme.borders.table.style,
-            // borderColor: theme.borders.table.color,
-            }, hideHeaders && {
+            return core_1.css({}, hideHeaders && {
                 ":first-of-type": {
                     borderWidth: 0
                 }
@@ -130,9 +116,6 @@ exports.default = (function () {
                 position: 'sticky',
                 top: hideHeaders ? 0 : '4rem',
                 zIndex: 1
-                // borderWidth: '1px 0 0 0',
-                // borderStyle: theme.borders.table.style,
-                // borderColor: theme.borders.table.color,
             });
         },
         groupTitle: core_1.css({
@@ -151,28 +134,9 @@ exports.default = (function () {
             alignItems: 'center',
             justifyContent: 'center',
             padding: '1.25rem',
-            // borderColor: theme.borders.table.color,
-            // borderStyle: theme.borders.table.style,
-            // borderWidth: '1px 0 0 0',
             userSelect: 'none'
         }),
-        paginationButton: function (active) { return core_1.css({
-            boxSizing: 'border-box',
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            overflow: 'hidden',
-            borderColor: theme.borders.table.color,
-            borderStyle: theme.borders.table.style,
-            borderWidth: '1px',
-            borderRadius: '0.25rem',
-            width: '2rem',
-            height: '2rem',
-            margin: '0 0.25rem',
-            cursor: 'pointer',
-            color: theme.lowlight.hex,
-            transition: 'all .25s ease-in-out'
-        }, active && {
+        paginationButton: function (active) { return core_1.css(__assign({ boxSizing: 'border-box', display: 'flex', justifyContent: 'center', alignItems: 'center', overflow: 'hidden', width: '2rem', height: '2rem', margin: '0 0.25rem', cursor: 'pointer', color: theme.lowlight.hex, transition: 'all .25s ease-in-out' }, theme.borders.table), active && {
             borderColor: theme.highlight.hex,
             color: theme.highlight.hex
         }); },

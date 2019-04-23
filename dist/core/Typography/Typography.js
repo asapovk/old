@@ -41,7 +41,9 @@ var Typography = react_1.forwardRef(function (props, ref) {
             }, props.bold && {
                 fontWeight: 'bold'
             }, props.link && {
-                color: theme.highlight.rgb,
+                color: props.color
+                    ? theme[props.color].hex
+                    : theme.highlight.rgb,
                 cursor: 'pointer'
             }, props.ellipsis && {
                 whiteSpace: 'nowrap',
