@@ -55,7 +55,9 @@ const Typography = forwardRef((props: Types.Props, ref) => {
                     fontWeight: 'bold'
                 },
                 props.link && {
-                    color: theme.highlight.rgb,
+                    color: props.color
+                        ? theme[props.color].hex
+                        : theme.highlight.rgb,
                     cursor: 'pointer'
                 },
                 props.ellipsis && {

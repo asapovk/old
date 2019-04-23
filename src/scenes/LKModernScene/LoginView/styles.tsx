@@ -1,5 +1,5 @@
 import { css } from '@emotion/core'
-import { useTheme, useTypography } from '../../../../hooks';
+import { useTheme, useTypography } from '../../../hooks';
 
 export default () => {
     const theme = useTheme().theme
@@ -18,7 +18,6 @@ export default () => {
             minHeight: '100%',
             padding: '2.5rem 4rem',
             boxSizing: 'border-box',
-            justifyContent: 'space-between'
         }),
 
         background: css({

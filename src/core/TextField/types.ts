@@ -30,6 +30,7 @@ declare namespace TextFieldTypes {
         placeholder?: string
         floatingLabel?: string
         mask?: string
+        tabIndex?: number
     }
 
     export type Type =

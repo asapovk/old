@@ -1,7 +1,8 @@
 import { css } from "@emotion/core";
 import useTheme from "../../hooks/useTheme";
+import { DecorationTypes } from "./types";
 
-export default (clickable: boolean) => {
+export default (clickable: boolean, decoration?: DecorationTypes) => {
 	const theme = useTheme().theme;
 
 	return {
@@ -16,7 +17,8 @@ export default (clickable: boolean) => {
 			transition: "all .2s ease",
 			userSelect: "none",
 			boxShadow: theme.shadows.widget,
-			...theme.borders.widget
+			...theme.borders.widget,
+
 		}, clickable && {
 			"&:hover": {
 				transform: "scale(1.05)"
@@ -24,6 +26,8 @@ export default (clickable: boolean) => {
 			"&:active": {
 				transform: "scale(1.03)"
 			}
+		}, decoration && {
+			...getDecorations(decoration)
 		}),
 
 		title: css({
@@ -52,3 +56,25 @@ export default (clickable: boolean) => {
 		})
 	};
 };
+
+
+const getDecorations = (decoration: DecorationTypes) => {
+	const theme = useTheme().theme;
+
+	switch (decoration) {
+		case 'border-bottom':
+			return {
+				borderWidth: `0 0 ${theme.borders.widget.borderWidth} 0`,
+				borderRadius: '0',
+			};
+		case 'borderless':
+			return {
+				border: 'none'
+			};
+		case 'none':
+		default:
+			return {
+				padding: 0
+			};
+	}
+}

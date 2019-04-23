@@ -38,7 +38,7 @@ export default (props: { items: TabsTypes.MenuItemProps[], activeItemIndex: numb
             {items.map((item, index) => {
                 const isActive = index === activeItemIndex;
 
-                if (!item.content) return null;
+                if (!item.component) return null;
 
                 return (
                     <CSSTransition
@@ -59,7 +59,7 @@ export default (props: { items: TabsTypes.MenuItemProps[], activeItemIndex: numb
                                     ...transitionStyles[state]
                                 })}
                                 >
-                                    {state}
+                                    {item.component}
                                 </div>
                             )
                         }}

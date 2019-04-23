@@ -11,13 +11,11 @@ export default (props: TabsTypes.Props) => {
     const [activeItemIndex, setActiveItemIndex] = useState(activeMenuItem || 0);
 
     return (
-        <Flexbox column>
+        <Flexbox column flex={1}>
             <Menu items={menuItems} activeItemIndex={activeItemIndex} onItemClick={setActiveItemIndex} />
-            {
-                withoutRouter
-                    ? { children }
-                    : (<Content items={menuItems} activeItemIndex={activeItemIndex} />)
-            }
+            {withoutRouter
+                ? { children }
+                : (<Content items={menuItems} activeItemIndex={activeItemIndex} />)}
         </Flexbox>
     )
 }

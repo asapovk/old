@@ -37,6 +37,7 @@ export default forwardRef((props: Types.FieldProps, ref) => {
                 css: props.styles.field,
                 ref: ref,
                 type: props.type,
+                tabIndex: props.tabIndex
             }
         )
     }
@@ -48,7 +49,7 @@ export default forwardRef((props: Types.FieldProps, ref) => {
                 ? 'textarea'
                 : 'input',
             {
-                onFocus: props.onFocus,
+                onFocus: (e) => props.onFocus && props.onFocus(e),
                 onBlur: onBlur,
                 // defaultValue: props.defaultValue,
                 value: props.value,
@@ -59,6 +60,7 @@ export default forwardRef((props: Types.FieldProps, ref) => {
                 css: props.styles.field,
                 ref: ref,
                 type: props.type,
+                tabIndex: props.tabIndex,
                 ...props.multiline
                     ? props.singlerow && {
                         onKeyDown: (event: React.KeyboardEvent<HTMLInputElement>) => {

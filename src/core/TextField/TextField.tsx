@@ -46,12 +46,12 @@ export default forwardRef((props: Types.Props, ref) => {
                     multiline={props.multiline}
                     mask={props.mask}
                     onFocus={(event) => {
-                        props.onFocus && props.onFocus(event);
                         setFocused(true);
+                        props.onFocus && props.onFocus(event);
                     }}
                     onBlur={(event) => {
-                        props.onBlur && props.onBlur(event);
                         setFocused(false);
+                        props.onBlur && props.onBlur(event);
                     }}
                     onChange={onChange}
                     onClick={(e) => {
@@ -64,6 +64,7 @@ export default forwardRef((props: Types.Props, ref) => {
                     type={props.type}
                     singlerow={props.singlerow}
                     value={value}
+                    tabIndex={props.tabIndex}
                 />
                 {props.loading
                     ? <Spin><Icon css={styles.icon()} type='spin' /></Spin>

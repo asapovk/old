@@ -1,4 +1,5 @@
-import { IconTypes } from '../types';
+
+export type DecorationTypes = 'border-bottom' | 'borderless' | 'none';
 
 declare namespace WidgetTypes {
     export interface WidgetProps {
@@ -9,6 +10,7 @@ declare namespace WidgetTypes {
         style?: any
         title?: string
         children?: any
+        decoration?: DecorationTypes
     }
 }
 

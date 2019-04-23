@@ -22,7 +22,7 @@ declare namespace TabsTypes {
     export interface MenuItemProps {
         title: string
         value: string | number
-        content?: ReactNode
+        component?: ReactNode
     }
 
     export interface ContentProps {
