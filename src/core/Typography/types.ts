@@ -25,7 +25,7 @@ declare namespace TypographyTypes {
 		| "textOnAccent"
 		| "lowlight"
 		| "light"
-		| 'highlightSecondary';
+		| "highlightSecondary";
 		quotes?: boolean;
 		ellipsis?: boolean;
 		background?: "text" | "highlight" | "pale" | "textOnAccent" | "lowlight";
@@ -73,7 +73,7 @@ declare namespace TypographyTypes {
 		| "textOnAccent"
 		| "lowlight"
 		| "light"
-		| 'hightlightSecondary'
+		| "hightlightSecondary"
 	}
 
 	type Menu = {

@@ -1,11 +1,13 @@
-import React from 'react';
-import { Spinner } from '../../../src';
+/** @jsx jsx */
+import { css, jsx } from '@emotion/core';
+import { Spinner, Flexbox } from '../../../src';
 import '../../../src/styles/scss/main.scss';
+import { ThemeInterface } from '../../../src/styles';
 
-export default class Story extends React.Component {
-    render() {
-        return (
-            <Spinner loadingText='Загружаем что-то...' spinning center />
-        )
-    }
+export default () => {
+    return (
+        <Flexbox flex={1} p={20} css={(theme: ThemeInterface) => css({ widht: '100%', height: '100%', background: theme.highlight.hex })}>
+            <Spinner color='textOnAccent' loadingText='Загружаем что-то...' spinning center />
+        </Flexbox>
+    )
 }

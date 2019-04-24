@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core';
-import { forwardRef, useState } from 'react';
+import { forwardRef, useState, Fragment } from 'react';
 import { Flexbox, Icon, Spin } from '..';
 import Field from './Field';
 import createStyles from './styles';
@@ -26,6 +26,14 @@ export default forwardRef((props: Types.Props, ref) => {
         floatingLabel: props.floatingLabel,
         leftIcon: props.leftIcon
     });
+
+    // const RightIcon = () => {
+    //     const [type, setType] = useState(props.type);
+    //     if (type === 'password') {
+    //         return <Icon type='' />
+    //     }
+    //     return ()
+    // }
 
     return (
         <Flexbox css={styles.container} className={props.className} style={props.style} flexDirection='column'>

@@ -1,13 +1,12 @@
 /** @jsx jsx */
-import { jsx, css } from '@emotion/core';
-import { Fragment } from 'react';
-import createStyles from './styles';
-import Types from './types';
+import { css, jsx } from '@emotion/core';
 import { C2 } from '../..';
 import { Flexbox } from '../Flexbox';
+import createStyles from './styles';
+import Types from './types';
 
 export default (props: Types.ISpinner) => {
-    const { spinning, center, className, dark, children, style, defaultElement } = props;
+    const { spinning, center, className, dark, children, style, defaultElement, color, loadingText } = props;
     const styles = createStyles(dark);
 
     if (!spinning) {
@@ -19,12 +18,12 @@ export default (props: Types.ISpinner) => {
             {defaultElement
                 ? <Spin {...props} />
                 : <Logo {...props} />}
-            {props.loadingText && (
+            {loadingText && (
                 <C2
                     bold
-                    color="lowlight"
+                    color={color || "lowlight"}
                     css={css({ marginTop: "2.5rem" })}
-                    children={props.loadingText}
+                    children={loadingText}
                 />
             )}
         </Flexbox>
@@ -42,7 +41,7 @@ export default (props: Types.ISpinner) => {
 }
 
 const Spin = (props: Types.ISpinner) => {
-    const styles = createStyles();
+    const styles = createStyles(props.dark, props.color);
     const startDelay = 1.1;
 
     return (
@@ -61,7 +60,7 @@ const Spin = (props: Types.ISpinner) => {
 }
 
 const Logo = (props: Types.ISpinner) => {
-    const styles = createStyles();
+    const styles = createStyles(props.dark, props.color);
 
     return (
         <div css={styles.container} className={props.className}>
