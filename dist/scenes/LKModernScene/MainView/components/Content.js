@@ -36,8 +36,8 @@ exports.default = (function (props) {
             core_1.jsx(core_2.Widget, null))); } }));
 });
 var menuElements = [
-    { title: 'Счет', value: 0, component: core_1.jsx(core_2.Widget, { children: "\u0421\u0447\u0435\u0442" }) },
-    { title: 'История', value: 1, component: core_1.jsx(core_2.Widget, { children: "\u0418\u0441\u0442\u043E\u0440\u0438\u044F" }) },
-    { title: 'Поддержка', value: 2, component: core_1.jsx(core_2.Widget, { children: "\u041F\u043E\u0434\u0434\u0435\u0440\u0436\u043A\u0430" }) },
-    { title: 'Настройки', value: 3, component: core_1.jsx(core_2.Widget, { children: "\u041D\u0430\u0441\u0442\u0440\u043E\u0439\u043A\u0438" }) }
+    { title: 'Счет', path: "/", component: core_1.jsx(core_2.Widget, { children: "\u0421\u0447\u0435\u0442" }) },
+    { title: 'История', path: "/", component: core_1.jsx(core_2.Widget, { children: "\u0418\u0441\u0442\u043E\u0440\u0438\u044F" }) },
+    { title: 'Поддержка', path: "/", component: core_1.jsx(core_2.Widget, { children: "\u041F\u043E\u0434\u0434\u0435\u0440\u0436\u043A\u0430" }) },
+    { title: 'Настройки', path: "/", component: core_1.jsx(core_2.Widget, { children: "\u041D\u0430\u0441\u0442\u0440\u043E\u0439\u043A\u0438" }) }
 ];

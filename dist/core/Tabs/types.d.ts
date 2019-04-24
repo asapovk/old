@@ -1,4 +1,4 @@
-import { CSSProperties, Dispatch, SetStateAction, ReactNode } from "react";
+import { CSSProperties, Dispatch, SetStateAction } from "react";
 declare namespace TabsTypes {
     interface Props {
         style?: CSSProperties;
@@ -7,6 +7,7 @@ declare namespace TabsTypes {
         bp?: number[];
         items: ItemProps[];
         activeItem: number;
+        onClick?: (item: ItemProps, index: number, path?: string) => void;
     }
     interface MenuProps {
         items: TabsTypes.ItemProps[];
@@ -15,9 +16,8 @@ declare namespace TabsTypes {
     }
     interface ItemProps {
         title: string;
-        value: string | number;
-        component?: ReactNode;
-        onClick?: () => void;
+        path?: string;
+        component?: any;
     }
     interface ContentProps {
     }
