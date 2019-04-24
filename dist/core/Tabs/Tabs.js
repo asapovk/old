@@ -15,6 +15,6 @@ exports.default = (function (props) {
     return (core_1.jsx(__1.Flexbox, { column: true, flex: 1 },
         core_1.jsx(Menu_1.default, { items: menuItems, activeItemIndex: activeItemIndex, onItemClick: setActiveItemIndex }),
         withoutRouter
-            ? { children: children }
+            ? children
             : (core_1.jsx(Content_1.default, { items: menuItems, activeItemIndex: activeItemIndex }))));
 });
