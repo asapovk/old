@@ -38,7 +38,8 @@ export default (props: { active: boolean }) => {
                         flex: 1,
                         ...transitionStyles[state]
                     })}>
-                        <Tabs children={<Widget />} menuItems={menuElements} activeMenuItem={0} />
+                        <Tabs items={menuElements} activeItem={0} />
+                        <Widget />
                     </Flexbox>
                 )
             }

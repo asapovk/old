@@ -13,9 +13,7 @@ class TabsStory extends React.Component {
         return (
             <Flexbox p={50} column flex={1}>
                 <div style={{ height: '100px', width: '100%' }}></div>
-                <Tabs withoutRouter={true} menuItems={menuElements} activeMenuItem={0}>
-                    <div>123</div>
-                </Tabs>
+                <Tabs items={menuElements} activeItem={0} />
             </Flexbox>
         )
     }

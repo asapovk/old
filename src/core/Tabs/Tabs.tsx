@@ -2,20 +2,35 @@
 import { jsx } from '@emotion/core';
 import { useState } from 'react';
 import { Flexbox } from '..';
-import Content from './components/Content';
-import Menu from './components/Menu';
 import TabsTypes from './types';
+import createStyles from './styles';
 
 export default (props: TabsTypes.Props) => {
-    const { activeMenuItem, menuItems, withoutRouter, children } = props;
-    const [activeItemIndex, setActiveItemIndex] = useState(activeMenuItem || 0);
+    const { activeItem, items, className } = props;
+    const [activeItemIndex, setActiveItemIndex] = useState(activeItem || 0);
+    const { menu } = createStyles();
 
     return (
-        <Flexbox column flex={1}>
-            <Menu items={menuItems} activeItemIndex={activeItemIndex} onItemClick={setActiveItemIndex} />
-            {withoutRouter
-                ? children
-                : (<Content items={menuItems} activeItemIndex={activeItemIndex} />)}
+        <Flexbox className={className} alignItems='center' mb='2rem'>
+            {items.map((item, index) => {
+                const isActive = index === activeItemIndex;
+                return (
+                    <Flexbox
+                        key={index}
+                        css={menu.elementContainer}
+                        onClick={() => {
+                            item.onClick && item.onClick();
+                            setActiveItemIndex(index);
+                        }}
+                        children={(
+                            <Flexbox
+                                css={menu.itemContent({ isActive })}
+                                children={item.title}
+                            />
+                        )}
+                    />
+                )
+            })}
         </Flexbox>
     )
 }

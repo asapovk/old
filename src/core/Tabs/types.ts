@@ -8,18 +8,17 @@ declare namespace TabsTypes {
         children?: any
         bp?: number[]
 
-        menuItems: MenuItemProps[]
-        withoutRouter?: boolean
-        activeMenuItem: number
+        items: ItemProps[]
+        activeItem: number
     }
 
     export interface MenuProps {
-        items: TabsTypes.MenuItemProps[]
-        activeItemIndex: number
+        items: TabsTypes.ItemProps[]
+        activeItem: number
         onItemClick: Dispatch<SetStateAction<number>>
     }
 
-    export interface MenuItemProps {
+    export interface ItemProps {
         title: string
         value: string | number
         component?: ReactNode

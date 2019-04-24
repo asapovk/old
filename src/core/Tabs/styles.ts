@@ -11,6 +11,7 @@ export default (bp?: number[]) => {
 	return {
 		menu: {
 			elementContainer: css({
+				userSelect: 'none',
 				":not(:last-child)": {
 					":after": {
 						content: `'•'`,
