@@ -14,7 +14,7 @@ export default (props: TabsTypes.Props) => {
         <Flexbox column flex={1}>
             <Menu items={menuItems} activeItemIndex={activeItemIndex} onItemClick={setActiveItemIndex} />
             {withoutRouter
-                ? { children }
+                ? children
                 : (<Content items={menuItems} activeItemIndex={activeItemIndex} />)}
         </Flexbox>
     )
