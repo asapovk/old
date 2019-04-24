@@ -27,6 +27,13 @@ exports.default = react_1.forwardRef(function (props, ref) {
         floatingLabel: props.floatingLabel,
         leftIcon: props.leftIcon
     });
+    // const RightIcon = () => {
+    //     const [type, setType] = useState(props.type);
+    //     if (type === 'password') {
+    //         return <Icon type='' />
+    //     }
+    //     return ()
+    // }
     return (core_1.jsx(__1.Flexbox, { css: styles.container, className: props.className, style: props.style, flexDirection: 'column' },
         props.label && (core_1.jsx("span", { css: styles.label, children: props.label })),
         core_1.jsx(__1.Flexbox, { css: styles.wrapper, onClick: props.onClick, alignItems: 'center' },
