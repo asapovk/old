@@ -7,14 +7,16 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@emotion/core");
 var react_1 = require("react");
 var __1 = require("..");
-var Content_1 = __importDefault(require("./components/Content"));
-var Menu_1 = __importDefault(require("./components/Menu"));
+var styles_1 = __importDefault(require("./styles"));
 exports.default = (function (props) {
-    var activeMenuItem = props.activeMenuItem, menuItems = props.menuItems, withoutRouter = props.withoutRouter, children = props.children;
-    var _a = react_1.useState(activeMenuItem || 0), activeItemIndex = _a[0], setActiveItemIndex = _a[1];
-    return (core_1.jsx(__1.Flexbox, { column: true, flex: 1 },
-        core_1.jsx(Menu_1.default, { items: menuItems, activeItemIndex: activeItemIndex, onItemClick: setActiveItemIndex }),
-        withoutRouter
-            ? children
-            : (core_1.jsx(Content_1.default, { items: menuItems, activeItemIndex: activeItemIndex }))));
+    var activeItem = props.activeItem, items = props.items, className = props.className;
+    var _a = react_1.useState(activeItem || 0), activeItemIndex = _a[0], setActiveItemIndex = _a[1];
+    var menu = styles_1.default().menu;
+    return (core_1.jsx(__1.Flexbox, { className: className, alignItems: 'center', mb: '2rem' }, items.map(function (item, index) {
+        var isActive = index === activeItemIndex;
+        return (core_1.jsx(__1.Flexbox, { key: index, css: menu.elementContainer, onClick: function () {
+                item.onClick && item.onClick();
+                setActiveItemIndex(index);
+            }, children: (core_1.jsx(__1.Flexbox, { css: menu.itemContent({ isActive: isActive }), children: item.title })) }));
+    })));
 });

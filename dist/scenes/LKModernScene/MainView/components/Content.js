@@ -32,7 +32,8 @@ var transitionStyles = {
 };
 exports.default = (function (props) {
     return (core_1.jsx(react_transition_group_1.CSSTransition, { timeout: duration, in: props.active, appear: true, children: function (state) { return (core_1.jsx(core_2.Flexbox, { css: function (theme) { return core_1.css(__assign({ backgroundColor: theme.background2.hex, zIndex: 1, padding: '3rem 4rem', transition: "transform " + duration + "ms ease-out, opacity " + duration * 2 + "ms ease-out", willChange: 'transform, opacity', flex: 1 }, transitionStyles[state])); } },
-            core_1.jsx(core_2.Tabs, { children: core_1.jsx(core_2.Widget, null), menuItems: menuElements, activeMenuItem: 0 }))); } }));
+            core_1.jsx(core_2.Tabs, { items: menuElements, activeItem: 0 }),
+            core_1.jsx(core_2.Widget, null))); } }));
 });
 var menuElements = [
     { title: 'Счет', value: 0, component: core_1.jsx(core_2.Widget, { children: "\u0421\u0447\u0435\u0442" }) },

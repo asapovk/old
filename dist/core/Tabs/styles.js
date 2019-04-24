@@ -12,6 +12,7 @@ exports.default = (function (bp) {
     return {
         menu: {
             elementContainer: core_1.css({
+                userSelect: 'none',
                 ":not(:last-child)": {
                     ":after": {
                         content: "'\u2022'",

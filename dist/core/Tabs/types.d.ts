@@ -5,19 +5,19 @@ declare namespace TabsTypes {
         className?: string;
         children?: any;
         bp?: number[];
-        menuItems: MenuItemProps[];
-        withoutRouter?: boolean;
-        activeMenuItem: number;
+        items: ItemProps[];
+        activeItem: number;
     }
     interface MenuProps {
-        items: TabsTypes.MenuItemProps[];
-        activeItemIndex: number;
+        items: TabsTypes.ItemProps[];
+        activeItem: number;
         onItemClick: Dispatch<SetStateAction<number>>;
     }
-    interface MenuItemProps {
+    interface ItemProps {
         title: string;
         value: string | number;
         component?: ReactNode;
+        onClick?: () => void;
     }
     interface ContentProps {
     }
