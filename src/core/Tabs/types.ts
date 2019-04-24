@@ -23,6 +23,7 @@ declare namespace TabsTypes {
         title: string
         value: string | number
         component?: ReactNode
+        onClick?: () => void
     }
 
     export interface ContentProps {

@@ -16,7 +16,10 @@ export default (props: TabsTypes.MenuProps) => {
                     <Flexbox
                         key={index}
                         css={menu.elementContainer}
-                        onClick={() => onItemClick(index)}
+                        onClick={() => {
+                            item.onClick && item.onClick();
+                            onItemClick(index);
+                        }}
                         children={(
                             <Flexbox
                                 css={menu.itemContent({ isActive })}
