@@ -10,11 +10,11 @@ export default (props: TabsTypes.Props) => {
 
     return (
         <Flexbox className={className} alignItems='center' mb='2rem'>
-            {items.map((item, index) => {
-                const isActive = index === activeItem;
+            {items.map((item) => {
+                const isActive = item.value === activeItem;
                 return (
                     <Flexbox
-                        key={index}
+                        key={item.value}
                         css={menu.elementContainer}
                         onClick={() => {
                             item.onClick && item.onClick();
