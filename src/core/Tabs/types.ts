@@ -10,6 +10,7 @@ declare namespace TabsTypes {
 
         items: ItemProps[]
         activeItem: number
+        onClick?: (item: ItemProps, index: number, path?: string, ) => void
     }
 
     export interface MenuProps {
@@ -20,9 +21,8 @@ declare namespace TabsTypes {
 
     export interface ItemProps {
         title: string
-        value: string | number
-        component?: ReactNode
-        onClick?: () => void
+        path?: string
+        component?: any
     }
 
     export interface ContentProps {

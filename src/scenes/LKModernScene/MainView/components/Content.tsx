@@ -48,8 +48,8 @@ export default (props: { active: boolean }) => {
 }
 
 const menuElements = [
-    { title: 'Счет', value: 0, component: <Widget children="Счет" /> },
-    { title: 'История', value: 1, component: <Widget children="История" /> },
-    { title: 'Поддержка', value: 2, component: <Widget children="Поддержка" /> },
-    { title: 'Настройки', value: 3, component: <Widget children="Настройки" /> }
+    { title: 'Счет', path: "/", component: <Widget children="Счет" /> },
+    { title: 'История', path: "/", component: <Widget children="История" /> },
+    { title: 'Поддержка', path: "/", component: <Widget children="Поддержка" /> },
+    { title: 'Настройки', path: "/", component: <Widget children="Настройки" /> }
 ];

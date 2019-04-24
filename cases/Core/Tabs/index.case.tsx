@@ -2,10 +2,10 @@ import React from 'react';
 import { Flexbox, Tabs } from '../../../src';
 
 const menuElements = [
-    { title: 'Счет', value: 0 },
-    { title: 'История', value: 1 },
-    { title: 'Поддержка', value: 2 },
-    { title: 'Настройки', value: 3 }
+    { title: 'Счет', path: "/", },
+    { title: 'История', path: "/", },
+    { title: 'Поддержка', path: "/", },
+    { title: 'Настройки', path: "/", }
 ];
 
 class TabsStory extends React.Component {

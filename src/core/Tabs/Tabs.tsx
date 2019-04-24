@@ -5,19 +5,19 @@ import createStyles from './styles';
 import TabsTypes from './types';
 
 export default (props: TabsTypes.Props) => {
-    const { activeItem, items, className } = props;
+    const { activeItem, items, className, onClick } = props;
     const { menu } = createStyles();
 
     return (
         <Flexbox className={className} alignItems='center' mb='2rem'>
-            {items.map((item) => {
-                const isActive = item.value === activeItem;
+            {items.map((item, index) => {
+                const isActive = index === activeItem;
                 return (
                     <Flexbox
-                        key={item.value}
+                        key={item.path}
                         css={menu.elementContainer}
                         onClick={() => {
-                            item.onClick && item.onClick();
+                            onClick && onClick(item, index, item.path);
                         }}
                         children={(
                             <Flexbox
