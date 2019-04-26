@@ -9,7 +9,7 @@ export default (active?: boolean) => {
 			background: `linear-gradient(${theme.gradients.card[0]}, ${theme.gradients.card[1]})`,
 			boxShadow: theme.shadows.card.default,
 			userSelect: "none",
-			padding: "1.25rem",
+			padding: "1rem",
 			height: "9rem",
 			minWidth: "15rem",
 			// marginBottom: '1.25rem',
