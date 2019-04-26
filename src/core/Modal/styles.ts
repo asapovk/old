@@ -49,11 +49,12 @@ export default (props: ModalTypes.StyleProps) => {
         }),
 
         cross: css({
-            marginTop: '0.25rem',
+            // marginTop: '0.25rem',
             marginLeft: '2rem',
             cursor: 'pointer',
             transition: 'all 0.25s',
             transform: "scale(1)",
+            opacity: .7,
             ':hover': {
                 transform: "scale(1.1)"
             },
