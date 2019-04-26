@@ -69,11 +69,15 @@ declare const _default: () => {
             fontSize: string;
             lineHeight: string;
             fontWeight: number;
+            letterSpacint: string;
+            wordSpacing: string;
         };
         2: {
             fontSize: string;
             lineHeight: string;
             fontWeight: number;
+            letterSpacint: string;
+            wordSpacing: string;
         };
         3: {
             fontSize: string;

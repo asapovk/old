@@ -70,7 +70,7 @@ export default () => {
                 fontSize: '2rem',
                 lineHeight: '3rem',
                 fontWeight: 700,
-                letterSpacint: '-1px',
+                letterSpacing: '-1px',
                 wordSpacing: '1px'
             },
             2: {
