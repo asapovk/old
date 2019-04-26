@@ -11,7 +11,7 @@ exports.default = {
     lowlight: utilities_1.getColors(119, 119, 119),
     text: utilities_1.getColors(0, 0, 0),
     textOnAccent: utilities_1.getColors(255, 255, 255),
-    highlight: utilities_1.getColors(220, 0, 109),
+    highlight: utilities_1.getColors(207, 0, 119),
     highlightSecondary: utilities_1.getColors(107, 54, 143),
     disabled: utilities_1.getColors(221, 221, 221),
     defaultShadow: utilities_1.getColors(220, 220, 220),
