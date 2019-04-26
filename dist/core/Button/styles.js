@@ -22,17 +22,21 @@ var core_1 = require("@emotion/core");
 var useTheme_1 = __importDefault(require("../../hooks/useTheme"));
 var useTypography_1 = __importDefault(require("../../hooks/useTypography"));
 exports.default = (function (props) {
+    var theme = useTheme_1.default().theme;
     var decoration = props.decoration, color = props.color, size = props.size, disabled = props.disabled, loading = props.loading, labelSize = props.labelSize, labelCase = props.labelCase, labelWight = props.labelWight;
-    return core_1.css(__assign({}, getDecoration(decoration, color, size, labelSize), { fontWeight: 'bold', position: 'relative', outline: 'none', cursor: 'pointer', userSelect: 'none' }), labelWight && {
+    return core_1.css(__assign({}, getDecoration(decoration, color, size, labelSize, disabled), { fontWeight: 'bold', position: 'relative', outline: 'none', cursor: 'pointer', userSelect: 'none' }), labelWight && {
         fontWeight: labelWight
     }, labelCase && {
         textTransform: labelCase
     }, disabled && {
-        opacity: 0.5,
+        // opacity: 0.5,
+        background: theme.disabled.hex,
+        boxShadow: 'none',
+        color: theme.textOnAccent.hex,
         cursor: 'not-allowed !important',
     }, loading && core_1.css(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n            > span:first-of-type{\n                filter: blur(1px);\n                opacity: 0.4;\n            }\n            > span:last-of-type{\n                position: absolute;\n                left: 50%;\n                margin-left: -0.5rem;\n                > svg {\n                    font-size: 1rem;\n                }\n            }\n        "], ["\n            > span:first-of-type{\n                filter: blur(1px);\n                opacity: 0.4;\n            }\n            > span:last-of-type{\n                position: absolute;\n                left: 50%;\n                margin-left: -0.5rem;\n                > svg {\n                    font-size: 1rem;\n                }\n            }\n        "]))));
 });
-function getDecoration(decoration, color, size, labelSize) {
+function getDecoration(decoration, color, size, labelSize, disabled) {
     var theme = useTheme_1.default().theme;
     var typography = useTypography_1.default();
     var height = '2rem';
@@ -146,7 +150,11 @@ function getDecoration(decoration, color, size, labelSize) {
         willChange: 'box-shadow',
         '&:active': {
             // boxShadow: 'none !important',
-            boxShadow: !decoration ? theme.shadows.button.active : 'none',
+            boxShadow: disabled
+                ? 'none'
+                : !decoration
+                    ? theme.shadows.button.active
+                    : 'none',
             border: border
         }
     };

@@ -50,6 +50,7 @@ export interface ThemeInterface {
     textOnAccent: objectColor;
     highlight: objectColor;
     highlightSecondary: objectColor;
+    disabled: objectColor;
     defaultShadow: objectColor;
     defaultBorderRadius: string;
     accents: {
