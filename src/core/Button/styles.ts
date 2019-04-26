@@ -28,7 +28,7 @@ export default (props) => {
             // opacity: 0.5,
             background: theme.disabled.hex,
             boxShadow: 'none',
-            color: theme.textOnAccent.hex,
+            color: 'rgb(163,163,163)',
             cursor: 'not-allowed !important',
         },
 

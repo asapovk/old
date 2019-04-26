@@ -13,7 +13,7 @@ export default {
     textOnAccent: getColors(233, 233, 233),
     highlight: getColors(0, 106, 255),
     highlightSecondary: getColors(0, 106, 255),
-    disabled: getColors(198, 198, 198),
+    disabled: getColors(212, 212, 212),
     defaultShadow: getColors(220, 220, 220),
     defaultBorderRadius: '0.25rem',
     accents: {
