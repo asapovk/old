@@ -39,7 +39,8 @@ export default (props: ModalTypes.StyleProps) => {
             borderRadius: center ? theme.borders.modal.borderRadius : 0,
             transition: 'all 0.5s',
             transform: visible ? 'translateY(0)' : 'translateY(-20px)',
-            boxSizing: 'border-box'
+            boxSizing: 'border-box',
+            overflow: 'hidden'
         }, (center && fullSize) && {
             width: '40rem'
         }),
