@@ -3,12 +3,12 @@ import useTheme from '../../hooks/useTheme';
 import useTypography from '../../hooks/useTypography';
 
 export default (props) => {
-
+    const theme = useTheme().theme;
     const { decoration, color, size, disabled, loading, labelSize, labelCase, labelWight } = props;
 
     return css(
         {
-            ...getDecoration(decoration, color, size, labelSize),
+            ...getDecoration(decoration, color, size, labelSize, disabled),
             fontWeight: 'bold',
             position: 'relative',
             outline: 'none',
@@ -25,7 +25,10 @@ export default (props) => {
         },
 
         disabled && {
-            opacity: 0.5,
+            // opacity: 0.5,
+            background: theme.disabled.hex,
+            boxShadow: 'none',
+            color: theme.textOnAccent.hex,
             cursor: 'not-allowed !important',
         },
 
@@ -46,7 +49,7 @@ export default (props) => {
     )
 }
 
-function getDecoration(decoration, color, size, labelSize) {
+function getDecoration(decoration, color, size, labelSize, disabled) {
 
     const theme = useTheme().theme;
     const typography = useTypography();
@@ -167,7 +170,11 @@ function getDecoration(decoration, color, size, labelSize) {
         willChange: 'box-shadow',
         '&:active': {
             // boxShadow: 'none !important',
-            boxShadow: !decoration ? theme.shadows.button.active : 'none',
+            boxShadow: disabled
+                ? 'none'
+                : !decoration
+                    ? theme.shadows.button.active
+                    : 'none',
             border
         }
     }
