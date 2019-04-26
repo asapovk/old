@@ -19,7 +19,7 @@ var useTheme_1 = __importDefault(require("../../hooks/useTheme"));
 exports.default = (function (active) {
     var theme = useTheme_1.default().theme;
     return {
-        main: core_1.css(__assign({ background: "linear-gradient(" + theme.gradients.card[0] + ", " + theme.gradients.card[1] + ")", boxShadow: theme.shadows.card.default, userSelect: "none", padding: "1.25rem", height: "9rem", minWidth: "15rem", 
+        main: core_1.css(__assign({ background: "linear-gradient(" + theme.gradients.card[0] + ", " + theme.gradients.card[1] + ")", boxShadow: theme.shadows.card.default, userSelect: "none", padding: "1rem", height: "9rem", minWidth: "15rem", 
             // marginBottom: '1.25rem',
             overflow: "hidden", willChange: "height", boxSizing: "border-box", transition: "all .3s" }, theme.borders.card), active && {
             // background: "linear-gradient(80deg," + theme.gradient.card[0] + "," + theme.gradient.card[1] + ")",
