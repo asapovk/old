@@ -69,12 +69,16 @@ export default () => {
             1: {
                 fontSize: '2rem',
                 lineHeight: '3rem',
-                fontWeight: 700
+                fontWeight: 700,
+                letterSpacint: '-1px',
+                wordSpacing: '1px'
             },
             2: {
                 fontSize: '1.5rem',
                 lineHeight: '2rem',
-                fontWeight: 700
+                fontWeight: 700,
+                letterSpacint: '-1px',
+                wordSpacing: '1px'
             },
             3: {
                 fontSize: '1.25rem',
