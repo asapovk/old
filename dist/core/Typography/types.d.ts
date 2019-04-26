@@ -16,7 +16,9 @@ declare namespace TypographyTypes {
         onClick?: (event: any) => void;
         format?: boolean | "currency" | units;
         unit?: "rub" | "volume" | "power";
+        accent?: 'red' | 'green' | 'blue' | 'orange';
         color?: "text" | "highlight" | "pale" | "textOnAccent" | "lowlight" | "light" | "highlightSecondary";
+        fractionColor?: "text" | "highlight" | "pale" | "textOnAccent" | "lowlight" | "light" | "highlightSecondary";
         quotes?: boolean;
         ellipsis?: boolean;
         background?: "text" | "highlight" | "pale" | "textOnAccent" | "lowlight";

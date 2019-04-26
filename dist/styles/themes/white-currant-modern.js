@@ -17,8 +17,8 @@ exports.default = {
     defaultShadow: utilities_1.getColors(220, 220, 220),
     defaultBorderRadius: '0.625rem',
     accents: {
-        red: utilities_1.getColors(255, 25, 25),
-        green: utilities_1.getColors(8, 191, 52),
+        red: utilities_1.getColors(188, 0, 0),
+        green: utilities_1.getColors(0, 74, 0),
         blue: utilities_1.getColors(0, 122, 255),
         orange: utilities_1.getColors(255, 149, 0)
     },

@@ -32,7 +32,11 @@ exports.default = (function (props) {
     integer = number.integer;
     return (core_1.jsx(react_1.Fragment, null,
         integer,
-        core_1.jsx("span", { css: core_1.css({ fontSize: '0.75em', opacity: .5 }) },
+        core_1.jsx("span", { css: function (theme) { return core_1.css({
+                fontSize: '0.75em',
+            }, props.fractionColor && {
+                color: theme[props.fractionColor].hex
+            }); } },
             fraction && ',' + fraction,
             '\u00a0',
             unitSymbol)));
