@@ -45,8 +45,11 @@ const Typography = forwardRef((props: Types.Props, ref) => {
                     marginBottom: props.mb,
                     textAlign: props.align
                 },
-                props.color && {
+                (!props.accent && props.color) && {
                     color: theme[props.color].rgb
+                },
+                props.accent && {
+                    color: theme.accents[props.accent].rgb
                 },
                 props.background && {
                     background: theme[props.background].rgb
@@ -86,6 +89,7 @@ const Typography = forwardRef((props: Types.Props, ref) => {
                 unit={props.unit}
                 toFixed={props.toFixed}
                 children={data}
+                fractionColor={props.fractionColor}
             />
             : data
     );

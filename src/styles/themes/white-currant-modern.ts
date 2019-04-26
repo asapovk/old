@@ -17,8 +17,8 @@ export default {
 	defaultShadow: getColors(220, 220, 220),
 	defaultBorderRadius: '0.625rem',
 	accents: {
-		red: getColors(255, 25, 25),
-		green: getColors(8, 191, 52),
+		red: getColors(188, 0, 0),
+		green: getColors(0, 74, 0),
 		blue: getColors(0, 122, 255),
 		orange: getColors(255, 149, 0)
 	},

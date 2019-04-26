@@ -18,7 +18,20 @@ declare namespace TypographyTypes {
 		onClick?: (event) => void;
 		format?: boolean | "currency" | units;
 		unit?: "rub" | "volume" | "power";
+		accent?:
+		| 'red'
+		| 'green'
+		| 'blue'
+		| 'orange';
 		color?:
+		| "text"
+		| "highlight"
+		| "pale"
+		| "textOnAccent"
+		| "lowlight"
+		| "light"
+		| "highlightSecondary";
+		fractionColor?:
 		| "text"
 		| "highlight"
 		| "pale"
