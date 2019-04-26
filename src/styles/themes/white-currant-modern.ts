@@ -11,7 +11,7 @@ export default {
 	lowlight: getColors(119, 119, 119),
 	text: getColors(0, 0, 0),
 	textOnAccent: getColors(255, 255, 255),
-	highlight: getColors(220, 0, 109),
+	highlight: getColors(207, 0, 119),
 	highlightSecondary: getColors(107, 54, 143),
 	disabled: getColors(221, 221, 221),
 	defaultShadow: getColors(220, 220, 220),
