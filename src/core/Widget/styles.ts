@@ -10,7 +10,7 @@ export default (clickable: boolean, decoration?: DecorationTypes) => {
 			position: "relative",
 			boxSizing: "border-box",
 			lineHeight: 1,
-			padding: "1rem",
+			padding: "2rem",
 			minWidth: "16rem",
 			overflow: "hidden",
 			background: theme.interface.rgb,
