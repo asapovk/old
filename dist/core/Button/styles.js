@@ -32,7 +32,7 @@ exports.default = (function (props) {
         // opacity: 0.5,
         background: theme.disabled.hex,
         boxShadow: 'none',
-        color: theme.textOnAccent.hex,
+        color: 'rgb(163,163,163)',
         cursor: 'not-allowed !important',
     }, loading && core_1.css(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n            > span:first-of-type{\n                filter: blur(1px);\n                opacity: 0.4;\n            }\n            > span:last-of-type{\n                position: absolute;\n                left: 50%;\n                margin-left: -0.5rem;\n                > svg {\n                    font-size: 1rem;\n                }\n            }\n        "], ["\n            > span:first-of-type{\n                filter: blur(1px);\n                opacity: 0.4;\n            }\n            > span:last-of-type{\n                position: absolute;\n                left: 50%;\n                margin-left: -0.5rem;\n                > svg {\n                    font-size: 1rem;\n                }\n            }\n        "]))));
 });

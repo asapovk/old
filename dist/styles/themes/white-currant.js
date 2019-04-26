@@ -13,7 +13,7 @@ exports.default = {
     textOnAccent: utilities_1.getColors(255, 255, 255),
     highlight: utilities_1.getColors(107, 54, 143),
     highlightSecondary: utilities_1.getColors(151, 34, 125),
-    disabled: utilities_1.getColors(198, 198, 198),
+    disabled: utilities_1.getColors(212, 212, 212),
     defaultShadow: utilities_1.getColors(220, 220, 220),
     defaultBorderRadius: '0.5rem',
     accents: {
