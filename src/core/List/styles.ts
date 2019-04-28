@@ -16,7 +16,7 @@ export default () => {
 
 		row: css({
 			marginBottom: '1.5rem',
-			padding: '1rem'
+			padding: '1rem 2rem'
 		}),
 
 		moreContainer: css({
