@@ -28,7 +28,7 @@ export default (props: Types.Props) => {
                 .some(udg => udg.groupId === group.value));
 
         return (
-            <Flexbox column className={className}>
+            <Flexbox flex={1} column className={className}>
                 {currentGroups.map((group, index) => (
                     <Fragment key={`${group.value}-${index}`}>
                         <Flexbox css={styles.groupTitle}>
@@ -56,7 +56,7 @@ export default (props: Types.Props) => {
     }
 
     return (
-        <Flexbox column className={className}>
+        <Flexbox flex={1} column className={className}>
             {data.map((row, index) => (
                 <Widget css={styles.row} key={`row-${index}`}>
                     {rowRender(row)}
