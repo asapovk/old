@@ -25,7 +25,7 @@ exports.default = (function (props) {
         var currentGroups = groups
             .filter(function (group) { return uniqueDataGroups_1
             .some(function (udg) { return udg.groupId === group.value; }); });
-        return (core_1.jsx(__1.Flexbox, { column: true, className: className },
+        return (core_1.jsx(__1.Flexbox, { flex: 1, column: true, className: className },
             currentGroups.map(function (group, index) { return (core_1.jsx(react_1.Fragment, { key: group.value + "-" + index },
                 core_1.jsx(__1.Flexbox, { css: styles.groupTitle },
                     core_1.jsx(__2.C1, { color: 'lowlight', children: group.title })),
@@ -34,7 +34,7 @@ exports.default = (function (props) {
                     .map(function (row, index) { return (core_1.jsx(__1.Widget, { css: styles.row, key: "row-" + index }, rowRender(row))); }))); }),
             needShowMore && (core_1.jsx(ShowMore_1.default, { moreLabel: moreLabel, lessLabel: lessLabel, minified: minified, setMinified: function () { return setMinified(!minified); } }))));
     }
-    return (core_1.jsx(__1.Flexbox, { column: true, className: className },
+    return (core_1.jsx(__1.Flexbox, { flex: 1, column: true, className: className },
         data.map(function (row, index) { return (core_1.jsx(__1.Widget, { css: styles.row, key: "row-" + index }, rowRender(row))); }),
         needShowMore && (core_1.jsx(ShowMore_1.default, { moreLabel: moreLabel, lessLabel: lessLabel, minified: minified, setMinified: function () { return setMinified(!minified); } }))));
 });
