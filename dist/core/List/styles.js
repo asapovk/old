@@ -18,7 +18,7 @@ exports.default = (function () {
         }),
         row: core_1.css({
             marginBottom: '1.5rem',
-            padding: '1rem'
+            padding: '1rem 2rem'
         }),
         moreContainer: core_1.css({
             userSelect: 'none'
