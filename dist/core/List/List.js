@@ -28,7 +28,7 @@ exports.default = (function (props) {
         return (core_1.jsx(__1.Flexbox, { flex: 1, column: true, className: className },
             currentGroups.map(function (group, index) { return (core_1.jsx(react_1.Fragment, { key: group.value + "-" + index },
                 core_1.jsx(__1.Flexbox, { css: styles.groupTitle },
-                    core_1.jsx(__2.C1, { color: 'lowlight', children: group.title })),
+                    core_1.jsx(__2.C1, { ellipsis: true, color: 'lowlight', children: group.title })),
                 data
                     .filter(function (row) { return row.groupId === group.value; })
                     .map(function (row, index) { return (core_1.jsx(__1.Widget, { css: styles.row, key: "row-" + index }, rowRender(row))); }))); }),
