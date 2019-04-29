@@ -13,7 +13,11 @@ var styles_1 = __importDefault(require("./styles"));
 exports.default = (function (props) {
     var styles = styles_1.default();
     var _a = react_1.useState(props.minified || false), minified = _a[0], setMinified = _a[1];
-    var className = props.className, rowRender = props.rowRender, groupKey = props.groupKey, groups = props.groups, minifiedRowsCount = props.minifiedRowsCount, noDataComponent = props.noDataComponent, onRowClick = props.onRowClick, expandForm = props.expandForm, moreLabel = props.moreLabel, lessLabel = props.lessLabel;
+    var className = props.className, rowRender = props.rowRender, groupKey = props.groupKey, groups = props.groups, minifiedRowsCount = props.minifiedRowsCount, onRowClick = props.onRowClick, expandForm = props.expandForm, moreLabel = props.moreLabel, lessLabel = props.lessLabel;
+    if (!props.data.length) {
+        return (core_1.jsx(__1.Flexbox, { css: styles.groupTitle, mt: '1rem', alignSelf: 'center' },
+            core_1.jsx(__2.C1, { ellipsis: true, color: 'lowlight', children: '\u041D\u0435\u0442 \u0434\u0430\u043D\u043D\u044B\u0445 \u0434\u043B\u044F \u043E\u0442\u043E\u0431\u0440\u0430\u0436\u0435\u043D\u0438\u044F' })));
+    }
     var data = minified ? props.data.filter(function (_, index) { return index < (minifiedRowsCount || 3); }) : props.data;
     var needShowMore = props.minified && props.data.length > (minifiedRowsCount || 3);
     if (groupKey && Array.isArray(groups)) {
