@@ -3,7 +3,6 @@ import { jsx } from '@emotion/core'
 import createStyles from './styles';
 import React from 'react';
 import { Spin, Icon } from '../index';
-import { IconTypes } from '../types';
 
 /**
  * @deprecated Для цветов следует использовать свойство color. Decoration управляет вариациями дизайна.
