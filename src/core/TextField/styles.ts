@@ -64,7 +64,7 @@ export default ({ multiline, size, disabled, decoration, floatingLabel, leftIcon
         ),
 
         field: css({
-            height: '100%',
+            // height: '100%',
             width: '100%',
             border: 'none',
             boxSizing: 'border-box',
