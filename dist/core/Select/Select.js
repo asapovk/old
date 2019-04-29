@@ -94,9 +94,8 @@ var Select = /** @class */ (function (_super) {
             }
             this.setState({
                 selectedValues: selectedValues,
-                menuVisible: this.state.menuVisible ?
-                    this.props.dontClose ? true : false
-                    : true
+                menuVisible: !this.state.menuVisible || this.props.dontClose,
+                isFilterActive: false,
             });
             if (this.searchRef)
                 this.searchRef.value = '';
@@ -115,7 +114,11 @@ var Select = /** @class */ (function (_super) {
         var filteredOptions = this.props.options && searchText ?
             this.props.options.filter(function (option) { return option.text.toUpperCase().includes(searchText.toUpperCase()); }) : [];
         var filteredValues = filteredOptions.map(function (option) { return option.value; });
-        this.setState({ filteredValues: filteredValues, menuVisible: true, isFilterActive: searchText ? true : false });
+        this.setState({
+            filteredValues: filteredValues,
+            menuVisible: true,
+            isFilterActive: searchText ? true : false
+        });
     };
     Select.prototype.searchKeyDown = function (event) {
         if (!event.target.value && this.props.multiselect) {
@@ -188,7 +191,7 @@ var Select = /** @class */ (function (_super) {
             react_1.default.createElement("div", { className: 'ui-select-holder' + (menuVisible ? ' active' : ''), onClick: function () { return _this.toggleMenu(); }, ref: function (ref) { return _this.holderRef = ref; }, style: {
                     background: styles.select.background,
                     borderColor: styles.select.borderColor,
-                    borderRadius: styles.theme.defaultBorderRadius
+                    borderRadius: styles.theme.borders.textfield.borderRadius
                 }, key: 'search' },
                 react_1.default.createElement("div", { className: 'ui-select-holder-value', style: { color: styles.select.textColor } },
                     HolderTSX(styles.select),
@@ -196,7 +199,7 @@ var Select = /** @class */ (function (_super) {
                 (clearable && somethingSelected) && react_1.default.createElement(ClearButtonTSX, { style: styles.select }),
                 react_1.default.createElement("span", { className: 'ui-select-holder-down', style: { color: styles.select.labelColor } },
                     react_1.default.createElement(__1.Icon, { type: menuVisible ? 'up' : 'down' })),
-                react_1.default.createElement("div", { className: 'ui-select-menu' + (menuVisible ? ' visible' : ''), style: { borderRadius: "0 0 " + styles.theme.defaultBorderRadius + " " + styles.theme.defaultBorderRadius, borderColor: styles.select.borderColor, background: styles.select.background } }, MenuItemsTSX(styles.select))))); }));
+                react_1.default.createElement("div", { className: 'ui-select-menu' + (menuVisible ? ' visible' : ''), style: { borderRadius: "0 0 " + styles.theme.borders.textfield.borderRadius + " " + styles.theme.defaultBorderRadius, borderColor: styles.select.borderColor, background: styles.select.background } }, MenuItemsTSX(styles.select))))); }));
     };
     return Select;
 }(react_1.Component));

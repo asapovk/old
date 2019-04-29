@@ -65,7 +65,7 @@ exports.default = (function (_a) {
                 padding: "0 " + extraParams.inputPadding
             }),
         field: core_1.css({
-            height: '100%',
+            // height: '100%',
             width: '100%',
             border: 'none',
             boxSizing: 'border-box',
