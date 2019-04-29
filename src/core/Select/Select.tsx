@@ -82,9 +82,8 @@ class Select extends Component<SelectProps> {
             }
             this.setState({
                 selectedValues: selectedValues,
-                menuVisible: this.state.menuVisible ?
-                    this.props.dontClose ? true : false
-                    : true
+                menuVisible: !this.state.menuVisible || this.props.dontClose,
+                isFilterActive: false,
             });
             if (this.searchRef) this.searchRef.value = '';
         }
@@ -105,7 +104,11 @@ class Select extends Component<SelectProps> {
         const filteredOptions = this.props.options && searchText ?
             this.props.options.filter(option => option.text.toUpperCase().includes(searchText.toUpperCase())) : [];
         const filteredValues = filteredOptions.map(option => option.value)
-        this.setState({ filteredValues: filteredValues, menuVisible: true, isFilterActive: searchText ? true : false });
+        this.setState({
+            filteredValues: filteredValues,
+            menuVisible: true,
+            isFilterActive: searchText ? true : false
+        });
     }
 
     searchKeyDown(event) {
@@ -239,7 +242,7 @@ class Select extends Component<SelectProps> {
                             style={{
                                 background: styles.select.background,
                                 borderColor: styles.select.borderColor,
-                                borderRadius: styles.theme.defaultBorderRadius
+                                borderRadius: styles.theme.borders.textfield.borderRadius
                             }}
                             key={'search'}
                         >
@@ -251,7 +254,7 @@ class Select extends Component<SelectProps> {
                             <span className='ui-select-holder-down' style={{ color: styles.select.labelColor }}>
                                 <Icon type={menuVisible ? 'up' : 'down'} />
                             </span>
-                            <div className={'ui-select-menu' + (menuVisible ? ' visible' : '')} style={{ borderRadius: `0 0 ${styles.theme.defaultBorderRadius} ${styles.theme.defaultBorderRadius}`, borderColor: styles.select.borderColor, background: styles.select.background }}>{MenuItemsTSX(styles.select)}</div>
+                            <div className={'ui-select-menu' + (menuVisible ? ' visible' : '')} style={{ borderRadius: `0 0 ${styles.theme.borders.textfield.borderRadius} ${styles.theme.defaultBorderRadius}`, borderColor: styles.select.borderColor, background: styles.select.background }}>{MenuItemsTSX(styles.select)}</div>
                         </div>
                     </div>
                 )}
