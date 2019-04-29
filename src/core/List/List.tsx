@@ -32,7 +32,7 @@ export default (props: Types.Props) => {
                 {currentGroups.map((group, index) => (
                     <Fragment key={`${group.value}-${index}`}>
                         <Flexbox css={styles.groupTitle}>
-                            <C1 color='lowlight' children={group.title} />
+                            <C1 ellipsis color='lowlight' children={group.title} />
                         </Flexbox>
                         {data
                             .filter(row => row.groupId === group.value)

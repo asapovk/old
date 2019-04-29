@@ -11,12 +11,13 @@ export default () => {
 			marginBottom: '0.75rem',
 			borderRadius: '1rem',
 			backgroundColor: 'rgb(229, 228, 233)',
-			boxShadow: '0 1.25rem 2.5rem rgba(0,0,0,.1)'
+			boxShadow: '0 1.25rem 2.5rem rgba(0,0,0,.1)',
+			maxWidth: '20rem'
 		}),
 
 		row: css({
 			marginBottom: '1.5rem',
-			padding: '1rem 2rem'
+			padding: '0.875rem 2rem'
 		}),
 
 		moreContainer: css({
