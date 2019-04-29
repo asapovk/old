@@ -11,8 +11,15 @@ export default (props: Types.Props) => {
     const styles = createStyles();
 
     const [minified, setMinified] = useState(props.minified || false);
-    const { className, rowRender, groupKey, groups, minifiedRowsCount,
-        noDataComponent, onRowClick, expandForm, moreLabel, lessLabel } = props;
+    const { className, rowRender, groupKey, groups, minifiedRowsCount, onRowClick, expandForm, moreLabel, lessLabel } = props;
+
+    if (!props.data.length) {
+        return (
+            <Flexbox css={styles.groupTitle} mt='1rem' alignSelf='center'>
+                <C1 ellipsis color='lowlight' children='Нет данных для отображения' />
+            </Flexbox>
+        )
+    }
 
     const data = minified ? props.data.filter((_, index) => index < (minifiedRowsCount || 3)) : props.data;
     const needShowMore = props.minified && props.data.length > (minifiedRowsCount || 3);
