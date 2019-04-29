@@ -9,6 +9,15 @@ declare namespace SpinnerTypes {
         style?: CSSProperties
         className?: string
         defaultElement?: boolean
+        loadingText?: string
+        color?:
+        | "text"
+        | "highlight"
+        | "pale"
+        | "textOnAccent"
+        | "lowlight"
+        | "light"
+        | "highlightSecondary";
     }
 }
 

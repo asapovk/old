@@ -40,7 +40,8 @@ export default () => {
             actions={[
                 {
                     title: "Оплатить услуги",
-                    icon: "card"
+                    icon: "card",
+                    onAction: () => { }
                 },
                 {
                     title: "Передать показания",

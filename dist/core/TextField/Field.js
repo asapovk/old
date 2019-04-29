@@ -19,31 +19,40 @@ var core_1 = require("@emotion/core");
 var react_1 = require("react");
 var react_input_mask_1 = __importDefault(require("react-input-mask"));
 exports.default = react_1.forwardRef(function (props, ref) {
-    function onChange(event) {
-        props.onChange && props.onChange(event);
-    }
     function onKeyPress(event) {
         if (event.key === 'Enter') {
             props.onEnter && props.onEnter(event);
         }
     }
+    function _formatReturnValue(e, type, callback) {
+        var value = e.currentTarget.value || '';
+        callback(e, value);
+    }
+    function onBlur(event) {
+        props.onBlur && props.onBlur(event);
+    }
     if (props.mask) {
         return core_1.jsx(react_input_mask_1.default, {
             mask: props.mask,
             onFocus: props.onFocus,
-            onBlur: props.onBlur,
-            defaultValue: props.defaultValue,
+            onBlur: onBlur,
+            // defaultValue: props.defaultValue,
             value: props.value,
-            onChange: onChange,
+            onChange: props.onChange,
             onKeyPress: onKeyPress,
-            disabled: props.disabled,
+            disabled: props.disabled || props.loading,
             placeholder: props.placeholder,
             css: props.styles.field,
             ref: ref,
             type: props.type,
+            tabIndex: props.tabIndex
         });
     }
-    return core_1.jsx(props.multiline ? 'textarea' : 'input', __assign({ onFocus: props.onFocus, onBlur: props.onBlur, defaultValue: props.defaultValue, value: props.value, onChange: onChange, onKeyPress: onKeyPress, disabled: props.disabled, placeholder: props.placeholder, css: props.styles.field, ref: ref, type: props.type }, props.multiline
+    return (core_1.jsx(props.multiline
+        ? 'textarea'
+        : 'input', __assign({ onFocus: function (e) { return props.onFocus && props.onFocus(e); }, onBlur: onBlur, 
+        // defaultValue: props.defaultValue,
+        value: props.value, onChange: function (e) { return props.onChange && props.onChange(e, e.currentTarget.value); }, onKeyPress: onKeyPress, disabled: props.disabled || props.loading, placeholder: props.placeholder, css: props.styles.field, ref: ref, type: props.type, tabIndex: props.tabIndex }, props.multiline
         ? props.singlerow && {
             onKeyDown: function (event) {
                 if (event.keyCode === 13) {
@@ -51,5 +60,5 @@ exports.default = react_1.forwardRef(function (props, ref) {
                 }
             }
         }
-        : { type: props.type }));
+        : { type: props.type })));
 });

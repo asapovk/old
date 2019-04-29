@@ -30,7 +30,7 @@ export default (decoration?: DecorationTypes, top: number | string = -12, right:
             justifyContent: 'center',
             alignItems: 'center',
             background: getBackground(decoration),
-            boxShadow: '0px 2px 6px 0px ' + theme.shadow.rgb,
+            boxShadow: '0px 2px 6px 0px ' + theme.defaultShadow.hex,
             borderRadius: 24,
             color: theme.textOnAccent.hex,
             fontWeight: 600,

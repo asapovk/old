@@ -43,7 +43,7 @@ export default (props: IRublesField) => {
             const [amountInt, amountString] = CurrencyFormatted(event.currentTarget.value);
 
             setValue(amountString);
-            props.onChange(amountInt);
+            props.onChange(event, amountInt.toString());
         }
     }
 

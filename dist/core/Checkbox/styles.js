@@ -25,7 +25,7 @@ exports.default = (function (checked, isRadio, uppercase, size) {
             cursor: "pointer",
             color: theme.text.rgb
         }),
-        input: core_1.css(__assign({}, getSize(size).input, { boxSizing: "border-box", display: "flex", alignItems: "center", justifyContent: "center", color: theme.highlight.hex, backgroundColor: theme.interface.hex, borderWidth: "1px", borderStyle: "solid", borderRadius: theme.radius.default, borderColor: theme.pale.hex, "> svg": {
+        input: core_1.css(__assign({}, getSize(size).input, { boxSizing: "border-box", display: "flex", alignItems: "center", justifyContent: "center", color: theme.highlight.hex, backgroundColor: theme.interface.hex }, theme.borders.checkbox, { "> svg": {
                 width: "100%",
                 height: "100%"
             }, "> div": {

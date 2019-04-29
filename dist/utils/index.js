@@ -7,5 +7,5 @@ var alert_1 = __importDefault(require("./alert"));
 var notification_1 = __importDefault(require("./notification"));
 exports.default = {
     alert: alert_1.default,
-    notification: notification_1.default,
+    notification: notification_1.default
 };

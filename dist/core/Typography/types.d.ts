@@ -16,7 +16,9 @@ declare namespace TypographyTypes {
         onClick?: (event: any) => void;
         format?: boolean | "currency" | units;
         unit?: "rub" | "volume" | "power";
-        color?: "text" | "highlight" | "pale" | "textOnAccent" | "lowlight" | "light";
+        accent?: 'red' | 'green' | 'blue' | 'orange';
+        color?: "text" | "highlight" | "pale" | "textOnAccent" | "lowlight" | "light" | "highlightSecondary";
+        fractionColor?: "text" | "highlight" | "pale" | "textOnAccent" | "lowlight" | "light" | "highlightSecondary";
         quotes?: boolean;
         ellipsis?: boolean;
         background?: "text" | "highlight" | "pale" | "textOnAccent" | "lowlight";
@@ -44,7 +46,7 @@ declare namespace TypographyTypes {
         width?: number;
         className?: string;
         gap?: number;
-        color?: "text" | "highlight" | "pale" | "textOnAccent" | "lowlight" | "light";
+        color?: "text" | "highlight" | "pale" | "textOnAccent" | "lowlight" | "light" | "hightlightSecondary";
     }
     type Menu = {
         text: string;

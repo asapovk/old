@@ -5,7 +5,7 @@ import Types from './types';
 
 export default (props: Types.MenuProps) => {
 
-    const { groups, data, styles, active, onChoose, nameKey, isMobile, side, left } = props;
+    const { groups, data, styles, active, onChoose, nameKey, nameRender, isMobile, side, left } = props;
 
     const items = data.map((item, index) => (
         <Flexbox
@@ -15,7 +15,13 @@ export default (props: Types.MenuProps) => {
             key={'lmi-' + index}
             css={styles.menu.item(index === active, groups)}
         >
-            <T1 ellipsis>{item[nameKey]}</T1>
+            <Flexbox alignItems='center'>
+                {isMobile && <Icon size='1.25rem' mr='0.5rem' type={item.glyph} color='light' />}
+                {nameRender
+                    ? nameRender(item, item[nameKey])
+                    : <T1 ellipsis children={item[nameKey]} />
+                }
+            </Flexbox>
             {isMobile && <Icon type='right' color='light' />}
         </Flexbox>
     ))

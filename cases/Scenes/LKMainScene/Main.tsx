@@ -3,13 +3,14 @@ import { jsx, css } from '@emotion/core'
 import { Widget, Flexbox, Button, P } from '../../../src';
 import { Section } from './components';
 
-const Main = () => {
+const Main = ({ onClick }) => {
     return (
         <div css={css({ marginBottom: '1.25rem' })}>
             <Section
                 header='Ноябрь 2018'
                 children={
                     <article>
+                        <Button css={css({ margin: '1.25rem 0' })} label="Кнопка назад" onClick={onClick} />
                         <P>Потом над ухом резко зазвонил телефон. Он протянул руку и взял трубку.</P>
                         <P>– Слушаю.</P>
                         <P>Трубка молчала.</P>

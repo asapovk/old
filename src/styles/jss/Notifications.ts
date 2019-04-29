@@ -1,4 +1,3 @@
-import { CSSProperties } from "react";
 import { ThemeInterface } from "..";
 
 export default (theme: ThemeInterface) => {
@@ -21,8 +20,8 @@ export default (theme: ThemeInterface) => {
             }
             return {
                 background: theme.interface.rgb,
-                boxShadow: '0px 2px 6px 0px ' + theme.shadow.rgb,
-                borderRadius: theme.radius.default,
+                boxShadow: '0px 2px 6px 0px ' + theme.defaultShadow.hex,
+                borderRadius: theme.defaultBorderRadius,
                 color: decoration ? theme.textOnAccent.rgb : theme.text.rgb,
                 borderColor: theme.pale.rgb,
                 borderLeft: `4px solid ${decorationColor}`

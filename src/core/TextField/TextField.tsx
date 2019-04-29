@@ -1,43 +1,83 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core';
-import createStyles from './styles';
-import { forwardRef } from 'react';
-import { Flexbox, Spin, Icon } from '..';
+import { forwardRef, useState, Fragment } from 'react';
+import { Flexbox, Icon, Spin } from '..';
 import Field from './Field';
+import createStyles from './styles';
 import Types from './types';
 
 export default forwardRef((props: Types.Props, ref) => {
+    const [value, setValue] = useState<string>(props.value || props.defaultValue || '');
+    const [focused, setFocused] = useState<boolean>(false);
 
-    const styles = createStyles(props.multiline, props.size, props.disabled, props.decoration);
+    const onChange = (e, newValue) => {
+        if (newValue == value) {
+            return;
+        }
+        setValue(newValue);
+        props.onChange && props.onChange(e, newValue);
+    }
 
-    const Label = () => props.label
-        ? <span css={styles.label}>
-            {props.label}
-        </span>
-        : null
+    const styles = createStyles({
+        multiline: props.multiline,
+        size: props.size,
+        disabled: props.disabled || props.loading,
+        decoration: props.decoration,
+        floatingLabel: props.floatingLabel,
+        leftIcon: props.leftIcon
+    });
 
-    const TextFieldIcon = (props: Types.IconProps) =>
-        props.type
-            ? <Icon css={styles.icon(props.position)} type={props.type} />
-            : null
+    // const RightIcon = () => {
+    //     const [type, setType] = useState(props.type);
+    //     if (type === 'password') {
+    //         return <Icon type='' />
+    //     }
+    //     return ()
+    // }
 
-    const Loading = () =>
-        <Flexbox alignItems='center' justifyContent='center' css={styles.icon}>
-            <Spin><Icon type='spin' /></Spin>
-        </Flexbox>
-
-    if (!(props.decoration === 'none')) return (
+    return (
         <Flexbox css={styles.container} className={props.className} style={props.style} flexDirection='column'>
-            <Label />
+            {props.label && (
+                <span css={styles.label} children={props.label} />
+            )}
             <Flexbox css={styles.wrapper} onClick={props.onClick} alignItems='center'>
-                <TextFieldIcon position='left' type={props.leftIcon} />
-                <Field styles={styles} ref={ref} {...props} />
+                {(props.floatingLabel && (props.size && props.size !== 'small')) && (
+                    <label
+                        css={styles.floatingLabel(focused || !!value)}
+                        children={props.floatingLabel}
+                    />
+                )}
+                {props.leftIcon && <Icon css={styles.icon('left')} type={props.leftIcon} />}
+                <Field
+                    styles={styles}
+                    ref={ref}
+                    multiline={props.multiline}
+                    mask={props.mask}
+                    onFocus={(event) => {
+                        setFocused(true);
+                        props.onFocus && props.onFocus(event);
+                    }}
+                    onBlur={(event) => {
+                        setFocused(false);
+                        props.onBlur && props.onBlur(event);
+                    }}
+                    onChange={onChange}
+                    onClick={(e) => {
+                        props.onClick && props.onClick(e);
+                    }}
+                    onEnter={props.onEnter}
+                    disabled={props.disabled}
+                    loading={props.loading}
+                    placeholder={props.floatingLabel ? '' : props.placeholder}
+                    type={props.type}
+                    singlerow={props.singlerow}
+                    value={value}
+                    tabIndex={props.tabIndex}
+                />
                 {props.loading
-                    ? <Loading />
-                    : <TextFieldIcon position='right' type={props.rightIcon} />}
+                    ? <Spin><Icon css={styles.icon()} type='spin' /></Spin>
+                    : props.rightIcon && <Icon css={styles.icon('right')} type={props.rightIcon} />}
             </Flexbox>
         </Flexbox>
     )
-
-    return <Field styles={styles} ref={ref} {...props} />
 })

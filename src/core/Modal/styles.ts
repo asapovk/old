@@ -35,23 +35,27 @@ export default (props: ModalTypes.StyleProps) => {
             maxWidth: '40rem',
             padding: '2.25rem',
             margin: '0 auto',
-            borderRadius: center ? theme.radius.window : 0,
+            ...theme.borders.modal,
+            borderRadius: center ? theme.borders.modal.borderRadius : 0,
             transition: 'all 0.5s',
             transform: visible ? 'translateY(0)' : 'translateY(-20px)',
-            boxSizing: 'border-box'
+            boxSizing: 'border-box',
+            overflow: 'hidden'
         }, (center && fullSize) && {
             width: '40rem'
         }),
+
         header: css({
             marginTop: '-0.5rem',
         }),
 
         cross: css({
-            marginTop: '0.25rem',
+            // marginTop: '0.25rem',
             marginLeft: '2rem',
             cursor: 'pointer',
             transition: 'all 0.25s',
             transform: "scale(1)",
+            opacity: .7,
             ':hover': {
                 transform: "scale(1.1)"
             },

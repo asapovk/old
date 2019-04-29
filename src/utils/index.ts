@@ -3,5 +3,5 @@ import notification from './notification';
 
 export default {
     alert,
-    notification,
+    notification
 }

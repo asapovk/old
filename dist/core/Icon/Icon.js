@@ -39,18 +39,18 @@ exports.default = react_1.forwardRef(function (props, ref) {
             core_1.jsx("path", { d: exports.svgIconPath[props.type] }))) }, (!props.shape && providedProps)));
     if (props.shape) {
         switch (props.shape) {
+            default:
             case "oval":
                 return (core_1.jsx(__1.Flexbox, __assign({}, providedProps, { css: core_1.css({
-                        borderRadius: "999px",
+                        borderRadius: "50%",
                         background: props.background
-                            ? theme[props.background].rgb
+                            ? props.background
                             : theme.background2.rgb,
                         height: "min-content",
                         width: "min-content"
                     }, props.onClick && {
                         cursor: "pointer"
                     }, containerStyles), children: Icon, alignItems: "center", justifyContent: "center" })));
-                break;
         }
     }
     return Icon;

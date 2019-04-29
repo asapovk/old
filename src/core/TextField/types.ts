@@ -1,9 +1,5 @@
 import { IconTypes } from '../types';
 
-function valueType<T>(arg: T): T {
-    return arg;
-}
-
 declare namespace TextFieldTypes {
 
     export interface Props extends FieldProps {
@@ -13,7 +9,7 @@ declare namespace TextFieldTypes {
         leftIcon?: IconTypes.Type
         loading?: true | undefined
         decoration?: 'none' | 'borderless' | 'borderBottom'
-        size?: 'large' | 'small'
+        size?: 'large' | 'small' | 'extra-large'
         className?: string
     }
 
@@ -22,8 +18,9 @@ declare namespace TextFieldTypes {
         singlerow?: true | undefined
         multiline?: boolean
         disabled?: boolean
+        loading?: boolean
         type?: Type
-        onChange?: (event: any) => void
+        onChange?: (event: any, value: string) => void
         onClick?: (event: any) => void
         onFocus?: (event: any) => void
         onBlur?: (event: any) => void
@@ -31,7 +28,9 @@ declare namespace TextFieldTypes {
         defaultValue?: string
         value?: string
         placeholder?: string
+        floatingLabel?: string
         mask?: string
+        tabIndex?: number
     }
 
     export type Type =

@@ -5,7 +5,7 @@ export default () => {
 
     const theme = useTheme().theme;
 
-    const breakpoints = [414, 960]
+    const breakpoints = [414, 960, 1280, 550]
 
     const mq = breakpoints.map(
         bp => `@media (max-width: ${bp}px)`
@@ -68,10 +68,9 @@ export default () => {
                 }),
                 item: css({
                     padding: '1.5rem 0.5rem',
-                    border: '1px solid ' + theme.pale.rgb,
-                    borderRadius: theme.radius.card,
                     cursor: 'pointer',
-                    justifyContent: 'flex-start'
+                    justifyContent: 'flex-start',
+                    ...theme.borders.card
                 }),
                 icon: css({
                     fontSize: '2rem',
@@ -85,10 +84,18 @@ export default () => {
             container: css({
                 background: 'linear-gradient(45deg, #3023AE 0%, #C86DD7 100%)',
                 backgroundAttachment: 'fixed',
-                color: theme.textOnAccent.rgb,
                 padding: '5rem',
                 flex: 1,
                 minWidth: '24rem',
+                [mq[2]]: {
+                    padding: '5rem 2rem 2rem 2rem'
+                },
+                [mq[1]]: {
+                    padding: '5rem'
+                },
+                [mq[3]]: {
+                    padding: 0
+                },
             }),
         }
     }

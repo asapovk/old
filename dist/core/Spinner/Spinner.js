@@ -16,22 +16,27 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 /** @jsx jsx */
 var core_1 = require("@emotion/core");
+var __1 = require("../..");
+var Flexbox_1 = require("../Flexbox");
 var styles_1 = __importDefault(require("./styles"));
 exports.default = (function (props) {
-    var spinning = props.spinning, center = props.center, className = props.className, dark = props.dark, children = props.children, style = props.style, defaultElement = props.defaultElement;
+    var spinning = props.spinning, center = props.center, className = props.className, dark = props.dark, children = props.children, style = props.style, defaultElement = props.defaultElement, color = props.color, loadingText = props.loadingText;
     var styles = styles_1.default(dark);
     if (!spinning) {
         return children || null;
     }
-    var El = defaultElement ? core_1.jsx(Spin, __assign({}, props)) : core_1.jsx(Logo, __assign({}, props));
+    var El = (core_1.jsx(Flexbox_1.Flexbox, { column: true, justifyContent: 'center', alignItems: 'center' },
+        defaultElement
+            ? core_1.jsx(Spin, __assign({}, props))
+            : core_1.jsx(Logo, __assign({}, props)),
+        loadingText && (core_1.jsx(__1.C2, { bold: true, color: color || "lowlight", css: core_1.css({ marginTop: "2.5rem" }), children: loadingText }))));
     if (center) {
-        return (core_1.jsx("div", { css: styles.centeredContainer, style: style, className: className },
-            core_1.jsx("div", { children: El })));
+        return (core_1.jsx("div", { css: styles.centeredContainer, style: style, className: className }, El));
     }
     return El;
 });
 var Spin = function (props) {
-    var styles = styles_1.default();
+    var styles = styles_1.default(props.dark, props.color);
     var startDelay = 1.1;
     return (core_1.jsx("div", { css: styles.spinner, style: props.style, className: props.className }, Array(12).fill("").map(function (e, i) {
         return core_1.jsx("div", { key: i, css: core_1.css({
@@ -41,7 +46,7 @@ var Spin = function (props) {
     })));
 };
 var Logo = function (props) {
-    var styles = styles_1.default();
+    var styles = styles_1.default(props.dark, props.color);
     return (core_1.jsx("div", { css: styles.container, className: props.className },
         core_1.jsx("div", { css: styles.triangleContainer },
             core_1.jsx("div", null, Array(3)

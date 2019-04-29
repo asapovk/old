@@ -1,27 +1,5 @@
+import { ThemeInterface } from '../';
 import { getColors } from '../utilities';
-import { ThemeInterface, colorsLuminosity } from '../';
-import randomColor from 'randomcolor';
-
-const accentColors = {
-    red: getColors(255, 25, 25),
-    green: getColors(8, 191, 52),
-    blue: getColors(0, 122, 255),
-    orange: getColors(255, 149, 0),
-}
-
-const brand = {
-    red: getColors(0, 106, 255),
-    purple: getColors(0, 106, 255),
-}
-
-const randomColors = (luminosity: colorsLuminosity = 'bright', count: number = 10) => randomColor({
-    hue: 'blue',
-    format: 'hex',
-    alpha: 1,
-    luminosity,
-    count
-})
-
 
 export default {
     name: "gazpromTheme",
@@ -34,40 +12,85 @@ export default {
     text: getColors(38, 36, 38),
     textOnAccent: getColors(233, 233, 233),
     highlight: getColors(0, 106, 255),
-    accents: accentColors,
-    brand: brand,
-    randomColors: randomColors,
-    shadow: getColors(220, 220, 220),
+    highlightSecondary: getColors(0, 106, 255),
+    disabled: getColors(221, 221, 221),
+    defaultShadow: getColors(220, 220, 220),
+    defaultBorderRadius: '0.25rem',
+    accents: {
+        red: getColors(255, 25, 25),
+        green: getColors(8, 191, 52),
+        blue: getColors(0, 122, 255),
+        orange: getColors(255, 149, 0),
+    },
+    brandColors: {
+        red: getColors(0, 106, 255),
+        purple: getColors(0, 106, 255),
+    },
     shadows: {
-        button: 'none',
+        button: {
+            default: 'none',
+            active: 'none'
+        },
+        card: {
+            default: '0 1rem 1rem 0px ' + getColors(0, 0, 200).rgba(0.1),
+            active: '0 1rem 1rem 0px ' + getColors(0, 0, 200).rgba(0),
+        },
         table: '0 0 1rem 0px ' + getColors(0, 0, 200).rgba(0.1),
-        card: '0 1rem 1rem 0px ' + getColors(0, 0, 200).rgba(0.1),
+        widget: 'none',
+        modal: 'none',
+        textfield: 'none'
     },
     borders: {
         button: {
-            width: '1px',
-            style: 'solid',
-            color: getColors(217, 217, 217).hex,
+            borderWidth: '1px',
+            borderStyle: 'solid',
+            borderColor: getColors(217, 217, 217).hex,
+            borderRadius: '0.25rem'
         },
         table: {
-            width: '1px',
-            style: 'solid',
-            color: getColors(217, 217, 217).hex,
+            borderWidth: '1px',
+            borderStyle: 'solid',
+            borderColor: getColors(217, 217, 217).hex,
+            borderRadius: '0.25rem',
+        },
+        card: {
+            borderWidth: '1px',
+            borderStyle: 'solid',
+            borderColor: getColors(217, 217, 217).hex,
+            borderRadius: '0.5rem',
         },
         widget: {
-            width: '1px',
-            style: 'solid',
-            radius: '0.25rem',
-            color: getColors(217, 217, 217).hex,
+            borderWidth: '1px',
+            borderStyle: 'solid',
+            borderColor: getColors(217, 217, 217).hex,
+            borderRadius: '0.25rem',
+        },
+        modal: {
+            borderWidth: "0px",
+            borderStyle: "solid",
+            borderColor: 'transparent',
+            borderRadius: '0.25rem',
+        },
+        textfield: {
+            borderWidth: '1px',
+            borderStyle: 'solid',
+            borderColor: getColors(217, 217, 217).hex,
+            borderRadius: '0.25rem',
+        },
+        checkbox: {
+            borderWidth: '1px',
+            borderStyle: 'solid',
+            borderColor: getColors(217, 217, 217).hex,
+            borderRadius: '0.25rem',
+        },
+        datepicker: {
+            borderWidth: '1px',
+            borderStyle: 'solid',
+            borderColor: getColors(217, 217, 217).hex,
+            borderRadius: '0.25rem',
         }
     },
-    radius: {
-        default: '0.25rem',
-        window: '0.25rem',
-        button: '0.25rem',
-        card: '0.5rem',
-    },
-    gradient: {
+    gradients: {
         default: [
             "#28a4d9",
             getColors(0, 121, 194).hex

@@ -71,12 +71,14 @@ exports.default = (function () {
             1: {
                 fontSize: '2rem',
                 lineHeight: '3rem',
-                fontWeight: 700
+                fontWeight: 700,
+                letterSpacing: '-0.03em',
             },
             2: {
                 fontSize: '1.5rem',
                 lineHeight: '2rem',
-                fontWeight: 700
+                fontWeight: 700,
+                letterSpacint: '-0.03em',
             },
             3: {
                 fontSize: '1.25rem',

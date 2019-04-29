@@ -5,7 +5,6 @@ import Types from './types';
 export default (visible: boolean, position: Types.Position | undefined, targetCoord: Types.TargetCoordinates, popupRef: any) => {
 
     const theme = useTheme().theme;
-    const typography = useTypography();
 
     const popupHeight: number = popupRef.current && popupRef.current.offsetHeight || 0;
     const popupWidth: number = popupRef.current && popupRef.current.offsetWidth || 0;
@@ -17,7 +16,7 @@ export default (visible: boolean, position: Types.Position | undefined, targetCo
 
         popup: css({
             background: theme.interface.rgb,
-            boxShadow: `0px 2px 4px 0px ${theme.shadow.rgb}`,
+            boxShadow: `0px 2px 4px 0px ${theme.defaultShadow.rgb}`,
             position: "absolute",
             borderWidth: "0.5px",
             borderStyle: "solid",

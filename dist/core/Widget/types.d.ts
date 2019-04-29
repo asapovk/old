@@ -1,3 +1,4 @@
+export declare type DecorationTypes = 'border-bottom' | 'borderless' | 'none';
 declare namespace WidgetTypes {
     interface WidgetProps {
         label?: string;
@@ -7,6 +8,7 @@ declare namespace WidgetTypes {
         style?: any;
         title?: string;
         children?: any;
+        decoration?: DecorationTypes;
     }
 }
 export default WidgetTypes;

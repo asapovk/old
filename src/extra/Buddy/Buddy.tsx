@@ -193,8 +193,8 @@ export default forwardRef((props: BuddyProps, ref) => {
             <svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 220 225">
                 <defs>
                     <linearGradient id="BUDDY_GRADIENT" gradientUnits="userSpaceOnUse" x1="395.3553" y1="290.6671" x2="15.3163" y2="134.3555" gradientTransform="matrix(1 0 0 -1 0 222.84)">
-                        <stop offset="0" style={{ stopColor: styles.theme.gradient.buddy[0] }} />
-                        <stop offset="1" style={{ stopColor: styles.theme.gradient.buddy[1] }} />
+                        <stop offset="0" style={{ stopColor: styles.theme.gradients.buddy[0] }} />
+                        <stop offset="1" style={{ stopColor: styles.theme.gradients.buddy[1] }} />
                     </linearGradient>
                 </defs>
                 <g id={"buddyContainer" + BUDDY_ID}>

@@ -2,7 +2,7 @@ import { css, keyframes } from '@emotion/core';
 import useTheme from '../../hooks/useTheme';
 import { themes } from '../../styles';
 
-export default (dark?: boolean) => {
+export default (dark?: boolean, color?: string) => {
 
     const theme = useTheme().theme;
 
@@ -26,7 +26,7 @@ export default (dark?: boolean) => {
 
     const spin = keyframes({
         to: { transform: 'rotate(360deg)' }
-    })
+    });
 
     return {
         spinner: css({
@@ -53,19 +53,15 @@ export default (dark?: boolean) => {
         }),
 
         centeredContainer: css({
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
             zIndex: 999999,
             position: "absolute",
             top: 0,
             bottom: 0,
             left: 0,
             right: 0,
-            "> div": {
-                position: "absolute",
-                left: "50%",
-                top: "50%",
-                marginLeft: "-2rem",
-                marginTop: "-2rem"
-            }
         }, dark && {
             "&::before": {
                 content: `''`,
@@ -110,17 +106,17 @@ export default (dark?: boolean) => {
                 "> :nth-of-type(1)": {
                     top: -circleRadius,
                     left: -circleRadius,
-                    backgroundColor: theme.brand.red.hex
+                    backgroundColor: color ? theme[color].hex : theme.highlight.hex,
                 },
                 "> :nth-of-type(2)": {
                     top: Math.sqrt(3) * (edge / 2) - circleRadius,
                     left: (edge / 2) - circleRadius,
-                    backgroundColor: theme.brand.purple.hex
+                    backgroundColor: color ? theme[color].hex : theme.highlightSecondary.hex
                 },
                 "> :nth-of-type(3)": {
                     top: Math.sqrt(3) * (edge / 2) - circleRadius,
                     left: -(edge / 2) - circleRadius,
-                    backgroundColor: theme.brand.purple.hex
+                    backgroundColor: color ? theme[color].hex : theme.highlightSecondary.hex
                 }
             }
         })

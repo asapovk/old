@@ -14,22 +14,32 @@ export default () => {
     return {
         theme: theme,
 
-        container: css({
-
+        container: (isMobile: boolean, showSideBar: boolean) => isMobile && css({
+            minHeight: '100%',
+            overflow: 'hidden',
+        }, showSideBar && {
+            overflow: 'visible'
         }),
 
-        mask: css({
-            background: theme.background.rgba(.9),
+        mask: (display: boolean) => css({
+            background: 'rgba(0,0,0,.3)',
             position: 'fixed',
-            zIndex: 2,
+            zIndex: 3,
             top: 0,
             bottom: 0,
             left: 0,
-            right: 0
+            right: 0,
+            opacity: 1,
+            transition: 'all .25s ease-out',
+            visibility: 'visible',
+        }, !display && {
+            visibility: 'hidden',
+            opacity: 0,
         }),
 
         main: {
-            container: (displaySidebar) => css({
+            container: (isMobile: boolean) => css({
+                // marginLeft: '15rem',
                 display: 'flex',
                 flex: 1,
                 justifyContent: 'center',
@@ -38,11 +48,14 @@ export default () => {
                 overflow: 'hidden',
                 [mq[1]]: {
                     padding: '2.5rem',
-                    position: displaySidebar ? 'fixed' : 'relative'
+                    // position: displaySidebar ? 'fixed' : 'relative'
+                    position: 'relative',
                 },
                 [mq[0]]: {
                     padding: '1.25rem',
                 },
+            }, isMobile && {
+                margin: 0,
             }),
 
             holder: css({
@@ -65,34 +78,53 @@ export default () => {
                 marginBottom: '2.75rem',
             }),
 
-            back: css({
+            back: (needDisplay: boolean) => css({
+                display: 'flex',
                 alignItems: 'center',
+                cursor: 'pointer',
+                width: 0,
+                margin: 0,
+                padding: 0,
+                border: 'none',
+                transition: 'all .2s ease-out',
+                opacity: 0,
+                transform: 'translateX(-40px)'
+            }, needDisplay && {
+                transform: 'translateX(0px)',
+                opacity: 1,
+                width: '6.25rem',
                 paddingRight: '1rem',
                 marginRight: '1rem',
                 borderRight: '1px solid ' + theme.pale.rgb,
-                cursor: 'pointer'
             }),
         },
 
         sidebar: {
-            container: (display) => css({
-                display: display ? 'flex' : 'none',
+            container: (isMobile, display) => css({
                 position: 'sticky',
-                flexDirection: 'column',
                 top: 0,
+                left: 0,
+                minHeight: '100%',
+                zIndex: 4,
+                display: 'flex',
+                flexDirection: 'column',
                 width: '15rem',
                 boxSizing: 'border-box',
                 padding: '2.75rem 0 2.75rem 2.75rem',
-                maxHeight: 'max-content',
-                minHeight: '100vh',
                 justifyContent: 'space-between',
-                zIndex: 3,
 
                 /*
                 *  Chrome scroll lag repair   
                 */
                 WebkitBackfaceVisibility: 'hidden',
                 WebkitTransform: 'translateZ(0)',
+            }, isMobile && {
+                position: 'absolute',
+                transition: 'transform .25s ease-out',
+                willChange: 'transform',
+                transform: 'translateX(-20rem)'
+            }, display && {
+                transform: 'translateX(0)'
             }),
 
             background: css({

@@ -7,7 +7,7 @@ declare namespace TextFieldTypes {
         leftIcon?: IconTypes.Type;
         loading?: true | undefined;
         decoration?: 'none' | 'borderless' | 'borderBottom';
-        size?: 'large' | 'small';
+        size?: 'large' | 'small' | 'extra-large';
         className?: string;
     }
     interface FieldProps {
@@ -15,8 +15,9 @@ declare namespace TextFieldTypes {
         singlerow?: true | undefined;
         multiline?: boolean;
         disabled?: boolean;
+        loading?: boolean;
         type?: Type;
-        onChange?: (event: any) => void;
+        onChange?: (event: any, value: string) => void;
         onClick?: (event: any) => void;
         onFocus?: (event: any) => void;
         onBlur?: (event: any) => void;
@@ -24,7 +25,9 @@ declare namespace TextFieldTypes {
         defaultValue?: string;
         value?: string;
         placeholder?: string;
+        floatingLabel?: string;
         mask?: string;
+        tabIndex?: number;
     }
     type Type = 'color' | 'email' | 'hidden' | 'image' | 'month' | 'number' | 'password' | 'radio' | 'range' | 'reset' | 'search' | 'submit' | 'tel' | 'text' | 'time' | 'url' | 'week';
     interface IconProps {

@@ -3,11 +3,41 @@ import { objectColor } from './utilities';
 export declare const themes: {
     blackCurrant: ThemeInterface;
     whiteCurrant: ThemeInterface;
+    whiteCurrantModern: ThemeInterface;
     abrTheme: ThemeInterface;
     gazpromTheme: ThemeInterface;
 };
-export declare type themeName = 'blackCurrant' | 'whiteCurrant' | 'abrTheme' | 'gazpromTheme';
-export declare type colorsLuminosity = 'bright' | 'light' | 'dark' | 'random';
+export declare type themeName = 'blackCurrant' | 'whiteCurrant' | 'whiteCurrantModern' | 'abrTheme' | 'gazpromTheme';
+export interface borderStyle {
+    borderWidth: string;
+    borderStyle: string;
+    borderColor: string;
+    borderRadius: string;
+}
+export interface shadowsObject {
+    button: {
+        default: string;
+        active: string;
+    };
+    card: {
+        default: string;
+        active: string;
+    };
+    table: string;
+    widget: string;
+    textfield: string;
+    modal: string;
+}
+export interface bordersObject {
+    button: borderStyle;
+    table: borderStyle;
+    card: borderStyle;
+    widget: borderStyle;
+    modal: borderStyle;
+    textfield: borderStyle;
+    checkbox: borderStyle;
+    datepicker: borderStyle;
+}
 export interface ThemeInterface {
     name: string;
     background: objectColor;
@@ -19,48 +49,22 @@ export interface ThemeInterface {
     text: objectColor;
     textOnAccent: objectColor;
     highlight: objectColor;
+    highlightSecondary: objectColor;
+    disabled: objectColor;
+    defaultShadow: objectColor;
+    defaultBorderRadius: string;
     accents: {
         red: objectColor;
         green: objectColor;
         blue: objectColor;
         orange: objectColor;
     };
-    randomColors: (luminosity: colorsLuminosity, count: number) => any;
-    brand: any;
-    shadow: objectColor;
-    shadows: {
-        button: string;
-        table: string;
-        card: string;
+    brandColors: {
+        [key: string]: objectColor;
     };
-    borders: {
-        button: {
-            width: string;
-            style: string;
-            color: string;
-            radius: string;
-        };
-        table: {
-            width: string;
-            style: string;
-            color: string;
-            radius: string;
-        };
-        widget: {
-            width: string;
-            style: string;
-            color: string;
-            radius: string;
-        };
-    };
-    radius: {
-        default: string;
-        window: string;
-        button: string;
-        card: string;
-        table: string;
-    };
-    gradient: {
+    shadows: shadowsObject;
+    borders: bordersObject;
+    gradients: {
         default: string[];
         buddy: string[];
         card: string[];
@@ -157,39 +161,8 @@ export declare const createStyles: (themeName?: string | undefined) => {
             background: string;
         };
     };
-    textField: {
-        textColor: string;
-        backgroundColor: string;
-        borderColor: string;
-        iconColor: string;
-        label: {
-            color: string;
-        };
-        singleline: {
-            field: {
-                borderColor: string;
-                backgroundColor: string;
-                borderRadius: string;
-            };
-            input: {
-                color: string;
-            };
-            placeholder: {
-                color: string;
-            };
-        };
-        hint: {
-            color: string;
-        };
-    };
     title: {
         active: {
-            color: string;
-        };
-    };
-    viewport: {
-        main: {
-            background: string;
             color: string;
         };
     };
@@ -314,39 +287,8 @@ export declare const StylesContext: React.Context<{
             background: string;
         };
     };
-    textField: {
-        textColor: string;
-        backgroundColor: string;
-        borderColor: string;
-        iconColor: string;
-        label: {
-            color: string;
-        };
-        singleline: {
-            field: {
-                borderColor: string;
-                backgroundColor: string;
-                borderRadius: string;
-            };
-            input: {
-                color: string;
-            };
-            placeholder: {
-                color: string;
-            };
-        };
-        hint: {
-            color: string;
-        };
-    };
     title: {
         active: {
-            color: string;
-        };
-    };
-    viewport: {
-        main: {
-            background: string;
             color: string;
         };
     };
@@ -471,39 +413,8 @@ declare const _default: React.ExoticComponent<React.ConsumerProps<{
             background: string;
         };
     };
-    textField: {
-        textColor: string;
-        backgroundColor: string;
-        borderColor: string;
-        iconColor: string;
-        label: {
-            color: string;
-        };
-        singleline: {
-            field: {
-                borderColor: string;
-                backgroundColor: string;
-                borderRadius: string;
-            };
-            input: {
-                color: string;
-            };
-            placeholder: {
-                color: string;
-            };
-        };
-        hint: {
-            color: string;
-        };
-    };
     title: {
         active: {
-            color: string;
-        };
-    };
-    viewport: {
-        main: {
-            background: string;
             color: string;
         };
     };

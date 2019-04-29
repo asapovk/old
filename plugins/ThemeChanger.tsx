@@ -52,6 +52,7 @@ class ThemeSwitch extends React.Component {
             >
                 <option value="blackCurrant">Черная смородина</option>
                 <option value="whiteCurrant">Белая смородина</option>
+                <option value="whiteCurrantModern">Белая смородина (Модерн)</option>
                 <option value="abrTheme">АБР</option>
                 <option value="gazpromTheme">Газпром</option>
             </select>

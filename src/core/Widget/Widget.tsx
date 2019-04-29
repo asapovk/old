@@ -1,12 +1,12 @@
 /** @jsx jsx */
-import { jsx } from '@emotion/core'
-import { Spin, Icon, Flexbox, Styles } from '../../';
+import { jsx } from '@emotion/core';
+import { Icon, Spin } from '../../';
 import createStyles from './styles';
-import Types from './types'
+import Types from './types';
 
 export default (props: Types.WidgetProps) => {
-    const { title, loading, onClick, className, style, children } = props;
-    const styles = createStyles(typeof onClick === 'function');
+    const { title, loading, onClick, className, style, children, decoration } = props;
+    const styles = createStyles(typeof onClick === 'function', decoration);
 
     return (
         <div

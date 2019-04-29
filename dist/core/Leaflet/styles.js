@@ -14,12 +14,12 @@ exports.default = (function (mobile) {
             width: '100%',
             overflow: 'hidden'
         }, !mobile && {
-            borderRadius: theme.radius.card,
+            borderRadius: theme.defaultBorderRadius,
         }),
         items: core_1.css({
             flex: 1,
             overflow: 'hidden',
-            borderRadius: theme.radius.card,
+            borderRadius: theme.defaultBorderRadius,
             border: border,
             '> div:last-of-type': {
                 borderRight: 'none'
@@ -95,8 +95,14 @@ exports.default = (function (mobile) {
             }); },
             item: function (active, groups) { return core_1.css({
                 cursor: 'pointer',
-                '> span': {
-                    lineHeight: mobile ? '2.5rem' : '2rem'
+                '> div': {
+                    overflow: 'hidden',
+                    '> span': {
+                        lineHeight: mobile ? '2.5rem' : '2rem',
+                        overflow: 'hidden',
+                        textOverflow: 'ellipsis',
+                        whiteSpace: 'nowrap',
+                    }
                 }
             }, active && {
                 background: theme.highlight.rgb,

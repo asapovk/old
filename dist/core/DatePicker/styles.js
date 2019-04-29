@@ -21,15 +21,7 @@ exports.default = (function () {
     var theme = hooks_1.useTheme().theme;
     var typography = hooks_1.useTypography();
     return {
-        textFieldWrapper: core_1.css({
-            padding: '0.25rem',
-            background: theme.interface.hex,
-            borderRadius: theme.radius.default,
-            border: '0.5px solid ' + theme.pale.hex,
-            borderTop: 0,
-            position: 'relative',
-            top: "-" + theme.radius.default,
-        }),
+        textFieldWrapper: core_1.css(__assign({ padding: '0.25rem', background: theme.interface.hex }, theme.borders.datepicker, { borderTop: 0, position: 'relative', top: "-" + theme.borders.datepicker.borderRadius })),
         textFieldOkButton: core_1.css({
             position: 'absolute',
             right: 10,
@@ -39,13 +31,13 @@ exports.default = (function () {
             position: "relative",
             background: theme.background.hex,
             color: theme.text.hex,
-            borderRadius: theme.radius.button,
+            borderRadius: theme.borders.datepicker.borderRadius,
         }),
         weekDay: core_1.css(__assign({ userSelect: "none" }, typography.caption[2], { fontWeight: 500 })),
         title: core_1.css({
             background: theme.background.hex,
             color: theme.text.hex,
-            borderRadius: theme.radius.button,
+            borderRadius: theme.borders.datepicker.borderRadius,
             padding: '0.25rem'
         }),
         monthTitle: core_1.css(__assign({ userSelect: "none" }, typography.caption[1], { fontWeight: 500 })),
@@ -54,7 +46,7 @@ exports.default = (function () {
          * Styles for day squire
          */
         day: function (isActive, isCurrent, isDisabled, isCurrentMonth) {
-            var st = __assign({ transition: "all 0.3s", border: "0.5px solid", fontWeight: 500, width: '2rem', height: '2rem', cursor: "pointer", opacity: 1, borderRadius: theme.radius.default, background: theme.interface.hex, borderColor: theme.background.hex, color: theme.text.hex, userSelect: "none" }, typography.text[1]);
+            var st = __assign({ transition: "all 0.3s", fontWeight: 500, width: '2rem', height: '2rem', cursor: "pointer", opacity: 1, background: theme.interface.hex }, theme.borders.datepicker, { borderColor: theme.background.hex, color: theme.text.hex, userSelect: "none" }, typography.text[1]);
             /**
              * This day is from current month
              */

@@ -33,7 +33,7 @@ export const RightBar = (props) => {
                     type='add'
                     size='2rem'
                     shape='oval'
-                    background='background'
+                    // background='background'
                     color='lowlight'
                 />
                 <C2

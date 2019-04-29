@@ -1,13 +1,6 @@
-import { CSSProperties } from "react";
-import { IconTypes } from "../../types";
+import { CSSProperties, Dispatch, SetStateAction, ReactNode } from "react";
 
 declare namespace TabsTypes {
-    export interface Tab {
-        key: string,
-        title: React.ReactNode
-        content: React.ReactNode
-        icon: IconTypes.Type
-    }
 
     export interface Props {
         style?: CSSProperties
@@ -15,9 +8,25 @@ declare namespace TabsTypes {
         children?: any
         bp?: number[]
 
-        tabs: Tab[]
-        reverseContainer?: boolean
-        noDataComponent?: JSX.Element
+        items: ItemProps[]
+        activeItem: number
+        onClick?: (item: ItemProps, index: number, path?: string, ) => void
+    }
+
+    export interface MenuProps {
+        items: TabsTypes.ItemProps[]
+        activeItem: number
+        onItemClick: Dispatch<SetStateAction<number>>
+    }
+
+    export interface ItemProps {
+        title: string
+        path?: string
+        component?: any
+    }
+
+    export interface ContentProps {
+
     }
 }
 

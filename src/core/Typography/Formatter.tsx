@@ -1,6 +1,7 @@
 /** @jsx jsx */
 import { jsx, css } from '@emotion/core';
 import React, { Fragment } from 'react';
+import { ThemeInterface } from '../../styles';
 
 export default (props) => {
     let number, integer, fraction, unitSymbol
@@ -35,7 +36,14 @@ export default (props) => {
     return (
         <Fragment>
             {integer}
-            {<span css={css({ fontSize: '0.75em', opacity: .5 })}>{fraction && ',' + fraction}{'\u00a0'}{unitSymbol}</span>}
+            {<span css={(theme: ThemeInterface) => css({
+                fontSize: '0.75em',
+                // opacity: .5
+            }, props.fractionColor && {
+                color: theme[props.fractionColor].hex
+            })}>
+                {fraction && ',' + fraction}{'\u00a0'}{unitSymbol}
+            </span>}
         </Fragment>
     )
 }

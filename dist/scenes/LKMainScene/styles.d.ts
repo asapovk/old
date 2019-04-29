@@ -1,15 +1,15 @@
 declare const _default: () => {
     theme: import("../../styles").ThemeInterface;
-    container: import("@emotion/utils").SerializedStyles;
-    mask: import("@emotion/utils").SerializedStyles;
+    container: (isMobile: boolean, showSideBar: boolean) => false | import("@emotion/utils").SerializedStyles;
+    mask: (display: boolean) => import("@emotion/utils").SerializedStyles;
     main: {
-        container: (displaySidebar: any) => import("@emotion/utils").SerializedStyles;
+        container: (isMobile: boolean) => import("@emotion/utils").SerializedStyles;
         holder: import("@emotion/utils").SerializedStyles;
         menu: import("@emotion/utils").SerializedStyles;
-        back: import("@emotion/utils").SerializedStyles;
+        back: (needDisplay: boolean) => import("@emotion/utils").SerializedStyles;
     };
     sidebar: {
-        container: (display: any) => import("@emotion/utils").SerializedStyles;
+        container: (isMobile: any, display: any) => import("@emotion/utils").SerializedStyles;
         background: import("@emotion/utils").SerializedStyles;
         user: {
             container: import("@emotion/utils").SerializedStyles;

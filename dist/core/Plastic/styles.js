@@ -54,7 +54,7 @@ exports.default = (function (props) {
     };
     return {
         stack: core_1.css(__assign({ position: 'relative', width: '4.75rem', height: '3rem' }, stackHovers())),
-        card: core_1.css(__assign({ zIndex: 1, position: 'relative', width: '4.75rem', height: '3rem', borderRadius: '0.25rem', background: props.cardBackground || theme.highlight.hex, cursor: props.isActive ? 'default' : 'pointer', boxShadow: (props.isActive ? stackShadow + " 0.2rem 0rem " : "0, 0, 0, 0 ") + theme.shadow.hex, transition: 'all 0.25s' }, stackCss)),
+        card: core_1.css(__assign({ zIndex: 1, position: 'relative', width: '4.75rem', height: '3rem', borderRadius: '0.25rem', background: props.cardBackground || theme.highlight.hex, cursor: props.isActive ? 'default' : 'pointer', boxShadow: (props.isActive ? stackShadow + " 0.2rem 0rem " : "0, 0, 0, 0 ") + theme.defaultShadow.hex, transition: 'all 0.25s' }, stackCss)),
         pan: core_1.css({
             display: 'block',
             position: 'absolute',

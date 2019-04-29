@@ -6,8 +6,8 @@ export default (theme: ThemeInterface) => {
         main: {
             backgroundColor: theme.interface.rgb,
             titleColor: theme.lowlight.rgb,
-            borderColor: theme.pale.rgb,
-            borderRadius: theme.radius.table,
+            borderColor: theme.borders.table.borderColor,
+            borderRadius: theme.borders.table.borderRadius,
             boxShadow: theme.shadows.table
         },
         row: {

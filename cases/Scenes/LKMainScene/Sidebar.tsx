@@ -1,9 +1,9 @@
 /** @jsx jsx */
-import { jsx, css } from '@emotion/core';
-import React, { useState, useEffect, useRef } from 'react';
+import { css, jsx } from '@emotion/core';
+import { useState } from 'react';
 import { Card, Flexbox, Icon } from '../../../src';
-import createStyles from './styles';
 import { useBrowser } from '../../../src/hooks';
+import createStyles from './styles';
 
 const Sidebar = (props: any) => {
 
@@ -13,9 +13,9 @@ const Sidebar = (props: any) => {
     const accounts = [
         { label: '1000001433', value: 1 },
         { label: '1000001459', value: 2 },
-        { label: '95285-F', value: 3 },
         // { label: '95285-F', value: 3 },
-        // { label: '95285-F', value: 3 },
+        // { label: '95285-F', value: 4 },
+        // { label: '95285-F', value: 5 },
         // { label: '95285-F', value: 3 }
     ];
 

@@ -52,7 +52,7 @@ exports.default = (function (props) {
         if (typeof props.onChange === 'function') {
             var _a = CurrencyFormatted(event.currentTarget.value), amountInt = _a[0], amountString = _a[1];
             setValue(amountString);
-            props.onChange(amountInt);
+            props.onChange(event, amountInt.toString());
         }
     }
     function onBlur(event) {

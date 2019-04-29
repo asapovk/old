@@ -56,7 +56,7 @@ exports.default = (function (forElka) {
             }, forElka && {
                 justifyContent: 'flex-start'
             }),
-            item: function (active, visible) { return core_1.css(__assign({}, typography.caption[1], { padding: '0.375rem 1.5rem', cursor: 'pointer', fontWeight: 500, flexShrink: 0, color: active ? theme.textOnAccent.rgb : theme.text.rgb, background: active ? theme.highlight.rgb : 'transparent', borderRadius: theme.radius.button, display: visible ? 'block' : 'none' })); },
+            item: function (active, visible) { return core_1.css(__assign({}, typography.caption[1], { padding: '0.375rem 1.5rem', cursor: 'pointer', fontWeight: 500, flexShrink: 0, color: active ? theme.textOnAccent.rgb : theme.text.rgb, background: active ? theme.highlight.rgb : 'transparent', borderRadius: theme.borders.button.borderRadius, display: visible ? 'block' : 'none' })); },
             dropdown: core_1.css({
                 boxSizing: 'border-box',
                 padding: '1rem',
@@ -67,7 +67,7 @@ exports.default = (function (forElka) {
                 boxShadow: '0px 0.5rem 0.5rem 0px rgba(0, 0, 0, 0.2)',
                 zIndex: 1,
                 backgroundColor: theme.background.hex,
-                borderRadius: theme.radius.default
+                borderRadius: theme.defaultBorderRadius
             }),
             mobile: function (active) { return core_1.css({
                 overflow: 'hidden',
