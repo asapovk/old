@@ -272,7 +272,7 @@ const Table1 = () => {
 	return (
 		<Flexbox pr={35} pl={50} pt={100} pb={100} column flex={1}>
 			<List
-				data={[]}
+				data={state.data}
 				groupKey='groupId'
 				groups={groups}
 				// noDataComponent={<Flexbox flex={1} p={20} justifyContent='center'>А Данных Нет!</Flexbox>}
