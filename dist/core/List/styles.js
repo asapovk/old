@@ -18,8 +18,9 @@ exports.default = (function () {
             maxWidth: '20rem'
         }),
         row: core_1.css({
+            height: '6rem',
             marginBottom: '1.5rem',
-            padding: '0.875rem 2rem'
+            padding: '0.875rem 2rem',
         }),
         moreContainer: core_1.css({
             userSelect: 'none'
