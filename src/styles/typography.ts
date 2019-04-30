@@ -70,13 +70,13 @@ export default () => {
                 fontSize: '2rem',
                 lineHeight: '3rem',
                 fontWeight: 700,
-                letterSpacing: '-0.03em',
+                letterSpacing: '-0.025em',
             },
             2: {
                 fontSize: '1.5rem',
                 lineHeight: '2rem',
                 fontWeight: 700,
-                letterSpacint: '-0.03em',
+                letterSpacint: '-0.025em',
 
             },
             3: {

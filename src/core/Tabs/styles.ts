@@ -35,7 +35,7 @@ export default (bp?: number[]) => {
 				lineHeight: '2.5rem',
 				transition: 'font-size .15s linear',
 				willChange: 'font-size',
-				letterSpacing: '-0.03em',
+				letterSpacing: '-0.025em',
 			}, props.isActive && {
 				fontSize: '2.75rem',
 				fontWeight: 900,
