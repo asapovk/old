@@ -1,25 +1,29 @@
-import { CSSProperties, Dispatch, SetStateAction } from "react";
+import { CSSProperties } from "react";
 declare namespace TabsTypes {
     interface Props {
         style?: CSSProperties;
         className?: string;
         children?: any;
-        bp?: number[];
         items: ItemProps[];
         activeItem: number;
+        alignMobile?: 'flex-start' | 'flex-end' | 'center';
         onClick?: (item: ItemProps, index: number, path?: string) => void;
-    }
-    interface MenuProps {
-        items: TabsTypes.ItemProps[];
-        activeItem: number;
-        onItemClick: Dispatch<SetStateAction<number>>;
     }
     interface ItemProps {
         title: string;
         path?: string;
         component?: any;
     }
-    interface ContentProps {
+    interface BurgerProps {
+        onClick: (state: boolean) => void;
+        styleButton: any;
+        styleTitle: any;
+        currentMenu: ItemProps;
+        alignMobile?: 'flex-start' | 'flex-end' | 'center';
+    }
+    interface StyleProps {
+        alignMobile?: 'flex-start' | 'flex-end' | 'center';
+        burgerActive?: boolean;
     }
 }
 export default TabsTypes;
