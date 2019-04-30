@@ -17,7 +17,6 @@ export default (props: TabsTypes.StyleProps) => {
 			})
 		}),
 		menus: css({
-			zIndex: 100,
 			[MOBILE]: css({
 				position: 'fixed',
 				right: 0,
@@ -30,11 +29,14 @@ export default (props: TabsTypes.StyleProps) => {
 				transform: 'translateY(-1rem)',
 				transition: 'all 0.15s ease',
 				padding: "1rem 2rem",
-				alignItems: props.alignMobile
+				alignItems: props.alignMobile,
+				boxShadow: theme.shadows.card.default,
 			}, props.burgerActive && {
 				visibility: 'visible',
 				opacity: 1,
 				transform: 'translateY(0)',
+				zIndex: 999,
+				boxShadow: theme.shadows.card.active,
 			})
 		}),
 		burgerButton: {
