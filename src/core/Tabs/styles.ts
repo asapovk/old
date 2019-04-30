@@ -18,11 +18,9 @@ export default (props: TabsTypes.StyleProps) => {
 		}),
 		menus: css({
 			[MOBILE]: css({
-				position: 'fixed',
-				right: 0,
-				left: 0,
+				alignSelf: "stretch",
 				flexDirection: 'column',
-				marginTop: '2rem',
+				margin: '1rem -2rem 0rem -2rem',
 				visibility: 'hidden',
 				opacity: 0,
 				backgroundColor: theme.interface.hex,
