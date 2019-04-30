@@ -21,11 +21,9 @@ exports.default = (function (props) {
             _a)),
         menus: core_1.css((_b = {},
             _b[MOBILE] = core_1.css({
-                position: 'fixed',
-                right: 0,
-                left: 0,
+                alignSelf: "stretch",
                 flexDirection: 'column',
-                marginTop: '2rem',
+                margin: '1rem -2rem 0rem -2rem',
                 visibility: 'hidden',
                 opacity: 0,
                 backgroundColor: theme.interface.hex,
