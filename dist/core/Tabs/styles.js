@@ -19,9 +19,7 @@ exports.default = (function (props) {
                 alignItems: props.alignMobile || 'flex-start',
             }),
             _a)),
-        menus: core_1.css((_b = {
-                zIndex: 100
-            },
+        menus: core_1.css((_b = {},
             _b[MOBILE] = core_1.css({
                 position: 'fixed',
                 right: 0,
@@ -34,11 +32,14 @@ exports.default = (function (props) {
                 transform: 'translateY(-1rem)',
                 transition: 'all 0.15s ease',
                 padding: "1rem 2rem",
-                alignItems: props.alignMobile
+                alignItems: props.alignMobile,
+                boxShadow: theme.shadows.card.default,
             }, props.burgerActive && {
                 visibility: 'visible',
                 opacity: 1,
                 transform: 'translateY(0)',
+                zIndex: 999,
+                boxShadow: theme.shadows.card.active,
             }),
             _b)),
         burgerButton: (_c = {},
