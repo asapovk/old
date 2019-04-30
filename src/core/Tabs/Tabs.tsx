@@ -9,7 +9,7 @@ export default (props: TabsTypes.Props) => {
     const { menu } = createStyles();
 
     return (
-        <Flexbox className={className} alignItems='center' mb='2rem'>
+        <Flexbox className={className} alignItems='center'>
             {items.map((item, index) => {
                 const isActive = index === activeItem;
                 return (
