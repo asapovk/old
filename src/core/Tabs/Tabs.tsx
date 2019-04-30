@@ -10,12 +10,12 @@ export default (props: types.Props) => {
     const { activeItem, items, className, onClick } = props;
     const [burgerActive, setBurgerActive] = useState(false);
     const { container, menus, menu, burgerButton, burgerTitle } = createStyles({
-        ...props,
+        alignMobile: props.alignMobile || 'flex-end',
         burgerActive
     });
 
     return (
-        <Flexbox css={container} className={className}>
+        <Flexbox css={container} className={className} flex={1}>
             <Burger
                 onClick={() => setBurgerActive(!burgerActive)}
                 styleButton={burgerButton}
@@ -32,6 +32,9 @@ export default (props: types.Props) => {
                             css={menu.item({ isActive })}
                             onClick={() => {
                                 onClick && onClick(item, index, item.path);
+                                if (burgerActive) {
+                                    setBurgerActive(false);
+                                }
                             }}
                             children={(
                                 <Flexbox
