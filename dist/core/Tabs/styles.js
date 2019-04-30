@@ -13,8 +13,7 @@ exports.default = (function (props) {
     return {
         container: core_1.css((_a = {
                 userSelect: 'none',
-                flexDirection: 'column',
-                padding: '2rem'
+                flexDirection: 'column'
             },
             _a[MOBILE] = core_1.css({
                 alignItems: props.alignMobile || 'flex-start',
@@ -24,26 +23,22 @@ exports.default = (function (props) {
                 zIndex: 100
             },
             _b[MOBILE] = core_1.css({
+                position: 'fixed',
+                right: 0,
+                left: 0,
                 flexDirection: 'column',
                 marginTop: '2rem',
-                alignItems: props.alignMobile || 'flex-end',
                 visibility: 'hidden',
                 opacity: 0,
-                flex: 1,
                 backgroundColor: theme.interface.hex,
-                width: "100%",
-                position: "absolute",
                 transform: 'translateY(-1rem)',
                 transition: 'all 0.15s ease',
                 padding: "1rem 2rem",
+                alignItems: props.alignMobile
             }, props.burgerActive && {
                 visibility: 'visible',
                 opacity: 1,
                 transform: 'translateY(0)',
-            }, props.alignMobile === 'flex-start' && {
-                marginLeft: '-2rem'
-            }, props.alignMobile === 'flex-end' && {
-                marginLeft: '2rem'
             }),
             _b)),
         burgerButton: (_c = {},
