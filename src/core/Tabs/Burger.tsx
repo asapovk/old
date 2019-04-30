@@ -5,7 +5,7 @@ import types from './types';
 
 export default (props: types.BurgerProps) => (
     <Flexbox alignItems="center" onClick={props.onClick}>
-        {(props.alignMobile === 'flex-end' || props.alignMobile === 'center' || !props.alignMobile) && (
+        {(props.alignMobile === 'flex-end' || props.alignMobile === 'center' || !props.alignMobile) && props.currentMenu && (
             <Flexbox css={props.styleTitle}>
                 {props.currentMenu.title.toUpperCase()}
             </Flexbox>
