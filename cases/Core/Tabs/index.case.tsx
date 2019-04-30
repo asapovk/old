@@ -15,7 +15,7 @@ class TabsStory extends React.Component {
     render() {
         return (
             <div>
-                <Flexbox flex={1} p={20}>
+                <Flexbox flex={1} p={100}>
                     <Flexbox flex={1}>
                         <Tabs
                             alignMobile={this.state.alignMobile as any}

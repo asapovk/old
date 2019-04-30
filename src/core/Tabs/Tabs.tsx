@@ -4,7 +4,7 @@ import { Flexbox } from '..';
 import createStyles from './styles';
 import types from './types';
 import Burger from './Burger';
-import { useState, Fragment } from 'react';
+import { useState, Fragment, useLayoutEffect } from 'react';
 
 export default (props: types.Props) => {
     const { activeItem, items, className, onClick } = props;
@@ -13,6 +13,10 @@ export default (props: types.Props) => {
         alignMobile: props.alignMobile || 'flex-end',
         burgerActive
     });
+
+    useLayoutEffect(() => {
+
+    }, []);
 
     return (
         <Flexbox css={container} className={className} flex={1}>

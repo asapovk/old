@@ -18,9 +18,11 @@ export default (props: TabsTypes.StyleProps) => {
 		}),
 		menus: css({
 			[MOBILE]: css({
-				alignSelf: "stretch",
+				position: 'absolute',
+				left: 0,
+				right: 0,
 				flexDirection: 'column',
-				margin: '1rem -2rem 0rem -2rem',
+				marginTop: '2rem',
 				visibility: 'hidden',
 				opacity: 0,
 				backgroundColor: theme.interface.hex,
@@ -29,6 +31,7 @@ export default (props: TabsTypes.StyleProps) => {
 				padding: "1rem 2rem",
 				alignItems: props.alignMobile,
 				boxShadow: theme.shadows.card.default,
+				borderRadius: theme.borders.card.borderRadius,
 			}, props.burgerActive && {
 				visibility: 'visible',
 				opacity: 1,
