@@ -29,7 +29,7 @@ exports.default = (function (clickable, decoration) {
         }, decoration && __assign({}, getDecorations(decoration)), decoration !== 'none' && {
             padding: "2rem",
             "@media (max-width: 768px)": {
-                padding: '1rem'
+                padding: '1.25rem'
             },
         }),
         title: core_1.css({
