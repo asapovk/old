@@ -5,8 +5,8 @@ import TabsTypes from './types';
 export default (props: TabsTypes.StyleProps) => {
 	const theme = useTheme().theme
 
-	const MOBILE = `@media (max-width: ${768}px)`
-	const DESKTOP = `@media (min-width: ${769}px)`
+	const MOBILE = `@media (max-width: ${1024}px)`
+	const DESKTOP = `@media (min-width: ${1025}px)`
 
 	return {
 		container: css({
