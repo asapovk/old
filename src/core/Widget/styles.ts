@@ -10,7 +10,6 @@ export default (clickable: boolean, decoration?: DecorationTypes) => {
 			position: "relative",
 			boxSizing: "border-box",
 			lineHeight: 1,
-			padding: "2rem",
 			minWidth: "16rem",
 			overflow: "hidden",
 			background: theme.interface.rgb,
@@ -18,6 +17,10 @@ export default (clickable: boolean, decoration?: DecorationTypes) => {
 			userSelect: "none",
 			boxShadow: theme.shadows.widget,
 			...theme.borders.widget,
+			padding: "2rem",
+			"@media (max-width: 768px)": {
+				padding: '1rem'
+			}
 
 		}, clickable && {
 			"&:hover": {
