@@ -64,29 +64,34 @@ exports.default = (function (_a) {
                 height: extraParams.inputHeight,
                 padding: "0 " + extraParams.inputPadding
             }),
-        field: core_1.css({
-            // height: '100%',
-            width: '100%',
-            border: 'none',
-            boxSizing: 'border-box',
-            background: 'none',
-            outline: 'none',
-            position: 'relative',
-            color: theme.text.rgb,
-            fontFamily: 'inherit',
-            margin: 0,
-            padding: 0,
-            resize: 'none',
-            fontWeight: 700,
-            transform: 'translateY(0)',
-            fontSize: extraParams.textSize,
-            lineHeight: extraParams.textLineHeight,
-            marginTop: floatingLabel ? extraParams.inputMargin : 0,
-            '::placeholder': {
-                color: theme.lowlight.rgb,
-                fontWeight: 'normal'
-            }
-        }),
+        field: function (fullHeight) {
+            if (fullHeight === void 0) { fullHeight = false; }
+            return core_1.css({
+                // height: '100%',
+                width: '100%',
+                border: 'none',
+                boxSizing: 'border-box',
+                background: 'none',
+                outline: 'none',
+                position: 'relative',
+                color: theme.text.rgb,
+                fontFamily: 'inherit',
+                margin: 0,
+                padding: 0,
+                resize: 'none',
+                fontWeight: 700,
+                transform: 'translateY(0)',
+                fontSize: extraParams.textSize,
+                lineHeight: extraParams.textLineHeight,
+                marginTop: floatingLabel ? extraParams.inputMargin : 0,
+                '::placeholder': {
+                    color: theme.lowlight.rgb,
+                    fontWeight: 'normal'
+                }
+            }, fullHeight && {
+                height: '100%'
+            });
+        },
         icon: function (position) {
             if (position === void 0) { position = null; }
             return core_1.css({

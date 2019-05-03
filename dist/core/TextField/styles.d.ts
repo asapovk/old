@@ -10,7 +10,7 @@ declare const _default: ({ multiline, size, disabled, decoration, floatingLabel,
     label: import("@emotion/utils").SerializedStyles;
     floatingLabel: (minified: boolean) => import("@emotion/utils").SerializedStyles;
     wrapper: import("@emotion/utils").SerializedStyles;
-    field: import("@emotion/utils").SerializedStyles;
+    field: (fullHeight?: boolean) => import("@emotion/utils").SerializedStyles;
     icon: (position?: any) => import("@emotion/utils").SerializedStyles;
 };
 export default _default;
