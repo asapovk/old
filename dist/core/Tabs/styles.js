@@ -8,8 +8,8 @@ var useTheme_1 = __importDefault(require("../../hooks/useTheme"));
 exports.default = (function (props) {
     var _a, _b, _c, _d;
     var theme = useTheme_1.default().theme;
-    var MOBILE = "@media (max-width: " + 768 + "px)";
-    var DESKTOP = "@media (min-width: " + 769 + "px)";
+    var MOBILE = "@media (max-width: " + 1024 + "px)";
+    var DESKTOP = "@media (min-width: " + 1025 + "px)";
     return {
         container: core_1.css((_a = {
                 userSelect: 'none',
