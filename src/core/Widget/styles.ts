@@ -29,7 +29,7 @@ export default (clickable: boolean, decoration?: DecorationTypes) => {
 		}, decoration !== 'none' && {
 			padding: "2rem",
 			"@media (max-width: 768px)": {
-				padding: '1rem'
+				padding: '1.25rem'
 			},
 		}),
 
