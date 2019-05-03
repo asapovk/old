@@ -10,7 +10,7 @@ export default (clickable: boolean, decoration?: DecorationTypes) => {
 			position: "relative",
 			boxSizing: "border-box",
 			lineHeight: 1,
-			minWidth: "16rem",
+			minWidth: "15rem",
 			overflow: "hidden",
 			background: theme.interface.rgb,
 			transition: "all .2s ease",
@@ -20,8 +20,7 @@ export default (clickable: boolean, decoration?: DecorationTypes) => {
 			padding: "2rem",
 			"@media (max-width: 768px)": {
 				padding: '1rem'
-			}
-
+			},
 		}, clickable && {
 			"&:hover": {
 				transform: "scale(1.05)"
@@ -30,7 +29,9 @@ export default (clickable: boolean, decoration?: DecorationTypes) => {
 				transform: "scale(1.03)"
 			}
 		}, decoration && {
-			...getDecorations(decoration)
+			"@media (min-width: 768px)": {
+				...getDecorations(decoration)
+			},
 		}),
 
 		title: css({
