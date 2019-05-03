@@ -9,7 +9,7 @@ declare namespace TabsTypes {
         items: ItemProps[]
         activeItem: number
         alignMobile?: 'flex-start' | 'flex-end' | 'center'
-        onClick?: (item: ItemProps, index: number, path?: string, ) => void
+        onClick?: (item: ItemProps, index: number, path?: string) => void
     }
 
     export interface ItemProps {

@@ -63,7 +63,7 @@ export default ({ multiline, size, disabled, decoration, floatingLabel, leftIcon
                 },
         ),
 
-        field: css({
+        field: (fullHeight: boolean = false) => css({
             // height: '100%',
             width: '100%',
             border: 'none',
@@ -85,6 +85,8 @@ export default ({ multiline, size, disabled, decoration, floatingLabel, leftIcon
                 color: theme.lowlight.rgb,
                 fontWeight: 'normal'
             }
+        }, fullHeight && {
+            height: '100%'
         }),
 
         icon: (position: any = null) => css({

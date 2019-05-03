@@ -57,7 +57,7 @@ export default forwardRef((props: Types.FieldProps, ref) => {
                 onKeyPress: onKeyPress,
                 disabled: props.disabled || props.loading,
                 placeholder: props.placeholder,
-                css: props.styles.field,
+                css: props.styles.field(props.multiline),
                 ref: ref,
                 type: props.type,
                 tabIndex: props.tabIndex,
