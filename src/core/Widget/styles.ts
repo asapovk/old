@@ -17,10 +17,6 @@ export default (clickable: boolean, decoration?: DecorationTypes) => {
 			userSelect: "none",
 			boxShadow: theme.shadows.widget,
 			...theme.borders.widget,
-			padding: "2rem",
-			"@media (max-width: 768px)": {
-				padding: '1rem'
-			},
 		}, clickable && {
 			"&:hover": {
 				transform: "scale(1.05)"
@@ -29,8 +25,11 @@ export default (clickable: boolean, decoration?: DecorationTypes) => {
 				transform: "scale(1.03)"
 			}
 		}, decoration && {
-			"@media (min-width: 768px)": {
-				...getDecorations(decoration)
+			...getDecorations(decoration)
+		}, decoration !== 'none' && {
+			padding: "2rem",
+			"@media (max-width: 768px)": {
+				padding: '1rem'
 			},
 		}),
 
