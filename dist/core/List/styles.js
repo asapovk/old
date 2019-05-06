@@ -5,7 +5,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@emotion/core");
 var useTheme_1 = __importDefault(require("../../hooks/useTheme"));
-exports.default = (function () {
+exports.default = (function (narrowed) {
+    if (narrowed === void 0) { narrowed = false; }
     var theme = useTheme_1.default().theme;
     return {
         groupTitle: core_1.css({
@@ -16,11 +17,26 @@ exports.default = (function () {
             backgroundColor: 'rgb(229, 228, 233)',
             boxShadow: '0 1.25rem 2.5rem rgba(0,0,0,.1)',
             maxWidth: '20rem'
+        }, narrowed && {
+            padding: 0
+        }),
+        container: core_1.css({
+            padding: 0,
         }),
         row: core_1.css({
             height: '6rem',
             marginBottom: '1.5rem',
             padding: '0.875rem 2rem',
+            ":last-of-type": {
+                marginBottom: 0
+            }
+        }, narrowed && {
+            height: 'unset',
+            borderBottom: '1px dashed #E5E5E5',
+            marginBottom: 0,
+            ":last-of-type": {
+                border: 'none',
+            }
         }),
         moreContainer: core_1.css({
             userSelect: 'none'

@@ -11,7 +11,7 @@ var __2 = require("../..");
 var ShowMore_1 = __importDefault(require("./components/ShowMore"));
 var styles_1 = __importDefault(require("./styles"));
 exports.default = (function (props) {
-    var styles = styles_1.default();
+    var styles = styles_1.default(props.narrowed);
     var _a = react_1.useState(props.minified || false), minified = _a[0], setMinified = _a[1];
     var className = props.className, rowRender = props.rowRender, groupKey = props.groupKey, groups = props.groups, minifiedRowsCount = props.minifiedRowsCount, onRowClick = props.onRowClick, expandForm = props.expandForm, moreLabel = props.moreLabel, lessLabel = props.lessLabel;
     if (!props.data.length) {
@@ -20,6 +20,8 @@ exports.default = (function (props) {
     }
     var data = minified ? props.data.filter(function (_, index) { return index < (minifiedRowsCount || 3); }) : props.data;
     var needShowMore = props.minified && props.data.length > (minifiedRowsCount || 3);
+    var Wrapper = props.narrowed ? __1.Widget : __1.Flexbox;
+    var RowWrapper = props.narrowed ? __1.Flexbox : __1.Widget;
     if (groupKey && Array.isArray(groups)) {
         /**
          * Filter unique groups before render
@@ -29,16 +31,16 @@ exports.default = (function (props) {
         var currentGroups = groups
             .filter(function (group) { return uniqueDataGroups_1
             .some(function (udg) { return udg.groupId === group.value; }); });
-        return (core_1.jsx(__1.Flexbox, { flex: 1, column: true, className: className },
-            currentGroups.map(function (group, index) { return (core_1.jsx(react_1.Fragment, { key: group.value + "-" + index },
+        return (core_1.jsx("div", { className: className },
+            core_1.jsx(Wrapper, { flex: 1, column: true, css: styles.container }, currentGroups.map(function (group, index) { return (core_1.jsx(react_1.Fragment, { key: group.value + "-" + index },
                 core_1.jsx(__1.Flexbox, { css: styles.groupTitle },
                     core_1.jsx(__2.C1, { ellipsis: true, color: 'lowlight', children: group.title })),
                 data
                     .filter(function (row) { return row.groupId === group.value; })
-                    .map(function (row, index) { return (core_1.jsx(__1.Widget, { css: styles.row, key: "row-" + index }, rowRender(row))); }))); }),
+                    .map(function (row, index) { return (core_1.jsx(RowWrapper, { css: styles.row, key: "row-" + index }, rowRender(row))); }))); })),
             needShowMore && (core_1.jsx(ShowMore_1.default, { moreLabel: moreLabel, lessLabel: lessLabel, minified: minified, setMinified: function () { return setMinified(!minified); } }))));
     }
-    return (core_1.jsx(__1.Flexbox, { flex: 1, column: true, className: className },
-        data.map(function (row, index) { return (core_1.jsx(__1.Widget, { css: styles.row, key: "row-" + index }, rowRender(row))); }),
+    return (core_1.jsx("div", { className: className },
+        core_1.jsx(Wrapper, { flex: 1, column: true, css: styles.container }, data.map(function (row, index) { return (core_1.jsx(RowWrapper, { css: styles.row, key: "row-" + index }, rowRender(row))); })),
         needShowMore && (core_1.jsx(ShowMore_1.default, { moreLabel: moreLabel, lessLabel: lessLabel, minified: minified, setMinified: function () { return setMinified(!minified); } }))));
 });
