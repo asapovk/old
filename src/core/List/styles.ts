@@ -19,6 +19,7 @@ export default (narrowed: boolean = false) => {
 
 		row: css({
 			marginBottom: '1.5rem',
+			overflow: 'hidden',
 			":last-of-type": {
 				marginBottom: 0
 			}
