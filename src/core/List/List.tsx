@@ -48,7 +48,11 @@ export default (props: Types.Props) => {
                             {data
                                 .filter(row => row.groupId === group.value)
                                 .map((row, index) => (
-                                    <RowWrapper css={styles.row} key={`row-${index}`}>
+                                    <RowWrapper
+                                        onClick={() => props.onRowClick && props.onRowClick(row)}
+                                        css={styles.row}
+                                        key={`row-${index}`}
+                                    >
                                         {rowRender(row)}
                                     </RowWrapper>
                                 ))}
