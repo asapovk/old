@@ -37,7 +37,7 @@ exports.default = (function (props) {
                     core_1.jsx(__2.C1, { ellipsis: true, color: 'lowlight', children: group.title })),
                 data
                     .filter(function (row) { return row.groupId === group.value; })
-                    .map(function (row, index) { return (core_1.jsx(RowWrapper, { css: styles.row, key: "row-" + index }, rowRender(row))); }))); })),
+                    .map(function (row, index) { return (core_1.jsx(RowWrapper, { onClick: function () { return props.onRowClick && props.onRowClick(row); }, css: styles.row, key: "row-" + index }, rowRender(row))); }))); })),
             needShowMore && (core_1.jsx(ShowMore_1.default, { moreLabel: moreLabel, lessLabel: lessLabel, minified: minified, setMinified: function () { return setMinified(!minified); } }))));
     }
     return (core_1.jsx("div", { className: className },
