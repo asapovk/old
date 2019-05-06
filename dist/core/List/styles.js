@@ -20,9 +20,6 @@ exports.default = (function (narrowed) {
         }, narrowed && {
             padding: 0
         }),
-        container: core_1.css({
-            padding: 0,
-        }),
         row: core_1.css({
             height: '6rem',
             marginBottom: '1.5rem',
