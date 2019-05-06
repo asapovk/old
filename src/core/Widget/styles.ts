@@ -19,11 +19,6 @@ export default (clickable: boolean, decoration?: DecorationTypes) => {
 			...theme.borders.widget,
 		}, decoration && {
 			...getDecorations(decoration)
-		}, decoration !== 'none' && {
-			padding: "2rem",
-			"@media (max-width: 768px)": {
-				padding: '1.25rem'
-			},
 		}),
 
 		title: css({
