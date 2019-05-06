@@ -18,7 +18,7 @@ export default (narrowed: boolean = false) => {
 		}),
 
 		row: css({
-			height: '6rem',
+			minHeight: '6rem',
 			marginBottom: '1.5rem',
 			padding: '0.875rem 2rem',
 			":last-of-type": {
