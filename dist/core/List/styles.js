@@ -33,6 +33,7 @@ exports.default = (function (narrowed) {
         }, narrowed && {
             borderBottom: '1px dashed #E5E5E5',
             marginBottom: 0,
+            boxSizing: 'border-box',
             ":last-of-type": {
                 border: 'none',
             }
