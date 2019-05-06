@@ -39,7 +39,7 @@ export default (props: Types.Props) => {
 
         return (
             <div className={className}>
-                <Wrapper flex={1} column css={styles.container} decoration='none'>
+                <Wrapper flex={1} column decoration='none'>
                     {currentGroups.map((group, index) => (
                         <Fragment key={`${group.value}-${index}`}>
                             <Flexbox css={styles.groupTitle}>
@@ -73,7 +73,7 @@ export default (props: Types.Props) => {
 
     return (
         <div className={className}>
-            <Wrapper flex={1} column css={styles.container} decoration='none'>
+            <Wrapper flex={1} column decoration='none'>
                 {data.map((row, index) => (
                     <RowWrapper
                         onClick={() => props.onRowClick && props.onRowClick(row)}

@@ -17,10 +17,6 @@ export default (narrowed: boolean = false) => {
 			padding: 0
 		}),
 
-		container: css({
-			padding: 0,
-		}),
-
 		row: css({
 			height: '6rem',
 			marginBottom: '1.5rem',
