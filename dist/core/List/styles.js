@@ -22,6 +22,7 @@ exports.default = (function (narrowed) {
         }),
         row: core_1.css({
             marginBottom: '1.5rem',
+            overflow: 'hidden',
             ":last-of-type": {
                 marginBottom: 0
             }
