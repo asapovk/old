@@ -75,7 +75,11 @@ export default (props: Types.Props) => {
         <div className={className}>
             <Wrapper flex={1} column css={styles.container}>
                 {data.map((row, index) => (
-                    <RowWrapper css={styles.row} key={`row-${index}`}>
+                    <RowWrapper
+                        onClick={() => props.onRowClick && props.onRowClick(row)}
+                        css={styles.row}
+                        key={`row-${index}`}
+                    >
                         {rowRender(row)}
                     </RowWrapper>
                 ))}
