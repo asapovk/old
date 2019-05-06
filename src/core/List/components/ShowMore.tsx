@@ -12,7 +12,7 @@ export default (props: Types.MoreContainerProps) => {
     let lessLabel = props.lessLabel || 'Скрыть';
 
     return (
-        <Flexbox column alignItems='center' justifyContent='center' css={styles.moreContainer}>
+        <Flexbox mt='2rem' column alignItems='center' justifyContent='center' css={styles.moreContainer}>
             <C2 mb='0.5rem' color='lowlight' children={minified ? moreLabel : lessLabel} />
             <Flexbox alignItems='center' justifyContent='center' css={styles.moreButton(minified)}>
                 <Icon size='1.75rem' color='lowlight' type='down' onClick={setMinified} />

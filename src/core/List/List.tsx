@@ -8,7 +8,7 @@ import createStyles from './styles';
 import Types from './types';
 
 export default (props: Types.Props) => {
-    const styles = createStyles();
+    const styles = createStyles(props.narrowed);
 
     const [minified, setMinified] = useState(props.minified || false);
     const { className, rowRender, groupKey, groups, minifiedRowsCount, onRowClick, expandForm, moreLabel, lessLabel } = props;
@@ -24,6 +24,9 @@ export default (props: Types.Props) => {
     const data = minified ? props.data.filter((_, index) => index < (minifiedRowsCount || 3)) : props.data;
     const needShowMore = props.minified && props.data.length > (minifiedRowsCount || 3);
 
+    const Wrapper = props.narrowed ? Widget : Flexbox;
+    const RowWrapper = props.narrowed ? Flexbox : Widget;
+
     if (groupKey && Array.isArray(groups)) {
         /**
          * Filter unique groups before render
@@ -35,21 +38,23 @@ export default (props: Types.Props) => {
                 .some(udg => udg.groupId === group.value));
 
         return (
-            <Flexbox flex={1} column className={className}>
-                {currentGroups.map((group, index) => (
-                    <Fragment key={`${group.value}-${index}`}>
-                        <Flexbox css={styles.groupTitle}>
-                            <C1 ellipsis color='lowlight' children={group.title} />
-                        </Flexbox>
-                        {data
-                            .filter(row => row.groupId === group.value)
-                            .map((row, index) => (
-                                <Widget css={styles.row} key={`row-${index}`}>
-                                    {rowRender(row)}
-                                </Widget>
-                            ))}
-                    </Fragment>
-                ))}
+            <div className={className}>
+                <Wrapper flex={1} column css={styles.container}>
+                    {currentGroups.map((group, index) => (
+                        <Fragment key={`${group.value}-${index}`}>
+                            <Flexbox css={styles.groupTitle}>
+                                <C1 ellipsis color='lowlight' children={group.title} />
+                            </Flexbox>
+                            {data
+                                .filter(row => row.groupId === group.value)
+                                .map((row, index) => (
+                                    <RowWrapper css={styles.row} key={`row-${index}`}>
+                                        {rowRender(row)}
+                                    </RowWrapper>
+                                ))}
+                        </Fragment>
+                    ))}
+                </Wrapper>
                 {needShowMore && (
                     <ShowMore
                         moreLabel={moreLabel}
@@ -58,17 +63,20 @@ export default (props: Types.Props) => {
                         setMinified={() => setMinified(!minified)}
                     />
                 )}
-            </Flexbox>
+            </div>
         )
     }
 
     return (
-        <Flexbox flex={1} column className={className}>
-            {data.map((row, index) => (
-                <Widget css={styles.row} key={`row-${index}`}>
-                    {rowRender(row)}
-                </Widget>
-            ))}
+        <div className={className}>
+            <Wrapper flex={1} column css={styles.container}>
+                {data.map((row, index) => (
+                    <RowWrapper css={styles.row} key={`row-${index}`}>
+                        {rowRender(row)}
+                    </RowWrapper>
+                ))}
+
+            </Wrapper>
             {needShowMore && (
                 <ShowMore
                     moreLabel={moreLabel}
@@ -77,6 +85,6 @@ export default (props: Types.Props) => {
                     setMinified={() => setMinified(!minified)}
                 />
             )}
-        </Flexbox>
+        </div>
     )
 }

@@ -1,7 +1,7 @@
 import { css } from "@emotion/core";
 import useTheme from "../../hooks/useTheme";
 
-export default () => {
+export default (narrowed: boolean = false) => {
 	const theme = useTheme().theme;
 
 	return {
@@ -13,12 +13,28 @@ export default () => {
 			backgroundColor: 'rgb(229, 228, 233)',
 			boxShadow: '0 1.25rem 2.5rem rgba(0,0,0,.1)',
 			maxWidth: '20rem'
+		}, narrowed && {
+			padding: 0
+		}),
+
+		container: css({
+			padding: 0,
 		}),
 
 		row: css({
 			height: '6rem',
 			marginBottom: '1.5rem',
 			padding: '0.875rem 2rem',
+			":last-of-type": {
+				marginBottom: 0
+			}
+		}, narrowed && {
+			height: 'unset',
+			borderBottom: '1px dashed #E5E5E5',
+			marginBottom: 0,
+			":last-of-type": {
+				border: 'none',
+			}
 		}),
 
 		moreContainer: css({
