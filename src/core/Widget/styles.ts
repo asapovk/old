@@ -17,6 +17,8 @@ export default (clickable: boolean, decoration?: DecorationTypes) => {
 			userSelect: "none",
 			boxShadow: theme.shadows.widget,
 			...theme.borders.widget,
+			display: 'flex',
+			flex: 1,
 		}, decoration && {
 			...getDecorations(decoration)
 		}, decoration !== 'none' && {
