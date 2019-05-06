@@ -21,9 +21,7 @@ exports.default = (function (narrowed) {
             padding: 0
         }),
         row: core_1.css({
-            minHeight: '6rem',
             marginBottom: '1.5rem',
-            padding: '0.875rem 2rem',
             ":last-of-type": {
                 marginBottom: 0
             }
