@@ -41,6 +41,6 @@ exports.default = (function (props) {
             needShowMore && (core_1.jsx(ShowMore_1.default, { moreLabel: moreLabel, lessLabel: lessLabel, minified: minified, setMinified: function () { return setMinified(!minified); } }))));
     }
     return (core_1.jsx("div", { className: className },
-        core_1.jsx(Wrapper, { flex: 1, column: true, css: styles.container }, data.map(function (row, index) { return (core_1.jsx(RowWrapper, { css: styles.row, key: "row-" + index }, rowRender(row))); })),
+        core_1.jsx(Wrapper, { flex: 1, column: true, css: styles.container }, data.map(function (row, index) { return (core_1.jsx(RowWrapper, { onClick: function () { return props.onRowClick && props.onRowClick(row); }, css: styles.row, key: "row-" + index }, rowRender(row))); })),
         needShowMore && (core_1.jsx(ShowMore_1.default, { moreLabel: moreLabel, lessLabel: lessLabel, minified: minified, setMinified: function () { return setMinified(!minified); } }))));
 });
