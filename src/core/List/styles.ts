@@ -29,7 +29,6 @@ export default (narrowed: boolean = false) => {
 				marginBottom: 0
 			}
 		}, narrowed && {
-			height: 'unset',
 			borderBottom: '1px dashed #E5E5E5',
 			marginBottom: 0,
 			":last-of-type": {
