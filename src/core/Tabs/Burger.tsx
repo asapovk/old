@@ -10,16 +10,18 @@ export default (props: types.BurgerProps) => (
                 {props.currentMenu.title.toUpperCase()}
             </Flexbox>
         )}
-        <Flexbox
-            flexDirection='column'
-            justifyContent='space-between'
-            css={props.styleButton}
-            children={[
-                <div key={1} />,
-                <div key={2} />,
-                <div key={3} />
-            ]}
-        />
+        <Flexbox css={props.styleContainer}>
+            <Flexbox
+                flexDirection='column'
+                justifyContent='space-between'
+                css={props.styleButton}
+                children={[
+                    <div key={1} />,
+                    <div key={2} />,
+                    <div key={3} />
+                ]}
+            />
+        </Flexbox>
         {(props.alignMobile === 'flex-start') && (
             <Flexbox css={props.styleTitle}>
                 {props.currentMenu.title.toUpperCase()}

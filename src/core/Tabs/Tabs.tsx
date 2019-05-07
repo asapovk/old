@@ -9,7 +9,7 @@ import { useState, Fragment, useLayoutEffect } from 'react';
 export default (props: types.Props) => {
     const { activeItem, items, className, onClick } = props;
     const [burgerActive, setBurgerActive] = useState(false);
-    const { container, menus, menu, burgerButton, burgerTitle } = createStyles({
+    const { container, menus, menu, burgerContainer, burgerButton, burgerTitle } = createStyles({
         alignMobile: props.alignMobile || 'flex-end',
         burgerActive
     });
@@ -22,6 +22,7 @@ export default (props: types.Props) => {
         <Flexbox css={container} className={className} flex={1}>
             <Burger
                 onClick={() => setBurgerActive(!burgerActive)}
+                styleContainer={burgerContainer}
                 styleButton={burgerButton}
                 styleTitle={burgerTitle}
                 currentMenu={items[activeItem]}
