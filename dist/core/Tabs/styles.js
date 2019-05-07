@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@emotion/core");
 var useTheme_1 = __importDefault(require("../../hooks/useTheme"));
 exports.default = (function (props) {
-    var _a, _b, _c, _d;
+    var _a, _b, _c, _d, _e;
     var theme = useTheme_1.default().theme;
     var MOBILE = "@media (max-width: " + 1024 + "px)";
     var DESKTOP = "@media (min-width: " + 1025 + "px)";
@@ -43,21 +43,23 @@ exports.default = (function (props) {
                 boxShadow: theme.shadows.card.active,
             }),
             _b)),
-        burgerContainer: core_1.css({
-            width: '2.25rem',
-            height: '2.25rem',
-            boxSizing: 'border-box',
-            alignItems: 'center',
-            justifyContent: 'center',
-            borderRadius: '50%',
-            backgroundColor: theme.highlight.hex,
-            borderWidth: '3px',
-            borderStyle: 'solid',
-            borderColor: theme.interface.hex,
-            boxShadow: '0 0.1875rem 0.375rem rgba(0,0,0,0.15)'
-        }),
-        burgerButton: (_c = {},
+        burgerContainer: (_c = {},
             _c[MOBILE] = core_1.css({
+                width: '2.25rem',
+                height: '2.25rem',
+                boxSizing: 'border-box',
+                alignItems: 'center',
+                justifyContent: 'center',
+                borderRadius: '50%',
+                backgroundColor: theme.highlight.hex,
+                borderWidth: '3px',
+                borderStyle: 'solid',
+                borderColor: theme.interface.hex,
+                boxShadow: '0 0.1875rem 0.375rem rgba(0,0,0,0.15)'
+            }),
+            _c),
+        burgerButton: (_d = {},
+            _d[MOBILE] = core_1.css({
                 cursor: "pointer",
                 width: '1rem',
                 height: '0.725rem',
@@ -79,9 +81,9 @@ exports.default = (function (props) {
                     transform: 'translate3d(0, -5px, 0) rotate(-90deg)'
                 },
             }),
-            _c),
-        burgerTitle: (_d = {},
-            _d[MOBILE] = core_1.css({
+            _d),
+        burgerTitle: (_e = {},
+            _e[MOBILE] = core_1.css({
                 cursor: "pointer",
                 transition: 'all 0.15s ease',
                 opacity: 1,
@@ -95,10 +97,10 @@ exports.default = (function (props) {
             }, props.alignMobile === 'center' && {
                 display: 'none'
             }),
-            _d[DESKTOP] = {
+            _e[DESKTOP] = {
                 display: 'none'
             },
-            _d),
+            _e),
         menu: {
             item: function (props) {
                 var _a;
