@@ -2,6 +2,7 @@ import TabsTypes from './types';
 declare const _default: (props: TabsTypes.StyleProps) => {
     container: import("@emotion/utils").SerializedStyles;
     menus: import("@emotion/utils").SerializedStyles;
+    burgerContainer: import("@emotion/utils").SerializedStyles;
     burgerButton: {
         [x: string]: import("@emotion/utils").SerializedStyles;
     };

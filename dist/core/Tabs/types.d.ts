@@ -16,6 +16,7 @@ declare namespace TabsTypes {
     }
     interface BurgerProps {
         onClick: (state: boolean) => void;
+        styleContainer: any;
         styleButton: any;
         styleTitle: any;
         currentMenu: ItemProps;

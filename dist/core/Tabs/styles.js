@@ -25,7 +25,7 @@ exports.default = (function (props) {
                 left: 0,
                 right: 0,
                 flexDirection: 'column',
-                marginTop: '2rem',
+                marginTop: '2.75rem',
                 visibility: 'hidden',
                 opacity: 0,
                 backgroundColor: theme.interface.hex,
@@ -43,18 +43,32 @@ exports.default = (function (props) {
                 boxShadow: theme.shadows.card.active,
             }),
             _b)),
+        burgerContainer: core_1.css({
+            width: '2.25rem',
+            height: '2.25rem',
+            boxSizing: 'border-box',
+            alignItems: 'center',
+            justifyContent: 'center',
+            borderRadius: '50%',
+            backgroundColor: theme.highlight.hex,
+            borderWidth: '3px',
+            borderStyle: 'solid',
+            borderColor: theme.interface.hex,
+            boxShadow: '0 0.1875rem 0.375rem rgba(0,0,0,0.15)'
+        }),
         burgerButton: (_c = {},
             _c[MOBILE] = core_1.css({
                 cursor: "pointer",
-                width: '1.5rem',
-                height: '1rem',
+                width: '1rem',
+                height: '0.725rem',
                 transition: 'transform 0.15s ease',
                 '> *': {
-                    width: '1.5rem',
-                    height: ' 0.125rem',
+                    width: '1rem',
+                    height: '0.125rem',
                     borderRadius: '0.5rem',
                     transition: 'transform 0.15s ease',
-                    backgroundColor: theme.highlight.hex
+                    // backgroundColor: theme.highlight.hex
+                    backgroundColor: theme.interface.hex
                 },
             }, props.burgerActive && {
                 transform: 'translate3d(0, 0px, 0) rotate(45deg)',
@@ -62,7 +76,7 @@ exports.default = (function (props) {
                     opacity: 0
                 },
                 '> :last-of-type': {
-                    transform: 'translate3d(0, -7px, 0) rotate(-90deg)'
+                    transform: 'translate3d(0, -5px, 0) rotate(-90deg)'
                 },
             }),
             _c),
