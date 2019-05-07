@@ -41,19 +41,21 @@ export default (props: TabsTypes.StyleProps) => {
 			})
 		}),
 
-		burgerContainer: css({
-			width: '2.25rem',
-			height: '2.25rem',
-			boxSizing: 'border-box',
-			alignItems: 'center',
-			justifyContent: 'center',
-			borderRadius: '50%',
-			backgroundColor: theme.highlight.hex,
-			borderWidth: '3px',
-			borderStyle: 'solid',
-			borderColor: theme.interface.hex,
-			boxShadow: '0 0.1875rem 0.375rem rgba(0,0,0,0.15)'
-		}),
+		burgerContainer: {
+			[MOBILE]: css({
+				width: '2.25rem',
+				height: '2.25rem',
+				boxSizing: 'border-box',
+				alignItems: 'center',
+				justifyContent: 'center',
+				borderRadius: '50%',
+				backgroundColor: theme.highlight.hex,
+				borderWidth: '3px',
+				borderStyle: 'solid',
+				borderColor: theme.interface.hex,
+				boxShadow: '0 0.1875rem 0.375rem rgba(0,0,0,0.15)'
+			})
+		},
 
 		burgerButton: {
 			[MOBILE]: css({
