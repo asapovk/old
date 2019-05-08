@@ -51,7 +51,8 @@ exports.default = (function (_a) {
             backgroundColor: 'none'
         }, decoration === 'borderless' && {
             border: 'none',
-        }, decoration === 'none' && {
+            backgroundColor: 'none'
+        }, decoration == 'none' && {
             borderRadius: '0',
             border: 'none',
             backgroundColor: 'none'
