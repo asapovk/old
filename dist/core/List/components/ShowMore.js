@@ -10,10 +10,10 @@ var styles_1 = __importDefault(require("../styles"));
 exports.default = (function (props) {
     var styles = styles_1.default();
     var minified = props.minified, setMinified = props.setMinified;
-    var moreLabel = props.moreLabel || 'Раскрыть';
-    var lessLabel = props.lessLabel || 'Скрыть';
-    return (core_1.jsx(__1.Flexbox, { mt: '2rem', column: true, alignItems: 'center', justifyContent: 'center', css: styles.moreContainer },
-        core_1.jsx(__1.C2, { mb: '0.5rem', color: 'lowlight', children: minified ? moreLabel : lessLabel }),
-        core_1.jsx(__1.Flexbox, { alignItems: 'center', justifyContent: 'center', css: styles.moreButton(minified) },
-            core_1.jsx(__1.Icon, { size: '1.75rem', color: 'lowlight', type: 'down', onClick: setMinified }))));
+    var moreLabel = props.moreLabel || "Раскрыть";
+    var lessLabel = props.lessLabel || "Скрыть";
+    return (core_1.jsx(__1.Flexbox, { mt: "2rem", column: true, alignItems: "center", justifyContent: "center", css: styles.moreContainer },
+        core_1.jsx(__1.C2, { mb: "0.5rem", color: "lowlight", children: minified ? moreLabel : lessLabel }),
+        core_1.jsx(__1.Flexbox, { alignItems: "center", justifyContent: "center", css: styles.moreButton },
+            core_1.jsx(__1.Icon, { size: "1.75rem", color: "lowlight", type: minified ? "down_triangle" : "up_triangle", onClick: setMinified }))));
 });
