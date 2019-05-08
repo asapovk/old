@@ -38,7 +38,7 @@ export default ({ multiline, size, disabled, decoration, floatingLabel, leftIcon
         }),
 
         wrapper: css({
-            backgroundColor: theme.interface.rgb,
+            backgroundColor: theme.background.rgb,
             overflow: 'hidden',
             boxSizing: 'border-box',
             ...theme.borders.textfield
