@@ -45,7 +45,7 @@ exports.default = {
             borderWidth: '0px',
             borderStyle: 'solid',
             borderColor: 'transparent',
-            borderRadius: '0.25rem'
+            borderRadius: '0.375rem'
         },
         table: {
             borderWidth: '0px',
@@ -75,13 +75,13 @@ exports.default = {
             borderWidth: '1px',
             borderStyle: 'solid',
             borderColor: utilities_1.getColors(232, 232, 232).hex,
-            borderRadius: '0.25rem',
+            borderRadius: '0.5rem',
         },
         checkbox: {
             borderWidth: '1px',
             borderStyle: 'solid',
             borderColor: utilities_1.getColors(232, 232, 232).hex,
-            borderRadius: '0.25rem',
+            borderRadius: '0.5rem',
         },
         datepicker: {
             borderWidth: '1px',

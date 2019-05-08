@@ -10,12 +10,18 @@ var __1 = require("..");
 var Field_1 = __importDefault(require("./Field"));
 var styles_1 = __importDefault(require("./styles"));
 exports.default = react_1.forwardRef(function (props, ref) {
-    var _a = react_1.useState(props.value || props.defaultValue || ''), value = _a[0], setValue = _a[1];
+    var _a = react_1.useState(''), value = _a[0], setValue = _a[1];
     var _b = react_1.useState(false), focused = _b[0], setFocused = _b[1];
+    react_1.useLayoutEffect(function () {
+        setValue(props.value || props.defaultValue || '');
+    }, []);
     var onChange = function (e, newValue) {
-        if (newValue == value) {
+        if (props.regex && !new RegExp(props.regex).test(newValue)) {
             return;
         }
+        ;
+        if (newValue == value)
+            return;
         setValue(newValue);
         props.onChange && props.onChange(e, newValue);
     };
