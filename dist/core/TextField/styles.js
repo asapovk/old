@@ -45,7 +45,7 @@ exports.default = (function (_a) {
             color: theme.lowlight.rgb,
             transform: "translate(" + extraParams.floatingLabelTranslate.end + ") scale(0.75)",
         }); },
-        wrapper: core_1.css(__assign({ backgroundColor: theme.interface.rgb, overflow: 'hidden', boxSizing: 'border-box' }, theme.borders.textfield), decoration === 'borderBottom' && {
+        wrapper: core_1.css(__assign({ backgroundColor: theme.background.rgb, overflow: 'hidden', boxSizing: 'border-box' }, theme.borders.textfield), decoration === 'borderBottom' && {
             borderRadius: '0',
             borderWidth: '0 0 1px 0',
             backgroundColor: 'none'
