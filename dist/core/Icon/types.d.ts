@@ -1,7 +1,7 @@
 import React from "react";
 import { SpacingProps } from "../types";
 declare namespace IconTypes {
-    type Type = "add" | "more" | "pin" | "close" | "search" | "right" | "left" | "down" | "up" | "check" | "sync" | "filter" | "settings" | "chart" | "calendar" | "spin" | "smorodina" | "clock" | "card" | "counter" | "counter_gas" | "counter_water" | "counter_electricity" | "text-right" | "arrow-left" | "user" | "equal" | "photo" | "bell" | "water" | "tv" | "repair" | "electricity" | "insurance" | "other" | "intercom" | "garbage" | "gas" | "heat" | "minus" | "grid" | "list" | "lock" | "ruble" | "down_triangle" | string;
+    type Type = "add" | "more" | "pin" | "close" | "search" | "right" | "left" | "down" | "up" | "check" | "sync" | "filter" | "settings" | "chart" | "calendar" | "spin" | "smorodina" | "clock" | "card" | "counter" | "counter_gas" | "counter_water" | "counter_electricity" | "text-right" | "arrow-left" | "user" | "equal" | "photo" | "bell" | "water" | "tv" | "repair" | "electricity" | "insurance" | "other" | "intercom" | "garbage" | "gas" | "heat" | "minus" | "grid" | "list" | "lock" | "ruble" | "down_triangle" | "up_triangle" | string;
     interface Props extends SpacingProps {
         style?: React.CSSProperties;
         className?: string;
