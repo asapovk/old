@@ -31,6 +31,7 @@ declare namespace TextFieldTypes {
         floatingLabel?: string
         mask?: string
         tabIndex?: number
+        regex?: RegExp
     }
 
     export type Type =

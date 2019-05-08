@@ -1,19 +1,25 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core';
-import { forwardRef, useState, Fragment } from 'react';
+import { forwardRef, useLayoutEffect, useState } from 'react';
 import { Flexbox, Icon, Spin } from '..';
 import Field from './Field';
 import createStyles from './styles';
 import Types from './types';
 
 export default forwardRef((props: Types.Props, ref) => {
-    const [value, setValue] = useState<string>(props.value || props.defaultValue || '');
+    const [value, setValue] = useState<string>('');
     const [focused, setFocused] = useState<boolean>(false);
 
+    useLayoutEffect(() => {
+        setValue(props.value || props.defaultValue || '');
+    }, []);
+
     const onChange = (e, newValue) => {
-        if (newValue == value) {
+        if (props.regex && !new RegExp(props.regex).test(newValue)) {
             return;
-        }
+        };
+        if (newValue == value) return;
+
         setValue(newValue);
         props.onChange && props.onChange(e, newValue);
     }
