@@ -48,7 +48,8 @@ export default ({ multiline, size, disabled, decoration, floatingLabel, leftIcon
             backgroundColor: 'none'
         }, decoration === 'borderless' && {
             border: 'none',
-        }, decoration === 'none' && {
+            backgroundColor: 'none'
+        }, decoration == 'none' && {
             borderRadius: '0',
             border: 'none',
             backgroundColor: 'none'
