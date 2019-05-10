@@ -48,14 +48,14 @@ exports.default = (function (_a) {
         wrapper: core_1.css(__assign({ backgroundColor: theme.background2.rgb, overflow: 'hidden', boxSizing: 'border-box' }, theme.borders.textfield), decoration === 'borderBottom' && {
             borderRadius: '0',
             borderWidth: '0 0 1px 0',
-            backgroundColor: 'none'
+            backgroundColor: 'unset'
         }, decoration === 'borderless' && {
             border: 'none',
-            backgroundColor: 'none'
+            backgroundColor: 'unset'
         }, decoration == 'none' && {
             borderRadius: '0',
             border: 'none',
-            backgroundColor: 'none'
+            backgroundColor: 'unset'
         }, multiline
             ? {
                 height: '100%',
