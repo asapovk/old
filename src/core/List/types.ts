@@ -32,6 +32,7 @@ declare namespace ListTypes {
         onRowClick?: (row: Object) => any
         expandForm?: ExpandForm
         rowRender: (row: { [key: string]: any }) => any
+        pending?: boolean
     }
 
     export interface MoreContainerProps {

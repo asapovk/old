@@ -6,12 +6,18 @@ import { C1 } from '../..';
 import ShowMore from './components/ShowMore';
 import createStyles from './styles';
 import Types from './types';
+import PendingList from './components/PendingList';
 
 export default (props: Types.Props) => {
     const styles = createStyles(props.narrowed);
 
     const [minified, setMinified] = useState(props.minified || false);
-    const { className, rowRender, groupKey, groups, minifiedRowsCount, onRowClick, expandForm, moreLabel, lessLabel } = props;
+    const { pending, className, rowRender, groupKey, groups, minifiedRowsCount,
+        onRowClick, expandForm, moreLabel, lessLabel } = props;
+
+    if (pending) {
+        return <PendingList {...props} />
+    }
 
     if (!props.data.length) {
         return (
@@ -49,7 +55,7 @@ export default (props: Types.Props) => {
                                 .filter(row => row.groupId === group.value)
                                 .map((row, index) => (
                                     <RowWrapper
-                                        onClick={() => props.onRowClick && props.onRowClick(row)}
+                                        onClick={() => onRowClick && onRowClick(row)}
                                         css={styles.row}
                                         key={`row-${index}`}
                                     >
@@ -76,7 +82,7 @@ export default (props: Types.Props) => {
             <Wrapper flex={1} column decoration='none'>
                 {data.map((row, index) => (
                     <RowWrapper
-                        onClick={() => props.onRowClick && props.onRowClick(row)}
+                        onClick={() => onRowClick && onRowClick(row)}
                         css={styles.row}
                         key={`row-${index}`}
                     >

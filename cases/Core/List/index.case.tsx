@@ -273,14 +273,15 @@ const Table1 = () => {
 		<Flexbox pr={35} pl={50} pt={100} pb={100} column flex={1}>
 			<List
 				data={state.data}
-				// groupKey='groupId'
-				// groups={groups}
-				narrowed
+				groupKey='groupId'
+				groups={groups}
+				// narrowed
+				// pending={true}
 				// noDataComponent={<Flexbox flex={1} p={20} justifyContent='center'>А Данных Нет!</Flexbox>}
 				expandForm={expandForm}
 				minified={true}
 				minifiedRowsCount={5}
-				rowRender={(row) => <div>{row.name}</div>}
+				rowRender={(row) => <div style={{ height: '3rem' }}>{row.name}</div>}
 			/>
 		</Flexbox>
 	);
