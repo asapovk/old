@@ -29,6 +29,7 @@ declare namespace ListTypes {
         rowRender: (row: {
             [key: string]: any;
         }) => any;
+        pending?: boolean;
     }
     interface MoreContainerProps {
         moreLabel?: string;
