@@ -45,14 +45,14 @@ export default ({ multiline, size, disabled, decoration, floatingLabel, leftIcon
         }, decoration === 'borderBottom' && {
             borderRadius: '0',
             borderWidth: '0 0 1px 0',
-            backgroundColor: 'none'
+            backgroundColor: 'unset'
         }, decoration === 'borderless' && {
             border: 'none',
-            backgroundColor: 'none'
+            backgroundColor: 'unset'
         }, decoration == 'none' && {
             borderRadius: '0',
             border: 'none',
-            backgroundColor: 'none'
+            backgroundColor: 'unset'
         }, multiline
                 ? {
                     height: '100%',
