@@ -6,7 +6,9 @@ export default (narrowed: boolean = false) => {
 
 	return {
 		groupTitleContainer: css({
-			display: 'inline-flex',
+			display: 'flex',
+			maxWidth: 'fit-content',
+			borderRadius: "1rem",
 			marginBottom: "0.75rem",
 			textOverflow: 'ellipsis',
 			overflow: 'hidden',
