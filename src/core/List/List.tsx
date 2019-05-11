@@ -21,8 +21,8 @@ export default (props: Types.Props) => {
 
     if (!props.data.length) {
         return (
-            <Flexbox css={styles.groupTitle} mt='1rem' alignSelf='center'>
-                <C1 ellipsis color='lowlight' children='Нет данных для отображения' />
+            <Flexbox flex={1} alignItems='center' justifyContent='center'>
+                <C1 ellipsis color='lowlight' children='Нет данных для отображения' css={styles.groupTitle} />
             </Flexbox>
         )
     }

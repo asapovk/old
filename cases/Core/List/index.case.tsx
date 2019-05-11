@@ -270,9 +270,9 @@ const Table1 = () => {
 	const [state, dispatch] = useReducer(reducer, initialState);
 
 	return (
-		<Flexbox pr={35} pl={50} pt={100} pb={100} column flex={1}>
+		<Flexbox pr={35} pl={50} pt={100} pb={100} flex={1}>
 			<List
-				data={state.data}
+				data={[]}
 				groupKey='groupId'
 				groups={groups}
 				// narrowed
