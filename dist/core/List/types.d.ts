@@ -30,6 +30,7 @@ declare namespace ListTypes {
             [key: string]: any;
         }) => any;
         pending?: boolean;
+        pendingRows?: number;
     }
     interface MoreContainerProps {
         moreLabel?: string;

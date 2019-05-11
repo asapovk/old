@@ -25,7 +25,7 @@ var PendingList_1 = __importDefault(require("./components/PendingList"));
 exports.default = (function (props) {
     var styles = styles_1.default(props.narrowed);
     var _a = react_1.useState(props.minified || false), minified = _a[0], setMinified = _a[1];
-    var pending = props.pending, className = props.className, rowRender = props.rowRender, groupKey = props.groupKey, groups = props.groups, minifiedRowsCount = props.minifiedRowsCount, onRowClick = props.onRowClick, expandForm = props.expandForm, moreLabel = props.moreLabel, lessLabel = props.lessLabel, noDataText = props.noDataText;
+    var pending = props.pending, pendingRows = props.pendingRows, className = props.className, rowRender = props.rowRender, groupKey = props.groupKey, groups = props.groups, onRowClick = props.onRowClick, expandForm = props.expandForm, moreLabel = props.moreLabel, lessLabel = props.lessLabel, noDataText = props.noDataText, minifiedRowsCount = props.minifiedRowsCount;
     if (pending) {
         return core_1.jsx(PendingList_1.default, __assign({}, props));
     }
