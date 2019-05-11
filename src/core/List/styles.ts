@@ -14,6 +14,7 @@ export default (narrowed: boolean = false) => {
 			minWidth: 0,
 			boxShadow: "0 1.25rem 2.5rem rgba(0,0,0,.1)",
 			borderRadius: "1rem",
+			backgroundColor: theme.background2.hex
 		}),
 
 		groupTitle: css({
