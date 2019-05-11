@@ -30,8 +30,8 @@ exports.default = (function (props) {
         return core_1.jsx(PendingList_1.default, __assign({}, props));
     }
     if (!props.data.length) {
-        return (core_1.jsx(__1.Flexbox, { css: styles.groupTitle, mt: '1rem', alignSelf: 'center' },
-            core_1.jsx(__2.C1, { ellipsis: true, color: 'lowlight', children: '\u041D\u0435\u0442 \u0434\u0430\u043D\u043D\u044B\u0445 \u0434\u043B\u044F \u043E\u0442\u043E\u0431\u0440\u0430\u0436\u0435\u043D\u0438\u044F' })));
+        return (core_1.jsx(__1.Flexbox, { flex: 1, alignItems: 'center', justifyContent: 'center' },
+            core_1.jsx(__2.C1, { ellipsis: true, color: 'lowlight', children: '\u041D\u0435\u0442 \u0434\u0430\u043D\u043D\u044B\u0445 \u0434\u043B\u044F \u043E\u0442\u043E\u0431\u0440\u0430\u0436\u0435\u043D\u0438\u044F', css: styles.groupTitle })));
     }
     var data = minified ? props.data.filter(function (_, index) { return index < (minifiedRowsCount || 3); }) : props.data;
     var needShowMore = props.minified && props.data.length > (minifiedRowsCount || 3);
