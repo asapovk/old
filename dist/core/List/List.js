@@ -25,13 +25,13 @@ var PendingList_1 = __importDefault(require("./components/PendingList"));
 exports.default = (function (props) {
     var styles = styles_1.default(props.narrowed);
     var _a = react_1.useState(props.minified || false), minified = _a[0], setMinified = _a[1];
-    var pending = props.pending, className = props.className, rowRender = props.rowRender, groupKey = props.groupKey, groups = props.groups, minifiedRowsCount = props.minifiedRowsCount, onRowClick = props.onRowClick, expandForm = props.expandForm, moreLabel = props.moreLabel, lessLabel = props.lessLabel;
+    var pending = props.pending, className = props.className, rowRender = props.rowRender, groupKey = props.groupKey, groups = props.groups, minifiedRowsCount = props.minifiedRowsCount, onRowClick = props.onRowClick, expandForm = props.expandForm, moreLabel = props.moreLabel, lessLabel = props.lessLabel, noDataText = props.noDataText;
     if (pending) {
         return core_1.jsx(PendingList_1.default, __assign({}, props));
     }
     if (!props.data.length) {
         return (core_1.jsx(__1.Flexbox, { flex: 1, alignItems: 'center', justifyContent: 'center' },
-            core_1.jsx(__2.C1, { ellipsis: true, color: 'lowlight', children: '\u041D\u0435\u0442 \u0434\u0430\u043D\u043D\u044B\u0445 \u0434\u043B\u044F \u043E\u0442\u043E\u0431\u0440\u0430\u0436\u0435\u043D\u0438\u044F', css: styles.groupTitle })));
+            core_1.jsx(__2.C1, { ellipsis: true, color: 'lowlight', css: styles.groupTitle }, noDataText || 'Нет данных для отображения')));
     }
     var data = minified ? props.data.filter(function (_, index) { return index < (minifiedRowsCount || 3); }) : props.data;
     var needShowMore = props.minified && props.data.length > (minifiedRowsCount || 3);

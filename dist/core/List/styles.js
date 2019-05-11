@@ -1,4 +1,15 @@
 "use strict";
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
@@ -9,17 +20,9 @@ exports.default = (function (narrowed) {
     if (narrowed === void 0) { narrowed = false; }
     var theme = useTheme_1.default().theme;
     return {
-        groupTitle: core_1.css({
-            width: "fit-content",
-            padding: "0.25rem 1rem",
-            marginBottom: "0.75rem",
-            borderRadius: "1rem",
-            backgroundColor: "rgb(229, 228, 233)",
-            boxShadow: "0 1.25rem 2.5rem rgba(0,0,0,.1)",
-            maxWidth: "20rem"
-        }, narrowed && {
+        groupTitle: core_1.css(__assign({ width: "fit-content", padding: "0.25rem 1rem", marginBottom: "0.75rem", borderRadius: "1rem", backgroundColor: "rgb(229, 228, 233)", boxShadow: "0 1.25rem 2.5rem rgba(0,0,0,.1)" }, (narrowed && {
             padding: 0
-        }),
+        }))),
         row: core_1.css({
             marginBottom: "1.5rem",
             overflow: "hidden",
