@@ -12,7 +12,7 @@ export default (clickable: boolean, decoration?: DecorationTypes) => {
 			lineHeight: 1,
 			minWidth: "15rem",
 			overflow: "hidden",
-			background: theme.interface.rgb,
+			background: theme.background2.rgb,
 			transition: "all .2s ease",
 			userSelect: "none",
 			boxShadow: theme.shadows.widget,

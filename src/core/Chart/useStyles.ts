@@ -18,7 +18,7 @@ export default () => {
         `,
         text: theme.text.hex,
         accent: theme.highlight.hex,
-        background: theme.background.hex,
+        background: theme.background2.hex,
         chartTextColor: theme.lowlight.hex,
         lowlight: theme.lowlight.rgb,
     }

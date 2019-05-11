@@ -28,7 +28,7 @@ export default () => {
 
         monthGrid: css({
             position: "relative",
-            background: theme.background.hex,
+            background: theme.background2.hex,
             color: theme.text.hex,
             borderRadius: theme.borders.datepicker.borderRadius,
         }),
@@ -40,7 +40,7 @@ export default () => {
         }),
 
         title: css({
-            background: theme.background.hex,
+            background: theme.background2.hex,
             color: theme.text.hex,
             borderRadius: theme.borders.datepicker.borderRadius,
             padding: '0.25rem'
@@ -70,7 +70,7 @@ export default () => {
                 opacity: 1,
                 background: theme.interface.hex,
                 ...theme.borders.datepicker,
-                borderColor: theme.background.hex,
+                borderColor: theme.background2.hex,
                 color: theme.text.hex,
                 userSelect: "none" as "none",
                 ...typography.text[1]

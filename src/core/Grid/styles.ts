@@ -36,7 +36,7 @@ export const rowStyles = ({ expanded, withOpacity, withoutHeaders }) => {
 			display: "flex",
 			flex: 1,
 			flexDirection: "column",
-			backgroundColor: theme.background.hex,
+			backgroundColor: theme.background2.hex,
 			borderWidth: "0 0 1px 0",
 			borderStyle: "solid",
 			borderColor: theme.pale.hex,
@@ -96,7 +96,7 @@ export const rowStyles = ({ expanded, withOpacity, withoutHeaders }) => {
 		expandForm: css({
 			display: "none",
 			paddingBottom: "1.25rem",
-			backgroundColor: theme.background.hex
+			backgroundColor: theme.background2.hex
 		}, expanded && {
 			display: "block"
 		}),
@@ -161,7 +161,7 @@ export const headerStyles = () => {
 			borderColor: theme.pale.hex,
 			borderWidth: "0 0 1px 0",
 			borderRadius: "0.5rem 0.5rem 0 0",
-			backgroundColor: theme.background.hex
+			backgroundColor: theme.background2.hex
 		}),
 
 		headerCell: ({ isAction, borders, alignment, width }) => css({
