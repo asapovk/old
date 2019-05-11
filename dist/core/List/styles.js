@@ -26,9 +26,11 @@ exports.default = (function (narrowed) {
             textOverflow: 'ellipsis',
             overflow: 'hidden',
             whiteSpace: 'nowrap',
-            minWidth: 0
+            minWidth: 0,
+            boxShadow: "0 1.25rem 2.5rem rgba(0,0,0,.1)",
+            borderRadius: "1rem",
         }),
-        groupTitle: core_1.css(__assign({ padding: "0.25rem 1rem", borderRadius: "1rem", backgroundColor: "rgb(229, 228, 233)", boxShadow: "0 1.25rem 2.5rem rgba(0,0,0,.1)" }, (narrowed && {
+        groupTitle: core_1.css(__assign({ padding: "0.25rem 1rem", borderRadius: "1rem", backgroundColor: "rgb(229, 228, 233)" }, (narrowed && {
             padding: 0
         }))),
         row: core_1.css({
