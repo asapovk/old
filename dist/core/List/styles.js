@@ -21,7 +21,9 @@ exports.default = (function (narrowed) {
     var theme = useTheme_1.default().theme;
     return {
         groupTitleContainer: core_1.css({
-            display: 'inline-flex',
+            display: 'flex',
+            maxWidth: 'fit-content',
+            borderRadius: "1rem",
             marginBottom: "0.75rem",
             textOverflow: 'ellipsis',
             overflow: 'hidden',
