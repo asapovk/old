@@ -11,14 +11,15 @@ export default (narrowed: boolean = false) => {
 			textOverflow: 'ellipsis',
 			overflow: 'hidden',
 			whiteSpace: 'nowrap',
-			minWidth: 0
+			minWidth: 0,
+			boxShadow: "0 1.25rem 2.5rem rgba(0,0,0,.1)",
+			borderRadius: "1rem",
 		}),
 
 		groupTitle: css({
 			padding: "0.25rem 1rem",
 			borderRadius: "1rem",
 			backgroundColor: "rgb(229, 228, 233)",
-			boxShadow: "0 1.25rem 2.5rem rgba(0,0,0,.1)",
 			...(narrowed && {
 				padding: 0
 			})
