@@ -5,10 +5,17 @@ export default (narrowed: boolean = false) => {
 	const theme = useTheme().theme;
 
 	return {
-		groupTitle: css({
-			width: "fit-content",
-			padding: "0.25rem 1rem",
+		groupTitleContainer: css({
+			flex: 1,
 			marginBottom: "0.75rem",
+			textOverflow: 'ellipsis',
+			overflow: 'hidden',
+			whiteSpace: 'nowrap',
+			minWidth: 0
+		}),
+
+		groupTitle: css({
+			padding: "0.25rem 1rem",
 			borderRadius: "1rem",
 			backgroundColor: "rgb(229, 228, 233)",
 			boxShadow: "0 1.25rem 2.5rem rgba(0,0,0,.1)",

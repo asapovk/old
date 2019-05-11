@@ -270,9 +270,9 @@ const Table1 = () => {
 	const [state, dispatch] = useReducer(reducer, initialState);
 
 	return (
-		<Flexbox pr={35} pl={50} pt={100} pb={100} flex={1}>
+		<Flexbox pr={35} pl={50} pt={100} pb={100} flexBasis='20rem'>
 			<List
-				data={[]}
+				data={initialState.data}
 				groupKey='groupId'
 				groups={groups}
 				// narrowed
@@ -288,7 +288,7 @@ const Table1 = () => {
 };
 
 const groups: ListTypes.Group[] = [
-	{ title: "Первая группа", value: 0 },
+	{ title: "Начисления за содержание жилого помещения, взнос на капитальный ремонт и кучу всего прочего нелепого нелепого нелепого нелепого нелепого нелепого нелепого", value: 0 },
 	{ title: "Вторая группа", value: 1 },
 	{ title: "Третья группа", value: 2 }
 ];
