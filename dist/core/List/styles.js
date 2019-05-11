@@ -20,7 +20,15 @@ exports.default = (function (narrowed) {
     if (narrowed === void 0) { narrowed = false; }
     var theme = useTheme_1.default().theme;
     return {
-        groupTitle: core_1.css(__assign({ width: "fit-content", padding: "0.25rem 1rem", marginBottom: "0.75rem", borderRadius: "1rem", backgroundColor: "rgb(229, 228, 233)", boxShadow: "0 1.25rem 2.5rem rgba(0,0,0,.1)" }, (narrowed && {
+        groupTitleContainer: core_1.css({
+            flex: 1,
+            marginBottom: "0.75rem",
+            textOverflow: 'ellipsis',
+            overflow: 'hidden',
+            whiteSpace: 'nowrap',
+            minWidth: 0
+        }),
+        groupTitle: core_1.css(__assign({ padding: "0.25rem 1rem", borderRadius: "1rem", backgroundColor: "rgb(229, 228, 233)", boxShadow: "0 1.25rem 2.5rem rgba(0,0,0,.1)" }, (narrowed && {
             padding: 0
         }))),
         row: core_1.css({
