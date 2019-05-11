@@ -3,9 +3,11 @@ import { getColors } from "../utilities";
 
 export default {
 	name: "whiteCurrantModern",
-	background: getColors(255, 255, 255),
-	background2: getColors(246, 245, 247),
-	interface: getColors(255, 255, 255),
+	// background: getColors(255, 255, 255),
+	// background2: getColors(246, 245, 247),
+	background: getColors(246, 245, 247),
+	background2: getColors(255, 255, 255),
+	interface: getColors(250, 250, 250),
 	pale: getColors(232, 232, 232),
 	light: getColors(150, 150, 150),
 	lowlight: getColors(119, 119, 119),
