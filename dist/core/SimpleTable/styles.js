@@ -47,7 +47,7 @@ exports.default = (function () {
                 display: 'flex',
                 flexDirection: 'row',
                 alignItems: 'stretch',
-                backgroundColor: theme.background.hex,
+                backgroundColor: theme.background2.hex,
             }, header && {
                 backgroundColor: 'transparent',
                 color: '#908E91',
@@ -63,7 +63,7 @@ exports.default = (function () {
             }, last && {
                 borderBottom: 0
             }, !groupHeader && {
-                backgroundColor: theme.background.hex,
+                backgroundColor: theme.background2.hex,
             });
         },
         cell: function (width, borders, columnAlignment) { return core_1.css(width

@@ -29,13 +29,13 @@ exports.default = (function () {
         }),
         monthGrid: core_1.css({
             position: "relative",
-            background: theme.background.hex,
+            background: theme.background2.hex,
             color: theme.text.hex,
             borderRadius: theme.borders.datepicker.borderRadius,
         }),
         weekDay: core_1.css(__assign({ userSelect: "none" }, typography.caption[2], { fontWeight: 500 })),
         title: core_1.css({
-            background: theme.background.hex,
+            background: theme.background2.hex,
             color: theme.text.hex,
             borderRadius: theme.borders.datepicker.borderRadius,
             padding: '0.25rem'
@@ -46,7 +46,7 @@ exports.default = (function () {
          * Styles for day squire
          */
         day: function (isActive, isCurrent, isDisabled, isCurrentMonth) {
-            var st = __assign({ transition: "all 0.3s", fontWeight: 500, width: '2rem', height: '2rem', cursor: "pointer", opacity: 1, background: theme.interface.hex }, theme.borders.datepicker, { borderColor: theme.background.hex, color: theme.text.hex, userSelect: "none" }, typography.text[1]);
+            var st = __assign({ transition: "all 0.3s", fontWeight: 500, width: '2rem', height: '2rem', cursor: "pointer", opacity: 1, background: theme.interface.hex }, theme.borders.datepicker, { borderColor: theme.background2.hex, color: theme.text.hex, userSelect: "none" }, typography.text[1]);
             /**
              * This day is from current month
              */
