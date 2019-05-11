@@ -35,7 +35,7 @@ exports.default = (function (props) {
     }
     var data = minified ? props.data.filter(function (_, index) { return index < (minifiedRowsCount || 3); }) : props.data;
     var needShowMore = props.minified && props.data.length > (minifiedRowsCount || 3);
-    var Wrapper = props.narrowed ? __1.Widget : __1.Flexbox;
+    var Wrapper = props.narrowed ? __1.Widget : function (props) { return core_1.jsx('div', props); };
     var RowWrapper = props.narrowed ? __1.Flexbox : __1.Widget;
     if (groupKey && Array.isArray(groups)) {
         /**
@@ -47,15 +47,14 @@ exports.default = (function (props) {
             .filter(function (group) { return uniqueDataGroups_1
             .some(function (udg) { return udg.groupId === group.value; }); });
         return (core_1.jsx("div", { className: className },
-            core_1.jsx(Wrapper, { flex: 1, column: true, decoration: 'none' }, currentGroups.map(function (group, index) { return (core_1.jsx(react_1.Fragment, { key: group.value + "-" + index },
-                core_1.jsx("div", { css: styles.groupTitleContainer },
-                    core_1.jsx(__2.C1, { ellipsis: true, color: 'lowlight', css: styles.groupTitle, children: group.title })),
+            core_1.jsx(Wrapper, { decoration: 'none' }, currentGroups.map(function (group, index) { return (core_1.jsx(react_1.Fragment, { key: group.value + "-" + index },
+                core_1.jsx(__2.C1, { ellipsis: true, color: 'lowlight', css: styles.groupTitle, children: group.title }),
                 data
                     .filter(function (row) { return row.groupId === group.value; })
                     .map(function (row, index) { return (core_1.jsx(RowWrapper, { onClick: function () { return onRowClick && onRowClick(row); }, css: styles.row, key: "row-" + index }, rowRender(row))); }))); })),
             needShowMore && (core_1.jsx(ShowMore_1.default, { moreLabel: moreLabel, lessLabel: lessLabel, minified: minified, setMinified: function () { return setMinified(!minified); } }))));
     }
     return (core_1.jsx("div", { className: className },
-        core_1.jsx(Wrapper, { flex: 1, column: true, decoration: 'none' }, data.map(function (row, index) { return (core_1.jsx(RowWrapper, { onClick: function () { return onRowClick && onRowClick(row); }, css: styles.row, key: "row-" + index }, rowRender(row))); })),
+        core_1.jsx(Wrapper, { decoration: 'none' }, data.map(function (row, index) { return (core_1.jsx(RowWrapper, { onClick: function () { return onRowClick && onRowClick(row); }, css: styles.row, key: "row-" + index }, rowRender(row))); })),
         needShowMore && (core_1.jsx(ShowMore_1.default, { moreLabel: moreLabel, lessLabel: lessLabel, minified: minified, setMinified: function () { return setMinified(!minified); } }))));
 });
