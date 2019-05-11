@@ -7,9 +7,9 @@ import Types from '../types';
 export default (props: Types.Props) => {
     const styles = createStyles(props.narrowed);
 
-    const { className, rowRender, groupKey } = props;
+    const { className, rowRender, groupKey, pendingRows } = props;
 
-    const data = new Array(3).fill('');
+    const data = new Array(pendingRows || 3).fill('');
 
     const Wrapper = props.narrowed ? Widget : Flexbox;
     const RowWrapper = props.narrowed ? Flexbox : Widget;

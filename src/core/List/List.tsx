@@ -12,8 +12,8 @@ export default (props: Types.Props) => {
     const styles = createStyles(props.narrowed);
 
     const [minified, setMinified] = useState(props.minified || false);
-    const { pending, className, rowRender, groupKey, groups, minifiedRowsCount,
-        onRowClick, expandForm, moreLabel, lessLabel, noDataText } = props;
+    const { pending, pendingRows, className, rowRender, groupKey, groups,
+        onRowClick, expandForm, moreLabel, lessLabel, noDataText, minifiedRowsCount } = props;
 
     if (pending) {
         return <PendingList {...props} />

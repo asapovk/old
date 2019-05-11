@@ -33,6 +33,7 @@ declare namespace ListTypes {
         expandForm?: ExpandForm
         rowRender: (row: { [key: string]: any }) => any
         pending?: boolean
+        pendingRows?: number
     }
 
     export interface MoreContainerProps {
