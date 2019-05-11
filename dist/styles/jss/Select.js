@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = (function (theme) {
     return {
-        background: theme.background2.rgb,
+        background: theme.interface.rgb,
         labelColor: theme.lowlight.rgb,
         textColor: theme.text.rgb,
         borderColor: theme.pale.rgb,

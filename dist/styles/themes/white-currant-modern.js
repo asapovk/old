@@ -3,9 +3,11 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var utilities_1 = require("../utilities");
 exports.default = {
     name: "whiteCurrantModern",
-    background: utilities_1.getColors(255, 255, 255),
-    background2: utilities_1.getColors(246, 245, 247),
-    interface: utilities_1.getColors(255, 255, 255),
+    // background: getColors(255, 255, 255),
+    // background2: getColors(246, 245, 247),
+    background: utilities_1.getColors(246, 245, 247),
+    background2: utilities_1.getColors(255, 255, 255),
+    interface: utilities_1.getColors(250, 250, 250),
     pale: utilities_1.getColors(232, 232, 232),
     light: utilities_1.getColors(150, 150, 150),
     lowlight: utilities_1.getColors(119, 119, 119),
