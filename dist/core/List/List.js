@@ -48,7 +48,8 @@ exports.default = (function (props) {
             .some(function (udg) { return udg.groupId === group.value; }); });
         return (core_1.jsx("div", { className: className },
             core_1.jsx(Wrapper, { decoration: 'none' }, currentGroups.map(function (group, index) { return (core_1.jsx(react_1.Fragment, { key: group.value + "-" + index },
-                core_1.jsx(__2.C1, { ellipsis: true, color: 'lowlight', css: styles.groupTitle, children: group.title }),
+                core_1.jsx(__1.Flexbox, { flex: 1, css: styles.groupTitleContainer },
+                    core_1.jsx(__2.C1, { ellipsis: true, color: 'lowlight', css: styles.groupTitle, children: group.title })),
                 data
                     .filter(function (row) { return row.groupId === group.value; })
                     .map(function (row, index) { return (core_1.jsx(RowWrapper, { onClick: function () { return onRowClick && onRowClick(row); }, css: styles.row, key: "row-" + index }, rowRender(row))); }))); })),
