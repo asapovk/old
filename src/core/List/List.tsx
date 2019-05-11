@@ -13,7 +13,7 @@ export default (props: Types.Props) => {
 
     const [minified, setMinified] = useState(props.minified || false);
     const { pending, className, rowRender, groupKey, groups, minifiedRowsCount,
-        onRowClick, expandForm, moreLabel, lessLabel } = props;
+        onRowClick, expandForm, moreLabel, lessLabel, noDataText } = props;
 
     if (pending) {
         return <PendingList {...props} />
@@ -22,7 +22,9 @@ export default (props: Types.Props) => {
     if (!props.data.length) {
         return (
             <Flexbox flex={1} alignItems='center' justifyContent='center'>
-                <C1 ellipsis color='lowlight' children='Нет данных для отображения' css={styles.groupTitle} />
+                <C1 ellipsis color='lowlight' css={styles.groupTitle}>
+                    {noDataText || 'Нет данных для отображения'}
+                </C1>
             </Flexbox>
         )
     }
