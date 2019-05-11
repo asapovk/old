@@ -32,7 +32,7 @@ export default (props: Types.Props) => {
     const data = minified ? props.data.filter((_, index) => index < (minifiedRowsCount || 3)) : props.data;
     const needShowMore = props.minified && props.data.length > (minifiedRowsCount || 3);
 
-    const Wrapper = props.narrowed ? Widget : Flexbox;
+    const Wrapper = props.narrowed ? Widget : props => jsx('div', props);
     const RowWrapper = props.narrowed ? Flexbox : Widget;
 
     if (groupKey && Array.isArray(groups)) {
@@ -47,12 +47,10 @@ export default (props: Types.Props) => {
 
         return (
             <div className={className}>
-                <Wrapper flex={1} column decoration='none'>
+                <Wrapper decoration='none'>
                     {currentGroups.map((group, index) => (
                         <Fragment key={`${group.value}-${index}`}>
-                            <div css={styles.groupTitleContainer}>
-                                <C1 ellipsis color='lowlight' css={styles.groupTitle} children={group.title} />
-                            </div>
+                            <C1 ellipsis color='lowlight' css={styles.groupTitle} children={group.title} />
                             {data
                                 .filter(row => row.groupId === group.value)
                                 .map((row, index) => (
@@ -81,7 +79,7 @@ export default (props: Types.Props) => {
 
     return (
         <div className={className}>
-            <Wrapper flex={1} column decoration='none'>
+            <Wrapper decoration='none'>
                 {data.map((row, index) => (
                     <RowWrapper
                         onClick={() => onRowClick && onRowClick(row)}
