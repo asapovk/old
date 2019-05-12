@@ -22,6 +22,18 @@ var __2 = require("../..");
 var ShowMore_1 = __importDefault(require("./components/ShowMore"));
 var styles_1 = __importDefault(require("./styles"));
 var PendingList_1 = __importDefault(require("./components/PendingList"));
+String.prototype.stringHashCode = function () {
+    var hash = 0;
+    if (this.length == 0) {
+        return hash.toString();
+    }
+    for (var i = 0; i < this.length; i++) {
+        var char = this.charCodeAt(i);
+        hash = ((hash << 5) - hash) + char;
+        hash = hash & hash; // Convert to 32bit integer
+    }
+    return hash.toString();
+};
 exports.default = (function (props) {
     var styles = styles_1.default(props.narrowed);
     var _a = react_1.useState(props.minified || false), minified = _a[0], setMinified = _a[1];
@@ -52,10 +64,16 @@ exports.default = (function (props) {
                     core_1.jsx(__2.C1, { ellipsis: true, color: 'lowlight', css: styles.groupTitle, children: group.title })),
                 data
                     .filter(function (row) { return row.groupId === group.value; })
-                    .map(function (row, index) { return (core_1.jsx(RowWrapper, { onClick: function () { return onRowClick && onRowClick(row); }, css: styles.row, key: "row-" + index }, rowRender(row))); }))); })),
+                    .map(function (row, index) {
+                    var rowId = (JSON.stringify(row) + index).stringHashCode();
+                    return (core_1.jsx(RowWrapper, { onClick: function () { return onRowClick && onRowClick(row); }, css: styles.row, key: "listrow-" + rowId }, rowRender(row)));
+                }))); })),
             needShowMore && (core_1.jsx(ShowMore_1.default, { moreLabel: moreLabel, lessLabel: lessLabel, minified: minified, setMinified: function () { return setMinified(!minified); } }))));
     }
     return (core_1.jsx("div", { className: className },
-        core_1.jsx(Wrapper, { decoration: 'none' }, data.map(function (row, index) { return (core_1.jsx(RowWrapper, { onClick: function () { return onRowClick && onRowClick(row); }, css: styles.row, key: "row-" + index }, rowRender(row))); })),
+        core_1.jsx(Wrapper, { decoration: 'none' }, data.map(function (row, index) {
+            var rowId = (JSON.stringify(row) + index).stringHashCode();
+            return (core_1.jsx(RowWrapper, { onClick: function () { return onRowClick && onRowClick(row); }, css: styles.row, key: "listrow-" + rowId }, rowRender(row)));
+        })),
         needShowMore && (core_1.jsx(ShowMore_1.default, { moreLabel: moreLabel, lessLabel: lessLabel, minified: minified, setMinified: function () { return setMinified(!minified); } }))));
 });
