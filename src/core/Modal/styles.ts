@@ -29,7 +29,7 @@ export default (props: ModalTypes.StyleProps) => {
         window: css({
             opacity: visible ? 1 : 0,
             zIndex: 500,
-            backgroundColor: theme.interface.hex,
+            backgroundColor: theme.background2.hex,
             minHeight: '1rem',
             minWidth: '15rem',
             maxWidth: '40rem',
