@@ -83,7 +83,7 @@ export default {
 			borderWidth: '1px',
 			borderStyle: 'solid',
 			borderColor: getColors(232, 232, 232).hex,
-			borderRadius: '0.5rem',
+			borderRadius: '0.25rem',
 		},
 		datepicker: {
 			borderWidth: '1px',

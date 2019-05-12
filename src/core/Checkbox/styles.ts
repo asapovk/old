@@ -20,7 +20,7 @@ export default (checked: boolean, isRadio?: boolean, uppercase?: boolean, size?:
             alignItems: "center",
             justifyContent: "center",
             color: theme.highlight.hex,
-            backgroundColor: theme.interface.hex,
+            backgroundColor: theme.background2.hex,
             ...theme.borders.checkbox,
             "> svg": {
                 width: "100%",
@@ -31,13 +31,13 @@ export default (checked: boolean, isRadio?: boolean, uppercase?: boolean, size?:
                 height: "100%",
                 width: "100%",
                 borderRadius: "50%",
-                borderWidth: "0.2rem",
+                borderWidth: "0.25rem",
                 borderStyle: "solid",
-                borderColor: theme.interface.hex,
+                borderColor: theme.background2.hex,
                 background: theme.highlight.hex,
             }
         }, checked && {
-            borderColor: theme.highlight.rgba(0.5),
+            // borderColor: theme.highlight.rgba(0.5),
         }, isRadio && {
             borderRadius: "50%"
         }),
@@ -58,16 +58,16 @@ function getSize(size?: SizeTypes) {
         case "extra-large": {
             return {
                 input: {
-                    width: "1.5rem",
-                    height: "1.5rem"
+                    width: "2rem",
+                    height: "2rem"
                 }
             }
         }
         case "large": {
             return {
                 input: {
-                    width: "1.25rem",
-                    height: "1.25rem"
+                    width: "1.5rem",
+                    height: "1.5rem"
                 }
             }
         }
