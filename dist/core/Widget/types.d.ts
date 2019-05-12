@@ -9,6 +9,7 @@ declare namespace WidgetTypes {
         title?: string;
         children?: any;
         decoration?: DecorationTypes;
+        hoverable?: boolean;
     }
 }
 export default WidgetTypes;
