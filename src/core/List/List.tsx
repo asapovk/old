@@ -8,6 +8,19 @@ import createStyles from './styles';
 import Types from './types';
 import PendingList from './components/PendingList';
 
+String.prototype.stringHashCode = function () {
+    var hash = 0;
+    if (this.length == 0) {
+        return hash.toString();
+    }
+    for (var i = 0; i < this.length; i++) {
+        var char = this.charCodeAt(i);
+        hash = ((hash << 5) - hash) + char;
+        hash = hash & hash; // Convert to 32bit integer
+    }
+    return hash.toString();
+}
+
 export default (props: Types.Props) => {
     const styles = createStyles(props.narrowed);
 
@@ -55,15 +68,18 @@ export default (props: Types.Props) => {
                             </Flexbox>
                             {data
                                 .filter(row => row.groupId === group.value)
-                                .map((row, index) => (
-                                    <RowWrapper
-                                        onClick={() => onRowClick && onRowClick(row)}
-                                        css={styles.row}
-                                        key={`row-${index}`}
-                                    >
-                                        {rowRender(row)}
-                                    </RowWrapper>
-                                ))}
+                                .map((row, index) => {
+                                    const rowId = (JSON.stringify(row) + index).stringHashCode();
+                                    return (
+                                        <RowWrapper
+                                            onClick={() => onRowClick && onRowClick(row)}
+                                            css={styles.row}
+                                            key={`listrow-${rowId}`}
+                                        >
+                                            {rowRender(row)}
+                                        </RowWrapper>
+                                    )
+                                })}
                         </Fragment>
                     ))}
                 </Wrapper>
@@ -82,15 +98,18 @@ export default (props: Types.Props) => {
     return (
         <div className={className}>
             <Wrapper decoration='none'>
-                {data.map((row, index) => (
-                    <RowWrapper
-                        onClick={() => onRowClick && onRowClick(row)}
-                        css={styles.row}
-                        key={`row-${index}`}
-                    >
-                        {rowRender(row)}
-                    </RowWrapper>
-                ))}
+                {data.map((row, index) => {
+                    const rowId = (JSON.stringify(row) + index).stringHashCode();
+                    return (
+                        <RowWrapper
+                            onClick={() => onRowClick && onRowClick(row)}
+                            css={styles.row}
+                            key={`listrow-${rowId}`}
+                        >
+                            {rowRender(row)}
+                        </RowWrapper>
+                    )
+                })}
             </Wrapper>
             {needShowMore && (
                 <ShowMore
