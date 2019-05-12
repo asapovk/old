@@ -17,6 +17,12 @@ export default (clickable: boolean, decoration?: DecorationTypes) => {
 			userSelect: "none",
 			boxShadow: theme.shadows.widget,
 			...theme.borders.widget,
+			...(clickable && {
+				":hover": {
+					cursor: 'pointer',
+					transform: 'scale(1.05)',
+				}
+			})
 		}, decoration && {
 			...getDecorations(decoration)
 		}),
