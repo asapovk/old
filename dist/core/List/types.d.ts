@@ -14,6 +14,7 @@ declare namespace ListTypes {
     }
     interface Props {
         style?: CSSProperties;
+        dataIndex?: string;
         className?: string;
         narrowed?: boolean;
         minified?: boolean;

@@ -37,7 +37,7 @@ String.prototype.stringHashCode = function () {
 exports.default = (function (props) {
     var styles = styles_1.default(props.narrowed);
     var _a = react_1.useState(props.minified || false), minified = _a[0], setMinified = _a[1];
-    var pending = props.pending, pendingRows = props.pendingRows, className = props.className, rowRender = props.rowRender, groupKey = props.groupKey, groups = props.groups, onRowClick = props.onRowClick, expandForm = props.expandForm, moreLabel = props.moreLabel, lessLabel = props.lessLabel, noDataText = props.noDataText, minifiedRowsCount = props.minifiedRowsCount;
+    var pending = props.pending, pendingRows = props.pendingRows, className = props.className, rowRender = props.rowRender, groupKey = props.groupKey, groups = props.groups, dataIndex = props.dataIndex, onRowClick = props.onRowClick, expandForm = props.expandForm, moreLabel = props.moreLabel, lessLabel = props.lessLabel, noDataText = props.noDataText, minifiedRowsCount = props.minifiedRowsCount;
     if (pending) {
         return core_1.jsx(PendingList_1.default, __assign({}, props));
     }
@@ -65,14 +65,18 @@ exports.default = (function (props) {
                 data
                     .filter(function (row) { return row.groupId === group.value; })
                     .map(function (row, index) {
-                    var rowId = (JSON.stringify(row) + index).stringHashCode();
+                    var rowId = dataIndex
+                        ? (row[dataIndex] + index).stringHashCode()
+                        : (JSON.stringify(row) + index).stringHashCode();
                     return (core_1.jsx(RowWrapper, { onClick: function () { return onRowClick && onRowClick(row); }, css: styles.row, key: "listrow-" + rowId }, rowRender(row)));
                 }))); })),
             needShowMore && (core_1.jsx(ShowMore_1.default, { moreLabel: moreLabel, lessLabel: lessLabel, minified: minified, setMinified: function () { return setMinified(!minified); } }))));
     }
     return (core_1.jsx("div", { className: className },
         core_1.jsx(Wrapper, { decoration: 'none' }, data.map(function (row, index) {
-            var rowId = (JSON.stringify(row) + index).stringHashCode();
+            var rowId = dataIndex
+                ? (row[dataIndex] + index).stringHashCode()
+                : (JSON.stringify(row) + index).stringHashCode();
             return (core_1.jsx(RowWrapper, { onClick: function () { return onRowClick && onRowClick(row); }, css: styles.row, key: "listrow-" + rowId }, rowRender(row)));
         })),
         needShowMore && (core_1.jsx(ShowMore_1.default, { moreLabel: moreLabel, lessLabel: lessLabel, minified: minified, setMinified: function () { return setMinified(!minified); } }))));
