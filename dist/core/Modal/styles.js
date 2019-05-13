@@ -43,11 +43,11 @@ exports.default = (function (props) {
             width: '40rem'
         }),
         header: core_1.css({
-            // marginTop: '-0.625rem',
+            marginTop: '-0.25rem',
             lineHeight: '2.375rem'
         }),
         cross: core_1.css({
-            marginTop: '0.125rem',
+            marginTop: '-0.25rem',
             marginLeft: '2rem',
             cursor: 'pointer',
             transition: 'all 0.25s',
