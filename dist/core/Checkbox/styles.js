@@ -42,14 +42,15 @@ exports.default = (function (checked, isRadio, uppercase, size) {
         }, isRadio && {
             borderRadius: "50%"
         }),
-        label: core_1.css({
-            paddingLeft: "0.375rem",
+        label: function (labelColor) { return core_1.css({
+            marginLeft: "0.5rem",
             fontSize: "1rem",
             lineHeight: "1.5rem",
-            userSelect: "none"
+            userSelect: "none",
+            color: labelColor ? theme[labelColor].hex : theme.text.hex
         }, uppercase && {
             textTransform: "uppercase"
-        }),
+        }); },
     };
 });
 function getSize(size) {
