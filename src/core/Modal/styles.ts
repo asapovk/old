@@ -40,7 +40,8 @@ export default (props: ModalTypes.StyleProps) => {
             transition: 'all 0.5s',
             transform: visible ? 'translateY(0)' : 'translateY(-20px)',
             boxSizing: 'border-box',
-            overflow: 'hidden'
+            overflow: 'hidden',
+            position: 'relative'
         }, (center && fullSize) && {
             width: '40rem'
         }),
