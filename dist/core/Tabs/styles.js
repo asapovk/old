@@ -136,7 +136,9 @@ exports.default = (function (props) {
             },
             text: function (props) {
                 var _a, _b;
-                return core_1.css(__assign((_a = { alignItems: 'center', fontSize: '1.375rem', fontWeight: 'normal', textTransform: 'uppercase', color: theme.highlight.hex, cursor: 'pointer', lineHeight: '2.5rem', transition: 'font-size .15s linear', willChange: 'font-size', letterSpacing: '-0.03em' }, _a[MOBILE] = {
+                return core_1.css(__assign((_a = { alignItems: 'center', fontSize: '1.375rem', fontWeight: 'normal', textTransform: 'uppercase', color: theme.highlight.hex, cursor: 'pointer', lineHeight: '2.5rem', 
+                        // transition: 'font-size .15s linear',
+                        willChange: 'font-size', letterSpacing: '-0.03em' }, _a[MOBILE] = {
                     transition: 'none'
                 }, _a), (props.isActive && (_b = {
                         fontSize: '2.5rem',
