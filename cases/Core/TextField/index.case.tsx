@@ -282,6 +282,12 @@ export default () => {
                             floatingLabel="Enter something"
                             multiline
                         />
+                        <TextField
+                            size='extra-large'
+                            placeholder="RegExp field"
+                            regex={/^$|^0$|^0{1}\.([0-9]{1,2})?$|^[1-9][0-9]*\.?([0-9]{1,2})?$/g}
+                            onEnter={() => console.log(1)}
+                        />
                     </Flexbox>
                 </Flexbox>
             </Flexbox>

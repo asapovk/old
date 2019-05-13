@@ -1,4 +1,15 @@
 "use strict";
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
@@ -10,17 +21,33 @@ var __1 = require("..");
 var __2 = require("../..");
 var ShowMore_1 = __importDefault(require("./components/ShowMore"));
 var styles_1 = __importDefault(require("./styles"));
+var PendingList_1 = __importDefault(require("./components/PendingList"));
+String.prototype.stringHashCode = function () {
+    var hash = 0;
+    if (this.length == 0) {
+        return hash.toString();
+    }
+    for (var i = 0; i < this.length; i++) {
+        var char = this.charCodeAt(i);
+        hash = ((hash << 5) - hash) + char;
+        hash = hash & hash; // Convert to 32bit integer
+    }
+    return hash.toString();
+};
 exports.default = (function (props) {
     var styles = styles_1.default(props.narrowed);
     var _a = react_1.useState(props.minified || false), minified = _a[0], setMinified = _a[1];
-    var className = props.className, rowRender = props.rowRender, groupKey = props.groupKey, groups = props.groups, minifiedRowsCount = props.minifiedRowsCount, onRowClick = props.onRowClick, expandForm = props.expandForm, moreLabel = props.moreLabel, lessLabel = props.lessLabel;
+    var pending = props.pending, pendingRows = props.pendingRows, className = props.className, rowRender = props.rowRender, groupKey = props.groupKey, groups = props.groups, onRowClick = props.onRowClick, expandForm = props.expandForm, moreLabel = props.moreLabel, lessLabel = props.lessLabel, noDataText = props.noDataText, minifiedRowsCount = props.minifiedRowsCount;
+    if (pending) {
+        return core_1.jsx(PendingList_1.default, __assign({}, props));
+    }
     if (!props.data.length) {
-        return (core_1.jsx(__1.Flexbox, { css: styles.groupTitle, mt: '1rem', alignSelf: 'center' },
-            core_1.jsx(__2.C1, { ellipsis: true, color: 'lowlight', children: '\u041D\u0435\u0442 \u0434\u0430\u043D\u043D\u044B\u0445 \u0434\u043B\u044F \u043E\u0442\u043E\u0431\u0440\u0430\u0436\u0435\u043D\u0438\u044F' })));
+        return (core_1.jsx(__1.Flexbox, { flex: 1, alignItems: 'center', justifyContent: 'center' },
+            core_1.jsx(__2.C1, { ellipsis: true, color: 'lowlight', css: styles.groupTitle }, noDataText || 'Нет данных для отображения')));
     }
     var data = minified ? props.data.filter(function (_, index) { return index < (minifiedRowsCount || 3); }) : props.data;
     var needShowMore = props.minified && props.data.length > (minifiedRowsCount || 3);
-    var Wrapper = props.narrowed ? __1.Widget : __1.Flexbox;
+    var Wrapper = props.narrowed ? __1.Widget : function (props) { return core_1.jsx('div', props); };
     var RowWrapper = props.narrowed ? __1.Flexbox : __1.Widget;
     if (groupKey && Array.isArray(groups)) {
         /**
@@ -32,15 +59,21 @@ exports.default = (function (props) {
             .filter(function (group) { return uniqueDataGroups_1
             .some(function (udg) { return udg.groupId === group.value; }); });
         return (core_1.jsx("div", { className: className },
-            core_1.jsx(Wrapper, { flex: 1, column: true, decoration: 'none' }, currentGroups.map(function (group, index) { return (core_1.jsx(react_1.Fragment, { key: group.value + "-" + index },
-                core_1.jsx(__1.Flexbox, { css: styles.groupTitle },
-                    core_1.jsx(__2.C1, { ellipsis: true, color: 'lowlight', children: group.title })),
+            core_1.jsx(Wrapper, { decoration: 'none' }, currentGroups.map(function (group, index) { return (core_1.jsx(react_1.Fragment, { key: group.value + "-" + index },
+                core_1.jsx(__1.Flexbox, { flex: 1, css: styles.groupTitleContainer },
+                    core_1.jsx(__2.C1, { ellipsis: true, color: 'lowlight', css: styles.groupTitle, children: group.title })),
                 data
                     .filter(function (row) { return row.groupId === group.value; })
-                    .map(function (row, index) { return (core_1.jsx(RowWrapper, { onClick: function () { return props.onRowClick && props.onRowClick(row); }, css: styles.row, key: "row-" + index }, rowRender(row))); }))); })),
+                    .map(function (row, index) {
+                    var rowId = (JSON.stringify(row) + index).stringHashCode();
+                    return (core_1.jsx(RowWrapper, { onClick: function () { return onRowClick && onRowClick(row); }, css: styles.row, key: "listrow-" + rowId }, rowRender(row)));
+                }))); })),
             needShowMore && (core_1.jsx(ShowMore_1.default, { moreLabel: moreLabel, lessLabel: lessLabel, minified: minified, setMinified: function () { return setMinified(!minified); } }))));
     }
     return (core_1.jsx("div", { className: className },
-        core_1.jsx(Wrapper, { flex: 1, column: true, decoration: 'none' }, data.map(function (row, index) { return (core_1.jsx(RowWrapper, { onClick: function () { return props.onRowClick && props.onRowClick(row); }, css: styles.row, key: "row-" + index }, rowRender(row))); })),
+        core_1.jsx(Wrapper, { decoration: 'none' }, data.map(function (row, index) {
+            var rowId = (JSON.stringify(row) + index).stringHashCode();
+            return (core_1.jsx(RowWrapper, { onClick: function () { return onRowClick && onRowClick(row); }, css: styles.row, key: "listrow-" + rowId }, rowRender(row)));
+        })),
         needShowMore && (core_1.jsx(ShowMore_1.default, { moreLabel: moreLabel, lessLabel: lessLabel, minified: minified, setMinified: function () { return setMinified(!minified); } }))));
 });

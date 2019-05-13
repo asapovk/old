@@ -25,7 +25,7 @@ exports.default = (function (checked, isRadio, uppercase, size) {
             cursor: "pointer",
             color: theme.text.rgb
         }),
-        input: core_1.css(__assign({}, getSize(size).input, { boxSizing: "border-box", display: "flex", alignItems: "center", justifyContent: "center", color: theme.highlight.hex, backgroundColor: theme.interface.hex }, theme.borders.checkbox, { "> svg": {
+        input: core_1.css(__assign({}, getSize(size).input, { boxSizing: "border-box", display: "flex", alignItems: "center", justifyContent: "center", color: theme.highlight.hex, backgroundColor: theme.background2.hex }, theme.borders.checkbox, { "> svg": {
                 width: "100%",
                 height: "100%"
             }, "> div": {
@@ -33,23 +33,24 @@ exports.default = (function (checked, isRadio, uppercase, size) {
                 height: "100%",
                 width: "100%",
                 borderRadius: "50%",
-                borderWidth: "0.2rem",
+                borderWidth: "0.25rem",
                 borderStyle: "solid",
-                borderColor: theme.interface.hex,
+                borderColor: theme.background2.hex,
                 background: theme.highlight.hex,
             } }), checked && {
-            borderColor: theme.highlight.rgba(0.5),
+        // borderColor: theme.highlight.rgba(0.5),
         }, isRadio && {
             borderRadius: "50%"
         }),
-        label: core_1.css({
-            paddingLeft: "0.375rem",
+        label: function (labelColor) { return core_1.css({
+            marginLeft: "0.5rem",
             fontSize: "1rem",
             lineHeight: "1.5rem",
-            userSelect: "none"
+            userSelect: "none",
+            color: labelColor ? theme[labelColor].hex : theme.text.hex
         }, uppercase && {
             textTransform: "uppercase"
-        }),
+        }); },
     };
 });
 function getSize(size) {
@@ -57,16 +58,16 @@ function getSize(size) {
         case "extra-large": {
             return {
                 input: {
-                    width: "1.5rem",
-                    height: "1.5rem"
+                    width: "2rem",
+                    height: "2rem"
                 }
             };
         }
         case "large": {
             return {
                 input: {
-                    width: "1.25rem",
-                    height: "1.25rem"
+                    width: "1.5rem",
+                    height: "1.5rem"
                 }
             };
         }

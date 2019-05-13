@@ -3,9 +3,11 @@ import { getColors } from "../utilities";
 
 export default {
 	name: "whiteCurrantModern",
-	background: getColors(255, 255, 255),
-	background2: getColors(246, 245, 247),
-	interface: getColors(255, 255, 255),
+	// background: getColors(255, 255, 255),
+	// background2: getColors(246, 245, 247),
+	background: getColors(246, 245, 247),
+	background2: getColors(255, 255, 255),
+	interface: getColors(250, 250, 250),
 	pale: getColors(232, 232, 232),
 	light: getColors(150, 150, 150),
 	lowlight: getColors(119, 119, 119),
@@ -45,7 +47,7 @@ export default {
 			borderWidth: '0px',
 			borderStyle: 'solid',
 			borderColor: 'transparent',
-			borderRadius: '0.25rem'
+			borderRadius: '0.375rem'
 		},
 		table: {
 			borderWidth: '0px',
@@ -54,7 +56,7 @@ export default {
 			borderRadius: '0.625rem'
 		},
 		widget: {
-			borderWidth: '1px',
+			borderWidth: '0',
 			borderStyle: 'solid',
 			borderColor: getColors(232, 232, 232).hex,
 			borderRadius: '0.625rem',
@@ -75,7 +77,7 @@ export default {
 			borderWidth: '1px',
 			borderStyle: 'solid',
 			borderColor: getColors(232, 232, 232).hex,
-			borderRadius: '0.25rem',
+			borderRadius: '0.5rem',
 		},
 		checkbox: {
 			borderWidth: '1px',

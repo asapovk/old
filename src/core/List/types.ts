@@ -28,10 +28,12 @@ declare namespace ListTypes {
         data: Row[]
         groupKey?: string
         groups?: Group[]
-        noDataComponent?: JSX.Element;
+        noDataText?: string
         onRowClick?: (row: Object) => any
         expandForm?: ExpandForm
         rowRender: (row: { [key: string]: any }) => any
+        pending?: boolean
+        pendingRows?: number
     }
 
     export interface MoreContainerProps {

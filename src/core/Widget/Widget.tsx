@@ -5,8 +5,8 @@ import createStyles from './styles';
 import Types from './types';
 
 export default (props: Types.WidgetProps) => {
-    const { title, loading, onClick, className, style, children, decoration } = props;
-    const styles = createStyles(typeof onClick === 'function', decoration);
+    const { title, loading, onClick, className, style, children, decoration, hoverable } = props;
+    const styles = createStyles(hoverable || false, decoration);
 
     return (
         <div

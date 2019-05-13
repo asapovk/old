@@ -270,24 +270,25 @@ const Table1 = () => {
 	const [state, dispatch] = useReducer(reducer, initialState);
 
 	return (
-		<Flexbox pr={35} pl={50} pt={100} pb={100} column flex={1}>
+		<Flexbox pr={35} pl={50} pt={100} pb={100} flexBasis='20rem'>
 			<List
-				data={state.data}
-				// groupKey='groupId'
-				// groups={groups}
-				narrowed
+				data={initialState.data}
+				groupKey='groupId'
+				groups={groups}
+				// narrowed
+				// pending={true}
 				// noDataComponent={<Flexbox flex={1} p={20} justifyContent='center'>А Данных Нет!</Flexbox>}
 				expandForm={expandForm}
 				minified={true}
 				minifiedRowsCount={5}
-				rowRender={(row) => <div>{row.name}</div>}
+				rowRender={(row) => <div style={{ height: '3rem' }}>{row.name}</div>}
 			/>
 		</Flexbox>
 	);
 };
 
 const groups: ListTypes.Group[] = [
-	{ title: "Первая группа", value: 0 },
+	{ title: "Начисления за содержание жилого помещения, взнос на капитальный ремонт и кучу всего прочего нелепого нелепого нелепого нелепого нелепого нелепого нелепого", value: 0 },
 	{ title: "Вторая группа", value: 1 },
 	{ title: "Третья группа", value: 2 }
 ];

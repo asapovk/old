@@ -28,6 +28,7 @@ declare namespace TextFieldTypes {
         floatingLabel?: string;
         mask?: string;
         tabIndex?: number;
+        regex?: RegExp;
     }
     type Type = 'color' | 'email' | 'hidden' | 'image' | 'month' | 'number' | 'password' | 'radio' | 'range' | 'reset' | 'search' | 'submit' | 'tel' | 'text' | 'time' | 'url' | 'week';
     interface IconProps {

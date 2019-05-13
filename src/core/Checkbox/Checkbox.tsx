@@ -7,7 +7,7 @@ import createStyles from './styles';
 
 export default (props: Types.CheckboxProps) => {
     const [checked, setChecked] = useState(props.checked || props.defaultValue || false);
-    const { style, label, uppercase, radio, className, size } = props;
+    const { style, label, uppercase, radio, className, size, labelColor } = props;
 
     const styles = createStyles(checked, radio, uppercase, size);
 
@@ -35,7 +35,7 @@ export default (props: Types.CheckboxProps) => {
                         : <Icon type='check' />
                 )}
             />
-            <div css={styles.label} children={label} />
+            <div css={styles.label(labelColor)} children={label} />
         </div>
     )
 }

@@ -19,7 +19,12 @@ var useTheme_1 = __importDefault(require("../../hooks/useTheme"));
 exports.default = (function (clickable, decoration) {
     var theme = useTheme_1.default().theme;
     return {
-        container: core_1.css(__assign({ position: "relative", boxSizing: "border-box", lineHeight: 1, minWidth: "15rem", overflow: "hidden", background: theme.interface.rgb, transition: "all .2s ease", userSelect: "none", boxShadow: theme.shadows.widget }, theme.borders.widget), decoration && __assign({}, getDecorations(decoration))),
+        container: core_1.css(__assign({ position: "relative", boxSizing: "border-box", lineHeight: 1, minWidth: "15rem", overflow: "hidden", background: theme.background2.rgb, transition: "all .2s ease", userSelect: "none", boxShadow: theme.shadows.widget }, theme.borders.widget, (clickable && {
+            ":hover": {
+                cursor: 'pointer',
+                transform: 'scale(1.05)',
+            }
+        })), decoration && __assign({}, getDecorations(decoration))),
         title: core_1.css({
             paddingRight: "1rem",
             fontSize: "1.125rem",

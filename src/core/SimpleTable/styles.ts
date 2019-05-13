@@ -50,7 +50,7 @@ export default (): TableStyles => {
             display: 'flex',
             flexDirection: 'row',
             alignItems: 'stretch',
-            backgroundColor: theme.background.hex,
+            backgroundColor: theme.background2.hex,
         }, header && {
             backgroundColor: 'transparent',
             color: '#908E91',
@@ -66,7 +66,7 @@ export default (): TableStyles => {
         }, last && {
             borderBottom: 0
         }, !groupHeader && {
-            backgroundColor: theme.background.hex,
+            backgroundColor: theme.background2.hex,
         }),
 
         cell: (width?: number, borders?: Types.Borders, columnAlignment?: Types.ColumnAlignment) => css(width

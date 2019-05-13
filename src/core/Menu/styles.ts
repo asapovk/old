@@ -70,7 +70,7 @@ export default (forElka?: boolean) => {
                 top: '2rem',
                 boxShadow: '0px 0.5rem 0.5rem 0px rgba(0, 0, 0, 0.2)',
                 zIndex: 1,
-                backgroundColor: theme.background.hex,
+                backgroundColor: theme.background2.hex,
                 borderRadius: theme.defaultBorderRadius
             }),
 

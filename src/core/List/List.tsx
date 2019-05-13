@@ -6,17 +6,38 @@ import { C1 } from '../..';
 import ShowMore from './components/ShowMore';
 import createStyles from './styles';
 import Types from './types';
+import PendingList from './components/PendingList';
+
+String.prototype.stringHashCode = function () {
+    var hash = 0;
+    if (this.length == 0) {
+        return hash.toString();
+    }
+    for (var i = 0; i < this.length; i++) {
+        var char = this.charCodeAt(i);
+        hash = ((hash << 5) - hash) + char;
+        hash = hash & hash; // Convert to 32bit integer
+    }
+    return hash.toString();
+}
 
 export default (props: Types.Props) => {
     const styles = createStyles(props.narrowed);
 
     const [minified, setMinified] = useState(props.minified || false);
-    const { className, rowRender, groupKey, groups, minifiedRowsCount, onRowClick, expandForm, moreLabel, lessLabel } = props;
+    const { pending, pendingRows, className, rowRender, groupKey, groups,
+        onRowClick, expandForm, moreLabel, lessLabel, noDataText, minifiedRowsCount } = props;
+
+    if (pending) {
+        return <PendingList {...props} />
+    }
 
     if (!props.data.length) {
         return (
-            <Flexbox css={styles.groupTitle} mt='1rem' alignSelf='center'>
-                <C1 ellipsis color='lowlight' children='Нет данных для отображения' />
+            <Flexbox flex={1} alignItems='center' justifyContent='center'>
+                <C1 ellipsis color='lowlight' css={styles.groupTitle}>
+                    {noDataText || 'Нет данных для отображения'}
+                </C1>
             </Flexbox>
         )
     }
@@ -24,7 +45,7 @@ export default (props: Types.Props) => {
     const data = minified ? props.data.filter((_, index) => index < (minifiedRowsCount || 3)) : props.data;
     const needShowMore = props.minified && props.data.length > (minifiedRowsCount || 3);
 
-    const Wrapper = props.narrowed ? Widget : Flexbox;
+    const Wrapper = props.narrowed ? Widget : props => jsx('div', props);
     const RowWrapper = props.narrowed ? Flexbox : Widget;
 
     if (groupKey && Array.isArray(groups)) {
@@ -39,23 +60,26 @@ export default (props: Types.Props) => {
 
         return (
             <div className={className}>
-                <Wrapper flex={1} column decoration='none'>
+                <Wrapper decoration='none'>
                     {currentGroups.map((group, index) => (
                         <Fragment key={`${group.value}-${index}`}>
-                            <Flexbox css={styles.groupTitle}>
-                                <C1 ellipsis color='lowlight' children={group.title} />
+                            <Flexbox flex={1} css={styles.groupTitleContainer}>
+                                <C1 ellipsis color='lowlight' css={styles.groupTitle} children={group.title} />
                             </Flexbox>
                             {data
                                 .filter(row => row.groupId === group.value)
-                                .map((row, index) => (
-                                    <RowWrapper
-                                        onClick={() => props.onRowClick && props.onRowClick(row)}
-                                        css={styles.row}
-                                        key={`row-${index}`}
-                                    >
-                                        {rowRender(row)}
-                                    </RowWrapper>
-                                ))}
+                                .map((row, index) => {
+                                    const rowId = (JSON.stringify(row) + index).stringHashCode();
+                                    return (
+                                        <RowWrapper
+                                            onClick={() => onRowClick && onRowClick(row)}
+                                            css={styles.row}
+                                            key={`listrow-${rowId}`}
+                                        >
+                                            {rowRender(row)}
+                                        </RowWrapper>
+                                    )
+                                })}
                         </Fragment>
                     ))}
                 </Wrapper>
@@ -73,16 +97,19 @@ export default (props: Types.Props) => {
 
     return (
         <div className={className}>
-            <Wrapper flex={1} column decoration='none'>
-                {data.map((row, index) => (
-                    <RowWrapper
-                        onClick={() => props.onRowClick && props.onRowClick(row)}
-                        css={styles.row}
-                        key={`row-${index}`}
-                    >
-                        {rowRender(row)}
-                    </RowWrapper>
-                ))}
+            <Wrapper decoration='none'>
+                {data.map((row, index) => {
+                    const rowId = (JSON.stringify(row) + index).stringHashCode();
+                    return (
+                        <RowWrapper
+                            onClick={() => onRowClick && onRowClick(row)}
+                            css={styles.row}
+                            key={`listrow-${rowId}`}
+                        >
+                            {rowRender(row)}
+                        </RowWrapper>
+                    )
+                })}
             </Wrapper>
             {needShowMore && (
                 <ShowMore

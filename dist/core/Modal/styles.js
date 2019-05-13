@@ -39,14 +39,15 @@ exports.default = (function (props) {
             transition: 'opacity 0.25s',
             backfaceVisibility: "hidden",
         }),
-        window: core_1.css(__assign({ opacity: visible ? 1 : 0, zIndex: 500, backgroundColor: theme.interface.hex, minHeight: '1rem', minWidth: '15rem', maxWidth: '40rem', padding: '2.25rem', margin: '0 auto' }, theme.borders.modal, { borderRadius: center ? theme.borders.modal.borderRadius : 0, transition: 'all 0.5s', transform: visible ? 'translateY(0)' : 'translateY(-20px)', boxSizing: 'border-box', overflow: 'hidden' }), (center && fullSize) && {
+        window: core_1.css(__assign({ opacity: visible ? 1 : 0, zIndex: 500, backgroundColor: theme.background2.hex, minHeight: '1rem', minWidth: '15rem', maxWidth: '40rem', padding: '2.25rem', margin: '0 auto' }, theme.borders.modal, { borderRadius: center ? theme.borders.modal.borderRadius : 0, transition: 'all 0.5s', transform: visible ? 'translateY(0)' : 'translateY(-20px)', boxSizing: 'border-box', overflow: 'hidden' }), (center && fullSize) && {
             width: '40rem'
         }),
         header: core_1.css({
-            marginTop: '-0.5rem',
+            // marginTop: '-0.5rem',
+            lineHeight: '2.375rem'
         }),
         cross: core_1.css({
-            // marginTop: '0.25rem',
+            marginTop: '0.125rem',
             marginLeft: '2rem',
             cursor: 'pointer',
             transition: 'all 0.25s',

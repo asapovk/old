@@ -17,7 +17,7 @@ exports.default = (function () {
         loadingtext: core_1.css(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n            font-size: 16px;\n            padding-top: 10px;\n        "], ["\n            font-size: 16px;\n            padding-top: 10px;\n        "]))),
         text: theme.text.hex,
         accent: theme.highlight.hex,
-        background: theme.background.hex,
+        background: theme.background2.hex,
         chartTextColor: theme.lowlight.hex,
         lowlight: theme.lowlight.rgb,
     };

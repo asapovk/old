@@ -35,7 +35,7 @@ exports.rowStyles = function (_a) {
             display: "flex",
             flex: 1,
             flexDirection: "column",
-            backgroundColor: theme.background.hex,
+            backgroundColor: theme.background2.hex,
             borderWidth: "0 0 1px 0",
             borderStyle: "solid",
             borderColor: theme.pale.hex,
@@ -95,7 +95,7 @@ exports.rowStyles = function (_a) {
         expandForm: core_1.css({
             display: "none",
             paddingBottom: "1.25rem",
-            backgroundColor: theme.background.hex
+            backgroundColor: theme.background2.hex
         }, expanded && {
             display: "block"
         }),
@@ -154,7 +154,7 @@ exports.headerStyles = function () {
             borderColor: theme.pale.hex,
             borderWidth: "0 0 1px 0",
             borderRadius: "0.5rem 0.5rem 0 0",
-            backgroundColor: theme.background.hex
+            backgroundColor: theme.background2.hex
         }),
         headerCell: function (_a) {
             var isAction = _a.isAction, borders = _a.borders, alignment = _a.alignment, width = _a.width;

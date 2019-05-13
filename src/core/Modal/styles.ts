@@ -29,7 +29,7 @@ export default (props: ModalTypes.StyleProps) => {
         window: css({
             opacity: visible ? 1 : 0,
             zIndex: 500,
-            backgroundColor: theme.interface.hex,
+            backgroundColor: theme.background2.hex,
             minHeight: '1rem',
             minWidth: '15rem',
             maxWidth: '40rem',
@@ -46,11 +46,12 @@ export default (props: ModalTypes.StyleProps) => {
         }),
 
         header: css({
-            marginTop: '-0.5rem',
+            // marginTop: '-0.5rem',
+            lineHeight: '2.375rem'
         }),
 
         cross: css({
-            // marginTop: '0.25rem',
+            marginTop: '0.125rem',
             marginLeft: '2rem',
             cursor: 'pointer',
             transition: 'all 0.25s',

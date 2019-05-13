@@ -3,9 +3,11 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var utilities_1 = require("../utilities");
 exports.default = {
     name: "whiteCurrantModern",
-    background: utilities_1.getColors(255, 255, 255),
-    background2: utilities_1.getColors(246, 245, 247),
-    interface: utilities_1.getColors(255, 255, 255),
+    // background: getColors(255, 255, 255),
+    // background2: getColors(246, 245, 247),
+    background: utilities_1.getColors(246, 245, 247),
+    background2: utilities_1.getColors(255, 255, 255),
+    interface: utilities_1.getColors(250, 250, 250),
     pale: utilities_1.getColors(232, 232, 232),
     light: utilities_1.getColors(150, 150, 150),
     lowlight: utilities_1.getColors(119, 119, 119),
@@ -45,7 +47,7 @@ exports.default = {
             borderWidth: '0px',
             borderStyle: 'solid',
             borderColor: 'transparent',
-            borderRadius: '0.25rem'
+            borderRadius: '0.375rem'
         },
         table: {
             borderWidth: '0px',
@@ -54,7 +56,7 @@ exports.default = {
             borderRadius: '0.625rem'
         },
         widget: {
-            borderWidth: '1px',
+            borderWidth: '0',
             borderStyle: 'solid',
             borderColor: utilities_1.getColors(232, 232, 232).hex,
             borderRadius: '0.625rem',
@@ -75,7 +77,7 @@ exports.default = {
             borderWidth: '1px',
             borderStyle: 'solid',
             borderColor: utilities_1.getColors(232, 232, 232).hex,
-            borderRadius: '0.25rem',
+            borderRadius: '0.5rem',
         },
         checkbox: {
             borderWidth: '1px',
