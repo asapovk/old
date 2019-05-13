@@ -122,27 +122,19 @@ export default (props: TabsTypes.StyleProps) => {
 			text: (props: { isActive: boolean }) => css({
 				alignItems: 'center',
 				fontSize: '1.375rem',
-				// fontSize: '2.5rem',
 				fontWeight: 'normal',
 				textTransform: 'uppercase',
 				color: theme.highlight.hex,
 				cursor: 'pointer',
 				lineHeight: '2.5rem',
-				transition: 'all .15s linear',
-				// willChange: 'zoom',
+				transition: 'font-size .15s linear',
+				willChange: 'font-size',
 				letterSpacing: '-0.03em',
-				zoom: 0,
-
-				// margin: '0 -1rem',
-
 				[MOBILE]: {
 					transition: 'none'
 				},
 				...(props.isActive && {
-					// fontSize: '2.5rem',
-					// transform: 'scale(1)',
-					// margin: '0 0',
-					zoom: 1.75,
+					fontSize: '2.5rem',
 					fontWeight: 900,
 					color: theme.text.hex,
 					[MOBILE]: {
