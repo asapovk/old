@@ -25,7 +25,7 @@ export default (props: Types.Props) => {
     const styles = createStyles(props.narrowed);
 
     const [minified, setMinified] = useState(props.minified || false);
-    const { pending, pendingRows, className, rowRender, groupKey, groups,
+    const { pending, pendingRows, className, rowRender, groupKey, groups, dataIndex,
         onRowClick, expandForm, moreLabel, lessLabel, noDataText, minifiedRowsCount } = props;
 
     if (pending) {
@@ -69,7 +69,7 @@ export default (props: Types.Props) => {
                             {data
                                 .filter(row => row.groupId === group.value)
                                 .map((row, index) => {
-                                    const rowId = (JSON.stringify(row) + index).stringHashCode();
+                                    const rowId = dataIndex ? (row[dataIndex] + index).stringHashCode() : index;
                                     return (
                                         <RowWrapper
                                             onClick={() => onRowClick && onRowClick(row)}
@@ -99,7 +99,7 @@ export default (props: Types.Props) => {
         <div className={className}>
             <Wrapper decoration='none'>
                 {data.map((row, index) => {
-                    const rowId = (JSON.stringify(row) + index).stringHashCode();
+                    const rowId = dataIndex ? (row[dataIndex] + index).stringHashCode() : index;
                     return (
                         <RowWrapper
                             onClick={() => onRowClick && onRowClick(row)}
