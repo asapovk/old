@@ -127,7 +127,7 @@ export default (props: TabsTypes.StyleProps) => {
 				color: theme.highlight.hex,
 				cursor: 'pointer',
 				lineHeight: '2.5rem',
-				transition: 'font-size .15s linear',
+				// transition: 'font-size .15s linear',
 				willChange: 'font-size',
 				letterSpacing: '-0.03em',
 				[MOBILE]: {
