@@ -69,7 +69,9 @@ export default (props: Types.Props) => {
                             {data
                                 .filter(row => row.groupId === group.value)
                                 .map((row, index) => {
-                                    const rowId = dataIndex ? (row[dataIndex] + index).stringHashCode() : index;
+                                    const rowId = dataIndex
+                                        ? (row[dataIndex] + index).stringHashCode()
+                                        : (JSON.stringify(row) + index).stringHashCode();
                                     return (
                                         <RowWrapper
                                             onClick={() => onRowClick && onRowClick(row)}
@@ -99,7 +101,9 @@ export default (props: Types.Props) => {
         <div className={className}>
             <Wrapper decoration='none'>
                 {data.map((row, index) => {
-                    const rowId = dataIndex ? (row[dataIndex] + index).stringHashCode() : index;
+                    const rowId = dataIndex
+                        ? (row[dataIndex] + index).stringHashCode()
+                        : (JSON.stringify(row) + index).stringHashCode();
                     return (
                         <RowWrapper
                             onClick={() => onRowClick && onRowClick(row)}
