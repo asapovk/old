@@ -56,9 +56,9 @@ export default {
 			borderRadius: '0.625rem'
 		},
 		widget: {
-			borderWidth: '1px',
+			borderWidth: '0',
 			borderStyle: 'solid',
-			borderColor: getColors(255, 255, 255).hex,
+			borderColor: getColors(232, 232, 232).hex,
 			borderRadius: '0.625rem',
 		},
 		card: {
