@@ -34,6 +34,7 @@ String.prototype.stringHashCode = function () {
     }
     return hash.toString();
 };
+var Div = function (props) { return core_1.jsx("div", __assign({}, props)); };
 exports.default = (function (props) {
     var styles = styles_1.default(props.narrowed);
     var _a = react_1.useState(props.minified || false), minified = _a[0], setMinified = _a[1];
@@ -47,7 +48,7 @@ exports.default = (function (props) {
     }
     var data = minified ? props.data.filter(function (_, index) { return index < (minifiedRowsCount || 3); }) : props.data;
     var needShowMore = props.minified && props.data.length > (minifiedRowsCount || 3);
-    var Wrapper = props.narrowed ? __1.Widget : function (props) { return core_1.jsx("div", __assign({ key: 'list-row-wrapper' }, props)); };
+    var Wrapper = props.narrowed ? __1.Widget : Div;
     var RowWrapper = props.narrowed ? __1.Flexbox : __1.Widget;
     if (groupKey && Array.isArray(groups)) {
         /**
