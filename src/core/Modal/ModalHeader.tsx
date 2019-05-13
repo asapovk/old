@@ -21,7 +21,7 @@ export default (props: ModalTypes.ModalHeaderProps) => {
             <Flexbox>
                 <Flexbox flex={1} column>
                     <Typography.D1 css={styles.header}>{props.title}</Typography.D1>
-                    <Typography.C1 color="lowlight" mt={'0.25rem'}>{props.subtitle}</Typography.C1>
+                    <Typography.C1 color="lowlight" mt={'0.5rem'}>{props.subtitle}</Typography.C1>
                 </Flexbox>
                 <Icon
                     css={styles.cross}
