@@ -22,6 +22,7 @@ String.prototype.stringHashCode = function () {
     return hash.toString();
 }
 
+// DO NOT ASK ME ABOUT IT 
 const Div = (props) => <div {...props} />
 
 export default (props: Types.Props) => {
