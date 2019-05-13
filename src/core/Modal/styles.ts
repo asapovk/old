@@ -46,11 +46,12 @@ export default (props: ModalTypes.StyleProps) => {
         }),
 
         header: css({
-            marginTop: '-0.5rem',
+            // marginTop: '-0.5rem',
+            lineHeight: '2.375rem'
         }),
 
         cross: css({
-            // marginTop: '0.25rem',
+            marginTop: '0.125rem',
             marginLeft: '2rem',
             cursor: 'pointer',
             transition: 'all 0.25s',
