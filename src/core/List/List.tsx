@@ -1,5 +1,6 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core';
+import React from 'react';
 import { Fragment, useState } from 'react';
 import { Flexbox, Widget } from '..';
 import { C1 } from '../..';
@@ -45,7 +46,7 @@ export default (props: Types.Props) => {
     const data = minified ? props.data.filter((_, index) => index < (minifiedRowsCount || 3)) : props.data;
     const needShowMore = props.minified && props.data.length > (minifiedRowsCount || 3);
 
-    const Wrapper = props.narrowed ? Widget : props => jsx('div', props);
+    const Wrapper = props.narrowed ? Widget : () => <div key='list-row-wrapper' />;
     const RowWrapper = props.narrowed ? Flexbox : Widget;
 
     if (groupKey && Array.isArray(groups)) {
