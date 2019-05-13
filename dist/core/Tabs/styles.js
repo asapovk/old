@@ -1,4 +1,15 @@
 "use strict";
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
@@ -125,31 +136,25 @@ exports.default = (function (props) {
             },
             text: function (props) {
                 var _a, _b;
-                return core_1.css((_a = {
-                        alignItems: 'center',
-                        fontSize: '1.375rem',
-                        fontWeight: 'normal',
-                        textTransform: 'uppercase',
-                        color: theme.highlight.hex,
-                        cursor: 'pointer',
-                        lineHeight: '2.5rem',
-                        transition: 'font-size .15s linear',
-                        willChange: 'font-size',
-                        letterSpacing: '-0.03em'
-                    },
-                    _a[MOBILE] = {
-                        transition: 'none'
-                    },
-                    _a), props.isActive && (_b = {
-                        fontSize: '2.5rem',
+                return core_1.css(__assign((_a = { alignItems: 'center', fontSize: '1.375rem', 
+                        // fontSize: '2.5rem',
+                        fontWeight: 'normal', textTransform: 'uppercase', color: theme.highlight.hex, cursor: 'pointer', lineHeight: '2.5rem', transition: 'all .15s linear', 
+                        // willChange: 'zoom',
+                        letterSpacing: '-0.03em', zoom: 0 }, _a[MOBILE] = {
+                    transition: 'none'
+                }, _a), (props.isActive && (_b = {
+                        // fontSize: '2.5rem',
+                        // transform: 'scale(1)',
+                        // margin: '0 0',
+                        zoom: 1.75,
                         fontWeight: 900,
                         color: theme.text.hex
                     },
                     _b[MOBILE] = {
                         fontSize: '1.5rem',
                     },
-                    _b));
-            },
+                    _b))));
+            }
         },
     };
 });
