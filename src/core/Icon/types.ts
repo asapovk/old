@@ -50,6 +50,7 @@ declare namespace IconTypes {
     | "ruble"
     | "down_triangle"
     | "up_triangle"
+    | "edit"
     | string;
 
   interface Props extends SpacingProps {
