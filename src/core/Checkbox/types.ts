@@ -1,8 +1,16 @@
 import { SizeTypes } from "../types";
 
 declare namespace CheckboxTypes {
+    export type LabelColor = | "text"
+        | "highlight"
+        | "pale"
+        | "textOnAccent"
+        | "lowlight"
+        | "light"
+        | "highlightSecondary";
     export interface CheckboxProps {
         label?: string
+        labelColor?: LabelColor
         radio?: boolean
         checked?: boolean
         onChange?: (checked) => void

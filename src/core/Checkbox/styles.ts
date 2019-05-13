@@ -1,6 +1,7 @@
 import { css } from '@emotion/core';
 import useTheme from '../../hooks/useTheme';
 import { SizeTypes } from '../types';
+import Types from './types';
 
 export default (checked: boolean, isRadio?: boolean, uppercase?: boolean, size?: SizeTypes) => {
     const theme = useTheme().theme;
@@ -42,11 +43,12 @@ export default (checked: boolean, isRadio?: boolean, uppercase?: boolean, size?:
             borderRadius: "50%"
         }),
 
-        label: css({
-            paddingLeft: "0.375rem",
+        label: (labelColor?: Types.LabelColor) => css({
+            marginLeft: "0.5rem",
             fontSize: "1rem",
             lineHeight: "1.5rem",
-            userSelect: "none"
+            userSelect: "none",
+            color: labelColor ? theme[labelColor].hex : theme.text.hex
         }, uppercase && {
             textTransform: "uppercase"
         }),
