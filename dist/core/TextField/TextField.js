@@ -13,7 +13,12 @@ exports.default = react_1.forwardRef(function (props, ref) {
     var _a = react_1.useState(''), value = _a[0], setValue = _a[1];
     var _b = react_1.useState(false), focused = _b[0], setFocused = _b[1];
     react_1.useLayoutEffect(function () {
-        setValue(props.value || props.defaultValue || '');
+        var value = props.value || props.defaultValue || '';
+        if (props.type === 'rubles' || props.type === 'counter') {
+            var digits = props.type == 'rubles' ? 2 : 3;
+            value = parseFloat(value).toFixed(digits);
+        }
+        setValue(value);
     }, []);
     var valueValidation = function (value) {
         switch (props.type) {
