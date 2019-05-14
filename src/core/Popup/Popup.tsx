@@ -9,11 +9,12 @@ export default (props: Types.Props) => {
 
   const popupRef = useRef<HTMLDivElement>(null);
   const triggerRef = useRef<HTMLDivElement>(null);
+  const id = Math.random().toString();
 
   const styles = createStyles(position);
 
   useEffect(() => {
-    const container: HTMLElement | null = document.getElementById("ui-pop");
+    const container: HTMLElement | null = document.getElementById(id);
     container && container.addEventListener("click", handleToggle);
     document.addEventListener("mousedown", handleClickOutside);
     return () => {
@@ -43,7 +44,7 @@ export default (props: Types.Props) => {
 
   return (
     <div
-      id="ui-pop"
+      id={id}
       ref={triggerRef}
       css={css({ position: "relative" })}
       className={className}
