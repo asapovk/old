@@ -12,15 +12,6 @@ export default forwardRef((props: Types.FieldProps, ref) => {
         }
     }
 
-    // function _formatReturnValue(e, type, callback) {
-    //     let value = e.currentTarget.value || '';
-    //     callback(e, value);
-    // }
-
-    // function onBlur(event: React.FormEvent<HTMLInputElement>): void {
-    //     props.onBlur && props.onBlur(event);
-    // }
-
     if (props.mask) {
         return jsx(
             InputMask,

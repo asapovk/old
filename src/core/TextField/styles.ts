@@ -106,7 +106,7 @@ export default ({ multiline, size, disabled, decoration, floatingLabel, leftIcon
 
         rightLabel: css({
             userSelect: 'none',
-            color: theme.lowlight.rgba(0.3),
+            color: theme.lowlight.rgba(0.5),
             fontWeight: 400,
             fontSize: extraParams.textSize,
             lineHeight: extraParams.textLineHeight,

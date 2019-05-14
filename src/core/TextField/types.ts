@@ -21,6 +21,7 @@ declare namespace TextFieldTypes {
         disabled?: boolean
         loading?: boolean
         type?: Type
+        decimalCount?: number
         onChange?: (event: any, value: string) => void
         onClick?: (event: MouseEvent) => void
         onMouseDown?: (event: MouseEvent) => void
@@ -55,8 +56,7 @@ declare namespace TextFieldTypes {
         'time' |
         'url' |
         'week' |
-        'rubles' |
-        'counter';
+        'decimal';
 
     export interface IconProps {
         type?: IconTypes.Type,

@@ -64,6 +64,20 @@ export default () => {
                             label='Just input'
                             placeholder="Enter something"
                         />
+                        <TextField
+                            css={css({ marginLeft: '1rem' })}
+                            label="К оплате"
+                            type='decimal'
+                            decimalCount={2}
+                            rightLabel='₽'
+                        />
+                        <TextField
+                            css={css({ marginLeft: '1rem' })}
+                            label="Показания"
+                            type='decimal'
+                            decimalCount={3}
+                            rightLabel='м3'
+                        />
                     </Flexbox>
                     <Flexbox mb='1rem'>
                         <TextField
@@ -281,20 +295,6 @@ export default () => {
                             size='extra-large'
                             floatingLabel="Enter something"
                             multiline
-                        />
-                        <TextField
-                            size='large'
-                            placeholder="Rubles"
-                            type='rubles'
-                            rightLabel='₽'
-                            onChange={(e, value) => console.log(value)}
-                        />
-                        <TextField
-                            size='large'
-                            placeholder="M3"
-                            type='counter'
-                            rightLabel='м3'
-                            onChange={(e, value) => console.log(value)}
                         />
                     </Flexbox>
                 </Flexbox>
