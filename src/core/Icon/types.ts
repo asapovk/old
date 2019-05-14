@@ -4,6 +4,8 @@ import { ThemeInterface } from "../../styles";
 
 declare namespace IconTypes {
   export type Type =
+    //TODO: remove string
+    | string
     | "add"
     | "more"
     | "pin"
@@ -27,8 +29,6 @@ declare namespace IconTypes {
     | "counter_gas"
     | "counter_water"
     | "counter_electricity"
-    | "text-right"
-    | "arrow-left"
     | "user"
     | "equal"
     | "photo"
@@ -51,7 +51,19 @@ declare namespace IconTypes {
     | "down_triangle"
     | "up_triangle"
     | "edit"
-    | string;
+    | "text-right"
+    | "arrow-left"
+    | "star"
+    | "star-fill"
+    | "star-shine"
+    | "star-shine-fill"
+    | "circle-check"
+    | "circle-check-fill"
+    | "circle-cross"
+    | "circle-cross-fill"
+    | "crown"
+    | "crown-fill"
+    ;
 
   interface Props extends SpacingProps {
     style?: React.CSSProperties;
@@ -61,12 +73,12 @@ declare namespace IconTypes {
     shape?: "cirle" | "oval";
     size?: string;
     color?:
-      | "text"
-      | "highlight"
-      | "pale"
-      | "textOnAccent"
-      | "lowlight"
-      | "light";
+    | "text"
+    | "highlight"
+    | "pale"
+    | "textOnAccent"
+    | "lowlight"
+    | "light";
     // background?: 'text' | 'highlight' | 'pale' | 'textOnAccent' | 'lowlight' | 'light' | 'background' | 'background2'
     background?: string;
   }
