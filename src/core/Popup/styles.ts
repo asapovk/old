@@ -11,6 +11,7 @@ export default (position?: Types.Position) => {
       position: "absolute",
       top: "calc(100% + .5rem)",
       right: 0,
+      zIndex: 999,
       // transform: "translateX(-50%)",
 
       background: theme.interface.rgb,
