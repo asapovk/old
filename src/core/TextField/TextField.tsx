@@ -16,7 +16,7 @@ export default forwardRef((props: Types.Props, ref) => {
 
         if (props.type === 'rubles' || props.type === 'counter') {
             const digits = props.type == 'rubles' ? 2 : 3;
-            value = parseFloat(value).toFixed(digits);
+            value = parseFloat(value || '0').toFixed(digits);
         }
 
         setValue(value);
@@ -62,7 +62,7 @@ export default forwardRef((props: Types.Props, ref) => {
     const onBlur = (e, newValue) => {
         if (props.type == 'rubles' || props.type == 'counter') {
             const digits = props.type == 'rubles' ? 2 : 3;
-            newValue = parseFloat(newValue).toFixed(digits);
+            newValue = parseFloat(newValue || '0').toFixed(digits);
 
             setValue(newValue);
             if (value !== newValue) {
