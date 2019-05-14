@@ -10,8 +10,8 @@ export default (position?: Types.Position) => {
       display: "none",
       position: "absolute",
       top: "calc(100% + .5rem)",
-      left: "50%",
-      transform: "translateX(-50%)",
+      right: 0,
+      // transform: "translateX(-50%)",
 
       background: theme.interface.rgb,
       borderColor: theme.borders.button.borderColor,
