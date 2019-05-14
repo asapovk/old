@@ -40,8 +40,8 @@ var Modal = /** @class */ (function (_super) {
     Modal.prototype.componentWillUnmount = function () {
         window.removeEventListener('resize', this.setVetricalCenter);
     };
-    Modal.prototype.setActive = function (active) {
-        this.setState({ active: active });
+    Modal.prototype.setActive = function (active, _cb) {
+        this.setState({ active: active }, _cb);
     };
     Modal.prototype.setVisible = function (visible) {
         this.setState({ visible: visible });
@@ -66,9 +66,10 @@ var Modal = /** @class */ (function (_super) {
         var _this = this;
         this.setVisible(false);
         setTimeout(function () {
-            _this.setActive(false);
-            _this.props.didClose && _this.props.didClose();
-            didClose && didClose();
+            _this.setActive(false, function () {
+                _this.props.didClose && _this.props.didClose();
+                didClose && didClose();
+            });
         }, 500);
         this.props.onClose && this.props.onClose();
     };
