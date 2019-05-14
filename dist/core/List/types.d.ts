@@ -24,7 +24,9 @@ declare namespace ListTypes {
         groupKey?: string;
         groups?: Group[];
         noDataText?: string;
-        onRowClick?: (row: Object) => any;
+        onClick?: (e: MouseEvent, row: Object) => any;
+        onMouseDown?: (e: MouseEvent, row: Object) => any;
+        onMouseUp?: (e: MouseEvent, row: Object) => any;
         expandForm?: ExpandForm;
         rowRender: (row: {
             [key: string]: any;
