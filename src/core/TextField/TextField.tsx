@@ -22,7 +22,7 @@ export default forwardRef((props: Types.Props, ref) => {
         let value: string | null = props.value || props.defaultValue || ''
         if (props.type === 'decimal') {
             value = decimalFormat(value, decimalCount)
-            if (value === null || value === '') {
+            if (value === null) {
                 value = '0.' + "0".repeat(decimalCount)
             }
         }
