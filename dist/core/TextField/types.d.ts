@@ -31,7 +31,7 @@ declare namespace TextFieldTypes {
         tabIndex?: number;
         regex?: RegExp;
     }
-    type Type = 'color' | 'email' | 'hidden' | 'image' | 'month' | 'number' | 'password' | 'radio' | 'range' | 'reset' | 'search' | 'submit' | 'tel' | 'text' | 'time' | 'url' | 'week' | 'rubles' | 'm3';
+    type Type = 'color' | 'email' | 'hidden' | 'image' | 'month' | 'number' | 'password' | 'radio' | 'range' | 'reset' | 'search' | 'submit' | 'tel' | 'text' | 'time' | 'url' | 'week' | 'rubles' | 'counter';
     interface IconProps {
         type?: IconTypes.Type;
         position: 'left' | 'right';

@@ -27,7 +27,7 @@ exports.default = react_1.forwardRef(function (props, ref) {
                     ? value
                     : false;
             }
-            case 'm3': {
+            case 'counter': {
                 value = value.replace(/[\,]/g, '.');
                 if (value == '.') {
                     value = '0.';
@@ -48,10 +48,13 @@ exports.default = react_1.forwardRef(function (props, ref) {
         props.onChange && props.onChange(e, newValue);
     };
     var onBlur = function (e, newValue) {
-        if (props.type == 'rubles' || props.type == 'm3') {
+        if (props.type == 'rubles' || props.type == 'counter') {
             var digits = props.type == 'rubles' ? 2 : 3;
             newValue = parseFloat(newValue).toFixed(digits);
             setValue(newValue);
+            if (value !== newValue) {
+                props.onChange && props.onChange(e, newValue);
+            }
         }
         setFocused(false);
         props.onBlur && props.onBlur(e, newValue);
