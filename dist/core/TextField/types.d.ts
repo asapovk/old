@@ -18,6 +18,7 @@ declare namespace TextFieldTypes {
         disabled?: boolean;
         loading?: boolean;
         type?: Type;
+        decimalCount?: number;
         onChange?: (event: any, value: string) => void;
         onClick?: (event: MouseEvent) => void;
         onMouseDown?: (event: MouseEvent) => void;
@@ -33,7 +34,7 @@ declare namespace TextFieldTypes {
         tabIndex?: number;
         regex?: RegExp;
     }
-    type Type = 'color' | 'email' | 'hidden' | 'image' | 'month' | 'number' | 'password' | 'radio' | 'range' | 'reset' | 'search' | 'submit' | 'tel' | 'text' | 'time' | 'url' | 'week' | 'rubles' | 'counter';
+    type Type = 'color' | 'email' | 'hidden' | 'image' | 'month' | 'number' | 'password' | 'radio' | 'range' | 'reset' | 'search' | 'submit' | 'tel' | 'text' | 'time' | 'url' | 'week' | 'decimal';
     interface IconProps {
         type?: IconTypes.Type;
         position: 'left' | 'right';

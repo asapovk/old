@@ -24,13 +24,6 @@ exports.default = react_1.forwardRef(function (props, ref) {
             props.onEnter && props.onEnter(event);
         }
     }
-    // function _formatReturnValue(e, type, callback) {
-    //     let value = e.currentTarget.value || '';
-    //     callback(e, value);
-    // }
-    // function onBlur(event: React.FormEvent<HTMLInputElement>): void {
-    //     props.onBlur && props.onBlur(event);
-    // }
     if (props.mask) {
         return core_1.jsx(react_input_mask_1.default, {
             onFocus: props.onFocus,

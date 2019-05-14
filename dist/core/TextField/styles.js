@@ -110,7 +110,7 @@ exports.default = (function (_a) {
         },
         rightLabel: core_1.css({
             userSelect: 'none',
-            color: theme.lowlight.rgba(0.3),
+            color: theme.lowlight.rgba(0.5),
             fontWeight: 400,
             fontSize: extraParams.textSize,
             lineHeight: extraParams.textLineHeight,
