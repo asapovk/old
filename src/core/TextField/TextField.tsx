@@ -12,7 +12,14 @@ export default forwardRef((props: Types.Props, ref) => {
     const [focused, setFocused] = useState<boolean>(false);
 
     useLayoutEffect(() => {
-        setValue(props.value || props.defaultValue || '');
+        let value = props.value || props.defaultValue || '';
+
+        if (props.type === 'rubles' || props.type === 'counter') {
+            const digits = props.type == 'rubles' ? 2 : 3;
+            value = parseFloat(value).toFixed(digits);
+        }
+
+        setValue(value);
     }, []);
 
     const valueValidation = (value: string) => {

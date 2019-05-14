@@ -292,7 +292,7 @@ export default () => {
                         <TextField
                             size='large'
                             placeholder="M3"
-                            type='m3'
+                            type='counter'
                             rightLabel='м3'
                             onChange={(e, value) => console.log(value)}
                         />
