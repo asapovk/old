@@ -16,7 +16,7 @@ exports.default = react_1.forwardRef(function (props, ref) {
         var value = props.value || props.defaultValue || '';
         if (props.type === 'rubles' || props.type === 'counter') {
             var digits = props.type == 'rubles' ? 2 : 3;
-            value = parseFloat(value).toFixed(digits);
+            value = parseFloat(value || '0').toFixed(digits);
         }
         setValue(value);
     }, []);
@@ -55,7 +55,7 @@ exports.default = react_1.forwardRef(function (props, ref) {
     var onBlur = function (e, newValue) {
         if (props.type == 'rubles' || props.type == 'counter') {
             var digits = props.type == 'rubles' ? 2 : 3;
-            newValue = parseFloat(newValue).toFixed(digits);
+            newValue = parseFloat(newValue || '0').toFixed(digits);
             setValue(newValue);
             if (value !== newValue) {
                 props.onChange && props.onChange(e, newValue);
