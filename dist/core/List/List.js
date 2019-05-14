@@ -34,10 +34,16 @@ String.prototype.stringHashCode = function () {
     }
     return hash.toString();
 };
+// DO NOT ASK ME ABOUT IT 
+var Div = function (props) { return core_1.jsx("div", __assign({}, props)); };
 exports.default = (function (props) {
     var styles = styles_1.default(props.narrowed);
     var _a = react_1.useState(props.minified || false), minified = _a[0], setMinified = _a[1];
+<<<<<<< HEAD
     var pending = props.pending, pendingRows = props.pendingRows, className = props.className, rowRender = props.rowRender, groupKey = props.groupKey, groups = props.groups, onClick = props.onClick, onMouseDown = props.onMouseDown, onMouseUp = props.onMouseUp, expandForm = props.expandForm, moreLabel = props.moreLabel, lessLabel = props.lessLabel, noDataText = props.noDataText, minifiedRowsCount = props.minifiedRowsCount;
+=======
+    var pending = props.pending, pendingRows = props.pendingRows, className = props.className, rowRender = props.rowRender, groupKey = props.groupKey, groups = props.groups, dataIndex = props.dataIndex, onRowClick = props.onRowClick, expandForm = props.expandForm, moreLabel = props.moreLabel, lessLabel = props.lessLabel, noDataText = props.noDataText, minifiedRowsCount = props.minifiedRowsCount;
+>>>>>>> d444bd20849e144d3aaab0eb57fe603030d4e552
     if (pending) {
         return core_1.jsx(PendingList_1.default, __assign({}, props));
     }
@@ -47,7 +53,7 @@ exports.default = (function (props) {
     }
     var data = minified ? props.data.filter(function (_, index) { return index < (minifiedRowsCount || 3); }) : props.data;
     var needShowMore = props.minified && props.data.length > (minifiedRowsCount || 3);
-    var Wrapper = props.narrowed ? __1.Widget : function (props) { return core_1.jsx('div', props); };
+    var Wrapper = props.narrowed ? __1.Widget : Div;
     var RowWrapper = props.narrowed ? __1.Flexbox : __1.Widget;
     if (groupKey && Array.isArray(groups)) {
         /**
@@ -65,15 +71,29 @@ exports.default = (function (props) {
                 data
                     .filter(function (row) { return row.groupId === group.value; })
                     .map(function (row, index) {
+<<<<<<< HEAD
                     var rowId = (JSON.stringify(row) + index).stringHashCode();
                     return (core_1.jsx(RowWrapper, { onClick: function (e) { return onClick && onClick(e, row); }, onMouseDown: function (e) { return onMouseDown && onMouseDown(e, row); }, onMouseUp: function (e) { return onMouseUp && onMouseUp(e, row); }, css: styles.row, key: "listrow-" + rowId }, rowRender(row)));
+=======
+                    var rowId = dataIndex
+                        ? (row[dataIndex] + index).stringHashCode()
+                        : (JSON.stringify(row) + index).stringHashCode();
+                    return (core_1.jsx(RowWrapper, { onClick: function () { return onRowClick && onRowClick(row); }, css: styles.row, key: "listrow-" + rowId }, rowRender(row)));
+>>>>>>> d444bd20849e144d3aaab0eb57fe603030d4e552
                 }))); })),
             needShowMore && (core_1.jsx(ShowMore_1.default, { moreLabel: moreLabel, lessLabel: lessLabel, minified: minified, setMinified: function () { return setMinified(!minified); } }))));
     }
     return (core_1.jsx("div", { className: className },
         core_1.jsx(Wrapper, { decoration: 'none' }, data.map(function (row, index) {
+<<<<<<< HEAD
             var rowId = (JSON.stringify(row) + index).stringHashCode();
             return (core_1.jsx(RowWrapper, { onClick: function (e) { return onClick && onClick(e, row); }, onMouseDown: function (e) { return onMouseDown && onMouseDown(e, row); }, onMouseUp: function (e) { return onMouseUp && onMouseUp(e, row); }, css: styles.row, key: "listrow-" + rowId }, rowRender(row)));
+=======
+            var rowId = dataIndex
+                ? (row[dataIndex] + index).stringHashCode()
+                : (JSON.stringify(row) + index).stringHashCode();
+            return (core_1.jsx(RowWrapper, { onClick: function () { return onRowClick && onRowClick(row); }, css: styles.row, key: "listrow-" + rowId }, rowRender(row)));
+>>>>>>> d444bd20849e144d3aaab0eb57fe603030d4e552
         })),
         needShowMore && (core_1.jsx(ShowMore_1.default, { moreLabel: moreLabel, lessLabel: lessLabel, minified: minified, setMinified: function () { return setMinified(!minified); } }))));
 });

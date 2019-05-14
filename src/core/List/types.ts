@@ -18,7 +18,8 @@ declare namespace ListTypes {
     }
 
     export interface Props {
-        style?: CSSProperties,
+        style?: CSSProperties
+        dataIndex?: string
         className?: string
         narrowed?: boolean
         minified?: boolean

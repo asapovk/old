@@ -1,5 +1,6 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core';
+import React from 'react';
 import { Fragment, useState } from 'react';
 import { Flexbox, Widget } from '..';
 import { C1 } from '../..';
@@ -21,11 +22,14 @@ String.prototype.stringHashCode = function () {
     return hash.toString();
 }
 
+// DO NOT ASK ME ABOUT IT 
+const Div = (props) => <div {...props} />
+
 export default (props: Types.Props) => {
     const styles = createStyles(props.narrowed);
 
     const [minified, setMinified] = useState(props.minified || false);
-    const { pending, pendingRows, className, rowRender, groupKey, groups,
+    const { pending, pendingRows, className, rowRender, groupKey, groups, dataIndex,
         onClick, onMouseDown, onMouseUp, expandForm, moreLabel, lessLabel, noDataText, minifiedRowsCount } = props;
 
     if (pending) {
@@ -45,7 +49,7 @@ export default (props: Types.Props) => {
     const data = minified ? props.data.filter((_, index) => index < (minifiedRowsCount || 3)) : props.data;
     const needShowMore = props.minified && props.data.length > (minifiedRowsCount || 3);
 
-    const Wrapper = props.narrowed ? Widget : props => jsx('div', props);
+    const Wrapper = props.narrowed ? Widget : Div;
     const RowWrapper = props.narrowed ? Flexbox : Widget;
 
     if (groupKey && Array.isArray(groups)) {
@@ -69,7 +73,9 @@ export default (props: Types.Props) => {
                             {data
                                 .filter(row => row.groupId === group.value)
                                 .map((row, index) => {
-                                    const rowId = (JSON.stringify(row) + index).stringHashCode();
+                                    const rowId = dataIndex
+                                        ? (row[dataIndex] + index).stringHashCode()
+                                        : (JSON.stringify(row) + index).stringHashCode();
                                     return (
                                         <RowWrapper
                                             onClick={e => onClick && onClick(e, row)}
@@ -101,7 +107,9 @@ export default (props: Types.Props) => {
         <div className={className}>
             <Wrapper decoration='none'>
                 {data.map((row, index) => {
-                    const rowId = (JSON.stringify(row) + index).stringHashCode();
+                    const rowId = dataIndex
+                        ? (row[dataIndex] + index).stringHashCode()
+                        : (JSON.stringify(row) + index).stringHashCode();
                     return (
                         <RowWrapper
                             onClick={e => onClick && onClick(e, row)}

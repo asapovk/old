@@ -1,24 +1,47 @@
-import React from 'react';
-import { Flexbox, Popup, Button } from '../../../src';
-import '../../../src/styles/scss/main.scss';
+/** @jsx jsx */
+import { jsx, css } from "@emotion/core";
+import React from "react";
+import { Flexbox, Popup, Button } from "../../../src";
+import "../../../src/styles/scss/main.scss";
 
 interface PopupStory {
-    tooltip: any
+  tooltip: any;
 }
 
 class PopupStory extends React.Component {
-    render() {
-        return (
-            
-                <Flexbox alignContent="center" justifyContent="center">
-                    <Popup trigger={<Button label='Call Tooltip'></Button>}>
-                        <a>Hello</a>
-                    </Popup>
-                </Flexbox>
-            
-        )
-
-    }
+  render() {
+    return (
+      <Flexbox alignContent="center" justifyContent="center" column>
+        <Popup content={<a>Hello</a>} css={css({ width: "fit-content" })}>
+          <Button label="Call Tooltip" />
+        </Popup>
+        <h1>2356534634563</h1>
+        <h1>2356534634563</h1>
+        <h1>2356534634563</h1>
+        <h1>2356534634563</h1>
+        <h1>2356534634563</h1>
+        <h1>2356534634563</h1>
+        <h1>2356534634563</h1>
+        <h1>2356534634563</h1>
+        <h1>2356534634563</h1>
+        <h1>2356534634563</h1>
+        <h1>2356534634563</h1>
+        <h1>2356534634563</h1>
+        <h1>2356534634563</h1>
+        <h1>2356534634563</h1>
+        <h1>2356534634563</h1>
+        <h1>2356534634563</h1>
+        <h1>2356534634563</h1>
+        <h1>2356534634563</h1>
+        <h1>2356534634563</h1>
+        <h1>2356534634563</h1>
+        <h1>2356534634563</h1>
+        <h1>2356534634563</h1>
+        <h1>2356534634563</h1>
+        <h1>2356534634563</h1>
+      </Flexbox>
+    );
+  }
 }
 
-export default PopupStory
+export default PopupStory;

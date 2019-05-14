@@ -24,21 +24,21 @@ exports.default = react_1.forwardRef(function (props, ref) {
             props.onEnter && props.onEnter(event);
         }
     }
-    function _formatReturnValue(e, type, callback) {
-        var value = e.currentTarget.value || '';
-        callback(e, value);
-    }
-    function onBlur(event) {
-        props.onBlur && props.onBlur(event);
-    }
+    // function _formatReturnValue(e, type, callback) {
+    //     let value = e.currentTarget.value || '';
+    //     callback(e, value);
+    // }
+    // function onBlur(event: React.FormEvent<HTMLInputElement>): void {
+    //     props.onBlur && props.onBlur(event);
+    // }
     if (props.mask) {
         return core_1.jsx(react_input_mask_1.default, {
-            mask: props.mask,
             onFocus: props.onFocus,
-            onBlur: onBlur,
-            // defaultValue: props.defaultValue,
-            value: props.value,
+            onBlur: props.onBlur,
             onChange: props.onChange,
+            // defaultValue: props.defaultValue,
+            mask: props.mask,
+            value: props.value,
             onKeyPress: onKeyPress,
             disabled: props.disabled || props.loading,
             placeholder: props.placeholder,
@@ -50,9 +50,9 @@ exports.default = react_1.forwardRef(function (props, ref) {
     }
     return (core_1.jsx(props.multiline
         ? 'textarea'
-        : 'input', __assign({ onFocus: function (e) { return props.onFocus && props.onFocus(e); }, onBlur: onBlur, 
+        : 'input', __assign({ onFocus: function (e) { return props.onFocus && props.onFocus(e); }, onBlur: function (e) { return props.onBlur && props.onBlur(e, e.currentTarget.value); }, onChange: function (e) { return props.onChange && props.onChange(e, e.currentTarget.value); }, 
         // defaultValue: props.defaultValue,
-        value: props.value, onChange: function (e) { return props.onChange && props.onChange(e, e.currentTarget.value); }, onKeyPress: onKeyPress, disabled: props.disabled || props.loading, placeholder: props.placeholder, css: props.styles.field(props.multiline), ref: ref, type: props.type, tabIndex: props.tabIndex }, props.multiline
+        value: props.value, onKeyPress: onKeyPress, disabled: props.disabled || props.loading, placeholder: props.placeholder, css: props.styles.field(props.multiline), ref: ref, type: props.type, tabIndex: props.tabIndex }, props.multiline
         ? props.singlerow && {
             onKeyDown: function (event) {
                 if (event.keyCode === 13) {

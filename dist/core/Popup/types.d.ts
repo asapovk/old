@@ -5,16 +5,16 @@ declare namespace PopupTypes {
         left: number;
         right: number;
     }
-    type Position = 'bottom-left' | 'bottom-right' | 'bottom-center' | 'top-left' | 'top-right' | 'top-center' | 'left-top' | 'left-middle' | 'left-bottom' | 'right-top' | 'right-middle' | 'right-bottom';
+    type Position = "bottom-left" | "bottom-right" | "bottom-center" | "top-left" | "top-right" | "top-center" | "left-top" | "left-middle" | "left-bottom" | "right-top" | "right-middle" | "right-bottom";
     interface Props {
-        type?: 'error';
+        type?: "error";
         position?: Position;
-        trigger?: any;
-        triggerRef?: any;
-        on?: 'hover' | 'click';
+        content?: any;
+        on?: "hover" | "click";
         children?: any;
         visible?: boolean;
         onClose?: () => void;
+        className?: string;
     }
 }
 export default PopupTypes;
