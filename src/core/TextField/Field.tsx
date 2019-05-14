@@ -12,25 +12,25 @@ export default forwardRef((props: Types.FieldProps, ref) => {
         }
     }
 
-    function _formatReturnValue(e, type, callback) {
-        let value = e.currentTarget.value || '';
-        callback(e, value);
-    }
+    // function _formatReturnValue(e, type, callback) {
+    //     let value = e.currentTarget.value || '';
+    //     callback(e, value);
+    // }
 
-    function onBlur(event: React.FormEvent<HTMLInputElement>): void {
-        props.onBlur && props.onBlur(event);
-    }
+    // function onBlur(event: React.FormEvent<HTMLInputElement>): void {
+    //     props.onBlur && props.onBlur(event);
+    // }
 
     if (props.mask) {
         return jsx(
             InputMask,
             {
-                mask: props.mask,
                 onFocus: props.onFocus,
-                onBlur: onBlur,
-                // defaultValue: props.defaultValue,
-                value: props.value,
+                onBlur: props.onBlur,
                 onChange: props.onChange,
+                // defaultValue: props.defaultValue,
+                mask: props.mask,
+                value: props.value,
                 onKeyPress: onKeyPress,
                 disabled: props.disabled || props.loading,
                 placeholder: props.placeholder,
@@ -50,10 +50,10 @@ export default forwardRef((props: Types.FieldProps, ref) => {
                 : 'input',
             {
                 onFocus: (e) => props.onFocus && props.onFocus(e),
-                onBlur: onBlur,
+                onBlur: (e) => props.onBlur && props.onBlur(e, e.currentTarget.value),
+                onChange: (e) => props.onChange && props.onChange(e, e.currentTarget.value),
                 // defaultValue: props.defaultValue,
                 value: props.value,
-                onChange: (e) => props.onChange && props.onChange(e, e.currentTarget.value),
                 onKeyPress: onKeyPress,
                 disabled: props.disabled || props.loading,
                 placeholder: props.placeholder,

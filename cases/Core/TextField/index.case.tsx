@@ -283,10 +283,18 @@ export default () => {
                             multiline
                         />
                         <TextField
-                            size='extra-large'
-                            placeholder="RegExp field"
-                            regex={/^$|^0$|^0{1}\.([0-9]{1,2})?$|^[1-9][0-9]*\.?([0-9]{1,2})?$/g}
-                            onEnter={() => console.log(1)}
+                            size='large'
+                            placeholder="Rubles"
+                            type='rubles'
+                            rightLabel='₽'
+                            onChange={(e, value) => console.log(value)}
+                        />
+                        <TextField
+                            size='large'
+                            placeholder="M3"
+                            type='m3'
+                            rightLabel='м3'
+                            onChange={(e, value) => console.log(value)}
                         />
                     </Flexbox>
                 </Flexbox>
