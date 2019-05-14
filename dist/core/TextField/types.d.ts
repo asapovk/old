@@ -19,7 +19,9 @@ declare namespace TextFieldTypes {
         loading?: boolean;
         type?: Type;
         onChange?: (event: any, value: string) => void;
-        onClick?: (event: any) => void;
+        onClick?: (event: MouseEvent) => void;
+        onMouseDown?: (event: MouseEvent) => void;
+        onMouseUp?: (event: MouseEvent) => void;
         onFocus?: (event: any) => void;
         onBlur?: (event: any, value: string) => void;
         onEnter?: (event: any) => void;
