@@ -54,7 +54,7 @@ declare namespace TextFieldTypes {
         'url' |
         'week' |
         'rubles' |
-        'm3';
+        'counter';
 
     export interface IconProps {
         type?: IconTypes.Type,

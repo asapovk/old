@@ -28,7 +28,7 @@ export default forwardRef((props: Types.Props, ref) => {
                     ? value
                     : false
             }
-            case 'm3': {
+            case 'counter': {
                 value = value.replace(/[\,]/g, '.');
                 if (value == '.') {
                     value = '0.';
@@ -53,10 +53,14 @@ export default forwardRef((props: Types.Props, ref) => {
     }
 
     const onBlur = (e, newValue) => {
-        if (props.type == 'rubles' || props.type == 'm3') {
+        if (props.type == 'rubles' || props.type == 'counter') {
             const digits = props.type == 'rubles' ? 2 : 3;
             newValue = parseFloat(newValue).toFixed(digits);
+
             setValue(newValue);
+            if (value !== newValue) {
+                props.onChange && props.onChange(e, newValue);
+            }
         }
 
         setFocused(false);
