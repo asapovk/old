@@ -13,7 +13,5 @@ exports.default = (function (props) {
     function LoginInformation() {
         return core_1.jsx("div", null, name);
     }
-    return (core_1.jsx(__1.Popup, { trigger: avatar
-            ? core_1.jsx("div", { css: styles.wrapper, children: avatar })
-            : core_1.jsx(__1.Icon, { type: "user" }), children: core_1.jsx(LoginInformation, null) }));
+    return (core_1.jsx(__1.Popup, { children: avatar ? (core_1.jsx("div", { css: styles.wrapper, children: avatar })) : (core_1.jsx(__1.Icon, { type: "user" })), content: core_1.jsx(LoginInformation, null) }));
 });
