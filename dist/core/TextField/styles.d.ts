@@ -12,5 +12,6 @@ declare const _default: ({ multiline, size, disabled, decoration, floatingLabel,
     wrapper: import("@emotion/utils").SerializedStyles;
     field: (fullHeight?: boolean) => import("@emotion/utils").SerializedStyles;
     icon: (position?: any) => import("@emotion/utils").SerializedStyles;
+    rightLabel: import("@emotion/utils").SerializedStyles;
 };
 export default _default;

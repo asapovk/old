@@ -15,15 +15,46 @@ exports.default = react_1.forwardRef(function (props, ref) {
     react_1.useLayoutEffect(function () {
         setValue(props.value || props.defaultValue || '');
     }, []);
-    var onChange = function (e, newValue) {
-        if (props.regex && !new RegExp(props.regex).test(newValue)) {
-            return;
+    var valueValidation = function (value) {
+        switch (props.type) {
+            case 'rubles': {
+                value = value.replace(/[\,]/g, '.');
+                if (value == '.') {
+                    value = '0.';
+                }
+                var regex = /^$|^0$|^0{1}\.([0-9]{1,2})?$|^[1-9][0-9]*\.?([0-9]{1,2})?$/g;
+                return new RegExp(regex).test(value)
+                    ? value
+                    : false;
+            }
+            case 'm3': {
+                value = value.replace(/[\,]/g, '.');
+                if (value == '.') {
+                    value = '0.';
+                }
+                var regex = /^$|^0$|^0{1}\.([0-9]{1,2})?$|^[1-9][0-9]*\.?([0-9]{1,3})?$/g;
+                return new RegExp(regex).test(value)
+                    ? value
+                    : false;
+            }
         }
-        ;
-        if (newValue == value)
+        return value;
+    };
+    var onChange = function (e, newValue) {
+        newValue = valueValidation(newValue);
+        if ((typeof (newValue) === 'boolean' && !newValue) || newValue == value)
             return;
         setValue(newValue);
         props.onChange && props.onChange(e, newValue);
+    };
+    var onBlur = function (e, newValue) {
+        if (props.type == 'rubles' || props.type == 'm3') {
+            var digits = props.type == 'rubles' ? 2 : 3;
+            newValue = parseFloat(newValue).toFixed(digits);
+            setValue(newValue);
+        }
+        setFocused(false);
+        props.onBlur && props.onBlur(e, newValue);
     };
     var styles = styles_1.default({
         multiline: props.multiline,
@@ -33,13 +64,15 @@ exports.default = react_1.forwardRef(function (props, ref) {
         floatingLabel: props.floatingLabel,
         leftIcon: props.leftIcon
     });
-    // const RightIcon = () => {
-    //     const [type, setType] = useState(props.type);
-    //     if (type === 'password') {
-    //         return <Icon type='' />
-    //     }
-    //     return ()
-    // }
+    var RightGlyph = function () {
+        if (props.rightLabel) {
+            return core_1.jsx("span", { css: styles.rightLabel, children: props.rightLabel });
+        }
+        if (props.rightIcon) {
+            return core_1.jsx(__1.Icon, { css: styles.icon('right'), type: props.rightIcon });
+        }
+        return null;
+    };
     return (core_1.jsx(__1.Flexbox, { css: styles.container, className: props.className, style: props.style, flexDirection: 'column' },
         props.label && (core_1.jsx("span", { css: styles.label, children: props.label })),
         core_1.jsx(__1.Flexbox, { css: styles.wrapper, onClick: props.onClick, alignItems: 'center' },
@@ -48,14 +81,12 @@ exports.default = react_1.forwardRef(function (props, ref) {
             core_1.jsx(Field_1.default, { styles: styles, ref: ref, multiline: props.multiline, mask: props.mask, onFocus: function (event) {
                     setFocused(true);
                     props.onFocus && props.onFocus(event);
-                }, onBlur: function (event) {
-                    setFocused(false);
-                    props.onBlur && props.onBlur(event);
-                }, onChange: onChange, onClick: function (e) {
+                }, onBlur: onBlur, onChange: onChange, onClick: function (e) {
+                    !focused && setFocused(true);
                     props.onClick && props.onClick(e);
                 }, onEnter: props.onEnter, disabled: props.disabled, loading: props.loading, placeholder: props.floatingLabel ? '' : props.placeholder, type: props.type, singlerow: props.singlerow, value: value, tabIndex: props.tabIndex }),
             props.loading
                 ? core_1.jsx(__1.Spin, null,
                     core_1.jsx(__1.Icon, { css: styles.icon(), type: 'spin' }))
-                : props.rightIcon && core_1.jsx(__1.Icon, { css: styles.icon('right'), type: props.rightIcon }))));
+                : core_1.jsx(RightGlyph, null))));
 });
