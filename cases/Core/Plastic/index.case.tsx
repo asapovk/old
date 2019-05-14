@@ -51,6 +51,9 @@ export default () => {
                         }, {
                             pan: "4611 0000 0000 2203",
                             type: "MIR"
+                        }, {
+                            pan: "",
+                            type: "EMPTY"
                         }]}
                         onChange={(index: number) => { }}
                     />
