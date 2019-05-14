@@ -96,12 +96,21 @@ export default ({ multiline, size, disabled, decoration, floatingLabel, leftIcon
             justifyContent: 'center',
             color: theme.lowlight.rgb,
             fontSize: extraParams.iconSize,
+            userSelect: 'none',
         }, !position
                 ? { fontSize: extraParams.loadingSize }
                 : position === 'left'
                     ? { marginRight: extraParams.iconMargin }
                     : { marginLeft: extraParams.iconMargin }
-        )
+        ),
+
+        rightLabel: css({
+            userSelect: 'none',
+            color: theme.lowlight.rgba(0.3),
+            fontWeight: 400,
+            fontSize: extraParams.textSize,
+            lineHeight: extraParams.textLineHeight,
+        })
     }
 }
 

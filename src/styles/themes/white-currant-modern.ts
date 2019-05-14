@@ -8,7 +8,7 @@ export default {
 	background: getColors(246, 245, 247),
 	background2: getColors(255, 255, 255),
 	interface: getColors(250, 250, 250),
-	pale: getColors(232, 232, 232),
+	pale: getColors(229, 229, 229),
 	light: getColors(150, 150, 150),
 	lowlight: getColors(119, 119, 119),
 	text: getColors(0, 0, 0),

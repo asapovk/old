@@ -101,12 +101,20 @@ exports.default = (function (_a) {
                 justifyContent: 'center',
                 color: theme.lowlight.rgb,
                 fontSize: extraParams.iconSize,
+                userSelect: 'none',
             }, !position
                 ? { fontSize: extraParams.loadingSize }
                 : position === 'left'
                     ? { marginRight: extraParams.iconMargin }
                     : { marginLeft: extraParams.iconMargin });
-        }
+        },
+        rightLabel: core_1.css({
+            userSelect: 'none',
+            color: theme.lowlight.rgba(0.3),
+            fontWeight: 400,
+            fontSize: extraParams.textSize,
+            lineHeight: extraParams.textLineHeight,
+        })
     };
 });
 function getExtraParams(size, decoration, leftIcon) {

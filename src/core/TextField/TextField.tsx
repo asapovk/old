@@ -1,27 +1,77 @@
 /** @jsx jsx */
-import { jsx } from '@emotion/core';
+import { jsx, css } from '@emotion/core';
 import { forwardRef, useLayoutEffect, useState } from 'react';
 import { Flexbox, Icon, Spin } from '..';
 import Field from './Field';
 import createStyles from './styles';
 import Types from './types';
+import { C1 } from '../..';
 
 export default forwardRef((props: Types.Props, ref) => {
     const [value, setValue] = useState<string>('');
     const [focused, setFocused] = useState<boolean>(false);
 
     useLayoutEffect(() => {
-        setValue(props.value || props.defaultValue || '');
+        let value = props.value || props.defaultValue || '';
+
+        if (props.type === 'rubles' || props.type === 'counter') {
+            const digits = props.type == 'rubles' ? 2 : 3;
+            value = parseFloat(value || '0').toFixed(digits);
+        }
+
+        setValue(value);
     }, []);
 
+    const valueValidation = (value: string) => {
+        switch (props.type) {
+            case 'rubles': {
+                value = value.replace(/[\,]/g, '.');
+                if (value == '.') {
+                    value = '0.';
+                }
+                const regex = /^$|^0$|^0{1}\.([0-9]{1,2})?$|^[1-9][0-9]*\.?([0-9]{1,2})?$/g;
+
+                return new RegExp(regex).test(value)
+                    ? value
+                    : false
+            }
+            case 'counter': {
+                value = value.replace(/[\,]/g, '.');
+                if (value == '.') {
+                    value = '0.';
+                }
+                const regex = /^$|^0$|^0{1}\.([0-9]{1,2})?$|^[1-9][0-9]*\.?([0-9]{1,3})?$/g;
+
+                return new RegExp(regex).test(value)
+                    ? value
+                    : false
+            }
+        }
+
+        return value;
+    }
+
     const onChange = (e, newValue) => {
-        if (props.regex && !new RegExp(props.regex).test(newValue)) {
-            return;
-        };
-        if (newValue == value) return;
+        newValue = valueValidation(newValue);
+        if ((typeof (newValue) === 'boolean' && !newValue) || newValue == value) return;
 
         setValue(newValue);
         props.onChange && props.onChange(e, newValue);
+    }
+
+    const onBlur = (e, newValue) => {
+        if (props.type == 'rubles' || props.type == 'counter') {
+            const digits = props.type == 'rubles' ? 2 : 3;
+            newValue = parseFloat(newValue || '0').toFixed(digits);
+
+            setValue(newValue);
+            if (value !== newValue) {
+                props.onChange && props.onChange(e, newValue);
+            }
+        }
+
+        setFocused(false);
+        props.onBlur && props.onBlur(e, newValue);
     }
 
     const styles = createStyles({
@@ -33,13 +83,15 @@ export default forwardRef((props: Types.Props, ref) => {
         leftIcon: props.leftIcon
     });
 
-    // const RightIcon = () => {
-    //     const [type, setType] = useState(props.type);
-    //     if (type === 'password') {
-    //         return <Icon type='' />
-    //     }
-    //     return ()
-    // }
+    const RightGlyph = () => {
+        if (props.rightLabel) {
+            return <span css={styles.rightLabel} children={props.rightLabel} />
+        }
+        if (props.rightIcon) {
+            return <Icon css={styles.icon('right')} type={props.rightIcon} />
+        }
+        return null;
+    }
 
     return (
         <Flexbox css={styles.container} className={props.className} style={props.style} flexDirection='column'>
@@ -63,12 +115,10 @@ export default forwardRef((props: Types.Props, ref) => {
                         setFocused(true);
                         props.onFocus && props.onFocus(event);
                     }}
-                    onBlur={(event) => {
-                        setFocused(false);
-                        props.onBlur && props.onBlur(event);
-                    }}
+                    onBlur={onBlur}
                     onChange={onChange}
                     onClick={(e) => {
+                        !focused && setFocused(true);
                         props.onClick && props.onClick(e);
                     }}
                     onEnter={props.onEnter}
@@ -82,7 +132,8 @@ export default forwardRef((props: Types.Props, ref) => {
                 />
                 {props.loading
                     ? <Spin><Icon css={styles.icon()} type='spin' /></Spin>
-                    : props.rightIcon && <Icon css={styles.icon('right')} type={props.rightIcon} />}
+                    : <RightGlyph />
+                }
             </Flexbox>
         </Flexbox>
     )

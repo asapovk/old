@@ -4,6 +4,7 @@ declare namespace TextFieldTypes {
         label?: string;
         style?: React.CSSProperties;
         rightIcon?: IconTypes.Type;
+        rightLabel?: string;
         leftIcon?: IconTypes.Type;
         loading?: true | undefined;
         decoration?: 'none' | 'borderless' | 'borderBottom';
@@ -20,7 +21,7 @@ declare namespace TextFieldTypes {
         onChange?: (event: any, value: string) => void;
         onClick?: (event: any) => void;
         onFocus?: (event: any) => void;
-        onBlur?: (event: any) => void;
+        onBlur?: (event: any, value: string) => void;
         onEnter?: (event: any) => void;
         defaultValue?: string;
         value?: string;
@@ -30,7 +31,7 @@ declare namespace TextFieldTypes {
         tabIndex?: number;
         regex?: RegExp;
     }
-    type Type = 'color' | 'email' | 'hidden' | 'image' | 'month' | 'number' | 'password' | 'radio' | 'range' | 'reset' | 'search' | 'submit' | 'tel' | 'text' | 'time' | 'url' | 'week';
+    type Type = 'color' | 'email' | 'hidden' | 'image' | 'month' | 'number' | 'password' | 'radio' | 'range' | 'reset' | 'search' | 'submit' | 'tel' | 'text' | 'time' | 'url' | 'week' | 'rubles' | 'counter';
     interface IconProps {
         type?: IconTypes.Type;
         position: 'left' | 'right';

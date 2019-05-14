@@ -28,6 +28,6 @@ exports.default = (function (props) {
         core_1.jsx(__1.Flexbox, null,
             core_1.jsx(__1.Flexbox, { flex: 1, column: true },
                 core_1.jsx(Typography.D1, { css: styles.header }, props.title),
-                core_1.jsx(Typography.C1, { color: "lowlight", mt: '0.25rem' }, props.subtitle)),
+                core_1.jsx(Typography.C1, { color: "lowlight", mt: '0.5rem' }, props.subtitle)),
             core_1.jsx(__2.Icon, { css: styles.cross, onClick: props.onClosePressed, type: "close", color: "light", size: "2.5rem" }))));
 });
