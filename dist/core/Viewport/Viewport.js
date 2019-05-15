@@ -87,7 +87,6 @@ var Viewport = /** @class */ (function (_super) {
             left: 0,
             bottom: 0,
             right: 0,
-            overflow: 'auto'
         };
         return (core_1.jsx(styles_1.StylesContext.Provider, { value: uiStyles },
             core_1.jsx(emotion_theming_1.ThemeProvider, { theme: uiStyles.theme },
