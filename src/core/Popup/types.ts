@@ -1,3 +1,5 @@
+import { SerializedStyles } from "@emotion/css";
+
 declare namespace PopupTypes {
   interface TargetCoordinates {
     top: number;
@@ -7,28 +9,29 @@ declare namespace PopupTypes {
   }
 
   type Position =
-    | "bottom-left"
-    | "bottom-right"
-    | "bottom-center"
-    | "top-left"
-    | "top-right"
-    | "top-center"
-    | "left-top"
-    | "left-middle"
-    | "left-bottom"
-    | "right-top"
-    | "right-middle"
-    | "right-bottom";
+    // | "bottom-left"
+    "bottom-right";
+  // | "bottom-center"
+  // | "top-left"
+  // | "top-right"
+  // | "top-center"
+  // | "left-top"
+  // | "left-middle"
+  // | "left-bottom"
+  // | "right-top"
+  // | "right-middle"
+  // | "right-bottom";
 
   interface Props {
-    type?: "error";
+    distance?: number;
     position?: Position;
-    content?: any;
-    on?: "hover" | "click";
-    children?: any;
+    content?: React.ReactNode;
+    event?: "click";
     visible?: boolean;
     onClose?: () => void;
     className?: string;
+    children?: React.ReactNode;
+    wrapperStyles?: SerializedStyles;
   }
 }
 
