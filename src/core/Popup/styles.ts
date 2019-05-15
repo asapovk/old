@@ -8,6 +8,7 @@ export default (position?: Types.Position) => {
   return {
     popup: css({
       position: "fixed",
+      zIndex: 999,
 
       background: theme.interface.rgb,
       borderColor: theme.borders.button.borderColor,
