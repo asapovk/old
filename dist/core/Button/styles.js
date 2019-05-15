@@ -1,8 +1,4 @@
 "use strict";
-var __makeTemplateObject = (this && this.__makeTemplateObject) || function (cooked, raw) {
-    if (Object.defineProperty) { Object.defineProperty(cooked, "raw", { value: raw }); } else { cooked.raw = raw; }
-    return cooked;
-};
 var __assign = (this && this.__assign) || function () {
     __assign = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
@@ -24,17 +20,29 @@ var useTypography_1 = __importDefault(require("../../hooks/useTypography"));
 exports.default = (function (props) {
     var theme = useTheme_1.default().theme;
     var decoration = props.decoration, color = props.color, size = props.size, disabled = props.disabled, loading = props.loading, labelSize = props.labelSize, labelCase = props.labelCase, labelWight = props.labelWight;
-    return core_1.css(__assign({}, getDecoration(decoration, color, size, labelSize, disabled), { fontWeight: 'bold', position: 'relative', outline: 'none', cursor: 'pointer', userSelect: 'none' }), labelWight && {
-        fontWeight: labelWight
-    }, labelCase && {
-        textTransform: labelCase
-    }, disabled && {
-        // opacity: 0.5,
-        background: theme.disabled.hex,
-        boxShadow: 'none',
-        color: 'rgb(163,163,163)',
-        cursor: 'not-allowed !important',
-    }, loading && core_1.css(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n            > span:first-of-type{\n                filter: blur(1px);\n                opacity: 0.4;\n            }\n            > span:last-of-type{\n                position: absolute;\n                left: 50%;\n                margin-left: -0.5rem;\n                > svg {\n                    font-size: 1rem;\n                }\n            }\n        "], ["\n            > span:first-of-type{\n                filter: blur(1px);\n                opacity: 0.4;\n            }\n            > span:last-of-type{\n                position: absolute;\n                left: 50%;\n                margin-left: -0.5rem;\n                > svg {\n                    font-size: 1rem;\n                }\n            }\n        "]))));
+    var decorations = getDecoration(decoration, color, size, labelSize, disabled);
+    return {
+        button: core_1.css(__assign({}, decorations, { fontWeight: 'bold', position: 'relative', outline: 'none', cursor: 'pointer', userSelect: 'none', overflow: 'hidden' }, (labelWight && {
+            fontWeight: labelWight
+        }), (labelCase && {
+            textTransform: labelCase
+        }), (disabled && {
+            // opacity: 0.5,
+            background: theme.disabled.hex,
+            boxShadow: 'none',
+            color: 'rgb(163,163,163)',
+            cursor: 'not-allowed !important',
+        }))),
+        children: core_1.css(__assign({ display: 'inline-block', position: 'relative', transition: 'all .3s ease', transform: 'scale(1)', opacity: 1 }, (loading && {
+            transform: 'scale(1.75)',
+            opacity: 0
+        }))),
+        loading: core_1.css(__assign({ position: 'absolute', pointerEvents: 'none', top: '50%', left: '50%', marginLeft: '-2rem', marginTop: '-2rem', display: 'inline-block', visibility: 'hidden', opacity: 0, transform: 'scale(0.1)', transition: 'all .3s ease' }, (loading && {
+            transform: "scale(" + decorations.loadingScale + ")",
+            visibility: 'visible',
+            opacity: 1,
+        }))),
+    };
 });
 function getDecoration(decoration, color, size, labelSize, disabled) {
     var theme = useTheme_1.default().theme;
@@ -49,6 +57,7 @@ function getDecoration(decoration, color, size, labelSize, disabled) {
     var outlineColor = theme.text.rgb;
     var border = theme.borders.button.borderWidth + " " + theme.borders.button.borderStyle + " " + theme.borders.button.borderColor;
     var filter;
+    var loadingScale = 0.3;
     switch (color) {
         case 'highlight':
             background = theme.highlight.rgb;
@@ -127,11 +136,13 @@ function getDecoration(decoration, color, size, labelSize, disabled) {
         case 'small':
             height = '1.75rem';
             textStyles = typography.caption[3];
+            loadingScale = 0.25;
             break;
         case 'large':
             height = '2.75rem';
             padding = '0 1.5rem';
             textStyles = typography.caption[1];
+            loadingScale = 0.4;
             break;
     }
     switch (labelSize) {
@@ -158,6 +169,5 @@ function getDecoration(decoration, color, size, labelSize, disabled) {
             border: border
         }
     };
-    return __assign({ filter: filter, padding: padding, background: background, boxShadow: boxShadow, borderRadius: borderRadius, color: textColor, border: border, height: height }, textStyles, pseudo);
+    return __assign({ filter: filter, padding: padding, loadingScale: loadingScale, background: background, boxShadow: boxShadow, borderRadius: borderRadius, color: textColor, border: border, height: height }, textStyles, pseudo);
 }
-var templateObject_1;
