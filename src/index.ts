@@ -30,6 +30,8 @@ export { Widget as Widget } from './core'
 export { Plastic as Plastic } from './core'
 export { PlasticStack as PlasticStack } from './core';
 export { Leaflet as Leaflet } from './core';
+export { InlineFilter as InlineFilter } from './core';
+export { InlineDateFilter as InlineDateFilter } from './core';
 
 export { default as Styles } from './styles';
 

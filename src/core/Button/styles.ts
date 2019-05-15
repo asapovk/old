@@ -16,7 +16,7 @@ export default (props) => {
             outline: 'none',
             cursor: 'pointer',
             userSelect: 'none',
-            overflow: 'hidden',
+            // overflow: 'hidden',
             ...(labelWight && {
                 fontWeight: labelWight
             }),
