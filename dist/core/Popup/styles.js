@@ -7,6 +7,7 @@ exports.default = (function (position) {
     return {
         popup: core_1.css({
             position: "fixed",
+            zIndex: 999,
             background: theme.interface.rgb,
             borderColor: theme.borders.button.borderColor,
             borderRadius: theme.borders.button.borderRadius,
