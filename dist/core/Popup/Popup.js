@@ -9,41 +9,47 @@ var react_1 = require("react");
 var react_dom_1 = __importDefault(require("react-dom"));
 var styles_1 = __importDefault(require("./styles"));
 exports.default = (function (props) {
-    var children = props.children, content = props.content, position = props.position, className = props.className, event = props.event, wrapperStyles = props.wrapperStyles;
+    var children = props.children, content = props.content, position = props.position, className = props.className, event = props.event, wrapperStyles = props.wrapperStyles, hideOnClick = props.hideOnClick;
     var distance = props.distance || 8;
     var popupRef = react_1.useRef(null);
     var triggerRef = react_1.useRef(null);
-    var id = Math.random().toString();
+    var id = Math.random()
+        .toString(36)
+        .substring(2, 15);
     var styles = styles_1.default(position);
     var viewport = document.getElementById("0cd82567-7684-4147-ab02-dd3c56332364");
     react_1.useEffect(function () {
         var container = document.getElementById(id);
-        container && container.addEventListener("click", handleToggle);
-        document.addEventListener("mousedown", handleClickOutside);
-        viewport &&
-            viewport.addEventListener("scroll", setPosition, {
-                capture: true,
-                passive: true
-            });
-        setPosition();
+        container && container.addEventListener("click", toggle);
         return function () {
-            document.removeEventListener("mousedown", handleClickOutside);
-            container && container.removeEventListener("click", handleToggle);
-            viewport && viewport.removeEventListener("scroll", setPosition);
+            container && container.removeEventListener("click", toggle);
         };
     });
-    function handleToggle() {
+    function show() {
         if (popupRef.current) {
-            popupRef.current.style.visibility =
-                popupRef.current.style.visibility === "hidden" ? "visible" : "hidden";
+            setPosition();
+            popupRef.current.style.visibility = "visible";
+            viewport && viewport.addEventListener("scroll", setPosition, true);
+            document.addEventListener("mouseup", handleClickOutside);
+        }
+    }
+    function hide() {
+        if (popupRef.current) {
+            popupRef.current.style.visibility = "hidden";
+            viewport && viewport.removeEventListener("scroll", setPosition, true);
+            document.removeEventListener("mouseup", handleClickOutside);
+        }
+    }
+    function toggle() {
+        if (popupRef.current) {
+            popupRef.current.style.visibility === "hidden" ? show() : hide();
         }
     }
     function handleClickOutside(event) {
-        if (popupRef.current &&
-            triggerRef.current &&
-            !popupRef.current.contains(event.target) &&
-            !triggerRef.current.contains(event.target)) {
-            popupRef.current.style.visibility = "hidden";
+        var outsideTrigger = triggerRef.current && !triggerRef.current.contains(event.target);
+        var outsidePopup = popupRef.current && !popupRef.current.contains(event.target);
+        if (outsideTrigger && (hideOnClick || outsidePopup)) {
+            hide();
         }
     }
     function setPosition() {

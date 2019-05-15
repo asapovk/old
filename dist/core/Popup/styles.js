@@ -14,6 +14,7 @@ exports.default = (function (position) {
             borderStyle: theme.borders.button.borderStyle,
             borderWidth: theme.borders.button.borderWidth,
             boxShadow: theme.shadows.button.default,
+            border: ".5px solid " + theme.pale.rgb,
             color: theme.text.rgb
         })
     };

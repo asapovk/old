@@ -17,6 +17,7 @@ declare namespace PopupTypes {
         className?: string;
         children?: React.ReactNode;
         wrapperStyles?: SerializedStyles;
+        hideOnClick?: boolean;
     }
 }
 export default PopupTypes;
