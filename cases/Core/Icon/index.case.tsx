@@ -1,34 +1,29 @@
 import React from 'react';
-import { Flexbox, Icon } from '../../../src';
-import { svgIconPath } from '../../../src/core/Icon/Icon';
-import '../../../src/styles/scss/main.scss';
+import { Flexbox, Icon, Title } from '../../../src';
+import { ICONSET } from '../../../src/core/Icon/Icon';
 
 export default class Story extends React.Component {
 
     render() {
-        const HahaIcon = props => <Icon type={props.type} style={{ fontSize: "2rem" }} shape='oval' size='8rem' />
-        const Icons = Object.keys(svgIconPath).map(key =>
-            <Flexbox column key={key} p={20} justifyContent="center" alignItems="center" alignContent="center">
-                <HahaIcon type={key} />
-                <div style={{ opacity: 0.5, fontSize: 12, textAlign: "center" }}>{key}</div>
-            </Flexbox>
-        );
-
-        const Rows: any = [[]];
-        Icons.forEach(element => {
-            let Row = Rows[Rows.length - 1];
-            if (Row.length > 10) {
-                Rows.push([]);
-                Row = Rows[Rows.length - 1];
-            }
-            Row.push(element);
-        })
         return (
-
-            <Flexbox column alignItems="stretch" flex={1} pr={40} pl={40}>
-                {Rows.map(Row => <Flexbox justifyContent="center">{Row}</Flexbox>)}
-            </Flexbox>
-
+            <div style={{ padding: 40 }}>
+                <Title>ICON SET</Title>
+                <div style={{ display: 'grid', gridTemplateColumns: "repeat(auto-fill, 10rem)" }}>
+                    {Object.keys(ICONSET).map(key =>
+                        <Flexbox column key={key} p={20} justifyContent="center" alignItems="center" alignContent="center">
+                            <Icon
+                                type={key}
+                                style={{ fontSize: "3rem" }}
+                                shape='oval' size='3rem'
+                            />
+                            <div
+                                style={{ opacity: 0.5, fontSize: '1rem', marginTop: '0.25rem', textAlign: "center" }}
+                                children={key}
+                            />
+                        </Flexbox>
+                    )}
+                </div>
+            </div>
         );
     }
 }

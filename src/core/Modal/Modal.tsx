@@ -30,8 +30,8 @@ export default class Modal extends React.Component<ModalTypes.Props> {
         window.removeEventListener('resize', this.setVetricalCenter);
     }
 
-    private setActive(active: boolean) {
-        this.setState({ active });
+    private setActive(active: boolean, _cb?: () => void) {
+        this.setState({ active }, _cb);
     }
 
     private setVisible(visible: boolean) {
@@ -62,9 +62,10 @@ export default class Modal extends React.Component<ModalTypes.Props> {
         this.setVisible(false);
 
         setTimeout(() => {
-            this.setActive(false);
-            this.props.didClose && this.props.didClose();
-            didClose && didClose();
+            this.setActive(false, () => {
+                this.props.didClose && this.props.didClose();
+                didClose && didClose();
+            });
         }, 500);
 
         this.props.onClose && this.props.onClose();

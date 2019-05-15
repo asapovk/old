@@ -30,7 +30,7 @@ export default (props: Types.Props) => {
 
     const [minified, setMinified] = useState(props.minified || false);
     const { pending, pendingRows, className, rowRender, groupKey, groups, dataIndex,
-        onRowClick, expandForm, moreLabel, lessLabel, noDataText, minifiedRowsCount } = props;
+        onClick, onMouseDown, onMouseUp, expandForm, moreLabel, lessLabel, noDataText, minifiedRowsCount } = props;
 
     if (pending) {
         return <PendingList {...props} />
@@ -78,7 +78,9 @@ export default (props: Types.Props) => {
                                         : (JSON.stringify(row) + index).stringHashCode();
                                     return (
                                         <RowWrapper
-                                            onClick={() => onRowClick && onRowClick(row)}
+                                            onClick={e => onClick && onClick(e, row)}
+                                            onMouseDown={e => onMouseDown && onMouseDown(e, row)}
+                                            onMouseUp={e => onMouseUp && onMouseUp(e, row)}
                                             css={styles.row}
                                             key={`listrow-${rowId}`}
                                         >
@@ -110,7 +112,9 @@ export default (props: Types.Props) => {
                         : (JSON.stringify(row) + index).stringHashCode();
                     return (
                         <RowWrapper
-                            onClick={() => onRowClick && onRowClick(row)}
+                            onClick={e => onClick && onClick(e, row)}
+                            onMouseDown={e => onMouseDown && onMouseDown(e, row)}
+                            onMouseUp={e => onMouseUp && onMouseUp(e, row)}
                             css={styles.row}
                             key={`listrow-${rowId}`}
                         >

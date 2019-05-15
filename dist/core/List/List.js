@@ -39,7 +39,7 @@ var Div = function (props) { return core_1.jsx("div", __assign({}, props)); };
 exports.default = (function (props) {
     var styles = styles_1.default(props.narrowed);
     var _a = react_1.useState(props.minified || false), minified = _a[0], setMinified = _a[1];
-    var pending = props.pending, pendingRows = props.pendingRows, className = props.className, rowRender = props.rowRender, groupKey = props.groupKey, groups = props.groups, dataIndex = props.dataIndex, onRowClick = props.onRowClick, expandForm = props.expandForm, moreLabel = props.moreLabel, lessLabel = props.lessLabel, noDataText = props.noDataText, minifiedRowsCount = props.minifiedRowsCount;
+    var pending = props.pending, pendingRows = props.pendingRows, className = props.className, rowRender = props.rowRender, groupKey = props.groupKey, groups = props.groups, dataIndex = props.dataIndex, onClick = props.onClick, onMouseDown = props.onMouseDown, onMouseUp = props.onMouseUp, expandForm = props.expandForm, moreLabel = props.moreLabel, lessLabel = props.lessLabel, noDataText = props.noDataText, minifiedRowsCount = props.minifiedRowsCount;
     if (pending) {
         return core_1.jsx(PendingList_1.default, __assign({}, props));
     }
@@ -70,7 +70,7 @@ exports.default = (function (props) {
                     var rowId = dataIndex
                         ? (row[dataIndex] + index).stringHashCode()
                         : (JSON.stringify(row) + index).stringHashCode();
-                    return (core_1.jsx(RowWrapper, { onClick: function () { return onRowClick && onRowClick(row); }, css: styles.row, key: "listrow-" + rowId }, rowRender(row)));
+                    return (core_1.jsx(RowWrapper, { onClick: function (e) { return onClick && onClick(e, row); }, onMouseDown: function (e) { return onMouseDown && onMouseDown(e, row); }, onMouseUp: function (e) { return onMouseUp && onMouseUp(e, row); }, css: styles.row, key: "listrow-" + rowId }, rowRender(row)));
                 }))); })),
             needShowMore && (core_1.jsx(ShowMore_1.default, { moreLabel: moreLabel, lessLabel: lessLabel, minified: minified, setMinified: function () { return setMinified(!minified); } }))));
     }
@@ -79,7 +79,7 @@ exports.default = (function (props) {
             var rowId = dataIndex
                 ? (row[dataIndex] + index).stringHashCode()
                 : (JSON.stringify(row) + index).stringHashCode();
-            return (core_1.jsx(RowWrapper, { onClick: function () { return onRowClick && onRowClick(row); }, css: styles.row, key: "listrow-" + rowId }, rowRender(row)));
+            return (core_1.jsx(RowWrapper, { onClick: function (e) { return onClick && onClick(e, row); }, onMouseDown: function (e) { return onMouseDown && onMouseDown(e, row); }, onMouseUp: function (e) { return onMouseUp && onMouseUp(e, row); }, css: styles.row, key: "listrow-" + rowId }, rowRender(row)));
         })),
         needShowMore && (core_1.jsx(ShowMore_1.default, { moreLabel: moreLabel, lessLabel: lessLabel, minified: minified, setMinified: function () { return setMinified(!minified); } }))));
 });
