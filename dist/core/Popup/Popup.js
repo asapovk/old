@@ -53,7 +53,6 @@ exports.default = (function (props) {
         }
     }
     function setPosition() {
-        console.log("call");
         if (triggerRef.current && popupRef.current) {
             var trigger = triggerRef.current.getBoundingClientRect();
             var popup = popupRef.current.getBoundingClientRect();
