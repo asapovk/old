@@ -42,7 +42,7 @@ export default (props: Types.Props) => {
     if (popupRef.current) {
       setPosition();
       popupRef.current.style.visibility = "visible";
-      viewport && viewport.addEventListener("scroll", setPosition, true);
+      document.addEventListener("scroll", setPosition, true);
       document.addEventListener("mouseup", handleClickOutside);
     }
   }
@@ -50,7 +50,7 @@ export default (props: Types.Props) => {
   function hide() {
     if (popupRef.current) {
       popupRef.current.style.visibility = "hidden";
-      viewport && viewport.removeEventListener("scroll", setPosition, true);
+      document.removeEventListener("scroll", setPosition, true);
       document.removeEventListener("mouseup", handleClickOutside);
     }
   }
@@ -73,6 +73,7 @@ export default (props: Types.Props) => {
   }
 
   function setPosition() {
+    console.log("call");
     if (triggerRef.current && popupRef.current) {
       const trigger = triggerRef.current.getBoundingClientRect();
       const popup = popupRef.current.getBoundingClientRect();
