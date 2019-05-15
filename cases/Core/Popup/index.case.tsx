@@ -11,34 +11,51 @@ interface PopupStory {
 class PopupStory extends React.Component {
   render() {
     return (
-      <Flexbox alignContent="center" justifyContent="center" column>
-        <Popup content={<a>Hello</a>} css={css({ width: "fit-content" })}>
-          <Button label="Call Tooltip" />
-        </Popup>
-        <h1>2356534634563</h1>
-        <h1>2356534634563</h1>
-        <h1>2356534634563</h1>
-        <h1>2356534634563</h1>
-        <h1>2356534634563</h1>
-        <h1>2356534634563</h1>
-        <h1>2356534634563</h1>
-        <h1>2356534634563</h1>
-        <h1>2356534634563</h1>
-        <h1>2356534634563</h1>
-        <h1>2356534634563</h1>
-        <h1>2356534634563</h1>
-        <h1>2356534634563</h1>
-        <h1>2356534634563</h1>
-        <h1>2356534634563</h1>
-        <h1>2356534634563</h1>
-        <h1>2356534634563</h1>
-        <h1>2356534634563</h1>
-        <h1>2356534634563</h1>
-        <h1>2356534634563</h1>
-        <h1>2356534634563</h1>
-        <h1>2356534634563</h1>
-        <h1>2356534634563</h1>
-        <h1>2356534634563</h1>
+      <Flexbox alignItems="center" justifyContent="center" column>
+        <h1>SCROLL SCROLL SCROLL</h1>
+        <h1>SCROLL SCROLL SCROLL</h1>
+        <h1>SCROLL SCROLL SCROLL</h1>
+        <h1>SCROLL SCROLL SCROLL</h1>
+        <h1>SCROLL SCROLL SCROLL</h1>
+        <h1>SCROLL SCROLL SCROLL</h1>
+        <h1>SCROLL SCROLL SCROLL</h1>
+        <h1>SCROLL SCROLL SCROLL</h1>
+        <h1>SCROLL SCROLL SCROLL</h1>
+        <span>It's overflow hidden</span>
+        <Flexbox
+          css={css({
+            width: "12rem",
+            height: "3rem",
+            overflow: "hidden",
+            background: "red"
+          })}
+          alignItems="center"
+          justifyContent="center"
+        >
+          <Popup
+            content={<a css={css({ margin: "1rem .5rem" })}>Hello world!</a>}
+            wrapperStyles={css({
+              width: "fit-content"
+            })}
+          >
+            <Button label="Trigger Popup" />
+          </Popup>
+        </Flexbox>
+        <h1>SCROLL SCROLL SCROLL</h1>
+        <h1>SCROLL SCROLL SCROLL</h1>
+        <h1>SCROLL SCROLL SCROLL</h1>
+        <h1>SCROLL SCROLL SCROLL</h1>
+        <h1>SCROLL SCROLL SCROLL</h1>
+        <h1>SCROLL SCROLL SCROLL</h1>
+        <h1>SCROLL SCROLL SCROLL</h1>
+        <h1>SCROLL SCROLL SCROLL</h1>
+        <h1>SCROLL SCROLL SCROLL</h1>
+        <h1>SCROLL SCROLL SCROLL</h1>
+        <h1>SCROLL SCROLL SCROLL</h1>
+        <h1>SCROLL SCROLL SCROLL</h1>
+        <h1>SCROLL SCROLL SCROLL</h1>
+        <h1>SCROLL SCROLL SCROLL</h1>
+        <h1>SCROLL SCROLL SCROLL</h1>
       </Flexbox>
     );
   }
