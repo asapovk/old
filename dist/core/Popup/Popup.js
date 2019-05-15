@@ -29,14 +29,14 @@ exports.default = (function (props) {
         if (popupRef.current) {
             setPosition();
             popupRef.current.style.visibility = "visible";
-            viewport && viewport.addEventListener("scroll", setPosition, true);
+            document.addEventListener("scroll", setPosition, true);
             document.addEventListener("mouseup", handleClickOutside);
         }
     }
     function hide() {
         if (popupRef.current) {
             popupRef.current.style.visibility = "hidden";
-            viewport && viewport.removeEventListener("scroll", setPosition, true);
+            document.removeEventListener("scroll", setPosition, true);
             document.removeEventListener("mouseup", handleClickOutside);
         }
     }
@@ -53,6 +53,7 @@ exports.default = (function (props) {
         }
     }
     function setPosition() {
+        console.log("call");
         if (triggerRef.current && popupRef.current) {
             var trigger = triggerRef.current.getBoundingClientRect();
             var popup = popupRef.current.getBoundingClientRect();
