@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
 import { Button, Flexbox, D1 } from '../../../src';
 import '../../../src/styles/scss/main.scss';
 import css from '@emotion/css';
@@ -76,7 +76,7 @@ export default class Story extends React.Component {
                 <Flexbox flexDirection='column'>
                     <D1 mb='1rem'>Modified</D1>
                     <Flexbox pb={20}>
-                        <Button loading>Loading</Button>
+                        <LoadingButton />
                     </Flexbox>
                     <Flexbox pb={20}>
                         <Button disabled>Disabled</Button>
@@ -86,4 +86,22 @@ export default class Story extends React.Component {
             </Flexbox>
         )
     }
+}
+
+const LoadingButton = () => {
+    const [loading, setLoading] = useState(false);
+
+    useEffect(() => {
+        if (loading) {
+            setTimeout(() => setLoading(false), 1000);
+        }
+    }, [loading])
+
+    return (
+        <Flexbox column>
+            <Button color='highlight' size='small' loading={loading} label='With loading' onClick={() => setLoading(true)} />
+            <Button color='highlight' loading={loading} label='With loading' onClick={() => setLoading(true)} style={{ marginTop: '1rem' }} />
+            <Button color='highlight' size='large' loading={loading} label='With loading' onClick={() => setLoading(true)} style={{ marginTop: '1rem' }} />
+        </Flexbox>
+    )
 }

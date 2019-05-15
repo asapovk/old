@@ -3,6 +3,8 @@ import { jsx } from '@emotion/core'
 import createStyles from './styles';
 import React from 'react';
 import { Spin, Icon } from '../index';
+import { Flexbox } from '../..';
+import { Spinner } from '../Spinner';
 
 /**
  * @deprecated Для цветов следует использовать свойство color. Decoration управляет вариациями дизайна.
@@ -43,9 +45,17 @@ export default (props: ButtonProps) => {
     }
 
     return (
-        <button css={styles} className={className} style={style} onClick={(event) => onClick(event)} type={type}>
-            <span>{label || children}</span>
-            {loading && <Spin><Icon type="sync" /></Spin>}
+        <button
+            css={styles.button}
+            className={className}
+            style={style}
+            onClick={(event) => onClick(event)}
+            type={type}
+        >
+            <span css={styles.children}>{label || children}</span>
+            <span css={styles.loading}>
+                <Spinner spinning defaultElement color={props.color ? 'textOnAccent' : 'text'} />
+            </span>
         </button>
     );
 }

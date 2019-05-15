@@ -47,7 +47,7 @@ export default (dark?: boolean, color?: string) => {
                     height: "14px",
                     borderRadius: "20%",
                     opacity: 1,
-                    background: "rgb(126, 126, 126)",
+                    background: color ? theme[color].hex : theme.text.hex,
                 },
             }
         }),

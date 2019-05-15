@@ -4,6 +4,7 @@ import { C2 } from '../..';
 import { Flexbox } from '../Flexbox';
 import createStyles from './styles';
 import Types from './types';
+import { Fragment } from 'react';
 
 export default (props: Types.ISpinner) => {
     const { spinning, center, className, dark, children, style, defaultElement, color, loadingText } = props;
@@ -14,19 +15,22 @@ export default (props: Types.ISpinner) => {
     }
 
     const El = (
-        <Flexbox column justifyContent='center' alignItems='center'>
+        <Fragment>
             {defaultElement
                 ? <Spin {...props} />
-                : <Logo {...props} />}
-            {loadingText && (
-                <C2
-                    bold
-                    color={color || "lowlight"}
-                    css={css({ marginTop: "2.5rem" })}
-                    children={loadingText}
-                />
-            )}
-        </Flexbox>
+                : <Flexbox column justifyContent='center' alignItems='center'>
+                    <Logo {...props} />
+                    {loadingText && (
+                        <C2
+                            bold
+                            color={color || "lowlight"}
+                            css={css({ marginTop: "2.5rem" })}
+                            children={loadingText}
+                        />
+                    )}
+                </Flexbox>}
+        </Fragment>
+
     )
 
     if (center) {

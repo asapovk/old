@@ -6,47 +6,64 @@ export default (props) => {
     const theme = useTheme().theme;
     const { decoration, color, size, disabled, loading, labelSize, labelCase, labelWight } = props;
 
-    return css(
-        {
-            ...getDecoration(decoration, color, size, labelSize, disabled),
+    const decorations = getDecoration(decoration, color, size, labelSize, disabled);
+
+    return {
+        button: css({
+            ...decorations,
             fontWeight: 'bold',
             position: 'relative',
             outline: 'none',
             cursor: 'pointer',
             userSelect: 'none',
-        },
+            overflow: 'hidden',
+            ...(labelWight && {
+                fontWeight: labelWight
+            }),
+            ...(labelCase && {
+                textTransform: labelCase
+            }),
+            ...(disabled && {
+                // opacity: 0.5,
+                background: theme.disabled.hex,
+                boxShadow: 'none',
+                color: 'rgb(163,163,163)',
+                cursor: 'not-allowed !important',
+            }),
+        }),
 
-        labelWight && {
-            fontWeight: labelWight
-        },
+        children: css({
+            display: 'inline-block',
+            position: 'relative',
+            transition: 'all .3s ease',
+            transform: 'scale(1)',
+            opacity: 1,
+            ...(loading && {
+                transform: 'scale(1.75)',
+                opacity: 0
+            })
+        }),
 
-        labelCase && {
-            textTransform: labelCase
-        },
+        loading: css({
+            position: 'absolute',
+            pointerEvents: 'none',
+            top: '50%',
+            left: '50%',
+            marginLeft: '-2rem',
+            marginTop: '-2rem',
+            display: 'inline-block',
+            visibility: 'hidden',
+            opacity: 0,
+            transform: 'scale(0.1)',
+            transition: 'all .3s ease',
+            ...(loading && {
+                transform: `scale(${decorations.loadingScale})`,
+                visibility: 'visible',
+                opacity: 1,
+            })
+        }),
 
-        disabled && {
-            // opacity: 0.5,
-            background: theme.disabled.hex,
-            boxShadow: 'none',
-            color: 'rgb(163,163,163)',
-            cursor: 'not-allowed !important',
-        },
-
-        loading && css`
-            > span:first-of-type{
-                filter: blur(1px);
-                opacity: 0.4;
-            }
-            > span:last-of-type{
-                position: absolute;
-                left: 50%;
-                margin-left: -0.5rem;
-                > svg {
-                    font-size: 1rem;
-                }
-            }
-        `,
-    )
+    }
 }
 
 function getDecoration(decoration, color, size, labelSize, disabled) {
@@ -64,6 +81,7 @@ function getDecoration(decoration, color, size, labelSize, disabled) {
     let outlineColor = theme.text.rgb;
     let border = `${theme.borders.button.borderWidth} ${theme.borders.button.borderStyle} ${theme.borders.button.borderColor}`;
     let filter;
+    let loadingScale = 0.3;
 
     switch (color) {
         case 'highlight':
@@ -145,11 +163,13 @@ function getDecoration(decoration, color, size, labelSize, disabled) {
         case 'small':
             height = '1.75rem';
             textStyles = typography.caption[3];
+            loadingScale = 0.25;
             break;
         case 'large':
             height = '2.75rem';
             padding = '0 1.5rem';
             textStyles = typography.caption[1];
+            loadingScale = 0.4;
             break;
     }
 
@@ -180,7 +200,7 @@ function getDecoration(decoration, color, size, labelSize, disabled) {
     }
 
     return {
-        filter, padding, background, boxShadow, borderRadius, color: textColor, border, height, ...textStyles, ...pseudo
+        filter, padding, loadingScale, background, boxShadow, borderRadius, color: textColor, border, height, ...textStyles, ...pseudo
     }
 
 }
