@@ -73,7 +73,6 @@ export default (props: Types.Props) => {
   }
 
   function setPosition() {
-    console.log("call");
     if (triggerRef.current && popupRef.current) {
       const trigger = triggerRef.current.getBoundingClientRect();
       const popup = popupRef.current.getBoundingClientRect();
