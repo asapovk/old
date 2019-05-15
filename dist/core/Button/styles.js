@@ -22,7 +22,7 @@ exports.default = (function (props) {
     var decoration = props.decoration, color = props.color, size = props.size, disabled = props.disabled, loading = props.loading, labelSize = props.labelSize, labelCase = props.labelCase, labelWight = props.labelWight;
     var decorations = getDecoration(decoration, color, size, labelSize, disabled);
     return {
-        button: core_1.css(__assign({}, decorations, { fontWeight: 'bold', position: 'relative', outline: 'none', cursor: 'pointer', userSelect: 'none', overflow: 'hidden' }, (labelWight && {
+        button: core_1.css(__assign({}, decorations, { fontWeight: 'bold', position: 'relative', outline: 'none', cursor: 'pointer', userSelect: 'none' }, (labelWight && {
             fontWeight: labelWight
         }), (labelCase && {
             textTransform: labelCase
