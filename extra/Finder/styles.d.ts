@@ -3,7 +3,6 @@ declare const _default: () => {
     menu: import("@emotion/utils").SerializedStyles;
     items: import("@emotion/utils").SerializedStyles;
     filter: import("@emotion/utils").SerializedStyles;
-    section: import("@emotion/utils").SerializedStyles;
     navItem: (active?: boolean | undefined) => import("@emotion/utils").SerializedStyles;
     badge: import("@emotion/utils").SerializedStyles;
 };

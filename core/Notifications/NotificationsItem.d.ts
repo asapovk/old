@@ -1,10 +1,3 @@
-import React from 'react';
-import { NotificationOptions } from './Notifications';
-interface Props {
-    options: NotificationOptions;
-    onClose: () => void;
-}
-declare class NotificationsItem extends React.Component<Props> {
-    render(): JSX.Element;
-}
+import NotificationTypes from './types';
+declare const NotificationsItem: (props: NotificationTypes.ItemProps) => JSX.Element;
 export default NotificationsItem;

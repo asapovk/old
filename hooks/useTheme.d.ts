@@ -25,45 +25,6 @@ declare const _default: () => {
             backgroundColor: string;
         };
     };
-    tabs: {
-        tab: {
-            borderRadius: string;
-            color: string;
-        };
-        tabActive: {
-            borderRadius: string;
-            color: string;
-        };
-        toolbar: {
-            borderRadius: string;
-            background: string;
-        };
-        container: {
-            borderColor: string;
-            background: string;
-            borderRadius: string;
-        };
-        hl: {
-            borderRadius: string;
-            borderColor: string;
-            background: string;
-        };
-    };
-    title: {
-        active: {
-            color: string;
-        };
-    };
-    notifications: {
-        main: (decoration?: string | undefined) => {
-            background: string;
-            boxShadow: string;
-            borderRadius: string;
-            color: string;
-            borderColor: string;
-            borderLeft: string;
-        };
-    };
 };
 /**
  * Использовать тему оформления

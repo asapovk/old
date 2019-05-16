@@ -25,20 +25,21 @@ exports.default = (function () {
             minWidth: 200,
         }),
         items: core_1.css({
-            padding: '0.75rem',
             maxHeight: '40rem',
             overflow: 'auto',
-            '> *': {
-                flexShrink: 0,
-            }
         }),
         filter: core_1.css({
             padding: '0.75rem',
             borderBottom: '1px solid',
             borderColor: theme.borders.textfield.borderColor,
         }),
-        section: core_1.css({}),
-        navItem: function (active) { return core_1.css({}); },
-        badge: core_1.css({}),
+        navItem: function (active) { return core_1.css(__assign({ padding: '1.25rem 0.75rem', '> div': {
+                flex: 1,
+            }, ':hover': {
+                background: theme.interface.hex
+            } }, (active && {
+            background: theme.interface.rgba(0.7)
+        }))); },
+        badge: core_1.css(__assign({ userSelect: 'none', padding: '0.15rem 0.25rem' }, theme.borders.textfield, { background: theme.interface.hex, marginRight: '0.5rem' })),
     };
 });

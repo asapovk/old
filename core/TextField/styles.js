@@ -81,19 +81,7 @@ exports.default = (function (_a) {
                 height: '100%',
             })));
         },
-        tag: core_1.css({
-            userSelect: 'none',
-            display: 'inline-block',
-            padding: extraParams.tagPadding,
-            borderRadius: "calc(" + theme.borders.textfield.borderRadius + " / 2)",
-            borderStyle: theme.borders.textfield.borderStyle,
-            borderWidth: theme.borders.textfield.borderWidth,
-            borderColor: theme.highlight.rgba(.1),
-            background: theme.highlight.rgba(.05),
-            marginTop: "calc(" + extraParams.iconMargin + " / 2)",
-            marginLeft: "calc(" + extraParams.iconMargin + " / 2)",
-            fontWeight: 'normal',
-        }),
+        tag: core_1.css(__assign({ userSelect: 'none', display: 'inline-block', padding: extraParams.tagPadding }, theme.borders.textfield, { borderRadius: "calc(" + theme.borders.textfield.borderRadius + " / 2)", borderColor: theme.highlight.rgba(.1), background: theme.highlight.rgba(.05), marginTop: "calc(" + extraParams.iconMargin + " / 2)", marginLeft: "calc(" + extraParams.iconMargin + " / 2)", fontWeight: 'normal' })),
         icon: function (position) {
             if (position === void 0) { position = null; }
             return core_1.css({

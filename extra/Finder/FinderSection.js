@@ -11,11 +11,11 @@ var styles_1 = __importDefault(require("./styles"));
 var FinderSection = function (props) {
     var label = props.label, children = props.children;
     var styles = styles_1.default();
-    var _a = react_1.useState(false), expand = _a[0], setExpand = _a[1];
+    var _a = react_1.useState(false), active = _a[0], setActive = _a[1];
     return (core_1.jsx(react_1.Fragment, null,
-        core_1.jsx(__1.Flexbox, { alignItems: "center", css: styles.section, onClick: function () { return setExpand(!expand); } },
+        core_1.jsx(__1.Flexbox, { alignItems: "center", css: styles.navItem(active), onClick: function () { return setActive(!active); } },
             core_1.jsx("div", null, label),
-            core_1.jsx(__1.Icon, { type: expand ? 'up' : 'down' })),
-        core_1.jsx("div", { className: 'n-children' }, expand && children)));
+            core_1.jsx(__1.Icon, { type: active ? 'up' : 'down' })),
+        core_1.jsx("div", { className: 'n-children' }, active && children)));
 };
 exports.default = FinderSection;

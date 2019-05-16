@@ -111,45 +111,6 @@ export declare const createStyles: (themeName?: string | undefined) => {
             backgroundColor: string;
         };
     };
-    tabs: {
-        tab: {
-            borderRadius: string;
-            color: string;
-        };
-        tabActive: {
-            borderRadius: string;
-            color: string;
-        };
-        toolbar: {
-            borderRadius: string;
-            background: string;
-        };
-        container: {
-            borderColor: string;
-            background: string;
-            borderRadius: string;
-        };
-        hl: {
-            borderRadius: string;
-            borderColor: string;
-            background: string;
-        };
-    };
-    title: {
-        active: {
-            color: string;
-        };
-    };
-    notifications: {
-        main: (decoration?: string | undefined) => {
-            background: string;
-            boxShadow: string;
-            borderRadius: string;
-            color: string;
-            borderColor: string;
-            borderLeft: string;
-        };
-    };
 };
 export declare const StylesContext: React.Context<{
     theme: ThemeInterface;
@@ -178,45 +139,6 @@ export declare const StylesContext: React.Context<{
             backgroundColor: string;
         };
     };
-    tabs: {
-        tab: {
-            borderRadius: string;
-            color: string;
-        };
-        tabActive: {
-            borderRadius: string;
-            color: string;
-        };
-        toolbar: {
-            borderRadius: string;
-            background: string;
-        };
-        container: {
-            borderColor: string;
-            background: string;
-            borderRadius: string;
-        };
-        hl: {
-            borderRadius: string;
-            borderColor: string;
-            background: string;
-        };
-    };
-    title: {
-        active: {
-            color: string;
-        };
-    };
-    notifications: {
-        main: (decoration?: string | undefined) => {
-            background: string;
-            boxShadow: string;
-            borderRadius: string;
-            color: string;
-            borderColor: string;
-            borderLeft: string;
-        };
-    };
 }>;
 declare const _default: React.ExoticComponent<React.ConsumerProps<{
     theme: ThemeInterface;
@@ -243,45 +165,6 @@ declare const _default: React.ExoticComponent<React.ConsumerProps<{
         pagination: {
             textColor: string;
             backgroundColor: string;
-        };
-    };
-    tabs: {
-        tab: {
-            borderRadius: string;
-            color: string;
-        };
-        tabActive: {
-            borderRadius: string;
-            color: string;
-        };
-        toolbar: {
-            borderRadius: string;
-            background: string;
-        };
-        container: {
-            borderColor: string;
-            background: string;
-            borderRadius: string;
-        };
-        hl: {
-            borderRadius: string;
-            borderColor: string;
-            background: string;
-        };
-    };
-    title: {
-        active: {
-            color: string;
-        };
-    };
-    notifications: {
-        main: (decoration?: string | undefined) => {
-            background: string;
-            boxShadow: string;
-            borderRadius: string;
-            color: string;
-            borderColor: string;
-            borderLeft: string;
         };
     };
 }>>;

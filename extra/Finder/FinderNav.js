@@ -17,7 +17,7 @@ var FinderNav = function (props) {
     };
     return (core_1.jsx(__1.Flexbox, { alignItems: "center", css: styles.navItem(active), onClick: expand },
         core_1.jsx("div", null, label),
-        badge ? core_1.jsx("div", { css: styles.badge }, badge) : null,
+        badge ? core_1.jsx("span", { css: styles.badge }, badge) : null,
         core_1.jsx(__1.Icon, { type: 'right' })));
 };
 exports.default = FinderNav;

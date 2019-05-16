@@ -1,4 +1,4 @@
-declare const _default: (active?: boolean | undefined) => {
+declare const _default: (active?: boolean, hasOnClick?: boolean) => {
     main: import("@emotion/utils").SerializedStyles;
     animation: {
         wave: {

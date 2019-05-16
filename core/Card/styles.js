@@ -16,21 +16,14 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@emotion/core");
 var useTheme_1 = __importDefault(require("../../hooks/useTheme"));
-exports.default = (function (active) {
+exports.default = (function (active, hasOnClick) {
+    if (active === void 0) { active = false; }
+    if (hasOnClick === void 0) { hasOnClick = false; }
     var theme = useTheme_1.default().theme;
     return {
-        main: core_1.css(__assign({ background: "linear-gradient(" + theme.gradients.card[0] + ", " + theme.gradients.card[1] + ")", boxShadow: theme.shadows.card.default, userSelect: "none", padding: "1rem", height: "9rem", minWidth: "15rem", 
-            // marginBottom: '1.25rem',
-            overflow: "hidden", willChange: "height", boxSizing: "border-box", transition: "all .3s" }, theme.borders.card), active && {
-            // background: "linear-gradient(80deg," + theme.gradient.card[0] + "," + theme.gradient.card[1] + ")",
-            // border: 'none',
-            boxShadow: theme.shadows.card.active,
-            // color: theme.textOnAccent.rgb,
-            // marginLeft: '30px',
-            "@media (max-width: 640px)": {
-                transform: "translateX(0)"
-            }
-        }),
+        main: core_1.css(__assign({ background: "linear-gradient(" + theme.gradients.card[0] + ", " + theme.gradients.card[1] + ")", boxShadow: theme.shadows.card.default, userSelect: "none", padding: "1rem", height: "9rem", minWidth: "15rem", overflow: "hidden", willChange: "height", boxSizing: "border-box", transition: "all .3s" }, theme.borders.card, (hasOnClick && {
+            cursor: 'pointer',
+        }))),
         animation: {
             wave: {
                 1: core_1.css({
