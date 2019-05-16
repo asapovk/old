@@ -62,23 +62,28 @@ declare namespace IconTypes {
     | "crown"
     | "crown-fill"
     //TODO: remove string
-    | string
-    ;
+    | string;
 
-  interface Props extends SpacingProps {
-    style?: React.CSSProperties;
-    className?: string;
-    type: Type;
-    onClick?: () => void;
-    shape?: "cirle" | "oval";
-    size?: string;
-    color?:
+  type Shapes = "cirle" | "oval";
+  type Color =
     | "text"
     | "highlight"
     | "pale"
     | "textOnAccent"
     | "lowlight"
     | "light";
+
+  interface Props extends SpacingProps {
+    style?: React.CSSProperties;
+    className?: string;
+    type: Type;
+    onClick?: () => void;
+    shape?: Shapes;
+    shapeOnHover?: boolean;
+    hoverColor?: Color;
+    size?: string;
+    color?: Color;
+
     // background?: 'text' | 'highlight' | 'pale' | 'textOnAccent' | 'lowlight' | 'light' | 'background' | 'background2'
     background?: string;
   }
