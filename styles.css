@@ -1,0 +1,242 @@
+/* -------------------------------------------------------------
+  Sass CSS3 Mixins! The Cross-Browser CSS3 Sass Library
+  By: Matthieu Aussaguel, http://www.mynameismatthieu.com, @matthieu_tweets
+
+  List of CSS3 Sass Mixins File to be @imported and @included as you need
+
+  The purpose of this library is to facilitate the use of CSS3 on different browsers avoiding HARD TO READ and NEVER
+  ENDING css files
+
+  note: All CSS3 Properties are being supported by Safari 5
+  more info: http://www.findmebyip.com/litmus/#css3-properties
+
+------------------------------------------------------------- */
+.ui-viewport, .ui-modal, .ui-notifications {
+  font-size: 16px;
+  line-height: 1.5rem;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.ui-viewport .noselect {
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Safari */
+  -khtml-user-select: none;
+  /* Konqueror HTML */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently
+     supported by Chrome and Opera */
+}
+
+.ui-viewport .uppercase {
+  text-transform: uppercase;
+}
+
+.ui-viewport .disabled {
+  opacity: 0.5;
+}
+
+.ui-notifications {
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 100;
+  float: right;
+}
+.ui-notifications-item {
+  width: 300px;
+  margin: 10px;
+  margin-bottom: 0;
+  padding: 16px;
+  border: 0.5px solid;
+}
+.ui-notifications-item-title {
+  font-weight: 500;
+  font-size: 18px;
+  padding-bottom: 4px;
+}
+.ui-notifications-item-text {
+  font-size: 14px;
+}
+
+.ui-table {
+  overflow-wrap: break-word;
+  line-height: 1;
+  display: flex;
+}
+.ui-table-content {
+  flex: 1;
+}
+.ui-table-content-head-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-transform: uppercase;
+  font-size: 14px;
+  padding: 10px 20px;
+}
+.ui-table-content-head-row-column {
+  margin-right: 20px;
+}
+.ui-table-content-body {
+  border: solid 0.5px;
+}
+.ui-table-content-body > :not(:last-child) {
+  border-bottom: solid 0.5px;
+}
+.ui-table-content-body-search {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+}
+.ui-table-content-body-search > svg {
+  font-size: 1rem;
+}
+.ui-table-content-body-search > input {
+  font-size: 1rem;
+  line-height: 1.5rem;
+  appearance: none;
+  box-sizing: border-box;
+  resize: none;
+  border: none;
+  background: none;
+  outline: none;
+  position: relative;
+  color: inherit;
+  width: 100%;
+  font-family: inherit;
+  margin: 0;
+  padding: 0 10px;
+  flex: 1;
+}
+.ui-table-content-body-nofound {
+  padding: 20px;
+}
+.ui-table-content-body-row {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  padding: 20px;
+  position: relative;
+}
+.ui-table-content-body-row-column {
+  margin-right: 20px;
+  flex-shrink: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.ui-table-content-body-row-column-subrow {
+  padding-top: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  position: relative;
+}
+.ui-table-content-body-row-actions {
+  text-transform: uppercase;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+}
+.ui-table-content-body-row-actions-buttons {
+  flex-direction: row;
+  align-items: center;
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  padding-left: 20px;
+}
+.ui-table-content-body-row-actions-buttons-edit {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.ui-table-content-body-row-actions svg {
+  font-size: 32px;
+  align-self: center;
+}
+.ui-table-content-body-row-actions button {
+  margin-left: 15px;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 500;
+  box-shadow: none;
+}
+.ui-table-content .edited {
+  border: solid 0.5px;
+  padding: 30px 20px;
+  margin: -0.5px;
+}
+.ui-table-content .hover:hover .ui-table-content-body-row-select {
+  display: flex;
+}
+.ui-table-content .hover:hover .ui-table-content-body-row-actions-buttons {
+  display: flex;
+}
+.ui-table-paggination {
+  padding: 54px 5px 5px 0px;
+}
+.ui-table-paggination-button {
+  cursor: pointer;
+  border-radius: 0px 4px 4px 0px;
+  padding: 4px 8px 4px 10px;
+  font-size: 12px;
+  font-weight: 500;
+  text-align: right;
+  margin-bottom: 8px;
+}
+
+.ui-title {
+  font-weight: 900;
+  font-size: 2rem;
+  user-select: none;
+  position: relative;
+  line-height: 1;
+  text-transform: uppercase;
+}
+.ui-title-switch {
+  cursor: pointer;
+  position: relative;
+  box-sizing: border-box;
+  border: 2px solid;
+  height: 30px;
+  width: 60px;
+  border-radius: 20px;
+}
+.ui-title-switch > span {
+  transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  border-radius: 10px;
+}
+.ui-title-switch-active > span {
+  left: 34px;
+}
+.ui-title-action {
+  cursor: pointer;
+  padding: 0 10px;
+  opacity: 0.3;
+  transition: opacity 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+}
+.ui-title-action-active {
+  opacity: 1;
+}
+
+/*# sourceMappingURL=styles.css.map */
