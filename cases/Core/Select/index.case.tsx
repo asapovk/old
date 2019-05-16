@@ -25,33 +25,58 @@ class SelectStory extends React.Component {
 
     render() {
         return (
-            
-                <Fragment>
-                    <Select
-                        label='Multiselect'
-                        search={true}
-                        placeholder='Select some'
-                        defaultValue={['irv', 'greg']}
-                        options={selectOptions}
-                        style={{ padding: '40px' }}
-                        clearable={true}
-                        multiselect={true}
-                        // disabled={true}
-                        onChange={(value) => console.log('Multi', value)}
-                    />
-                    <Select
-                        label='Select'
-                        search={true}
-                        placeholder='Select some'
-                        defaultValue={'ann'}
-                        options={selectOptions}
-                        clearable={true}
-                        style={{ padding: '40px' }}
-                        //disabled={true}
-                        onChange={(value) => console.log('Singe', value)}
-                    />
-                </Fragment>
-            
+
+            <Fragment>
+                <Select
+                    label='Multiselect'
+                    search={true}
+                    placeholder='Select some'
+                    defaultValue={['irv', 'greg']}
+                    options={selectOptions}
+                    style={{ padding: '40px' }}
+                    clearable={true}
+                    multiselect={true}
+                    // disabled={true}
+                    onChange={(value) => console.log('Multi', value)}
+                />
+                <Select
+                    label='Small size'
+                    size="small"
+                    search={true}
+                    placeholder='Select some'
+                    defaultValue={'ann'}
+                    options={selectOptions}
+                    clearable={true}
+                    style={{ padding: '40px' }}
+                    //disabled={true}
+                    onChange={(value) => console.log('Singe', value)}
+                />
+                <Select
+                    label='Large size'
+                    size="large"
+                    search={true}
+                    placeholder='Select some'
+                    defaultValue={'ann'}
+                    options={selectOptions}
+                    clearable={true}
+                    style={{ padding: '40px' }}
+                    //disabled={true}
+                    onChange={(value) => console.log('Singe', value)}
+                />
+                <Select
+                    label='Extra large size'
+                    size="extra-large"
+                    search={true}
+                    placeholder='Select some'
+                    defaultValue={'ann'}
+                    options={selectOptions}
+                    clearable={true}
+                    style={{ padding: '40px' }}
+                    //disabled={true}
+                    onChange={(value) => console.log('Singe', value)}
+                />
+            </Fragment>
+
         )
     }
 }

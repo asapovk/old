@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx, css } from '@emotion/core';
-import React, { Fragment } from 'react';
+import { Fragment } from 'react';
 import { ThemeInterface } from '../../styles';
 
 export default (props) => {

@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { jsx, css } from "@emotion/core";
 import { forwardRef } from "react";
-import { Flexbox, HR, Icon } from "..";
+import { Flexbox, HR, Icon } from "../..";
 import Types from "./types";
 import { useState } from "react";
 
@@ -46,8 +46,8 @@ export default forwardRef((props: Types.DecoratorProps, ref) => {
           {Content}
         </Flexbox>
       ) : (
-        Content
-      )}
+          Content
+        )}
       <HR
         css={css({
           marginTop:
@@ -114,9 +114,9 @@ const HeadersMenu = props => {
               css:
                 value === item.value
                   ? css({
-                      color: props.theme.text.rgb,
-                      borderBottom: `3px solid ${props.theme.highlight.rgb}`
-                    })
+                    color: props.theme.text.rgb,
+                    borderBottom: `3px solid ${props.theme.highlight.rgb}`
+                  })
                   : css({ color: props.theme.lowlight.rgb })
             }
           }}

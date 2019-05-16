@@ -2,8 +2,8 @@
 import { jsx, css } from "@emotion/core";
 import { useState, useReducer } from "react";
 import { Flexbox, Grid, Button } from "../../../src";
-import { GridTypes } from "../../../src/core/types";
 import { ThemeInterface } from "../../../src/styles";
+import GridTypes from "../../../src/core/Grid/types";
 
 const initialState = {
   data: [

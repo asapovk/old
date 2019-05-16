@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
-import { Spin, Icon } from '..';
+import { Spin, Icon } from '../..';
 
 import createStyles from './styles';
 import Types from './types';

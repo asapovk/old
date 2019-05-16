@@ -1,4 +1,4 @@
-import { ThemeInterface } from "..";
+import { ThemeInterface } from '..';
 
 export default (theme: ThemeInterface) => {
     return {

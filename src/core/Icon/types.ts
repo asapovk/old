@@ -4,8 +4,6 @@ import { ThemeInterface } from "../../styles";
 
 declare namespace IconTypes {
   export type Type =
-    //TODO: remove string
-    | string
     | "add"
     | "more"
     | "pin"
@@ -63,6 +61,8 @@ declare namespace IconTypes {
     | "circle-cross-fill"
     | "crown"
     | "crown-fill"
+    //TODO: remove string
+    | string
     ;
 
   interface Props extends SpacingProps {

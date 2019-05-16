@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
 import { forwardRef, useLayoutEffect, useState, Fragment, useEffect } from 'react'
-import { Flexbox, Icon, Spin } from '..'
+import { Flexbox, Icon, Spin } from '../..'
 import Field from './Field'
 import createStyles from './styles'
 import Types from './types'
@@ -114,12 +114,16 @@ export default forwardRef((props: Types.Props, ref) => {
                             }}
                             onEnter={props.onEnter}
                             disabled={props.disabled}
+                            disableEditing={props.disableEditing}
                             loading={props.loading}
                             placeholder={props.floatingLabel ? '' : props.placeholder}
                             type={props.type}
                             singlerow={props.singlerow}
                             value={value}
                             tabIndex={props.tabIndex}
+
+                            _tags={props._tags}
+                            _onTagClose={props._onTagClose}
                         />
                         {props.loading
                             ? <Spin><Icon css={styles.icon()} type='spin' /></Spin>

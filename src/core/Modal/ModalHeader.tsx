@@ -4,7 +4,7 @@ import createStyles from './styles';
 import ModalTypes from './types';
 import * as Typography from '../Typography';
 import { Flexbox } from '../..';
-import { Icon } from '..';
+import { Icon } from '../..';
 
 export default (props: ModalTypes.ModalHeaderProps) => {
     const styles = createStyles({

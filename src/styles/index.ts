@@ -1,12 +1,9 @@
 import React from 'react';
 import finderStyles from './jss/Finder';
-import lkGuestSceneStyles from './jss/LKGuestScene';
 import notificationsStyles from './jss/Notifications';
-import selectStyles from './jss/Select';
 import tableStyles from './jss/Table';
 import tabsStyles from './jss/Tabs';
 import titleStyles from './jss/Title';
-import widgetStatStyles from './jss/WidgetStat';
 import abrTheme from './themes/abr';
 import blackCurrant from './themes/black-currant';
 import gazpromTheme from './themes/gazprom';
@@ -109,15 +106,10 @@ export const createStyles = (themeName?: string) => {
     return {
         theme: theme,
         finder: finderStyles(theme),
-        select: selectStyles(theme),
         table: tableStyles(theme),
         tabs: tabsStyles(theme),
         title: titleStyles(theme),
-        widgetStat: widgetStatStyles(theme),
-        notifications: notificationsStyles(theme),
-        scenes: {
-            lkguest: lkGuestSceneStyles(theme),
-        }
+        notifications: notificationsStyles(theme)
     }
 };
 

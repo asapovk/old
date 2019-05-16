@@ -6,7 +6,7 @@ import {
 	useLayoutEffect,
 	forwardRef
 } from "react";
-import { Flexbox } from "../index";
+import { Flexbox } from "../..";
 import createStyles from "./styles";
 import Types from "./types";
 import Menu from "./Menu";

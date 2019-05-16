@@ -1,45 +1,53 @@
-export { Badge as Badge } from './core'
-export { Button as Button } from './core'
-export { Card as Card } from './core';
-export { Chart as Chart } from './core'
-export { Checkbox as Checkbox } from './core'
-export { DatePicker as DatePicker } from './core'
-export { Finder as Finder } from './core'
-export { FinderNav as FinderNav } from './core'
-export { FinderSection as FinderSection } from './core'
-export { Flexbox as Flexbox } from './core'
-export { Icon as Icon } from './core'
-export { Menu as Menu } from './core'
-export { NavBarItem as NavBarItem } from './core'
-export { Modal as Modal } from './core'
-export { Popup as Popup } from './core'
-export { Select as Select } from './core'
-export { Spin as Spin } from './core'
-export { Spinner as Spinner } from './core'
-// export { Stories as Stories } from './core';
-export { Table as Table } from './core'
-export { SimpleTable as SimpleTable } from './core';
-export { StickyTabs as StickyTabs } from './core'
-export { Tabs as Tabs } from './core'
-// export { Tab as Tab } from './core'
-export { TextField as TextField } from './core'
-export { Timeline as Timeline } from './core';
-export { Title as Title } from './core'
-export { Viewport as Viewport } from './core'
-export { Widget as Widget } from './core'
-export { Plastic as Plastic } from './core'
-export { PlasticStack as PlasticStack } from './core';
-export { Leaflet as Leaflet } from './core';
-export { InlineFilter as InlineFilter } from './core';
-export { InlineDateFilter as InlineDateFilter } from './core';
+/**
+ * Core components
+ */
+export { P, H1, H2, H3, H4, D1, D2, D3, D4, T1, T2, T3, T4, C1, C2, C3, C4, HR } from './core/Typography'
+export { Badge } from './core/Badge'
+export { Button } from './core/Button'
+export { Card } from './core/Card'
+export { Checkbox } from './core/Checkbox'
+export { Flexbox } from './core/Flexbox'
+export { Icon } from './core/Icon'
+export { Modal } from './core/Modal'
+export { Popup } from './core/Popup'
+export { Select } from './core/Select'
+export { Spin } from './core/Spin'
+export { Spinner } from './core/Spinner'
+export { Table } from './core/Table'
+export { SimpleTable } from './core/SimpleTable'
+export { TextField } from './core/TextField'
+export { Title } from './core/Title'
+export { Viewport } from './core/Viewport'
+export { Widget } from './core/Widget'
+export { Plastic, PlasticStack } from './core/Plastic'
+export { Leaflet } from './core/Leaflet'
+export { InlineFilter } from './core/InlineFilter'
+export { Grid } from './core/Grid'
+export { List } from './core/List'
+export { ScrollView } from './core/ScrollView'
 
-export { default as Styles } from './styles';
+/**
+ * Extra components
+ */
+export { Buddy } from './extra/Buddy'
+export { DatePicker } from './extra/DatePicker'
+export { Finder, FinderNav, FinderSection } from './extra/Finder'
+export { Panel, PanelBarItem } from './extra/Panel'
+export { Menu } from './extra/Menu'
+export { Timeline } from './extra/Timeline'
+export { StickyTabs } from './extra/StickyTabs'
+export { LiquidDrop } from './extra/LiquidDrop'
+export { WidgetStat } from './extra/WidgetStat'
+export { InlineDateFilter } from './extra/InlineDateFilter'
+export { Chart } from './extra/Chart'
 
-export { Portal as Portal } from 'react-portal';
+/**
+ * External components
+ */
+export { Portal } from 'react-portal'
+
+/**
+ * Utils
+ */
 export { default as utils } from './utils'
-
-
-export { P as P, H1 as H1, H2 as H2, H3 as H3, H4 as H4, D1 as D1, D2 as D2, D3 as D3, D4 as D4, T1 as T1, T2 as T2, T3 as T3, T4 as T4, C1 as C1, C2 as C2, C3 as C3, C4 as C4, HR as HR } from './core'
-
-export { Grid as Grid } from './core';
-export { List as List } from './core';
+export { default as Styles } from './styles'

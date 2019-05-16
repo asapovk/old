@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core';
 import { Dispatch, SetStateAction } from 'react';
-import { Flexbox, Icon } from '../..'
+import { Flexbox, Icon } from '../../../'
 import { TableStyles } from '../styles';
 import Types from '../types';
 import IconTypes from '../../Icon/types';

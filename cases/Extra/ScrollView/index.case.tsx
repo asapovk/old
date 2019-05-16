@@ -1,6 +1,5 @@
 import React from 'react';
-import { Title } from '../../../src';
-import { ScrollView } from '../../../src/extra'
+import { Title, ScrollView } from '../../../src';
 import { useTheme } from '../../../src/hooks';
 import '../../../src/styles/scss/main.scss';
 

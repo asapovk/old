@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core';
-import { Icon } from '../..'
+import { Icon } from '../../..'
 import Types from '../types';
 import IconTypes from '../../Icon/types';
 import { paginationStyles } from '../styles';

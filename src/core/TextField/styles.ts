@@ -59,12 +59,12 @@ export default ({ multiline, size, disabled, decoration, floatingLabel, leftIcon
                     padding: `${extraParams.textareaPadding}`
                 }
                 : {
-                    height: extraParams.inputHeight,
+                    minHeight: extraParams.inputHeight,
                     padding: `0 ${extraParams.inputPadding}`
                 },
         ),
 
-        field: (fullHeight: boolean = false) => css({
+        field: (fullHeight: boolean = false, isTagsContaier: boolean = false) => css({
             // height: '100%',
             width: '100%',
             border: 'none',
@@ -85,9 +85,26 @@ export default ({ multiline, size, disabled, decoration, floatingLabel, leftIcon
             '::placeholder': {
                 color: theme.lowlight.rgb,
                 fontWeight: 'normal'
-            }
-        }, fullHeight && {
-            height: '100%'
+            },
+
+            ...(fullHeight && {
+                height: '100%'
+            }),
+
+            ...(isTagsContaier && {
+                height: '100%'
+            })
+        }),
+
+        tag: css({
+            display: 'inline-block',
+            padding: extraParams.tagPadding,
+            borderRadius: theme.borders.textfield.borderRadius,
+            borderStyle: theme.borders.textfield.borderStyle,
+            borderWidth: theme.borders.textfield.borderWidth,
+            background: theme.highlight.rgba(.1),
+            borderColor: theme.highlight.rgba(.3),
+            //    margin-right
         }),
 
         icon: (position: any = null) => css({
@@ -135,6 +152,7 @@ function getExtraParams(size, decoration, leftIcon) {
                     start: `calc(${withoutDecoration ? '0px' : '1.25rem'} + ${leftIcon ? '2.5rem' : '0px'}), 1.75rem`,
                     end: `calc(${withoutDecoration ? '0px' : '1.25rem'} + ${leftIcon ? '2.5rem' : '0px'}), 0.75rem`,
                 },
+                tagPadding: '1rem 0.625rem',
             };
         case 'large':
             return {
@@ -153,6 +171,7 @@ function getExtraParams(size, decoration, leftIcon) {
                     start: `calc(${withoutDecoration ? '0px' : '0.75rem'} + ${leftIcon ? '1.75rem' : '0px'}), 0.5rem`,
                     end: `calc(${withoutDecoration ? '0px' : '0.75rem'} + ${leftIcon ? '1.75rem' : '0px'}), 0rem`,
                 },
+                tagPadding: '0.125rem 0.4rem',
             };
         case 'small':
             return {
@@ -171,6 +190,7 @@ function getExtraParams(size, decoration, leftIcon) {
                     start: `${withoutDecoration ? '0px' : '1.25rem'}, 1.75rem`,
                     end: `${withoutDecoration ? '0px' : '1.25rem'}, 1.75rem`,
                 },
+                tagPadding: '0rem 0.15rem',
             };
         default:
             return {
@@ -189,6 +209,7 @@ function getExtraParams(size, decoration, leftIcon) {
                     start: `${withoutDecoration ? '0px' : '1.25rem'}, 1.75rem`,
                     end: `${withoutDecoration ? '0px' : '1.25rem'}, 1.75rem`,
                 },
+                tagPadding: '0rem 0.25rem',
             }
     }
 }

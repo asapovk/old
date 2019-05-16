@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { jsx, css } from "@emotion/core";
 import { Fragment } from "react";
-import { Flexbox, D3, T1, HR } from "../index";
+import { Flexbox, D3, T1, HR } from "../..";
 import Types from "./types";
 
 export default (props: Types.ItemsProps) => {

@@ -2,7 +2,7 @@
 import { jsx } from '@emotion/core'
 import createStyles from './styles';
 import React from 'react';
-import { Spin, Icon } from '../index';
+import { Spin, Icon } from '../..';
 import { Flexbox } from '../..';
 import { Spinner } from '../Spinner';
 

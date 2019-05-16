@@ -1,8 +1,9 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core';
-import { forwardRef } from 'react';
+import { forwardRef, Fragment } from 'react';
 import InputMask from 'react-input-mask';
 import Types from './types';
+import { Icon } from '../Icon';
 
 export default forwardRef((props: Types.FieldProps, ref) => {
 
@@ -32,7 +33,23 @@ export default forwardRef((props: Types.FieldProps, ref) => {
             }
         )
     }
+    if (props._tags) {
+        return (
+            <div css={props.styles.field(props.multiline, true)} >
+                {
+                    props._tags.map((tag, index) =>
+                        <div
+                            key={tag + index}
+                            css={props.styles.tag}
+                        >
+                            {tag} <Icon type='close' />
+                        </div>
 
+                    )
+                }
+            </div>
+        )
+    }
 
     return (
         jsx(
@@ -46,7 +63,7 @@ export default forwardRef((props: Types.FieldProps, ref) => {
                 // defaultValue: props.defaultValue,
                 value: props.value,
                 onKeyPress: onKeyPress,
-                disabled: props.disabled || props.loading,
+                disabled: props.disabled || props.loading || props.disableEditing,
                 placeholder: props.placeholder,
                 css: props.styles.field(props.multiline),
                 ref: ref,

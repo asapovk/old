@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { LiquidDrop } from '../../../src/extra'
+import { LiquidDrop } from '../../../src'
 import { Flexbox, Button, D1 } from '../../../src';
 
 const sampleData: any = [

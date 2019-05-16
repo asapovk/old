@@ -1,6 +1,27 @@
-import { IconTypes } from '../types';
+import IconTypes from '../../core/Icon/types';
+import { SizeTypes } from '../types';
 
 declare namespace TextFieldTypes {
+    export type Decoration = 'none' | 'borderless' | 'borderBottom'
+    export type Type =
+        'color' |
+        'email' |
+        'hidden' |
+        'image' |
+        'month' |
+        'number' |
+        'password' |
+        'radio' |
+        'range' |
+        'reset' |
+        'search' |
+        'submit' |
+        'tel' |
+        'text' |
+        'time' |
+        'url' |
+        'week' |
+        'decimal';
 
     export interface Props extends FieldProps {
         label?: string
@@ -9,9 +30,16 @@ declare namespace TextFieldTypes {
         rightLabel?: string
         leftIcon?: IconTypes.Type
         loading?: true | undefined
-        decoration?: 'none' | 'borderless' | 'borderBottom'
-        size?: 'large' | 'small' | 'extra-large'
+        decoration?: Decoration
+        size?: SizeTypes
         className?: string
+
+        /**
+         * Custom private props for
+         * select field
+         */
+        _tags?: string[]
+        _onTagClose?: (tagIndex: number) => void
     }
 
     export interface FieldProps {
@@ -36,27 +64,16 @@ declare namespace TextFieldTypes {
         mask?: string
         tabIndex?: number
         regex?: RegExp
-    }
+        disableEditing?: boolean
 
-    export type Type =
-        'color' |
-        'email' |
-        'hidden' |
-        'image' |
-        'month' |
-        'number' |
-        'password' |
-        'radio' |
-        'range' |
-        'reset' |
-        'search' |
-        'submit' |
-        'tel' |
-        'text' |
-        'time' |
-        'url' |
-        'week' |
-        'decimal';
+        /**
+         * Custom private props for
+         * select field
+         */
+        _tags?: string[]
+        _onTagClose?: (tagIndex: number) => void
+
+    }
 
     export interface IconProps {
         type?: IconTypes.Type,

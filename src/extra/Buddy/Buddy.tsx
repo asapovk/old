@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
-import useStyles from './useStyles';
+import createStyles from './styles';
 import React, { Component, CSSProperties, useEffect, useImperativeHandle, forwardRef } from 'react';
 
 require('../lib/TweenMax.min');
@@ -17,7 +17,7 @@ export interface BuddyProps {
 
 export default forwardRef((props: BuddyProps, ref) => {
 
-    const styles = useStyles();
+    const styles = createStyles();
 
     let timeline: any
     const ease = Power0.easeNone;

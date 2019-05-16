@@ -2,7 +2,7 @@
 import { jsx } from '@emotion/core';
 import React from 'react';
 import { Fragment, useState } from 'react';
-import { Flexbox, Widget } from '..';
+import { Flexbox, Widget } from '../..';
 import { C1 } from '../..';
 import ShowMore from './components/ShowMore';
 import createStyles from './styles';

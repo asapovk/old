@@ -1,6 +1,6 @@
 import React from 'react';
-import { Flexbox, StickyTabs, Icon, C1, C3 } from '../../../src';
-import { StickyTabsTypes } from '../../../src/core/types';
+import { Flexbox, StickyTabs, C1, C3 } from '../../../src';
+import StickyTabsTypes from '../../../src/extra/StickyTabs/types';
 
 class TabsStory extends React.Component {
 

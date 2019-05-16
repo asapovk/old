@@ -3,7 +3,7 @@ import { jsx } from '@emotion/core'
 import createStyles from './styles';
 import types from './types';
 import Plastic from './Plastic';
-import { Flexbox } from '..';
+import { Flexbox } from '../..';
 import { useState } from 'react';
 
 export default (props: types.PlasticStackProps) => {

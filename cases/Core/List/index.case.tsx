@@ -2,7 +2,7 @@
 import { jsx } from "@emotion/core";
 import { useReducer, useState } from "react";
 import { Button, Flexbox, List } from "../../../src";
-import { ListTypes } from "../../../src/core/types";
+import ListTypes from "../../../src/core/List/types";
 
 const initialState = {
 	data: [

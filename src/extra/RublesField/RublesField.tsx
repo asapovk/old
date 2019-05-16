@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { TextField } from '../..';
-import { TextFieldTypes } from '../../core/types';
+import TextFieldTypes from '../../core/TextField/types';
 
 type IRublesField =
     Pick<TextFieldTypes.Props, Exclude<keyof TextFieldTypes.Props, 'value'>> & { value: number };

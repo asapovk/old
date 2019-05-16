@@ -1,10 +1,10 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core';
-import { D3, C1, T2, Icon } from '../../core';
+import { D3, C1, T2, Icon } from '../..';
 import { useTheme } from '../../hooks';
 import createStyles from './styles';
 import Types from './types'
-import { ScrollView } from '../ScrollView';
+import { ScrollView } from '../..';
 import { useState } from 'react';
 
 require('../lib/TweenMax.min');

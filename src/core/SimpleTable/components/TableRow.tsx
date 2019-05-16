@@ -2,7 +2,7 @@
 import { jsx } from '@emotion/core';
 import { useState, useRef } from 'react';
 import Types from '../types';
-import { Flexbox, Icon } from '../..'
+import { Flexbox, Icon } from '../../..'
 import { TableStyles } from '../styles';
 
 interface DataRowsProps {

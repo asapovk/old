@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx, css } from '@emotion/core'
-import { Flexbox, C2, T1, Icon } from '../index';
+import { Flexbox, C2, T1, Icon } from '../..';
 import Types from './types';
 
 export default (props: Types.MenuProps) => {

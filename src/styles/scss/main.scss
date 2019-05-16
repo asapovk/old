@@ -2,17 +2,12 @@
 @import "mixins/css3";
 
 //Core
-@import "reset";
 @import "typography";
 @import "general";
 
 //Components
 @import 'components/Notifications';
 @import 'components/Table';
-@import 'components/Tabs';
 @import 'components/Title';
-@import 'components/Icon';
 @import 'components/Select';
-@import 'components/WidgetStat';
 @import 'components/Finder';
-// @import 'components/Stories';

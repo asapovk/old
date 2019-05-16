@@ -1,7 +1,7 @@
 import React from 'react';
 import Component from './Prototype';
 import { DatePicker } from '../../';
-import DatePickerProps from '../../core/DatePicker/types';
+import DatePickerProps from '../DatePicker/types';
 
 export default class CDatePicker extends Component {
 

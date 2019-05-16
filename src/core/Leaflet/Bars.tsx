@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
-import { Flexbox, Icon, C2 } from '..';
+import { Flexbox, Icon, C2 } from '../..';
 
 export const LeftBar = (props) => {
     return (

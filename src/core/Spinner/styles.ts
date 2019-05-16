@@ -1,6 +1,5 @@
 import { css, keyframes } from '@emotion/core';
 import useTheme from '../../hooks/useTheme';
-import { themes } from '../../styles';
 
 export default (dark?: boolean, color?: string) => {
 

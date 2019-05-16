@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useReducer } from 'react';
 import { Flexbox, SimpleTable, Table, Button, TextField } from '../../../src';
-import { SimpleTableTypes } from '../../../src/core/types';
+import SimpleTableTypes from '../../../src/core/SimpleTable/types';
 
 const initialState = {
     data: [

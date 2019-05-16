@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx } from "@emotion/core";
-import { C2, Flexbox, Icon } from "../..";
+import { C2, Flexbox, Icon } from "../../../";
 import createStyles from "../styles";
 import Types from "../types";
 

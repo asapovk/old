@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core';
-import { Icon } from '../..';
+import { Icon } from '../../..';
 import { rowStyles } from '../styles';
 import Types from '../types';
 
