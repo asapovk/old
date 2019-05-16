@@ -1,56 +1,36 @@
-import React from 'react';
-import { Icon, Flexbox, Styles } from '../../';
 
-interface Props {
-    placeholder?: string
-    clearable?: boolean
-    onChange: (value, level) => void
-    level: number
-}
+/** @jsx jsx */
+import { jsx } from '@emotion/core'
+import { Icon, Flexbox } from '../../';
+import FinderTypes from './types';
+import { useRef, ChangeEvent } from 'react';
+import { TextField } from '../../core/TextField';
+import createStyle from './styles';
 
-class FinderFilter extends React.Component<Props> {
-
-    input: HTMLInputElement
-
-    onChange(event) {
-
+const FinderFilter = (props: FinderTypes.FilterProps) => {
+    const { placeholder, clearable } = props;
+    const input = useRef<any>();
+    const styles = createStyle();
+    const onChange = (event?: ChangeEvent<HTMLInputElement>) => {
         if (!event) {
-            this.props.onChange("", this.props.level);
-            this.input.value = "";
-            return;
+            props.onChange("", props.level);
+            input.current.value = "";
+        } else {
+            props.onChange && props.onChange(event.target.value, props.level);
         }
-        this.props.onChange(event.target.value, this.props.level);
     }
 
-    render() {
 
-        const { placeholder, clearable } = this.props;
-
-        return (
-            <Styles>
-                {styles => (
-                    <div className={`ui-finder-filter`} style={{
-                        borderColor: styles.finder.filter.borderColor,
-                    }}>
-                        <Flexbox alignItems="center" className={`ui-finder-filter-input`} style={{
-                            background: styles.finder.filter.inputBackground,
-                            borderColor: styles.finder.filter.borderColor,
-                            color: styles.finder.filter.color
-                        }}>
-                            <Icon className={`ui-finder-filter-search-icon`} type="search" />
-                            <input ref={(ref: HTMLInputElement) => this.input = ref} placeholder={placeholder} onChange={this.onChange.bind(this)} />
-                            {clearable && (
-                                <Flexbox className={`ui-finder-filter-clear`} alignItems="center" justifyContent="center" onClick={() => this.onChange(null)}>
-                                    <Icon type='close' />
-                                </Flexbox>
-                            )}
-                        </Flexbox>
-                    </div>
-                )}
-            </Styles>
-        )
-    }
+    return (
+        <div css={styles.filter}>
+            <TextField
+                leftIcon='search'
+                size='small'
+                placeholder={placeholder}
+                onChange={onChange}
+            />
+        </div>
+    )
 }
-
 
 export default FinderFilter;

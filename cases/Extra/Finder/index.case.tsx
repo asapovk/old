@@ -22,45 +22,45 @@ class FinderStory extends React.Component {
     }
     render() {
         return (
-            
-                <Flexbox alignContent="center" justifyContent="center">
-                    <Finder filter filterPlaceholder='search something'>
-                        <FinderNav label="Пользователь" filter badge={this.state.checkedNames.length}>
-                            {data.map(item => (
-                                <Checkbox key={item.id} label={item.name} style={{ margin: 2 }} checked={this.state.checkedNames.findIndex(id => item.id === id) >= 0} onChange={state => {
-                                    const checkedNames = this.state.checkedNames.filter(id => item.id != id);
-                                    if (state) {
-                                        checkedNames.push(item.id);
-                                    }
-                                    this.setState({ checkedNames });
-                                }} />
-                            ))}
+
+            <Flexbox alignContent="center" justifyContent="center">
+                <Finder filter filterPlaceholder='search something'>
+                    <FinderNav label="Пользователь" filter badge={this.state.checkedNames.length}>
+                        {data.map(item => (
+                            <Checkbox key={item.id} label={item.name} style={{ margin: 2 }} checked={this.state.checkedNames.findIndex(id => item.id === id) >= 0} onChange={state => {
+                                const checkedNames = this.state.checkedNames.filter(id => item.id != id);
+                                if (state) {
+                                    checkedNames.push(item.id);
+                                }
+                                this.setState({ checkedNames });
+                            }} />
+                        ))}
+                    </FinderNav>
+                    <FinderSection label='And other numbers'>
+                        <FinderNav label='Ten'>
+                            <div>21</div>
                         </FinderNav>
-                        <FinderSection label='And other numbers'>
-                            <FinderNav label='Ten'>
-                                <div>21</div>
-                            </FinderNav>
-                            <FinderNav label='Eleven'>
-                                <div>33</div>
-                            </FinderNav>
-                        </FinderSection>
-                        <FinderNav label='Fruits' filter filterPlaceholder='choose your fruit'>
-                            <FinderNav label='Apples'>
-                                <FinderNav label='Macintosh'></FinderNav>
-                                <FinderNav label='Granny Smith'></FinderNav>
-                                <FinderNav label='Honeycrisp'></FinderNav>
-                            </FinderNav>
-                            <FinderNav label='Pears'>
-                                <FinderNav label='Anjou'></FinderNav>
-                                <FinderNav label='Bartlett'></FinderNav>
-                            </FinderNav>
+                        <FinderNav label='Eleven'>
+                            <div>33</div>
                         </FinderNav>
-                        <FinderNav label='Date'>
-                            <DatePicker />
+                    </FinderSection>
+                    <FinderNav label='Fruits' filter filterPlaceholder='choose your fruit'>
+                        <FinderNav label='Apples'>
+                            <FinderNav label='Macintosh'></FinderNav>
+                            <FinderNav label='Granny Smith'></FinderNav>
+                            <FinderNav label='Honeycrisp'></FinderNav>
                         </FinderNav>
-                    </Finder>
-                </Flexbox>
-            
+                        <FinderNav label='Pears'>
+                            <FinderNav label='Anjou'></FinderNav>
+                            <FinderNav label='Bartlett'></FinderNav>
+                        </FinderNav>
+                    </FinderNav>
+                    <FinderNav label='Date'>
+                        <DatePicker />
+                    </FinderNav>
+                </Finder>
+            </Flexbox>
+
         )
     }
 }

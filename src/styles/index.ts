@@ -1,5 +1,4 @@
 import React from 'react';
-import finderStyles from './jss/Finder';
 import notificationsStyles from './jss/Notifications';
 import tableStyles from './jss/Table';
 import tabsStyles from './jss/Tabs';
@@ -105,7 +104,6 @@ export const createStyles = (themeName?: string) => {
     const theme: ThemeInterface = themeName ? themes[themeName] : themes['blackCurrant'];
     return {
         theme: theme,
-        finder: finderStyles(theme),
         table: tableStyles(theme),
         tabs: tabsStyles(theme),
         title: titleStyles(theme),
