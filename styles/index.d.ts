@@ -86,86 +86,11 @@ export interface ThemeInterface {
 }
 export declare const createStyles: (themeName?: string | undefined) => {
     theme: ThemeInterface;
-    table: {
-        main: {
-            backgroundColor: string;
-            titleColor: string;
-            borderColor: string;
-            borderRadius: string;
-            boxShadow: string;
-        };
-        row: {
-            backgroundColor: string;
-            borderColor: string;
-        };
-        actions: {
-            backgroundColor: string;
-            actionColor: string;
-        };
-        form: {
-            backgroundColor: string;
-            borderColor: string;
-        };
-        pagination: {
-            textColor: string;
-            backgroundColor: string;
-        };
-    };
 };
 export declare const StylesContext: React.Context<{
     theme: ThemeInterface;
-    table: {
-        main: {
-            backgroundColor: string;
-            titleColor: string;
-            borderColor: string;
-            borderRadius: string;
-            boxShadow: string;
-        };
-        row: {
-            backgroundColor: string;
-            borderColor: string;
-        };
-        actions: {
-            backgroundColor: string;
-            actionColor: string;
-        };
-        form: {
-            backgroundColor: string;
-            borderColor: string;
-        };
-        pagination: {
-            textColor: string;
-            backgroundColor: string;
-        };
-    };
 }>;
 declare const _default: React.ExoticComponent<React.ConsumerProps<{
     theme: ThemeInterface;
-    table: {
-        main: {
-            backgroundColor: string;
-            titleColor: string;
-            borderColor: string;
-            borderRadius: string;
-            boxShadow: string;
-        };
-        row: {
-            backgroundColor: string;
-            borderColor: string;
-        };
-        actions: {
-            backgroundColor: string;
-            actionColor: string;
-        };
-        form: {
-            backgroundColor: string;
-            borderColor: string;
-        };
-        pagination: {
-            textColor: string;
-            backgroundColor: string;
-        };
-    };
 }>>;
 export default _default;

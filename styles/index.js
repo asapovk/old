@@ -4,7 +4,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importDefault(require("react"));
-var Table_1 = __importDefault(require("./jss/Table"));
 var abr_1 = __importDefault(require("./themes/abr"));
 var black_currant_1 = __importDefault(require("./themes/black-currant"));
 var gazprom_1 = __importDefault(require("./themes/gazprom"));
@@ -21,7 +20,6 @@ exports.createStyles = function (themeName) {
     var theme = themeName ? exports.themes[themeName] : exports.themes['blackCurrant'];
     return {
         theme: theme,
-        table: Table_1.default(theme),
     };
 };
 exports.StylesContext = react_1.default.createContext(exports.createStyles('blackCurrant'));

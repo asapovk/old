@@ -1,19 +1,3 @@
-import React from 'react';
-interface Props {
-    row: {};
-    columns: any;
-    isSelected?: boolean;
-    isExpanding?: boolean;
-    isBlur?: boolean;
-    actions?: any;
-    border?: any;
-    scope?: any;
-    form?: any;
-    children?: any;
-    onRowClick?: any;
-}
-declare class TableRow extends React.Component<Props> {
-    onClick(e: any, row: any): void;
-    render(): JSX.Element;
-}
+import TableTypes from './types';
+declare const TableRow: (props: TableTypes.RowProps) => JSX.Element;
 export default TableRow;

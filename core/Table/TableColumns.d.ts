@@ -1,11 +1,3 @@
-import React from 'react';
-interface Props {
-    row: any;
-    columns: any;
-    scope?: any;
-    children?: any;
-}
-declare class TableColumns extends React.Component<Props> {
-    render(): any;
-}
+import TableTypes from './types';
+declare const TableColumns: (props: TableTypes.ColumnProps) => any;
 export default TableColumns;
