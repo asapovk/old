@@ -31,7 +31,7 @@ class SelectStory extends React.Component {
                     label='Multiselect'
                     search={true}
                     placeholder='Select some'
-                    defaultValue={['irv', 'greg']}
+                    defaultValue={[selectOptions[0], selectOptions[1]]}
                     options={selectOptions}
                     style={{ padding: '40px' }}
                     clearable={true}
@@ -44,7 +44,7 @@ class SelectStory extends React.Component {
                     size="small"
                     search={true}
                     placeholder='Select some'
-                    defaultValue={'ann'}
+                    defaultValue={selectOptions[0]}
                     options={selectOptions}
                     clearable={true}
                     style={{ padding: '40px' }}
@@ -56,7 +56,7 @@ class SelectStory extends React.Component {
                     size="large"
                     search={true}
                     placeholder='Select some'
-                    defaultValue={'ann'}
+                    defaultValue={selectOptions[1]}
                     options={selectOptions}
                     clearable={true}
                     style={{ padding: '40px' }}
@@ -68,11 +68,11 @@ class SelectStory extends React.Component {
                     size="extra-large"
                     search={true}
                     placeholder='Select some'
-                    defaultValue={'ann'}
+                    value={selectOptions[1]}
                     options={selectOptions}
                     clearable={true}
                     style={{ padding: '40px' }}
-                    //disabled={true}
+                    disabled={true}
                     onChange={(value) => console.log('Singe', value)}
                 />
             </Fragment>

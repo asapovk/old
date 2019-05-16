@@ -69,7 +69,7 @@ declare namespace IconTypes {
     style?: React.CSSProperties;
     className?: string;
     type: Type;
-    onClick?: () => void;
+    onClick?: (e: MouseEvent) => void;
     shape?: "cirle" | "oval";
     size?: string;
     color?:
