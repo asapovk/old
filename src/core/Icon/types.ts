@@ -77,7 +77,7 @@ declare namespace IconTypes {
     style?: React.CSSProperties;
     className?: string;
     type: Type;
-    onClick?: () => void;
+    onClick?: (e: MouseEvent) => void;
     shape?: Shapes;
     shapeOnHover?: boolean;
     hoverColor?: Color;
