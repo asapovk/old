@@ -12,14 +12,17 @@ export default (props: Types.Props) => {
     position,
     className,
     event,
-    wrapperStyles
+    wrapperStyles,
+    hideOnClick
   } = props;
 
   const distance = props.distance || 8;
 
   const popupRef = useRef<HTMLDivElement>(null);
   const triggerRef = useRef<HTMLDivElement>(null);
-  const id = Math.random().toString();
+  const id = Math.random()
+    .toString(36)
+    .substring(2, 15);
 
   let styles = createStyles(position);
 
@@ -29,36 +32,43 @@ export default (props: Types.Props) => {
 
   useEffect(() => {
     const container = document.getElementById(id);
-    container && container.addEventListener("click", handleToggle);
-    document.addEventListener("mousedown", handleClickOutside);
-    viewport &&
-      viewport.addEventListener("scroll", setPosition, {
-        capture: true,
-        passive: true
-      });
-    setPosition();
+    container && container.addEventListener("click", toggle);
     return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-      container && container.removeEventListener("click", handleToggle);
-      viewport && viewport.removeEventListener("scroll", setPosition);
+      container && container.removeEventListener("click", toggle);
     };
   });
 
-  function handleToggle() {
+  function show() {
     if (popupRef.current) {
-      popupRef.current.style.visibility =
-        popupRef.current.style.visibility === "hidden" ? "visible" : "hidden";
+      setPosition();
+      popupRef.current.style.visibility = "visible";
+      document.addEventListener("scroll", setPosition, true);
+      document.addEventListener("mouseup", handleClickOutside);
+    }
+  }
+
+  function hide() {
+    if (popupRef.current) {
+      popupRef.current.style.visibility = "hidden";
+      document.removeEventListener("scroll", setPosition, true);
+      document.removeEventListener("mouseup", handleClickOutside);
+    }
+  }
+
+  function toggle() {
+    if (popupRef.current) {
+      popupRef.current.style.visibility === "hidden" ? show() : hide();
     }
   }
 
   function handleClickOutside(event: { target: any }) {
-    if (
-      popupRef.current &&
-      triggerRef.current &&
-      !popupRef.current!.contains(event.target) &&
-      !triggerRef.current!.contains(event.target)
-    ) {
-      popupRef.current.style.visibility = "hidden";
+    const outsideTrigger =
+      triggerRef.current && !triggerRef.current!.contains(event.target);
+    const outsidePopup =
+      popupRef.current && !popupRef.current!.contains(event.target);
+
+    if (outsideTrigger && (hideOnClick || outsidePopup)) {
+      hide();
     }
   }
 

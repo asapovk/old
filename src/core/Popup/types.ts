@@ -32,6 +32,7 @@ declare namespace PopupTypes {
     className?: string;
     children?: React.ReactNode;
     wrapperStyles?: SerializedStyles;
+    hideOnClick?: boolean;
   }
 }
 

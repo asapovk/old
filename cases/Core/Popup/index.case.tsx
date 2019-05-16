@@ -52,7 +52,15 @@ class PopupStory extends React.Component {
           justifyContent="center"
         >
           <Popup
-            content={<a css={css({ margin: "1rem .5rem" })}>Hello world!</a>}
+            hideOnClick
+            content={
+              <a
+                css={css({ margin: "1rem .5rem" })}
+                onClick={() => console.log("something")}
+              >
+                Hello world!
+              </a>
+            }
             wrapperStyles={css({
               width: "fit-content"
             })}
