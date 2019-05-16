@@ -30,7 +30,7 @@ const template: UIElement = {
                         $connect: ["TEST_TEXTFIELD"],
                         $required: true,
                         label: "Выбор 1",
-                        defaultValue: 2,
+                        defaultValue: { text: "YES", value: 1 },
                         options: [
                             { text: "YES", value: 1 },
                             { text: "Нужно выбрать YES", value: 2 }

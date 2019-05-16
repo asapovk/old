@@ -9,19 +9,22 @@ declare namespace SelectTypes {
     }
 
     export interface Props {
-        search?: boolean
         style?: CSSProperties
         label?: string
         floatingLabel?: string
         disabled?: boolean
         placeholder?: string
         options: Option[]
-        clearable?: boolean
         multiselect?: boolean
-        defaultValue?: any
-        onChange?: (value: any) => void
+        value?: Option | Option[]
+        defaultValue?: Option | Option[]
+        onChange?: (value: Option | Option[]) => void
         decoration?: TextFieldTypes.Decoration
         size?: SizeTypes
+        //TODO: clearable
+        clearable?: boolean
+        //TODO: search
+        search?: boolean
     }
 
     export interface SelectItemsProps {

@@ -42,7 +42,10 @@ export default forwardRef((props: Types.FieldProps, ref) => {
                             key={tag + index}
                             css={props.styles.tag}
                         >
-                            {tag} <Icon type='close' />
+                            {tag} <Icon type='close' onClick={(e) => {
+                                e.stopPropagation();
+                                props._onTagClose && props._onTagClose(index);
+                            }} />
                         </div>
 
                     )
