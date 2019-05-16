@@ -21,7 +21,7 @@ var Title = function (props) {
     }, []);
     return (core_1.jsx(__1.Flexbox, { style: style, css: styles.root },
         children,
-        (typeof onChange === "function") ? (core_1.jsx(__1.Flexbox, { css: styles.switchWrap },
+        (typeof props.onChange === "function") ? (core_1.jsx(__1.Flexbox, { css: styles.switchWrap },
             core_1.jsx("div", { css: styles.switchTitle(state), onClick: function () { return onChange(true); }, children: onLabel || "ВКЛ" }),
             core_1.jsx("div", { onClick: function () { return onChange(!state); }, children: core_1.jsx("div", { css: styles.switch, children: core_1.jsx("span", null) }) }),
             core_1.jsx("div", { css: styles.switchTitle(!state), onClick: function () { return onChange(false); }, children: offLabel || "ВЫКЛ" }))) : null));

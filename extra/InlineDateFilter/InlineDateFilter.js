@@ -19,12 +19,12 @@ exports.default = (function (props) {
     var _a = react_1.useState(''), currentM = _a[0], setM = _a[1];
     var _b = react_1.useState(''), currentY = _b[0], setY = _b[1];
     var years = [];
+    for (var year = 0; year < (props.yearsCount || 2); year++) {
+        years.push((currentYear + year).toString());
+    }
     react_1.useLayoutEffect(function () {
         setM(props.defaultMonth || props.month || moment_1.default().format('MM'));
         setY(props.defaultYear || props.year || moment_1.default().format('YYYY'));
-        for (var year = 0; year < (props.yearsCount || 2); year++) {
-            years.push((currentYear + year).toString());
-        }
     }, []);
     /**
      * For controlled component
