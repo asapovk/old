@@ -20,7 +20,6 @@ const FinderFilter = (props: FinderTypes.FilterProps) => {
         }
     }
 
-
     return (
         <div css={styles.filter}>
             <TextField

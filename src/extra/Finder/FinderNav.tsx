@@ -21,7 +21,7 @@ const FinderNav = (props: FinderTypes.NavProps) => {
     return (
         <Flexbox alignItems="center" css={styles.navItem(active)} onClick={expand}>
             <div>{label}</div>
-            {badge ? <div css={styles.badge}>{badge}</div> : null}
+            {badge ? <span css={styles.badge}>{badge}</span> : null}
             <Icon type='right' />
         </Flexbox>
     )

@@ -9,15 +9,15 @@ const FinderSection = (props: FinderTypes.SectionProps) => {
     const { label, children } = props
     const styles = createStyle()
 
-    const [expand, setExpand] = useState<boolean>(false)
+    const [active, setActive] = useState<boolean>(false)
 
     return (
         <Fragment>
-            <Flexbox alignItems="center" css={styles.section} onClick={() => setExpand(!expand)}>
+            <Flexbox alignItems="center" css={styles.navItem(active)} onClick={() => setActive(!active)}>
                 <div>{label}</div>
-                <Icon type={expand ? 'up' : 'down'} />
+                <Icon type={active ? 'up' : 'down'} />
             </Flexbox>
-            <div className='n-children'>{expand && children}</div>
+            <div className='n-children'>{active && children}</div>
         </Fragment>
     )
 }

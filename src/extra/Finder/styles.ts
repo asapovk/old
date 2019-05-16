@@ -15,12 +15,8 @@ export default () => {
             minWidth: 200,
         }),
         items: css({
-            padding: '0.75rem',
             maxHeight: '40rem',
             overflow: 'auto',
-            '> *': {
-                flexShrink: 0,
-            }
         }),
 
         filter: css({
@@ -29,16 +25,25 @@ export default () => {
             borderColor: theme.borders.textfield.borderColor,
         }),
 
-        section: css({
-
-        }),
-
         navItem: (active?: boolean) => css({
-
+            padding: '1.25rem 0.75rem',
+            '> div': {
+                flex: 1,
+            },
+            ':hover': {
+                background: theme.interface.hex
+            },
+            ...(active && {
+                background: theme.interface.rgba(0.7)
+            })
         }),
 
         badge: css({
-
+            userSelect: 'none',
+            padding: '0.15rem 0.25rem',
+            ...theme.borders.textfield,
+            background: theme.interface.hex,
+            marginRight: '0.5rem',
         }),
 
     }
