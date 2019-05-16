@@ -11,6 +11,6 @@ exports.default = (function (props) {
     var onClick = props.onClick, value = props.value, children = props.children, style = props.style, loading = props.loading, decoration = props.decoration, top = props.top, right = props.right, left = props.left, className = props.className;
     var styles = styles_1.default(decoration, top, right, left);
     return (core_1.jsx("div", { css: styles.container, style: style, onClick: onClick, className: className },
-        core_1.jsx("div", { css: styles.counter, children: !loading ? core_1.jsx(__1.Spin, { children: core_1.jsx(__1.Icon, { type: "sync" }) }) : value }),
+        core_1.jsx("div", { css: styles.counter, children: loading ? core_1.jsx(__1.Spin, { children: core_1.jsx(__1.Icon, { type: "sync" }) }) : value }),
         children));
 });
