@@ -1,0 +1,52 @@
+{
+  "name": "ui",
+  "version": "1.0.215",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git@gitlab.abr-region.ru:npm/ui.git"
+  },
+  "devDependencies": {
+    "@types/chart.js": "^2.7.40",
+    "@types/node": "^11.11.3",
+    "@types/react": "^16.8.17",
+    "@types/react-dom": "^16.8.4",
+    "@types/react-portal": "^4.0.2",
+    "@types/react-router-dom": "^4.3.1",
+    "@types/react-transition-group": "^2.9.0",
+    "@types/webpack-env": "^1.13.9",
+    "awesome-typescript-loader": "^5.2.1",
+    "fakerator": "^0.3.0",
+    "node-sass": "^4.11.0",
+    "react": "16.8.6",
+    "react-dom": "16.8.6",
+    "react-scripts": "^2.1.8",
+    "sass": "^1.15.1",
+    "sass-loader": "^7.1.0",
+    "showcase-ui": "ssh://git@gitlab.abr-region.ru:npm/showcase-ui.git",
+    "source-map-loader": "^0.2.4",
+    "style-loader": "^0.23.1",
+    "typescript": "^3.3.3",
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.3.0"
+  },
+  "scripts": {
+    "sync": "yarn build && git pull && git add . && git commit -m 'build' && npm version patch && git push && yarn testflight",
+    "build": "rm -fR dist/&& yarn build-ts && yarn build-copylib && cp package.json dist/",
+    "build-ts": "tsc",
+    "build-copylib": "cp -R src/extra/lib dist/extra/lib",
+    "showcase": "showcase",
+    "testflight": "git subtree push --prefix dist origin testflight",
+    "deploy": "npm version minor && git subtree push --prefix dist origin build"
+  },
+  "dependencies": {
+    "@emotion/core": "^10.0.9",
+    "chart.js": "^2.7.3",
+    "emotion-theming": "^10.0.9",
+    "randomcolor": "^0.5.4",
+    "react-chartjs-2": "^2.7.4",
+    "react-input-mask": "^2.0.4",
+    "react-portal": "^4.2.0",
+    "react-transition-group": "^3.0.0"
+  }
+}
