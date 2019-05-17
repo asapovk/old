@@ -47,7 +47,7 @@ exports.default = (function (checked, isRadio, uppercase, size) {
             fontSize: "1rem",
             lineHeight: "1.5rem",
             userSelect: "none",
-            color: labelColor ? theme[labelColor].hex : theme.text.hex
+            color: theme[labelColor] ? theme[labelColor].hex : theme.text.hex
         }, uppercase && {
             textTransform: "uppercase"
         }); },

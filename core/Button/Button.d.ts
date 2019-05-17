@@ -5,13 +5,13 @@ import React from 'react';
 declare type removed = 'highlight' | 'brand-red' | 'brand-purple' | 'red' | 'green' | 'orange' | 'blue' | 'grayscale';
 export interface ButtonProps {
     label?: string;
-    labelCase?: 'uppercase' | 'lowercase' | 'capitalize' | 'none';
-    labelSize?: 'small' | 'large' | 'normal';
+    labelCase?: 'default' | 'uppercase' | 'lowercase' | 'capitalize' | 'none';
+    labelSize?: 'default' | 'small' | 'large' | 'normal';
     labelWight?: string;
     type?: 'submit';
-    size?: 'small' | 'large';
-    decoration?: 'none' | 'inverse' | 'outline' | 'blur' | removed;
-    color?: 'highlight' | 'brand-red' | 'brand-purple' | 'red' | 'green' | 'orange' | 'blue' | 'grayscale';
+    size?: 'default' | 'small' | 'large';
+    decoration?: 'default' | 'none' | 'inverse' | 'outline' | 'blur' | removed;
+    color?: 'default' | 'highlight' | 'brand-red' | 'brand-purple' | 'red' | 'green' | 'orange' | 'blue' | 'grayscale';
     loading?: boolean;
     disabled?: boolean;
     onClick?: (MouseEvent?: any) => void;

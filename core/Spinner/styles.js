@@ -43,7 +43,7 @@ exports.default = (function (dark, color) {
                     height: "14px",
                     borderRadius: "20%",
                     opacity: 1,
-                    background: color ? theme[color].hex : theme.text.hex,
+                    background: theme[color] ? theme[color].hex : theme.text.hex,
                 },
             }
         }),
@@ -98,17 +98,17 @@ exports.default = (function (dark, color) {
                 "> :nth-of-type(1)": {
                     top: -circleRadius,
                     left: -circleRadius,
-                    backgroundColor: color ? theme[color].hex : theme.highlight.hex,
+                    backgroundColor: theme[color] ? theme[color].hex : theme.highlight.hex,
                 },
                 "> :nth-of-type(2)": {
                     top: Math.sqrt(3) * (edge / 2) - circleRadius,
                     left: (edge / 2) - circleRadius,
-                    backgroundColor: color ? theme[color].hex : theme.highlightSecondary.hex
+                    backgroundColor: theme[color] ? theme[color].hex : theme.highlightSecondary.hex
                 },
                 "> :nth-of-type(3)": {
                     top: Math.sqrt(3) * (edge / 2) - circleRadius,
                     left: -(edge / 2) - circleRadius,
-                    backgroundColor: color ? theme[color].hex : theme.highlightSecondary.hex
+                    backgroundColor: theme[color] ? theme[color].hex : theme.highlightSecondary.hex
                 }
             }
         })

@@ -1,5 +1,5 @@
-export declare type SizeTypes = 'extra-large' | 'large' | 'small' | 'default';
-export declare type DecorationTypes = 'none' | 'highlight' | 'red' | 'green' | 'orange' | 'blue' | 'grayscale';
+export declare type SizeTypes = 'default' | 'extra-large' | 'large' | 'small';
+export declare type DecorationTypes = 'default' | 'none' | 'highlight' | 'red' | 'green' | 'orange' | 'blue' | 'grayscale';
 export declare type SpacingProps = {
     p?: number | string;
     pr?: number | string;

@@ -34,7 +34,7 @@ exports.default = react_1.forwardRef(function (props, ref) {
             fontSize: props.size,
             margin: props.shape ? "0.4em" : ""
         }, props.color && {
-            color: theme[props.color].rgb
+            color: theme[props.color] && theme[props.color].rgb
         }, !props.shape && containerStyles), children: exports.ICONSET[props.type] }, (!props.shape && providedProps)));
     if (props.shape) {
         switch (props.shape) {
@@ -51,7 +51,7 @@ exports.default = react_1.forwardRef(function (props, ref) {
                             "&:hover": {
                                 background: props.background || theme.background2.rgb,
                                 ">*": props.hoverColor && {
-                                    color: theme[props.hoverColor].rgb
+                                    color: theme[props.hoverColor] && theme[props.hoverColor].rgb
                                 }
                             }
                         }

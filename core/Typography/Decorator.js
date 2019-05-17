@@ -43,7 +43,7 @@ var Header = function (props) {
         className: props.className,
         onClick: props.onClick,
         css: core_1.css(__assign({}, props.typography, { display: props.type === "caption" ? "inline-block" : "block", lineHeight: props.typography.fontSize, marginRight: props.mr, paddingBottom: "calc(0.625rem + 1px)", marginBottom: "-1px" }), props.color && {
-            color: props.theme[props.color].rgb
+            color: props.theme[props.color] && props.theme[props.color].rgb
         }, props.menu && {
             cursor: "pointer"
         }, props.ellipsis && {

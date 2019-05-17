@@ -35,11 +35,11 @@ var Typography = react_1.forwardRef(function (props, ref) {
             className: props.className,
             onClick: !props.disabled ? props.onClick : undefined,
             css: core_1.css(__assign({}, typography, { display: props.type === 'caption' ? 'inline-block' : 'block', padding: props.p, paddingTop: props.pt, paddingLeft: props.pl, paddingRight: props.pr, paddingBottom: props.pb, margin: props.m, marginTop: props.mt, marginLeft: props.ml, marginRight: props.mr, marginBottom: props.mb, textAlign: props.align }), (!props.accent && props.color) && {
-                color: theme[props.color].rgb
+                color: theme[props.color] && theme[props.color].rgb
             }, props.accent && {
-                color: theme.accents[props.accent].rgb
+                color: theme.accents[props.accent] && theme.accents[props.accent].rgb
             }, props.background && {
-                background: theme[props.background].rgb
+                background: theme[props.background] && theme[props.background].rgb
             }, props.bold && {
                 fontWeight: 'bold'
             }, props.link && {
