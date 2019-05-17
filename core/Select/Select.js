@@ -24,7 +24,8 @@ exports.default = (function (props) {
         disabled: disabled,
         floatingLabel: false,
         multiline: false,
-        leftIcon: false
+        leftIcon: false,
+        focused: false
     });
     var toggle = function () { return !disabled && setOpen(!open); };
     var onSelect = function (option) {

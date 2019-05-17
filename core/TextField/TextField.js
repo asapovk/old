@@ -59,7 +59,8 @@ exports.default = react_1.forwardRef(function (props, ref) {
         disabled: props.disabled || props.loading,
         decoration: props.decoration,
         floatingLabel: props.floatingLabel,
-        leftIcon: props.leftIcon
+        leftIcon: props.leftIcon,
+        focused: focused
     });
     var RightGlyph = function () {
         if (props.rightLabel) {
@@ -73,18 +74,16 @@ exports.default = react_1.forwardRef(function (props, ref) {
     return (core_1.jsx(__1.Flexbox, { css: styles.container, className: props.className, style: props.style, flexDirection: 'column' },
         props.label && (core_1.jsx("span", { css: styles.label, children: props.label })),
         core_1.jsx(__1.Flexbox, { css: styles.wrapper, alignItems: 'center', onClick: function (e) {
-                try {
-                    // Focus on click if outsize of input
-                    for (var _i = 0, _a = e.target.children; _i < _a.length; _i++) {
-                        var child = _a[_i];
-                        if (child.nodeName === 'INPUT')
-                            child.focus();
-                    }
-                }
-                catch (_) { }
+                // try {
+                //     // Focus on click if outsize of input
+                //     for (const child of e.target.children)
+                //         if (child.nodeName === 'INPUT') {
+                //             child.focus()
+                //         }
+                // } catch (_) { }
                 props.onClick && props.onClick(e);
             }, onMouseDown: props.onMouseDown, onMouseUp: props.onMouseUp, children: (core_1.jsx(react_1.Fragment, null,
-                (props.floatingLabel && (props.size && props.size !== 'small')) && (core_1.jsx("label", { css: styles.floatingLabel(focused || !!value), children: props.floatingLabel })),
+                (props.floatingLabel && (props.size && props.size !== 'small')) && (core_1.jsx("label", { css: styles.floatingLabelStyle(focused || !!value), children: props.floatingLabel })),
                 props.leftIcon && core_1.jsx(__1.Icon, { css: styles.icon('left'), type: props.leftIcon }),
                 core_1.jsx(Field_1.default, { styles: styles, ref: ref, multiline: props.multiline, mask: props.mask, onFocus: function (event) {
                         setFocused(true);

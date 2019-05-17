@@ -14,9 +14,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@emotion/core");
 var hooks_1 = require("../../hooks");
 exports.default = (function (_a) {
-    var multiline = _a.multiline, size = _a.size, disabled = _a.disabled, decoration = _a.decoration, floatingLabel = _a.floatingLabel, leftIcon = _a.leftIcon;
+    var multiline = _a.multiline, size = _a.size, disabled = _a.disabled, decoration = _a.decoration, floatingLabel = _a.floatingLabel, leftIcon = _a.leftIcon, focused = _a.focused;
     var theme = hooks_1.useTheme().theme;
-    var extraParams = getExtraParams(size, decoration, leftIcon);
+    var ep = getExtraParams(size, decoration, leftIcon);
+    console.log(floatingLabel);
     return {
         container: core_1.css({
             flex: 1,
@@ -25,25 +26,25 @@ exports.default = (function (_a) {
             opacity: .5
         }),
         label: core_1.css({
-            fontSize: extraParams.labelSize,
-            lineHeight: extraParams.labelLineHeight,
+            fontSize: ep.labelSize,
+            lineHeight: ep.labelLineHeight,
             marginBottom: '0.25rem',
             color: theme.lowlight.rgb
         }),
-        floatingLabel: function (minified) { return core_1.css({
+        floatingLabelStyle: function (minified) { return core_1.css({
             position: 'absolute',
             pointerEvents: 'none',
             top: 0,
             left: 0,
             transition: 'all .2s ease-in-out',
             color: theme.lowlight.rgb,
-            transform: "translate(" + extraParams.floatingLabelTranslate.start + ") scale(1)",
+            transform: "translate(" + ep.floatingLabelTranslate.start + ") scale(1)",
             transformOrigin: 'top left',
-            fontSize: extraParams.textSize,
-            lineHeight: extraParams.textLineHeight,
+            fontSize: ep.textSize,
+            lineHeight: ep.textLineHeight,
         }, minified && {
             color: theme.lowlight.rgb,
-            transform: "translate(" + extraParams.floatingLabelTranslate.end + ") scale(0.75)",
+            transform: "translate(" + ep.floatingLabelTranslate.end + ") scale(0.75)",
         }); },
         wrapper: core_1.css(__assign({ backgroundColor: theme.interface.rgb, overflow: 'hidden', boxSizing: 'border-box' }, theme.borders.textfield), decoration === 'borderBottom' && {
             borderRadius: '0',
@@ -59,29 +60,37 @@ exports.default = (function (_a) {
         }, multiline
             ? {
                 height: '100%',
-                padding: "" + extraParams.textareaPadding
+                padding: "" + ep.textareaPadding
             }
             : {
-                minHeight: extraParams.inputHeight,
-                padding: "0 " + extraParams.inputPadding
+                minHeight: ep.inputHeight,
+                padding: "0 " + ep.inputPadding
             }),
         field: function (fullHeight, isTagsContaier) {
             if (fullHeight === void 0) { fullHeight = false; }
             if (isTagsContaier === void 0) { isTagsContaier = false; }
-            return core_1.css(__assign({ 
+            var calcPadding = "calc((" + ep.inputHeight + " - " + ep.labelLineHeight + ") / 2 - 1px)";
+            var calcPaddingWithFocus = "calc((" + ep.inputHeight + " - " + ep.labelLineHeight + ") / 2 - 1px" + ((focused && floatingLabel) ? ' - ' + ep.inputMargin : '') + ")";
+            return (core_1.css(__assign({ 
                 // height: '100%',
-                width: '100%', border: 'none', boxSizing: 'border-box', background: 'none', outline: 'none', position: 'relative', color: theme.text.rgb, fontFamily: 'inherit', margin: 0, padding: 0, resize: 'none', fontWeight: 700, transform: 'translateY(0)', fontSize: extraParams.textSize, lineHeight: extraParams.textLineHeight, marginTop: floatingLabel ? extraParams.inputMargin : 0, '::placeholder': {
+                width: '100%', border: 'none', boxSizing: 'border-box', background: 'none', outline: 'none', position: 'relative', color: theme.text.rgb, fontFamily: 'inherit', margin: 0, 
+                // padding: 0,
+                resize: 'none', fontWeight: 700, transform: 'translateY(0)', fontSize: ep.textSize, lineHeight: ep.textLineHeight, padding: calcPaddingWithFocus + " 0 " + calcPadding + " 0", '::placeholder': {
                     color: theme.lowlight.rgb,
                     fontWeight: 'normal'
                 } }, (fullHeight && {
                 height: '100%'
             }), (isTagsContaier && {
-                margin: "calc(" + extraParams.iconMargin + " / 2)",
-                marginLeft: "-" + extraParams.inputPadding,
+                margin: "calc(" + ep.iconMargin + " / 2)",
+                marginLeft: "-" + ep.inputPadding,
                 height: '100%',
-            })));
+                padding: 0,
+                marginTop: floatingLabel ? ep.inputMargin : 0,
+            }), (focused && {
+                marginTop: floatingLabel ? ep.inputMargin : 0
+            }))));
         },
-        tag: core_1.css(__assign({ userSelect: 'none', display: 'inline-block', padding: extraParams.tagPadding }, theme.borders.textfield, { borderRadius: "calc(" + theme.borders.textfield.borderRadius + " / 2)", borderColor: theme.highlight.rgba(.1), background: theme.highlight.rgba(.05), marginTop: "calc(" + extraParams.iconMargin + " / 2)", marginLeft: "calc(" + extraParams.iconMargin + " / 2)", fontWeight: 'normal' })),
+        tag: core_1.css(__assign({ userSelect: 'none', display: 'inline-block', padding: ep.tagPadding }, theme.borders.textfield, { borderRadius: "calc(" + theme.borders.textfield.borderRadius + " / 2)", borderColor: theme.highlight.rgba(.1), background: theme.highlight.rgba(.05), marginTop: "calc(" + ep.iconMargin + " / 2)", marginLeft: "calc(" + ep.iconMargin + " / 2)", fontWeight: 'normal' })),
         icon: function (position) {
             if (position === void 0) { position = null; }
             return core_1.css({
@@ -89,20 +98,20 @@ exports.default = (function (_a) {
                 alignItems: 'center',
                 justifyContent: 'center',
                 color: theme.lowlight.rgb,
-                fontSize: extraParams.iconSize,
+                fontSize: ep.iconSize,
                 userSelect: 'none',
             }, !position
-                ? { fontSize: extraParams.loadingSize }
+                ? { fontSize: ep.loadingSize }
                 : position === 'left'
-                    ? { marginRight: extraParams.iconMargin }
-                    : { marginLeft: extraParams.iconMargin });
+                    ? { marginRight: ep.iconMargin }
+                    : { marginLeft: ep.iconMargin });
         },
         rightLabel: core_1.css({
             userSelect: 'none',
             color: theme.lowlight.rgba(0.5),
             fontWeight: 400,
-            fontSize: extraParams.textSize,
-            lineHeight: extraParams.textLineHeight,
+            fontSize: ep.textSize,
+            lineHeight: ep.textLineHeight,
         })
     };
 });
@@ -113,6 +122,7 @@ function getExtraParams(size, decoration, leftIcon) {
             return {
                 inputHeight: '5rem',
                 inputPadding: withoutDecoration ? '0' : '1.25rem',
+                inputCompensivePadding: "calc(" + (5 - 1.5) / 2 + "rem - 1px) 0",
                 textareaPadding: '1.75rem 1.25rem',
                 iconSize: '2rem',
                 loadingSize: '1.5rem',
@@ -132,6 +142,7 @@ function getExtraParams(size, decoration, leftIcon) {
             return {
                 inputHeight: '2.75rem',
                 inputPadding: withoutDecoration ? '0' : '0.75rem',
+                inputCompensivePadding: 'calc((2.75rem - 1.5rem) / 2 - 1px) 0',
                 textareaPadding: '0.5rem 0.75rem',
                 iconSize: '1.25rem',
                 loadingSize: '1.25rem',
@@ -151,6 +162,7 @@ function getExtraParams(size, decoration, leftIcon) {
             return {
                 inputHeight: '1.75rem',
                 inputPadding: withoutDecoration ? '0' : '0.5rem',
+                inputCompensivePadding: 'calc((1.75rem - 1rem) / 2 - 1px) 0',
                 textareaPadding: '0.5rem',
                 iconSize: '0.75rem',
                 loadingSize: '0.75rem',
@@ -170,6 +182,7 @@ function getExtraParams(size, decoration, leftIcon) {
             return {
                 inputHeight: '2rem',
                 inputPadding: withoutDecoration ? '0' : '0.5rem',
+                inputCompensivePadding: 'calc((2rem - 1.25rem) / 2 - 1px) 0',
                 textareaPadding: '0.5rem',
                 iconSize: '1rem',
                 loadingSize: '1rem',
