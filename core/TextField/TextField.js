@@ -60,7 +60,7 @@ exports.default = react_1.forwardRef(function (props, ref) {
         decoration: props.decoration,
         floatingLabel: props.floatingLabel,
         leftIcon: props.leftIcon,
-        focused: focused
+        focused: focused || !!value
     });
     var RightGlyph = function () {
         if (props.rightLabel) {
