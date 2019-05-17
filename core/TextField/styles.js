@@ -17,7 +17,6 @@ exports.default = (function (_a) {
     var multiline = _a.multiline, size = _a.size, disabled = _a.disabled, decoration = _a.decoration, floatingLabel = _a.floatingLabel, leftIcon = _a.leftIcon, focused = _a.focused;
     var theme = hooks_1.useTheme().theme;
     var ep = getExtraParams(size, decoration, leftIcon);
-    console.log(floatingLabel);
     return {
         container: core_1.css({
             flex: 1,
