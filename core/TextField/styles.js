@@ -69,7 +69,7 @@ exports.default = (function (_a) {
         field: function (fullHeight, isTagsContaier) {
             if (fullHeight === void 0) { fullHeight = false; }
             if (isTagsContaier === void 0) { isTagsContaier = false; }
-            var calcPadding = "calc((" + ep.inputHeight + " - " + ep.labelLineHeight + ") / 2)";
+            var calcPadding = "calc((" + ep.inputHeight + " - " + ep.textLineHeight + ") / 2)";
             var calcPaddingFloatingTop = "calc(" + calcPadding + " + " + ep.inputMargin + " / 2)";
             var calcPaddingFloatingBottom = "calc(" + calcPadding + " - " + ep.inputMargin + " / 2)";
             return (core_1.css(__assign({ 
