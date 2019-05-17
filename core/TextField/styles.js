@@ -69,13 +69,14 @@ exports.default = (function (_a) {
         field: function (fullHeight, isTagsContaier) {
             if (fullHeight === void 0) { fullHeight = false; }
             if (isTagsContaier === void 0) { isTagsContaier = false; }
-            var calcPadding = "calc((" + ep.inputHeight + " - " + ep.labelLineHeight + ") / 2 - 1px)";
-            var calcPaddingWithFocus = "calc((" + ep.inputHeight + " - " + ep.labelLineHeight + ") / 2 - 1px" + ((focused && floatingLabel) ? ' - ' + ep.inputMargin : '') + ")";
+            var calcPadding = "calc((" + ep.inputHeight + " - " + ep.labelLineHeight + ") / 2)";
+            var calcPaddingFloatingTop = "calc(" + calcPadding + " + " + ep.inputMargin + " / 2)";
+            var calcPaddingFloatingBottom = "calc(" + calcPadding + " - " + ep.inputMargin + " / 2)";
             return (core_1.css(__assign({ 
                 // height: '100%',
                 width: '100%', border: 'none', boxSizing: 'border-box', background: 'none', outline: 'none', position: 'relative', color: theme.text.rgb, fontFamily: 'inherit', margin: 0, 
                 // padding: 0,
-                resize: 'none', fontWeight: 700, transform: 'translateY(0)', fontSize: ep.textSize, lineHeight: ep.textLineHeight, padding: calcPaddingWithFocus + " 0 " + calcPadding + " 0", '::placeholder': {
+                resize: 'none', fontWeight: 700, transform: 'translateY(0)', fontSize: ep.textSize, lineHeight: ep.textLineHeight, padding: calcPadding + " 0", '::placeholder': {
                     color: theme.lowlight.rgb,
                     fontWeight: 'normal'
                 } }, (fullHeight && {
@@ -85,9 +86,9 @@ exports.default = (function (_a) {
                 marginLeft: "-" + ep.inputPadding,
                 height: '100%',
                 padding: 0,
-                marginTop: floatingLabel ? ep.inputMargin : 0,
-            }), (focused && {
-                marginTop: floatingLabel ? ep.inputMargin : 0
+            }), ((focused && floatingLabel) && {
+                paddingTop: calcPaddingFloatingTop,
+                paddingBottom: calcPaddingFloatingBottom
             }))));
         },
         tag: core_1.css(__assign({ userSelect: 'none', display: 'inline-block', padding: ep.tagPadding }, theme.borders.textfield, { borderRadius: "calc(" + theme.borders.textfield.borderRadius + " / 2)", borderColor: theme.highlight.rgba(.1), background: theme.highlight.rgba(.05), marginTop: "calc(" + ep.iconMargin + " / 2)", marginLeft: "calc(" + ep.iconMargin + " / 2)", fontWeight: 'normal' })),
@@ -122,7 +123,6 @@ function getExtraParams(size, decoration, leftIcon) {
             return {
                 inputHeight: '5rem',
                 inputPadding: withoutDecoration ? '0' : '1.25rem',
-                inputCompensivePadding: "calc(" + (5 - 1.5) / 2 + "rem - 1px) 0",
                 textareaPadding: '1.75rem 1.25rem',
                 iconSize: '2rem',
                 loadingSize: '1.5rem',
@@ -142,7 +142,6 @@ function getExtraParams(size, decoration, leftIcon) {
             return {
                 inputHeight: '2.75rem',
                 inputPadding: withoutDecoration ? '0' : '0.75rem',
-                inputCompensivePadding: 'calc((2.75rem - 1.5rem) / 2 - 1px) 0',
                 textareaPadding: '0.5rem 0.75rem',
                 iconSize: '1.25rem',
                 loadingSize: '1.25rem',
@@ -162,7 +161,6 @@ function getExtraParams(size, decoration, leftIcon) {
             return {
                 inputHeight: '1.75rem',
                 inputPadding: withoutDecoration ? '0' : '0.5rem',
-                inputCompensivePadding: 'calc((1.75rem - 1rem) / 2 - 1px) 0',
                 textareaPadding: '0.5rem',
                 iconSize: '0.75rem',
                 loadingSize: '0.75rem',
@@ -182,7 +180,6 @@ function getExtraParams(size, decoration, leftIcon) {
             return {
                 inputHeight: '2rem',
                 inputPadding: withoutDecoration ? '0' : '0.5rem',
-                inputCompensivePadding: 'calc((2rem - 1.25rem) / 2 - 1px) 0',
                 textareaPadding: '0.5rem',
                 iconSize: '1rem',
                 loadingSize: '1rem',
