@@ -16,7 +16,7 @@ declare namespace SelectTypes {
         multiselect?: boolean;
         value?: Option | Option[];
         defaultValue?: Option | Option[];
-        onChange?: (value: Option | Option[]) => void;
+        onChange?: (value: Option[]) => void;
         decoration?: TextFieldTypes.Decoration;
         size?: SizeTypes;
         clearable?: boolean;

@@ -46,7 +46,11 @@ exports.default = (function (props) {
             setSelectedValues(Array.isArray(value) ? value : [value]);
         }
         else {
-            setSelectedValues(Array.isArray(value) ? ([value[0]] || []) : [value]);
+            setSelectedValues(Array.isArray(value)
+                ? value[0]
+                    ? [value[0]]
+                    : []
+                : [value]);
         }
     }, []);
     return (core_1.jsx("div", { style: props.style },

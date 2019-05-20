@@ -20,7 +20,7 @@ exports.default = (function (props) {
     var _b = react_1.useState(''), currentY = _b[0], setY = _b[1];
     var years = [];
     for (var year = 0; year < (props.yearsCount || 2); year++) {
-        years.push((currentYear + year).toString());
+        years.push((currentYear - year).toString());
     }
     react_1.useLayoutEffect(function () {
         setM(props.defaultMonth || props.month || moment_1.default().format('MM'));
