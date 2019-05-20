@@ -41,9 +41,9 @@ var Alert = /** @class */ (function (_super) {
         var _this = this;
         return (react_1.default.createElement(__1.Modal, { ref: function (ref) { return _this.modal = ref; }, title: this.props.title },
             react_1.default.createElement(__1.Flexbox, { column: true, justifyContent: "flex-end" },
-                react_1.default.createElement(__1.Flexbox, { mt: -5, mb: 10 }, this.props.text),
+                react_1.default.createElement(__1.Flexbox, { mt: '1rem', mb: '2rem', style: { minWidth: '20rem' } }, this.props.text),
                 react_1.default.createElement(__1.Flexbox, { justifyContent: "flex-end" },
-                    react_1.default.createElement(__1.Button, { onClick: function () { return _this.modal && _this.modal.close(_this.props.onAlertClose); }, children: "\u0417\u0430\u043A\u0440\u044B\u0442\u044C" })))));
+                    react_1.default.createElement(__1.Button, { color: 'highlight', onClick: function () { return _this.modal && _this.modal.close(_this.props.onAlertClose); }, children: "\u0417\u0430\u043A\u0440\u044B\u0442\u044C" })))));
     };
     return Alert;
 }(react_1.default.Component));
