@@ -65,7 +65,7 @@ exports.default = (function () {
                 flex: 1,
             },
         }),
-        body: core_1.css(__assign({}, theme.borders.table, { backgroundColor: theme.interface.rgb, boxShadow: theme.shadows.table })),
+        body: core_1.css(__assign({ position: 'relative' }, theme.borders.table, { backgroundColor: theme.interface.rgb, boxShadow: theme.shadows.table })),
         pagination: core_1.css({
             padding: '0.3rem 0.25rem 0.25rem 0rem',
             marginTop: '3rem',
