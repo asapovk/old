@@ -8,17 +8,17 @@ var core_1 = require("@emotion/core");
 var styles_1 = __importDefault(require("./styles"));
 var TablePagination = function (props) {
     var data = props.data, page = props.page, searchActive = props.searchActive, search = props.search, onChange = props.onChange;
-    var pageSize = props.pagination.pageSize;
-    var buttons = Math.ceil(data.length / pageSize);
-    var _a = styles_1.default(), pagination = _a.pagination, paginationButton = _a.paginationButton;
+    var _a = props.pagination, pageSize = _a.pageSize, pageTotalSize = _a.pageTotalSize;
+    var buttons = Math.ceil((pageTotalSize || data.length) / pageSize);
+    var _b = styles_1.default(), pagination = _b.pagination, paginationButton = _b.paginationButton;
     if (buttons <= 1 && !search) {
         return null;
     }
     var childs = props ? [(core_1.jsx("div", { key: "pagination", onClick: function () { return onChange(1, true); }, css: paginationButton(searchActive), children: "\u041D\u0430\u0439\u0442\u0438" }))] : [];
     var _loop_1 = function (i) {
-        childs.push(core_1.jsx("div", { key: i, onClick: function () { return onChange(i + 1, false); }, css: paginationButton(page === (i + 1)), children: i * pageSize + "\u2013" + (i * pageSize + pageSize) }));
+        childs.push(core_1.jsx("div", { key: i, onClick: function () { return onChange(i, false); }, css: paginationButton(page === (i)), children: i * pageSize + "\u2013" + (i * pageSize + pageSize) }));
     };
-    for (var i = 0; i < buttons; i++) {
+    for (var i = 1; i < buttons; i++) {
         _loop_1(i);
     }
     return core_1.jsx("div", { css: pagination, children: childs });

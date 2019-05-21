@@ -31,7 +31,7 @@ exports.default = (function (dark, color) {
             width: "4rem",
             height: "4rem",
             "> div": {
-                transformOrigin: "2rem 2rem",
+                transformOrigin: '32px 32px',
                 animation: spinnerAnimation + " 1.2s linear infinite",
                 "&::after": {
                     content: "''",

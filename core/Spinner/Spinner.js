@@ -21,16 +21,16 @@ var Flexbox_1 = require("../Flexbox");
 var styles_1 = __importDefault(require("./styles"));
 var react_1 = require("react");
 exports.default = (function (props) {
-    var spinning = props.spinning, center = props.center, className = props.className, dark = props.dark, children = props.children, style = props.style, defaultElement = props.defaultElement, color = props.color, loadingText = props.loadingText;
+    var spinning = props.spinning, center = props.center, className = props.className, dark = props.dark, children = props.children, style = props.style, type = props.type, color = props.color, loadingText = props.loadingText;
     var styles = styles_1.default(dark);
     if (!spinning) {
         return children || null;
     }
-    var El = (core_1.jsx(react_1.Fragment, null, defaultElement
-        ? core_1.jsx(Spin, __assign({}, props))
-        : core_1.jsx(Flexbox_1.Flexbox, { column: true, justifyContent: 'center', alignItems: 'center' },
+    var El = (core_1.jsx(react_1.Fragment, null, type === 'smorodina'
+        ? core_1.jsx(Flexbox_1.Flexbox, { column: true, justifyContent: 'center', alignItems: 'center' },
             core_1.jsx(Logo, __assign({}, props)),
-            loadingText && (core_1.jsx(__1.C2, { bold: true, color: color || "lowlight", css: core_1.css({ marginTop: "2.5rem" }), children: loadingText })))));
+            loadingText && (core_1.jsx(__1.C2, { bold: true, color: color || "lowlight", css: core_1.css({ marginTop: "2.5rem" }), children: loadingText })))
+        : core_1.jsx(Spin, __assign({}, props))));
     if (center) {
         return (core_1.jsx("div", { css: styles.centeredContainer, style: style, className: className }, El));
     }

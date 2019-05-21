@@ -60,13 +60,17 @@ declare namespace TableTypes {
     }
     interface PaginationOptions {
         pageSize: number;
+        pageTotalSize?: number;
+        async?: (page: number) => boolean;
     }
     interface PaginationProps {
         pagination: PaginationOptions;
         page: number;
         searchActive: boolean;
         search?: boolean;
-        data: any;
+        data: {
+            [key: string]: any;
+        }[];
         onChange: (page: number, searchBar: boolean) => void;
         children?: any;
     }

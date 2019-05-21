@@ -24,9 +24,9 @@ exports.default = (function () {
             right: 0,
             top: 0,
             zIndex: 100,
-            float: 'right',
+            float: 'right'
         }),
-        item: core_1.css(__assign({ width: 300, margin: '0.75rem', marginBottom: 0, padding: '1rem' }, theme.borders.card, { background: theme.interface.hex, color: theme.text.hex })),
+        item: core_1.css(__assign({ width: 300, margin: '0.75rem', marginBottom: 0, padding: '1rem', background: theme.interface.hex, color: theme.text.hex }, theme.borders.card, { boxShadow: theme.shadows.card.default })),
         title: core_1.css({
             fontWeight: 600,
             fontSize: '1.125rem',

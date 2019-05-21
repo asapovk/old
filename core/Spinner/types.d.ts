@@ -7,7 +7,7 @@ declare namespace SpinnerTypes {
         children?: any;
         style?: CSSProperties;
         className?: string;
-        defaultElement?: boolean;
+        type?: 'default' | 'smorodina';
         loadingText?: string;
         color?: "text" | "highlight" | "pale" | "textOnAccent" | "lowlight" | "light" | "highlightSecondary";
     }
