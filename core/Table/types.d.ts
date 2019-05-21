@@ -38,6 +38,7 @@ declare namespace TableTypes {
         border?: any;
         scope?: any;
         form?: any;
+        style?: any;
         children?: any;
         onRowClick?: (row: any) => void;
     }

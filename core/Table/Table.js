@@ -130,7 +130,9 @@ var Table = function (props) {
                 core_1.jsx(AddForm, null),
                 isData && pageData.map(function (row, index) {
                     var key = indexKey && row[indexKey] || index.toString();
-                    return (core_1.jsx(TableRow_1.default, { key: key, row: row, columns: columns, actions: actions, border: border, form: (form && form.key && key == form.key) && form.render, isSelected: (selectedItems.some(function (item) { return item === key; })), isExpanding: (expandedItems.some(function (item) { return item === key; })), isBlur: ((form && form.key && key != form.key) || isAddForm), scope: scope, onRowClick: onRowClick }));
+                    return (core_1.jsx(TableRow_1.default, { key: key, row: row, columns: columns, actions: actions, border: border, form: (form && form.key && key == form.key) && form.render, isSelected: (selectedItems.some(function (item) { return item === key; })), isExpanding: (expandedItems.some(function (item) { return item === key; })), isBlur: ((form && form.key && key != form.key) || isAddForm), scope: scope, onRowClick: onRowClick, style: {
+                            opacity: pending ? 0.2 : 1
+                        } }));
                 }),
                 pending && (core_1.jsx("div", { style: { position: 'absolute', left: 0, right: 0, top: 0, bottom: 0 } },
                     core_1.jsx(Spinner_1.Spinner, { spinning: true, center: true }))),
