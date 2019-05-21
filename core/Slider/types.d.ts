@@ -4,7 +4,6 @@ declare namespace CardTypes {
         min?: number;
         max?: number;
         defaultValue?: number;
-        step?: number;
         value?: number;
         onChange?: (value: number) => void;
         style?: CSSProperties;

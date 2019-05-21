@@ -25,6 +25,7 @@ export { InlineFilter } from './core/InlineFilter';
 export { Grid } from './core/Grid';
 export { List } from './core/List';
 export { ScrollView } from './core/ScrollView';
+export { Slider } from './core/Slider';
 /**
  * Extra components
  */

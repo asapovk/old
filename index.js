@@ -69,6 +69,8 @@ var List_1 = require("./core/List");
 exports.List = List_1.List;
 var ScrollView_1 = require("./core/ScrollView");
 exports.ScrollView = ScrollView_1.ScrollView;
+var Slider_1 = require("./core/Slider");
+exports.Slider = Slider_1.Slider;
 /**
  * Extra components
  */
