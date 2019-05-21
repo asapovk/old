@@ -86,11 +86,14 @@ export interface ThemeInterface {
 }
 export declare const createStyles: (themeName?: string | undefined) => {
     theme: ThemeInterface;
+    global: () => import("@emotion/utils").SerializedStyles;
 };
 export declare const StylesContext: React.Context<{
     theme: ThemeInterface;
+    global: () => import("@emotion/utils").SerializedStyles;
 }>;
 declare const _default: React.ExoticComponent<React.ConsumerProps<{
     theme: ThemeInterface;
+    global: () => import("@emotion/utils").SerializedStyles;
 }>>;
 export default _default;
