@@ -19,16 +19,11 @@ var useTheme_1 = __importDefault(require("../../hooks/useTheme"));
 var useTypography_1 = __importDefault(require("../../hooks/useTypography"));
 exports.default = (function (props) {
     var theme = useTheme_1.default().theme;
-    var decoration = props.decoration, color = props.color, size = props.size, disabled = props.disabled, loading = props.loading, labelSize = props.labelSize, labelCase = props.labelCase, labelWight = props.labelWight;
-    var decorations = getDecoration(decoration, color, size, labelSize, disabled);
+    var decor = decorations(props, theme);
+    var color = props.color, disabled = props.disabled, loading = props.loading;
     return {
         color: color,
-        button: core_1.css(__assign({}, decorations, { fontWeight: 'bold', position: 'relative', outline: 'none', cursor: 'pointer', userSelect: 'none' }, (labelWight && {
-            fontWeight: labelWight
-        }), (labelCase && {
-            textTransform: labelCase
-        }), (disabled && {
-            // opacity: 0.5,
+        button: core_1.css(__assign({}, decor, { fontWeight: 'bold', position: 'relative', outline: 'none', cursor: 'pointer', userSelect: 'none' }, (disabled && {
             background: theme.disabled.hex,
             boxShadow: 'none',
             color: 'rgb(163,163,163)',
@@ -39,14 +34,13 @@ exports.default = (function (props) {
             opacity: 0
         }))),
         loading: core_1.css(__assign({ position: 'absolute', pointerEvents: 'none', top: '50%', left: '50%', marginLeft: '-2rem', marginTop: '-2rem', display: 'inline-block', visibility: 'hidden', opacity: 0, transform: 'scale(0.1)', transition: 'all .3s ease' }, (loading && {
-            transform: "scale(" + decorations.loadingScale + ")",
+            transform: "scale(" + decor.loadingScale + ")",
             visibility: 'visible',
             opacity: 1,
         }))),
     };
 });
-function getDecoration(decoration, color, size, labelSize, disabled) {
-    var theme = useTheme_1.default().theme;
+function decorations(props, theme) {
     var typography = useTypography_1.default();
     var height = '2rem';
     var padding = '0 1rem';
@@ -57,9 +51,8 @@ function getDecoration(decoration, color, size, labelSize, disabled) {
     var textColor = theme.text.rgb;
     var outlineColor = theme.text.rgb;
     var border = theme.borders.button.borderWidth + " " + theme.borders.button.borderStyle + " " + theme.borders.button.borderColor;
-    var filter;
     var loadingScale = 0.3;
-    switch (color) {
+    switch (props.color) {
         case 'highlight':
             background = theme.highlight.rgb;
             textColor = theme.textOnAccent.rgb;
@@ -109,7 +102,7 @@ function getDecoration(decoration, color, size, labelSize, disabled) {
             border = 'none';
             break;
     }
-    switch (decoration) {
+    switch (props.decoration) {
         case 'inverse':
             background = [textColor, textColor = background][0];
             break;
@@ -133,7 +126,7 @@ function getDecoration(decoration, color, size, labelSize, disabled) {
             textColor = theme.text.rgb;
             break;
     }
-    switch (size) {
+    switch (props.size) {
         case 'small':
             height = '1.75rem';
             textStyles = typography.caption[3];
@@ -146,29 +139,17 @@ function getDecoration(decoration, color, size, labelSize, disabled) {
             loadingScale = 0.4;
             break;
     }
-    switch (labelSize) {
-        case 'small':
-            textStyles = typography.caption[3];
-            break;
-        case 'normal':
-            textStyles = typography.caption[2];
-            break;
-        case 'large':
-            textStyles = typography.caption[1];
-            break;
-    }
-    var pseudo = {
-        transition: 'all .1s ease-in-out',
-        willChange: 'box-shadow',
-        '&:active': {
-            // boxShadow: 'none !important',
-            boxShadow: disabled
+    return __assign({ padding: padding,
+        loadingScale: loadingScale,
+        background: background,
+        boxShadow: boxShadow,
+        borderRadius: borderRadius, color: textColor, border: border,
+        height: height, transition: 'all .1s ease-in-out', willChange: 'box-shadow', '&:active': {
+            boxShadow: props.disabled
                 ? 'none'
-                : !decoration
+                : !props.decoration
                     ? theme.shadows.button.active
                     : 'none',
             border: border
-        }
-    };
-    return __assign({ filter: filter, padding: padding, loadingScale: loadingScale, background: background, boxShadow: boxShadow, borderRadius: borderRadius, color: textColor, border: border, height: height }, textStyles, pseudo);
+        } }, textStyles);
 }

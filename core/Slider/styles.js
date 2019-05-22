@@ -9,6 +9,7 @@ exports.default = (function () {
             position: 'relative',
             minWidth: '4rem',
             height: 'calc(1rem + 4px)',
+            cursor: 'pointer',
         }),
         rail: core_1.css({
             position: 'absolute',

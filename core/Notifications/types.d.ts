@@ -1,4 +1,4 @@
-import { ButtonProps } from "../Button/Button";
+import ButtonTypes from "../Button/types";
 declare namespace NotificationTypes {
     interface Props {
     }
@@ -9,7 +9,7 @@ declare namespace NotificationTypes {
     interface Notification {
         title: string;
         text: string;
-        buttons?: ButtonProps[];
+        buttons?: ButtonTypes.Props[];
         timeout?: number;
         key?: string;
         decoration?: 'none' | 'highlight' | 'red' | 'green' | 'orange' | 'blue';
