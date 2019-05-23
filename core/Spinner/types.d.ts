@@ -1,15 +1,16 @@
 import { CSSProperties } from "react";
+import { SizeTypes } from "../types";
 declare namespace SpinnerTypes {
-    interface ISpinner {
+    interface Props {
         spinning?: boolean;
         center?: boolean;
-        dark?: boolean;
+        invert?: boolean;
         children?: any;
         style?: CSSProperties;
         className?: string;
+        size?: SizeTypes;
         type?: 'default' | 'smorodina';
         loadingText?: string;
-        color?: "text" | "highlight" | "pale" | "textOnAccent" | "lowlight" | "light" | "highlightSecondary";
     }
 }
 export default SpinnerTypes;

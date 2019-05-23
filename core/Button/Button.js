@@ -19,5 +19,5 @@ exports.default = (function (props) {
     return (core_1.jsx("button", { css: styles.button, className: className, style: style, onClick: function (event) { return onClick(event); } },
         core_1.jsx("span", { css: styles.children }, label || children),
         core_1.jsx("span", { css: styles.loading },
-            core_1.jsx(Spinner_1.Spinner, { spinning: true, style: { color: 'red !important' } }))));
+            core_1.jsx(Spinner_1.Spinner, { spinning: true }))));
 });

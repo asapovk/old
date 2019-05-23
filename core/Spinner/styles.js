@@ -1,11 +1,22 @@
 "use strict";
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@emotion/core");
 var useTheme_1 = __importDefault(require("../../hooks/useTheme"));
-exports.default = (function (dark, color) {
+exports.default = (function (props) {
     var theme = useTheme_1.default().theme;
     var containerRadius = 30;
     var circleRadius = 20;
@@ -24,50 +35,67 @@ exports.default = (function (dark, color) {
     var spin = core_1.keyframes({
         to: { transform: 'rotate(360deg)' }
     });
+    var size = {
+        top: '0',
+        contaier: '2rem',
+        origin: '1rem',
+        left: '0.85rem',
+        width: '0.2rem',
+        height: '0.5rem'
+    };
+    if (props.size === 'extra-large') {
+        size.contaier = '6rem';
+        size.origin = '3rem';
+        size.left = '2.8rem';
+        size.width = '0.385rem';
+        size.height = '1.75rem';
+    }
+    if (props.size === 'extra-large') {
+        size.contaier = '4rem';
+        size.origin = '2rem';
+        size.left = '1.875rem';
+        size.width = '0.25rem';
+        size.height = '1rem';
+    }
+    if (props.size === 'small') {
+        size.contaier = '1rem';
+        size.origin = '0.5rem';
+        size.left = '0.5rem';
+        size.width = '1px';
+        size.height = '0.25rem';
+    }
     return {
+        theme: theme,
         spinner: core_1.css({
             display: "inline-block",
             position: "relative",
-            width: "4rem",
-            height: "4rem",
+            width: size.contaier,
+            height: size.contaier,
+            minHeight: size.contaier,
             "> div": {
-                transformOrigin: '32px 32px',
+                transformOrigin: size.origin + " " + size.origin,
                 animation: spinnerAnimation + " 1.2s linear infinite",
                 "&::after": {
                     content: "''",
                     display: "block",
                     position: "absolute",
-                    top: "3px",
-                    left: "29px",
-                    width: "5px",
-                    height: "14px",
+                    top: size.top,
+                    left: size.left,
+                    width: size.width,
+                    height: size.height,
                     borderRadius: "20%",
                     opacity: 1,
-                    background: theme[color] ? theme[color].hex : theme.text.hex,
+                    background: props.invert ? theme.interface.hex : theme.text.hex,
                 },
             }
         }),
-        centeredContainer: core_1.css({
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            zIndex: 999999,
+        wrapper: function (center) { return core_1.css(__assign({ display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', zIndex: 999999 }, (center && {
             position: "absolute",
             top: 0,
             bottom: 0,
             left: 0,
             right: 0,
-        }, dark && {
-            "&::before": {
-                content: "''",
-                position: "absolute",
-                top: 0,
-                left: 0,
-                right: 0,
-                bottom: 0,
-                backgroundColor: 'rgba(0, 0, 0, .1)'
-            }
-        }),
+        }))); },
         container: core_1.css({
             height: containerRadius * 2,
             width: containerRadius * 2
@@ -98,17 +126,17 @@ exports.default = (function (dark, color) {
                 "> :nth-of-type(1)": {
                     top: -circleRadius,
                     left: -circleRadius,
-                    backgroundColor: theme[color] ? theme[color].hex : theme.highlight.hex,
+                    backgroundColor: theme.highlight.hex,
                 },
                 "> :nth-of-type(2)": {
                     top: Math.sqrt(3) * (edge / 2) - circleRadius,
                     left: (edge / 2) - circleRadius,
-                    backgroundColor: theme[color] ? theme[color].hex : theme.highlightSecondary.hex
+                    backgroundColor: theme.highlightSecondary.hex
                 },
                 "> :nth-of-type(3)": {
                     top: Math.sqrt(3) * (edge / 2) - circleRadius,
                     left: -(edge / 2) - circleRadius,
-                    backgroundColor: theme[color] ? theme[color].hex : theme.highlightSecondary.hex
+                    backgroundColor: theme.highlightSecondary.hex
                 }
             }
         })
