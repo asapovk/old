@@ -24,7 +24,7 @@ exports.default = (function (props) {
     return {
         color: color,
         textColor: decor.color,
-        button: core_1.css(__assign({}, decor, { display: "flex", alignItems: "center", justifyContent: "center", fontWeight: 'bold', position: 'relative', outline: 'none', cursor: 'pointer', userSelect: 'none' }, (disabled && {
+        button: core_1.css(__assign({}, decor, { boxSizing: "border-box", display: "flex", alignItems: "center", justifyContent: "center", fontWeight: 'bold', position: 'relative', outline: 'none', cursor: 'pointer', userSelect: 'none' }, (disabled && {
             background: theme.disabled.hex,
             boxShadow: 'none',
             color: 'rgb(163,163,163)',
