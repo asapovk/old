@@ -30,6 +30,8 @@ var Modal = /** @class */ (function (_super) {
             visible: false,
             customContent: null,
             center: false,
+            title: '',
+            subtitle: '',
         };
         _this.setVetricalCenter = _this.setVetricalCenter.bind(_this);
         return _this;
@@ -73,6 +75,46 @@ var Modal = /** @class */ (function (_super) {
         }, 500);
         this.props.onClose && this.props.onClose();
     };
+    Object.defineProperty(Modal.prototype, "title", {
+        get: function () {
+            return this.state.title;
+        },
+        set: function (title) {
+            this.setState({ title: title });
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(Modal.prototype, "subtitle", {
+        get: function () {
+            return this.state.subtitle;
+        },
+        set: function (subtitle) {
+            this.setState({ subtitle: subtitle });
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(Modal.prototype, "center", {
+        get: function () {
+            return this.state.center;
+        },
+        set: function (center) {
+            this.setState({ center: center });
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(Modal.prototype, "customContent", {
+        get: function () {
+            return this.state.title;
+        },
+        set: function (customContent) {
+            this.setState({ customContent: customContent });
+        },
+        enumerable: true,
+        configurable: true
+    });
     Modal.prototype.setVetricalCenter = function () {
         var overlay = react_dom_1.default.findDOMNode(this.overlay);
         var modal = react_dom_1.default.findDOMNode(this.window);
@@ -108,7 +150,7 @@ var Modal = /** @class */ (function (_super) {
         }
         return (react_1.default.createElement(ModalPortal_1.default, null,
             react_1.default.createElement(ModalOverlay_1.default, { visible: visible, center: this.state.center, fullSize: fullSize, ref: function (ref) { return _this.overlay = ref; } },
-                react_1.default.createElement(ModalWindow_1.default, { ref: function (ref) { return _this.window = ref; }, visible: visible, center: this.state.center, title: title, fullSize: fullSize, subtitle: subtitle, hideHeader: hideHeader, onClosePressed: function () { return _this.close(); }, children: customContent !== null ? customContent : this.props.children }))));
+                react_1.default.createElement(ModalWindow_1.default, { ref: function (ref) { return _this.window = ref; }, visible: visible, center: this.state.center, title: this.state.title || title, subtitle: this.state.subtitle || subtitle, fullSize: fullSize, hideHeader: hideHeader, onClosePressed: function () { return _this.close(); }, children: customContent !== null ? customContent : this.props.children }))));
     };
     return Modal;
 }(react_1.default.Component));
