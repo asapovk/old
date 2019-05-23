@@ -33,7 +33,7 @@ exports.default = (function (props) {
     if (!props.cards.length) {
         return core_1.jsx(Plastic_1.default, { pan: "", background: "#fff", color: "#333", type: "EMPTY", key: 0, active: true, __stackPosition: 1, __stackOffset: props.offset, __stackDirection: props.direction });
     }
-    return (core_1.jsx(__1.Flexbox, { css: styles.stack, flexDirection: 'row' }, props.cards.map(function (card, index) { return (core_1.jsx(Plastic_1.default, __assign({}, card, { key: index, active: current === index, onClick: function () {
+    return (core_1.jsx(__1.Flexbox, { css: styles.stack, flexDirection: 'row', onMouseEnter: props.onMouseEnter, onMouseLeave: props.onMouseLeave }, props.cards.map(function (card, index) { return (core_1.jsx(Plastic_1.default, __assign({}, card, { key: index, active: current === index, onClick: function () {
             setCurrent(index);
             props.onChange && props.onChange(index);
         }, __stackPosition: index + 1, __stackOffset: props.offset, __stackDirection: props.direction }))); })));

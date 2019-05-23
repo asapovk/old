@@ -23,7 +23,8 @@ exports.default = (function (props) {
     var color = props.color, disabled = props.disabled, loading = props.loading;
     return {
         color: color,
-        button: core_1.css(__assign({}, decor, { fontWeight: 'bold', position: 'relative', outline: 'none', cursor: 'pointer', userSelect: 'none' }, (disabled && {
+        textColor: decor.color,
+        button: core_1.css(__assign({}, decor, { display: "flex", alignItems: "center", justifyContent: "center", fontWeight: 'bold', position: 'relative', outline: 'none', cursor: 'pointer', userSelect: 'none' }, (disabled && {
             background: theme.disabled.hex,
             boxShadow: 'none',
             color: 'rgb(163,163,163)',
@@ -33,8 +34,8 @@ exports.default = (function (props) {
             transform: 'scale(1.75)',
             opacity: 0
         }))),
-        loading: core_1.css(__assign({ position: 'absolute', pointerEvents: 'none', top: '50%', left: '50%', marginLeft: '-2rem', marginTop: '-2rem', display: 'inline-block', visibility: 'hidden', opacity: 0, transform: 'scale(0.1)', transition: 'all .3s ease' }, (loading && {
-            transform: "scale(" + decor.loadingScale + ")",
+        loading: core_1.css(__assign({ position: 'absolute', pointerEvents: 'none', visibility: 'hidden', opacity: 0, transform: 'scale(0.5)', transition: 'all .3s ease' }, (loading && {
+            transform: 'scale(1)',
             visibility: 'visible',
             opacity: 1,
         }))),

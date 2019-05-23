@@ -9,6 +9,7 @@ declare namespace SpinnerTypes {
         style?: CSSProperties;
         className?: string;
         size?: SizeTypes;
+        color?: string;
         type?: 'default' | 'smorodina';
         loadingText?: string;
     }

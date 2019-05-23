@@ -33,6 +33,8 @@ declare namespace PlasticTypes {
             key?: string | number;
         }[];
         onChange?: (index: number) => void;
+        onMouseEnter?: (e: MouseEvent) => void;
+        onMouseLeave?: (e: MouseEvent) => void;
     }
 }
 export default PlasticTypes;

@@ -16,8 +16,9 @@ exports.default = (function (props) {
             props.onClick && props.onClick();
         }
     };
-    return (core_1.jsx("button", { css: styles.button, className: className, style: style, onClick: function (event) { return onClick(event); } },
+    styles.color;
+    return (core_1.jsx("div", { css: styles.button, className: className, style: style, onClick: function (event) { return onClick(event); } },
         core_1.jsx("span", { css: styles.children }, label || children),
-        core_1.jsx("span", { css: styles.loading },
-            core_1.jsx(Spinner_1.Spinner, { spinning: true }))));
+        core_1.jsx("div", { css: styles.loading },
+            core_1.jsx(Spinner_1.Spinner, { spinning: true, center: true, size: props.size === 'large' ? 'default' : 'small', color: styles.textColor }))));
 });

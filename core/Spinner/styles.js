@@ -64,6 +64,10 @@ exports.default = (function (props) {
         size.width = '1px';
         size.height = '0.25rem';
     }
+    var color = props.invert ? theme.interface.hex : theme.text.hex;
+    if (props.color) {
+        color = props.color;
+    }
     return {
         theme: theme,
         spinner: core_1.css({
@@ -85,7 +89,7 @@ exports.default = (function (props) {
                     height: size.height,
                     borderRadius: "20%",
                     opacity: 1,
-                    background: props.invert ? theme.interface.hex : theme.text.hex,
+                    background: color,
                 },
             }
         }),
@@ -131,12 +135,12 @@ exports.default = (function (props) {
                 "> :nth-of-type(2)": {
                     top: Math.sqrt(3) * (edge / 2) - circleRadius,
                     left: (edge / 2) - circleRadius,
-                    backgroundColor: theme.highlightSecondary.hex
+                    backgroundColor: props.color ? color : theme.highlightSecondary.hex
                 },
                 "> :nth-of-type(3)": {
                     top: Math.sqrt(3) * (edge / 2) - circleRadius,
                     left: -(edge / 2) - circleRadius,
-                    backgroundColor: theme.highlightSecondary.hex
+                    backgroundColor: props.color ? color : theme.highlightSecondary.hex
                 }
             }
         })
