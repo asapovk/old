@@ -1,12 +1,13 @@
 declare namespace TableTypes {
+    interface Column {
+        title?: string;
+        dataIndex: string;
+        width?: number;
+        render?: (row: any, value: any) => void;
+    }
     interface Props {
         data: Object[];
-        columns: {
-            title?: string;
-            dataIndex: string;
-            width?: number;
-            render?: (row: any, value: any) => void;
-        }[];
+        columns: Column[];
         form?: {
             key: string | number;
             render: any;
@@ -30,7 +31,7 @@ declare namespace TableTypes {
     }
     interface RowProps {
         row: any;
-        columns: any;
+        columns: Column[];
         isSelected?: boolean;
         isExpanding?: boolean;
         isBlur?: boolean;
@@ -44,7 +45,7 @@ declare namespace TableTypes {
     }
     interface ColumnProps {
         row: any;
-        columns: any;
+        columns: Column[];
         scope?: any;
         children?: any;
     }
@@ -55,9 +56,16 @@ declare namespace TableTypes {
     }
     interface FormProps {
         data: any;
-        columns: any;
+        columns: Column[];
         Form: any;
         children?: any;
+    }
+    interface InjectForm {
+        data: {
+            [key: string]: any;
+        };
+        columns: Column[];
+        setData: (key: string, value: any) => void;
     }
     interface PaginationOptions {
         pageSize: number;

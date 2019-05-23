@@ -1,2 +1,5 @@
-declare const TableFormHOC: (Form: any, columns: any, row: any) => JSX.Element;
+import TableTypes from './types';
+declare const TableFormHOC: (Form: TableTypes.InjectForm, columns: TableTypes.Column[], row: {
+    [key: string]: any;
+}) => JSX.Element;
 export default TableFormHOC;
