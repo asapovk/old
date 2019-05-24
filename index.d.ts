@@ -1,7 +1,7 @@
 /**
  * Core components
  */
-export { P, H1, H2, H3, H4, D1, D2, D3, D4, T1, T2, T3, T4, C1, C2, C3, C4, HR } from './core/Typography';
+export { P, H1, H2, H3, H4, D1, D2, D3, D4, T1, T2, T3, T4, C1, C2, C3, C4 } from './core/Typography';
 export { Badge } from './core/Badge';
 export { Button } from './core/Button';
 export { Card } from './core/Card';

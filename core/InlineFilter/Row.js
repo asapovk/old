@@ -16,5 +16,5 @@ var core_1 = require("@emotion/core");
 var __1 = require("../../");
 exports.default = (function (props) {
     var values = props.values, disabled = props.disabled, last = props.last, onChange = props.onChange;
-    return (core_1.jsx(__1.Flexbox, { mb: last ? '0.5rem' : '0' }, values.map(function (value) { return (core_1.jsx(__1.C1, { key: value.index, bold: true, mr: '0.75rem', children: value.label, onClick: function () { return onChange(__assign({}, value, { selected: !value.selected })); }, css: core_1.css({ textTransform: 'capitalize' }), disabled: disabled, color: value.selected ? 'text' : 'lowlight' })); })));
+    return (core_1.jsx(__1.Flexbox, { mb: last ? '0.5rem' : '0' }, values.map(function (value) { return (core_1.jsx(__1.C1, { key: value.index, bold: true, mr: '0.75rem', children: value.label, onClick: function () { return onChange(__assign({}, value, { selected: !value.selected })); }, css: core_1.css({ textTransform: 'capitalize' }), color: value.selected ? 'text' : 'lowlight' })); })));
 });

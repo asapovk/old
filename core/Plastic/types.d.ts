@@ -10,7 +10,7 @@ declare namespace PlasticTypes {
         stackPosition?: number;
         stackDirection?: PlasticStackDirection;
     }
-    interface PlasticProps {
+    interface Props {
         pan: string;
         background?: string;
         color?: string;

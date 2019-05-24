@@ -7,7 +7,7 @@ exports.default = (function (props) {
     var groups = props.groups, data = props.data, styles = props.styles, active = props.active, onChoose = props.onChoose, nameKey = props.nameKey, nameRender = props.nameRender, isMobile = props.isMobile, side = props.side, left = props.left;
     var items = data.map(function (item, index) { return (core_1.jsx(__1.Flexbox, { alignItems: 'center', justifyContent: 'space-between', onClick: function () { return onChoose(index); }, key: 'lmi-' + index, css: styles.menu.item(index === active, groups) },
         core_1.jsx(__1.Flexbox, { alignItems: 'center' },
-            isMobile && core_1.jsx(__1.Icon, { size: '1.25rem', mr: '0.5rem', type: item.glyph, color: 'light' }),
+            isMobile && core_1.jsx(__1.Icon, { size: '1.25rem', style: { marginRight: '0.5rem' }, type: item.glyph, color: 'light' }),
             nameRender
                 ? nameRender(item, item[nameKey])
                 : core_1.jsx(__1.T1, { ellipsis: true, children: item[nameKey] })),

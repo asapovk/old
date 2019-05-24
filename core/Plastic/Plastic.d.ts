@@ -1,3 +1,3 @@
 import types from './types';
-declare const _default: (props: types.PlasticProps) => JSX.Element;
+declare const _default: (props: types.Props) => JSX.Element;
 export default _default;

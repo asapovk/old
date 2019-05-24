@@ -21,7 +21,6 @@ exports.C1 = Typography_1.C1;
 exports.C2 = Typography_1.C2;
 exports.C3 = Typography_1.C3;
 exports.C4 = Typography_1.C4;
-exports.HR = Typography_1.HR;
 var Badge_1 = require("./core/Badge");
 exports.Badge = Badge_1.Badge;
 var Button_1 = require("./core/Button");

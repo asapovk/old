@@ -1,7 +1,7 @@
 import { CSSProperties, ReactNode } from 'react';
 import { DecorationTypes } from '../types';
 declare namespace BadgeTypes {
-    interface IBadge {
+    interface Props {
         children: ReactNode;
         value?: string | number;
         decoration?: DecorationTypes;
