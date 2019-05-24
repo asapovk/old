@@ -57,7 +57,7 @@ exports.default = react_1.forwardRef(function (props, ref) {
         ? 'textarea'
         : 'input', __assign({ onFocus: function (e) { return props.onFocus && props.onFocus(e); }, onBlur: function (e) { return props.onBlur && props.onBlur(e, e.currentTarget.value); }, onChange: function (e) { return props.onChange && props.onChange(e, e.currentTarget.value); }, 
         // defaultValue: props.defaultValue,
-        value: props.value, onKeyPress: onKeyPress, disabled: props.disabled || props.loading || props.disableEditing, placeholder: props.placeholder, css: props.styles.field(props.multiline), ref: ref, type: props.type, tabIndex: props.tabIndex }, props.multiline
+        value: props.value, onKeyPress: onKeyPress, disabled: props.disabled || props.loading || props.disableEditing, placeholder: props.placeholder, css: props.styles.field(props.multiline), ref: ref, type: props.type, tabIndex: props.tabIndex, autoComplete: props.autoComplete }, props.multiline
         ? props.singlerow && {
             onKeyDown: function (event) {
                 if (event.keyCode === 13) {

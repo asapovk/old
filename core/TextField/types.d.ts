@@ -1,6 +1,7 @@
 import IconTypes from '../../core/Icon/types';
 import { SizeTypes } from '../types';
 declare namespace TextFieldTypes {
+    type Autocomplete = "off" | "on" | "name" | "given-name" | "additional-name" | "family-name" | "honorific-suffix" | "nickname" | "email" | "username" | "new-password" | "current-password" | "one-time-code" | "organization-title" | "organization" | "street-address" | "address-line1" | "address-line2" | "address-line3" | "address-level4" | "address-level3" | "address-level2" | "address-level1" | "country" | "country-name" | "postal-code" | "cc-name" | "cc-given-name" | "cc-additional-name" | "cc-family-name" | "cc-number" | "cc-exp" | "cc-exp-month" | "cc-exp-year" | "cc-csc" | "cc-type" | "transaction-currency" | "transaction-amount" | "language" | "bday" | "bday-day" | "bday-month" | "bday-year" | "sex" | "tel" | "tel-country-code" | "tel-national" | "tel-area-code" | "tel-local" | "tel-local-prefix" | "tel-extension" | "impp" | "url" | "photo";
     type Decoration = 'none' | 'borderless' | 'borderBottom';
     type Type = 'color' | 'email' | 'hidden' | 'image' | 'month' | 'number' | 'password' | 'radio' | 'range' | 'reset' | 'search' | 'submit' | 'tel' | 'text' | 'time' | 'url' | 'week' | 'decimal';
     interface Props extends FieldProps {
@@ -43,6 +44,7 @@ declare namespace TextFieldTypes {
         tabIndex?: number;
         regex?: RegExp;
         disableEditing?: boolean;
+        autoComplete?: Autocomplete;
         /**
          * Custom private props for
          * select field
