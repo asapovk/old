@@ -1,6 +1,7 @@
 import { CSSProperties } from 'react';
+import { SpacingProps } from '../types';
 declare namespace FlexboxTypes {
-    interface Props {
+    interface Props extends SpacingProps {
         onClick?: (event: any) => void;
         onMouseEnter?: (event: any) => void;
         onMouseLeave?: (event: any) => void;
@@ -12,16 +13,6 @@ declare namespace FlexboxTypes {
         className?: string;
         w?: number | string;
         h?: number | string;
-        p?: number | string;
-        pr?: number | string;
-        pl?: number | string;
-        pt?: number | string;
-        pb?: number | string;
-        m?: number | string;
-        mr?: number | string;
-        ml?: number | string;
-        mt?: number | string;
-        mb?: number | string;
         column?: boolean;
         inline?: boolean;
         flex?: number | string;

@@ -17,8 +17,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@emotion/core");
 var useTheme_1 = __importDefault(require("../../hooks/useTheme"));
 var useTypography_1 = __importDefault(require("../../hooks/useTypography"));
+var hooks_1 = require("../../hooks");
 exports.default = (function (props) {
     var theme = useTheme_1.default().theme;
+    var spacing = hooks_1.useSpacing(props);
     var decor = decorations(props, theme);
     var color = props.color, disabled = props.disabled, loading = props.loading;
     return {
@@ -29,7 +31,7 @@ exports.default = (function (props) {
             boxShadow: 'none',
             color: 'rgb(163,163,163)',
             cursor: 'not-allowed !important',
-        }))),
+        }), spacing)),
         children: core_1.css(__assign({ display: 'inline-block', position: 'relative', transition: 'all .3s ease', transform: 'scale(1)', opacity: 1 }, (loading && {
             transform: 'scale(1.75)',
             opacity: 0
