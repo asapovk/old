@@ -46,13 +46,33 @@ exports.default = (function (props) {
             setSelectedValues(Array.isArray(value) ? value : [value]);
         }
         else {
-            setSelectedValues(Array.isArray(value)
-                ? value[0]
-                    ? [value[0]]
-                    : []
-                : [value]);
+            if (!value || (Array.isArray(value) && value.length)) {
+                setSelectedValues([]);
+            }
+            else {
+                setSelectedValues(Array.isArray(value)
+                    ? value[0]
+                        ? [value[0]]
+                        : []
+                    : [value]);
+            }
         }
     }, []);
+    react_1.useEffect(function () {
+        var value = props.value || [];
+        if (typeof value !== 'undefined') {
+            if (!value || (Array.isArray(value) && value.length)) {
+                setSelectedValues([]);
+            }
+            else {
+                setSelectedValues(Array.isArray(value)
+                    ? value[0]
+                        ? [value[0]]
+                        : []
+                    : [value]);
+            }
+        }
+    }, [selectedValues]);
     return (core_1.jsx("div", { style: props.style },
         core_1.jsx("div", { css: styles.root },
             core_1.jsx(TextField_1.TextField, { css: styles.input, label: props.label, size: props.size, decoration: props.decoration, placeholder: props.placeholder, floatingLabel: props.floatingLabel, disabled: disabled, disableEditing: true, onClick: toggle, rightIcon: open ? 'up' : 'down', value: !multiselect && selectedValues[0] ? selectedValues[0].text : undefined, _tags: multiselect ? selectedValues.map(function (value) { return value.text; }) : undefined, _onTagClose: function (tagIndex) {
