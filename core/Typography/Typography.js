@@ -38,6 +38,8 @@ var Typography = react_1.forwardRef(function (props, ref) {
             textDecoration: 'underline'
         }, props.color && {
             color: theme[props.color].hex
+        }, props.accent && {
+            color: theme.accents[props.accent].hex
         }),
     }, data);
 });

@@ -1,5 +1,5 @@
 import { CSSProperties } from "react";
-import { SpacingProps, ColorTypes } from '../types';
+import { SpacingProps, ColorTypes, AccentTypes } from '../types';
 declare namespace TypographyTypes {
     type Align = 'right' | 'left' | 'center';
     interface Props extends TextProps {
@@ -18,6 +18,7 @@ declare namespace TypographyTypes {
         children?: string | any;
         style?: CSSProperties;
         color?: ColorTypes;
+        accent?: AccentTypes;
         onClick?: (e: MouseEvent) => void;
     }
 }

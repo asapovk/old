@@ -85,6 +85,7 @@ exports.default = (function (_a) {
                 marginLeft: "-" + ep.inputPadding,
                 height: '100%',
                 padding: 0,
+                marginTop: floatingLabel ? ep.inputMargin : 0,
             }), ((focused && floatingLabel) && {
                 paddingTop: calcPaddingFloatingTop,
                 paddingBottom: calcPaddingFloatingBottom

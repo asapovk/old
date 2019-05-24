@@ -11,5 +11,6 @@ export declare type SpacingProps = {
     mb?: string | number;
 };
 export declare type ColorTypes = 'text' | 'lowlight' | 'palel' | 'interface' | 'background' | 'highlight' | 'textOnAccent';
+export declare type AccentTypes = 'red' | 'green' | 'blue' | 'orange';
 export declare type SizeTypes = 'default' | 'small' | 'large' | 'extra-large';
 export declare type DecorationTypes = 'default' | 'none' | 'highlight' | 'red' | 'green' | 'orange' | 'blue' | 'grayscale';
