@@ -28,9 +28,9 @@ exports.default = (function (narrowed) {
             textOverflow: 'ellipsis',
             overflow: 'hidden',
             whiteSpace: 'nowrap',
-            boxShadow: "0 1.25rem 2.5rem rgba(0,0,0,.1)",
+            boxShadow: theme.shadows.widget,
         }),
-        groupTitle: core_1.css(__assign({ padding: "0.25rem 1rem", borderRadius: "1rem", backgroundColor: "rgb(229, 228, 233)" }, (narrowed && {
+        groupTitle: core_1.css(__assign({ padding: "0.25rem 1rem", borderRadius: "1rem", backgroundColor: theme.pale.hex }, (narrowed && {
             padding: 0
         }))),
         row: core_1.css({
@@ -40,7 +40,7 @@ exports.default = (function (narrowed) {
                 marginBottom: 0
             }
         }, narrowed && {
-            borderBottom: "1px dashed #E5E5E5",
+            borderBottom: "1px dashed " + theme.pale,
             marginBottom: 0,
             boxSizing: "border-box",
             ":last-of-type": {
@@ -51,10 +51,10 @@ exports.default = (function (narrowed) {
             userSelect: "none"
         }),
         moreButton: core_1.css({
-            background: theme.interface.rgb,
+            background: theme.interface.hex,
             borderRadius: "50%",
             padding: "0.75rem",
-            boxShadow: "0 0.125rem 0.375rem rgba(0,0,0,.15)"
+            boxShadow: theme.shadows.button.default,
         })
     };
 });
