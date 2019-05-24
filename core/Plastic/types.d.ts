@@ -1,6 +1,12 @@
 declare namespace PlasticTypes {
     type PlasticType = 'EMPTY' | 'VISA' | 'MASTERCARD' | 'MIR' | 'MAESTRO';
     type PlasticStackDirection = 'left' | 'right' | 'top' | 'bottom';
+    interface Card {
+        type: PlasticType;
+        pan?: string;
+        background?: string;
+        color?: string;
+    }
     interface StyleProps {
         isActive?: boolean;
         cardBackground?: string;
@@ -10,11 +16,7 @@ declare namespace PlasticTypes {
         stackPosition?: number;
         stackDirection?: PlasticStackDirection;
     }
-    interface Props {
-        pan?: string;
-        background?: string;
-        color?: string;
-        type: PlasticType;
+    interface Props extends Card {
         active?: boolean;
         onClick?: () => void;
         __stackOffset?: number;
@@ -25,13 +27,7 @@ declare namespace PlasticTypes {
         defaultValue?: number;
         direction?: PlasticStackDirection;
         offset?: number;
-        cards: {
-            type: PlasticType;
-            pan?: string;
-            background?: string;
-            color?: string;
-            key?: string | number;
-        }[];
+        cards: Card[];
         onChange?: (index: number) => void;
         onMouseEnter?: (e: MouseEvent) => void;
         onMouseLeave?: (e: MouseEvent) => void;
