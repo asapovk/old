@@ -1,3 +1,3 @@
 import Types from './types';
-declare const _default: (props: Types.WidgetProps) => JSX.Element;
+declare const _default: (props: Types.Props) => JSX.Element;
 export default _default;

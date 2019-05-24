@@ -1,6 +1,7 @@
+import { SpacingProps } from "../types";
 export declare type DecorationTypes = 'border-bottom' | 'borderless' | 'none';
 declare namespace WidgetTypes {
-    interface WidgetProps {
+    interface Props extends SpacingProps {
         label?: string;
         loading?: boolean | string;
         onClick?: (e: React.MouseEvent<HTMLDivElement>) => any;

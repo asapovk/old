@@ -4,7 +4,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@emotion/core");
 var react_1 = require("react");
 var __1 = require("../..");
-var Icon_1 = require("../Icon");
+var Icon_1 = require("../../core/Icon");
 exports.default = (function (props) {
     var data = props.data, styles = props.styles, items = props.items, opened = props.opened;
     var breakpoints = props.breakpoints || [4, 6];

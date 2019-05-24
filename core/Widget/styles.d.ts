@@ -1,4 +1,5 @@
-declare const _default: (clickable: boolean, decoration?: "none" | "borderless" | "border-bottom" | undefined) => {
+import Types from "./types";
+declare const _default: (props: Types.Props) => {
     container: import("@emotion/utils").SerializedStyles;
     title: import("@emotion/utils").SerializedStyles;
     loading: import("@emotion/utils").SerializedStyles;

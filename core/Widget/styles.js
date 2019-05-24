@@ -16,10 +16,13 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@emotion/core");
 var useTheme_1 = __importDefault(require("../../hooks/useTheme"));
-exports.default = (function (clickable, decoration) {
+var hooks_1 = require("../../hooks");
+exports.default = (function (props) {
+    var decoration = props.decoration, hoverable = props.hoverable;
     var theme = useTheme_1.default().theme;
+    var spacing = hooks_1.useSpacing(props);
     return {
-        container: core_1.css(__assign({ position: "relative", boxSizing: "border-box", lineHeight: 1, minWidth: "15rem", overflow: "hidden", background: theme.background2.rgb, transition: "all .2s ease", userSelect: "none", boxShadow: theme.shadows.widget }, theme.borders.widget, (clickable && {
+        container: core_1.css(__assign({}, spacing, { position: "relative", boxSizing: "border-box", lineHeight: 1, minWidth: "15rem", overflow: "hidden", background: theme.background2.rgb, transition: "all .2s ease", userSelect: "none", boxShadow: theme.shadows.widget }, theme.borders.widget, (hoverable && {
             ":hover": {
                 cursor: 'pointer',
                 transform: 'scale(1.05)',
