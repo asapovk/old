@@ -22,3 +22,5 @@ exports.C1 = C_1.C1;
 exports.C2 = C_1.C2;
 exports.C3 = C_1.C3;
 exports.C4 = C_1.C4;
+var HR_1 = require("./HR");
+exports.HR = HR_1.HR;

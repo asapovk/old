@@ -21,5 +21,10 @@ declare namespace TypographyTypes {
         accent?: AccentTypes;
         onClick?: (e: MouseEvent) => void;
     }
+    interface LineProps extends TextProps {
+        dotted?: boolean;
+        width?: number;
+        gap?: number;
+    }
 }
 export default TypographyTypes;
