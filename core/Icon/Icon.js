@@ -19,7 +19,7 @@ var hooks_1 = require("../../hooks");
 exports.default = react_1.forwardRef(function (props, ref) {
     if (!exports.ICONSET[props.type])
         return null;
-    var spacingStyles = hooks_1.useSpacing(props);
+    var spacing = hooks_1.useSpacing(props);
     var theme = hooks_1.useTheme().theme;
     var providedProps = {
         className: props.className,
@@ -27,7 +27,7 @@ exports.default = react_1.forwardRef(function (props, ref) {
     };
     var containerStyles = __assign({}, (props.onClick && {
         cursor: "pointer"
-    }), spacingStyles);
+    }), spacing);
     var Icon = core_1.jsx("svg", __assign({ fill: "currentColor", height: "1em", width: "1em", viewBox: "0 0 128 128", style: props.style, css: core_1.css({
             display: "inline-block",
             verticalAlign: "middle",
