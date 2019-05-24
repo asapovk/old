@@ -18,7 +18,7 @@ exports.default = (function (props) {
         stackPosition: props.__stackPosition,
         stackDirection: props.__stackDirection,
     });
-    var pan = props.pan;
+    var pan = props.pan || "";
     if (pan.length > 4) {
         pan = pan.slice(pan.length - 4, pan.length);
     }

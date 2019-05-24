@@ -1,16 +1,26 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = (function (props) {
-    return {
-        padding: props.p,
-        paddingTop: props.pt,
-        paddingLeft: props.pl,
-        paddingRight: props.pr,
-        paddingBottom: props.pb,
-        margin: props.m,
-        marginTop: props.mt,
-        marginLeft: props.ml,
-        marginRight: props.mr,
-        marginBottom: props.mb,
-    };
+    var spacing = {};
+    if (props.p)
+        spacing.padding = props.p;
+    if (props.pt)
+        spacing.paddingTop = props.pt;
+    if (props.pl)
+        spacing.paddingLeft = props.pl;
+    if (props.pr)
+        spacing.paddingRight = props.pr;
+    if (props.pb)
+        spacing.paddingBottom = props.pb;
+    if (props.m)
+        spacing.margin = props.m;
+    if (props.mt)
+        spacing.marginTop = props.mt;
+    if (props.ml)
+        spacing.marginLeft = props.ml;
+    if (props.mr)
+        spacing.marginRight = props.mr;
+    if (props.mb)
+        spacing.marginBottom = props.mb;
+    return spacing;
 });

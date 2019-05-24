@@ -11,7 +11,7 @@ declare namespace PlasticTypes {
         stackDirection?: PlasticStackDirection;
     }
     interface Props {
-        pan: string;
+        pan?: string;
         background?: string;
         color?: string;
         type: PlasticType;
@@ -26,10 +26,10 @@ declare namespace PlasticTypes {
         direction?: PlasticStackDirection;
         offset?: number;
         cards: {
-            pan: string;
+            type: PlasticType;
+            pan?: string;
             background?: string;
             color?: string;
-            type: PlasticType;
             key?: string | number;
         }[];
         onChange?: (index: number) => void;
