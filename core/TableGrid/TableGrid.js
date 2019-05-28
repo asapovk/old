@@ -34,7 +34,7 @@ String.prototype.stringHashCode = function () {
 var id = "GRID-" + Math.trunc(Math.random() * 10000000);
 exports.default = (function (props) {
     var data = props.data, noDataComponent = props.noDataComponent, pagination = props.pagination, hideHeaders = props.hideHeaders, groupKey = props.groupKey;
-    var columns = react_1.useMemo(function () { return getColumns(props.columns, props.expandForm); }, []);
+    var columns = getColumns(props.columns, props.expandForm);
     var styles = styles_1.default();
     var _a = react_1.useState(1), currentPage = _a[0], setCurrentPage = _a[1];
     react_1.useLayoutEffect(function () {

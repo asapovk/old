@@ -1,3 +1,4 @@
+import { FC } from 'react';
 import ButtonTypes from './types';
-declare const _default: (props: ButtonTypes.Props) => JSX.Element;
-export default _default;
+declare const Button: FC<ButtonTypes.Props>;
+export default Button;
