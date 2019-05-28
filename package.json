@@ -1,6 +1,6 @@
 {
   "name": "ui",
-  "version": "1.0.251",
+  "version": "1.0.252",
   "main": "index.js",
   "repository": {
     "type": "git",
@@ -32,6 +32,7 @@
   },
   "scripts": {
     "sync": "yarn build && git pull && git add . && git commit -m 'build' && npm version patch && git push && yarn testflight",
+    "force-sync": "git subtree split --prefix dist -b testflight && git push -f origin testflight:testflight && git branch -D testflight",
     "build": "rm -fR dist/&& yarn build-ts && yarn build-copylib && cp package.json dist/",
     "build-ts": "tsc",
     "build-copylib": "cp -R src/extra/lib dist/extra/lib",

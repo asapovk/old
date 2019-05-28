@@ -4,6 +4,7 @@ interface ViewportProps {
     style?: any;
     theme?: string;
     transparent?: true;
+    className?: string;
 }
 interface State {
     mountedActions: any[];

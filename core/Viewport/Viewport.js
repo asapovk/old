@@ -84,7 +84,7 @@ var Viewport = /** @class */ (function (_super) {
         };
         return (core_1.jsx(styles_1.StylesContext.Provider, { value: uiStyles },
             core_1.jsx(emotion_theming_1.ThemeProvider, { theme: uiStyles.theme },
-                core_1.jsx("div", { "data-viewport": true, id: '0cd82567-7684-4147-ab02-dd3c56332364', className: 'ui-viewport', css: this.props.transparent
+                core_1.jsx("div", { "data-viewport": true, id: '0cd82567-7684-4147-ab02-dd3c56332364', className: 'ui-viewport ' + this.props.className, css: this.props.transparent
                         ? core_1.css(__assign({}, this.props.style, mainStyle))
                         : core_1.css(__assign({}, mainStyle, fitStyle, this.props.style)), children: (core_1.jsx(react_1.Fragment, null,
                         this.props.children,
