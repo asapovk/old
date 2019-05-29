@@ -59,18 +59,37 @@ exports.default = (function (props) {
         }
     }, []);
     react_1.useEffect(function () {
-        var value = props.value || [];
+        console.log(1);
+        var value = props.value;
         if (typeof value !== 'undefined') {
-            if (!value || (Array.isArray(value) && value.length)) {
+            if (!value) {
                 setSelectedValues([]);
             }
             else {
-                setSelectedValues(Array.isArray(value)
-                    ? value[0]
+                if (!Array.isArray(value)) {
+                    value = [value];
+                }
+                if (props.multiselect) {
+                    setSelectedValues(value);
+                }
+                else {
+                    setSelectedValues(value[0]
                         ? [value[0]]
-                        : []
-                    : [value]);
+                        : []);
+                }
             }
+            // let value = props.value || []
+            // if (!value || (Array.isArray(value) && value.length)) {
+            //     setSelectedValues([])
+            // } else {
+            //     setSelectedValues(
+            //         Array.isArray(value)
+            //             ? value[0]
+            //                 ? [value[0]]
+            //                 : []
+            //             : [value]
+            //     )
+            // }
         }
     }, [selectedValues]);
     return (core_1.jsx("div", { style: props.style },
