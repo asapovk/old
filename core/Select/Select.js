@@ -11,7 +11,7 @@ var styles_2 = __importDefault(require("../TextField/styles"));
 var SelectItems_1 = __importDefault(require("./SelectItems"));
 var TextField_1 = require("../TextField");
 var Flexbox_1 = require("../Flexbox");
-exports.default = (function (props) {
+var Select = function (props, ref) {
     var search = props.search, clearable = props.clearable, multiselect = props.multiselect, onChange = props.onChange, disabled = props.disabled, options = props.options;
     var _a = react_1.useState([]), selectedValues = _a[0], setSelectedValues = _a[1];
     var _b = react_1.useState(false), open = _b[0], setOpen = _b[1];
@@ -88,4 +88,5 @@ exports.default = (function (props) {
                 core_1.jsx(SelectItems_1.default, { options: options.filter(function (option) {
                         return 0 > selectedValues.findIndex(function (value) { return value.value === option.value; });
                     }), cssItemStyle: [textFieldStyles.field(true), styles.dropItem], onSelect: onSelect }))))));
-});
+};
+exports.default = Select;

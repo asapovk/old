@@ -10,7 +10,7 @@ var __1 = require("../..");
 var Field_1 = __importDefault(require("./Field"));
 var styles_1 = __importDefault(require("./styles"));
 var decimal_1 = __importDefault(require("./formats/decimal"));
-exports.default = react_1.forwardRef(function (props, ref) {
+var TextField = function (props, ref) {
     var _a = react_1.useState(''), value = _a[0], setValue = _a[1];
     var _b = react_1.useState(false), focused = _b[0], setFocused = _b[1];
     var decimalCount = props.decimalCount || 2;
@@ -96,4 +96,5 @@ exports.default = react_1.forwardRef(function (props, ref) {
                     ? core_1.jsx(__1.Spin, null,
                         core_1.jsx(__1.Icon, { css: styles.icon(), type: 'spin' }))
                     : core_1.jsx(RightGlyph, null))) })));
-});
+};
+exports.default = react_1.forwardRef(TextField);

@@ -1,3 +1,3 @@
 import Types from './types';
-declare const _default: (props: Types.Props) => JSX.Element;
-export default _default;
+declare const Select: (props: Types.Props, ref: any) => JSX.Element;
+export default Select;
