@@ -60,7 +60,7 @@ exports.default = react_1.forwardRef(function (props, ref) {
         decoration: props.decoration,
         floatingLabel: props.floatingLabel,
         leftIcon: props.leftIcon,
-        focused: focused || !!value || (props._tags && props._tags.length)
+        focused: focused || !!value || Boolean(props._tags && props._tags.length)
     });
     var RightGlyph = function () {
         if (props.rightLabel) {
@@ -83,7 +83,7 @@ exports.default = react_1.forwardRef(function (props, ref) {
                 // } catch (_) { }
                 props.onClick && props.onClick(e);
             }, onMouseDown: props.onMouseDown, onMouseUp: props.onMouseUp, children: (core_1.jsx(react_1.Fragment, null,
-                (props.floatingLabel && (props.size && props.size !== 'small')) && (core_1.jsx("label", { css: styles.floatingLabelStyle(focused || !!value), children: props.floatingLabel })),
+                (props.floatingLabel && (props.size && props.size !== 'small')) && (core_1.jsx("label", { css: styles.floatingLabelStyle, children: props.floatingLabel })),
                 props.leftIcon && core_1.jsx(__1.Icon, { css: styles.icon('left'), type: props.leftIcon }),
                 core_1.jsx(Field_1.default, { styles: styles, ref: ref, multiline: props.multiline, mask: props.mask, onFocus: function (event) {
                         setFocused(true);

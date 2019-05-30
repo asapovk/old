@@ -10,6 +10,7 @@ var styles_1 = __importDefault(require("./styles"));
 var styles_2 = __importDefault(require("../TextField/styles"));
 var SelectItems_1 = __importDefault(require("./SelectItems"));
 var TextField_1 = require("../TextField");
+var Flexbox_1 = require("../Flexbox");
 exports.default = (function (props) {
     var search = props.search, clearable = props.clearable, multiselect = props.multiselect, onChange = props.onChange, disabled = props.disabled, options = props.options;
     var _a = react_1.useState([]), selectedValues = _a[0], setSelectedValues = _a[1];
@@ -27,17 +28,37 @@ exports.default = (function (props) {
         leftIcon: false,
         focused: false
     });
-    var toggle = function () { return !disabled && setOpen(!open); };
+    var toggle = function () {
+        !disabled && setOpen(!open);
+    };
+    react_1.useEffect(function () {
+        var value = props.value;
+        if (typeof value !== 'undefined') {
+            if (!value) {
+                setSelectedValues([]);
+            }
+            else {
+                if (!Array.isArray(value)) {
+                    value = [value];
+                }
+                if (props.multiselect) {
+                    setSelectedValues(value);
+                }
+                else {
+                    setSelectedValues(value[0]
+                        ? [value[0]]
+                        : []);
+                }
+            }
+        }
+    }, [selectedValues]);
     var onSelect = function (option) {
         var newValues = [option];
         if (multiselect) {
             newValues = [option].concat(selectedValues);
-            typeof props.value === 'undefined' && setSelectedValues(newValues);
-        }
-        else {
-            typeof props.value === 'undefined' && setSelectedValues(newValues);
         }
         onChange && onChange(newValues);
+        typeof props.value === 'undefined' && setSelectedValues(newValues);
         toggle();
     };
     react_1.useLayoutEffect(function () {
@@ -58,40 +79,7 @@ exports.default = (function (props) {
             }
         }
     }, []);
-    react_1.useEffect(function () {
-        var value = props.value;
-        if (typeof value !== 'undefined') {
-            if (!value) {
-                setSelectedValues([]);
-            }
-            else {
-                if (!Array.isArray(value)) {
-                    value = [value];
-                }
-                if (props.multiselect) {
-                    setSelectedValues(value);
-                }
-                else {
-                    setSelectedValues(value[0]
-                        ? [value[0]]
-                        : []);
-                }
-            }
-            // let value = props.value || []
-            // if (!value || (Array.isArray(value) && value.length)) {
-            //     setSelectedValues([])
-            // } else {
-            //     setSelectedValues(
-            //         Array.isArray(value)
-            //             ? value[0]
-            //                 ? [value[0]]
-            //                 : []
-            //             : [value]
-            //     )
-            // }
-        }
-    }, [selectedValues]);
-    return (core_1.jsx("div", { style: props.style },
+    return (core_1.jsx(Flexbox_1.Flexbox, { flex: 1, style: props.style },
         core_1.jsx("div", { css: styles.root },
             core_1.jsx(TextField_1.TextField, { css: styles.input, label: props.label, size: props.size, decoration: props.decoration, placeholder: props.placeholder, floatingLabel: props.floatingLabel, disabled: disabled, disableEditing: true, onClick: toggle, rightIcon: open ? 'up' : 'down', value: !multiselect && selectedValues[0] ? selectedValues[0].text : undefined, _tags: multiselect ? selectedValues.map(function (value) { return value.text; }) : undefined, _onTagClose: function (tagIndex) {
                     setSelectedValues(selectedValues.filter(function (_, index) { return index !== tagIndex; }));

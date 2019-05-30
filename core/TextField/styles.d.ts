@@ -9,7 +9,7 @@ declare const _default: ({ multiline, size, disabled, decoration, floatingLabel,
 }) => {
     container: import("@emotion/utils").SerializedStyles;
     label: import("@emotion/utils").SerializedStyles;
-    floatingLabelStyle: (minified: boolean) => import("@emotion/utils").SerializedStyles;
+    floatingLabelStyle: import("@emotion/utils").SerializedStyles;
     wrapper: import("@emotion/utils").SerializedStyles;
     field: (fullHeight?: boolean, isTagsContaier?: boolean) => import("@emotion/utils").SerializedStyles;
     tag: import("@emotion/utils").SerializedStyles;

@@ -21,7 +21,6 @@ exports.default = (function (opt) {
     return {
         root: core_1.css({
             position: 'relative',
-            display: 'flex',
             flex: 1
         }),
         input: core_1.css(__assign({ zIndex: 10 }, (opt.open && {

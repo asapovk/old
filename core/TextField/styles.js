@@ -30,10 +30,10 @@ exports.default = (function (_a) {
             marginBottom: '0.25rem',
             color: theme.lowlight.rgb
         }),
-        floatingLabelStyle: function (minified) { return core_1.css({
+        floatingLabelStyle: core_1.css({
             position: 'absolute',
             pointerEvents: 'none',
-            top: 0,
+            top: '0.125rem',
             left: 0,
             transition: 'all .2s ease-in-out',
             color: theme.lowlight.rgb,
@@ -41,10 +41,10 @@ exports.default = (function (_a) {
             transformOrigin: 'top left',
             fontSize: ep.textSize,
             lineHeight: ep.textLineHeight,
-        }, minified && {
+        }, focused && {
             color: theme.lowlight.rgb,
             transform: "translate(" + ep.floatingLabelTranslate.end + ") scale(0.75)",
-        }); },
+        }),
         wrapper: core_1.css(__assign({ backgroundColor: theme.interface.rgb, overflow: 'hidden', boxSizing: 'border-box' }, theme.borders.textfield), decoration === 'borderBottom' && {
             borderRadius: '0',
             borderWidth: '0 0 1px 0',
@@ -85,7 +85,7 @@ exports.default = (function (_a) {
                 marginLeft: "-" + ep.inputPadding,
                 height: '100%',
                 padding: 0,
-                marginTop: floatingLabel ? ep.inputMargin : 0,
+                marginTop: 0,
             }), ((focused && floatingLabel) && {
                 paddingTop: calcPaddingFloatingTop,
                 paddingBottom: calcPaddingFloatingBottom
