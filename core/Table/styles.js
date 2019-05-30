@@ -92,8 +92,8 @@ exports.default = (function () {
             padding: '1.875rem 1.25rem',
             margin: '-0.5px',
         }), { ':hover': {
-                '.ui-table-rowover': {
-                    display: 'block'
+                '> div :last-of-type': {
+                    display: 'flex'
                 }
             } })); },
         subrow: core_1.css({
@@ -121,11 +121,11 @@ exports.default = (function () {
             flexDirection: 'row',
             alignItems: 'center',
             justifyContent: 'flex-end',
-            'svg': {
+            '> svg': {
                 fontSize: '2rem',
                 alignSelf: 'center',
             },
-            'button': {
+            '> button': {
                 marginLeft: '1rem',
                 textTransform: 'uppercase',
                 fontSize: '0.75rem',

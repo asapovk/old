@@ -12,7 +12,7 @@ var TableActions = function (props) {
     var styles = styles_1.default();
     return (core_1.jsx("div", { css: styles.actions },
         core_1.jsx(Icon_1.Icon, { type: 'more', css: styles.more }),
-        core_1.jsx("div", { css: styles.actionButtons, className: 'ui-table-rowover' }, props.actions.map(function (action, index) { return (core_1.jsx(Button_1.Button, { decoration: 'none', key: index, onClick: function () {
+        core_1.jsx("div", { css: styles.actionButtons }, props.actions.map(function (action, index) { return (core_1.jsx(Button_1.Button, { decoration: 'none', key: index, onClick: function () {
                 action.onAction(props.data);
             }, children: action.label })); }))));
 };

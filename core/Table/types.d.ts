@@ -9,7 +9,7 @@ declare namespace TableTypes {
         data: Object[];
         columns: Column[];
         form?: {
-            key: string | number;
+            key?: string | number;
             render: any;
         };
         actions?: {
