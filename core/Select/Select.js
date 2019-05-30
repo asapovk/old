@@ -59,7 +59,6 @@ exports.default = (function (props) {
         }
     }, []);
     react_1.useEffect(function () {
-        console.log(1);
         var value = props.value;
         if (typeof value !== 'undefined') {
             if (!value) {
