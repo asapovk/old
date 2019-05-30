@@ -92,7 +92,7 @@ exports.default = (function () {
             padding: '1.875rem 1.25rem',
             margin: '-0.5px',
         }), { ':hover': {
-                '> div :last-of-type': {
+                '> div > div': {
                     display: 'flex'
                 }
             } })); },
@@ -125,13 +125,6 @@ exports.default = (function () {
                 fontSize: '2rem',
                 alignSelf: 'center',
             },
-            '> button': {
-                marginLeft: '1rem',
-                textTransform: 'uppercase',
-                fontSize: '0.75rem',
-                fontWeight: 500,
-                boxShadow: 'none',
-            }
         }),
         actionButtons: core_1.css({
             flexDirection: 'row',
@@ -142,7 +135,14 @@ exports.default = (function () {
             top: 0,
             bottom: 0,
             paddingLeft: '1.25rem',
-            background: "linear-gradient(90deg, " + theme.interface.rgb + " 0%, " + theme.interface.rgb + " 20%)"
+            background: "linear-gradient(90deg, " + theme.interface.rgb + " 0%, " + theme.interface.rgb + " 20%)",
+            '> div': {
+                marginLeft: '1rem',
+                textTransform: 'uppercase',
+                fontSize: '0.75rem',
+                fontWeight: 500,
+                boxShadow: 'none',
+            }
         }),
         actionButtonsEdit: core_1.css({
             display: 'flex',
