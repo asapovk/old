@@ -92,10 +92,8 @@ exports.default = (function () {
             padding: '1.875rem 1.25rem',
             margin: '-0.5px',
         }), { ':hover': {
-                '> div': {
-                    "&:last-of-type > div": {
-                        display: 'flex'
-                    }
+                '> :last-of-type > div': {
+                    display: 'flex'
                 }
             } })); },
         subrow: core_1.css({
