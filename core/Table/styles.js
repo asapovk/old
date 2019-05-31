@@ -93,6 +93,7 @@ exports.default = (function () {
             padding: '1.25rem',
             // marginTop: '-1px',
             "&:last-of-type": {
+                borderWidth: '0',
                 borderRadius: "0 0 " + theme.borders.table.borderRadius + " " + theme.borders.table.borderRadius
             }
         }), { ':hover': {
