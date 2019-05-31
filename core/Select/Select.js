@@ -82,7 +82,11 @@ var Select = function (props, ref) {
     return (core_1.jsx(Flexbox_1.Flexbox, { flex: 1, style: props.style },
         core_1.jsx("div", { css: styles.root },
             core_1.jsx(TextField_1.TextField, { css: styles.input, label: props.label, size: props.size, decoration: props.decoration, placeholder: props.placeholder, floatingLabel: props.floatingLabel, disabled: disabled, disableEditing: true, onClick: toggle, rightIcon: open ? 'up' : 'down', value: !multiselect && selectedValues[0] ? selectedValues[0].text : undefined, _tags: multiselect ? selectedValues.map(function (value) { return value.text; }) : undefined, _onTagClose: function (tagIndex) {
-                    setSelectedValues(selectedValues.filter(function (_, index) { return index !== tagIndex; }));
+                    var filtered = selectedValues.filter(function (_, index) { return index !== tagIndex; });
+                    if (typeof props.value === 'undefined') {
+                        setSelectedValues(filtered);
+                    }
+                    onChange && onChange(filtered);
                 } }),
             open && (core_1.jsx("div", { css: [textFieldStyles.wrapper, styles.dropMenu] },
                 core_1.jsx(SelectItems_1.default, { options: options.filter(function (option) {
