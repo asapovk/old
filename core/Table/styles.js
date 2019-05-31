@@ -33,7 +33,7 @@ exports.default = (function () {
             alignItems: 'center',
             textTransform: 'uppercase',
             fontSize: '1rem',
-            padding: '0.75rem 1.125px',
+            padding: '0.75rem 1.125rem',
         }),
         headColumn: core_1.css({
             color: theme.lowlight.rgb,
