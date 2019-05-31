@@ -51,7 +51,7 @@ var Select = function (props, ref) {
                 }
             }
         }
-    }, [selectedValues]);
+    }, [JSON.stringify(selectedValues)]);
     var onSelect = function (option) {
         var newValues = [option];
         if (multiselect) {

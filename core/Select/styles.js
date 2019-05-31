@@ -29,14 +29,14 @@ exports.default = (function (opt) {
                 borderBottomRightRadius: 0
             }
         }))),
-        dropMenu: core_1.css(__assign({ position: 'absolute', width: '100%', height: '10rem', zIndex: 15, padding: 0, paddingTop: 1, marginTop: -1 }, (opt.open && {
+        dropMenu: core_1.css(__assign({ position: 'absolute', width: '100%', height: '10rem', zIndex: 55, padding: 0, paddingTop: '1px', marginTop: '-1px' }, (opt.open && {
             borderTopLeftRadius: 0,
             borderTopRightRadius: 0
         }))),
         dropItem: core_1.css({
             cursor: 'pointer',
             padding: '0.5rem 0.75rem',
-            height: 'auto',
+            // height: 'auto',
             ':hover': {
                 background: theme.background.hex
             }
