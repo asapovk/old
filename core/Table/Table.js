@@ -69,14 +69,16 @@ var Table = function (props) {
             pageSize: 20
         };
     }
-    if (searchValue.length > 0) {
-        data = data.filter(function (row) {
-            return Object.values(row).find(function (item) {
-                var searchbleItem = item && item.toString ? item.toString() : null;
-                return searchbleItem && searchbleItem.toUpperCase().includes(searchValue.toUpperCase());
+    react_1.useEffect(function () {
+        if (searchValue.length > 0) {
+            data = data.filter(function (row) {
+                return Object.values(row).find(function (item) {
+                    var searchbleItem = item && item.toString ? item.toString() : null;
+                    return searchbleItem && searchbleItem.toUpperCase().includes(searchValue.toUpperCase());
+                });
             });
-        });
-    }
+        }
+    }, [searchValue]);
     if (isData) {
         var pageSize_1 = pagination.pageSize, async = pagination.async;
         if (!async) {
@@ -84,7 +86,7 @@ var Table = function (props) {
              * Отрезаем записи в таблице если есть
              * параметры пагинации не async
              */
-            pageData = data.filter(function (_, i) { return pageSize_1 * page >= i && i >= pageSize_1 * page - pageSize_1; });
+            pageData = data.filter(function (_, i) { return pageSize_1 * page >= (i + 1) && i >= pageSize_1 * page - pageSize_1; });
         }
         else {
             pageData = data;
@@ -95,7 +97,13 @@ var Table = function (props) {
         if (searchBar || searchValue) {
             return (core_1.jsx("div", { css: styles.search },
                 core_1.jsx(__1.Icon, { type: 'search' }),
-                core_1.jsx("input", { onChange: function (event) { return props.onSearch ? props.onSearch(event.target.value) : setSearchValue(event.target.value); }, placeholder: '\u041D\u0430\u0439\u0442\u0438' }),
+                core_1.jsx("input", { value: searchValue, onChange: function (event) {
+                        props.onSearch
+                            ? props.onSearch(event.target.value)
+                            : setSearchValue(event.target.value);
+                    }, 
+                    // onChange={(event) => console.log(event.target.value)}
+                    placeholder: '\u041D\u0430\u0439\u0442\u0438' }),
                 core_1.jsx("div", { onClick: function () {
                         setSearchBar(false);
                         setSearchValue('');

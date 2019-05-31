@@ -16,9 +16,9 @@ var TablePagination = function (props) {
     }
     var childs = props ? [(core_1.jsx("div", { key: "pagination", onClick: function () { return onChange(1, true); }, css: paginationButton(searchActive), children: "\u041D\u0430\u0439\u0442\u0438" }))] : [];
     var _loop_1 = function (i) {
-        childs.push(core_1.jsx("div", { key: i, onClick: function () { return onChange(i, false); }, css: paginationButton(page === (i)), children: i * pageSize + "\u2013" + (i * pageSize + pageSize) }));
+        childs.push(core_1.jsx("div", { key: i, onClick: function () { return onChange(i + 1, false); }, css: paginationButton(page === (i + 1)), children: i * pageSize + 1 + "\u2013" + (i * pageSize + pageSize) }));
     };
-    for (var i = 1; i < buttons; i++) {
+    for (var i = 0; i < buttons; i++) {
         _loop_1(i);
     }
     return core_1.jsx("div", { css: pagination, children: childs });
