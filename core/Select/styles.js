@@ -36,7 +36,7 @@ exports.default = (function (opt) {
         dropItem: core_1.css({
             cursor: 'pointer',
             padding: '0.5rem 0.75rem',
-            // height: 'auto',
+            height: 'fit-content',
             ':hover': {
                 background: theme.background.hex
             }
