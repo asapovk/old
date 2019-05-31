@@ -21,14 +21,18 @@ var styles_1 = __importDefault(require("./styles"));
 var TableForm = function (props) {
     var Form = props.Form, columns = props.columns;
     var styles = styles_1.default();
-    var _a = react_1.useState({}), data = _a[0], setData = _a[1];
+    var initialData = JSON.parse(JSON.stringify(props.data));
+    var _a = react_1.useState(initialData), data = _a[0], setData = _a[1];
     var _setData = function (key, value) {
         var _a;
         setData(__assign({}, data, (_a = {}, _a[key] = value, _a)));
     };
-    react_1.useLayoutEffect(function () {
-        setData(__assign({}, data, JSON.parse(JSON.stringify(props.data))));
-    }, []);
+    // useLayoutEffect(() => {
+    //     setData({
+    //         ...data,
+    //         ...JSON.parse(JSON.stringify(props.data))
+    //     })
+    // }, []);
     return (core_1.jsx("div", { css: styles.row(true) },
         core_1.jsx(Form, { data: data, columns: columns, setData: _setData })));
 };
