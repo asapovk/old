@@ -88,9 +88,13 @@ exports.default = (function () {
             } }, (edited && {
             backgroundColor: theme.background.rgb,
             borderColor: theme.pale.rgb,
-            border: 'solid 0.5px',
-            padding: '1.875rem 1.25rem',
-            margin: '-0.5px',
+            borderStyle: 'solid',
+            borderWidth: '0 0 0.5px 0',
+            padding: '1.25rem',
+            // marginTop: '-1px',
+            "&:last-of-type": {
+                borderRadius: "0 0 " + theme.borders.table.borderRadius + " " + theme.borders.table.borderRadius
+            }
         }), { ':hover': {
                 '> :last-of-type > div': {
                     display: 'flex'
