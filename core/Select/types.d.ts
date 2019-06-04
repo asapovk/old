@@ -21,6 +21,7 @@ declare namespace SelectTypes {
         size?: SizeTypes;
         clearable?: boolean;
         search?: boolean;
+        className?: string;
     }
     interface SelectItemsProps {
         options: Option[];
