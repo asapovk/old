@@ -92,6 +92,9 @@ exports.default = (function () {
             borderWidth: '0 0 0.5px 0',
             padding: '1.25rem',
             // marginTop: '-1px',
+            "&:first-of-type": {
+                borderRadius: theme.borders.table.borderRadius + " " + theme.borders.table.borderRadius + " 0 0"
+            },
             "&:last-of-type": {
                 borderWidth: '0',
                 borderRadius: "0 0 " + theme.borders.table.borderRadius + " " + theme.borders.table.borderRadius
