@@ -10,6 +10,9 @@ declare namespace TableTypes {
         columns: Column[];
         form?: {
             key?: string | number;
+            defaultData?: {
+                [key: string]: any;
+            };
             render: any;
         };
         actions?: {

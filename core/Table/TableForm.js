@@ -27,12 +27,6 @@ var TableForm = function (props) {
         var _a;
         setData(__assign({}, data, (_a = {}, _a[key] = value, _a)));
     };
-    // useLayoutEffect(() => {
-    //     setData({
-    //         ...data,
-    //         ...JSON.parse(JSON.stringify(props.data))
-    //     })
-    // }, []);
     return (core_1.jsx("div", { css: styles.row(true) },
         core_1.jsx(Form, { data: data, columns: columns, setData: _setData })));
 };
