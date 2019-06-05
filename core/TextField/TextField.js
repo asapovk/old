@@ -42,7 +42,7 @@ var TextField = function (props, ref) {
     };
     var onBlur = function (e, newValue) {
         if (props.type == 'decimal') {
-            newValue = parseFloat(newValue || '0').toFixed(decimalCount);
+            // newValue = parseFloat(newValue || '0').toFixed(decimalCount)
             if (value !== newValue) {
                 if (typeof props.value === "undefined") {
                     setValue(newValue);

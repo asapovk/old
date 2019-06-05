@@ -4,5 +4,5 @@ export interface BuddyProps {
     size?: number;
     defaultFace?: "happy" | "sad" | "normal";
 }
-declare const _default: React.ForwardRefExoticComponent<BuddyProps & React.RefAttributes<{}>>;
+declare const _default: React.ForwardRefExoticComponent<BuddyProps & React.RefAttributes<unknown>>;
 export default _default;

@@ -36,8 +36,8 @@ var CTextFiled = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     CTextFiled.prototype.render = function () {
-        var _this = this;
         var _a;
+        var _this = this;
         if (!this.isVisible())
             return null;
         //TODO: correct props
