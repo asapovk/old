@@ -21,6 +21,18 @@ exports.default = (function (props) {
             height: '100%'
         }
     };
+    if (props.minified) {
+        return (react_1.default.createElement("div", { style: style.container },
+            react_1.default.createElement("svg", { xmlns: "http://www.w3.org/2000/svg", xmlnsXlink: "http://www.w3.org/1999/xlink", x: "0px", y: "0px", viewBox: "0 0 457.1 452.121", xmlSpace: "preserve", preserveAspectRatio: 'xMinYMid meet' },
+                react_1.default.createElement("defs", null,
+                    react_1.default.createElement("linearGradient", { id: "linear-gradient", x1: "-0.071", y1: "1.151", x2: "0.859", y2: "0.22", gradientUnits: "objectBoundingBox" },
+                        react_1.default.createElement("stop", { offset: "0", "stop-color": "#6c3790" }),
+                        react_1.default.createElement("stop", { offset: "0.702", "stop-color": "#af2c65" }),
+                        react_1.default.createElement("stop", { offset: "1", "stop-color": "#d51968" }))),
+                react_1.default.createElement("g", { id: "LOGO_NEW", transform: "translate(-27.6 -29.779)" },
+                    react_1.default.createElement("path", { id: "Path_1", "data-name": "Path 1", d: "M386.5,209.7l82.8-44.1a15.113,15.113,0,0,0-1.8-27.5l-65-24.4a15.319,15.319,0,0,1-8.9-8.9L369.2,39.6a15.112,15.112,0,0,0-27.5-1.8L281,150.7A103.194,103.194,0,1,0,108.5,255,116.2,116.2,0,1,0,249.3,414.5,130.693,130.693,0,1,0,386.5,209.7Z", "fill-rule": "evenodd", fill: "url(#linear-gradient)" }),
+                    react_1.default.createElement("path", { id: "Path_6", "data-name": "Path 6", d: "M-420.4-58.526a82.091,82.091,0,0,1,82.1-82.1,82.09,82.09,0,0,1,82.1,82.1,82.09,82.09,0,0,1-82.1,82.1A82.155,82.155,0,0,1-420.4-58.526Zm196.6-29.5a95.705,95.705,0,0,1,95.7-95.7,95.7,95.7,0,0,1,95.7,95.7,95.641,95.641,0,0,1-95.7,95.7A95.641,95.641,0,0,1-223.8-88.026Zm-145.1-152.3a70.056,70.056,0,0,1,70.1-70.1,70.12,70.12,0,0,1,70.1,70.1,70.034,70.034,0,0,1-70.1,70A70.1,70.1,0,0,1-368.9-240.326Zm167.3,31.6,63.6-118.4a7.738,7.738,0,0,1,14.1,1l12.6,33.5a7.748,7.748,0,0,0,4.6,4.6l33.5,12.5a7.737,7.737,0,0,1,.9,14.1l-118.8,63.3a7.826,7.826,0,0,1-3.68.942A7.815,7.815,0,0,1-201.6-208.726Z", transform: "translate(482.1 424.326)", fill: "#fff" })))));
+    }
     return (react_1.default.createElement("div", { style: style.container },
         react_1.default.createElement("svg", { style: style.svg, version: "1.1", xmlns: "http://www.w3.org/2000/svg", xmlnsXlink: "http://www.w3.org/1999/xlink", x: "0px", y: "0px", viewBox: "0 0 300 106.3", xmlSpace: "preserve", preserveAspectRatio: 'xMinYMid meet' },
             react_1.default.createElement("path", { style: st0, d: "M31.7,30.4c0.3-0.4,0.5-0.8,0.5-1.3c0-1.2-1-2.1-2.1-2.1c-0.7,0-1.3,0.3-1.7,0.8c-2.3,3-5.8,4.9-9.8,4.9\n                    c-6.8,0-12.3-5.6-12.3-12.6c0-7,5.5-12.6,12.3-12.6c4,0,7.5,2,9.8,5c0.4,0.5,1,0.8,1.7,0.8c1.2,0,2.1-1,2.1-2.1c0-0.5-0.2-1-0.5-1.3\n            c-3-3.7-7.7-6.1-12.9-6.1C9.7,3.7,2.3,11,2.3,20.1c0,9,7.4,16.4,16.6,16.4C24.1,36.5,28.7,34.1,31.7,30.4L31.7,30.4z" }),
