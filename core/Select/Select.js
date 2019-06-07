@@ -59,7 +59,7 @@ var Select = function (props, ref) {
         }
         toggle();
         typeof props.value === 'undefined' && setSelectedValues(newValues);
-        onChange && onChange(newValues);
+        onChange && setTimeout(function () { return onChange(newValues); });
     };
     react_1.useLayoutEffect(function () {
         var value = props.value || props.defaultValue || [];
