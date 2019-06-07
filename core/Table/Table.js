@@ -141,7 +141,7 @@ var Table = function (props) {
         }
         return null;
     };
-    return (core_1.jsx("div", { css: styles.root, style: style },
+    return (core_1.jsx("div", { css: styles.root, style: style, className: props.className },
         core_1.jsx("div", { css: styles.content },
             !hideHeaders && (core_1.jsx("div", { css: styles.headRow, style: actions && { marginRight: '2rem' }, children: Columns() })),
             core_1.jsx("div", { css: styles.body },

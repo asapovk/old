@@ -31,6 +31,7 @@ declare namespace TableTypes {
         search?: boolean;
         onSearch?: (value: any) => void;
         hideHeaders?: boolean;
+        className?: string;
     }
     interface RowProps {
         row: any;
