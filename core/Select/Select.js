@@ -57,9 +57,9 @@ var Select = function (props, ref) {
         if (multiselect) {
             newValues = [option].concat(selectedValues);
         }
+        toggle();
         onChange && onChange(newValues);
         typeof props.value === 'undefined' && setSelectedValues(newValues);
-        toggle();
     };
     react_1.useLayoutEffect(function () {
         var value = props.value || props.defaultValue || [];
