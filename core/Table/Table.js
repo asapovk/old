@@ -154,7 +154,7 @@ var Table = function (props) {
                         } }));
                 }),
                 pending && (core_1.jsx(Spinner_1.Spinner, { spinning: true, center: true })),
-                (!isData && !search) && core_1.jsx("div", { style: { padding: '1.25rem' } }, "\u041F\u0443\u0441\u0442\u043E"),
+                (!isData && !search) && core_1.jsx("div", { style: { padding: '1.25rem' } }, noDataLabel),
                 (search && data.length === 0) && core_1.jsx("div", { style: { padding: '1.25rem' } }, "\u041D\u0438\u0447\u0435\u0433\u043E \u043D\u0435 \u043D\u0430\u0439\u0434\u0435\u043D\u043E"))),
         isData && data && (core_1.jsx(TablePagination_1.default, { pagination: pagination, page: page, searchActive: searchBar || searchValue.length > 0, search: props.search, data: data, onChange: function (page, searchBar) { return __awaiter(_this, void 0, void 0, function () {
                 return __generator(this, function (_a) {
