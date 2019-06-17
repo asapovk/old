@@ -15,7 +15,7 @@ var TableRow = function (props) {
     if (form) {
         return TableForm_1.default(form, columns, row);
     }
-    return (core_1.jsx("div", { css: styles.row(false), style: style, onClick: function () { return onRowClick && onRowClick(row); } },
+    return (core_1.jsx("div", { css: styles.row(false, actions.length > 0), style: style, onClick: function () { return onRowClick && onRowClick(row); } },
         core_1.jsx(TableColumns_1.default, { columns: props.columns, row: props.row, scope: props.scope }),
         actions && core_1.jsx(TableActions_1.default, { actions: actions, data: row })));
 };

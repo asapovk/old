@@ -7,7 +7,7 @@ declare const _default: () => {
     body: import("@emotion/utils").SerializedStyles;
     pagination: import("@emotion/utils").SerializedStyles;
     paginationButton: (active: boolean) => import("@emotion/utils").SerializedStyles;
-    row: (edited: boolean) => import("@emotion/utils").SerializedStyles;
+    row: (edited: boolean, withActions: boolean) => import("@emotion/utils").SerializedStyles;
     subrow: import("@emotion/utils").SerializedStyles;
     column: import("@emotion/utils").SerializedStyles;
     more: import("@emotion/utils").SerializedStyles;

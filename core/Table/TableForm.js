@@ -27,7 +27,7 @@ var TableForm = function (props) {
         var _a;
         setData(__assign({}, data, (_a = {}, _a[key] = value, _a)));
     };
-    return (core_1.jsx("div", { css: styles.row(true) },
+    return (core_1.jsx("div", { css: styles.row(true, false) },
         core_1.jsx(Form, { data: data, columns: columns, setData: _setData })));
 };
 var TableFormHOC = function (Form, columns, row) { return (core_1.jsx(TableForm, { data: row, columns: columns, Form: Form })); };

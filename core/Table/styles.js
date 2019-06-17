@@ -82,7 +82,7 @@ exports.default = (function () {
             backgroundColor: theme.interface.hex,
             opacity: active ? 1 : 0.5,
         }); },
-        row: function (edited) { return core_1.css(__assign({ display: 'flex', flex: 1, flexDirection: 'row', alignItems: 'stretch', padding: '1.25rem', position: 'relative', ':not(:last-child)': {
+        row: function (edited, withActions) { return core_1.css(__assign({ display: 'flex', flex: 1, flexDirection: 'row', alignItems: 'stretch', padding: '1.25rem', position: 'relative', ':not(:last-child)': {
                 borderBottom: 'solid 0.5px',
                 borderColor: theme.pale.hex,
             } }, (edited && {
@@ -99,11 +99,13 @@ exports.default = (function () {
                 borderWidth: '0',
                 borderRadius: "0 0 " + theme.borders.table.borderRadius + " " + theme.borders.table.borderRadius
             }
-        }), { ':hover': {
+        }), (withActions && {
+            ':hover': {
                 '> :last-of-type > div': {
                     display: 'flex'
                 }
-            } })); },
+            }
+        }))); },
         subrow: core_1.css({
             paddingTop: '1.25rem',
             display: 'flex',
