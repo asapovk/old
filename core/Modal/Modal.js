@@ -150,7 +150,7 @@ var Modal = /** @class */ (function (_super) {
         }
         return (react_1.default.createElement(ModalPortal_1.default, null,
             react_1.default.createElement(ModalOverlay_1.default, { visible: visible, center: this.state.center, fullSize: fullSize, ref: function (ref) { return _this.overlay = ref; } },
-                react_1.default.createElement(ModalWindow_1.default, { ref: function (ref) { return _this.window = ref; }, visible: visible, center: this.state.center, title: this.state.title || title, subtitle: this.state.subtitle || subtitle, fullSize: fullSize, hideHeader: hideHeader, onClosePressed: function () { return _this.close(); }, children: customContent !== null ? customContent : this.props.children }))));
+                react_1.default.createElement(ModalWindow_1.default, { className: this.props.className, ref: function (ref) { return _this.window = ref; }, visible: visible, center: this.state.center, title: this.state.title || title, subtitle: this.state.subtitle || subtitle, fullSize: fullSize, hideHeader: hideHeader, onClosePressed: function () { return _this.close(); }, children: customContent !== null ? customContent : this.props.children }))));
     };
     return Modal;
 }(react_1.default.Component));

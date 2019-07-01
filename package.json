@@ -1,6 +1,6 @@
 {
   "name": "ui",
-  "version": "1.0.289",
+  "version": "1.0.290",
   "main": "index.js",
   "repository": {
     "type": "git",
@@ -37,7 +37,8 @@
     "build-copylib": "cp -R src/extra/lib dist/extra/lib",
     "showcase": "showcase",
     "testflight": "git subtree push --prefix dist origin testflight",
-    "deploy": "npm version minor && git subtree push --prefix dist origin build"
+    "deploy": "npm version minor && git subtree push --prefix dist origin build",
+    "fork": "pm2 start npm --name Showcase-deprecated -- run showcase"
   },
   "dependencies": {
     "@types/react-portal": "^4.0.2",

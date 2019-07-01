@@ -13,6 +13,7 @@ declare namespace ModalTypes {
         center?: boolean;
         fullSize?: boolean;
         style?: CSSProperties;
+        className?: string;
         children?: any;
         hideHeader?: boolean;
         onClose?: () => void;
@@ -39,6 +40,7 @@ declare namespace ModalTypes {
         fullSize?: boolean;
         hideHeader?: boolean;
         children?: any;
+        className?: string;
         onClosePressed: () => void;
     }
     interface ModalHeaderProps {
