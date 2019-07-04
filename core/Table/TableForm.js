@@ -30,5 +30,5 @@ var TableForm = function (props) {
     return (core_1.jsx("div", { css: styles.row(true, false) },
         core_1.jsx(Form, { data: data, columns: columns, setData: _setData, dismiss: dismiss })));
 };
-var TableFormHOC = function (Form, columns, row) { return (core_1.jsx(TableForm, { data: row, columns: columns, dismiss: Form.dismiss, Form: Form })); };
+var TableFormHOC = function (props) { return (core_1.jsx(TableForm, __assign({ data: props.row }, props))); };
 exports.default = TableFormHOC;

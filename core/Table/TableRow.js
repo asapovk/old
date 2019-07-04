@@ -13,7 +13,7 @@ var TableRow = function (props) {
     var row = props.row, actions = props.actions, columns = props.columns, form = props.form, onRowClick = props.onRowClick, style = props.style;
     var styles = styles_1.default();
     if (form) {
-        return TableForm_1.default(form, columns, row);
+        return TableForm_1.default({ dismiss: form.dismiss, Form: form.render, columns: columns, row: row });
     }
     return (core_1.jsx("div", { css: styles.row(false, actions && actions.length > 0), style: style, onClick: function () { return onRowClick && onRowClick(row); } },
         core_1.jsx(TableColumns_1.default, { columns: props.columns, row: props.row, scope: props.scope }),

@@ -1,5 +1,14 @@
 import TableTypes from './types';
-declare const TableFormHOC: (Form: TableTypes.InjectForm, columns: TableTypes.Column[], row: {
-    [key: string]: any;
-}) => JSX.Element;
+interface TableFormHOCProps {
+    Form: TableTypes.InjectForm;
+    dismiss?: () => void;
+    columns: TableTypes.Column[];
+    row?: {
+        [key: string]: any;
+    };
+    defaultData?: {
+        [key: string]: any;
+    };
+}
+declare const TableFormHOC: (props: TableFormHOCProps) => JSX.Element;
 export default TableFormHOC;

@@ -1,15 +1,4 @@
 "use strict";
-var __assign = (this && this.__assign) || function () {
-    __assign = Object.assign || function(t) {
-        for (var s, i = 1, n = arguments.length; i < n; i++) {
-            s = arguments[i];
-            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-                t[p] = s[p];
-        }
-        return t;
-    };
-    return __assign.apply(this, arguments);
-};
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     return new (P || (P = Promise))(function (resolve, reject) {
         function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
@@ -137,7 +126,7 @@ var Table = function (props) {
     };
     var AddForm = function () {
         if (typeof form != 'undefined' && typeof form.key === 'undefined') {
-            return TableForm_1.default(form.render, columns, __assign({}, form.defaultData));
+            return TableForm_1.default({ Form: form.render, dismiss: form.dismiss, columns: columns, defaultData: form.defaultData });
         }
         return null;
     };
@@ -149,7 +138,7 @@ var Table = function (props) {
                 core_1.jsx(AddForm, null),
                 isData && pageData.map(function (row, index) {
                     var key = indexKey && row[indexKey] || index.toString();
-                    return (core_1.jsx(TableRow_1.default, { key: key, row: row, columns: columns, actions: actions, border: border, form: (form && form.key && key == form.key) && form.render, isSelected: (selectedItems.some(function (item) { return item === key; })), isExpanding: (expandedItems.some(function (item) { return item === key; })), isBlur: ((form && form.key && key != form.key) || isAddForm), scope: scope, onRowClick: onRowClick, style: {
+                    return (core_1.jsx(TableRow_1.default, { key: key, row: row, columns: columns, actions: actions, border: border, form: (form && form.key && key == form.key) && form, isSelected: (selectedItems.some(function (item) { return item === key; })), isExpanding: (expandedItems.some(function (item) { return item === key; })), isBlur: ((form && form.key && key != form.key) || isAddForm), scope: scope, onRowClick: onRowClick, style: {
                             opacity: pending ? 0.2 : 1
                         } }));
                 }),
