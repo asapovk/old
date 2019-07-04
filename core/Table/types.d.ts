@@ -14,6 +14,7 @@ declare namespace TableTypes {
                 [key: string]: any;
             };
             render: any;
+            dismiss?: () => void;
         };
         actions?: {
             label: string;
@@ -70,6 +71,7 @@ declare namespace TableTypes {
         };
         columns: Column[];
         setData: (key: string, value: any) => void;
+        dismiss: () => void;
     }
     interface PaginationOptions {
         pageSize: number;
