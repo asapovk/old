@@ -71,7 +71,7 @@ declare namespace TableTypes {
         };
         columns: Column[];
         setData: (key: string, value: any) => void;
-        dismiss: () => void;
+        dismiss?: () => void;
     }
     interface PaginationOptions {
         pageSize: number;
