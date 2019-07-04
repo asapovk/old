@@ -61,6 +61,7 @@ declare namespace TableTypes {
     }
     interface FormProps {
         data: any;
+        dismiss?: () => void;
         columns: Column[];
         Form: any;
         children?: any;
