@@ -21,7 +21,7 @@ var styles_1 = __importDefault(require("./styles"));
 var TableForm = function (props) {
     var Form = props.Form, columns = props.columns, dismiss = props.dismiss;
     var styles = styles_1.default();
-    var initialData = JSON.parse(JSON.stringify(props.data));
+    var initialData = JSON.parse(JSON.stringify(props.data)) || {};
     var _a = react_1.useState(initialData), data = _a[0], setData = _a[1];
     var _setData = function (key, value) {
         var _a;
@@ -30,5 +30,8 @@ var TableForm = function (props) {
     return (core_1.jsx("div", { css: styles.row(true, false) },
         core_1.jsx(Form, { data: data, columns: columns, setData: _setData, dismiss: dismiss })));
 };
-var TableFormHOC = function (props) { return (core_1.jsx(TableForm, __assign({ data: props.row }, props))); };
+var TableFormHOC = function (props) {
+    console.log(props.row);
+    return core_1.jsx(TableForm, __assign({ data: props.row }, props));
+};
 exports.default = TableFormHOC;
