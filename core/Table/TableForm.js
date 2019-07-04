@@ -21,7 +21,7 @@ var styles_1 = __importDefault(require("./styles"));
 var TableForm = function (props) {
     var Form = props.Form, columns = props.columns, dismiss = props.dismiss;
     var styles = styles_1.default();
-    var initialData = JSON.parse(JSON.stringify(props.data)) || {};
+    var initialData = props.data ? JSON.parse(JSON.stringify(props.data)) : {};
     var _a = react_1.useState(initialData), data = _a[0], setData = _a[1];
     var _setData = function (key, value) {
         var _a;
